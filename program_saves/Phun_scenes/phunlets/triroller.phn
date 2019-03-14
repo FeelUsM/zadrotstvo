@@ -1,0 +1,294 @@
+// Phunlet created by Phun beta 4.01
+
+FileInfo.title = "Triroller";
+FileInfo.author = "emilk";
+FileInfo.description = "A strange mover";
+FileInfo.version = 2;
+Scene.addBox {
+    geomID = 9;
+    entityID = 7;
+    color = [0.6747967600822449, 0.0, 2.413261199762928e-007, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [575.3746337890625, -10.19254398345947];
+    zDepth = 14.0;
+    collideSet = 0;
+    angle = 2.128948926925659
+};
+Scene.addBox {
+    geomID = 10;
+    entityID = 8;
+    color = [0.6747967600822449, 0.0, 2.413261199762928e-007, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [574.5099487304688, -10.03509044647217];
+    zDepth = 15.0;
+    collideSet = 0;
+    angle = -2.085566759109497
+};
+Scene.addBox {
+    geomID = 8;
+    entityID = 6;
+    color = [0.6747967600822449, 0.0, 2.413261199762928e-007, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [574.8095092773438, -10.899733543396];
+    zDepth = 13.0;
+    collideSet = 0;
+    angle = 0.01393138896673918
+};
+Scene.addCircle {
+    geomID = 7;
+    entityID = 5;
+    color = [0.231608122587204, 0.1788617968559265, 0.4878048896789551, 1.0];
+    friction = 2.0;
+    pos = [574.779541015625, -7.83534574508667];
+    zDepth = 5.0;
+    radius = 1.000647783279419;
+    angle = 2.353641271591187
+};
+Scene.addBox {
+    geomID = 4;
+    entityID = 2;
+    color = [1.0, 0.3902438879013062, 0.0, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [573.1382446289063, -9.641073226928711];
+    zDepth = 2.0;
+    collideSet = 0;
+    angle = -2.085638046264648
+};
+Scene.addCircle {
+    geomID = 6;
+    entityID = 4;
+    color = [0.231608122587204, 0.1788617968559265, 0.4878048896789551, 1.0];
+    friction = 2.0;
+    pos = [577.1636962890625, -11.60597229003906];
+    zDepth = 4.0;
+    radius = 1.000647783279419;
+    angle = 0.2791101038455963
+};
+Scene.addBox {
+    geomID = 2;
+    entityID = 0;
+    color = [1.0, 0.3902438879013062, 0.0, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [575.2063598632813, -12.27043628692627];
+    zDepth = 0.0;
+    collideSet = 0;
+    angle = 0.01391479186713696
+};
+Scene.addCircle {
+    geomID = 5;
+    entityID = 3;
+    color = [0.231608122587204, 0.1788617968559265, 0.4878048896789551, 1.0];
+    friction = 2.0;
+    pos = [572.8276977539063, -11.60596752166748];
+    zDepth = 3.0;
+    radius = 1.000647783279419;
+    angle = 0.2791819274425507
+};
+Scene.addBox {
+    geomID = 3;
+    entityID = 1;
+    color = [1.0, 0.3902438879013062, 0.0, 1.0];
+    friction = 2.0;
+    size = [4.879989624023438, 0.4466667175292969];
+    pos = [576.3834228515625, -9.183543205261231];
+    zDepth = 1.0;
+    collideSet = 0;
+    angle = 2.128933191299439
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.213253736495972, -0.01666558347642422];
+    entityID = 16;
+    geom1pos = [0.06306180357933044, 0.7312617301940918];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 18.0;
+    geom0 = 9;
+    motorTorque = 1165.914428710938;
+    geom1 = 7;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.246008157730103, -0.01491107232868671];
+    entityID = 22;
+    geom1pos = [0.4379478096961975, -0.5173794627189636];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 21.0;
+    geom0 = 10;
+    motorTorque = 1165.914428710938;
+    geom1 = 5;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226698637008667, -0.003392685204744339];
+    entityID = 19;
+    geom1pos = [-0.765255331993103, -0.4006058871746063];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 20.0;
+    geom0 = 10;
+    motorTorque = 1165.914428710938;
+    geom1 = 7;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226718664169312, -0.003346716286614537];
+    entityID = 17;
+    geom1pos = [-0.7138552069664002, -0.2880326807498932];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 19.0;
+    geom0 = 9;
+    motorTorque = 1165.914428710938;
+    geom1 = 6;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.213219404220581, -0.01666567474603653];
+    entityID = 14;
+    geom1pos = [0.06305033713579178, 0.7313351631164551];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 17.0;
+    geom0 = 8;
+    motorTorque = 1165.914428710938;
+    geom1 = 6;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226707458496094, -0.003295841626822949];
+    entityID = 12;
+    geom1pos = [-0.04623614996671677, -0.7136353254318237];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 8.0;
+    geom0 = 2;
+    motorTorque = 1165.914428710938;
+    geom1 = 5;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226795673370361, -0.003415863728150725];
+    entityID = 15;
+    geom1pos = [0.5339632630348206, 0.4038832783699036];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 9.0;
+    geom0 = 3;
+    motorTorque = 1165.914428710938;
+    geom1 = 6;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.213386535644531, -0.01669554971158505];
+    entityID = 18;
+    geom1pos = [0.06711207330226898, -0.6956186294555664];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 10.0;
+    geom0 = 3;
+    motorTorque = 1165.914428710938;
+    geom1 = 7;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.245893239974976, -0.01452227123081684];
+    entityID = 21;
+    geom1pos = [-0.7718643546104431, 0.2391988933086395];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 12.0;
+    geom0 = 4;
+    motorTorque = 1165.914428710938;
+    geom1 = 5;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [2.213427782058716, -0.01663008518517017];
+    entityID = 11;
+    geom1pos = [0.06710567325353622, -0.6956951022148132];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 7.0;
+    geom0 = 2;
+    motorTorque = 1165.914428710938;
+    geom1 = 6;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226777791976929, -0.00330535601824522];
+    entityID = 20;
+    geom1pos = [0.4812994301319122, 0.2936955690383911];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 11.0;
+    geom0 = 4;
+    motorTorque = 1165.914428710938;
+    geom1 = 7;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    motorSpeed = 4.158664226531982;
+    ccw = true;
+    geom0pos = [-2.226735353469849, -0.003325386438518763];
+    entityID = 13;
+    geom1pos = [-0.04991919547319412, 0.7132681608200073];
+    color = [1.0, 1.0, 1.0, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 16.0;
+    geom0 = 8;
+    motorTorque = 1165.914428710938;
+    geom1 = 5;
+    buttonBack = "left"
+}

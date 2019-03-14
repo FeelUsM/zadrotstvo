@@ -1,0 +1,101 @@
+ '__init__',
+ '__new__',
+
+ '__add__',
+ '__mul__',
+ '__rmul__',
+
+ '__mod__',
+ '__rmod__',
+
+ '__ne__',
+ '__le__',
+ '__lt__',
+ '__gt__',
+ '__ge__',
+ '__eq__',
+
+ '__class__', ???????????????????????
+ '__format__',
+ '__getnewargs__',
+ '__init_subclass__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__sizeof__',
+ '__subclasshook__',
+
+ '__getattribute__',
+ '__setattr__',
+ '__delattr__',
+
+ '__getitem__', []
+ '__contains__', in
+ '__iter__',
+ '__len__', len()
+
+ '__repr__',
+ '__str__',
+ '__hash__',
+
+ '__dir__',
+ '__doc__',
+
+ 'islower',
+ 'isupper',
+ 'isalpha',
+ 'isalnum',
+ 'isdigit',
+ 'isdecimal',
+ 'isnumeric',
+ 'isprintable',
+ 'isspace',
+
+ 'istitle',
+ 'isidentifier',
+
+ 'capitalize',	копия -> первую букву делает большой
+ 'casefold',	копия -> lower+юникодная унификация
+ 'lower',
+ 'upper',
+ 'title',	копия -> в каждом слове первая буква становится большой
+ 'swapcase',
+
+ 'encode(encoding="utf-8", errors="strict")', копия bytes -> в опр. кодировке
+
+ 'center(width[, fillchar])',	копия -> добавляет пробелы в начало и в конец
+ 'expandtabs(tabsize=8)',  копия -> табуляцию заменяет на пробелы
+ 
+ 'zfill'	копия    "42".zfill(5)->'00042';    "-42".zfill(5)->'-0042'
+ 'format',
+ 'format_map',
+
+ 'str.maketrans(...)', ->table
+ 'translate(table)', копия -> каждый символ заменяет по таблице
+ 'replace', копия -> заменяет все или первые n вхождений
+
+ 'count(sub[, start[, end]])',  подсчитать вхождение sub
+ 'endswith(suffix[, start[, end]])', оканчивается ли
+ 'startswith(prefix[, start[, end]])',
+
+ 'find(sub[, start[, end]])',	возвращает индекс или -1
+ 'rfind',
+ 'index',	возвращает индекс или кидает исключение
+ 'rindex',
+
+ 'join',
+ 
+ 'ljust',    ???????????????????????
+ 'rjust',
+ 
+ 'lstrip',
+ 'strip',
+ 'rstrip',
+ 
+ 'split',
+ 'rsplit',
+ 'splitlines',
+
+ 'partition',
+ 'rpartition',
+
+import re - регулярные выражения

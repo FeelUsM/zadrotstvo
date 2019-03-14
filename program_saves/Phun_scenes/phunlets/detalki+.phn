@@ -1,0 +1,1327 @@
+// Phunlet created by Phun beta 4.22
+
+FileInfo.title = "detalki+";
+FileInfo.version = 2;
+Scene.addPolygon {
+    pos = [13.3411484, 2.61204243];
+    geomID = 16994612;
+    entityID = 11676;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1689;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 35.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = 0.000454418507
+};
+Scene.addBox {
+    pos = [3.92211056, 0.255227089];
+    geomID = 16598427;
+    entityID = 11607;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 20.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -0.000108794928
+};
+Scene.addBox {
+    pos = [7.67723799, -1.04898179];
+    geomID = 16827775;
+    entityID = 11649;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1682;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 12.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57087481
+};
+Scene.addBox {
+    pos = [3.57126307, 0.255241722];
+    geomID = 16598413;
+    entityID = 11593;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 14.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -0.000116411269
+};
+Scene.addPolygon {
+    pos = [8.29795837, -1.22437489];
+    geomID = 16827777;
+    entityID = 11651;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1682;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 37.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = -1.57087135
+};
+Scene.addBox {
+    pos = [-6.90640211, 0.255218595];
+    geomID = 16598417;
+    entityID = 11597;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 1.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.49649361e-06
+};
+Scene.addBox {
+    pos = [-3.82133794, -1.39977622];
+    geomID = 16759990;
+    entityID = 11641;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1680;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 7.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57082248
+};
+Scene.addBox {
+    pos = [-7.1645422, -1.399822];
+    geomID = 16598416;
+    entityID = 11596;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 21.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.176247343];
+    friction = 2.0;
+    angle = -1.57079613
+};
+Scene.addBox {
+    pos = [13.5169659, 1.99150777];
+    geomID = 16994611;
+    entityID = 11675;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1689;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 16.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = 0.00045847203
+};
+Scene.addPolygon {
+    pos = [13.3414602, 1.38656688];
+    geomID = 16994610;
+    entityID = 11674;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1689;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 41.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = 0.000455143891
+};
+Scene.addBox {
+    pos = [2.01181722, 0.352161258];
+    geomID = 16641401;
+    entityID = 11625;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 6;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 22.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.524371684, 0.176247343];
+    friction = 2.0;
+    angle = 3.1415906
+};
+Scene.addPolygon {
+    pos = [-5.90202332, -0.349599957];
+    geomID = 16598420;
+    entityID = 11600;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1674;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 40.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = -0.000158136929
+};
+Scene.addBox {
+    pos = [13.3405199, 3.7403214];
+    geomID = 17103661;
+    entityID = 11698;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1692;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 6.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = 0.000859518652
+};
+Scene.addBox {
+    pos = [13.3418102, 0.25521943];
+    geomID = 16994614;
+    entityID = 11678;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1688;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 5.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -2.67714995e-06
+};
+Scene.addBox {
+    pos = [-0.245871857, -1.39982176];
+    geomID = 16759987;
+    entityID = 11638;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1681;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 17.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57079625
+};
+Scene.addBox {
+    pos = [-5.72615051, 0.255230635];
+    geomID = 16598424;
+    entityID = 11604;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1674;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 15.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -0.000154808789
+};
+Scene.addBox {
+    pos = [11.1620865, -1.04889214];
+    geomID = 16836082;
+    entityID = 11656;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1683;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 13.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57088196
+};
+Scene.addPolygon {
+    pos = [3.74628139, -0.349619329];
+    geomID = 16598419;
+    entityID = 11599;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 45.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = -0.000112123053
+};
+Scene.addBox {
+    pos = [4.81049395, 0.352205634];
+    geomID = 16598414;
+    entityID = 11594;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 2.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934359, 1.9172858];
+    friction = 2.0;
+    angle = 1.57077456
+};
+Scene.addPolygon {
+    pos = [-0.85074687, -1.22403753];
+    geomID = 16759986;
+    entityID = 11637;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1681;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 42.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = -1.57079971
+};
+Scene.addPolygon {
+    pos = [13.3417816, 1.73464715];
+    geomID = 16994613;
+    entityID = 11677;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1688;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.667999983, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 30.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[-0.082464695, -0.261306822], [4.53108578e-06, -0.261293948], [0.0824739933, -0.261280954], [0.0879719257, -0.261280119], [0.0879716873, -0.244949237], [0.0879671574, 1.3703414e-05], [0.0879628658, 0.244976759], [0.0879626274, 0.261307657], [0.082464695, 0.261306822], [-4.52882023e-06, 0.261293948], [-0.0824739933, 0.261280954], [-0.0879719257, 0.261280119], [-0.0879716873, 0.244949237], [-0.0879671574, -1.3703414e-05], [-0.0879628658, -0.244976759], [-0.0879626274, -0.261307657]];
+    friction = 2.0;
+    angle = -1.24394012e-06
+};
+Scene.addPolygon {
+    pos = [7.07238817, -1.22403717];
+    geomID = 16827774;
+    entityID = 11648;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1682;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 43.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = -1.57087064
+};
+Scene.addBox {
+    pos = [2.6871736, 0.351950526];
+    geomID = 16598423;
+    entityID = 11603;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 3.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934359, 1.8787272];
+    friction = 2.0;
+    angle = 1.57045364
+};
+Scene.addPolygon {
+    pos = [10.5572357, -1.22394347];
+    geomID = 16836085;
+    entityID = 11659;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1683;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 44.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244734719, 0.0881531239], [-9.35418575e-05, 0.0881236643], [-0.244921699, 0.0880942047], [-0.261243582, 0.0880922377], [-0.26123786, 0.0825845152], [-0.261150092, -3.14246063e-05], [-0.261062294, -0.0826473683], [-0.261056602, -0.0881550983], [-0.244734719, -0.0881531313], [9.34343407e-05, -0.0881236643], [0.244921699, -0.0880942047], [0.261243582, -0.0880922377], [0.26123786, -0.0825845078], [0.261150092, 3.14284916e-05], [0.261062324, 0.0826473683], [0.261056602, 0.0881550908]];
+    friction = 2.0;
+    angle = -1.57087779
+};
+Scene.addPolygon {
+    pos = [10.9056683, -1.2239219];
+    geomID = 16891223;
+    entityID = 11667;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1686;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.667999983, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 33.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[-0.082464695, -0.261306822], [4.53108578e-06, -0.261293948], [0.0824739933, -0.261280954], [0.0879719257, -0.261280119], [0.0879716873, -0.244949237], [0.0879671574, 1.3703414e-05], [0.0879628658, 0.244976759], [0.0879626274, 0.261307657], [0.082464695, 0.261306822], [-4.52882023e-06, 0.261293948], [-0.0824739933, 0.261280954], [-0.0879719257, 0.261280119], [-0.0879716873, 0.244949237], [-0.0879671574, -1.3703414e-05], [-0.0879628658, -0.244976759], [-0.0879626274, -0.261307657]];
+    friction = 2.0;
+    angle = -1.57072246
+};
+Scene.addBox {
+    pos = [-6.54736853, -1.22276103];
+    geomID = 16726940;
+    entityID = 11633;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1673;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.811999977, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 24.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.526195168];
+    friction = 2.0;
+    angle = -3.14157844
+};
+Scene.addBox {
+    pos = [-5.29931736, -1.3998251];
+    geomID = 16759984;
+    entityID = 11635;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1680;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.811999977, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 27.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.526195168];
+    friction = 2.0;
+    angle = 1.57078302
+};
+Scene.addPolygon {
+    pos = [-5.90158367, 0.875867963];
+    geomID = 16598428;
+    entityID = 11608;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1674;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 34.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = -0.000158862298
+};
+Scene.addPolygon {
+    pos = [-6.5474925, 1.7346468];
+    geomID = 16703654;
+    entityID = 11631;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1673;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.667999983, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 29.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[-0.082464695, -0.261306822], [4.53108578e-06, -0.261293948], [0.0824739933, -0.261280954], [0.0879719257, -0.261280119], [0.0879716873, -0.244949237], [0.0879671574, 1.3703414e-05], [0.0879628658, 0.244976759], [0.0879626274, 0.261307657], [0.082464695, 0.261306822], [-4.52882023e-06, 0.261293948], [-0.0824739933, 0.261280954], [-0.0879719257, 0.261280119], [-0.0879716873, 0.244949237], [-0.0879671574, -1.3703414e-05], [-0.0879628658, -0.244976759], [-0.0879626274, -0.261307657]];
+    friction = 2.0;
+    angle = 2.87083003e-06
+};
+Scene.addBox {
+    pos = [7.67725277, -1.39986408];
+    geomID = 16827776;
+    entityID = 11650;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1682;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 18.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57086718
+};
+Scene.addBox {
+    pos = [-6.07702589, 0.255244106];
+    geomID = 16598422;
+    entityID = 11602;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1674;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 9.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -0.000162425131
+};
+Scene.addPolygon {
+    pos = [-2.34192872, -1.39978147];
+    geomID = 16759989;
+    entityID = 11640;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1680;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.667999983, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 32.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[-0.082464695, -0.261306822], [4.53108578e-06, -0.261293948], [0.0824739933, -0.261280954], [0.0879719257, -0.261280119], [0.0879716873, -0.244949237], [0.0879671574, 1.3703414e-05], [0.0879628658, 0.244976759], [0.0879626274, 0.261307657], [0.082464695, 0.261306822], [-4.52882023e-06, 0.261293948], [-0.0824739933, 0.261280954], [-0.0879719257, 0.261280119], [-0.0879716873, 0.244949237], [-0.0879671574, -1.3703414e-05], [-0.0879628658, -0.244976759], [-0.0879626274, -0.261307657]];
+    friction = 2.0;
+    angle = -1.57082105
+};
+Scene.addBox {
+    pos = [9.42625237, -1.22406232];
+    geomID = 16891224;
+    entityID = 11668;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1686;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 8.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57072389
+};
+Scene.addBox {
+    pos = [-6.54745674, 0.255218565];
+    geomID = 16598425;
+    entityID = 11605;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1673;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 4.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = 1.4376202e-06
+};
+Scene.addBox {
+    pos = [-0.245912239, -1.04893994];
+    geomID = 16759985;
+    entityID = 11636;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1681;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 11.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57080388
+};
+Scene.addBox {
+    pos = [5.50126362, 0.352076292];
+    geomID = 16661661;
+    entityID = 11628;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 6;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 23.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.532303035];
+    friction = 2.0;
+    angle = 1.57071185
+};
+Scene.addBox {
+    pos = [13.1660872, 1.99130571];
+    geomID = 16994609;
+    entityID = 11673;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1689;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 10.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = 0.000450855674
+};
+Scene.addPolygon {
+    pos = [13.3392143, 5.2197485];
+    geomID = 17103662;
+    entityID = 11699;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1692;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.667999983, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 31.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[-0.082464695, -0.261306822], [4.53108578e-06, -0.261293948], [0.0824739933, -0.261280954], [0.0879719257, -0.261280119], [0.0879716873, -0.244949237], [0.0879671574, 1.3703414e-05], [0.0879628658, 0.244976759], [0.0879626274, 0.261307657], [0.082464695, 0.261306822], [-4.52882023e-06, 0.261293948], [-0.0824739933, 0.261280954], [-0.0879719257, 0.261280119], [-0.0879716873, 0.244949237], [-0.0879671574, -1.3703414e-05], [-0.0879628658, -0.244976759], [-0.0879626274, -0.261307657]];
+    friction = 2.0;
+    angle = 0.000860951841
+};
+Scene.addPolygon {
+    pos = [0.374798566, -1.22428858];
+    geomID = 16759988;
+    entityID = 11639;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1681;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 36.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = -1.57080042
+};
+Scene.addBox {
+    pos = [13.341876, 2.26234174];
+    geomID = 17103663;
+    entityID = 11700;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1692;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.811999977, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 26.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.526195168];
+    friction = 2.0;
+    angle = -3.14072037
+};
+Scene.addBox {
+    pos = [13.3418922, -1.22275972];
+    geomID = 16994608;
+    entityID = 11672;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1688;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.811999977, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 25.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.526195168];
+    friction = 2.0;
+    angle = -3.14158249
+};
+Scene.addPolygon {
+    pos = [3.74668169, 0.875905693];
+    geomID = 16598429;
+    entityID = 11609;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1670;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 39.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = -0.000112848436
+};
+Scene.addBox {
+    pos = [11.1620989, -1.39977598];
+    geomID = 16836084;
+    entityID = 11658;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1683;
+    collideSet = 1;
+    density = 2.0;
+    color = [0.880999982, 0.310000002, 0.934000015, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 19.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 3.48601246];
+    friction = 2.0;
+    angle = -1.57087433
+};
+Scene.addPolygon {
+    pos = [11.7828283, -1.22429001];
+    geomID = 16836083;
+    entityID = 11657;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1683;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.934000015, 0.310000002, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 38.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    vecs = [[0.244992658, 0.0881900787], [-0.000210952014, 0.0881236792], [-0.245414525, 0.0880571604], [-0.261761189, 0.0880527496], [-0.261748374, 0.082545042], [-0.261550188, -7.09374799e-05], [-0.261351973, -0.0826867819], [-0.261339158, -0.0881944895], [-0.24499248, -0.0881900787], [0.000211097431, -0.0881236792], [0.245414719, -0.0880571604], [0.261761189, -0.0880527496], [0.261748344, -0.082545042], [0.261550158, 7.09215747e-05], [0.261351973, 0.0826867819], [0.261339128, 0.0881944895]];
+    friction = 2.0;
+    angle = -1.57087851
+};
+Scene.addBox {
+    pos = [7.94826651, -1.22425663];
+    geomID = 16891222;
+    entityID = 11666;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 1686;
+    collideSet = 2;
+    density = 2.0;
+    color = [0.811999977, 0.934000015, 0.310000002, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 28.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.175934374, 0.526195168];
+    friction = 2.0;
+    angle = 1.57088161
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11620;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 68.0;
+    geom0 = 16598429;
+    geom1 = 16598413
+};
+Scene.addFixjoint {
+    geom0pos = [0.00468268897, 0.0533039272];
+    entityID = 11680;
+    geom1pos = [0.00467235176, 1.32439935];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 59.0;
+    geom0 = 16994613;
+    geom1 = 16994614
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11645;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 48.0;
+    geom0 = 16759986;
+    geom1 = 16759987
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11610;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 57.0;
+    geom0 = 16598429;
+    geom1 = 16598427
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11683;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 64.0;
+    geom0 = 16994612;
+    geom1 = 16994609
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11616;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 69.0;
+    geom0 = 16598420;
+    geom1 = 16598422
+};
+Scene.addFixjoint {
+    geom0pos = [0.00468268897, 0.0533039272];
+    entityID = 11621;
+    geom1pos = [0.00467235176, 1.32439935];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 58.0;
+    geom0 = 16703654;
+    geom1 = 16598425
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11681;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 70.0;
+    geom0 = 16994610;
+    geom1 = 16994609
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11662;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 73.0;
+    geom0 = 16836085;
+    geom1 = 16836082
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11615;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 46.0;
+    geom0 = 16598420;
+    geom1 = 16598424
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11644;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 71.0;
+    geom0 = 16759986;
+    geom1 = 16759985
+};
+Scene.addFixjoint {
+    geom0pos = [0.00395414513, -0.100091822];
+    entityID = 11634;
+    geom1pos = [-0.00386935496, -1.37788606];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 79.0;
+    geom0 = 16726940;
+    geom1 = 16598425
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11655;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 66.0;
+    geom0 = 16827777;
+    geom1 = 16827775
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11653;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 49.0;
+    geom0 = 16827774;
+    geom1 = 16827776
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11642;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 54.0;
+    geom0 = 16759988;
+    geom1 = 16759987
+};
+Scene.addFixjoint {
+    geom0pos = [-0.141780749, -0.000160973199];
+    entityID = 11626;
+    geom1pos = [0.000188234495, 0.533573508];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 77.0;
+    geom0 = 16641401;
+    geom1 = 16598423
+};
+Scene.addFixjoint {
+    geom0pos = [0.00395414513, -0.100091822];
+    entityID = 11702;
+    geom1pos = [-0.00386935496, -1.37788606];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 81.0;
+    geom0 = 17103663;
+    geom1 = 17103661
+};
+Scene.addFixjoint {
+    geom0pos = [0.00468268897, 0.0533039272];
+    entityID = 11701;
+    geom1pos = [0.00467235176, 1.32439935];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 60.0;
+    geom0 = 17103662;
+    geom1 = 17103661
+};
+Scene.addFixjoint {
+    geom0pos = [0.00395414513, -0.100091822];
+    entityID = 11647;
+    geom1pos = [-0.00386935496, -1.37788606];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 82.0;
+    geom0 = 16759984;
+    geom1 = 16759990
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11652;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 55.0;
+    geom0 = 16827777;
+    geom1 = 16827776
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11660;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 56.0;
+    geom0 = 16836083;
+    geom1 = 16836084
+};
+Scene.addFixjoint {
+    geom0pos = [0.00395414513, -0.100091822];
+    entityID = 11669;
+    geom1pos = [-0.00386935496, -1.37788606];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 83.0;
+    geom0 = 16891222;
+    geom1 = 16891224
+};
+Scene.addFixjoint {
+    geom0pos = [0.00468268897, 0.0533039272];
+    entityID = 11670;
+    geom1pos = [0.00467235176, 1.32439935];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 62.0;
+    geom0 = 16891223;
+    geom1 = 16891224
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11646;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 65.0;
+    geom0 = 16759988;
+    geom1 = 16759985
+};
+Scene.addFixjoint {
+    geom0pos = [0.0147825507, 0.112956882];
+    entityID = 11629;
+    geom1pos = [0.0146751292, -0.577812612];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433921;
+    zDepth = 78.0;
+    geom0 = 16661661;
+    geom1 = 16598414
+};
+Scene.addFixjoint {
+    geom0pos = [6.81337115e-05, 0.0966747627];
+    entityID = 11617;
+    geom1pos = [-0.000297199556, 0.8882761];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.158849806;
+    zDepth = 76.0;
+    geom0 = 16598427;
+    geom1 = 16598414
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11679;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 53.0;
+    geom0 = 16994612;
+    geom1 = 16994611
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11623;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 63.0;
+    geom0 = 16598428;
+    geom1 = 16598422
+};
+Scene.addFixjoint {
+    geom0pos = [0.00395414513, -0.100091822];
+    entityID = 11684;
+    geom1pos = [-0.00386935496, -1.37788606];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 80.0;
+    geom0 = 16994608;
+    geom1 = 16994614
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11682;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 47.0;
+    geom0 = 16994610;
+    geom1 = 16994611
+};
+Scene.addFixjoint {
+    geom0pos = [-0.0150225097, 0.117784612];
+    entityID = 11618;
+    geom1pos = [0.0213685352, -0.869006693];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.158849806;
+    zDepth = 75.0;
+    geom0 = 16598413;
+    geom1 = 16598423
+};
+Scene.addFixjoint {
+    geom0pos = [-0.183185831, 0.00916340481];
+    entityID = 11661;
+    geom1pos = [-0.00784297939, 0.629812121];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0397124738;
+    zDepth = 67.0;
+    geom0 = 16836083;
+    geom1 = 16836082
+};
+Scene.addFixjoint {
+    geom0pos = [0.00468268897, 0.0533039272];
+    entityID = 11643;
+    geom1pos = [0.00467235176, 1.32439935];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0794249475;
+    zDepth = 61.0;
+    geom0 = 16759989;
+    geom1 = 16759990
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11612;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 51.0;
+    geom0 = 16598419;
+    geom1 = 16598427
+};
+Scene.addFixjoint {
+    geom0pos = [0.176462173, 0.0180368423];
+    entityID = 11611;
+    geom1pos = [0.000937870704, 0.638614416];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691433549;
+    zDepth = 52.0;
+    geom0 = 16598428;
+    geom1 = 16598424
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11622;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 74.0;
+    geom0 = 16598419;
+    geom1 = 16598413
+};
+Scene.addFixjoint {
+    geom0pos = [-0.172409177, 0.0176243279];
+    entityID = 11654;
+    geom1pos = [0.00269040139, -0.587189138];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.0691434294;
+    zDepth = 72.0;
+    geom0 = 16827774;
+    geom1 = 16827775
+};
+Scene.addFixjoint {
+    geom0pos = [0.179220006, 0.00748078944];
+    entityID = 11663;
+    geom1pos = [0.0034254815, -0.597343147];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.045617599;
+    zDepth = 50.0;
+    geom0 = 16836085;
+    geom1 = 16836084
+}

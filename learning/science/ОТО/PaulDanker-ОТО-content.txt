@@ -1,0 +1,609 @@
+=== Ландавшиц2 ===
+13	I	принцип относительности
+43	2	релятивистская механика
+67	3	заряд в электромагнитном поле
+95	4	уравнения электромагнитного поля
+124	5	постоянное электромагнитное поле
+148	6	электромагнитные волны
+175	7	распространения света
+212	8	поле движущихся зарядов
+227	9	излучение электромагнитных волн
+
+292	10	частица в грав. поле
+334	11	уравнения грав. поля
+		91	тензор кривизны
+		92	свойства тензора кривизны (... тожд. Бианки)
+		93	действие для грав. поля
+		94	тензор энергии импульса (материи без грав. поля)
+		95	УЭ
+		96	псевдотензор ЭИ и моментов грав. поля и материи
+		97	синхронная система отсчета (тожд. Бианки ..., "калибровочные преобр.")
+		98	тетрадное представление УЭ
+381	12	поле тяготеющих тел
+441	13	грав. волны
+		107	слабые грав. полны
+		108	грав. волны в искривленном вр-ве-времени
+		109	сильная грав. волна (Robinson, Bondi 1957)
+		110	излучение грав.волн
+157	14	релятивистская космология
+=== вайнберг ===
+13	1	историческое введение
+		1	история неевклидовой геометрии
+		2	история теории тяготения
+		3	история принципа относительности
+37	2	СТО
+		1	преобразования Лоренца
+		2	изменение масштаба времени
+		3	динамика частицы
+		4	энергия и импульс
+		5	векторы и тензоры
+		6	токи и плотности
+		7	электролинамика
+		8	тензор энергии импульса
+		9	спин
+		10	релятивистская гидродинамика
+		11*	релятивистская реальная жидкость
+		12*	представления группы Лоренца
+		13*	временная последовательность и античастицы
+80	3	принцип эквивалентности
+106	4	тензорный анализ
+138	5	эффекты гравитации
+147	6	кривизна
+		1	определение тензора кривизны
+		2	единственность тензора кривизны
+		3	обход вдоль замкнутого контура параллельным переносом
+		4	гравитация в криволинейных координатах
+		5	коммутации ковариантных дифференцирований
+		6	алгебраические свойства
+		7*	кривизна в n-мерном пространстве
+		8	тождества Бианки
+		9*	геометрическая аналогия
+		10*	геодезическая девиация
+167	7	УЭ
+		1	получение уравнений поля
+		2*	другой вывод
+		3	теория Бранса и Дикке
+177		4	координатные условия 			!гарм. условия (калибровка)
+		5	задача Коши
+182		6	энергия, импульс и момент грав. поля
+191	8	классические опыты по проверке теории Эйнштейна
+229	9	постньютоновская небесная механика
+270	10	грав. излучение
+271		1	приближение слабого поля
+274		2	плоские волны
+		3	энергия и импульс плоских волн
+		4	возбуждение грав. волн
+		5	квадрупольное излучение
+		6	рассеяние и поглощение грав. излучения
+		7	детектирование грав. излучения
+		8*	квантовая теория гравитации
+313		9*	гравитационные возмущения в грав. полях
+318	11	равновесие в звездах и коллапс
+381	12	принцип наименьшего действия
+400	13	симметричные пространства
+433	14	космография
+501	15	аосмология - эталонная модель
+		10	общерелятивистская теория малых флуктуаций
+650	16	космология: иные модели
+=== рашевский ===
+9	1	тензоры в трехмернов евклидовом пространстве
+85	2	аффинное пространство n измерений
+154	3	евклидово пространство n изверений
+258	4	мат. основы СТО
+335	5	криволинейные координаты в евклидовом и аффинном пространствах
+359	6	многообразия
+383	7	римановы пространства и пространства аффинной связности
+448	8	аппарат абсолютного дифференцирования
+509	9	тензор кривизны
+615	10	мат. основы ОТО
+659
+=== задачник ===
+СТО
+1	Кинематика СТО
+2	Динамика СТО
+3	Преобразования координат, инварианты и тензоры в СТО
+4	электромагнитизм
+5	вещество и излучение
+движение в кривом пр-ве-времени
+6	метрика
+7	ковариантное дифференцирование и геодезические кривые
+8	дифф-гем (новые понятия)
+9	кривизна
+10	векторы Киллинга и симметрии
+11	момент
+12	физические эффекты гравитации
+ур-я грав. поля
+13	уравнения грав. поля и линеаризованная теория
+14	физика в искривленном вр-ве-премени
+их применение
+15	Геометрия Шварцшильда
+16	Сферическая симметрия и релятивистские модели звезд
+17	черные дыры
+18	грав. излучение
+
+19	космология
+
+20	эксперименты по проверке ОТО
+
+21	разное
+=== Фурсаев ===
+	СТО
+7	1	основные понятия и постулаты
+14	2	описание уравнений движения в СТО
+20	3	НИСО в СТО
+24	4	теория поля
+31	5	законы сохранения в теории поля (+ вектора Киллинга)
+	ОТО
+38	6	основы ОТО
+46	7	основы мат. аппарата ОТО
+53	8	Геодезические
+59	9	классические тесты ОТО
+66
+	теория гравитации Эйнштейна
+7	1	кривизна
+13	2	ТЭИ а ОТО
+20	3	Уравнения грав.поля
+26	4	Примеры решений в ОТО
+	Черные дыры
+33	5	физ. свойства решения Шварцшильда
+40	6	Геометрия черной дыры
+	основы космологии
+50	7	крупномасштабные свойства вселенной
+58	8	удаленность объектов в расширяющейся вселенной
+64	9	стандартная космологическая модель
+73
+=== Торн ===
+	1	Физика пространства-времени
+29	!	1	Геометродинамика в кратком изложении
+	2	Физика в плоском пр-ве времени
+83	!	2	основы СТО
+109	!	3	электромагнитное поле
+131		4	электромагнитизм и дифференциальные формы
+172	!.1	5	ТЭИ и законы сохранения (не векторов Киллинга)
+		6	ускоренные наблюдатели
+		7	несовместимость теории тяготения и СТО
+	3	математическаяя теория искривленного пр-ва-времени
+245	!	8	Дифф-гем: общий обзор
+281		9	дифференциальная топология
+		10	Аффинная геометрия: геодезические, параллельный перенос и ковариантная производная
+		11	отклонение геодезических и кривизна пр-ва-времени
+		12	теория тяготения Ньютона на языке искривленного вр-ва-времени
+		13	Риманова геометрия: метрика - основа всего
+		14	вычисление кривизны
+		15	Тождеств Бианки и граница границы
+	----
+	4	геометрическая теория тяготения Эйнштейна
+13	!	16	принцип эквивалентности и измерение грав.поля
+34	!/2	17	как масса-энергия порождает кривизну
+68	!	18	слабые грав. поля
+82	!	19	масса и момент импульса гравитирующей системы
+96		20	законы сохранения 4-испульса и момента импульса
+		21	вариационный принцип и начальные данные
+		22	термодинамика, гидродинамика, электродинамика, геометрическая оптика и кинетическая теория
+	5	релятивистские звезды
+253	!	23	сферические звезды
+276	!	24	пульсары и нейтронные звезды; квазары и сверхмассивные звезды
+303	!.1.5.6	25	"яма в потенциале" как основное новое свойство потенциала, определющего движение шварцшильдовской геометрии
+359		26	Звездные пульсации
+	6	вселенная
+373	!.1	27	идеализированные космологические модели
+439	!	28	эволюция вселенной к ее основному состоянию
+449		29	современное состояние и будущая эволюция вселенной
+		30	анизотропные и неоднородные космологические модели
+	----
+	7	гравитационный коллапс и черные дыры
+13	!	31	Геометрия Шварцшильда
+41	!.1.2.3	32	Гравитационный коллапс
+78	!.1.2.3	33	Черные дыры
+		34	Глобальные методы, горизонты и теорема о сингулярностях
+	8	грав. волны
+161	!/2	35	распространение грав. волн
+200	!/2	36	генерация грав. волн
+235	!.1.2.3	37	детектирование грав. волн
+	9	экспериментальная проверка ОТО
+287	!.1.2	38	проверка основ теории относительности
+309	!.1.2.3	39	другие теории гравитации и постньютоновское приближение
+344	!/2	40	Эксперименты в солнечной системе
+	10	границы
+391		41	спиноры
+		42	излучение Реджэ
+		43	Суперпространство: Арена для динамики геометрии
+		44	За границей времени
+	----
+=== Шетопалов/Ютуб ===
+--- ОТО	---
+1	0.48	Курс теории относительности	https://www.youtube.com/watch?v=4FUZQhXEOCU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=1
+2	4.17	Теория относительности | ответы на вопросы по курсу	https://www.youtube.com/watch?v=0yG11PYPlkU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=2
+			мало физики - рассматриваем математические структуры
+			нет доказательств - ну и хуй с ними
+			есть повторы - каждая тема изолирована
+			не видно структуры курса - просто древовидная
+			физ. мсысл - Шестопалов понял ОТО по Рашевскому
+3	6.16	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 1 //лифт	https://www.youtube.com/watch?v=XOulwv8wBJ8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=3
+4	4.04	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 2	https://www.youtube.com/watch?v=wd5ce4ql7eI&index=4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+5	7.30	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 3	https://www.youtube.com/watch?v=5rGg93VqVhM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=5
+6	6.38	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 4	https://www.youtube.com/watch?v=qGlhu5Lj75s&index=6&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+7	4.04	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 5 //свет и принцип Ферма	https://www.youtube.com/watch?v=gxOoYjDHkzc&index=7&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+8	4.58	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 6 | геодезические	https://www.youtube.com/watch?v=EpG_aV06JPw&index=8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+9	5.33	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 7 | ещё про геодезические	https://www.youtube.com/watch?v=AHtq6fj8FsA&index=9&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+10	6.50	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 8 | снова про лифты | 1	https://www.youtube.com/watch?v=ASOUqvu1im4&index=10&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+11	2.58	Общая теория относительности | неуклюжие разговоры о мотивации ОТО | 9 | снова про лифты | 2	https://www.youtube.com/watch?v=QOD1RWHozWU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=11
+12	7.02	Общая теория относительности | какими бывают одномерные многообразия | 1	https://www.youtube.com/watch?v=ySq7PPCjYHA&index=12&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+13	7.15	Общая теория относительности | какими бывают одномерные многообразия | 2	https://www.youtube.com/watch?v=0tVt18pLs5I&index=13&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+14	7.38	Общая теория относительности | какими бывают двумерные многообразия | режем, а потом думаем | 1	https://www.youtube.com/watch?v=eGJ_jyGJpUA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=14
+15	2.55	Общая теория относительности | какими бывают двумерные многообразия | режем, а потом думаем | 2	https://www.youtube.com/watch?v=lKziVnGCrsg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=15
+16	3.21	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 1	https://www.youtube.com/watch?v=YDhNmagdE1M&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=16
+17	8.10	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 2	https://www.youtube.com/watch?v=dKf0USpeP3o&index=17&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+18	3.19	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 3	https://www.youtube.com/watch?v=yUU2-QJNyuo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=18
+19	4.13	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 4	https://www.youtube.com/watch?v=-LRyEb8P71U&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=19
+20	4.43	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 5	https://www.youtube.com/watch?v=cqBfWU8srDk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=20
+21	5.05	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 6	https://www.youtube.com/watch?v=jwdBTb0FKc0&index=21&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+22	2.56	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 7	https://www.youtube.com/watch?v=qevtqctApw8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=22
+23	2.00	Общая теория относительности | какими бывают двумерные многообразия | клеим, а потом думаем | 8	https://www.youtube.com/watch?v=vtnzB0pl2ZA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=23
+24	4.44	Общая теория относительности | конкретные типы двумерных многообразий | 1	https://www.youtube.com/watch?v=JagxBWaXKVA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=24
+25	6.30	Общая теория относительности | конкретные типы двумерных многообразий | 2	https://www.youtube.com/watch?v=aHg4pmoAoHk&index=25&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+26	3.21	Общая теория относительности | конкретные типы двумерных многообразий | 3	https://www.youtube.com/watch?v=DtsOzh4n-xA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=26
+27	3.14	Общая теория относительности | ориентируемость двумерных многообразий | 1	https://www.youtube.com/watch?v=1_R2EJuskDM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=27
+28	4.29	Общая теория относительности | ориентируемость двумерных многообразий | 2	https://www.youtube.com/watch?v=zw5G2UOy24Q&index=28&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+29	4.30	Общая теория относительности | ориентируемость двумерных многообразий | 3	https://www.youtube.com/watch?v=6iPNzVxk1vg&index=29&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+30	3.16	Общая теория относительности | ориентируемость двумерных многообразий | 4	https://www.youtube.com/watch?v=zz-G2CwKpNM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=30
+31	4.31	Общая теория относительности | ориентируемость двумерных многообразий | 5	https://www.youtube.com/watch?v=iZBDKSjo1qU&index=31&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+32	8.16	Общая теория относительности | трёхмерные многообразия	https://www.youtube.com/watch?v=U_b58MFjKjM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=32
+33	1.56	Общая теория относительности | от топологии к геометрии	https://www.youtube.com/watch?v=4lqeMf5Tyas&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=33
+34	7.36	Общая теория относительности | битва при аксиоме о параллельности	https://www.youtube.com/watch?v=WHcmADuMj4Q&index=34&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+35	5.11	Общая теория относительности | сферическая геометрия | 1	https://www.youtube.com/watch?v=4hy1W9MM3ZQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=35
+36	1.26	Общая теория относительности | сферическая геометрия | 2	https://www.youtube.com/watch?v=tRM0841xfSI&index=36&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+37	2.28	Общая теория относительности | сферическая геометрия | 3 | теорема косинусов	https://www.youtube.com/watch?v=2MKCuqbe3J8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=37
+38	1.58	Общая теория относительности | сферическая геометрия | 4 | теорема синусов	https://www.youtube.com/watch?v=IOpt1vaFtYc&index=38&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+39	1.59	Общая теория относительности | сферическая геометрия | 5 | площадь треугольника	https://www.youtube.com/watch?v=8h4u9F1WXGQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=39
+40	2.10	Общая теория относительности | сферическая геометрия | 6 | ещё о площади	https://www.youtube.com/watch?v=hH6jZEZaUcs&index=40&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+41	2.23	Общая теория относительности | сферическая геометрия | 7 | сумма углов в треугольнике	https://www.youtube.com/watch?v=sU3r0Uo-G8w&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=41
+42	4.42	Общая теория относительности | сферическая геометрия | 8 | длина окружности	https://www.youtube.com/watch?v=eQKVPxZ4-0c&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=42
+43	3.40	Общая теория относительности | сферическая геометрия | 9 | площадь круга	https://www.youtube.com/watch?v=a3x6dvIoHm8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=43
+44	7.08	Общая теория относительности | сферическая геометрия | 10 | переход к бесконечномалой кривизне	https://www.youtube.com/watch?v=nHZWS6S167o&index=44&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+45	2.24	Общая теория относительности | гиперболическая геометрия | 1 | она же геометрия Лобачевского	https://www.youtube.com/watch?v=mywLbNRsK6I&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=45
+46	1.43	Общая теория относительности | гиперболическая геометрия | замечание перед основными формулами	https://www.youtube.com/watch?v=UITWchClYng&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=46
+47	2.47	Общая теория относительности | гиперболическая геометрия | 2 | теорема косинусов	https://www.youtube.com/watch?v=dHjpdqB6aow&index=47&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+48	1.23	Общая теория относительности | гиперболическая геометрия | 3 | теорема синусов	https://www.youtube.com/watch?v=P8CJhuukFDE&index=48&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+49	2.45	Общая теория относительности | гиперболическая геометрия | 4 | площадь треугольника	https://www.youtube.com/watch?v=Np10mhARRic&index=49&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+50	2.36	Общая теория относительности | гиперболическая геометрия | 5 | длина окружности	https://www.youtube.com/watch?v=5xn1LL7eTdE&index=50&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+51	2.13	Общая теория относительности | гиперболическая геометрия | 6 | площадь круга	https://www.youtube.com/watch?v=hNaFo3_1n5k&index=51&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+52	4.30	Общая теория относительности | сравнительная характеристика геометрий	https://www.youtube.com/watch?v=MbbnQeUhQvk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=52
+53	6.54	Общая теория относительности | крупномасштабная эволюция вселенной "по дешёвке" | 1	https://www.youtube.com/watch?v=bzcfEF9j-dg&index=53&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+54	4.37	Общая теория относительности | крупномасштабная эволюция вселенной "по дешёвке" | 2	https://www.youtube.com/watch?v=IYcazv3BQ0M&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=54
+55	7.53	Общая теория относительности | неевклидовы геометрии в старших размерностях	https://www.youtube.com/watch?v=QFQw33fAvmc&index=55&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+56	5.45	Общая теория относительности | метод координат на многообразиях | для наивных простаков	https://www.youtube.com/watch?v=Rm2c436Tzhw&index=56&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+57	3.38	Общая теория относительности | метод координат на многообразиях | проблемки	https://www.youtube.com/watch?v=oC_EirC3cyc&index=57&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+58	5.24	Общая теория относительности | мотивируем понятие многообразия | 1	https://www.youtube.com/watch?v=FmmsRiChjjc&index=58&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+59	6.59	Общая теория относительности | мотивируем понятие многообразия | 2 | неявное задание	https://www.youtube.com/watch?v=cpcG-20vP7o&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=59
+60	3.06	Общая теория относительности | мотивируем понятие многообразия | 3 | еще про неявное задание	https://www.youtube.com/watch?v=DgMWjcMxXV0&index=60&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+61	4.20	Общая теория относительности | мотивируем понятие многообразия | 4 | намёк на карты	https://www.youtube.com/watch?v=EG9hG3A-T-o&index=61&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+62	6.52	Общая теория относительности | мотивируем понятие многообразия | 5 | окружность как вещь в себе	https://www.youtube.com/watch?v=eEjJWVwK8LI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=62
+63	4.27	Общая теория относительности | многообразия | потуги в сторону корректного определения | 1	https://www.youtube.com/watch?v=0OodPATO1Ko&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=63
+64	4.00	Общая теория относительности | многообразия | потуги в сторону корректного определения | 2	https://www.youtube.com/watch?v=N_k3SPg8Q6c&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=64
+65	6.04	Общая теория относительности | многообразия | потуги в сторону корректного определения | 3	https://www.youtube.com/watch?v=ZjGCQTrKsZs&index=65&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+66	5.02	Общая теория относительности | многообразия | определение | ну, почти корректное	https://www.youtube.com/watch?v=VksIRc79NKU&index=66&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+67	3.48	Общая теория относительности | многообразия | определение | разговор о гладкости	https://www.youtube.com/watch?v=4dgfh9EtVM8&index=67&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+68	2.08	Общая теория относительности | многообразия | без топологии нет теории относительности..	https://www.youtube.com/watch?v=2BroVLoMVFg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=68
+69	2.19	Общая теория относительности | дифф. геом. | кривые | "определение"	https://www.youtube.com/watch?v=k_SAxhndKnY&index=69&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+70	5.13	Общая теория относительности | дифф. геом. | кривые | параметризация	https://www.youtube.com/watch?v=zCSts_nqUgs&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=70
+71	5.18	Общая теория относительности | дифф. геом. | кривые | гладкость и регулярность	https://www.youtube.com/watch?v=_jBp-ouzgeI&index=71&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+72	3.21	Общая теория относительности | дифф. геом. | кривые | длина	https://www.youtube.com/watch?v=XGQ8AcsHwhQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=72
+73	3.17	Общая теория относительности | дифф. геом. | кривые | кривая - это нечто большее, чем её параметризация | 1	https://www.youtube.com/watch?v=dzQMx8iXx7Q&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=73
+74	2.43	Общая теория относительности | дифф. геом. | кривые | кривая - это нечто большее, чем её параметризация | 2	https://www.youtube.com/watch?v=4Yk5n5PO8V0&index=74&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+75	2.06	Общая теория относительности | дифф. геом. | кривые | самая лучшая параметризация	https://www.youtube.com/watch?v=VVphQADCEDo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=75
+76	2.17	Общая теория относительности | дифф. геом. | кривые | смысл натурального параметра	https://www.youtube.com/watch?v=A1m2ZJgkHAU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=76
+77	2.23	Общая теория относительности | дифф. геом. | кривые | как разрешать относительно нат. пар.	https://www.youtube.com/watch?v=ZmS0hAdLOV8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=77
+78	4.10	Общая теория относительности | дифф. геом. | кривые | физика нат. параметра | 1	https://www.youtube.com/watch?v=IqjyuDc-kaU&index=78&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+79	2.30	Общая теория относительности | дифф. геом. | кривые | физика нат. параметра | 2	https://www.youtube.com/watch?v=sojmhQaxLHQ&index=79&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+80	3.32	Общая теория относительности | дифф. геом. | кривые | репер Френе	https://www.youtube.com/watch?v=pXS0iGAPfA4&index=80&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+81	3.07	Общая теория относительности | дифф. геом. | кривые | формулы Френе	https://www.youtube.com/watch?v=axl30gv_hNg&index=81&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+82	2.18	Общая теория относительности | дифф. геом. | кривые | формула для кривизны	https://www.youtube.com/watch?v=DsGg7E34wEY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=82
+83	2.33	Общая теория относительности | дифф. геом. | поверхности | параметризация	https://www.youtube.com/watch?v=jmAce6gDiu4&index=83&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+84	2.41	Общая теория относительности | дифф. геом. | поверхности | гладкость	https://www.youtube.com/watch?v=pjtXvgLKRSI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=84
+85	2.39	Общая теория относительности | дифф. геом. | поверхности | поверхности как вещь в себе	https://www.youtube.com/watch?v=nJrIoTtze7w&index=85&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+86	2.41	Общая теория относительности | дифф. геом. | поверхности | внутренние координаты	https://www.youtube.com/watch?v=xpOep8Bt4T8&index=86&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+87	3.09	Общая теория относительности | дифф. геом. | поверхности | следящий базис | 1	https://www.youtube.com/watch?v=dNOYS3N9KAE&index=87&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+88	2.25	Общая теория относительности | дифф. геом. | поверхности | следящий базис | 2	https://www.youtube.com/watch?v=nGgbfGg0AaY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=88
+89	3.27	Общая теория относительности | дифф. геом. | поверхности | теорема Пифагора	https://www.youtube.com/watch?v=H35KpfX4d4o&index=89&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+90	3.09	Общая теория относительности | дифф. геом. | поверхности | первая квадратичная форма	https://www.youtube.com/watch?v=Avm6FkEjL4I&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=90
+91	3.23	Общая теория относительности | дифф. геом. | поверхности | метрический тензор	https://www.youtube.com/watch?v=QW6yTVqdlqQ&index=91&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+92	4.57	Общая теория относительности | дифф. геом. | поверхности | проблемы с векторами | 1	https://www.youtube.com/watch?v=Penll_nOZ2o&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=92
+93	2.24	Общая теория относительности | дифф. геом. | поверхности | проблемы с векторами | 2	https://www.youtube.com/watch?v=lAiXy5nyyJg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=93
+94	2.46	Общая теория относительности | дифф. геом. | сравнение плоскости и произвольной поверхности | 1	https://www.youtube.com/watch?v=hjny8t7tXEg&index=94&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+95	2.00	Общая теория относительности | дифф. геом. | сравнение плоскости и произвольной поверхности | 2	https://www.youtube.com/watch?v=kPsyfSU7Q-s&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=95
+96	3.36	Общая теория относительности | дифф. геом. | поверхности | вычисление площади | 1	https://www.youtube.com/watch?v=xhffwHDv9gQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=96
+97	3.02	Общая теория относительности | дифф. геом. | поверхности | вычисление площади | 2	https://www.youtube.com/watch?v=UUcr67exHQo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=97
+98	2.24	Общая теория относительности | дифф. геом. | непокорные вторые производные	https://www.youtube.com/watch?v=m4w_UmdlPqo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=98
+99	2.56	Общая теория относительности | дифф. геом. | покоряем вторые производные	https://www.youtube.com/watch?v=U56UPnuwc1c&index=99&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+100	3.40	Общая теория относительности | дифф. геом. | поверхности | вторая квадратичная форма | 1	https://www.youtube.com/watch?v=BDQjOfDj5N0&index=100&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+101	2.07	Общая теория относительности | дифф. геом. | поверхности | вторая квадратичная форма | 2	https://www.youtube.com/watch?v=VrdrqepvDtI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=101
+102	3.36	Общая теория относительности | дифф. геом. | поверхности | вторая квадратичная форма | 3	https://www.youtube.com/watch?v=ZpyRqKePDSc&index=102&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+103	2.51	Общая теория относительности | дифф. геом. | поверхности | главные кривизны	https://www.youtube.com/watch?v=ICCpMXBjHek&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=103
+104	3.09	Общая теория относительности | дифф. геом. | поверхности | гауссова и средняя кривизны	https://www.youtube.com/watch?v=cHgVIZa4dns&index=104&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+105	2.34	Общая теория относительности | дифф. геом. | поверхности | гауссова и средняя кривизны | формулы	https://www.youtube.com/watch?v=gbgJHJfsThU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=105
+106	2.37	Общая теория относительности | дифф. геом. | поверхности | гауссова кр. | формулы | частный случай	https://www.youtube.com/watch?v=LideHHpQUqw&index=106&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+107	3.30	Общая теория относительности | дифф. геом. | поверхности | рождение символов Кристоффеля	https://www.youtube.com/watch?v=QdKKRn4O7Q8&index=107&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+108	2.34	Общая теория относительности | дифф. геом. | поверхности | вторые произв. | индексная запись	https://www.youtube.com/watch?v=jUvZUOh89xI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=108
+109	3.00	Общая теория относительности | дифф. геом. | поверхности | символы Кристоффеля | формулы	https://www.youtube.com/watch?v=O_3WGhOomK4&index=109&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+110	3.48	Общая теория относительности | дифф. геом. | поверхности | символы Кристоффеля | вывод формул	https://www.youtube.com/watch?v=ytYQix97J_w&index=110&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+111	2.32	Общая теория относительности | дифф. геом. | поверхности | симметрии символов Кристоффеля и метрики	https://www.youtube.com/watch?v=W3UHqgCaa5M&index=111&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+112	2.40	Общая теория относительности | дифф. геом. | поверхности | аналого формул Френе | 1	https://www.youtube.com/watch?v=7qlA-58anzg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=112
+113	1.51	Общая теория относительности | дифф. геом. | поверхности | аналого формул Френе | 2	https://www.youtube.com/watch?v=zWcmQULF3vA&index=113&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+114	2.46	Общая теория относительности | дифф. геом. | поверхности | мотивация внутренней геометрии	https://www.youtube.com/watch?v=R3IrmPvaHu8&index=114&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+115	2.33	Общая теория относительности | дифф. геом. | поверхности | внутренняя геометрия | формулы	https://www.youtube.com/watch?v=QBeuFVhccrA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=115
+116	2.29	Общая теория относительности | дифф. геом. | поверхности | геодезические как локальнократчайшие	https://www.youtube.com/watch?v=kK8ELTxnYag&index=116&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+117	3.28	Общая теория относительности | дифф. геом. | поверхности | геодезические на изгибаемых пов.	https://www.youtube.com/watch?v=s-Esw-YeQFA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=117
+118	3.03	Общая теория относительности | дифф. геом. | поверхности | геодезические на конусе	https://www.youtube.com/watch?v=Fww2_ntmuOc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=118
+119	2.39	Общая теория относительности | дифф. геом. | поверхности | что делать с геодезическими в общем случае?	https://www.youtube.com/watch?v=InGxdIQZojU&index=119&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+120	4.58	Общая теория относительности | дифф. геом. | поверхности | геодезические на многогранниках | 1	https://www.youtube.com/watch?v=ALAeiS9tHZo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=120
+121	2.27	Общая теория относительности | дифф. геом. | поверхности | геодезические на многогранниках | 2	https://www.youtube.com/watch?v=9vIGquW3idk&index=121&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+122	3.22	Общая теория относительности | дифф. геом. | поверхности | параллельный перенос | 1	https://www.youtube.com/watch?v=rOFwYUamgok&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=122
+123	4.42	Общая теория относительности | дифф. геом. | поверхности | параллельный перенос | 2	https://www.youtube.com/watch?v=BpIt9KALRR4&index=123&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+124	5.59	Общая теория относительности | дифф. геом. | иной взгляд на дифференциал	https://www.youtube.com/watch?v=vQy8cRWtJvI&index=124&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+125	2.02	Общая теория относительности | дифф. геом. | мотивация ковариантной производной	https://www.youtube.com/watch?v=GahG_MY7apw&index=125&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+126	3.31	Общая теория относительности | дифф. геом. | поверхности | свойства ковариантной производной	https://www.youtube.com/watch?v=HyrhN1nrU94&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=126
+127	5.08	Общая теория относительности | дифф. геом. | поверхности | вывод формулы | 1	https://www.youtube.com/watch?v=LMd3uXh5L64&index=127&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+128	2.16	Общая теория относительности | дифф. геом. | поверхности | вывод формулы | 2	https://www.youtube.com/watch?v=-eHTBCe3cSA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=128
+129	2.24	Общая теория относительности | дифф. геом. | поверхности | вывод формулы | 3 | для ковекторов	https://www.youtube.com/watch?v=DK6hmA7OJPQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=129
+130	2.24	Общая теория относительности | дифф. геом. | поверхности | вывод формулы | 4 | для произвольного тензора	https://www.youtube.com/watch?v=qlY6D8ujBXk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=130
+131	1.39	Общая теория относительности | дифф. геом. | поверхности | мотивация уравнения параллельного переноса	https://www.youtube.com/watch?v=M8Vj7H-RvYU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=131
+132	2.30	Общая теория относительности | дифф. геом. | поверхности | уравнение параллельного переноса | 1	https://www.youtube.com/watch?v=IZ3sdmpGAvc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=132
+133	3.09	Общая теория относительности | дифф. геом. | поверхности | уравнение параллельного переноса | 2	https://www.youtube.com/watch?v=cuiS_hbqS14&index=133&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+134	3.38	Общая теория относительности | дифф. геом. | поверхности | ковариантная производная от метрики	https://www.youtube.com/watch?v=SuouasLH_NE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=134
+135	2.16	Общая теория относительности | дифф. геом. | поверхности | ковариантная производная от метрики | следствие	https://www.youtube.com/watch?v=r4V_GSg87wo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=135
+136	2.14	Общая теория относительности | дифф. геом. | поверхности | мотивация уравнения геодезических	https://www.youtube.com/watch?v=n4xuDJQsJys&index=136&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+137	3.07	Общая теория относительности | дифф. геом. | поверхности | уравнение геодезических	https://www.youtube.com/watch?v=UhINyszUVZ8&index=137&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+138	3.13	Общая теория относительности | дифф. геом. | поверхности | геодезическая кривизна	https://www.youtube.com/watch?v=G35Ulf_B__w&index=138&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+139	2.06	Общая теория относительности | дифф. геом. | поверхности | коммутатор ковариантных производных | 1	https://www.youtube.com/watch?v=76bFShzAY6I&index=139&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+140	2.59	Общая теория относительности | дифф. геом. | поверхности | коммутатор ковариантных производных | 2	https://www.youtube.com/watch?v=RQhIAHVoRYI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=140
+141	5.01	Общая теория относительности | дифф. геом. | поверхности | коммутатор ковариантных производных | 3	https://www.youtube.com/watch?v=gj3poQTIab0&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=141
+142	3.23	Общая теория относительности | дифф. геом. | поверхности | тензор кривизны.. ура!!..	https://www.youtube.com/watch?v=D2elk3u8-8A&index=142&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+143	3.54	Общая теория относительности | дифф. геом. | поверхности | тензор Риччи и скалярная кривизна	https://www.youtube.com/watch?v=fbbIp15tbak&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=143
+144	3.40	Общая теория относительности | дифф. геом. | поверхности | симметрии тензора кривизны	https://www.youtube.com/watch?v=jJ7MHflXV4s&index=144&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+145	2.17	Общая теория относительности | дифф. геом. | поверхности | в любой ситуации - выбирай нужные координаты	https://www.youtube.com/watch?v=92HnF3qsZA4&index=145&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+146	2.18	Общая теория относительности | дифф. геом. | поверхности | тензор кривизны в специальных координатах	https://www.youtube.com/watch?v=Ml5NFiBa8kU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=146
+147	4.27	Общая теория относительности | дифф. геом. | поверхности | тождество Бьянки	https://www.youtube.com/watch?v=5CQr8t8_P_Q&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=147
+148	3.32	Общая теория относительности | дифф. геом. | поверхности | переход к другим координатам	https://www.youtube.com/watch?v=UYTLiCb-fqg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=148
+149	2.23	Общая теория относительности | дифф. геом. | поверхности | переход к другим координатам | скалярные объекты	https://www.youtube.com/watch?v=DUUxkoZkAoo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=149
+150	3.29	Общая теория относительности | дифф. геом. | поверхности | переход к др. коорд. | а что такое векторы?	https://www.youtube.com/watch?v=0SQscBeF5eE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=150
+151	3.22	Общая теория относительности | дифф. геом. | поверхности | переход к другим координатам | снова о базисе	https://www.youtube.com/watch?v=pmL_1SFYXxY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=151
+152	2.03	Общая теория относительности | дифф. геом. | поверхности | пер. к др. к. | векторы и произв. по направлению	https://www.youtube.com/watch?v=WLk9T-NFKAs&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=152
+153	4.57	Общая теория относительности | дифф. геом. | поверхности | переход к другим коорд. | векторы посуществу	https://www.youtube.com/watch?v=XLq_RuEEOvw&index=153&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+154	3.22	Общая теория относительности | дифф. геом. | поверхности | переход к др. коорд. | векторы и коветоры	https://www.youtube.com/watch?v=Tx1DHP3fO8o&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=154
+155	1.51	Общая теория относительности | дифф. геом. | поверхности | переход к др. координатам | произвольные тензоры	https://www.youtube.com/watch?v=3cLBa6cYNFU&index=155&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+156	1.57	Общая теория относительности | дифф. геом. | поверхности | формула Гаусса - Бонне	https://www.youtube.com/watch?v=GgVsLBmP6Xk&index=156&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+157	2.40	Общая теория относительности | дифф. геом. | поверхности | формула Гаусса - Бонне | следствие	https://www.youtube.com/watch?v=2O1QtKSJrPQ&index=157&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+158	2.15	Общая теория относительности | дифф. геом. | поверхности | преобр. коорд. | символы Кристоффеля	https://www.youtube.com/watch?v=5MODTXKZBtQ&index=158&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+159	2.44	Общая теория относительности | дифф. геом. | переход от поверхностей к многообразиям	https://www.youtube.com/watch?v=DYFtKJZL8pI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=159
+160	2.44	Общая теория относительности | дифф. геом. | вложения и погружения | 1	https://www.youtube.com/watch?v=Gq0t0_40bNE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=160&pbjreload=10
+161	4.11	Общая теория относительности | дифф. геом. | вложения и погружения | 2	https://www.youtube.com/watch?v=rW3X0K46ptU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=161
+162	3.19	Общая теория относительности | дифф. геом. | разговор о теореме Уитни	https://www.youtube.com/watch?v=WyjBN_A6DVU&index=162&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+163	3.28	Общая теория относительности | многообразия | определение | дубль два | 1	https://www.youtube.com/watch?v=moYjQB9nS8w&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=163
+164	2.30	Общая теория относительности | многообразия | определение | дубль два | 2 | край	https://www.youtube.com/watch?v=yvn_bphZxxk&index=164&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+165	2.20	Общая теория относительности | многообразия | определение | дубль два | 3 | сама суть	https://www.youtube.com/watch?v=G6fN8LbNTZc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=165
+166	4.06	Общая теория относительности | многообразия | касательное пространство | 1	https://www.youtube.com/watch?v=Mx9jG95pY-Q&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=166
+167	2.55	Общая теория относительности | многообразия | касательное пространство | 2	https://www.youtube.com/watch?v=PXWBd-6jDpg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=167
+168	3.38	Общая теория относительности | многообразия | касательное пространство | 3	https://www.youtube.com/watch?v=3rrsgPnaHb8&index=168&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+169	3.56	Общая теория относительности | многообразия | касательное пространство | 4	https://www.youtube.com/watch?v=tblAxlx22Xo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=169
+170	4.11	Общая теория относительности | многообразия | касательное пространство | 5	https://www.youtube.com/watch?v=slVkHLiw_Lg&index=170&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+171	3.39	Общая теория относительности | многообразия | кокасательное пространство	https://www.youtube.com/watch?v=gTXaxgSnK-k&index=171&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+172	3.31	Общая теория относительности | многообразия | тензорное произв. касательного и кокасательного пр.	https://www.youtube.com/watch?v=TPYgeGtSM00&index=172&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+173	3.53	Общая теория относительности | многообразия | касательное расслоение | 1	https://www.youtube.com/watch?v=4IBfSSkNGKI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=173
+174	3.57	Общая теория относительности | многообразия | касательное расслоение | 2	https://www.youtube.com/watch?v=F2heao4ZDW0&index=174&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+175	2.47	Общая теория относительности | многообразия | кокасательное расслоение	https://www.youtube.com/watch?v=PV8Bi7amEYU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=175
+176	3.54	Общая теория относительности | многообразия | касательное расслоение | пример	https://www.youtube.com/watch?v=QzfTgAzahZY&index=176&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+177	2.40	Общая теория относительности | многообразия | ещё раз об обиталище тензоров	https://www.youtube.com/watch?v=jc_FTT5obR4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=177
+178	4.27	Общая теория относительности | многообразия | риманова или псевдориманова структура	https://www.youtube.com/watch?v=q851CMUUMQ0&index=178&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+179	1.41	Общая теория относительности | многообразия | риманова или псевдориманова стр. | прошлое	https://www.youtube.com/watch?v=L51IVP5lNQU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=179
+180	3.20	Общая теория относительности | многообразия | длина кривой	https://www.youtube.com/watch?v=3J-OKirHydE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=180
+181	1.36	Общая теория относительности | многообразия | ох, уж этот тензор Леви Чивита..	https://www.youtube.com/watch?v=4U4PNIHJsNk&index=181&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+182	3.56	Общая теория относительности | многообразия | новый подход к ковариантной производной | 1	https://www.youtube.com/watch?v=KAGgf4PsWjg&index=182&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+183	3.03	Общая теория относительности | многообразия | новый подход к ковариантной производной | 2	https://www.youtube.com/watch?v=Slw8f25bZnU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=183
+184	1.40	Общая теория относительности | многообразия | давайте ка отмывать старые формулы	https://www.youtube.com/watch?v=tQpEixP_zEE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=184
+185	2.42	Общая теория относительности | многообразия | ковариантная производная скаляра	https://www.youtube.com/watch?v=mjNlXy23ahA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=185
+186	3.50	Общая теория относительности | многообразия | ковариантный градиент | 1	https://www.youtube.com/watch?v=XylHkbvV6O4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=186
+187	1.48	Общая теория относительности | многообразия | ковариантный градиент | 2	https://www.youtube.com/watch?v=jIa53Bjr70c&index=187&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+188	2.43	Общая теория относительности | многообразия | ковариантная дивергенция | 1	https://www.youtube.com/watch?v=dBr6nP1fs5I&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=188
+189	2.33	Общая теория относительности | многообразия | ковариантная дивергенция | 2	https://www.youtube.com/watch?v=spFty0vPmWA&index=189&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+190	4.43	Общая теория относительности | дифференциальные формы | кососимметричные тензоры | 1	https://www.youtube.com/watch?v=SCDmV7PFxEw&index=190&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+191	2.23	Общая теория относительности | дифференциальные формы | кососимметричные тензоры | 2	https://www.youtube.com/watch?v=cKBmMpWN1xI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=191
+192	4.50	Общая теория относительности | дифференциальные формы | кососимметричные тензоры | 3	https://www.youtube.com/watch?v=UPWNzimAF6c&index=192&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+193	1.56	Общая теория относительности | дифференциальные формы | кососимметричные тензоры | 4	https://www.youtube.com/watch?v=nl4sF-A1qco&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=193
+194	1.42	Общая теория относительности | дифференциальные формы | базис внешних форм	https://www.youtube.com/watch?v=9qMzpHFc2qk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=194
+195	4.26	Общая теория относительности | дифференциальные формы | понятие внешнего произведения	https://www.youtube.com/watch?v=IpoIKMyFof0&index=195&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+196	3.30	Общая теория относительности | дифференциальные формы | внешняя алгебра	https://www.youtube.com/watch?v=QUOq-ugFLbs&index=196&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+197	2.27	Общая теория относительности | дифференциальные формы | преобразование координат	https://www.youtube.com/watch?v=CnpFJ4r5XnE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=197
+198	2.29	Общая теория относительности | дифференциальные формы | новый базис	https://www.youtube.com/watch?v=kCLJ0H2uh0M&index=198&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+199	2.36	Общая теория относительности | дифференциальные формы | внешний дифференциал | 0-формы	https://www.youtube.com/watch?v=smc0BOGpoB4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=199
+200	2.40	Общая теория относительности | дифференциальные формы | внешний дифференциал | 1-формы | 1	https://www.youtube.com/watch?v=XNZZcwhq0pM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=200
+201	2.50	Общая теория относительности | дифференциальные формы | внешний дифференциал | 1-формы | 2	https://www.youtube.com/watch?v=a1kjFPj5uko&index=201&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+202	3.45	Общая теория относительности | дифференциальные формы | внешний дифференциал | 1-формы | 3	https://www.youtube.com/watch?v=WID6OveQrxE&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=202
+203	3.41	Общая теория относительности | дифференциальные формы | внешний дифференциал | 1-формы | 4	https://www.youtube.com/watch?v=0KS7ENvHr-Y&index=203&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+204	5.12	Общая теория относительности | дифференциальные формы | внешний дифференциал | 2-формы	https://www.youtube.com/watch?v=KrQ_XPX4y8A&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=204
+205	3.03	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 1	https://www.youtube.com/watch?v=6GZsC6xkJtA&index=205&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+206	5.11	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 2	https://www.youtube.com/watch?v=lZvLbk4N7hg&index=206&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+207	1.24	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 3	https://www.youtube.com/watch?v=_xmsHm9SSAY&index=207&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+208	6.52	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 4	https://www.youtube.com/watch?v=Y2JamylnaHE&index=208&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+209	1.59	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 5	https://www.youtube.com/watch?v=wdrVZQXfrRY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=209
+210	4.50	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 6	https://www.youtube.com/watch?v=KVFD4QHd4mM&index=210&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+211	3.44	Общая теория относительности | дифференциальные формы | внешний дифференциал | n-формы | 7	https://www.youtube.com/watch?v=X4F4cUAt3x4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=211
+212	3.11	Общая теория относительности | дифференциальные формы | внешний дифференциал | свойства | 1	https://www.youtube.com/watch?v=utWGiP0xfXk&index=212&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+213	2.26	Общая теория относительности | дифференциальные формы | внешний дифференциал | свойства | 2	https://www.youtube.com/watch?v=2FBIg4ACxfY&index=213&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+214	2.38	Общая теория относительности | дифференциальные формы | интегрирование | 1	https://www.youtube.com/watch?v=Nc7JYwp6P7Q&index=214&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+215	1.45	Общая теория относительности | дифференциальные формы | интегрирование | 2	https://www.youtube.com/watch?v=TNYwsOHOo-M&index=215&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+216	2.36	Общая теория относительности | дифференциальные формы | интегрирование | 3	https://www.youtube.com/watch?v=8gj4tGpKo6k&index=216&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+217	3.51	Общая теория относительности | дифференциальные формы | интегрирование | 4	https://www.youtube.com/watch?v=5zB6YQ8_aBM&index=217&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+218	1.39	Общая теория относительности | дифференциальные формы | интегрирование | 5	https://www.youtube.com/watch?v=GsBz-N87wtQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=218
+219	2.52	Общая теория относительности | дифференциальные формы | интегрирование | 6	https://www.youtube.com/watch?v=no2E10i-JVU&index=219&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+220	3.48	Общая теория относительности | дифференциальные формы | интегрирование | 7 | по существу	https://www.youtube.com/watch?v=L2ie8TDi5kU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=220
+221	3.09	Общая теория относительности | дифференциальные формы | интегрирование | 8 | по существу	https://www.youtube.com/watch?v=jY7vhl_EB8Y&index=221&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+222	2.57	Общая теория относительности | дифференциальные формы | интегрирование | 9 | по существу	https://www.youtube.com/watch?v=rR1hZc9P-ZE&index=222&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+223	3.37	Общая теория относительности | дифференциальные формы | интегрирование | 10 | по существу	https://www.youtube.com/watch?v=hHfeG56x1To&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=223
+224	3.05	Общая теория относительности | дифференциальные формы | интегрирование | 11 | по существу	https://www.youtube.com/watch?v=qmHeeroBxQM&index=224&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+225	4.09	Общая теория относительности | дифференциальные формы | интегрирование | 12 | по существу	https://www.youtube.com/watch?v=W0SBFrYZ1TA&index=225&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+226	2.14	Общая теория относительности | дифференциальные формы | звезда Ходжа | 1	https://www.youtube.com/watch?v=LQBD9amLCsY&index=226&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+227	1.37	Общая теория относительности | дифференциальные формы | звезда Ходжа | 2	https://www.youtube.com/watch?v=EeXjcWeXu7g&index=227&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+228	2.23	Общая теория относительности | дифференциальные формы | звезда Ходжа | 3	https://www.youtube.com/watch?v=4xpnJw9MM-o&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=228
+229	1.56	Общая теория относительности | дифференциальные формы | звезда Ходжа | 4	https://www.youtube.com/watch?v=u69a_ErlQRI&index=229&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+230	2.43	Общая теория относительности | дифференциальные формы | звезда Ходжа | 5	https://www.youtube.com/watch?v=qxjbeEG73lI&index=230&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+231	2.07	Общая теория относительности | дифференциальные формы | звезда Ходжа | 6	https://www.youtube.com/watch?v=M3VtujwYma8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=231
+232	1.27	Общая теория относительности | дифференциальные формы | звезда Ходжа | 7	https://www.youtube.com/watch?v=VMs6SRwutDo&index=232&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+233	3.09	Общая теория относительности | дифференциальные формы | звезда Ходжа | 8	https://www.youtube.com/watch?v=-UuWpbcqZlI&index=233&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+234	1.59	Общая теория относительности | дифференциальные формы | звезда Ходжа | 9	https://www.youtube.com/watch?v=y2Coy_Zgutc&index=234&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+235	2.38	Общая теория относительности | дифференциальные формы | звезда Ходжа | 10 | примеры	https://www.youtube.com/watch?v=EXyQdR0sFs4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=235
+236	2.12	Общая теория относительности | дифференциальные формы | звезда Ходжа | 11 | примеры	https://www.youtube.com/watch?v=qXjOltCkcwk&index=236&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+237	2.10	Общая теория относительности | дифференциальные формы | звезда Ходжа | 12 | примеры	https://www.youtube.com/watch?v=VFWONiTb7qM&index=237&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+238	3.03	Общая теория относительности | дифференциальные формы | звезда Ходжа | 14 | примеры	https://www.youtube.com/watch?v=ESpSkf1EayA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=238
+239	2.46	Общая теория относительности | дифференциальные формы | звезда Ходжа | 13 | примеры	https://www.youtube.com/watch?v=vB0SIgXQOdM&index=239&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+240	1.34	Общая теория относительности | дифференциальные формы | звезда Ходжа | 15 | примеры	https://www.youtube.com/watch?v=aTY1_CAKRzY&index=240&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+241	3.03	Общая теория относительности | дифференциальные формы | интегрирование | разбиение единицы	https://www.youtube.com/watch?v=2t6Cya705Uo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=241
+242	1.33	Общая теория относительности | дифференциальные формы | интегрирование | бряк	https://www.youtube.com/watch?v=mtjjknSN_0g&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=242&pbjreload=10
+243	2.49	Общая теория относительности | дифференциальные формы | формула Стокса | 1	https://www.youtube.com/watch?v=rYIX2fZin1c&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=243
+244	1.43	Общая теория относительности | дифференциальные формы | формула Стокса | 2	https://www.youtube.com/watch?v=X07j5R2bqVg&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=244
+245	3.13	Общая теория относительности | дифференциальные формы | формула Стокса | 3	https://www.youtube.com/watch?v=oU3qBFtM5pw&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=245
+246	1.21	Общая теория относительности | дифференциальные формы | формула Стокса | 4	https://www.youtube.com/watch?v=7YBr5wszhng&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=246
+247	1.23	Общая теория относительности | дифференциальные формы | формула Стокса | 5	https://www.youtube.com/watch?v=WD_d-hsWt3w&index=247&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+248	2.32	Общая теория относительности | дифференциальные формы | формула Стокса | 6	https://www.youtube.com/watch?v=WDSK1gG6VIM&index=248&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+249	3.43	Общая теория относительности | дифференциальные формы | формула Стокса | 7	https://www.youtube.com/watch?v=RJh-397_JxE&index=249&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+250	1.30	Общая теория относительности | дифференциальные формы | формула Стокса | 8	https://www.youtube.com/watch?v=WEC4qy7dg_I&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=250
+251	3.22	Общая теория относительности | дифференциальные формы | формула Стокса | 9	https://www.youtube.com/watch?v=8DsjeCZGNKM&index=251&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+252	1.22	Общая теория относительности | дифференциальные формы | формула Стокса | 10	https://www.youtube.com/watch?v=Kb1ictuhLoc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=252
+253	1.53	Общая теория относительности | дифференциальные формы | формула Стокса | 11	https://www.youtube.com/watch?v=3AStIUZvZjg&index=253&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+254	2.13	Общая теория относительности | дифференциальные формы | электромагнетизм | 1	https://www.youtube.com/watch?v=CQckxaMh50A&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=254
+255	3.06	Общая теория относительности | дифференциальные формы | электромагнетизм | 2	https://www.youtube.com/watch?v=Md6oTf8IqTo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=255
+256	3.33	Общая теория относительности | дифференциальные формы | электромагнетизм | 3	https://www.youtube.com/watch?v=Xcvd1sbXOn8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=256
+257	3.06	Общая теория относительности | дифференциальные формы | электромагнетизм | 4	https://www.youtube.com/watch?v=CkyvhG2D2dc&index=257&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+258	3.07	Общая теория относительности | дифференциальные формы | электромагнетизм | 5	https://www.youtube.com/watch?v=qnCLxeQZCzM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=258
+259	5.24	Общая теория относительности | дифференциальные формы | электромагнетизм | 6	https://www.youtube.com/watch?v=9KqWQF6uxME&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=259
+260	3.07	Общая теория относительности | дифференциальные формы | электромагнетизм | 7	https://www.youtube.com/watch?v=pHVOg0bj6nw&index=260&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+261	4.22	Общая теория относительности | дифференциальные формы | электромагнетизм | 8	https://www.youtube.com/watch?v=iS8E3B-e3uA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=261
+262	3.00	Общая теория относительности | тензор Леви Чивита | забытое тождество | 1	https://www.youtube.com/watch?v=uv-eDAijhQA&index=262&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+263	3.16	Общая теория относительности | путаница с понятием градиента	https://www.youtube.com/watch?v=7nP4KvyAIu4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=263
+264	1.48	Общая теория относительности | тензор Леви Чивита | забытое тождество | 2	https://www.youtube.com/watch?v=Ty6fA2vC8Xk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=264
+265	3.42	Общая теория относительности | обобщение понятия ротора	https://www.youtube.com/watch?v=HNl-D_rjSt8&index=265&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+266	1.59	Общая теория относительности | подходы к определению дивергенции | 1	https://www.youtube.com/watch?v=Mg8yN2V69co&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=266
+267	2.35	Общая теория относительности | подходы к определению дивергенции | 2	https://www.youtube.com/watch?v=_cHH0mP4BU4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=267
+268	2.22	Общая теория относительности | подходы к определению дивергенции | 3	https://www.youtube.com/watch?v=v9SpE38Bjtw&index=268&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+269	3.21	Общая теория относительности | подходы к определению дивергенции | 4	https://www.youtube.com/watch?v=L9Zr3Y2d_2I&index=269&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+270	2.14	Общая теория относительности | подходы к определению дивергенции | 5	https://www.youtube.com/watch?v=nZNRvWBQfCg&index=270&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+271	2.36	Общая теория относительности | дифф. геом. | оператор Бельтрами - Лапласа | 1	https://www.youtube.com/watch?v=M6AgzKX1sNc&index=271&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+272	3.18	Общая теория относительности | дифф. геом. | оператор Бельтрами - Лапласа | 2	https://www.youtube.com/watch?v=yxemkZce8LU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=272
+273	2.03	Общая теория относительности | векторные поля | введение	https://www.youtube.com/watch?v=q84dzsReIfA&index=273&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+274	2.22	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 1	https://www.youtube.com/watch?v=vIvbpCLsq0o&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=274
+275	3.19	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 2	https://www.youtube.com/watch?v=_LpfkW0vJRs&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=275
+276	2.39	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 3	https://www.youtube.com/watch?v=OTWqK0W6LmI&index=276&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+277	3.03	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 4	https://www.youtube.com/watch?v=4HraAdg5cq4&index=277&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+278	2.41	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 5	https://www.youtube.com/watch?v=ltxCg8VMIKo&index=278&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+279	3.55	Общая теория относительности | векторные поля | связь с дифференциальными уравнениями | 6	https://www.youtube.com/watch?v=dVsieaAjKBY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=279
+280	2.20	Общая теория относительности | векторные поля | однопар. семейство диффеоморфизмов | 1	https://www.youtube.com/watch?v=EpA8JEhO7To&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=280
+281	4.08	Общая теория относительности | векторные поля | однопар. семейство диффеоморфизмов | 2	https://www.youtube.com/watch?v=oDWCpp9x0eo&index=281&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+282	1.44	Общая теория относительности | векторные поля | однопар. семейство диффеоморфизмов | 3	https://www.youtube.com/watch?v=kSzD1KH3Yys&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=282
+283	2.41	Общая теория относительности | векторные поля | однопар. семейство диффеоморфизмов | 4	https://www.youtube.com/watch?v=4lT3MwOpZi4&index=283&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+284	3.21	Общая теория относительности | векторные поля | скобка Ли | 1	https://www.youtube.com/watch?v=Nu3XlcuiUpM&index=284&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+285	3.38	Общая теория относительности | векторные поля | скобка Ли | 2 | примеры	https://www.youtube.com/watch?v=H1QaDSJHzRQ&index=285&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+286	1.51	Общая теория относительности | векторные поля | скобка Ли | 3	https://www.youtube.com/watch?v=bi1CYHJIcSc&index=286&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+287	2.19	Общая теория относительности | векторные поля | алгебры Ли | определение	https://www.youtube.com/watch?v=yxzHoZ4qFQA&index=287&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+288	2.46	Общая теория относительности | дифф. геом. | отображения многообразий | 1	https://www.youtube.com/watch?v=p4FjRpEyZpQ&index=288&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+289	4.33	Общая теория относительности | дифф. геом. | отображения многообразий | 2	https://www.youtube.com/watch?v=-fRu2eLlThc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=289
+290	2.45	Общая теория относительности | дифф. геом. | отображения многообразий | 3	https://www.youtube.com/watch?v=31fArirYjnk&index=290&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+291	6.22	Общая теория относительности | дифф. геом. | отобр. многообр. | касательное отобр. | 1	https://www.youtube.com/watch?v=shz5lKyLgPQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=291
+292	1.57	Общая теория относительности | дифф. геом. | отобр. многообр | касательное отобр. | 2	https://www.youtube.com/watch?v=IRzEg3h1U5A&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=292
+293	3.51	Общая теория относительности | дифф. геом. | отобр. многообр | кокасательное отобр. | 1	https://www.youtube.com/watch?v=WQZ0HpGMUE0&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=293
+294	2.41	Общая теория относительности | дифф. геом. | отобр. многообр | кокасательное отобр. | 2	https://www.youtube.com/watch?v=VlFe8wnQXGw&index=294&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+295	2.52	Общая теория относительности | дифф. геом. | отображения многообразий | пулбэк	https://www.youtube.com/watch?v=SBUZKjNIOgQ&index=295&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+296	2.39	Общая теория относительности | дифф. геом. | отобр. многообразий | пулбэк отображений	https://www.youtube.com/watch?v=1bGZK0nDJ7g&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=296
+297	3.10	Общая теория относительности | дифф. геом. | отобр. многообразий | снова пулбэк	https://www.youtube.com/watch?v=8xbClQEmYrA&index=297&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+298	2.00	Общая теория относительности | дифф. геом. | отобр. многообразий | и опять пулбэк	https://www.youtube.com/watch?v=1oU9viEkfpQ&index=298&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+299	2.49	Общая теория относительности | векторные поля | поля, порожденные группами | 1	https://www.youtube.com/watch?v=tCN9OjBK33g&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=299
+300	2.39	Общая теория относительности | векторные поля | поля, порожденные группами | 2	https://www.youtube.com/watch?v=XVVTtgpJDZ8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=300
+301	4.10	Общая теория относительности | группы Ли | мотивация	https://www.youtube.com/watch?v=Ns3QY79trFI&index=301&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+302	2.25	Общая теория относительности | группы Ли | 1	https://www.youtube.com/watch?v=Usv3PldLY5w&index=302&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+303	1.39	Общая теория относительности | группы Ли | 2 | попытка определить формально	https://www.youtube.com/watch?v=XHXDOEPf-uc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=303&pbjreload=10
+304	6.16	Общая теория относительности | группы Ли | 3 | примеры	https://www.youtube.com/watch?v=IruuBiLuPGI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=304
+305	3.37	Общая теория относительности | группы Ли | 4 | примеры	https://www.youtube.com/watch?v=SoX5vwVUvWM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=305
+306	1.34	Общая теория относительности | группы Ли | 5 | нематричные группы Ли	https://www.youtube.com/watch?v=K5U-9kAv_Pg&index=306&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+307	3.18	Общая теория относительности | группы Ли и их алгебры Ли | 1	https://www.youtube.com/watch?v=Vp7TpDn93HI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=307
+308	3.28	Общая теория относительности | группы Ли и их алгебры Ли | 2	https://www.youtube.com/watch?v=RN74vWDp0xo&index=308&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+309	3.16	Общая теория относительности | группы Ли и их алгебры Ли | 3	https://www.youtube.com/watch?v=yV01yr3GofU&index=309&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+310	4.58	Общая теория относительности | группы Ли и их алгебры Ли | 4	https://www.youtube.com/watch?v=S1_Mw1wA_Pk&index=310&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+311	4.24	Общая теория относительности | группы Ли и их алгебры Ли | 5	https://www.youtube.com/watch?v=keYXmZg-Bbo&index=311&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+312	3.11	Общая теория относительности | группы Ли и их алгебры Ли | 6	https://www.youtube.com/watch?v=tiR1GEvxEIM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=312
+313	3.23	Общая теория относительности | группы Ли и их алгебры Ли | 7	https://www.youtube.com/watch?v=uWRCfmi4ZKk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=313
+314	1.24	Общая теория относительности | группы Ли и их алгебры Ли | 8	https://www.youtube.com/watch?v=RfNZ6qk5PHY&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=314
+315	2.04	Общая теория относительности | группы Ли и их алгебры Ли | 9	https://www.youtube.com/watch?v=-DBTwbQMzEU&index=315&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+316	2.11	Общая теория относительности | группы Ли и их алгебры Ли | 10	https://www.youtube.com/watch?v=J8N9V4TMmSw&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=316
+317	2.36	Общая теория относительности | группы Ли и их алгебры Ли | 11	https://www.youtube.com/watch?v=Zs0CeXeZRdI&index=317&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+318	1.48	Общая теория относительности | группы Ли и их алгебры Ли | 12	https://www.youtube.com/watch?v=FBYeROmCpe4&index=318&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+319	2.55	Общая теория относительности | группы Ли и их алгебры Ли | 13	https://www.youtube.com/watch?v=WRLcOrbXcgg&index=319&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+320	2.10	Общая теория относительности | группы Ли и их алгебры Ли | 14 | экспоненциальное отображение	https://www.youtube.com/watch?v=FiMrmpb0JWg&index=320&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+321	2.55	Общая теория относительности | группы Ли и их алгебры Ли | 15 | экспоненциальное отображение	https://www.youtube.com/watch?v=-g-vLKNFPBk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=321
+322	2.33	Общая теория относительности | группы Ли и их алгебры Ли | 16 | базис в алгебре Ли	https://www.youtube.com/watch?v=wuPPt-86WJM&index=322&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+323	1.44	Общая теория относительности | группы Ли и их алгебры Ли | 17 | базис в алгебре Ли	https://www.youtube.com/watch?v=G9LCjLecth0&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=323
+324	3.31	Общая теория относительности | группы Ли и их алгебры Ли | 18 | базис в алгебре Ли	https://www.youtube.com/watch?v=juRTflPQxcY&index=324&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+325	2.44	Общая теория относительности | группы Ли и их алгебры Ли | 19 | базис в алгебре Ли	https://www.youtube.com/watch?v=IZOuwc0BRqE&index=325&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+326	3.06	Общая теория относительности | группы Ли и их алгебры Ли | 20 | базис в алгебре Ли	https://www.youtube.com/watch?v=N87EuErFSb8&index=326&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+327	3.04	Общая теория относительности | группы Ли и их алгебры Ли | 21 | базис в алгебре Ли	https://www.youtube.com/watch?v=FZXtrzDSWmI&index=327&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+328	3.18	Общая теория относительности | группы Ли и их алгебры Ли | 22 | базис в алгебре Ли	https://www.youtube.com/watch?v=Mj1CMtpNTyM&index=328&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+329	3.09	Общая теория относительности | группы Ли и их алгебры Ли | 23 | о структурных константах	https://www.youtube.com/watch?v=2Ee8HKGRUnk&index=329&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+330	4.10	Общая теория относительности | группы Ли и их алгебры Ли | 24 | о структурных константах	https://www.youtube.com/watch?v=2RjfwNL1PWM&index=330&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+331	3.59	Общая теория относительности | группы Ли и их алгебры Ли | 25 | о структурных константах	https://www.youtube.com/watch?v=zbGVCt61ffM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=331
+332	2.28	Общая теория относительности | группы Ли и их алгебры Ли | 26 | о структурных константах	https://www.youtube.com/watch?v=eu6pSfuKLCo&index=332&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+333	2.17	Общая теория относительности | группы Ли и их алгебры Ли | 27 | связь SU(2) и SO(3)	https://www.youtube.com/watch?v=Aj4qBaU8apA&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=333
+334	6.11	Общая теория относительности | группы Ли и их алгебры Ли | 28	https://www.youtube.com/watch?v=Sb4ua5NCW14&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=334
+335	3.34	Общая теория относительности | группы Ли и их алгебры Ли | 29 | представление групп Ли	https://www.youtube.com/watch?v=ipaPdm_sPx4&index=335&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+336	3.11	Общая теория относительности | группы Ли и их алгебры | 30 | представление группы Ли | ос. случай	https://www.youtube.com/watch?v=CgVcBDj7Lks&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=336
+337	2.19	Пояснение к видео про отображение "Ad"	https://www.youtube.com/watch?v=lE07URm60kI&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=337
+338	2.28	Общая теория относительности | группы Ли и их алг | 31 | представление гр. Ли | дифференциал Ad	https://www.youtube.com/watch?v=6wBkDCIdJ8Y&index=338&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+339	2.28	Общая теория относительности | группы Ли и их алгебры Ли | 32 | левое и правое действие группы	https://www.youtube.com/watch?v=EW1yp7MFdJk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=339
+340	2.19	Общая теория относительности | группы Ли и их алгебры Ли | 33 | метрика	https://www.youtube.com/watch?v=lGJdnJAk02M&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=340
+341	2.55	Общая теория относительности | группы Ли и их алгебры Ли | 34 | инвариантные метрики	https://www.youtube.com/watch?v=cdniChUqE_A&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=341
+342	2.59	Общая теория относительности | группы Ли и их алгебры Ли | 35 | левоинвариантная метрика	https://www.youtube.com/watch?v=cv4Z7O0arKU&index=342&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+343	1.50	Общая теория относительности | группы Ли и их алгебры Ли | 35 | ещё об инвариантных метриках	https://www.youtube.com/watch?v=SkooS0Dgsc4&index=343&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+344	1.55	Общая теория относительности | группы Ли и их алгебры Ли | 36 | "двустороннеинвариантные" метрики	https://www.youtube.com/watch?v=G6D3guergSc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=344
+345	2.18	Общая теория относительности | группы Ли и их алгебры Ли | 37 | метрика Киллинга	https://www.youtube.com/watch?v=uoe4LMaQW8M&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=345
+346	2.37	Общая теория относительности | группы Ли и их алгебры Ли | 38 | метрика Киллинга | чётче	https://www.youtube.com/watch?v=Dz9mB9Xzev4&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=346
+347	3.15	Общая теория относительности | векторные поля | возвращение блудного сына	https://www.youtube.com/watch?v=H-4eznDS7Ms&index=347&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+348	4.08	Общая теория относительности | векторные поля | скобка Ли линейных полей	https://www.youtube.com/watch?v=fmklcF62-8M&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=348
+349	2.50	Общая теория относительности | векторные поля | экспонента | 1	https://www.youtube.com/watch?v=x2GrTvAuaQo&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=349
+350	3.08	Общая теория относительности | векторные поля | экспонента | 2	https://www.youtube.com/watch?v=_lYMl4ab4do&index=350&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+351	2.06	Общая теория относительности | векторные поля | коммутационные соотношения	https://www.youtube.com/watch?v=ePHIrvEEcfI&index=351&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+352	3.23	Общая теория относительности | векторные поля | экспоненциальное отображение | 1	https://www.youtube.com/watch?v=lN_rkn50s0E&index=352&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+353	1.57	Общая теория относительности | векторные поля | экспоненциальное отображение | 2	https://www.youtube.com/watch?v=_g6JNSK-Mpc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=353
+354	2.22	Общая теория относительности | векторные поля | производная Ли | 1	https://www.youtube.com/watch?v=3WT9U0xOHA8&index=354&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+355	2.55	Общая теория относительности | векторные поля | производная Ли | 2	https://www.youtube.com/watch?v=zySIB1Q4_zA&index=355&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&pbjreload=10
+356	2.04	Общая теория относительности | векторные поля | производная Ли | 3	https://www.youtube.com/watch?v=iwgmm8FRksk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=356
+357	2.13	Общая теория относительности | векторные поля | производная Ли | 4	https://www.youtube.com/watch?v=2FCkFVEw9E8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=357
+358	2.26	Общая теория относительности | векторные поля | производная Ли | 5	https://www.youtube.com/watch?v=zmvvFJNMDA8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=358
+359	2.29	Общая теория относительности | векторные поля | производная Ли | 6	https://www.youtube.com/watch?v=j5xVwACBOrs&index=359&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+360	2.59	Общая теория относительности | векторные поля | производная Ли | 7	https://www.youtube.com/watch?v=DdmuUxAgs_c&index=360&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+361	4.55	Общая теория относительности | векторные поля | производная Ли | 7 | основная формула	https://www.youtube.com/watch?v=rJ8qWNeU64Y&index=361&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+362	3.19	Общая теория относительности | векторные поля | производная Ли | 8 | тензор деформации	https://www.youtube.com/watch?v=9PQ1MxQMoUk&index=362&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+363	2.24	Общая теория относительности | векторные поля | производная Ли | 9 | свойства	https://www.youtube.com/watch?v=mIF8VdqW8KU&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=363
+364	4.39	Общая теория относительности | векторные поля | лагранжев формализм	https://www.youtube.com/watch?v=QgYFf7FmuVI&index=364&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+365	2.36	Общая теория относительности | векторные поля | производная Ли | 10 | поля Киллинга	https://www.youtube.com/watch?v=8xT1hN3oODM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=365
+366	3.31	Общая теория относительности | векторные поля | инструментарий лагранжева формализма	https://www.youtube.com/watch?v=8zRowwe_SUA&index=366&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+367	3.52	Общая теория относительности | векторные поля | теорема Нётер | 1	https://www.youtube.com/watch?v=akKuRuy03C0&index=367&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+368	2.30	Общая теория относительности | векторные поля | теорема Нётер | 2	https://www.youtube.com/watch?v=RSWoz59AfSw&index=368&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+369	3.03	Общая теория относительности | векторные поля | теорема Нётер | 3	https://www.youtube.com/watch?v=PVJhn9LwIIw&index=369&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+370	3.55	Общая теория относительности | векторные поля | теорема Нётер | 4	https://www.youtube.com/watch?v=59h7_ELuWJk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=370
+371	2.25	Общая теория относительности | векторные поля | теорема Нётер | 5	https://www.youtube.com/watch?v=-56dYa28uUM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=371
+372	2.08	Общая теория относительности | векторные поля | теорема Нётер | 6	https://www.youtube.com/watch?v=V3GxyN0bplc&index=372&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+373	2.39	Общая теория относительности | векторные поля | теорема Нётер | 7	https://www.youtube.com/watch?v=fW6FPux2qGw&index=373&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+374	3.54	Общая теория относительности | векторные поля | теорема Нётер | 8	https://www.youtube.com/watch?v=Zc5ja1oyqR0&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=374
+375	2.23	Общая теория относительности | векторные поля | теорема Нётер | 9	https://www.youtube.com/watch?v=tQ9YTk6hw94&index=375&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+376	2.05	Общая теория относительности | векторные поля | теорема Нётер | 10	https://www.youtube.com/watch?v=yXMylXIRyco&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=376
+377	2.34	Общая теория относительности | векторные поля | теорема Нётер | 11	https://www.youtube.com/watch?v=6GZfIfEG-7Y&index=377&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+378	5.12	Общая теория относительности | векторные поля | теорема Нётер | 12	https://www.youtube.com/watch?v=ARnJFloSlMc&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=378
+379	3.25	Общая теория относительности | векторные поля | теорема Нётер | 13	https://www.youtube.com/watch?v=OZpcd_TUXkQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=379
+380	4.11	Общая теория относительности | векторные поля | теорема Нётер | 14	https://www.youtube.com/watch?v=6ejdlzrgb94&index=380&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+381	4.03	Общая теория относительности | векторные поля | теорема Нётер | 15	https://www.youtube.com/watch?v=3JB-e7J0fbg&index=381&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+382	2.31	Общая теория относительности | векторные поля | теорема Нётер | 16	https://www.youtube.com/watch?v=3QLfeHJztL8&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=382
+383	4.07	Общая теория относительности | векторные поля | теорема Нётер | 17	https://www.youtube.com/watch?v=0GDEh-Q-UPA&index=383&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+384	4.48	Общая теория относительности | векторные поля | теорема Нётер | 18	https://www.youtube.com/watch?v=Jl9IgWMlrII&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=384
+385	2.12	Общая теория относительности | векторные поля | теорема Нётер | 19	https://www.youtube.com/watch?v=fgmUzvncKSk&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=385
+386	2.18	Общая теория относительности | векторные поля | теорема Нётер | 20	https://www.youtube.com/watch?v=imoawZDlQiw&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=386
+387	1.44	Общая теория относительности | векторные поля | теорема Нётер | 21	https://www.youtube.com/watch?v=DqXTFSbQwPM&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=387
+388	6.03	Общая теория относительности | тензор энергии импульса	https://www.youtube.com/watch?v=90A_8Qui6VQ&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-&index=388
+389	2.31	Общая теория относительности | тензор энергии импульса | калибровка	https://www.youtube.com/watch?v=HL2_EebZsmM&index=389&list=PLdupor3lULXjLqdw9SCGYkPF41aGFB1r-
+итого 21 час

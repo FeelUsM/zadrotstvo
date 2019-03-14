@@ -1,0 +1,19 @@
+			weak	regular	strong	soaring	balloon	
+sensitivity:		fast	regular	slow	regular	regular	
+audio g	tone change	linear	linear	linear	linear	linear	
+	tone rise 	fast	medium	slow	medium	slow	
+	cadence change	log	log	log	log	linear	
+	cadence rise	fast	medium	slow	medium	off	
+
+climb t	active		yes	yes	yes	yes	no	
+	threshold	0.07m/s	0.1m/s	0.13m/s	0.1m/s	0.1m/s	
+neartherm active	no	no	no	no	no	
+	threshold	-0.5m/s	-0.5m/s	-0.5m/s	-1m/s	-1m/s	
+	duration	short	short	short	short	short	
+	volume		lower	lower	lower	lower	lower	
+sink t	active		yes	yes	yes	no	yes	
+	threshold	-2.5m/s	-2.5m/s	-2.5m/s	-1.5m/s	0m/s	
+	duration	contin	contin	contin	contin	short	
+	volume		lower	lower	lower	lower	standard
+last thermal threshold	0.5m/s	1.5m/s	2.5m/s	0.5m/s	0.5m/s	
+

@@ -1,0 +1,143 @@
+--- режимы ---
+1	change cell to heading 1 
+2	change cell to heading 2 
+3	change cell to heading 3 
+4	change cell to heading 4 
+5	change cell to heading 5 
+6	change cell to heading 6 
+Y	change cell to code 
+M	change cell to markdown 
+R	change cell to raw 
+Enter	enter edit mode 
+Esc	enter command mode 
+--- выполнение ---
+C-Enter	run selected cells 
+Alt-Enter run cell and insert below 
+S-Enter	run cell and select next 
+None	run all cells 
+None	run all cells above 
+None	run all cells below 
+--- создание ячеек ---
+A	insert cell above 
+B	insert cell below 
+C-S-Minus split cell at cursor 
+Shift-M	merge cells 
+None	merge cell with next cell 
+None	merge cell with previous cell 
+None	merge selected cells 
+None	insert image 				???
+--- выделение ячеек ---
+S-K	extend selection above 
+S-J	extend selection below 
+Down	select next cell 
+Up	select previous cell 
+--- редактирование ячеек ---
+C	copy selected cells 
+X	cut selected cells 
+Shift-V	paste cells above 
+V	paste cells below 
+D,D	delete cells 
+Z	undo cell deletion 
+None	move cells down 
+None	move cells up 
+None	paste cell replace 
+--- файл ---
+F	find and replace 
+C-S	save notebook 
+None	duplicate notebook 
+None	rename notebook 
+None	trust notebook 
+--- ядро ---
+0,0	confirm restart kernel 
+I,I	interrupt the kernel 
+None	confirm restart kernel and clear output 
+None	confirm restart kernel and run all cells 
+None	confirm shutdown kernel 
+None	restart kernel 
+None	restart kernel and clear output 
+None	restart kernel and run all cells 
+None	shutdown kernel 
+None	shutdown kernel and close window 
+--- команды и клавиши ---
+H	show keyboard shortcuts 
+C-S-P	show command pallette 
+Esc	close the pager 
+None	edit command mode keyboard shortcuts 
+--- бары ---
+None	hide menubar 
+None	show menubar 
+None	toggle menubar 
+None	hide the toolbar 
+None	show the toolbar 
+None	toggle toolbar 
+None	hide the header 
+None	show the header 
+None	toggle header 
+--- cell output ---
+O	toggle cell output 
+None	clear all cells output 
+None	clear cell output 
+None	toggle all cells output collapsed 
+None	toggle all cells output scrolled 
+--- навигация ---
+Down	move cursor down 
+Up	move cursor up 
+Space	scroll notebook down 
+S-Space	scroll notebook up 
+S-O	toggle cell scrolling 
+None	scroll cell center 
+None	scroll cell top 
+--- прочие переключалки ---
+S-L	toggle all line numbers 
+None	hide all line numbers 
+None	show all line numbers 
+L	toggle line numbers 
+None	automatically indent selection 
+
+
+None	toggle rtl layout 
+Shift	ignore 
+
+None	copy cell attachments 	???
+None	cut cell attachments 
+None	paste cell attachments 
+
+
+=== collapsible_headings command group ===
+Left	collapse-heading 
+Right	uncollapse-heading 
+C-S-Left collapse-all-headings 
+C-S-Right uncollapse-all-headings 
+S-A	insert-heading-above 
+S-B	insert-heading-below 
+S-Right	select-heading-section 
+None	toggle-collapse-all-headings 
+None	toggle-collapse-heading 
+
+=== auto command group ===
+Alt-F	toggle codefolding 
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== widgets command group ===
+None	embed interactive widgets 
+None	save clear widgets 
+None	save widget state 
+None	save with widgets 
+
+=== hide_input_all command group ===
+None	hide codecell inputs 
+
+=== hide_input command group ===
+None	toggle cell input display 
+

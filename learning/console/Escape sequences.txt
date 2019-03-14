@@ -1,0 +1,795 @@
+		=== SCI ===						=== tput ===
+== получение данных == {
+					columns                 cols       co        					number of columns in a line
+					lines                   lines      li        					number of lines on screen or page
+					init_tabs               it         it        					tabs initially every # spaces
+					max_pairs               pairs      pa        					maximum number of color-pairs on the screen
+					max_colors              colors     Co        					maximum number of colors on screen
+				CSI 6 n 		DSR — Device Status Report
+						Сообщает текущее положение курсора в формате ESC[n;mR, где n — строка, m — столбец. (Может не работать в MS-DOS)
+	\e[6n			user8                   u8         u8        User string #8
+	``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~
+					acs_chars               acsc    ac        graphics charset pairs, based on vt100
+}
+== сохранение/восстановление положения курсора == {
+	sc			CSI s 			SCP — Save Cursor Position 				Сохраняет положение курсора.
+	rc			CSI u 			RCP — Restore Cursor Position 			Восстанавливает положение курсора.
+	\e7				save_cursor             sc         sc        save current cursor position (P)
+	\e8				restore_cursor          rc         rc        restore cursor to position of last save_cursor
+					save_cursor				sc		sc	Сохранение позиции курсора (Р)
+					restore_cursor			rc		rc	Установка курсора в позицию последнего sc
+}
+== перемещение вверх/вниз/влево/вправо == {
+				CSI n A 		CUU — Cursor Up
+						Перемещает курсор на n (по умолчанию 1) позиций в указанном направлении.
+						Если курсор уже находится с краю окна терминала, ничего не происходит.
+					cursor_up				cuul	up	Вверх на строку (курсор вверх)
+	\e[A			cursor_up               cuu1       up        up one line
+					parm_up_cursor			cuu		UP(+)	Переместить курсор вверх на #1 строк (PG*)
+	\e[%p1%dA		parm_up_cursor          cuu        UP        up #1 lines (P*)
+					key_sr					kri		kR(+)	Посылается клавишей прокрутки назад/вверх
+	\e[1;2A			key_sr                  kri        kR        scroll-backward key
+				CSI n B 		CUD — Cursor Down
+					cursor_down				cud1	do	Вниз на одну строку
+	\n				cursor_down             cud1       do        down one line
+					parm_down_cursor		cud		DO(+)	Переместить курсор вниз на #1 строк (PG*)
+	\e[%p1%dB		parm_down_cursor        cud        DO        down #1 lines (P*)
+					key_sf					kind	kF(+)	Посылается клавишей прокрутки вперед/вниз
+	\e[1;2B			key_sf                  kind       kF        scroll-forward key
+				CSI n C 		CUF — Cursor Forward
+					cursor_right			cuf1	nd	Неразрушительное перемещение курсора (курсор вправо)
+	\e[C			cursor_right            cuf1       nd        non-destructive space (move right one space)
+					parm_right_cursor		cuf		RI(+)	Переместить курсор вправо на #1 позиций (PG*)
+	\e[%p1%dC		parm_right_cursor       cuf        RI        move #1 characters to the right (P*)
+	\e[1;2C			key_sright              kRIT       %i        shifted right-arrow key
+				CSI n D 		CUB — Cursor Back
+					cursor_left				cub1	le	Передвинуть курсор влево на одну позицию
+	\b				cursor_left             cub1       le        move left one space
+					parm_left_cursor		cub		LE(+)	Переместить курсор влево на #1 позиций (PG*)
+	\e[%p1%dD		parm_left_cursor        cub        LE        move #1 characters to the left (P)
+	\e[1;2D			key_sleft               kLFT       #4        shifted left-arrow key
+}
+== другое перемещение == {
+			CSI n ; m H 	CUP — Cursor Position
+						Перемещает курсор в строку n, столбец m. Значения n и m по умолчанию 1 (левый верхний угол),
+						если указан только один аргумент без точки с запятой, считается что это n.
+						Например, последовательность CSI ;5H синонимична CSI 1;5H, CSI 17;H синонимична CSI 17H и CSI 17;1H.
+					cursor_address			cup		cm	Относительное перемещение курсора на экране: строка #1, столбец #2 (PG)
+	\e[%i%p1%d;%p2%dH	cursor_address      cup        cm        move to row #1 col‐ umns #2
+			CSI n ; m f 	HVP — Horizontal and Vertical Position 	Перемещает курсор в строку n, столбец m. Значение по умолчанию обоих параметров 1. Тот же эффект, что и CUP.
+			CSI n G 		CHA — Cursor Horizontal Absolute 		Перемещает курсор в столбец n.
+					column_address			hpa		ch	Установка столбца курсора
+	\e[%i%p1%dG		column_address          hpa        ch        horizontal position 1, absolute (P)
+					row_address				vpa		cv	Абсолютная позиция по вертикали (строка установки) (PG)
+	\e[%i%p1%dd		row_address             vpa        cv        vertical position #1 absolute (P)
+
+			CSI n E 		CNL — Cursor Next Line 					Перемещает курсор в начало n-ой (по умолчанию 1-й) строки снизу относительно текущей.
+			CSI n F 		CPL — Cursor Previous Line 				Перемещает курсор в начало n-ой (по умолчанию 1-й) строки сверху относительно текущей.
+
+					cursor_home				home	ho	Курсор в начальное положение (если не cup)
+	\e[H			cursor_home             home       ho        home cursor (if no cup)
+					carriage_return			cr		cr	Возврат каретки (Р*)
+	\r				carriage_return         cr         cr        carriage return (P*) P*)
+					cursor_to_ll			ll			ll	Последняя строка, первый столбец (если не сup)
+	zzzzzzzzz		cursor_to_ll            ll      	ll        last line, first column (if no cup)
+}
+== удаление/вставка симолов/строк == {
+					erase_chars				ech		ec	Стереть #1 символов (PG)
+	\e[%p1%dX		erase_chars             ech        ec        erase #1 characters P)
+					parm_dch				dch		DC(+)	Удалить #1 символов (PG*)
+	\e[%p1%dP		parm_dch                dch        DC        delete #1 characters P*)
+					delete_character		dch1	dc	Удаление символа (Р*)
+	\e[P			delete_character        dch1       dc        delete character P*)
+					parm_ich				ich		IC(+)	Вставить #1 пробелов (PG*)
+	\e[%p1%d@		parm_ich                ich        IC        insert #1 characters P*)
+					insert_characters		ich1	ic	Вставка символа (Р)
+	zzzzzzzzz		insert_characters		ich1	ic	????????????????????????????
+					back_tab				cbt		bt	Обратная табуляция (Р)
+	\e[Z			back_tab                cbt        bt        back tab (P)
+	\e[Z			key_btab                kcbt       kB        back-tab key
+
+					parm_delete_line		dl		DL(+)	Удалить #1 строк (PG*)
+	\e[%p1%dM		parm_delete_line        dl         DL        delete #1 lines (P*)
+					parm_insert_line		il		AL(+)	Добавить #1 пустых строк (PG*)
+	\e[%p1%dL		parm_insert_line        il         AL        insert #1 lines (P*)
+					insert_line				il1		al	Добавление пустой строки (Р*)
+	\e[L			insert_line             il1        al        insert line (P*)
+					delete_line				dl1		dl	Удаление сторки (Р*)
+	\e[M			delete_line             dl1        dl        delete line (P*)
+	\e[M			mouse_info              minfo      Mi        Mouse status information
+}
+== очистка частей экрана == {
+			CSI n K 		EL — Erase in Line 						Удаляет часть строки. Если n равно нулю (или отсутствует), очищает всё от курсора до конца строки. Если n равно единице, очищает всё от курсора до начала строки. Если n равно двум, очищает всю строку. Положение курсора не меняется.
+					clr_eol					el		ce	Очистка до конца строки
+	\e[K			clr_eol                 el         ce        clear to end of line P)
+	\e[1K			clr_bol                 el1        cb        Clear to beginning of line
+			CSI n J 		ED — Erase Data 						Очищает часть окна терминала. Если n равно нулю (или отсутствует), очищает всё от курсора до конца окна терминала. Если n равно единице, очищает всё от курсора до начала окна терминала. Если n равно двум, очищает всё окно терминала (и перемещает курсор в левый верхний угол в MS-DOS ANSI.SYS). В случае n равного 2, вместо очистки может произойти просто создание новых строчек так чтобы предшествующее содержимое терминала вытеснилось вверх.
+					clr_eos					ed		cd	Очистка до конца изображения (Р*)
+	\e[J			clr_eos                 ed         cd        clear to end of screen (P*)
+					clear_screen			clear	cl	Очистка экрана и установка курсора в начальное положение
+	\e[H\e[2J		clear_screen            clear      cl        clear screen and home cursor (P*)
+}
+== перемещения всего экрана == {
+			CSI n S 		SU — Scroll Up 							Прокручивает текущую страницу терминала вверх на n (по умолчанию 1) строк. Новые строки добавляются снизу, строки в верхней части текущей страницы затираются. (не ANSI.SYS)
+			CSI n T 		SD — Scroll Down 						Прокручивает текущую страницу терминала вниз на n (по умолчанию 1) строк. Новые строки добавляются сверху, строки в нижней части текущей страницы удаляются. (не ANSI.SYS)
+					parm_index				indn	SF(+)	Прокрутка вперед на #1 строк (PG)
+	\e[%p1%dS		parm_index              indn       SF        scroll forward #1 lines (P)
+					scroll_forward			ind		sf	Прокрутка текста вверх (Р)
+	\n				scroll_forward          ind        sf        scroll text up (P)
+					parm_rindex				rin		SR(+)	Прокрутка назад на #1 строк (PG)
+	\e[%p1%dT		parm_rindex             rin        SR        scroll back #1 lines P)
+					scroll_reverse			ri		sr	Прокрутка текста вниз (Р)
+	\eM				scroll_reverse          ri         sr        scroll text down (P)
+					form_feed				ff		ff	Прогон страницы твердой копии (Р*)
+	zzzzzzzzzzzz	form_feed               ff         ff        hardcopy terminal page eject (P*)
+}
+== скрыть/показать курсор == {
+			CSI ?25l 		DECTCEM 								Скрывает курсор.
+					cursor_invisible		civis	vi	Сделать курсор невидимым
+	\e[?25l			cursor_invisible        civis      vi        make cursor invisi‐ ble
+			CSI ?25h 		DECTCEM 								Делает курсор видимым.
+					cursor_visible			cvvis	vs	Сделать курсор видимым
+	\e[?12;25h		cursor_visible          cvvis      vs        make cursor very visible
+					cursor_normal			cnorm	ve	Сделать курсор обычным (переделать vs/vi)
+	\e[?12l\e[?25h	cursor_normal           cnorm      ve        make cursor appear normal (undo civis/cvvis)
+}
+				enter_insert_mode		smir	im	Режим вставки (ввод)
+\e[4h			enter_insert_mode       smir       im        enter insert mode
+				exit_insert_mode		rmir	ei	Завершить режим вставки
+\e[4l			exit_insert_mode        rmir       ei        exit insert mode
+
+				enter_alt_charset_mode	smacs	as	Начать альтернативный набор символов (Р)
+\e(0			enter_alt_charset_mode  smacs      as        start alternate character set (P)
+				exit_alt_charset_mode	rmacs	ae	Завершить альтернативный набор символов
+\e(B			exit_alt_charset_mode   rmacs      ae        end alternate char‐ acter set (P)
+
+== SGR ==
+			CSI n [;k] m 	SGR — Select Graphic Rendition 			Установка SGR параметров, определяющих цвета текста и фона. После CSI могут находиться ноль или более параметров, разделённых точками с запятыми. Если параметры не указаны, CSI m ведёт себя как CSI 0 m (reset / normal).
+
+=== tput ========= SGR =====
+			0 		Reset / Normal 	выключение всех атрибутов
+				exit_attribute_mode		sgr0	me	Выключить все атрибуты
+\e(B\e[m		exit_attribute_mode     sgr0       me        turn off all attributes
+
+			10 		Основной(по умолчанию) шрифт
+== цвета текста и фона == {
+				set_attributes			sgr		sa	Определить видеоатрибуты (PG9)
+%?%p9%t\e(0%e\e(B%;\e[0%?%p6%t;1%;%?%p5%t;2%;%?%p2%t;4%;%?%p1%p3%|%t;7%;%?%p4%t;5%;%?%p7%t;8%;m
+				set_attributes          sgr     sa        define video attributes #1-#9 PG9)
+
+0:Black 	1:Red 	2:Green 	3:Yellow 	4:Blue 	5:Magenta 	6:Cyan 	7:White
+
+			30–37 	Установить цвет текста (на переднем плане) 	30 + n, где n из таблицы цветов ниже
+\e[3%p1%dm		set_color_band          setcolor   Yz        Change to ribbon color #1
+\e[3%?%p1%{1}%=%t4%e%p1%{3}%=%t6%e%p1%{4}%=%t1%e%p1%{6}%=%t3%e%p1%d%;m
+				set_foreground          setf       Sf        Set foreground color 1
+
+			40–47 	Установить цвет фона 	40 + n, где n из таблицы цветов снизу
+\e[4%p1%dm		set_a_foreground        setaf      AF        Set foreground color to #1, using ANSI escape
+\e[4%?%p1%{1}%=%t4%e%p1%{3}%=%t6%e%p1%{4}%=%t1%e%p1%{6}%=%t3%e%p1%d%;m
+				set_background			setb       Sb        Set background color 1
+
+			38 		Зарезервировано для дополнительных цветов 	обычно поддерживаются следующие аргументы: 5;n где n индекс цвета (0..255) или 2;r;g;b где r , g , b   - красный, зеленый и синий каналы цвета (в пределах 255)
+			48 		Зарезервировано для установки расширенного цвета фона 	обычно поддерживает следующие аргументы 5;n где n индекс цвета (0..255) или 2;r;g;b where r , g , b   - красный, зеленый и синий каналы цвета (в пределах 255)
+
+			90–97 	Set foreground text color, high intensity 	aixterm (не стандарт)
+			100–107	Set background color, high intensity 	aixterm (не стандарт)
+
+			39 		Цвет текста по умолчанию (на переднем плане) 	зависит от реализации (в соответствии со стандартом)
+			49 		Цвет фона по умолчанию 	зависит от реализации (в соответствии со стандартом)
+\e[39;49m		orig_pair               op         op        Set default pair to its original value
+
+			7 		Отображение: Негатив 	инвертирует или обращает; меняет цвета фона и текста
+				enter_reverse_mode		rev		mr	Включить обратный видеорежим
+\e[7m			enter_reverse_mode      rev        mr        turn on reverse video mode
+				enter_standout_mode		smso	so	Начать режим standout
+\e[7m			enter_standout_mode     smso       so        begin standout mode
+			27 		Отображение: обычное 	не негатив
+				exit_standout_mode		rmso	se	Завершить режим standout
+\e[27m			exit_standout_mode      rmso       se        exit standout mode
+
+			1 		Жирный или увеличить яркость
+				enter_bold_mode			bold	md	Включить режим повышеной яркости
+\e[1m			enter_bold_mode         bold       md        turn on bold (extra bright) mode
+			2 		Блёклый (уменьшить яркость) 	Не везде поддерживается
+				enter_dim_mode			dim		mh	Включить режим половинной яркости
+\e[2m			enter_dim_mode          dim        mh        turn on half-bright mode
+			22 		Обычный цвет или яркость 	Ни жирный ни блеклый
+}
+--------
+			8 		Скрытый 	Не везде поддерживается.
+				enter_secure_mode		invis	mk	Включить режим пробелов (символы невидимы)
+\e[8m			enter_secure_mode       invis      mk        turn on blank mode characters invisi‐ ble)
+			28 		Отображающийся 	выключить скрытие
+
+				enter_ca_mode			smcup	ti	Цепочка для начала программ, которые используют cups
+\e[?1049h		enter_ca_mode           smcup      ti        string to start pro‐ grams using cup
+				exit_ca_mode			rmcup	te	Цепочка для завершения программ, которые используют cups
+\e[?1049l		exit_ca_mode            rmcup      te        strings to end pro‐ grams using cup
+
+			3 		Курсив: вкл. 	Не везде поддерживается. Иногда обрабатывается как инверсия.
+\e[3m			enter_italics_mode      sitm       ZH        Enter italic mode
+			23 		Не курсивный, не фрактура
+\e[23m			exit_italics_mode       ritm       ZR        End italic mode
+			20 		Фрактура 	вряд ли поддерживается
+
+			4 		Подчеркнутый: один раз
+			24 		Подчеркивание: Нет 	Подчеркивание ни одиночное ни двойное
+				enter_underline_mode	smul	us	Начать режим подчеркивания
+\e[4m			enter_underline_mode    smul       us        begin underline mode
+				exit_underline_mode		rmul	ue	Завершить режим подчеркивания
+\e[24m			exit_underline_mode     rmul       ue        exit underline mode
+			21 		Жирный: выкл. или Подчеркивание: Двойное 	жирный не всегда поддерживается; двойное подчеркивание вряд ли поддерживается.
+
+			9 		Зачеркнутый 	Символы разборчивы, но помечены как удаленные. Не везде поддерживается.
+			29 		Не зачеркнутый
+
+			53 		Надчеркнутый
+			55 		Не надчеркнутый
+
+			51 		Обрамленный
+			52 		Окруженный
+			54 		Не обрамленный и не окруженный
+--------
+			5 		Мигание: Медленно 	менее 150 раз в минуту
+				enter_blink_mode		blink	mb	Включить режим мерцания
+\e[5m			enter_blink_mode        blink      mb        turn on blinking
+			25 		Мигание: выкл.
+\e[25m			????????????????		????? 	??
+			6 		Мигание: Часто 	MS-DOS ANSI.SYS; 150+ в минуту; не везде поддерживается
+
+			26 		Зарезервирован
+			50 		Зарезервировано
+			56–59 	Зарезервировано
+
+			11–19 	n-й альтернативный шрифт 	Выбирает n-й альтернативный шрифт (от 14 - четвертый альтернативный шрифт, до 19 - 9й альтернативный шрифт).
+
+			60 		ideogram underline or right side line 	вряд ли поддерживается
+			61 		ideogram double underline or double line on the right side 	вряд ли поддерживается
+			62 		ideogram overline or left side line 	вряд ли поддерживается
+			63 		ideogram double overline or double line on the left side 	вряд ли поддерживается
+			64 		ideogram stress marking 	вряд ли поддерживается
+			65 		ideogram attributes off 	вряд ли поддерживается, отменяет эффекты кодов 60–64
+
+
+
+
+
+
+
+
+				----
+
+
+
+
+
+\e[?7h			enter_am_mode           smam       SA        turn on automatic margins
+\e[?7l			exit_am_mode            rmam       RA        turn off automatic margins
+
+\e[%i%d;%dR		user7                   u7         u7        User string #7
+\e[?1;2c		user9                   u9         u9        User string #9
+
+\e[1;2F			key_send                kEND       *7        shifted end key
+\e[1;2H			key_shome               kHOM       #2        shifted home key
+
+\e[c			wait_tone               wait       WA        wait for dial-tone
+
+
+
+				flash_screen			flash	vb	Символ звукового сигнала видим (может не переместить курсор)
+\e[?5h\e[?5l	flash_screen            flash      vb        visible bell (may not move cursor)
+				bell					bel		bl	Звуковой сигнал (Р)
+\a				bell                    bel        bl        audible signal bell) (P)
+
+				keypad_xmit				smkx	ks	Перевести терминал в режим "keypad transmit"
+\e[?1h\e=		keypad_xmit             smkx       ks        enter 'key‐ board_transmit' mode
+				keypad_local			rmkx	ke	Вне режима "keypad transmit"
+\e[?1l\e>		keypad_local            rmkx       ke        leave 'key‐ board_transmit' mode
+
+				clear_all_tabs			tbc		ct	Прочистить все позиции табуляции (Р)
+\e[3g			clear_all_tabs          tbc        ct        clear all tab stops P)
+				set_tab					hts		st	Проставить табуляции во все столбцы текущей строки
+\eH				set_tab                 hts        st        set a tab in every row, current columns
+
+				meta_on					smm		mm	Включение режима "meta mode"
+				meta_off				rmm		mo	Выключение режима "meta mode"
+
+				change_scroll_region	csr		cs	Изменение на строки от #1 до #2 (vt-100) (PG)
+\e[%i%p1%d;%p2%dr	change_scroll_region csr        cs        change region to line #1 to line #2 P)
+				command_character		cmdch	CC	Установливаемый символ cmd в прототипе
+				init_file				if		if	Имя файла, содержащего is
+				insert_padding			ip		ip	После вставленного символа вставить символ-заполнитель
+				newline					nel		nw	Новая строка (ведет себя как cr, за которым следует lf)
+				pad_char				pad		pc	Символ-заполнитель (вместо пустого символа)
+				set_window				wind	wi	Текущим окном являются строки #1-#2, столбцы #3-#4
+				tab						ht		ta	Табулировать до следующего места табуляции оборудования через 8 позиций
+
+				up_half_line			hu		hu	Вверх на пол-строки (назад на 1/2 прогона строки)
+				down_half_line			hd		hd	Вниз на половину строки (вперед на 1/2 перевода строки)
+
+				to_status_line			tsl		ts	Переход в строку состояния, первый столбец
+				from_status_line		fsl		fs	Возврат из строки состояния
+				dis_status_line			dsl		ds	Сделать небоступной строку состояния
+
+				init_prog				iprog	iP	Полное имя программы инициализации
+
+				---
+				prtr_on					mc5p	pO(+)	Включить принтер для #1 байтов
+				print_screen			mc0		ps	Печать сожержимого экрана
+\e[i			print_screen            mc0        ps        print contents of screen
+				prtr_off				mc4		pf	Включение принтера
+\e[4i			prtr_off                mc4        pf        turn off printer
+				repeat_char				rep		rp	Выключение принтера
+\e[5i			prtr_on                 mc5        po        turn on printer
+				---
+				key_a1					ka1		K1(+)	Верхний левый угол клавиатуры
+				key_a3					ka3		K3(+)	Верхний правый угол клавиатуры
+				key_b2					kb2		K2(+)	Центр клавиатуры
+\eOE			key_b2                  kb2        K2        center of keypad
+				key_c1					kc1		K4(+)	Нижний левый угол клавиатуры
+				key_c3					kc3		K5(+)	Нижний правый угол клавиатуры
+				---
+				key_backspace			kbs		kb	Посылается клавишей "шаг назад"
+\x7f			key_backspace           kbs        kb        backspace key
+				key_up					kcuu1	ku	Посылается клавишей "стрелка вверх"
+\eOA			key_up                  kcuu1      ku        up-arrow key
+				key_down				kcud1	kd	Посылается клавишей "стрелка вниз" терминала
+\eOB			key_down                kcud1      kd        down-arrow key
+				key_right				kcuf1	kr	Посылается клавишей "стрелка вправо"
+\eOC			key_right               kcuf1      kr        right-arrow key
+				key_left				kcub1	kl	Посылается клавишей "стрелка влево"
+\eOD			key_left                kcub1      kl        left-arrow key
+				key_home				khome	kh	Посылается клавишей home
+\eOH			key_home                khome      kh        home key
+				key_ll					kll		kH(+)	Посылается клавишей home-down
+				key_ic					kich1	kl	Посылается клавишами вставки/ ввода в режиме вставки
+				key_eic	krmir			kM(+)	Посылается rmir или smir в режиме вставки
+\eOF			key_end                 kend       @7        end key
+\eOM			key_enter               kent       @8        enter/send key
+
+				key_ctab				kctab	kt	Посылается клавишей очистки табуляции
+				key_catab				ktbc	ka	Посылается клавишей очистки всех табуляций
+				key_dc					kdchl	kD(+)	Посылается клавишей удаления
+				key_eol					kel		kE(+)	Посылается клавишей очистки до конца строки
+				key_dl					kdll	kL(+)	Посылается клавишей удаления строки
+				key_eos					ked		kS(+)	Посылается клавишей очистки до конца экрана
+				key_clear				kclr	kC(+)	Посылается клавишами очистки экрана или стирания
+				key_il					kill	kA(+)	Посылается вставкой строки
+				key_npage				knp		kN(+)	Посылается клавишей следующей страницы
+				key_ppage				kpp		kP(+)	Посылается клавишей предыдущей страницы
+				key_stab				khts	kT(+)	Посылается клавишей установки табуляции
+
+
+				pkey_key				pfkey	pk	Программная функциональная клавиша #1 для печати строки #2
+				pkey_local				pfloc	pl	Программная функциональная клавиша #1 для выполнения строки #2
+				pkey_xmit				pfx		px	Программная функциональная клавиша #1 для передачи строки #2
+
+				init_1string			is1		i1	Строка инициализации терминала
+				init_2string			is2		i2	Строка инициализации терминала
+\e[!p\e[?3;4l\e[4l\e>	init_2string    is2        is        initialization string
+				init_3string			is3		i3	Строка инициализации терминала
+				reset1_string			rs1		r1	Полный сброс терминала в обычные режимы
+\ec				reset_1string           rs1        r1        reset string
+				reset2_string			rs2		r2	Полный сброс терминала в обычные режимы
+\e[!p\e[?3;4l\e[4l\e>	reset_2string   rs2        r2        reset string
+				reset3_string			rs3		r3	Полный сброс терминала в обычные режимы
+
+
+
+\e[2~			key_ic                  kich1      kI        insert-character key
+\e[2;2~			key_sic                 kIC        #3        shifted insert-char‐ acter key
+\e[3~			key_dc                  kdch1      kD        delete-character key
+\e[3;2~			key_sdc                 kDC        *4        shifted delete-char‐ acter key
+
+\e[5~			key_ppage               kpp        kP        previous-page key
+\e[5;2~			key_sprevious           kPRV       %e        shifted previous key
+\e[6~			key_npage               knp        kN        next-page key
+\e[6;2~			key_snext               kNXT       %c        shifted next key
+
+				key_f0					kf0		k0	Посылается функциональной клавишей f0
+				key_f1					kf1		k1	Посылается функциональной клавишей f1
+\eOP			key_f1                  kf1        k1        F1 function key
+				key_f2					kf2		k2	Посылается функциональной клавишей f2
+\eOQ			key_f2                  kf2        k2        F2 function key
+				key_f3					kf3		k3	Посылается функциональной клавишей f3
+\eOR			key_f3                  kf3        k3        F3 function key
+				key_f4					kf4		k4	Посылается функциональной клавишей f4
+\eOS			key_f4                  kf4        k4        F4 function key
+				key_f5					kf5		k5	Посылается функциональной клавишей f5
+				key_f6					kf6		k6	Посылается функциональной клавишей f6
+				key_f7					kf7		k7	Посылается функциональной клавишей f7
+				key_f8					kf8		k8	Посылается функциональной клавишей f8
+				key_f9					kf9		k9	Посылается функциональной клавишей f9
+				key_f10					kf10	k	Посылается функциональной клавишей f10
+
+\e[15~			key_f5                  kf5        k5        F5 function key
+\e[15;2~		key_f17                 kf17       F7        F17 function key
+\e[15;3~		key_f53                 kf53       Fh        F53 function key
+\e[15;5~		key_f29                 kf29       FJ        F29 function key
+\e[15;6~		key_f41                 kf41       FV        F41 function key
+
+\e[17~			key_f6                  kf6        k6        F6 function key
+\e[17;2~		key_f18                 kf18       F8        F18 function key
+\e[17;3~		key_f54                 kf54       Fi        F54 function key
+\e[17;5~		key_f30                 kf30       FK        F30 function key
+\e[17;6~		key_f42                 kf42       FW        F42 function key
+
+\e[18~			key_f7                  kf7        k7        F7 function key
+\e[18;2~		key_f19                 kf19       F9        F19 function key
+\e[18;3~		key_f55                 kf55       Fj        F55 function key
+\e[18;5~		key_f31                 kf31       FL        F31 function key
+\e[18;6~		key_f43                 kf43       FX        F43 function key
+
+\e[19~			key_f8                  kf8        k8        F8 function key
+\e[19;2~		key_f20                 kf20       FA        F20 function key
+\e[19;3~		key_f56                 kf56       Fk        F56 function key
+\e[19;5~		key_f32                 kf32       FM        F32 function key
+\e[19;6~		key_f44                 kf44       FY        F44 function key
+
+\e[20~			key_f9                  kf9        k9        F9 function key
+\e[20;2~		key_f21                 kf21       FB        F21 function key
+\e[20;3~		key_f57                 kf57       Fl        F57 function key
+\e[20;5~		key_f33                 kf33       FN        F33 function key
+\e[20;6~		key_f45                 kf45       FZ        F45 function key
+
+\e[21~			key_f10                 kf10       k;        F10 function key
+\e[21;2~		key_f22                 kf22       FC        F22 function key
+\e[21;3~		key_f58                 kf58       Fm        F58 function key
+\e[21;5~		key_f34                 kf34       FO        F34 function key
+\e[21;6~		key_f46                 kf46       Fa        F46 function key
+
+\e[23~			key_f11                 kf11       F1        F11 function key
+\e[23;2~		key_f23                 kf23       FD        F23 function key
+\e[23;3~		key_f59                 kf59       Fn        F59 function key
+\e[23;5~		key_f35                 kf35       FP        F35 function key
+\e[23;6~		key_f47                 kf47       Fb        F47 function key
+
+\e[24~			key_f12                 kf12       F2        F12 function key
+\e[24;2~		key_f24                 kf24       FE        F24 function key
+\e[24;3~		key_f60                 kf60       Fo        F60 function key
+\e[24;5~		key_f36                 kf36       FQ        F36 function key
+\e[24;6~		key_f48                 kf48       Fc        F48 function key
+
+\e[1;2P			key_f13                 kf13       F3        F13 function key
+\e[1;3P			key_f49                 kf49       Fd        F49 function key
+\e[1;4P			key_f61                 kf61       Fp        F61 function key
+\e[1;5P			key_f25                 kf25       FF        F25 function key
+\e[1;6P			key_f37                 kf37       FR        F37 function key
+
+\e[1;2Q			key_f14                 kf14       F4        F14 function key
+\e[1;3Q			key_f50                 kf50       Fe        F50 function key
+\e[1;4Q			key_f62                 kf62       Fq        F62 function key
+\e[1;5Q			key_f26                 kf26       FG        F26 function key
+\e[1;6Q			key_f38                 kf38       FS        F38 function key
+
+\e[1;2R			key_f15                 kf15       F5        F15 function key
+\e[1;3R			key_f51                 kf51       Ff        F51 function key
+\e[1;4R			key_f63                 kf63       Fr        F63 function key
+\e[1;5R			key_f27                 kf27       FH        F27 function key
+\e[1;6R			key_f39                 kf39       FT        F39 function key
+
+\e[1;2S			key_f16                 kf16       F6        F16 function key
+\e[1;3S			key_f52                 kf52       Fg        F52 function key
+\e[1;5S			key_f28                 kf28       FI        F28 function key
+\e[1;6S			key_f40                 kf40       FU        F40 function key
+
+
+				lab_f0					lf0		l0	Метки на функциональной клавише f0, если не f0
+				lab_f1					lf1		l1	Метки на функциональной клавише f1, если не f1
+				lab_f2					lf2		l2	Метки на функциональной клавише f2, если не f2
+				lab_f3					lf3		l3	Метки на функциональной клавише f3, если не f3
+				lab_f4					lf4		l4	Мeтки на функциональной клавише f4, если не f4
+				lab_f5					lf5		l5	Метки на функциональной клавише f5, если не f5
+				lab_f6					lf6		l6	Метки на функциональной клавише f6, если не f6
+				lab_f7					lf7		l7	Метки на функциональной клавише f7, если не f7
+				lab_f8					lf8		l8	Метки на функциональной клавише f8, если не f8
+				lab_f9					lf9		l9	Метки на функциональной клавише f9, если не f9
+				lab_f10					lf10	la	Метки на функциональной клавише f10, если не f10
+
+
+
+=============================================================================================
+z
+z
+z	alt_scancode_esc            scesa      S8        Alternate escape for scancode emu‐ lation
+z	auto_left_margin            bw         bw        cub1 wraps from col‐ umn 0 to last column
+z	auto_right_margin           am         am        terminal has auto‐ matic margins
+z	back_color_erase            bce        ut        screen erased with background color
+z	bit_image_carriage_return   bicr       Yv        Move to beginning of same row
+z	bit_image_newline           binel      Zz        Move to next row of the bit image
+z	bit_image_repeat            birep      Xy        Repeat bit image cell #1 #2 times
+z	can_change                  ccc        cc        terminal can re- define existing col‐ ors
+z	ceol_standout_glitch        xhp        xs        standout not erased by overwriting (hp)
+z	change_char_pitch           cpi        ZA        Change number of characters per inch to #1
+z	change_line_pitch           lpi        ZB        Change number of lines per inch to #1
+z	change_res_horz             chr        ZC        Change horizontal resolution to #1
+z	change_res_vert             cvr        ZD        Change vertical res‐ olution to #1
+z	char_padding                rmp        rP        like ip but when in insert mode
+z	char_set_names              csnm       Zy        Produce #1'th item from list of char‐ acter set names
+z	clear_margins               mgc        MC        clear right and left soft margins
+z	code_set_init               csin       ci        Init sequence for multiple codesets
+z	col_addr_glitch             xhpa       YA        only positive motion for hpa/mhpa caps
+z	color_names                 colornm    Yw        Give name for color #1
+z	command_character           cmdch      CC        terminal settable cmd character in prototype !?
+z	cpi_changes_res             cpix       YF        changing character pitch changes reso‐ lution
+z	cr_cancels_micro_mode       crxm       YB        using cr turns off micro mode
+z	create_window               cwin       CW        define a window #1 from #2,#3 to #4,#5
+z	cursor_mem_address          mrcup      CM        memory relative cur‐ sor addressing, move to row #1 columns #2
+				cursor_mem_address		mrcup	CM(+)	Относительная адресация курсора в памяти
+z	define_bit_image_region     defbi      Yx        Define rectangular bit image region
+z	define_char                 defc       ZE        Define a character 1, #2 dots wide, descender #3
+z	dest_tabs_magic_smso        xt         xt        tabs destructive, magic so char t1061)
+z	device_type                 devt       dv        Indicate lan‐ guage/codeset sup‐ port
+z	dial_phone                  dial       DI        dial number #1
+z	display_clock               dclk       DK        display clock
+z	display_pc_char             dispc      S1        Display PC charac‐ ter #1
+z	dis_status_line             dsl        ds        disable status line
+z	down_half_line              hd         hd        half a line down
+z	eat_newline_glitch          xenl       xn        newline ignored after 80 cols (con‐ cept)
+z	ena_acs                     enacs      eA        enable alternate char set
+z	end_bit_image_region        endbi      Yy        End a bit-image region
+z	enter_delete_mode           smdc       dm        enter delete mode
+				enter_delete_mode		smdc	dm	Режим удачения (ввод)
+z	enter_doublewide_mode       swidm      ZF        Enter double-wide mode
+z	enter_draft_quality         sdrfq      ZG        Enter draft-quality mode
+z	enter_horizontal_hl_mode   ehhlm       Xh       Enter horizontal highlight mode
+z	enter_left_hl_mode         elhlm       Xl       Enter left highlight mode
+z	enter_leftward_mode         slm        ZI        Start leftward car‐ riage motion
+z	enter_low_hl_mode          elohlm      Xo       Enter low highlight mode
+z	enter_micro_mode            smicm      ZJ        Start micro-motion mode
+z	enter_near_letter_quality   snlq       ZK        Enter NLQ mode
+z	enter_normal_quality        snrmq      ZL        Enter normal-quality mode
+z	enter_pc_charset_mode       smpch      S2        Enter PC character display mode
+z	enter_protected_mode        prot       mp        turn on protected mode
+				enter_protected_mode	prot	mp	Включить режим защиты
+z	enter_right_hl_mode        erhlm       Xr       Enter right high‐ light mode
+z	enter_scancode_mode         smsc       S4        Enter PC scancode mode
+z	enter_shadow_mode           sshm       ZM        Enter shadow-print mode
+z	enter_subscript_mode        ssubm      ZN        Enter subscript mode
+z	enter_superscript_mode      ssupm      ZO        Enter superscript mode
+z	enter_top_hl_mode          ethlm       Xt       Enter top highlight mode
+z	enter_upward_mode           sum        ZP        Start upward car‐ riage motion
+z	enter_vertical_hl_mode     evhlm       Xv       Enter vertical high‐ light mode
+z	enter_xon_mode              smxon      SX        turn on xon/xoff handshaking
+z	erase_overstrike            eo         eo        can erase over‐ strikes with a blank
+z	exit_delete_mode            rmdc       ed        end delete mode
+				exit_delete_mode		rmdc	ed	Завершить режим удаления
+z	exit_doublewide_mode        rwidm      ZQ        End double-wide mode
+z	exit_leftward_mode          rlm        ZS        End left-motion mode
+z	exit_micro_mode             rmicm      ZT        End micro-motion mode
+z	exit_pc_charset_mode        rmpch      S3        Exit PC character display mode
+z	exit_scancode_mode          rmsc       S5        Exit PC scancode mode
+z	exit_shadow_mode            rshm       ZU        End shadow-print mode
+z	exit_subscript_mode         rsubm      ZV        End subscript mode
+z	exit_superscript_mode       rsupm      ZW        End superscript mode
+z	exit_upward_mode            rum        ZX        End reverse charac‐ ter motion
+z	exit_xon_mode               rmxon      RX        turn off xon/xoff handshaking
+z	fixed_pause                 pause      PA        pause for 2-3 sec‐ onds
+z	flash_hook                  hook       fh        flash switch hook
+z	from_status_line            fsl        fs        return from status line
+z	generic_type                gn         gn        generic line type
+z	get_mouse                   getm       Gm        Curses should get button events, parameter #1 not documented.
+z	goto_window                 wingo      WG        go to window #1
+z	hangup                      hup        HU        hang-up phone
+z	hard_copy                   hc         hc        hardcopy terminal
+z	hard_cursor                 chts       HC        cursor is hard to see
+z	has_meta_key                km         km        Has a meta key i.e., sets 8th-bit)
+z	has_print_wheel             daisy      YC        printer needs opera‐ tor to change char‐ acter set
+z	has_status_line             hs         hs        has extra status line
+z	hue_lightness_saturation    hls        hl        terminal uses only HLS color notation Tektronix)
+z	init_1string                is1        i1        initialization string
+z	init_3string                is3        i3        initialization string
+z	init_file                   if         if        name of initializa‐ tion file
+z	initialize_color            initc      Ic        initialize color #1 to (#2,#3,#4)
+z	initialize_pair             initp      Ip        Initialize color pair #1 to fg=(#2,#3,#4), bg=(#5,#6,#7)
+z	init_prog                   iprog      iP        path name of program for initialization
+z	insert_character            ich1       ic        insert character (P)
+z	insert_null_glitch          in         in        insert mode distin‐ guishes nulls
+z	insert_padding              ip         ip        insert padding after inserted character
+z	key_a1                      ka1        K1        upper left of keypad
+z	key_a3                      ka3        K3        upper right of key‐ pad
+z	key_beg                     kbeg       @1        begin key
+z	key_c1                      kc1        K4        lower left of keypad
+z	key_c3                      kc3        K5        lower right of key‐ pad
+z	key_cancel                  kcan       @2        cancel key
+z	key_catab                   ktbc       ka        clear-all-tabs key
+z	key_clear                   kclr       kC        clear-screen or erase key
+z	key_close                   kclo       @3        close key
+z	key_command                 kcmd       @4        command key
+z	key_copy                    kcpy       @5        copy key
+z	key_create                  kcrt       @6        create key
+z	key_ctab                    kctab      kt        clear-tab key
+z	key_dl                      kdl1       kL        delete-line key
+z	key_eic                     krmir      kM        sent by rmir or smir in insert mode
+z	key_eol                     kel        kE        clear-to-end-of-line key
+z	key_eos                     ked        kS        clear-to-end-of- screen key
+z	key_exit                    kext       @9        exit key
+z	key_f0                      kf0        k0        F0 function key
+z	key_find                    kfnd       @0        find key
+z	key_help                    khlp       %1        help key
+z	key_il                      kil1       kA        insert-line key
+z	key_ll                      kll        kH        lower-left key (home down)
+z	key_mark                    kmrk       %2        mark key
+z	key_message                 kmsg       %3        message key
+z	key_mouse                   kmous      Km        Mouse event has occurred
+z	key_move                    kmov       %4        move key
+z	key_next                    knxt       %5        next key
+z	key_open                    kopn       %6        open key
+z	key_options                 kopt       %7        options key
+z	key_previous                kprv       %8        previous key
+z	key_print                   kprt       %9        print key
+z	key_redo                    krdo       %0        redo key
+z	key_reference               kref       &1        reference key
+z	key_refresh                 krfr       &2        refresh key
+z	key_replace                 krpl       &3        replace key
+z	key_restart                 krst       &4        restart key
+z	key_resume                  kres       &5        resume key
+z	key_save                    ksav       &6        save key
+z	key_sbeg                    kBEG       &9        shifted begin key
+z	key_scancel                 kCAN       &0        shifted cancel key
+z	key_scommand                kCMD       *1        shifted command key
+z	key_scopy                   kCPY       *2        shifted copy key
+z	key_screate                 kCRT       *3        shifted create key
+z	key_sdl                     kDL        *5        shifted delete-line key
+z	key_select                  kslt       *6        select key
+z	key_seol                    kEOL       *8        shifted clear-to- end-of-line key
+z	key_sexit                   kEXT       *9        shifted exit key
+z	key_sfind                   kFND       *0        shifted find key
+z	key_shelp                   kHLP       #1        shifted help key
+z	key_smessage                kMSG       %a        shifted message key
+z	key_smove                   kMOV       %b        shifted move key
+z	key_soptions                kOPT       %d        shifted options key
+z	key_sprint                  kPRT       %f        shifted print key
+z	key_sredo                   kRDO       %g        shifted redo key
+z	key_sreplace                kRPL       %h        shifted replace key
+z	key_srsume                  kRES       %j        shifted resume key
+z	key_ssave                   kSAV       !1        shifted save key
+z	key_ssuspend                kSPD       !2        shifted suspend key
+z	key_stab                    khts       kT        set-tab key
+z	key_sundo                   kUND       !3        shifted undo key
+z	key_suspend                 kspd       &7        suspend key
+z	key_undo                    kund       &8        undo key
+z	label_format                fln        Lf        label format
+z	label_off                   rmln       LF        turn off soft labels
+z	label_on                    smln       LO        turn on soft labels
+z	lab_f0                      lf0        l0        label on function key f0 if not f0
+z	lab_f10                     lf10       la        label on function key f10 if not f10
+z	lab_f1                      lf1        l1        label on function key f1 if not f1
+z	lab_f2                      lf2        l2        label on function key f2 if not f2
+z	lab_f3                      lf3        l3        label on function key f3 if not f3
+z	lab_f4                      lf4        l4        label on function key f4 if not f4
+z	lab_f5                      lf5        l5        label on function key f5 if not f5
+z	lab_f6                      lf6        l6        label on function key f6 if not f6
+z	lab_f7                      lf7        l7        label on function key f7 if not f7
+z	lab_f8                      lf8        l8        label on function key f8 if not f8
+z	lab_f9                      lf9        l9        label on function key f9 if not f9
+z	lpi_changes_res             lpix       YG        changing line pitch changes resolution
+z	memory_above                da         da        display may be retained above the screen
+z	memory_below                db         db        display may be retained below the screen
+z	meta_off                    rmm        mo        turn off meta mode
+z	meta_on                     smm        mm        turn on meta mode 8th-bit on)
+z	micro_column_address        mhpa       ZY        Like column_address in micro mode
+z	micro_down                  mcud1      ZZ        Like cursor_down in micro mode
+z	micro_left                  mcub1      Za        Like cursor_left in micro mode
+z	micro_right                 mcuf1      Zb        Like cursor_right in micro mode
+z	micro_row_address           mvpa       Zc        Like row_address #1 in micro mode
+z	micro_up                    mcuu1      Zd        Like cursor_up in micro mode
+z	move_insert_mode            mir        mi        safe to move while in insert mode
+z	move_standout_mode          msgr       ms        safe to move while in standout mode
+z	needs_xon_xoff              nxon       nx        padding will not work, xon/xoff required
+z	newline                     nel        nw        newline (behave like cr followed by lf)
+z	no_esc_ctlc                 xsb        xb        beehive (f1=escape, f2=ctrl C)
+z	non_dest_scroll_region      ndscr      ND        scrolling region is non-destructive
+z	non_rev_rmcup               nrrmc      NR        smcup does not reverse rmcup
+z	no_pad_char                 npc        NP        pad character does not exist
+z	order_of_pins               porder     Ze        Match software bits to print-head pins
+z	orig_colors                 oc         oc        Set all color pairs to the original ones
+z	over_strike                 os         os        terminal can over‐ strike
+z	pad_char                    pad        pc        padding char instead of null)
+z	parm_down_micro             mcud       Zf        Like parm_down_cur‐ sor in micro mode
+z	parm_left_micro             mcub       Zg        Like parm_left_cur‐ sor in micro mode
+z	parm_right_micro            mcuf       Zh        Like parm_right_cur‐ sor in micro mode
+z	parm_up_micro               mcuu       Zi        Like parm_up_cursor in micro mode
+z	pc_term_options             pctrm      S6        PC terminal options
+z	pkey_key                    pfkey      pk        program function key 1 to type string #2
+z	pkey_local                  pfloc      pl        program function key 1 to execute string 2
+z	pkey_plab                   pfxl       xl        Program function key #1 to type string #2 and show string #3
+z	pkey_xmit                   pfx        px        program function key 1 to transmit string #2
+z	plab_norm                   pln        pn        program label #1 to show string #2
+z	prtr_non                    mc5p       pO        turn on printer for 1 bytes
+z	prtr_silent                 mc5i       5i        printer will not echo on screen
+z	pulse                       pulse      PU        select pulse dialing
+z	quick_dial                  qdial      QD        dial number #1 with‐ out checking
+z	remove_clock                rmclk      RC        remove clock
+z	repeat_char                 rep        rp        repeat char #1 #2 times (P*)
+z	req_for_input               rfi        RF        send next input char for ptys)
+z	req_mouse_pos               reqmp      RQ        Request mouse position
+z	reset_3string               rs3        r3        reset string
+z	reset_file                  rf         rf        name of reset file
+				reset_file				rf		rf	Имя файла, содержащего строку сброса
+z	row_addr_glitch             xvpa       YD        only positive motion for vpa/mvpa caps
+z	scancode_escape             scesc      S7        Escape for scan‐ code emulation
+z	select_char_set             scs        Zj        Select character set, #1
+z	semi_auto_right_margin      sam        YE        printing in last column causes cr
+z	set0_des_seq                s0ds       s0        Shift to codeset 0 EUC set 0, ASCII)
+z	set1_des_seq                s1ds       s1        Shift to codeset 1
+z	set2_des_seq                s2ds       s2        Shift to codeset 2
+z	set3_des_seq                s3ds       s3        Shift to codeset 3
+z	set_a_attributes           sgr1        sA       Define second set of video attributes 1-#6
+z	set_a_background            setab      AB        Set background color to #1, using ANSI escape
+z	set_bottom_margin_parm      smgbp      Zl        Set bottom margin at line #1 or (if smgtp is not given) #2 lines from bottom
+z	set_bottom_margin           smgb       Zk        Set bottom margin at current line
+z	set_clock                   sclk       SC        set clock, #1 hrs #2 mins #3 secs
+z	set_color_pair              scp        sp        Set current color pair to #1
+z	set_left_margin_parm        smglp      Zm        Set left (right) margin at column #1
+z	set_left_margin             smgl       ML        set left soft margin at current col‐ umn.           See smgl. (ML is not in BSD termcap).
+z	set_lr_margin               smglr      ML        Set both left and right margins to 1, #2.  (ML is not in BSD term‐ cap).
+z	set_page_length             slines     YZ        Set page length to 1 lines
+z	set_pglen_inch             slength     YI       Set page length to 1 hundredth of an inch (some implemen‐ tations use sL for termcap).
+z	set_right_margin_parm       smgrp      Zn        Set right margin at column #1
+z	set_right_margin            smgr       MR        set right soft mar‐ gin at current col‐ umn
+z	set_tb_margin               smgtb      MT        Sets both top and bottom margins to 1, #2
+z	set_top_margin_parm         smgtp      Zp        Set top (bottom) margin at row #1
+z	set_top_margin              smgt       Zo        Set top margin at current line
+z	set_window                  wind       wi        current window is lines #1-#2 cols 3-#4
+z	start_bit_image             sbim       Zq        Start printing bit image graphics
+z	start_char_set_def          scsd       Zr        Start character set definition #1, with 2 characters in the set
+z	status_line_esc_ok          eslok      es        escape can be used on the status line
+z	stop_bit_image              rbim       Zs        Stop printing bit image graphics
+z	stop_char_set_def           rcsd       Zt        End definition of character set #1
+z	subscript_characters        subcs      Zu        List of subscript‐ able characters
+z	superscript_characters      supcs      Zv        List of superscript‐ able characters
+z	tab                         ht         ta        tab to next 8-space hardware tab stop
+z	these_cause_cr              docr       Zw        Printing any of these characters causes CR
+z	tilde_glitch                hz         hz        cannot print ~'s Hazeltine)
+z	tone                        tone       TO        select touch tone dialing
+z	to_status_line              tsl        ts        move to status line, column #1
+z	transparent_underline       ul         ul        underline character overstrikes
+z	underline_char              uc         uc        underline char and move past it
+				underline_char			uc		uc	Подчеркнуть один символ и встать за ним
+z	up_half_line                hu         hu        half a line up
+z	user0                       u0         u0        User string #0
+z	user1                       u1         u1        User string #1
+z	user2                       u2         u2        User string #2
+z	user3                       u3         u3        User string #3
+z	user4                       u4         u4        User string #4
+z	user5                       u5         u5        User string #5
+z	user6                       u6         u6        User string #6
+z	xoff_character              xoffc      XF        XOFF character
+z	xon_character               xonc       XN        XON character
+z	xon_xoff                    xon        xo        terminal uses xon/xoff handshaking
+z	zero_motion                 zerom      Zx        No motion for subse
+
+
+
+-1\n	bit_image_entwining         bitwin     Yo        number of passes for each bit-image row
+-1\n	bit_image_type              bitype     Yp        type of bit-image device
+-1\n	buffer_capacity             bufsz      Ya        numbers of bytes buffered before printing
+-1\n	buttons                     btns       BT        number of buttons on mouse
+-1\n	dot_horz_spacing            spinh      Yc        spacing of dots hor‐ izontally in dots per inch
+-1\n	dot_vert_spacing            spinv      Yb        spacing of pins ver‐ tically in pins per inch
+-1\n	label_height                lh         lh        rows in each label
+-1\n	label_width                 lw         lw        columns in each label
+-1\n	lines_of_memory             lm         lm        lines of memory if > line. 0 means varies
+-1\n	magic_cookie_glitch         xmc        sg        number of blank characters left by smso or rmso
+-1\n	max_attributes              ma         ma        maximum combined attributes terminal can handle
+-1\n	maximum_windows             wnum       MW        maximum number of definable windows
+-1\n	max_micro_address           maddr      Yd        maximum value in micro_..._address
+-1\n	max_micro_jump              mjump      Ye        maximum value in parm_..._micro
+-1\n	micro_col_size              mcs        Yf        character step size when in micro mode
+-1\n	micro_line_size             mls        Yg        line step size when in micro mode
+-1\n	no_color_video              ncv        NC        video attributes that cannot be used with colors
+-1\n	number_of_pins              npins      Yh        numbers of pins in print-head
+-1\n	num_labels                  nlab       Nl        number of labels on screen
+-1\n	output_res_char             orc        Yi        horizontal resolu‐ tion in units per line
+-1\n	output_res_horz_inch        orhi       Yk        horizontal resolu‐ tion in units per inch
+-1\n	output_res_line             orl        Yj        vertical resolution in units per line
+-1\n	output_res_vert_inch        orvi       Yl        vertical resolution in units per inch
+-1\n	padding_baud_rate           pb         pb        lowest baud rate where padding needed
+-1\n	print_rate                  cps        Ym        print rate in char‐ acters per second
+-1\n	virtual_terminal            vt         vt        virtual terminal number (CB/unix)
+-1\n	wide_char_size              widcs      Yn        character step size when in double wide mode
+-1\n	width_status_line           wsl        ws        number of columns in
+
+

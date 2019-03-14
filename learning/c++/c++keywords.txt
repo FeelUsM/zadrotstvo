@@ -1,0 +1,98 @@
+== директивы ==
+inline
+operator
+noexcept(начиная с C++11)
+typedef
+constexpr(начиная с C++11)
+asm
+== составные типы ==
+namespace
+using(1)
+enum
+union
+struct
+class
+private
+protected
+public
+explicit
+friend
+mutable
+virtual
+default(1)
+delete(1)
+template
+using(1)
+typename
+export
+== модификаторы типов ==
+unsigned
+signed
+const
+static
+extern
+volatile
+register
+alignas (начиная с C++11)
+thread_local(начиная с C++11)
+== простые типы ==
+decltype(начиная с C++11)
+auto(1)
+void
+bool
+char
+wchar_t
+char16_t(начиная с C++11)
+char32_t(начиная с C++11)
+int
+long
+short
+float
+double
+== конструкции ==
+if
+else
+for
+while
+do
+switch
+case
+default(1)
+delete(1)
+try
+catch
+break
+continue
+goto
+return
+throw
+static_assert(начиная с C++11)
+== как константы/переменные ==
+false
+true
+nullptr (начиная с C++11)
+this
+== как вырвжения ==
+new
+delete(1)
+const_cast
+dynamic_cast
+reinterpret_cast
+static_cast
+
+typeid +<typeinfo>
+sizeof
+alignof (начиная с C++11)
+noexcept(начиная с C++11)
+== для совместимости ==
+&&	and
+||	or
+!	not
+!=	not_eq
+&	bitand
+&=	and_eq
+|	bitor
+|=	or_eq
+^	xor
+^=	xor_eq
+~	compl

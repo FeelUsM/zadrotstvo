@@ -1,0 +1,667 @@
+FORM 4.1 (Oct 25 2013) 32-bits                   Run: Fri Sep 15 12:20:53 2017
+    dim 3;
+    sym n;
+    *Ntensors
+    Nfunction c,cp,t,d;
+    Index i1,...,i100,j1,...,j200,k1,...,k100,l1,...,l100;
+    Cfunctions C;
+    sym a,a1,...,a23,b1,...,b20,e,p;
+    
+    *Local F7  = d(1,2)^2;
+    *Local F8  = d(1,2)*d(2,3);
+    *Local F11a= d(1,2)*t(1,2,3);
+    *Local F11b= t(1,2,3)*d(1,2);
+    *Local F10a= d(1,2)*t(2,3,4);
+    *Local F10b= t(2,3,4)*d(1,2);
+    *Local F9  = t(1,2,3)^2;
+    *Local F12 = t(1,2,3)*t(1,2,4);
+    *Local F13 = t(1,2,3)*t(1,4,5);
+    
+    *Local F14 = d(1,2)*d(2,3)*d(3,4);
+    *Local F15 = d(1,2)*d(3,4)*d(1,3)*d(2,4);
+    
+    Local eq2 = (d(1,2)-e)*(1+a*d(1,2));
+    
+    Local eq3sym = (d(1,2)+d(2,3)-e)*(1+a12*(d(1,2)+d(2,3))+a13*d(1,3));
+    Local eq3 = (d(1,2)+d(2,3)-e)*(1+a12*d(1,2)+a23*d(2,3)+a13*d(1,3));
+    Local eq3asym = (d(1,2)+p*d(2,3)-e)*(1+a12*d(1,2)+a23*d(2,3)+a13*d(1,3));
+    Local comm3asym = (d(1,2)+p*d(2,3))*(1+a12*d(1,2)+a23*d(2,3)+a13*d(1,3)) - 
+    (1+a12*d(1,2)+a23*d(2,3)+a13*d(1,3))*(d(1,2)+d(2,3));
+    Local cse3step1 = 
+    *(1+a12*(d(1,2)+d(2,3))+a13*d(1,3))
+    ((d(1,2)+p*d(2,3))*t(1,2,3)-t(1,2,3)*(d(1,2)+p*d(2,3)));
+    Local cse3step2 = (1+a12*d(1,2)+a23*d(2,3)+a13*d(1,3))*
+           (+ d(1,2) * (  - 4*i_*p )
+           + d(1,3) * (  - 4*i_ + 4*i_*p )
+           + d(2,3) * ( 4*i_ ));
+    
+    
+    Local eq5rsym = (d(1,5)+d(2,5)+d(3,5)+d(4,5)-e)*
+    (1+a1*(d(1,5)+d(2,5)+d(3,5)+d(4,5))+a2*(d(1,3)+d(2,4))+
+    a3*(d(1,2)+d(2,3)+d(3,4)+d(4,1))+
+    b1*(d(1,3)*d(2,4))+b2*(d(1,2)*d(3,4)+d(2,3)*d(1,4))+
+    b3*(d(1,5)*d(2,4)+d(2,5)*d(1,3)+d(3,5)*d(2,4)+d(4,5)*d(1,3))+
+    b4*(d(1,5)*d(3,4)+d(2,5)*d(4,1)+d(3,5)*d(1,2)+d(4,5)*d(3,2))+
+    b5*(d(1,5)*d(2,3)+d(2,5)*d(3,4)+d(3,5)*d(4,1)+d(4,5)*d(1,2)));
+    Local eq5fullsym = (d(1,5)+d(2,5)+d(3,5)+d(4,5)-e)*
+    (1+a1*(d(1,5)+d(2,5)+d(3,5)+d(4,5))+a2*(d(1,3)+d(2,4))+
+    a2*(d(1,2)+d(2,3)+d(3,4)+d(4,1))+
+    b1*(d(1,3)*d(2,4))+b1*(d(1,2)*d(3,4)+d(2,3)*d(1,4))+
+    b3*(d(1,5)*d(2,4)+d(2,5)*d(1,3)+d(3,5)*d(2,4)+d(4,5)*d(1,3))+
+    b3*(d(1,5)*d(3,4)+d(2,5)*d(4,1)+d(3,5)*d(1,2)+d(4,5)*d(3,2))+
+    b3*(d(1,5)*d(2,3)+d(2,5)*d(3,4)+d(3,5)*d(4,1)+d(4,5)*d(1,2)));
+    Local comm5d12 = (d(1,5)+d(2,5)+d(3,5)+d(4,5))*d(1,2)-
+    d(1,2)*(d(1,5)+d(2,5)+d(3,5)+d(4,5));
+    Local comm5d15 = (d(1,5)+d(2,5)+d(3,5)+d(4,5))*d(1,5)-
+    d(1,5)*(d(1,5)+d(2,5)+d(3,5)+d(4,5));
+    Local comm5t123 = (d(1,5)+d(2,5)+d(3,5)+d(4,5))*t(1,2,3)-
+    t(1,2,3)*(d(1,5)+d(2,5)+d(3,5)+d(4,5));
+    Local comm5t125 = (d(1,5)+d(2,5)+d(3,5)+d(4,5))*t(1,2,5)-
+    t(1,2,5)*(d(1,5)+d(2,5)+d(3,5)+d(4,5));
+    
+    .sort;
+
+Time =       0.00 sec    Generated terms =          4
+             eq2         Terms in output =          4
+                         Bytes used      =         94
+
+Time =       0.00 sec    Generated terms =         12
+          eq3sym         Terms in output =         12
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         12
+             eq3         Terms in output =         12
+                         Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         12
+         eq3asym         Terms in output =         12
+                         Bytes used      =        294
+
+Time =       0.00 sec    Generated terms =         16
+       comm3asym         Terms in output =         12
+                         Bytes used      =        296
+
+Time =       0.00 sec    Generated terms =          4
+       cse3step1         Terms in output =          4
+                         Bytes used      =        148
+
+Time =       0.00 sec    Generated terms =         16
+       cse3step2         Terms in output =         16
+                         Bytes used      =        448
+
+Time =       0.00 sec    Generated terms =        130
+         eq5rsym         Terms in output =        130
+                         Bytes used      =       3200
+
+Time =       0.00 sec    Generated terms =        130
+      eq5fullsym         Terms in output =        130
+                         Bytes used      =       3200
+
+Time =       0.00 sec    Generated terms =          8
+        comm5d12         Terms in output =          8
+                         Bytes used      =        202
+
+Time =       0.00 sec    Generated terms =          8
+        comm5d15         Terms in output =          6
+                         Bytes used      =        160
+
+Time =       0.00 sec    Generated terms =          8
+       comm5t123         Terms in output =          8
+                         Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =          8
+       comm5t125         Terms in output =          8
+                         Bytes used      =        232
+    sym a258p,a258m,a285p,a285m,a528p,a528m,a582p,a582m,a825p,a825m,a852p,a852m;
+    Local cycle258 = 
+    d(5,6)*a258p*d(2,5)*d(6,8)+
+    d(5,4)*a258m*d(2,5)*d(4,8)+
+    d(8,9)*a285p*d(2,8)*d(9,5)+
+    d(8,7)*a285m*d(2,8)*d(7,5)+
+    d(2,3)*a528p*d(5,2)*d(3,8)+
+    d(2,1)*a528m*d(5,2)*d(1,8)+
+    d(8,9)*a582p*d(5,8)*d(9,2)+
+    d(8,7)*a582m*d(5,8)*d(7,2)+
+    d(2,3)*a825p*d(8,2)*d(3,5)+
+    d(2,1)*a825m*d(8,2)*d(1,5)+
+    d(5,6)*a852p*d(8,5)*d(6,2)+
+    d(5,4)*a852m*d(8,5)*d(4,2);
+    
+    .sort:task;
+
+Time =       0.00 sec    Generated terms =          4
+             eq2         Terms in output =          4
+                    task Bytes used      =         94
+
+Time =       0.00 sec    Generated terms =         12
+          eq3sym         Terms in output =         12
+                    task Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         12
+             eq3         Terms in output =         12
+                    task Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =         12
+         eq3asym         Terms in output =         12
+                    task Bytes used      =        294
+
+Time =       0.00 sec    Generated terms =         12
+       comm3asym         Terms in output =         12
+                    task Bytes used      =        296
+
+Time =       0.00 sec    Generated terms =          4
+       cse3step1         Terms in output =          4
+                    task Bytes used      =        148
+
+Time =       0.00 sec    Generated terms =         16
+       cse3step2         Terms in output =         16
+                    task Bytes used      =        448
+
+Time =       0.00 sec    Generated terms =        130
+         eq5rsym         Terms in output =        130
+                    task Bytes used      =       3200
+
+Time =       0.00 sec    Generated terms =        130
+      eq5fullsym         Terms in output =        130
+                    task Bytes used      =       3200
+
+Time =       0.00 sec    Generated terms =          8
+        comm5d12         Terms in output =          8
+                    task Bytes used      =        202
+
+Time =       0.00 sec    Generated terms =          6
+        comm5d15         Terms in output =          6
+                    task Bytes used      =        160
+
+Time =       0.00 sec    Generated terms =          8
+       comm5t123         Terms in output =          8
+                    task Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =          8
+       comm5t125         Terms in output =          8
+                    task Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =         12
+        cycle258         Terms in output =         12
+                    task Bytes used      =        536
+    sym c1258, c1528, c1825;
+    Local A1258 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,
+    2)*d(5,8);
+    Local A1528 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,
+    5)*d(2,8);
+    Local A1825 = (c1258*d(1,2)*d(5,8)+c1528*d(1,5)*d(2,8)+c1825*d(1,8)*d(2,5))*d(1,
+    8)*d(5,2);
+    
+    * === расписываем наши функции в сигма-матриц�
+    � ===
+    #do i = 1,50
+      id once d(i1?,i2?) = c(i1,j`i')*c(i2,j`i');
+    #enddo
+    #do i = 50,199,3
+      id once t(i1?,i2?,i3?) = c(i1,j`i')*c(i2,j{`i'+1})*c(i3,j{`i'+2})*e_(j`i',j{`i
+    '+1},j{`i'+2});
+    #enddo
+    
+    * === сортировка ===
+    repeat;
+      id 	c(i1?!{,j1},k1?)*
+    	c(j1?!{i1,i2},k3?)*
+    	c(i1?!{,j1},k2?)
+    	= c(i1,k1)*c(i1,k2)*c(j1,k3);
+    #do N=2,31
+      id 	c(i1?!{j1,...,j`N'},k1?)*
+    	<c(j1?!{i1,i2},l1?)>*...*<c(j`N'?!{i1,i2},l`N'?)>*
+    	c(i1?!{j1,...,j`N'},k2?)
+    	= c(i1,k1)*c(i1,k2)*<c(j1,l1)>*...*<c(j`N',l`N')>;
+    #enddo
+    endrepeat;
+    
+    * === раскрытие ===
+    #do i = 1,100
+    	id once c(i1?,j1?)*c(i1?,j2?) = d_(j1,j2)+i_*c(i1,k`i')*e_(k`i',j1,j2);
+    #enddo
+    
+    * === и свертка ===
+    contract;
+    contract;
+    
+    * === заменяем на коммутирующие ===
+    id c(?name) = C(?name);
+    
+    * === возвращаем к красивому виду ===
+    id C(i1?,j1?)*C(i2?,j1?) = d(i1,i2);
+    id C(i1?,j1?)*C(i2?,j2?)*C(i3?,j3?)*e_(j1?,j2?,j3?) = t(i1,i2,i3);
+    	
+    bracket t,d;
+    print;
+    
+    .end
+
+Time =       0.03 sec    Generated terms =          5
+             eq2         Terms in output =          5
+                         Bytes used      =        104
+
+Time =       0.03 sec    Generated terms =         18
+          eq3sym         Terms in output =         12
+                         Bytes used      =        238
+
+Time =       0.04 sec    Generated terms =         18
+             eq3         Terms in output =         16
+                         Bytes used      =        328
+
+Time =       0.04 sec    Generated terms =         18
+         eq3asym         Terms in output =         18
+                         Bytes used      =        390
+
+Time =       0.06 sec    Generated terms =         22
+       comm3asym         Terms in output =         15
+                         Bytes used      =        346
+
+Time =       0.06 sec    Generated terms =         12
+       cse3step1         Terms in output =          4
+                         Bytes used      =        118
+
+Time =       0.07 sec    Generated terms =         28
+       cse3step2         Terms in output =         26
+                         Bytes used      =        590
+
+Time =       0.18 sec    Generated terms =        290
+         eq5rsym         Terms in output =        124
+                         Bytes used      =       2564
+
+Time =       0.32 sec    Generated terms =        290
+      eq5fullsym         Terms in output =         90
+                         Bytes used      =       1862
+
+Time =       0.34 sec    Generated terms =         12
+        comm5d12         Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.34 sec    Generated terms =         12
+        comm5d15         Terms in output =          3
+                         Bytes used      =        102
+
+Time =       0.34 sec    Generated terms =         20
+       comm5t123         Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.35 sec    Generated terms =         24
+       comm5t125         Terms in output =          6
+                         Bytes used      =        212
+
+Time =       0.37 sec    Generated terms =         60
+        cycle258         Terms in output =         60
+                         Bytes used      =       1422
+
+Time =       0.37 sec    Generated terms =         32
+           A1258         Terms in output =         30
+                         Bytes used      =        682
+
+Time =       0.37 sec    Generated terms =         32
+           A1528         Terms in output =         30
+                         Bytes used      =        682
+
+Time =       0.39 sec    Generated terms =         32
+           A1825         Terms in output =         30
+                         Bytes used      =        682
+
+   eq2 =
+       + d(1,2) * ( 1 - 2*a - a*e )
+
+       - e + 3*a;
+
+   eq3sym =
+       + d(1,2) * ( 1 + a13 - 2*a12 - a12*e )
+
+       + d(1,3) * (  - a13*e + 2*a12 )
+
+       + d(2,3) * ( 1 + a13 - 2*a12 - a12*e )
+
+       - e + 6*a12;
+
+   eq3 =
+       + t(1,2,3) * (  - i_*a23 + i_*a12 )
+
+       + d(1,2) * ( 1 + a13 - 2*a12 - a12*e )
+
+       + d(1,3) * ( a23 - a13*e + a12 )
+
+       + d(2,3) * ( 1 - 2*a23 - a23*e + a13 )
+
+       - e + 3*a23 + 3*a12;
+
+   eq3asym =
+       + t(1,2,3) * (  - i_*a23 + i_*a13 - i_*a13*p + i_*a12*p )
+
+       + d(1,2) * ( 1 + a13*p - 2*a12 - a12*e )
+
+       + d(1,3) * ( a23 - a13*e + a12*p )
+
+       + d(2,3) * ( p - 2*a23*p - a23*e + a13 )
+
+       - e + 3*a23*p + 3*a12;
+
+   comm3asym =
+       + t(1,2,3) * (  - 2*i_*a23 + i_*a13 - i_*a13*p + i_*a12 + i_*a12*p )
+
+       + d(1,2) * (  - a13 + a13*p )
+
+       + d(1,3) * (  - a12 + a12*p )
+
+       + d(2,3) * (  - 1 + p + 2*a23 - 2*a23*p )
+
+       - 3*a23 + 3*a23*p;
+
+   cse3step1 =
+       + d(1,2) * (  - 4*i_*p )
+
+       + d(1,3) * (  - 4*i_ + 4*i_*p )
+
+       + d(2,3) * ( 4*i_ );
+
+   cse3step2 =
+       + t(1,2,3) * (  - 4*a23 + 8*a23*p - 4*a13 - 4*a13*p + 8*a12 - 4*a12*p )
+
+       + d(1,2) * (  - 4*i_*p - 4*i_*a23 + 4*i_*a23*p + 4*i_*a13 + 8*i_*a12*p
+          )
+
+       + d(1,3) * (  - 4*i_ + 4*i_*p - 4*i_*a23*p + 8*i_*a13 - 8*i_*a13*p + 4*
+         i_*a12 )
+
+       + d(2,3) * ( 4*i_ - 8*i_*a23 - 4*i_*a13*p - 4*i_*a12 + 4*i_*a12*p )
+
+       + 12*i_*a23 - 12*i_*a13 + 12*i_*a13*p - 12*i_*a12*p;
+
+   eq5rsym =
+       + t(1,2,5) * (  - i_*b5 + i_*b4 )
+
+       + t(1,4,5) * ( i_*b5 - i_*b4 )
+
+       + t(2,3,5) * (  - i_*b5 + i_*b4 )
+
+       + t(3,4,5) * (  - i_*b5 + i_*b4 )
+
+       + d(1,2)*t(3,4,5) * ( i_*b5 - i_*b4 )
+
+       + d(1,2)*d(3,4) * ( 2*b5 + 2*b4 - b2*e )
+
+       + d(1,2)*d(3,5) * (  - 2*b4 - b4*e + b2 + a3 )
+
+       + d(1,2)*d(4,5) * (  - 2*b5 - b5*e + b2 + a3 )
+
+       + d(1,2) * ( 4*b5 + 4*b4 + 2*b3 - a3*e + 2*a1 )
+
+       + d(1,3)*d(2,4) * ( 4*b3 - b1*e )
+
+       + d(1,3)*d(2,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,3)*d(4,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,3) * ( 2*b5 + 2*b4 + 6*b3 - a2*e + 2*a1 )
+
+       + d(1,4)*t(2,3,5) * ( i_*b5 - i_*b4 )
+
+       + d(1,4)*d(2,3) * ( 2*b5 + 2*b4 - b2*e )
+
+       + d(1,4)*d(2,5) * (  - 2*b4 - b4*e + b2 + a3 )
+
+       + d(1,4)*d(3,5) * (  - 2*b5 - b5*e + b2 + a3 )
+
+       + d(1,4) * ( 4*b5 + 4*b4 + 2*b3 - a3*e + 2*a1 )
+
+       + d(1,5)*d(2,3) * (  - 2*b5 - b5*e + b2 + a3 )
+
+       + d(1,5)*d(2,4) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,5)*d(3,4) * (  - 2*b4 - b4*e + b2 + a3 )
+
+       + d(1,5) * ( 1 + 2*a3 + a2 - 2*a1 - a1*e )
+
+       + d(2,3)*t(1,4,5) * (  - i_*b5 + i_*b4 )
+
+       + d(2,3)*d(4,5) * (  - 2*b4 - b4*e + b2 + a3 )
+
+       + d(2,3) * ( 4*b5 + 4*b4 + 2*b3 - a3*e + 2*a1 )
+
+       + d(2,4)*d(3,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(2,4) * ( 2*b5 + 2*b4 + 6*b3 - a2*e + 2*a1 )
+
+       + d(2,5)*d(3,4) * (  - 2*b5 - b5*e + b2 + a3 )
+
+       + d(2,5) * ( 1 + 2*a3 + a2 - 2*a1 - a1*e )
+
+       + d(3,4)*t(1,2,5) * ( i_*b5 - i_*b4 )
+
+       + d(3,4) * ( 4*b5 + 4*b4 + 2*b3 - a3*e + 2*a1 )
+
+       + d(3,5) * ( 1 + 2*a3 + a2 - 2*a1 - a1*e )
+
+       + d(4,5) * ( 1 + 2*a3 + a2 - 2*a1 - a1*e )
+
+       - e + 12*a1;
+
+   eq5fullsym =
+       + d(1,2)*d(3,4) * ( 4*b3 - b1*e )
+
+       + d(1,2)*d(3,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,2)*d(4,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,2) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(1,3)*d(2,4) * ( 4*b3 - b1*e )
+
+       + d(1,3)*d(2,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,3)*d(4,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,3) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(1,4)*d(2,3) * ( 4*b3 - b1*e )
+
+       + d(1,4)*d(2,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,4)*d(3,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,4) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(1,5)*d(2,3) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,5)*d(2,4) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,5)*d(3,4) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(1,5) * ( 1 + 3*a2 - 2*a1 - a1*e )
+
+       + d(2,3)*d(4,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(2,3) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(2,4)*d(3,5) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(2,4) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(2,5)*d(3,4) * (  - 2*b3 - b3*e + b1 + a2 )
+
+       + d(2,5) * ( 1 + 3*a2 - 2*a1 - a1*e )
+
+       + d(3,4) * ( 10*b3 - a2*e + 2*a1 )
+
+       + d(3,5) * ( 1 + 3*a2 - 2*a1 - a1*e )
+
+       + d(4,5) * ( 1 + 3*a2 - 2*a1 - a1*e )
+
+       - e + 12*a1;
+
+   comm5d12 = 0;
+
+   comm5d15 =
+       + t(1,2,5) * (  - 2*i_ )
+
+       + t(1,3,5) * (  - 2*i_ )
+
+       + t(1,4,5) * (  - 2*i_ );
+
+   comm5t123 = 0;
+
+   comm5t125 =
+       + d(1,3)*d(2,5) * (  - 2*i_ )
+
+       + d(1,4)*d(2,5) * (  - 2*i_ )
+
+       + d(1,5)*d(2,3) * ( 2*i_ )
+
+       + d(1,5)*d(2,4) * ( 2*i_ )
+
+       + d(1,5) * ( 4*i_ )
+
+       + d(2,5) * (  - 4*i_ );
+
+   cycle258 =
+       + t(1,5,8) * (  - i_*a825m + i_*a528m )
+
+       + t(2,4,8) * ( i_*a852m - i_*a258m )
+
+       + t(2,5,7) * (  - i_*a582m + i_*a285m )
+
+       + t(2,5,8) * (  - i_*a852m - i_*a852p + i_*a825m + i_*a825p + i_*a582m
+          + i_*a582p - i_*a528m - i_*a528p - i_*a285m - i_*a285p + i_*a258m + 
+         i_*a258p )
+
+       + t(2,5,9) * (  - i_*a582p + i_*a285p )
+
+       + t(2,6,8) * ( i_*a852p - i_*a258p )
+
+       + t(3,5,8) * (  - i_*a825p + i_*a528p )
+
+       + d(1,2)*d(5,8) * (  - a825m - a528m )
+
+       + d(1,5)*d(2,8) * ( a528m )
+
+       + d(1,8)*d(2,5) * ( a825m )
+
+       + d(2,3)*d(5,8) * (  - a825p - a528p )
+
+       + d(2,4)*d(5,8) * ( a258m )
+
+       + d(2,5)*d(3,8) * ( a825p )
+
+       + d(2,5)*d(4,8) * ( a852m )
+
+       + d(2,5)*d(6,8) * ( a852p )
+
+       + d(2,5)*d(7,8) * (  - a582m - a285m )
+
+       + d(2,5)*d(8,9) * (  - a582p - a285p )
+
+       + d(2,5) * ( a582m + a582p + a285m + a285p )
+
+       + d(2,6)*d(5,8) * ( a258p )
+
+       + d(2,7)*d(5,8) * ( a285m )
+
+       + d(2,8)*d(3,5) * ( a528p )
+
+       + d(2,8)*d(4,5) * (  - a852m - a258m )
+
+       + d(2,8)*d(5,6) * (  - a852p - a258p )
+
+       + d(2,8)*d(5,7) * ( a582m )
+
+       + d(2,8)*d(5,9) * ( a582p )
+
+       + d(2,8) * ( a852m + a852p + a258m + a258p )
+
+       + d(2,9)*d(5,8) * ( a285p )
+
+       + d(5,8) * ( a825m + a825p + a528m + a528p );
+
+   A1258 =
+       + t(1,2,5) * ( i_*c1825 - i_*c1528 )
+
+       + t(1,2,8) * (  - i_*c1825 + i_*c1528 )
+
+       + t(1,5,8) * ( i_*c1825 - i_*c1528 )
+
+       + t(2,5,8) * (  - i_*c1825 + i_*c1528 )
+
+       + d(1,2)*d(5,8) * ( c1825 + c1528 + 4*c1258 )
+
+       + d(1,2) * (  - 2*c1825 - 2*c1528 - 6*c1258 )
+
+       + d(1,5)*d(2,8) * ( c1528 )
+
+       + d(1,5) * ( 2*c1825 - 2*c1528 )
+
+       + d(1,8)*d(2,5) * ( c1825 )
+
+       + d(1,8) * (  - 2*c1825 + 2*c1528 )
+
+       + d(2,5) * (  - 2*c1825 + 2*c1528 )
+
+       + d(2,8) * ( 2*c1825 - 2*c1528 )
+
+       + d(5,8) * (  - 2*c1825 - 2*c1528 - 6*c1258 )
+
+       + 3*c1825 + 3*c1528 + 9*c1258;
+
+   A1528 =
+       + t(1,2,5) * (  - i_*c1825 + i_*c1258 )
+
+       + t(1,2,8) * ( i_*c1825 - i_*c1258 )
+
+       + t(1,5,8) * (  - i_*c1825 + i_*c1258 )
+
+       + t(2,5,8) * ( i_*c1825 - i_*c1258 )
+
+       + d(1,2)*d(5,8) * ( c1258 )
+
+       + d(1,2) * ( 2*c1825 - 2*c1258 )
+
+       + d(1,5)*d(2,8) * ( c1825 + 4*c1528 + c1258 )
+
+       + d(1,5) * (  - 2*c1825 - 6*c1528 - 2*c1258 )
+
+       + d(1,8)*d(2,5) * ( c1825 )
+
+       + d(1,8) * (  - 2*c1825 + 2*c1258 )
+
+       + d(2,5) * (  - 2*c1825 + 2*c1258 )
+
+       + d(2,8) * (  - 2*c1825 - 6*c1528 - 2*c1258 )
+
+       + d(5,8) * ( 2*c1825 - 2*c1258 )
+
+       + 3*c1825 + 9*c1528 + 3*c1258;
+
+   A1825 =
+       + t(1,2,5) * ( i_*c1528 - i_*c1258 )
+
+       + t(1,2,8) * (  - i_*c1528 + i_*c1258 )
+
+       + t(1,5,8) * ( i_*c1528 - i_*c1258 )
+
+       + t(2,5,8) * (  - i_*c1528 + i_*c1258 )
+
+       + d(1,2)*d(5,8) * ( c1258 )
+
+       + d(1,2) * ( 2*c1528 - 2*c1258 )
+
+       + d(1,5)*d(2,8) * ( c1528 )
+
+       + d(1,5) * (  - 2*c1528 + 2*c1258 )
+
+       + d(1,8)*d(2,5) * ( 4*c1825 + c1528 + c1258 )
+
+       + d(1,8) * (  - 6*c1825 - 2*c1528 - 2*c1258 )
+
+       + d(2,5) * (  - 6*c1825 - 2*c1528 - 2*c1258 )
+
+       + d(2,8) * (  - 2*c1528 + 2*c1258 )
+
+       + d(5,8) * ( 2*c1528 - 2*c1258 )
+
+       + 9*c1825 + 3*c1528 + 3*c1258;
+
+  0.40 sec out of 0.49 sec

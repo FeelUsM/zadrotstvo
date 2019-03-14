@@ -1,0 +1,84 @@
+--- оборты речи ---
+looks like, and may well be, ...
+appears to have <done>	кажется <что-то произошло>
+residue = remainder
+residual sum of square
+
+--- короткие действия ---
+snap		щелчок
+hop		прыжок
+chunch		грызть, хруст
+stitch		стежок
+
+--- авиакосмическая техника ---
+vehicle		транспортное средство
+vessel
+crew		экипаж
+pod		стручок, подвеска, отделяемый грузовой отсек
+payload		полезная нагрузка
+propellant	ракетное топливо
+pitch/yaw/roll	тангаж/рыскание/крен
+steer		управлять
+roam		странствовать
+
+--- техника ---
+mock-up		макет
+instance	экземпляр
+worst case	в наихудшем случае
+rubbish		мусор
+the bulk of	основная часть
+
+thrust		толчок, упор
+ascent/descent	подъем/спуск
+
+impact		obey наоборот
+yield		уступать, замещать
+bypass		обход (по структуре объекта)
+survey		опрос
+
+proximity	близость
+overlay		наложение, перекрытие
+mess		беспорядок
+convex		выпуклый
+
+demand		потребность
+surplus		избыток
+thumper		толсто, много
+
+torque		крутящий момент
+
+deceptively simple	обманчиво простой
+pivot		стержень, точка опоры, основа
+shower		душ, град, поток
+
+brings it closer приближает его
+
+--- managing ---
+mess up		портить
+endeavour	стремление
+ahead		впереди
+summing up	подведение итогов
+pick		select
+conceive	зачать
+
+--- amazing ---
+pinnacle	вершина, кульминация
+plucky		отважный
+majestic	величавый
+severity	строгость
+herald		вестник, глашатай, возвестить
+comprehensive	всеобъемлющий
+fascination	очарование
+
+--- мемы ---
+mock		издеваться, высмеивать
+mama jokes	шутки про мамку
+ugly		страшная
+keep on krying	начинает плакать
+insane		ненормальный, душевнобольной
+
+--- части тела ---
+hair		
+sholder		
+
+

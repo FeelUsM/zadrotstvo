@@ -1,0 +1,248 @@
+00 00	FF FF FF FF[4C 01|02 00] 	Intel 386 or later processors and compatible processors 
+					2 sections
+00 08	E1 1E F4 5B|30 01 00 00 	20.11.2018 14:49:05
+					px130+4 - file pointer -> symbol table
+00 10	18 00 00 00|00 00|00 00 	x18 symbols
+					optional header is absent
+					characteristics absent
+					
+00 18	2E 74 65 78 74 00 00 00 	.text
+00 20	00 00 00 00 00 00 00 00 	=0				RVA
+00 28	82 00 00 00 64 00 00 00 	px64	pxE6	(px68	pxEA)	file
+00 30	E6 00 00 00 00 00 00 00 	pxE6		(pxEA)		7 relocations
+00 38	07 00 00 00 20 00 50 60 	The section can be executed as code. 
+					The section contains COMDAT data. 
+					The section contains initialized data.
+					The section contains executable code. 
+
+00 40	2E 64 61 74 61 00 00 00 	.data
+00 48	00 00 00 00 00 00 00 00 	
+00 50	04 00 00 00 2C 01 00 00 	px12C	px130	(px130	px134)	file
+00 58	30 01 00 00 00 00 00 00 	px130 		(px134)		0 relocations
+00 60	00 00 00 00 40 00 30 C0 
+--- .text ---
+00 68	89 E5 E8 02 00 00 00 EB 
+00 70	76 EB 00 53 8B 5C 24 04 
+00 78	89 1D 00 00 00 00 8B 1C 
+00 80	24 89 5C 24 04 5B 5B 9C 
+00 88	52 51 50 EB 0A 48 61 73 
+00 90	61 73 61 73 6C 6F 00 C8 
+00 98	00 00 00 83 EC 00 83 E4 
+00 A0	F0 83 C4 00 E8 00 00 00 
+00 A8	00 C9 C8 00 00 00 83 EC 
+00 B0	08 83 E4 F0 83 C4 08 50 
+00 B8	68 25 00 00 00 E8 00 00 
+00 C0	00 00 C9 C8 00 00 00 83 
+00 C8	EC 04 83 E4 F0 83 C4 04 
+00 D0	E8 00 00 00 00 50 E8 00 
+00 D8	00 00 00 C9 58 59 5A 9D 
+00 E0	FF 35 00 00 00 00 C3 31 
+00 E8	C0 C3 
+
+	PRINT_STRING:
+		sasmMacroFunc:
+			mov ebp,esp
+			call loc_00000009
+			jmp loc_0000007f
+		loc_00000009:
+			jmp loc_0000000b
+					section .data		ds:0x0
+						%$sasmRetAddr dd 0		;	eip
+					section .text
+		loc_0000000b:
+			push ebx
+			mov ebx,DWORD PTR [esp+0x4]
+			mov DWORD PTR ds:sasmRetAddr,ebx	;	sasmRetAddr(1)
+			mov ebx,DWORD PTR [esp]
+			mov DWORD PTR [esp+0x4],ebx
+			pop ebx
+			pop ebx
+		pushf
+		push edx
+		push ecx
+		push eax
+		jmp loc_0000002f
+		%%str db "Hasasaslo\0"
+		loc_0000002f:
+		ALIGN_STACK:
+			enter 0x0,0x0
+			sub esp,0x0
+			and esp,0xfffffff0
+			add esp,0x0
+		call loc_00000041			;	get_stdout(2)
+		UNALIGN_STACK:
+			leave
+		ALIGN_STACK:
+			enter 0x0,0x0
+			sub esp,0x8
+			and esp,0xfffffff0
+			add esp,0x8
+		push eax
+		push 0x25;				;	str(3)
+		call loc_0000005a			;	fputs(4)
+		UNALIGN_STACK:
+			leave
+		FFLUSH_STDOUT:
+			ALIGN_STACK:
+				enter 0x0,0x0
+				sub esp,0x4
+				and esp,0xfffffff0
+				add esp,0x4
+			call loc_0000006d		;	get_stdout(5)
+			push eax
+			call loc_00000073		;	fflush(6)
+			UNALIGN_STACK:
+				leave
+		end FFLUSH_STDOUT
+		pop eax
+		pop ecx
+		pop edx
+		popf
+		sasmMacroFuncE:
+			push DWORD PTR ds:0x0
+			ret
+		loc_0000007f:
+		%$sasmMacroE:				;	sasmMacroE(7)
+	xor eax,eax
+	ret
+
+
+--- .text relocations ---
+type	description
+6	The 32-bit address relative to byte distance 2 from the relocation
+4	The 32-bit relative address from the byte following the relocation.
+10	A 32-bit signed span-dependent value that is applied at link time.
+						symbol	type
+	      12 00 00 00 04 00 	1 %$ sasmRetAddr
+00 F0	00 00 06 00 				4	6	
+		    3D 00 00 00 	2 get_stdout
+00 F8	0F 00 00 00 14 00 			F	14
+			  51 00 	3 %% str
+01 00	00 00 02 00 00 00 06 00 		2	6
+01 08	56 00 00 00 0C 00 00 00 	4 fputs
+01 10	14 00 					C	14
+	      69 00 00 00 0F 00 	5 get_stdout
+01 18	00 00 14 00 				F	14
+		    6F 00 00 00 	6 fflush
+01 20	0D 00 00 00 14 00 			D	14
+			  7A 00 	7 %$ sasmMacroE
+01 28	00 00 04 00 00 00 06 00 		4	6
+--- .data ---
+01 30	00 00 00 00 
+--- symbol table --- 		
+class:
+2 - A value that Microsoft tools use for external symbols. 
+	The Value field indicates the size if the section number is IMAGE_SYM_UNDEFINED (0). 
+	If the section number is not zero, then the Value field specifies the offset within the section.
+3 - The offset of the symbol within the section. 
+	If the Value field is zero, then the symbol represents a section name.
+67 - A value that Microsoft tools, as well as traditional COFF format, use for the source-file symbol record. 
+	The symbol is followed by auxiliary records that name the file.
+type:
+0 - No derived type; the symbol is a simple scalar variable
+sec_num:
+0	The symbol record is not yet assigned a section. 
+	A value of zero indicates that a reference to an external symbol is defined elsewhere. 
+	A value of non-zero is a common symbol with a size that is specified by the value.
+-1	The symbol has an absolute (non-relocatable) value and is not an address.
+-2	The symbol provides general type or debugging information but does not correspond to a section. 
+	Microsoft tools use this setting along with .file records (storage class FILE).
+					reg_num	value	sec_num	type	class	name
+		    2E 66 69 6C 	(0) 	0	-1	0	67	.file
+01 38	65 00 00 00 00 00 00 00 
+01 40	FE FF 00 00 67 01 
+			  44 3A 	(1)--
+01 48	5C 55 73 65 72 73 5C 66 	D:\Users\feelus\Ap
+01 50	65 65 6C 75 73 5C 41 70
+01 58	2E 74 65 78 74 00 00 00 	(2) 	0	1	0	3	.text
+01 60	00 00 00 00 01 00 00 00 
+01 68	03 01 
+	      82 00 00 00 07 00 	(3)--
+01 70	00 00 00 00 00 00 00 00 
+01 78	00 00 00 00 
+		    2E 64 61 74 	(4) 	0	2	0	3	.data
+01 80	61 00 00 00 00 00 00 00 
+01 88	02 00 00 00 03 01 
+			  04 00 	(5)--
+01 90	00 00 00 00 00 00 00 00 
+01 98	00 00 00 00 00 00 00 00 
+01 A0	2E 61 62 73 6F 6C 75 74 	(6) 	0	-1	0	3	.absolut
+01 A8	00 00 00 00 FF FF 00 00 
+01 B0	03 00 
+	      5F 70 72 69 6E 74 	(7) 	0	0	0	2	_printf
+01 B8	66 00 00 00 00 00 00 00 
+01 C0	00 00 02 00 
+		    5F 73 63 61 	(8) 	0	0	0	2	_scanf
+01 C8	6E 66 00 00 00 00 00 00 
+01 D0	00 00 00 00 02 00 
+			  5F 70 	(9) 	0	0	0	2	_putchar
+01 D8	75 74 63 68 61 72 00 00 
+01 E0	00 00 00 00 00 00 02 00 
+01 E8	5F 66 67 65 74 73 00 00 	(A) 	0	0	0	2	_fgets
+01 F0	00 00 00 00 00 00 00 00 
+01 F8	02 00 
+	      5F 70 75 74 73 00 	(B) 	0	0	0	2	_puts
+02 00	00 00 00 00 00 00 00 00 
+02 08	00 00 02 00 
+		    5F 66 70 75 	(C) 	0	0	0	2	_fputs
+02 10	74 73 00 00 00 00 00 00 
+02 18	00 00 00 00 02 00 
+			  5F 66 	(D) 	0	0	0	2	_fflush
+02 20	66 6C 75 73 68 00 00 00 
+02 28	00 00 00 00 00 00 02 00 
+02 30	00 00 00 00 04 00 00 00 	(E) 	0	0	0	2	4->_get_stdin
+02 38	00 00 00 00 00 00 00 00 
+02 40	02 00 
+	      00 00 00 00 0F 00 	(F) 	0	0	0	2	F->_get_stdout
+02 48	00 00 00 00 00 00 00 00 
+02 50	00 00 02 00 
+		    5F 6D 61 69 	(10) 	0	1	0	2	_main
+02 58	6E 00 00 00 00 00 00 00 
+02 60	01 00 00 00 02 00 
+			  00 00 	(11) 	9	1	0	3	1B->//@22/sasmMacro
+02 68	00 00 1B 00 00 00 09 00 
+02 70	00 00 01 00 00 00 03 00 
+02 78	00 00 00 00 2B 00 00 00 	(12) 	0	2	0	3	2B->//@22/sasmRetAddr
+02 80	00 00 00 00 02 00 00 00 
+02 88	03 00 
+	      00 00 00 00 3D 00 	(13) 	B	1	0	3	3D->//@21/after_data
+02 90	00 00 0B 00 00 00 01 00 
+02 98	00 00 03 00 
+		    00 00 00 00 	(14) 	25	1	0	3	4E->//@20/str
+02 A0	4E 00 00 00 25 00 00 00 
+02 A8	01 00 00 00 03 00 
+			  00 00 	(15) 	2F	1	0	3	58->//@20/after_str
+02 B0	00 00 58 00 00 00 2F 00 
+02 B8	00 00 01 00 00 00 03 00 
+02 C0	00 00 00 00 68 00 00 00 	(16) 	7F	1	0	3	68->//@22/sasmMacroE
+02 C8	7F 00 00 00 01 00 00 00 
+02 D0	03 00 
+	      40 66 65 61 74 2E 	(17) 	1	-1	0	3	@feat/00 
+02 D8	30 30 01 00 00 00 FF FF 
+02 E0	00 00 03 00 
+--- string table ---
+   0	2E4
+4	2E8	_get_stdin
+F	2f3	_get_stdout
+1B	2ff	//@22/sasmMacro
+2B	30f	//@22/sasmRetAddr
+3D	321	//@21/after_data
+4E	332	//@20/str
+58	33C	//@20/after_str
+68	34c	//@22/sasmMacroE
+		    79 00 00 00 	    y���
+02 E8	5F 67 65 74 5F 73 74 64         _get_std	4+0
+02 F0	69 6E 00 5F 67 65 74 5F         in�_get_	f+3
+02 F8	73 74 64 6F 75 74 00 2E         stdout�.	1b+7
+03 00	2E 40 32 32 2E 73 61 73         .@22.sas	
+03 08	6D 4D 61 63 72 6F 00 2E         mMacro�.	2b+7
+03 10	2E 40 32 32 2E 73 61 73         .@22.sas
+03 18	6D 52 65 74 41 64 64 72         mRetAddr
+03 20	00 2E 2E 40 32 31 2E 61         �..@21.a	3d
+03 28	66 74 65 72 5F 64 61 74         fter_dat
+03 30	61 00 2E 2E 40 32 30 2E         a�..@20.	4e
+03 38	73 74 72 00 2E 2E 40 32         str�..@2	58
+03 40	30 2E 61 66 74 65 72 5F         0.after_
+03 48	73 74 72 00 2E 2E 40 32         str�..@2	68
+03 50	32 2E 73 61 73 6D 4D 61         2.sasmMa
+03 58	63 72 6F 45 00                  croE�

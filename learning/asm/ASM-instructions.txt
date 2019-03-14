@@ -1,0 +1,1425 @@
+mod  r/m	16-битный режим		32-битный режим		
+00...000	[BX + SI]		[EAX]
+00...001	[BX + DI]		[ECX]
+00...010	[BP + SI] (SS)		[EDX]
+00...011	[BP + DI] (SS)		[EBX]
+00...100	[SI]			<sib>
+00...101	[DI]			disp32
+00...110	disp16			[ESI]
+00...111	[BX]			[EDI]
+					
+01...000	[BX+SI]+disp8		[EAX]+disp8
+01...001	[BX+DI]+disp8		[ECX]+disp8
+01...010	[BP+SI]+disp8 (SS)	[EDX]+disp8
+01...011	[BP+DI]+disp8 (SS)	[EPX]+disp8
+01...100	[SI]+disp8		<sib>+disp8
+01...101	[DI]+disp8		[EBP]+disp8
+01...110	[BP]+disp8 (SS)		[ESI]+disp8
+01...111	[BX]+disp8		[EDI]+disp8
+					
+10...000	[BX+SI]+disp16		[EAX]+disp32
+10...001	[BX+DI]+disp16		[ECX]+disp32
+10...010	[BP+SI]+disp16		[EDX]+disp32
+10...011	[BP+DI]+disp16		[EBX]+disp32
+10...100	[SI]+disp16		<sib>+disp32
+10...101	[DI]+disp16		[EBP]+disp32
+10...110	[BP]+disp16 (SS)	[ESI]+disp32
+10...111	[BX]+disp16		[EDI]+disp32
+					
+11...000	EAX/AX/AL		EAX/AX/AL
+11...001	ECX/CX/CL		ECX/CX/CL
+11...010	EDX/DX/DL		EDX/DX/DL
+11...011	EBX/BX/BL		EBX/BX/BL
+11...100	ESP/SP/AH (SS)		ESP/SP/AH
+11...101	EBP/BP/CH (SS)		EBP/BP/CH
+11...110	ESI/SI/DH		ESI/SI/DH
+11...111	EDI/DI/BH		EDI/DI/BH
+--------------------------------------------------------------
+  reg		r8	r16	r32	Sreg		SS	index	base
+..000...	AL	AX	EAX	es		00.. 1	[EAX]	[EAX]	
+..001...	CL	CX	ECX	cs		01.. 2	[ECX]	[ECX]	
+..010...	DL	DX	EDX	ss		10.. 4	[EDX]	[EDX]	
+..011...	BL	BX	EBX	ds		11.. 8	[EBX]	[EBX]	
+..100...	AH	SP	ESP	fs			none*	[ESP]
+..101...	CH	BP	EBP	gs			[EBP]	[**]	
+..110...	DH	SI	ESI				[ESI]	[ESI]	
+..111...	BH	DI	EDI				[EDI]	[EDI]	
+none* - [EIZ], EIZ=0 всегда
+** - обозначает disp32 без базового регистра, если mod = 00, и [EBP] в противном случае.
+=========================================================================
+
+-------------
+  F3,0F,58, /r 	ADDSS xmm1, xmm2/m32 	Add the lower SP FP number from XMM2/Mem to XMM1.
+  F3,0F,C2,/r,ib CMPSS xmm1,xmm2/m32, imm8 Compare lowest SP FP number from XMM2/Mem to lowest SP FP number in XMM1 register using imm8 as predicate. 
+  F3,0F,2A,/r 	CVTSI2SS xmm, r/m32 	Convert one 32-bit signed integer from Integer Reg/Mem to one SP FP.
+  F3,0F,2D,/r 	CVTSS2SI r32, xmm/m32 	Convert one SP FP from XMM/Mem to one 32 bit signed integer using rounding mode specified by MXCSR, and move the result to an integer register. 
+  F3,0F,2C,/r 	CVTTSS2SI r32, xmm/m32 	Convert lowest SP FP from XMM/Mem to one 32 bit signed integer using truncate, and move the result to an integer register. 
+  F3,0F,5E,/r 	DIVSS xmm1, xmm2/m32 	Divide lower SP FP numbers in XMM1 by XMM2/Mem
+  F3,0F,5F,/r 	MAXSS xmm1,xmm2/m32 	Return the maximum SP FP number between the lower SP FP numbers from XMM2/Mem and XMM1.
+  F3,0F,5D,/r 	MINSS xmm1,xmm2/m32 	Return the minimum SP FP number between the lowest SP FP numbers from XMM2/Mem and XMM1.
+  F3,0F,10,/r 	MOVSS xmm1, xmm2/m32 	Move 32 bits representing one scalar SP operand from XMM2/Mem to XMM1 register
+  F3,0F,11,/r 	MOVSS xmm2/m32, xmm1 	Move 32 bits representing one scalar SP operand from XMM1 register to XMM2/Mem
+  F3,0F,59,/r 	MULSS xmm1 xmm2/m32 	Multiply the lowest SP FP number in XMM2/Mem to XMM1.
+  0F,53,/r 	RCPPS xmm1, xmm2/m128 	Return a packed approximation of the reciprocal of XMM2/Mem.
+  F3,0F,52,/r 	RSQRTSS xmm1,xmm2/m32 	Return an approximation of the square root of the reciprocal of the lowest SP FP number in XMM2/Mem.
+  F3,0F,51,/r 	SQRTSS xmm1, xmm2/m32 	Square Root of the lower SP FP number in XMM2/Mem
+  F3,0F,5C, /r 	SUBSS xmm1,xmm2/m32 	Subtract the lower SP FP numbers in XMM2/Mem from XMM1.
+----------		
+------------------------------------------------
+0F 00 /0 	SLDT r/m32 		Store segment selector from LDTR in low-order 16 bits of r/m32 16/32	
+      /1 	STR r/m16 		Stores segment selector from TR in r/m16	
+      /2 	LLDT r/m16 		Load segment selector r/m16 into LDTR	
+      /3 	LTR r/m16 		Load r/m16 into task register	
+      /4 	VERR r/m16 		Set ZF=1 if segment specified with r/m16 can be read	
+      /5 	VERW r/m16 		Set ZF=1 if segment specified with r/m16 can be written	
+      /6	(bad)
+      /7	(bad)
+0F 01 /0 	SGDT m 			Store GDTR to m	
+      /1 	SIDT m 			Store IDTR to m	
+      /2 	LGDT m16&32 		Load m into GDTR	
+      /3 	LIDT m16&32 		Load m into IDTR	
+      /4 	SMSW r32/m16 		Store machine status word in low-order 16 bits of r32/m16; high-order 16 bits of r32 are undefined 16/32
+      /5	(bad)
+      /6 	LMSW r/m16 		Loads r/m16 in machine status word of CR0	
+      /7 	INVLPG m 		Invalidate TLB Entry for page that contains m	
+0F 02 /r 	LAR r32,r/m32 		r32 ← r/m32 masked by 00FxFF00H 16/32	
+0F 03 /r 	LSL r32,r/m32 		Load: r32 ← segment limit, selector r/m32) 16/32	
+   04		(bad)
+   05		SYSCALL			?????
+0F 06 		CLTS 			Clears TS flag in CR0
+   07		SYSRET			?????
+0F 08 		INVD 			Flush internal caches; initiate flushing of external caches.
+0F 09 		WBINVD 			Write back and flush Internal caches; initiate writing-back and flushing of external caches.
+   0A		(bad)
+0F 0B 		UD2 			Raise invalid opcode exception
+   0C		(bad)
+   0D /0	??? prefetch
+      /1	PREFETCHW m8
+      /2	PREFETCHWT1 m8
+      /3	??? prefetch
+      /4	??? prefetch
+      /5	??? prefetch
+      /6	??? prefetch
+      /7	??? prefetch
+   0E		??? femms
+   0F		(bad)
+------------------------------------------------
+0F 10 /r 	MOVUPS xmm1, xmm2/m128 	Move 128 bits representing four SP data from XMM2/Mem to XMM1 register.	
+0F 11 /r 	MOVUPS xmm2/m128, xmm1 	Move 128 bits representing four SP data from XMM1 register to XMM2/Mem.	
+0F 12 /r 	MOVLPS xmm, m64 	Move 64 bits representing two SP operands from Mem to lower two fields of XMM register.	
+0F 13 /r 	MOVLPS m64, xmm 	Move 64 bits representing two SP operands from lower two fields of XMM register to Mem.	
+0F 14 /r 	UNPCKLPS xmm1,xmm2/m128 Interleaves SP FP numbers from the low halves of XMM1 and XMM2/Mem into XMM1 register.	
+0F 15 /r 	UNPCKHPS xmm1,xmm2/m128 Interleaves SP FP numbers from the high halves of XMM1 and XMM2/Mem into XMM1 register.	
+0F 16 /r 	MOVHPS xmm, m64 	Move 64 bits representing two SP operands from Mem to upper two fields of XMM register.	
+0F 17 /r 	MOVHPS m64, xmm 	Move 64 bits representing two SP operands from upper two fields of XMM register to Mem.	
+0F 18 /0 	PREFETCHNTA m8 		Move data specified by address closer to the processor using the nta hint.	
+      /1 	PREFETCHT0 m8  		Move data specified by address closer to the processor using the t0 hint.	
+      /2 	PREFETCHT1 m8  		Move data specified by address closer to the processor using the t1 hint.	
+      /3 	PREFETCHT2 m8  		Move data specified by address closer to the processor using the t2 hint.	
+      /4	reserved
+      /5	reserved
+      /6	reserved
+      /7	reserved
+   19 /r	nop
+   1A /r	BNDLDX bnd, mib		...
+   1B /r	BNDSTX mib, bnd		...
+   1C /r	nop
+   1D /r	nop
+   1E /r	nop
+   1F /r	nop
+------------------------------------------------
+0F 20 /r 	MOV r32,CR0/CR2/CR3/CR4 Move CR0/CR2/CR3/CR4 to r32	
+0F 21 /r 	MOV r32, DR0-DR7 	Move debug register to r32	
+0F 22 /r 	MOV CR0/CR2/CR3/CR4,r32 Move r32 to CR0/CR2/CR3/CR4	
+0F 23 /r 	MOV DR0-DR7,r32 	Move r32 to debug register	
+   24		(bad)
+   25		(bad)
+   26		(bad)
+   27		(bad)
+0F 28 /r 	MOVAPS xmm1,xmm2/m128 	Move 128 bits representing four packed SP data from XMM2/Mem to XMM1 register.	
+0F 29 /r 	MOVAPS xmm2/m128,xmm1 	Move 128 bits representing four packed SP from XMM1 register to XMM2/Mem.	
+0F 2A /r 	CVTPI2PS xmm, mm/m64 	Convert two 32-bit signed integers from MM/Mem to two SP 0F,2D,/r CVTPS2PI mm, xmm/m64 Convert lower two SP FP from XMM/Mem to two 32-bit signed integers in MM using rounding specified by MXCSR.FP.	
+0F 2B /r 	MOVNTPS m128, xmm 	Move 128 bits representing four packed SP FP data from XMM register to Mem, minimizing pollution in the cache hierarchy.	
+0F 2C /r 	CVTTPS2PI mm, xmm/m64 	Convert lower two SP FP from XMM/Mem to two 32-bit signed integers in MM using truncate.	
+   2D /r	CVTPS2PI mm, xmm/m64	...
+0F 2E /r 	UCOMISS xmm1,xmm2/m32	Compare lower SP FP number in XMM1 register with lower SP FP number in XMM2/Mem and set the status flags accordingly.	
+0F 2F /r 	COMISS xmm1,xmm2/m32 	Compare lower SP FP number in XMM1 register with lower SP FP number in XMM2/Mem and set the status flags accordingly	
+------------------------------------------------
+0F 30 		WRMSR 			Write the value in EDX:EAX to MSR specified by ECX 
+0F 31 		RDTSC 			Read time-stamp counter into EDX:EAX
+0F 32 		RDMSR 			Load MSR specified by ECX into EDX:EAX
+0F 33 		RDPMC 			Read performance-monitoring counter specified by ECX into EDX:EAX
+0F 34 		SYSENTER 		Transition to System Call Entry Point
+0F 35 		SYSEXIT 		Transition from System Call Entry Point
+   36		(bad)
+   37		getsec
+   38 00 /r	PSHUFB mm1, mm2/m64	...
+      ...
+   39		(bad)
+   3a ib	(bad)
+   3b		(bad)
+   3c		(bad)
+   3d		(bad)
+   3e		(bad)
+   3f		(bad)
+------------------------------------------------
+0F 40 /r 	CMOVO r32, r/m32 		Move if overflow (OF=0) 16/32	
+0F 41 /r 	CMOVNO r32, r/m32 		Move if not overflow (OF=0) 16/32	
+0F 42 /r 	CMOVB/CMOVC/CMOVNAE r32, r/m32 	Move if below (CF=1) 16/32	
+0F 43 /r 	CMOVAE/CMOVNB/CMOVNC r32, r/m32 Move if above or equal (CF=0) 16/32	
+0F 44 /r 	CMOVE/CMOVZ r32, r/m32 		Move if equal (ZF=1) 16/32	
+0F 45 /r 	CMOVNE/CMOVNZ r32, r/m32 	Move if not equal (ZF=0) 16/32	
+0F 46 /r 	CMOVBE/CMOVNA r32, r/m32 	Move if below or equal (CF=1 or ZF=1) 16/32	
+0F 47 /r 	CMOVA/CMOVNBE r32, r/m32 	Move if above (CF=0 and ZF=0) 16/32	
+0F 48 /r 	CMOVS r32, r/m32 		Move if sign (SF=1) 16/32	
+0F 49 /r 	CMOVNS r32, r/m32 		Move if not sign (SF=0) 16/32	
+0F 4A /r 	CMOVP/CMOVPE r32, r/m32 	Move if parity (PF=1) 16/32	
+0F 4B /r 	CMOVNP/CMOVPO r32, r/m32 	Move if not parity (PF=0) 16/32	
+0F 4C /r 	CMOVL/CMOVNGE r32, r/m32 	Move if less (SF<>OF) 16/32	
+0F 4D /r 	CMOVGE/CMOVNL r32, r/m32 	Move if greater or equal (SF=OF) 16/32	
+0F 4E /r 	CMOVLE/CMOVNG r32, r/m32 	Move if less or equal (ZF=1 or SF<>OF) 16/32	
+0F 4F /r 	CMOVG/CMOVNLE r32, r/m32 	Move if greater (ZF=0 and SF=OF) 16/32	
+------------------------------------------------
+0F 50 /r 	MOVMSKPS r32, xmm 	Move the single mask to r32. 	
+0F 51 /r 	SQRTPS xmm1, xmm2/m128 	Square Root of the packed SP FP numbers in XMM2/Mem.	
+0F 52 /r 	RSQRTPS xmm1,xmm2/m128 	Return a packed approximation of the square root of the reciprocal of XMM2/Mem.	
+0F 53 /r 	RCPPS xmm1, xmm2/m128 	Return a packed approximation of the reciprocal of XMM2/Mem.	
+0F 54 /r 	ANDPS xmm1, xmm2/m128 	Logical AND of 128 bits from XMM2/Mem to XMM1 register.	
+0F 55 /r 	ANDNPS xmm1, xmm2/m128 	Invert the 128 bits in XMM1and then AND the result with 128 bits from XMM2/Mem.	
+0F 56 /r 	ORPS xmm1, xmm2/m128 	OR 128 bits from XMM2/Mem to XMM1 register	
+0F 57 /r 	XORPS xmm1, xmm2/m128 	XOR 128 bits from XMM2/Mem to XMM1 register.	
+0F 58 /r 	ADDPS xmm1, xmm2/m128 	Add packed SP FP numbers from XMM2/Mem to XMM1	
+0F 59 /r 	MULPS xmm1, xmm2/m128 	Multiply packed SP FP numbers in XMM2/Mem to XMM1.	
+   5A /r	CVTPS2PD xmm1, xmm2/m64	...
+   5B /r	CVTDQ2PS xmm1, xmm2/m128 ...
+0F 5C /r 	SUBPS xmm1 xmm2/m128 	Subtract packed SP FP numbers in XMM2/Mem from XMM1.	
+0F 5D /r 	MINPS xmm1, xmm2/m128 	Return the minimum SP numbers between XMM2/Mem and XMM1.	
+0F 5E /r 	DIVPS xmm1, xmm2/m128 	Divide packed SP FP numbers in XMM1 by XMM2/Mem	
+0F 5F /r 	MAXPS xmm1,xmm2/m128 	Return the maximum SP FP numbers between XMM2/Mem and XMM1.	
+------------------------------------------------
+0F 60 /r 	PUNPCKLBW mm,mm/m32 	Interleave low-order bytes from mm and mm/m64 into mm.	
+0F 61 /r 	PUNPCKLWD mm,mm/m32 	Interleave low-order words from mm and mm/m64 into mm.	
+0F 62 /r 	PUNPCKLDQ mm,mm/m32	Interleave low-order doublewords from mm and mm/m64 into mm.	
+0F 63 /r 	PACKSSWB mm,mm/m64 	Packs and saturate pack four signed words from mm and four signed words from mm/m64 into eight signed bytes in mm.	
+0F 64 /r 	PCMPGTB mm,mm/m64 	Compare packed bytes in mm with packed bytes in mm/m64 for greater value.	
+0F 65 /r 	PCMPGTW mm,mm/m64 	Compare packed words in mm with packed words in mm/m64 for greater value.	
+0F 66 /r 	PCMPGTD mm,mm/m64 	Compare packed doublewords in mm with packed doublewords in mm/m64 for greater value.	
+0F 67 /r 	PACKUSWB mm,mm/m64 	Pack and saturate four signed words from mm and four signed words from mm/m64 into eight unsigned bytes in mm.	
+0F 68 /r 	PUNPCKHBW mm,mm/m64 	Interleave high-order bytes from mm and mm/m64 into mm.	
+0F 69 /r 	PUNPCKHWD mm,mm/m64 	Interleave high-order words from mm and mm/m64 into mm.	
+0F 6A /r 	PUNPCKHDQ mm,mm/m64 	Interleave high-order doublewords from mm and mm/m64 into mm.	
+0F 6B /r 	PACKSSDW mm,mm/m64 	Pack and saturate two signed doublewords from mm and two signed doublewords from mm/m64 into four signed words in mm	
+   6C		(bad)
+   6D		(bad)
+0F 6E /r 	MOVD mm, r/m32 		Move doubleword from r/m32 to mm.	
+0F 6F /r 	MOVQ mm, mm/m64 	Move quadword from mm/m64 to mm.	
+------------------------------------------------
+0F 70 /r ib 	PSHUFW mm1, mm2/m64, imm8 Shuffle the words in MM2/Mem based on the encoding in imm8 and store in MM1.	
+0F 71 /0	(bad)
+      /1	(bad)
+      /2 ib 	?PSRLW mm, imm8 	Shift words in mm right by imm8.
+      /3	(bad)
+      /4 ib 	?PSRAW mm, imm8 	Shift words in mm right by imm8 while shifting in sign bits	
+      /5	(bad)
+      /6 ib	?PSLLW mm, imm8 	Shift words in mm left by imm8, while shifting in zeroes.	
+      /7	(bad)
+0F 72 /0	(bad)
+      /1	(bad)
+      /2 ib 	?PSRLD mm, imm8 	Shift doublewords in mm right by imm8.	
+      /3	(bad)
+      /4 ib 	?PSRAD mm, imm8 	Shift doublewords in mm right by imm8 while shifting in sign bits.	
+      /5	(bad)
+      /6 ib 	?PSLLD mm, imm8 	Shift doublewords in mm by imm8, while shifting in zeroes.	
+      /7	(bad)
+0F 73 /0	(bad)
+      /1	(bad)
+      /2 ib 	?PSRLQ mm, imm8 	Shift mm right by imm8 while shifting in zeroes.	
+      /3	(bad)
+      /4	(bad)
+      /5	(bad)
+      /6 ib 	?PSLLQ mm, imm8 	Shift mm left by Imm8, while shifting in zeroes.	
+      /7	(bad)
+0F 74 /r 	PCMPEQB mm, mm/m64 	Compare packed bytes in mm/m64 with packed bytes in mm for equality.	
+0F 75 /r 	PCMPEQW mm, mm/m64 	Compare packed words in mm/m64 with packed words in mm for equality.	
+0F 76 /r 	PCMPEQD mm, mm/m64 	Compare packed doublewords in mm/m64 with packed doublewords in mm for equality.	
+0F 77 		EMMS 			Set the FP tag word to empty.
+   78 /r	?vmread
+   79 /r	?vmwrite
+   7A		(bad)
+   7B		(bad)
+   7C		(bad)
+   7D		(bad)
+0F 7E /r 	MOVD r/m32, mm 		Move doubleword from mm to r/m32	
+0F 7F /r 	MOVQ mm/m64, mm 	Move quadword from mm to mm/m64	
+------------------------------------------------
+0F 80 cw/cd 	JO rel16/32 		Jump near if overflow (OF=1)	
+0F 81 cw/cd 	JNO rel16/32 		Jump near if not overflow (OF=0)	
+0F 82 cw/cd 	JB/JC/JNAE rel16/32 	Jump near if below (CF=1)	
+0F 83 cw/cd 	JNB/JNC/JAE rel16/32 	Jump near if not below (CF=0)	
+0F 84 cw/cd 	JE/JZ rel16/32 		Jump near if equal (ZF=1)	
+0F 85 cw/cd 	JNE/JNZ rel16/32 	Jump near if not equal (ZF=0)	
+0F 86 cw/cd 	JNA/JBE rel16/32 	Jump near if not above (CF=1 or ZF=1)	
+0F 87 cw/cd 	JA/JNBE rel16/32 	Jump near if above (CF=0 and ZF=0)	
+0F 88 cw/cd 	JS rel16/32 		Jump near if sign (SF=1)	
+0F 89 cw/cd 	JNS rel16/32 		Jump near if not sign (SF=0)	
+0F 8A cw/cd 	JP/JPE rel16/32 	Jump near if parity (PF=1)	
+0F 8B cw/cd 	JNP/JPO rel16/32 	Jump near if not parity (PF=0)	
+0F 8C cw/cd 	JL/JNGE rel16/32 	Jump near if less (SF<>OF)	
+0F 8D cw/cd 	JGE/JNL rel16/32 	Jump near if greater or equal (SF=OF)	
+0F 8E cw/cd 	JLE/JNG rel16/32 	Jump near if less or equal (ZF=1 or SF<>OF)	
+0F 8F cw/cd 	JG/JNLE rel16/32 	Jump near if greater (ZF=0 and SF=OF)	
+------------------------------------------------
+0F 90 /?	SETO r/m8 		Set byte if overflow (OF=1)
+0F 91 /?	SETNO r/m8 		Set byte if not overflow (OF=0)
+0F 92 /?	SETB/SETC/SETNAE r/m8 	Set byte if below (CF=1)
+0F 93 /?	SETAE/SETNB/SETNC r/m8	Set byte if above or equal (CF=0)
+0F 94 /?	SETE/SETZ r/m8 		Set byte if equal (ZF=1)
+0F 95 /?	SETNE/SETNZ r/m8 	Set byte if not equal (ZF=0)
+0F 96 /?	SETBE/SETNA r/m8 	Set byte if below or equal (CF=1 or ZF=1)
+0F 97 /?	SETA/SETNBE r/m8 	Set byte if above (CF=0 and ZF=0)
+0F 98 /?	SETS r/m8 		Set byte if sign (SF=1)
+0F 99 /?	SETNS r/m8 		Set byte if not sign (SF=0)
+0F 9A /?	SETP/SETPE r/m8 	Set byte if parity (PF=1)
+0F 9B /?	SETNP/SETPO r/m8 	Set byte if not parity (PF=0)
+0F 9C /?	SETL/SETNGE r/m8 	Set byte if less (SF<>OF)
+0F 9D /?	SETGE/SETNL r/m8 	Set byte if greater or equal (SF=OF)
+0F 9E /?	SETLE/SETNG r/m8 	Set byte if less or equal (ZF=1 or SF<>OF)
+0F 9F /?	SETG/SETNLE r/m8 	Set byte if greater (ZF=0 and SF=OF)
+------------------------------------------------
+0F A0 		PUSH FS 		Push FS
+0F A1 		POP FS 			Pop top of stack into FS; increment stack pointer
+0F A2 		CPUID 			EAX ← Processor identification information
+0F A3 /r	BT r/m32,r32 		Store selected bit in CF flag 16/32
+0F A4 /r ib	SHLD r/m32,r32,imm8 	Shift r/m32 to left imm8 places while shifting bits from r32 in from the right 16/32
+0F A5 /r	SHLD r/m32,r32,CL 	Shift r/m32 to left CL places while shifting bits from r32 in from the right 16/32
+   A6		(bad)
+   A7		(bad)
+0F A8 		PUSH GS 		Push GS
+0F A9 		POP GS 			Pop top of stack into GS; increment stack pointer
+0F AA 		RSM 			Resume operation of interrupted program
+0F AB /r	BTS r/m32,r32 		Store selected bit in CF flag and set 16/32
+0F AC /r ib	SHRD r/m32,r32,imm8 	Shift r/m32 to right imm8 places while shifting bits from r32 in from the left 16/32
+0F AD /r	SHRD r/m32,r32,CL 	Shift r/m32 to right CL places while shifting bits from r32 in from the left 16/32
+0F AE /0 	FXSAVE m512byte 	Store FP and MMX™ technology state and Streaming SIMD Extension state to m512byte.	
+      /1 	FXRSTOR m512byte 	Load FP and MMX™ technology and Streaming SIMD Extension state from m512byte.	
+      /2 	LDMXCSR m32 		Load Streaming SIMD Extension control/status word from m32.	
+      /3 	STMXCSR m32 		Store Streaming SIMD Extension control/status word to m32.	
+      /4	XSAVE mem		...
+      /5	XRSTOR mem		...
+      /7	CLFLUSH m8		...
+      F8 	SFENCE 			Guarantees that every store instruction that precedes in program order the store fence instruction is globally visible before any store instruction which follows the fence is globally visible.	
+0F AF /r 	IMUL r32,r/m32 		doubleword register ← doubleword register ∗ r/m doubleword 16/32
+------------------------------------------------
+0F B0 /r 	CMPXCHG r/m8,r8 	Compare AL with r/m8. If equal, ZF is set and r8 is loaded into r/m8. Else, clear ZF and load r/m8 into AL.	
+0F B1 /r 	CMPXCHG r/m16,r16 	Compare AX with r/m16. If equal, ZF is set and r16 is loaded into r/m16. Else, clear ZF and load r/m16 into AL	 16/32
+0F B2 /r 	LSS r32,m16:32		Load SS:r32 with far pointer from memory 16/32	
+0F B3 		BTR r/m32,r32 		Store selected bit in CF flag and clear 16/32
+0F B4 /r 	LFS r32,m16:32 		Load FS:r32 with far pointer from memory 16/32	
+0F B5 /r 	LGS r32,m16:32 		Load GS:r32 with far pointer from memory 16/32	
+0F B6 /r 	MOVZX r32,r/m8 		Move byte to doubleword, zero-extension 16/32	
+0F B7 /r 	MOVZX r32,r/m16 	Move word to doubleword, zero-extension	
+   B8		(bad)
+   B9		?ud1
+   BA /0	(bad)
+      /1	(bad)
+      /2	(bad)
+      /3	(bad)
+      /4	(bad)
+      /4 ib 	BT r/m32,imm8 		Store selected bit in CF flag 16/32	
+      /5 ib 	BTS r/m32,imm8 		Store selected bit in CF flag and set 16/32	
+      /6 ib 	BTR r/m32,imm8 		Store selected bit in CF flag and clear 16/32	
+      /7 ib 	BTC r/m32,imm8 		Store selected bit in CF flag and complement 16/32	
+0F BB 		BTC r/m32,r32 		Store selected bit in CF flag and complement 16/32
+0F BC 		BSF r32,r/m32 		Bit scan forward on r/m32 16/32
+0F BD 		BSR r32,r/m32 		Bit scan reverse on r/m32 16/32
+0F BE /r 	MOVSX r32,r/m8 		Move byte to doubleword, sign-extension 16/32	
+0F BF /r 	MOVSX r32,r/m16 	Move word to doubleword, sign-extension	
+------------------------------------------------
+0F C0 /r 	XADD r/m8,r8 		Exchange r8 and r/m8; load sum into r/m8.	
+0F C1 /r 	XADD r/m32,r32 		Exchange r32 and r/m32; load sum into r/m32. 16/32	
+0F C2 /r ib 	CMPPS xmm1,xmm2/m128, imm8 Compare packed SP FP numbers from XMM2/Mem to packed SP FP numbers in XMM1 register using imm8 as predicate.	
+   C3 /r	MOVNTI m32, r32		...
+0F C4 /r ib 	PINSRW mm,r32/m16, imm8 Insert the word from the lower half of r32 or from Mem16 into the position in MM pointed to by imm8 without touching the other words	
+0F C5 /r ib 	PEXTRW r32, mm, imm8 	Extract the word pointed to by imm8 from MM and move it to a 32-bit integer register	
+0F C6 /r ib 	SHUFPS xmm1, xmm2/m128, imm8 Shuffle Single.	
+0F C7 /0	(bad)
+      /1 m64 	CMPXCHG8B m64 		Compare EDX:EAX with m64. If equal, set ZF and load ECX:EBX into m64. Else, clear ZF and load m64 into EDX:EAX	
+      /2	(bad)
+      /3	XRSTORS mem		...
+      /4	XSAVEC mem		...
+      /5	XSAVES mem		...
+      /6	?vmptrld
+      /7	?vmptrst		...
+0F C8+rd 	BSWAP r32 		Reverses the byte order of a 32-bit register.	
+------------------------------------------------
+OF D0		(bad)
+0F D1 /r 	PSRLW mm, mm/m64 	Shift words in mm right by amount specified in mm/m64 while shifting in zeroes.	
+0F D2 /r 	PSRLD mm, mm/m64 	Shift doublewords in mm right by amount specified in mm/m64 while shifting in zeroes.	
+0F D3 /r 	PSRLQ mm, mm/m64 	Shift mm right by amount specified in mm/m64 while shifting in zeroes.	
+   D4 /r	PADDQ xmm1, xmm2/m128	...
+0F D5 /r 	PMULLW mm,mm/m64 	Multiply the packed words in mm with the packed words in mm/m64, then store the low-order word of each doubleword result in mm.	
+   D6		(bad)
+0F D7 /r 	PMOVMSKB r32, mm 	Move the byte mask of MM to r32	
+0F D8 /r 	PSUBUSB mm,mm/m64 	Subtract unsigned packed bytes in mm/m64 from unsigned packed bytes in mm and saturate.	
+0F D9 /r 	PSUBUSW mm,mm/m64 	Subtract unsigned packed words in mm/m64 from unsigned packed words in mm and saturate	
+0F DA /r 	PMINUB mm1, mm2/m64 	Return the minimum bytes between MM2/Mem and MM1.	
+0F DB /r 	PAND mm, mm/m64 	AND quadword from mm/m64 to quadword in mm.	
+0F DC /r 	PADDUSB mm,mm/m64 	Add unsigned packed bytes from mm/m64 to unsigned packed bytes in mm and saturate.	
+0F DD /r 	PADDUSW mm,mm/m64 	Add unsigned packed words from mm/m64 to unsigned packed words in mm and saturate	
+0F DE /r 	PMAXUB mm1, mm2/m64 	Return the maximum bytes between MM2/Mem and MM1.	
+0F DF /r 	PANDN mm, mm/m64 	AND quadword from mm/m64 to NOT quadword in mm	
+------------------------------------------------
+0F E0 /r 	PAVGB mm1,mm2/m64 	Average with rounding packed unsigned bytes from MM2/Mem to packed bytes in MM1 register.	
+0F E1 /r 	PSRAW mm,mm/m64 	Shift words in mm right by amount specified in mm/m64 while shifting in sign bits.	
+0F E2 /r 	PSRAD mm,mm/m64 	Shift doublewords in mm right by amount specified in mm/m64 while shifting in sign bits.	
+0F E3 /r 	PAVGW mm1, mm2/m64 	Average with rounding packed unsigned words from MM2/Mem to packed words in MM1 register	
+0F E4 /r 	PMULHUW mm1, mm2/m64 	Multiply the packed unsigned words in MM1 register with the packed unsigned words in MM2/Mem, then store the high-order 16 bits of the results in MM1. 	
+0F E5 /r 	PMULHW mm,mm/m64 	Multiply the signed packed words in mm by the signed packed words in mm/m64, then store the high-order word of each doubleword result in mm.	
+   E6		(bad)
+0F E7 /r 	MOVNTQ m64, mm 		Move 64 bits representing integer operands (8b, 16b, 32b) from MM register to memory, minimizing pollution within cache hierarchy.	
+0F E8 /r 	PSUBSB mm,mm/m64 	Subtract signed packed bytes in mm/m64 from signed packed bytes in mm and saturate.	
+0F E9 /r 	PSUBSW mm,mm/m64 	Subtract signed packed words in mm/m64 from signed packed words in mm and saturate.	
+0F EA /r 	PMINSW mm1, mm2/m64 	Return the minimum words between MM2/Mem and MM1	
+0F EB /r 	POR mm, mm/m64 		OR quadword from mm/m64 to quadword in mm.	
+0F EC /r 	PADDSB mm,mm/m64 	Add signed packed bytes from mm/m64 to signed packed bytes in mm and saturate.	
+0F ED /r 	PADDSW mm,mm/m64 	Add signed packed words from mm/m64 to signed packed words in mm and saturate	
+0F EE /r 	PMAXSW mm1, mm2/m64 	Return the maximum words between MM2/Mem and MM1.	
+0F EF /r 	PXOR mm, mm/m64 	XOR quadword from mm/m64 to quadword in mm	
+------------------------------------------------
+0F 00 /0	SLDT r/m16 		...
+      /1	STR r/m16		...
+      /2	LLDT r/m16		...
+      /3	LTR r/m16		...
+      /4	VERR r/m16		...
+      /5	VERW r/m16		...
+      /6	(bad)
+      /7	(bad)
+0F F1 /r 	PSLLW mm, mm/m64 	Shift words in mm left by amount specified in mm/m64, while shifting in zeroes.	
+0F F2 /r 	PSLLD mm, mm/m64 	Shift doublewords in mm left by amount specified in mm/m64, while shifting in zeroes.	
+0F F3 /r 	PSLLQ mm, mm/m64 	Shift mm left by amount specified in mm/m64, while shifting in zeroes.	
+0F F4 /r	PMULUDQ mm1, mm2/m64	...
+0F F5 /r 	PMADDWD mm,mm/m64 	Multiply the packed words in mm by the packed words in mm/m64. Add the 32-bit pairs of results and store in mm as doubleword	
+0F F6 /r 	PSADBW mm1,mm2/m64 	Absolute difference of packed unsigned bytes from MM2 /Mem and MM1; these differences are then summed to produce a word result.	
+0F F7 /r 	MASKMOVQ mm1, mm2 	Move 64-bits representing integer data from MM1 register to memory location specified by the edi register, using the byte mask in MM2 register	
+0F F8 /r 	PSUBB mm,mm/m64 	Subtract packed bytes in mm/m64 from packed bytes in mm.	
+0F F9 /r 	PSUBW mm,mm/m64 	Subtract packed words inmm/m64 from packed words in mm.	
+0F FA /r 	PSUBD mm,mm/m64 	Subtract packed doublewords in mm/m64 from packed doublewords in mm.	
+0F FB /r	PSUBQ mm1, mm2/m64	...
+0F FC /r 	PADDB mm,mm/m64 	Add packed bytes from mm/m64 to packed bytes in mm. 	
+0F FD /r 	PADDW mm,mm/m64 	Add packed words from mm/m64 to packed words in mm.	
+0F FE /r 	PADDD mm,mm/m64 	Add packed doublewords from mm/m64 to packed doublewords in mm.	
+0F FF		(bad)
+------------------------------------------------
+
+
+ - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D -  		- E - 	- F - 	
+0 SLDT 	SGDT	LAR	LSL	(bad)	SYSCALL	CLTS	SYSRET	INVD		WBINVD	(bad)	UD2	(bad)	??? prefetch	??? femms (bad)	
+  STR 	SIDT							             	                                PREFETCHW			
+  LLDT 	LGDT				                                	                                PREFETCHWT1 			
+  LTR 	LIDT				                                	                                ??? prefetch			
+  VERR 	SMSW				                                	                                ??? prefetch			
+  VERW 	(bad)				                                	                                ??? prefetch			
+  (bad)	LMSW				                                	                                ??? prefetch			
+  (bad)	INVLPG				                                	                                ??? prefetch			
+  /x	/x	/r	/r											/x				
+1 MOVUPS MOVUPS	MOVLPS	MOVLPS	UNPCKLPS UNPCKHPS MOVHPS MOVHPS	PREFETCHNTA	nop	BNDLDX	BNDSTX	nop	nop		nop	nop	
+								PREFETCHT0 									
+                                                                PREFETCHT1 									
+                                                                PREFETCHT2 									
+                                                                reserved									
+                                                                reserved									
+                                                                reserved									
+                                                                reserved									
+  /r	 /r		/r	/r	/r	/r	/r	/r	/x		/r	/r	/r	/r	/r		/r	/r	
+2 MOV CR MOV DR		MOV CR	MOV DR	(bad)	(bad)	(bad)	(bad)	MOVAPS		MOVAPS	CVTPI2PS MOVNTPS CVTTPS2PI CVTPS2PI	UCOMISS	COMISS	
+  /r	 /r		/r	/r					/r		/r	/r	 /r	 /r	   /r		/r	/r	
+3 WRMSR	RDTSC		RDMSR	RDPMC	SYSENTER SYSEXIT (bad)	getsec	...		(bad)	(bad)	(bad)	(bad)	(bad)		(bad)	(bad)	
+									.set.			ib							
+4 CMOVO	CMOVNO		CMOVB	CMOVAE	CMOVE	CMOVNE	CMOVBE	CMOVA	CMOVS		CMOVNS	CMOVP	CMOVNP	CMOVL	CMOVGE		CMOVLE	CMOVG	
+  /r	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r	/r	
+5 MOVMSKPS SQRTPS 	RSQRTPS RCPPS	ANDPS	ANDNPS	ORPS	XORPS	ADDPS		MULPS	CVTPS2PD CVTDQ2PS SUBPS	MINPS		DIVPS	MAXPS	
+  /r	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r	/r	
+6 PUNPCKLBW PUNPCKLWD PUNPCKLDQ	PACKSSWB PCMPGTB PCMPGTW PCMPGTD PACKUSWB PUNPCKHBW  PUNPCKHWD PUNPCKHDQ PACKSSDW (bad)	(bad)		MOVD	MOVQ	
+  /r	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r				/r	/r	
+7 PSHUFW (bad)		(bad)	(bad)	PCMPEQB	PCMPEQW	PCMPEQD	EMMS	?vmread		?vmwrite (bad)	(bad)	(bad)	(bad)		MOVD	MOVQ	
+	 (bad)		(bad)	(bad)	
+         ?PSRLW		?PSRLD	?PSRLQ	
+         (bad)		(bad)	(bad)	
+         ?PSRAW		?PSRAD	(bad)	
+         (bad)		(bad)	(bad)	
+         ?PSLLW		?PSLLD	?PSLLQ	
+         (bad)		(bad)	(bad)	
+  /r ib  /x ib		/x ib	/x ib	/r	/r	/r		/r		/r						/r	/r	
+8 JO	JNO		JB	JNB	JE	JNE	JNA	JA	JS		JNS	JP	JNP	JL	JGE		JLE	JG	
+  cd	cd		cd	cd	cd	cd	cd	cd	cd		cd	cd	cd	cd	cd		cd	cd	
+9 SETO	SETNO		SETB	SETAE	SETE	SETNE	SETBE	SETA	SETS		SETNS	SETP	SETNP	SETL	SETGE		SETLE	SETG	
+  /?	/?		/?	/?	/?	/?	/?	/?	/?		/?	/?	/?	/?	/?		/?	/?	
+A PUSH	POP		CPUID	BT	SHLD	SHLD	(bad)	(bad)	PUSH		POP	RSM	BTS	SHRD	SHRD		FXSAVE 	IMUL
+                                                                                                                                        FXRSTOR	
+                                                                                                                                        LDMXCSR	
+                                                                                                                                        STMXCSR	
+                                                                                                                                        XSAVE 	
+                                                                                                                                        XRSTOR 	
+                                                                                                                                        CLFLUSH	
+				/r	/r ib	/r							/r	/r ib	/r		/x	/r
+B CMPXCHG CMPXCHG	LSS	BTR	LFS	LGS	MOVZX	MOVZX	(bad)		?ud1	(bad)	BTC	BSF	BSR		MOVSX	MOVSX	
+                                                                                                (bad)	
+                                                                                                (bad)	
+                                                                                                (bad)	
+                                                                                                (bad)	
+                                                                                                BT	
+                                                                                                BTS	
+                                                                                                BTR	
+                                                                                                BTC	
+  /r	/r		/r		/r	/r	/r	/r				/x					/r	/r	
+C XADD	XADD		CMPPS	MOVNTI	PINSRW	PEXTRW	SHUFPS	(bad)	BSWAP		BSWAP	BSWAP	BSWAP	BSWAP	BSWAP		BSWAP	BSWAP	
+                                                                CMPXCHG8B
+                                                                (bad)
+                                                                XRSTORS 
+                                                                XSAVEC 
+                                                                XSAVES 
+                                                                ?vmptrld
+                                                                ?vmptrst
+  /r	/r		/r ib	/r	/r ib	/r ib	/r ib	/x ?m64	
+D (bad)	PSRLW		PSRLD	PSRLQ	PADDQ	PMULLW	(bad)	PMOVMSKB PSUBUSB	PSUBUSW	PMINUB	PAND	PADDUSB	PADDUSW		PMAXUB	PANDN	
+	/r		/r	/r	/r	/r		/r	/r		/r	/r	/r	/r	/r		/r	/r	
+E PAVGB	PSRAW		PSRAD	PAVGW	PMULHUW	PMULHW	(bad)	MOVNTQ	PSUBSB		PSUBSW	PMINSW	POR	PADDSB	PADDSW		PMAXSW	PXOR	
+  /r	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r	/r	
+F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PSUBQ	PADDB	PADDW		PADDD	(bad)
+  STR 	
+  LLDT 	
+  LTR 	
+  VERR 	
+  VERW 	
+  (bad)	
+  (bad)	
+  /x	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r		
+ - 0 -	- 1 -		- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D - 		- E - 	- F - 
+
+------------------------------------------------
+00 /r		ADD r/m8,r8		Сложение
+01 /r		ADD r/m32,r32		Сложение 16/32
+02 /r		ADD r8,r/m8		Сложение
+03 /r		ADD r32,r/m32		Сложение 16/32
+04 ib		ADD AL,imm8		Сложение
+05 id		ADD EAX,imm32		Сложение 16/32
+06		PUSH ES			Помещение в стек
+07		POP ES			Извлечение из стека
+08 /r		OR r/m8,r8		Логическое ИЛИ
+09 /r		OR r/m32,r32		Логическое ИЛИ 16/32
+0A /r		OR r8,r/m8		Логическое ИЛИ
+0B /r		OR r32,r/m32		Логическое ИЛИ 16/32
+0C ib		OR AL,imm8		Логическое ИЛИ
+0D id		OR EAX,imm32		Логическое ИЛИ 16/32
+0E		PUSH CS			Помещение в стек
+0F
+
+   80 cd	JO rel32		Условный переход 16/32
+   81 cd	JNO rel32		Условный переход 16/32
+   82 cd	JC/JNAE/JB rel32	Условный переход 16/32
+   83 cd	JNC/JAE/JNB rel32	Условный переход 16/32
+   84 cd	JZ/JE rel32		Условный переход 16/32
+   85 cd	JNZ/JNE rel32		Условный переход 16/32
+   86 cd	JNA/JBE rel32		Условный переход 16/32
+   87 cd	JA/JNBE rel32		Условный переход 16/32
+   88 cd	JS rel32		Условный переход 16/32
+   89 cd	JNS rel32		Условный переход 16/32
+   8A cd	JP rel32		Условный переход 16/32
+   8B cd	JNP rel32		Условный переход 16/32
+   8C cd	JL/JNGE rel32		Условный переход 16/32
+   8D cd	JGE/JNL rel32		Условный переход 16/32
+   8E cd	JLE/JNG rel32		Условный переход 16/32
+   8F cd	JG/JNLE rel32		Условный переход 16/32
+  
+   А0		PUSH FS			Помещение в стек
+   A1		POP FS			Извлечение из стека
+  
+   A3 /r	BT r/m32,r32		Проверка бита !!! 16/32
+   A4 /r ib	SHLD r/m32,r32,imm8	Сдвиг двойной точности влево 16/32
+   A5 /r	SHLD r/m32,r32,CL	Сдвиг двойной точности влево 16/32
+  
+   A8		PUSH GS			Помещение в стек
+   A9		POP GS			Извлечение из стека
+
+   AC /r ib	SHRD r/m32,r32,imm8	Сдвиг двойной точности вправо 16/32
+   AD /r	SHRD r/m32,r32,CL	Сдвиг двойной точности вправо 16/32
+  
+   AF /r	IMUL r32,r/m32		Умножение со знаком 16/32
+  
+   B6 /r	MOVZX r32,r/m8		Копирование с нулевым расширением 16/32
+   B7 /r	MOVZX r32,r/m16		Копирование с нулевым расширением
+  
+   BA /4 ib 	BT r/m32,imm8		Проверка бита 16/32
+  
+   BA /7 ib 	BTC r/m32,imm8		Проверка и инверсия бита 16/32
+   BB /r	BTC r/m32,r32		Проверка и инверсия бита !!! 16/32
+   BC /r 	BSF r32,r/m32		Прямое сканирование битов !!! 16/32
+   BD /r	BSR r32,r/m32		Обратное сканирование битов !!! 16/32
+   BE /r	MOVSX r32,r/m8		Копирование со знаковым расширением 16/32
+   BF /r	MOVSX r32,r/m16		Копирование со знаковым расширением
+
+------------------------------------------------
+10 /r		ADC r/m8,r8		Сложение с учётом переноса
+11 /r		ADC r/m32,r32		Сложение с учётом переноса 16/32
+12 /r		ADC r8,r/m8		Сложение с учётом переноса
+13 /r		ADC r32,r/m32		Сложение с учётом переноса 16/32
+14 ib		ADC AL,imm8		Сложение с учётом переноса
+15 id		ADC EAX,imm32		Сложение с учётом переноса 16/32
+16		PUSH SS			Помещение в стек
+17		POP SS			Извлечение из стека
+18 /r		SBB r/m8,r8		Вычитание с заёмом
+19 /r		SBB r/m32,r32		Вычитание с заёмом 16/32
+1A /r		SBB r8,r/m8		Вычитание с заёмом
+1B /r		SBB r32,r/m32		Вычитание с заёмом 16/32
+1C ib		SBB AL,imm8		Вычитание с заёмом
+1D id		SBB EAX,imm32		Вычитание с заёмом 16/32
+1E		PUSH DS			Помещение в стек
+1F		POP DS			Извлечение из стека
+------------------------------------------------
+20 /r 		AND r/m8,r8		Логическое И
+21 /r 		AND r/m32,r32		Логическое И 16/32
+22 /r 		AND r8,r/m8		Логическое И
+23 /r 		AND r32,r/m32		Логическое И 16/32
+24 ib 		AND AL,imm8		Логическое И
+25 id 		AND EAX,imm32		Логическое И 16/32
+26		... es:			замена сегмента es;
+27		DAA			
+28 /r		SUB r/m8,r8		Вычитание
+29 /r		SUB r/m32,r32		Вычитание 16/32
+2A /r		SUB r8,r/m8		Вычитание
+2B /r		SUB r32,r/m32		Вычитание 16/32
+2C ib		SUB AL,imm8		Вычитание
+2D id		SUB EAX,imm32		Вычитание 16/32
+2e		... cs:			замена сегмента cs;
+2F		DAS			
+------------------------------------------------
+30 /r		XOR r/m8,r8		Логическое исключающее ИЛИ
+31 /r		XOR r/m32,r32		Логическое исключающее ИЛИ 16/32
+32 /r		XOR r8,r/m8		Логическое исключающее ИЛИ
+33 /r		XOR r32,r/m32		Логическое исключающее ИЛИ 16/32
+34 ib		XOR AL,imm8		Логическое исключающее ИЛИ
+35 id		XOR EAX,imm32		Логическое исключающее ИЛИ 16/32
+36		... ss:			замена сегмента ss;
+37		AAA			
+38 /r		CMP r/m8,r8		Сравнение
+39 /r		CMP r/m32,r32		Сравнение 16/32
+3A /r		CMP r8,r/m8		Сравнение
+3B /r		CMP r32,r/m32		Сравнение 16/32
+3C ib		CMP AL,imm8		Сравнение
+3D id		CMP EAX,imm32		Сравнение 16/32
+3e		... ds:			замена сегмента ds;
+3F		AAS			
+------------------------------------------------
+40		INC EAX			Инкремент 16/32
+41		INC ECX
+42		INC EDX
+43		INC EBX
+44		INC ESP
+45		INC EBP
+46		INC ESI
+47		INC EDI
+48		DEC EAX			Декремент 16/32
+49		DEC ECX
+4A		DEC EDX
+4B		DEC EBX
+4C		DEC ESP
+4D		DEC EBP
+4E		DEC ESI
+4F		DEC EDI
+------------------------------------------------
+50		PUSH EAX		Помещение в стек 16/32
+51		PUSH ECX
+52		PUSH EDX
+53		PUSH EBX
+54		PUSH ESP
+55		PUSH EBP
+56		PUSH ESI
+57		PUSH EDI
+58		POP EAX			Извлечение из стека 16/32
+59		POP ECX
+5A		POP EDX
+5B		POP EBX
+5C		POP ESP
+5D		POP EBP
+5E		POP ESI
+5F		POP EDI
+------------------------------------------------
+60		PUSHA/PUAHAD		Помещение регистров общего назначения в стек
+61		POPA/POPAD		Восстановление регистров общего назначения из стека
+62 /r		BOUND r32,m32&32	Проверить индекс на выход за границы массива 16/32
+63 /r 		ARPL r/m16,r16 		прив.	Adjust RPL of r/m16 to not less than RPL of r16
+64		... fs:			замена сегмента fs;
+65		... gs:			замена сегмента gs;
+66		Operand-size override:
+67		Address-size override:
+68 id		PUSH imm16/imm32 	Помещение в стек 16/32
+69 /r id	IMUL r32,r/m32,imm32	Умножение со знаком 16/32
+6A ib		PUSH imm8		Помещение в стек
+6B /r ib	IMUL r32,imm8		Умножение со знаком 16/32
+6C		INSB			
+6D		INSW/INSD			16/32
+6E		OUTSB			
+6F		OUTSW/OUTSD			16/32
+------------------------------------------------
+70 cb		JO rel8			Условный переход
+71 cb		JNO rel8		Условный переход
+72 cb		JC/JNAE/JB rel8		Условный переход
+73 cb		JNC/JAE/JNB rel8 	Условный переход
+74 cb		JZ/JE rel8		Условный переход
+75 cb		JNZ/JNE rel8		Условный переход
+76 cb		JNA/JBE rel8		Условный переход
+77 cb		JA/JNBE rel8		Условный переход
+78 cb		JS rel8			Условный переход
+79 cb		JNS rel8		Условный переход
+7A cb		JP rel8			Условный переход
+7B cb		JNP rel8		Условный переход
+7C cb		JL/JNGE rel8		Условный переход
+7D cb		JGE/JNL rel8		Условный переход
+7E cb		JLE/JNG rel8		Условный переход
+7F cb		JG/JNLE rel8		Условный переход
+------------------------------------------------
+80 /0 ib	ADD r/m8,imm8		Сложение
+   /1 ib	OR r/m8,imm8		Логическое ИЛИ
+   /2 ib	ADC r/m8,imm8		Сложение с учётом переноса
+   /3 ib	SBB r/m8,imm8		Вычитание с заёмом
+   /4 ib 	AND r/m8,imm8		Логическое И
+   /5 ib	SUB r/m8,imm8		Вычитание
+   /6 ib	XOR r/m8,imm8		Логическое исключающее ИЛИ
+   /7 ib	CMP r/m8,imm8		Сравнение
+81 /0 id	ADD r/m32,imm32		Сложение 16/32
+   /1 id	OR r/m32,imm32		Логическое ИЛИ 16/32
+   /2 id	ADC r/m32,imm32		Сложение с учётом переноса 16/32
+   /4 id 	AND r/m32,imm32		Логическое И 16/32
+   /3 id	SBB r/m32,imm32		Вычитание с заёмом 16/32
+   /5 id	SUB r/m32,imm32		Вычитание 16/32
+   /6 id	XOR r/m32,imm32		Логическое исключающее ИЛИ 16/32
+   /7 id	CMP r/m32,imm32		Сравнение 16/32
+82		(bad)
+83 /0 ib	ADD r/m32,imm8		Сложение 16/32
+   /1 ib	OR r/m32,imm8		Логическое ИЛИ 16/32
+   /2 ib	ADC r/m32,imm8		Сложение с учётом переноса 16/32
+   /3 ib	SBB r/m32,imm8		Вычитание с заёмом 16/32
+   /4 ib 	AND r/m32,imm8		Логическое И 16/32
+   /5 ib	SUB r/m32,imm8		Вычитание 16/32
+   /6 ib	XOR r/m32,imm8		Логическое исключающее ИЛИ 16/32
+   /7 ib	CMP r/m32,imm8		Сравнение 16/32
+84 /r		TEST r/m8,r8		Логическое сравнение
+85 /r		TEST r/m32,r32		Логическое сравнение 16/32
+86 /r		XCHG r8,r/m8		Обмен
+87 /r		XCHG r/m32,r32		Обмен 16/32
+88 /r		MOV r/m8,r8		Копирование
+89 /r		MOV r/m32,r32		Копирование 16/32
+8А /r		MOV r8,r/m8		Копирование
+8В /r		MOV r32,r/m32		Копирование 16/32
+8C /sr		MOV r/m16,Sreg		Копирование 000 es, 001 cs, 010 ss, 011 ds, 100 fs, 101 gs, 110 ?, 111 ?
+8D /r		LEA r32,r/m32		
+8E /sr		MOV Sreg,r/m16		Копирование
+8F /0		POP r/m32		Извлечение из стека 16/32
+   /1		(bad)
+   /2		(bad)
+   /3		(bad)
+   /4		(bad)
+   /5		(bad)
+   /6		(bad)
+   /7		(bad)
+------------------------------------------------
+90		NOP/XCHG EAX,EAX	Нет операции
+91		XCHG EAX,ECX		Обмен 16/32
+92		XCHG EAX,EDX		Обмен 16/32
+93		XCHG EAX,EBX		Обмен 16/32
+94		XCHG EAX,ESP		Обмен 16/32
+95		XCHG EAX,EBP		Обмен 16/32
+96		XCHG EAX,ESI		Обмен 16/32
+97		XCHG EAX,EDI		Обмен 16/32
+98		CBW/CWDE		преобразование слова в двойное слово 16/32
+99		CWD/CDQ			преобразование двойного слова в учетверённое слово 16/32
+9A adr32 seg	CALL seg:adr32		Вызов процедуры или переключение задачи 16/32
+9B		WAIT/FWAIT		???
+9C		PUSHF/PUSHFD		Помещение регистра флагов в стек
+9D		POPF/POPFD		Извлечение регистра флагов из стека
+9E		SAHF			Запись содержимого AH в младший байт регистра флагов
+9f		LAHF			Загрузка младшего байта регистра флагов в AH
+------------------------------------------------
+А0 adr32	MOV AL,ds:adr32		Копирование
+A1 adr32	MOV EAX,ds:adr32 	Копирование 16/32
+A2 adr32	MOV ds:adr32,AL		Копирование
+A3 adr32	MOV ds:adr32,EAX 	Копирование 16/32
+A4		MOVSB
+A5		MOVSW/MOVSD			16/32
+A6		CMPSB
+A7		CMPSW/CMPSD			16/32
+A8 ib		TEST AL,imm8		Логическое сравнение
+A9 id		TEST EAX,imm32		Логическое сравнение 16/32
+AA		STOSB
+AB		STOSW/STOSD			16/32
+AC		LODSB
+AD		LODSW/LODSD			16/32
+AE		SCASB
+AF		SCASW/SCASD			16/32
+------------------------------------------------
+B0 ib		MOV al,imm8		Копирование
+B1 ib		MOV cl,imm8		Копирование
+B2 ib		MOV dl,imm8		Копирование
+B3 ib		MOV bl,imm8		Копирование
+B4 ib		MOV ah,imm8		Копирование
+B5 ib		MOV ch,imm8		Копирование
+B6 ib		MOV dh,imm8		Копирование
+B7 ib		MOV bh,imm8		Копирование
+B8 id		MOV eax,imm32		Копирование 16/32
+B9 id		MOV ecx,imm32		Копирование 16/32
+BA id		MOV edx,imm32		Копирование 16/32
+BB id		MOV ebx,imm32		Копирование 16/32
+BC id		MOV esp,imm32		Копирование 16/32
+BD id		MOV ebp,imm32		Копирование 16/32
+BE id		MOV esi,imm32		Копирование 16/32
+BF id		MOV edi,imm32		Копирование 16/32
+------------------------------------------------
+С0 /0 ib	ROL r/m8,imm8		Циклический сдвиг влево
+   /1 ib	ROR r/m8,imm8		Циклический сдвиг вправо
+   /2 ib	RCL r/m8,imm8		Циклический сдвиг влево через флаг переноса
+   /3 ib	RCR r/m8,imm8		Циклический сдвиг вправо через флаг переноса
+   /4 ib	SHL r/m8,imm8		Сдвиг влево
+   /5 ib	SHR r/m8,imm8		Логический сдвиг вправо
+   /6		(bad)
+   /7 ib	SAR r/m8,imm8		Арифметический сдвиг вправо
+C1 /0 ib	ROL r/m32,imm8		Циклический сдвиг влево 16/32
+   /1 ib	ROR r/m32,imm8		Циклический сдвиг вправо 16/32
+   /2 ib	RCL r/m32,imm8		Циклический сдвиг влево через флаг переноса 16/32
+   /3 ib	RCR r/m32,imm8		Циклический сдвиг вправо через флаг переноса 16/32
+   /4 ib	SHL r/m32,imm8		Сдвиг влево 16/32
+   /5 ib	SHR r/m32,imm8		Логический сдвиг вправо 16/32
+   /6		(bad)
+   /7 ib	SAR r/m32,imm8		Арифметический сдвиг вправо 16/32
+С2 iw		RET iw	 		(близкий возврат с выталкиванием iw байт из стека)
+СЗ		RET 			(близкий возврат)
+C4 /r		LES r32,m16:32 		Load ES:r32 with far pointer from memory 16/32
+C5 /r 		LDS r32,m16:32 		Load DS:r32 with far pointer from memory 16/32
+C6 /0 ib	MOV r/m8,imm8		Копирование
+   /1		(bad)
+   /2		(bad)
+   /3		(bad)
+   /4		(bad)
+   /5		(bad)
+   /6		(bad)
+   /7		(bad)
+C7 /0 id	MOV r/m32,imm32		Копирование 16/32
+   /1		(bad)
+   /2		(bad)
+   /3		(bad)
+   /4		(bad)
+   /5		(bad)
+   /6		(bad)
+   /7		(bad)
+C8 iw ib 	ENTER imm16,imm8 	Установка кадра стека
+C9		LEAVE			Восстановление кадра стека
+СА iw		RET iw	 		(дальний возврат с выталкиванием iw байт из стека)
+СВ		RET 			(дальний возврат)
+CC		INT3			прерывание 3 на дебаггер
+CD ib		INT imm8		прерывание ib
+CE		INTO			прерывание 4 если было переполнение
+CF		IRET			
+------------------------------------------------
+D0 /0		ROL r/m8,1		Циклический сдвиг влево
+   /1		ROR r/m8,1		Циклический сдвиг вправо
+   /2		RCL r/m8,1		Циклический сдвиг влево через флаг переноса
+   /3		RCR r/m8,1		Циклический сдвиг вправо через флаг переноса
+   /4		SHL r/m8,1		Сдвиг влево
+   /5		SHR r/m8,1		Логический сдвиг вправо
+   /6		(bad)
+   /7		SAR r/m8,1		Арифметический сдвиг вправо
+D1 /0		ROL r/m32,1		Циклический сдвиг влево 16/32
+   /1		ROR r/m32,1		Циклический сдвиг вправо 16/32
+   /2		RCL r/m32,1		Циклический сдвиг влево через флаг переноса 16/32
+   /3		RCR r/m32,1		Циклический сдвиг вправо через флаг переноса 16/32
+   /4		SHL r/m32,1		Сдвиг влево 16/32
+   /5		SHR r/m32,1		Логический сдвиг вправо 16/32
+   /6		(bad)
+   /7		SAR r/m32,1		Арифметический сдвиг вправо 16/32
+D2 /0		ROL r/m8,CL		Циклический сдвиг влево
+   /1		ROR r/m8,CL		Циклический сдвиг вправо
+   /2		RCL r/m8,CL		Циклический сдвиг влево через флаг переноса
+   /3		RCR r/m8,CL		Циклический сдвиг вправо через флаг переноса
+   /4		SHL r/m8,CL		Сдвиг влево
+   /5		SHR r/m8,CL		Логический сдвиг вправо
+   /6		(bad)
+   /7		SAR r/m8,CL		Арифметический сдвиг вправо
+D3 /0		ROL r/m32,CL		Циклический сдвиг влево 16/32
+   /1		ROR r/m32,CL		Циклический сдвиг вправо 16/32
+   /2		RCL r/m32,CL		Циклический сдвиг влево через флаг переноса 16/32
+   /3		RCR r/m32,CL		Циклический сдвиг вправо через флаг переноса 16/32
+   /4		SHL r/m32,CL		Сдвиг влево 16/32
+   /5		SHR r/m32,CL		Логический сдвиг вправо 16/32
+   /6		(bad)
+   /7		SAR r/m32,CL		Арифметический сдвиг вправо 16/32
+D4 ib		AAM imm8		Adjust AX after multiply to number base imm8
+D5 ib		AAD imm8		Adjust AX before division to number base imm8
+D6		(bad)
+D7		XLAT			Set AL to memory byte DS:[(E)BX + unsigned AL]
+.
+D8 /0 		FADD m32real 		Add m32real to ST(0) and store result in ST(0)
+   C0+i 	FADD ST(0), ST(i) 	Add ST(0) to ST(i) and store result in ST(0)
+   /1 		FMUL m32real 		Multiply ST(0) by m32real and store result in ST(0)
+   C8+i 	FMUL ST(0), ST(i) 	Multiply ST(0) by ST(i) and store result in ST(0)
+   /2 		FCOM m32real 		Compare ST(0) with m32real.
+   D0+i 	FCOM ST(i) 		Compare ST(0) with ST(i).
+   /3 		FCOMP m32real 		Compare ST(0) with m32real and pop register stack.
+   D8+i 	FCOMP ST(i) 		Compare ST(0) with ST(i) and pop register stack.
+   /4 		FSUB m32real 		Subtract m32real from ST(0) and store result in ST(0)
+   E0+i 	FSUB ST(0), ST(i) 	Subtract ST(i) from ST(0) and store result in ST(0)
+   /5 		FSUBR m32real 		Subtract ST(0) from m32real and store result in ST(0)
+   E8+i 	FSUBR ST(0), ST(i) 	Subtract ST(0) from ST(i) and store result in ST(0)
+   /6 		FDIV m32real 		Divide ST(0) by m32real and store result in ST(0)
+   F0+i 	FDIV ST(0), ST(i) 	Divide ST(0) by ST(i) and store result in ST(0)
+   /7 		FDIVR m32real 		Divide m32real by ST(0) and store result in ST(0)
+   F8+i 	FDIVR ST(0), ST(i) 	Divide ST(i) by ST(0) and store result in ST(0)
+D9 /0 		FLD m32real 		Push m32real onto the FPU register stack.
+   C0+i 	FLD ST(i) 		Push ST(i) onto the FPU register stack.
+   /1		(bad)
+   /2 		FST m32real 		Copy ST(0) to m32real
+   D0		FNOP
+   D0+i		(bad)
+   /3 		FSTP m32real 		Copy ST(0) to m32real and pop register stack
+   D8		FNOP
+   D8+i		(bad)
+   E0 		FCHS 			Complements sign of ST(0)
+   E1 		FABS 			Replace ST with its absolute value.
+   E2		(bad)
+   E3		(bad)
+   E4		FTST 			Compare ST(0) with 0.0.
+   E5 		FXAM 			Classify value or number in ST(0)
+   E6		(bad)
+   E7		(bad)
+   E8 		FLD1 			Push +1.0 onto the FPU register stack.
+   E9 		FLDL2T 			Push log210 onto the FPU register stack.
+   EA 		FLDL2E 			Push log2e onto the FPU register stack.
+   EB 		FLDPI 			Push π onto the FPU register stack.
+   EC 		FLDLG2 			Push log102 onto the FPU register stack.
+   ED 		FLDLN2 			Push loge2 onto the FPU register stack.
+   EE 		FLDZ 			Push +0.0 onto the FPU register stack.
+   EF		(bad)
+   F0 		F2XM1 			Replace ST(0) with (2ST(0) – 1)
+   F1 		FYL2X 			Replace ST(1) with (ST(1) * log2ST(0)) and pop the register stack
+   F2		FPTAN			Replace ST(1) with arctan(ST(1)/ST(0)) and pop the register stack
+   F3		FPATAN			
+   F4		FXTRACT
+   F5		FPREM1
+   F6		FDECSTP
+   F7		FINCSTP
+   F8		FPREM
+   F9		FYL2XP1
+   FA		FSQRT
+   FB		FSINCOS
+   FC		FRNDINT
+   FD		FSCALE
+   FE		FSIN
+   FF		FCOS
+DA /0 		FIADD m32int 		Add m32int to ST(0) and store result in ST(0)
+   C0+i 	FCMOVB ST(0), ST(i) 	Move if below (CF=1)
+   /1 		FIMUL m32int 		Multiply ST(0) by m32int and store result in ST(0)
+   C8+i 	FCMOVE ST(0), ST(i) 	Move if equal (ZF=1)
+   /2 		FICOM m32int 		Compare ST(0) with m32int
+   D0+i 	FCMOVBE ST(0), ST(i) 	Move if below or equal (CF=1 or ZF=1)
+   /3 		FICOMP m32int 		Compare ST(0) with m32int and pop stack register
+   D8+i 	FCMOVU ST(0), ST(i) 	Move if unordered (PF=1)
+   /4 		FISUB m32int 		Subtract m32int from ST(0) and store result in ST(0)
+
+   /5 		FISUBR m32int 		Subtract ST(0) from m32int and store result in ST(0)
+   
+   /6 		FIDIV m32int 		Divide ST(0) by m32int and store result in ST(0)
+
+   /7 		FIDIVR m32int 		Divide m32int by ST(0) and store result in ST(0)
+
+DB C0+i 	FCMOVNB ST(0), ST(i) 	Move if not below (CF=0)
+
+   C8+i 	FCMOVNE ST(0), ST(i) 	Move if not equal (ZF=0)
+   
+   D0+i 	FCMOVNBE ST(0), ST(i) 	Move if not below or equal (CF=0 and ZF=0)
+   
+   D8+i 	FCMOVNU ST(0), ST(i) 	Move if not unordered (PF=0)
+
+   /5 		FLD m80real 		Push m80real onto the FPU register stack.
+
+   /7 		FSTP m80real 		Copy ST(0) to m80real and pop register stack
+
+DC /0 		FADD m64real 		Add m64real to ST(0) and store result in ST(0)
+   C0+i 	FADD ST(i), ST(0) 	Add ST(i) to ST(0) and store result in ST(i)
+   /1 		FMUL m64real 		Multiply ST(0) by m64real and store result in ST(0)
+   C8+i 	FMUL ST(i), ST(0) 	Multiply ST(i) by ST(0) and store result in ST(i)
+   /2 		FCOM m64real 		Compare ST(0) with m64real.
+
+   /3 		FCOMP m64real 		Compare ST(0) with m64real and pop register stack.
+
+   /4 		FSUB m64real 		Subtract m64real from ST(0) and store result in ST(0)
+   E8+i 	FSUB ST(i), ST(0) 	Subtract ST(0) from ST(i) and store result in ST(i)
+   /5 		FSUBR m64real 		Subtract ST(0) from m64real and store result in ST(0)
+   E0+i 	FSUBR ST(i), ST(0) 	Subtract ST(i) from ST(0) and store result in ST(i)
+   /6 		FDIV m64real 		Divide ST(0) by m64real and store result in ST(0)
+   F8+i 	FDIV ST(i), ST(0) 	Divide ST(i) by ST(0) and store result in ST(i)
+   /7 		FDIVR m64real 		Divide m64real by ST(0) and store result in ST(0)
+   F0+i 	FDIVR ST(i), ST(0) 	Divide ST(0) by ST(i) and store result in ST(i)
+
+DD /0 		FLD m64real 		Push m64real onto the FPU register stack.
+
+   /2 		FST m64real 		Copy ST(0) to m64real
+   D0+i 	FST ST(i) 		Copy ST(0) to ST(i)
+   /3 		FSTP m64real 		Copy ST(0) to m64real and pop register stack
+   D8+i 	FSTP ST(i) 		Copy ST(0) to ST(i) and pop register stack
+
+DE /0 		FIADD m16int 		Add m16int to ST(0) and store result in ST(0)
+   C0+i 	FADDP ST(i), ST(0) 	Add ST(0) to ST(i), store result in ST(i), and pop the register stack
+   /1 		FIMUL m16int 		Multiply ST(0) by m16int and store result in ST(0)
+   C8+i 	FMULP ST(i), ST(0) 	Multiply ST(i) by ST(0), store result in ST(i), and pop the register stack
+   /2 		FICOM m16int 		Compare ST(0) with m16int
+   
+   /3 		FICOMP m16int 		Compare ST(0) with m16int and pop stack register
+
+   D9 		FCOMPP 			Compare ST(0) with ST(1) and pop register stack twice.
+
+   /4 		FISUB m16int 		Subtract m16int from ST(0) and store result in ST(0)
+   E8+i 	FSUBP ST(i), ST(0) 	Subtract ST(0) from ST(i), store result in ST(i), and pop register stack
+   /5 		FISUBR m16int 		Subtract ST(0) from m16int and store result in ST(0)
+   E0+i 	FSUBRP ST(i), ST(0) 	Subtract ST(i) from ST(0), store result in ST(i), and pop register stack
+   /6 		FIDIV m16int 		Divide ST(0) by m16int and store result in ST(0)
+   F8+i 	FDIVP ST(i), ST(0) 	Divide ST(i) by ST(0), store result in ST(i), and pop the register stack
+   /7 		FIDIVR m16int 		Divide m16int by ST(0) and store result in ST(0)
+   F0+i 	FDIVRP ST(i), ST(0) 	Divide ST(0) by ST(i), store result in ST(i), and pop the register stack
+
+.
+------------------------------------------------
+E0 cb		LOOPNZ/LOOPNE rel8	Управление циклом со счетчиком в регистре СХ/ЕСХ
+E1 cb 		LOOPZ/LOOPE rel8	Управление циклом со счетчиком в регистре СХ/ЕСХ
+E2 cb		LOOP rel8		Управление циклом со счетчиком в регистре СХ/ЕСХ
+E3 cb		JCXZ/JECXZ rel8		Условный переход
+E4 ib 		IN AL,imm8 		Input byte from imm8 I/O port address into AL
+E5 ib 		IN EAX,imm8 		Input byte from imm8 I/O port address into EAX 16/32
+E6 ib 		OUT imm8, AL 		Output byte in AL to I/O port address imm8
+E7 ib 		OUT imm8, EAX 		Output doubleword in EAX to I/O port address imm8 16/32
+E8 id		CALL imm32		Вызов процедуры или переключение задачи 16/32
+E9 cd		JMP rel32		Безусловный переход 16/32
+EA id iw	JMP iw:id		
+EB cb		JMP rel8		Безусловный переход
+EC 		IN AL,DX 		Input byte from I/O port in DX into AL
+ED 		IN EAX,DX 		Input doubleword from I/O port in DX into EAX 16/32
+EE 		OUT DX, AL 		Output byte in AL to I/O port address in DX
+EF 		OUT DX, EAX 		Output doubleword in EAX to I/O port address in DX 16/32
+------------------------------------------------
+F0		LOCK prefix
+F1		ICEBP
+F2		REPNE/REPNZ		префикс повторения
+F3		REP/REPE/REPZ
+F4		HLT
+f5		CMC			Инверсия флага переноса
+F6 /0 ib	TEST r/m8,imm8		Логическое сравнение
+   /1		(bad)
+   /2		NOT r/m8		Инверсия
+   /3		NEG r/m8		Изменение знака
+   /4		MUL r/m8		Умножение без знака
+   /5		IMUL r/m8		Умножение со знаком
+   /6		DIV r/m8		Деление без знака
+   /7		IDIV r/m8		Деление со знаком
+F7 /0 id	TEST r/m32,imm32 	Логическое сравнение 16/32
+   /1		(bad)
+   /2		NOT r/m32		Инверсия 16/32
+   /3		NEG r/m32		Изменение знака 16/32
+   /4		MUL r/m32		Умножение без знака 16/32
+   /5		IMUL r/m32		Умножение со знаком 16/32
+   /6		DIV r/m32		Деление без знака 16/32
+   /7		IDIV r/m32		Деление со знаком 16/32
+f8		CLC			Сброс флага переноса
+f9		STC			Установка флага переноса
+fa		CLI			Сброс флага прерывания
+fb		STI			Установка флага прерывания
+fc		CLD			Сброс флага направления
+fd		STD			Установка флага направления
+FE /0		INC r/m8		Инкремент
+   /1 		DEC r/m8		Декремент
+   /2		(bad)
+   /3		(bad)
+   /4		(bad)
+   /5		(bad)
+   /6		(bad)
+   /7		(bad)
+FF /0		INC r/m32		Инкремент 16/32
+   /1		DEC r/m32		Декремент 16/32
+   /2		CALL r/m32		Вызов процедуры или переключение задачи 16/32
+   /3		CALL x/m32(m16:32) 	Вызов процедуры или переключение задачи 16/32 !переход по регистру - (bad)
+   /4		JMP r/m32		Безусловный переход 16/32
+   /5		JMP x/m32(m16:32) 	Безусловный переход 16/32
+   /6		PUSH r/m32		Помещение в стек 16/32
+   /7		(bad)
+------------------------------------------------
+
+
+ - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
+0 ADD	ADD	ADD	ADD	ADD	ADD	PUSH	POP	OR	OR	OR	OR	OR	OR	PUSH	...	
+  /r	/r	/r	/r	ib	id	 es	 es	/r	/r	/r	/r	ib	id	 cs	.set1.	
+1 ADC	ADC	ADC	ADC	ADC	ADC	PUSH	POP	SBB	SBB	SBB	SBB	SBB	SBB	PUSH	POP	
+  /r	/r	/r	/r	ib	id	 ss	 ss	/r	/r	/r	/r	ib	id	 ds	 ds	
+2 AND	AND	AND	AND	AND	AND	ES:	DAA	SUB	SUB	SUB	SUB	SUB	SUB	CS:	DAS	
+  /r	/r	/r	/r	ib	id			/r	/r	/r	/r	ib	id			
+3 XOR	XOR	XOR	XOR	XOR	XOR	SS:	AAA	CMP	CMP	CMP	CMP	CMP	CMP	DS:	AAS	
+  /r	/r	/r	/r	ib	id			/r	/r	/r	/r	ib	id			
+4 INC	INC	INC	INC	INC	INC	INC	INC	DEC	DEC	DEC	DEC	DEC	DEC	DEC	DEC	
+																
+5 PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	POP	POP	POP	POP	POP	POP	POP	POP	
+																
+6 PUSHA	POPA	BOUND	ARPL	FS:	GS:	OP-S:	ADR-S:	PUSH	IMUL	PUSH	IMUL	INSB	INSD	OUTSB	OUTSD	
+		/r	/r					id	/r id	ib	/r ib					
+7 JO	JNO	JC	JNC	JZ	JNZ	JNA	JA	JS	JNS	JP	JNP	JL	JGE	JLE	JG	
+  cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	cb	
+8 ADD	ADD	(bad)	ADD	TEST	TEST	XCHG	XCHG	MOV	MOV	MOV	MOV	MOV	LEA	MOV	POP	
+  OR 	OR 		OR 												/1(bad)	
+  ADC	ADC		ADC												/2(bad)	
+  SBB	SBB		SBB												/3(bad)	
+  AND	AND		AND												/4(bad)	
+  SUB	SUB		SUB												/5(bad)	
+  XOR	XOR		XOR												/6(bad)	
+  CMP	CMP		CMP												/7(bad)	
+  /x ib	/x id		/x id	/r	/r	/r	/r	/r	/r	/r	/r	/sr	/r	/sr	/0	
+9 NOP	XCHG	XCHG	XCHG	XCHG	XCHG	XCHG	XCHG	CWDE	CDQ	CALL	FWAIT	PUSHF	POPF	SAHF	LAHF	
+										adr32 seg					
+A MOV	MOV	MOV	MOV	MOWSB	MOVSD	CMPSB	SMPSD	TEST	TEST	STOSB	STOSD	LODSB	LODSD	SCASB	SCASD	
+  adr32	adr32	adr32	adr32					ib	id							
+B MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	
+  ib	ib	ib	ib	ib	ib	ib	ib	id	id	id	id	id	id	id	id	
+C ROL	ROL	RET	RET	LES	LDS	MOV	MOV	ENTER	LEAVE	RET	RET	INT3	INT	INTO	IRET	
+  ROR	ROR					/1(bad)	/1(bad)									
+  RCL	RCL					/2(bad)	/2(bad)									
+  RCR	RCR					/3(bad)	/3(bad)									
+  SHL	SHL					/4(bad)	/4(bad)									
+  SHR	SHR					/5(bad)	/5(bad)									
+  (bad)	(bad)					/6(bad)	/6(bad)									
+  SAR	SAR					/7(bad)	/7(bad)									
+  /x ib	/x ib	iw		/r	/r	/0 ib	/0 id	iw ib		iw			ib			
+D ROL 	ROL 	ROL 	ROL 	AAM	AAD	(bad)	XLAT	FADD 	...	...	...	...	...	...	...	
+  ROR 	ROR 	ROR 	ROR 			                FMUL 	.set2.	.set3.	.set4.	.set5.	.set6.	.set7.	.set8.	
+  RCL 	RCL 	RCL 	RCL 			                FCOM 	
+  RCR 	RCR 	RCR 	RCR 			                FCOMP	
+  SHL 	SHL 	SHL 	SHL 			                FSUB 	
+  SHR 	SHR 	SHR 	SHR 			                FSUBR	
+  (bad	(bad	(bad	(bad			                FDIV 	
+  SAR 	SAR 	SAR 	SAR 			                FDIVR	
+  /x	/x	/x	/x	ib	ib			/x	
+E LOOPNZ LOOPZ	LOOP	JCXZ	IN	IN	OUT	OUT	CALL	JMP	JMP	JMP	IN	IN	OUT	OUT
+  cb	 cb	cb	cb	ib	ib	ib	ib	id	cd	id iw	cb  
+F LOCK:	ICEBP	REPNE	REP	HLT	CMC	TEST	TEST	CLC	STC	CLI	STI	CLD	STD	INC	INC 
+						(bad)	(bad)	                                                DEC	DEC 
+						NOT	NOT	                                                (bad)	CALL 
+						NEG	NEG	                                                (bad)	CALL 
+						MUL	MUL	                                                (bad)	JMP 
+						IMUL	IMUL	                                                (bad)	JMP 
+						DIV	DIV	                                                (bad)	PUSH 
+						IDIV	IDIV	                                                (bad)	(bad)
+						/x (ib)	/x(ib)							
+ - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
+/
+
+
+
+
+=========================================================================
+16-битный режим		
+v-r/m mod->	seg	00		01		10		11
+xx...000	DS	[BX + SI]	[BX+SI]+disp8	[BX+SI]+disp16	EAX/AX/AL
+xx...001	DS	[BX + DI]	[BX+DI]+disp8	[BX+DI]+disp16	ECX/CX/CL
+xx...010	SS	[BP + SI]	[BP+SI]+disp8	[BP+SI]+disp16	EDX/DX/DL
+xx...011	SS	[BP + DI]	[BP+DI]+disp8	[BP+DI]+disp16	EBX/BX/BL
+xx...100	DS	[SI]		[SI]+disp8	[SI]+disp16	ESP/SP/AH
+xx...101	DS	[DI]		[DI]+disp8	[DI]+disp16	EBP/BP/CH
+xx...110	SS	[disp16]	[BP]+disp8	[BP]+disp16	ESI/SI/DH
+xx...111	DS	[BX]		[BX]+disp8	[BX]+disp16	EDI/DI/BH
+32-битный режим
+v-r/m mod->	seg	00		01		10		11
+xx...000	DS	[EAX]		[EAX]+disp8	[EAX]+disp32	EAX/AX/AL
+xx...001	DS	[ECX]		[ECX]+disp8	[ECX]+disp32	ECX/CX/CL
+xx...010	DS	[EDX]		[EDX]+disp8	[EDX]+disp32	EDX/DX/DL
+xx...011	DS	[EBX]		[EPX]+disp8	[EBX]+disp32	EBX/BX/BL
+xx...100	<sib>	<sib>		<sib>+disp8	<sib>+disp32	ESP/SP/AH
+xx...101	SS	[disp32]	[EBP]+disp8	[EBP]+disp32	EBP/BP/CH
+xx...110	DS	[ESI]		[ESI]+disp8	[ESI]+disp32	ESI/SI/DH
+xx...111	DS	[EDI]		[EDI]+disp8	[EDI]+disp32	EDI/DI/BH
+--------------------------------------------------------------
+  reg		r8	r16	r32	Sreg		SS	*index	+base
+..000...	AL	AX	EAX	es		00.. 1	[EAX]	DS:[EAX]	
+..001...	CL	CX	ECX	cs		01.. 2	[ECX]	DS:[ECX]	
+..010...	DL	DX	EDX	ss		10.. 4	[EDX]	DS:[EDX]	
+..011...	BL	BX	EBX	ds		11.. 8	[EBX]	DS:[EBX]	
+..100...	AH	SP	ESP	fs			none*	??:[ESP]
+..101...	CH	BP	EBP	gs			[EBP]	[**]	
+..110...	DH	SI	ESI				[ESI]	??:[ESI]	
+..111...	BH	DI	EDI				[EDI]	DS:[EDI]	
+none* - [EIZ], EIZ=0 всегда
+** - обозначает DS:disp32 без базового регистра, если mod = 00, и SS:[EBP] в противном случае.
+--------------------------------------------------------------
+0	CF	carry		
+1	1	---
+2	PF	parity		
+3	0	---
+4	AF	auxilary-c. 	
+5	0	---
+6	ZF	zero		
+7	SF	sign		
+8	TF	trace
+9	IF	interrupt enable
+10	DF	direction
+11	OF	overflow	
+12/13	IOPL	in/out privilege level
+14	NT	nested task
+15	0	---
+----------------
+8	TF	trace			int 1 в реальном режиме
+9	IF	interrupt enable	
+10	DF	direction		0 - увеличение адресов, 1 - уменьшение адресов в строковых командах
+12/13	IOPL	in/out privilege level	в защищенном режиме...
+14	NT	nested task		в защищенном режиме...
+----------------
+4	AF	auxilary-c. 	перенос из 3 в 4 разряд
+
+2	PF	parity		четность битов
+
+6	ZF	zero		равенство нулю
+7	SF	sign		знак
+0	CF	carry		перенос
+11	OF	overflow	знаковое переполнение =CF xor перенос в старший разряд
+
+a	above	выше	без знака
+b	below	ниже	без знака
+g	greater	больше	со знаком
+l	less	меньше	со знаком
+
+A 1010	 (PF=1)			p	pe				есть четность	четный
+B 1011	 (PF=0)			np	po				нет четности	нечетный
+
+0 0000	 (OF=1)			o					есть переполнение
+1 0001	 (OF=0)			no					нет переполнения
+8 1000	 (SF=1)			s					есть знак
+9 1001	 (SF=0)			ns					нет знака
+4 0100	 (ZF=1)			z		e	равно		ноль
+5 0101	 (ZF=0)			nz		ne	не равно	не ноль
+
+2 0010	 (CF=1)			c	b	nae	ниже 		есть перенос
+3 0011	 (CF=0)			nc	nb	ae	ниже или равно	нет переноса
+6 0110	 (CF=1 or ZF=1)			na	be	выше или равно
+7 0111	 (CF=0 and ZF=0)		a	nbe	выше 
+
+C 1100	 (SF<>OF)			l	nge	меньше
+D 1101	 (SF=OF)			nl	ge	меньше или равно
+E 1110	 (ZF=1 or SF<>OF)		ng	le	больше или равно
+F 1111	 (ZF=0 and SF=OF)		g	nle	больше
+
+=========================================================================
+0f + byte:
+	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f	
+0
+1
+2
+3
+4	CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--CMOVcc--
+5
+6
+7
+8
+9
+a	PUSH----POP-----	BT------SHLD----SHLD----		PUSH----POP-----	BTS-----SHRD----SHRD----	IMUL----
+b	CMPXCHG-CMPXCHG-	BTR----		MOVZX---MOVZX---		xxxx....	BTC-----	MOVSX---MOVSX---
+c	XADD----XADD----					.x......
+d
+e
+f
+one byte:
+	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f	
+0	ADD-----ADD-----ADD-----ADD-----ADD-----ADD-----PUSH----POP-----OR------OR------OR------OR------OR------OR------PUSH----~set~
+1	ADC-----ADC-----ADC-----ADC-----ADC-----ADC-----PUSH----POP-----SBB-----SBB-----SBB-----SBB-----SBB-----SBB-----PUSH----POP-----
+2	AND-----AND-----AND-----AND-----AND-----AND-----	DAA-----SUB-----SUB-----SUB-----SUB-----SUB-----SUB-----	DAS-----
+3	XOR-----XOR-----XOR-----XOR-----XOR-----XOR-----	AAA-----CMP-----CMP-----CMP-----CMP-----CMP-----CMP-----	AAS-----
+4	INC-----INC-----INC-----INC-----INC-----INC-----INC-----INC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----DEC-----
+5	PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----PUSH----POP-----POP-----POP-----POP-----POP-----POP-----POP-----POP-----
+6	PUSHAD--POPAD---						PUSH----IMUL----PUSH----IMUL----
+7
+8	xxxxxxxxxxxxxxxx	xxxxxxxxTEST----TEST----XCHG----XCHG----MOV-----MOV-----MOV-----MOV-----MOV-----LEA--nr-MOV-----x.......
+9	XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----XCHG----CWDE----CDQ-----
+a	MOV-----MOV-----MOV-----MOV-----				TEST----TEST----
+b	MOV-----			 				MOV-----
+c	xxxxxx.xxxxxxx.x				MOV-----MOV-----
+d	xxxxxx.xxxxxxx.xxxxxxx.xxxxxxx.xAAM+++++AAD+++++	XLATB---
+e					IN------IN------OUT-----OUT-----				IN------IN------OUT-----OUT-----
+f							x.xxxxxxx.xxxxxx						xx......xx....x.
+
+
+			FLAGS
+		argc	PZSOCA	Процессор
+--- 2.3.1. пересылка данных ---
+MOV		2	------	0
+XCHG		2	------	0
+PUSH		1	------	0	PUSH ESP - начиная с i286 поправили: сначала помещаем, потом сдвигаем
+POP		1	------	0	POP [... ESP...] - сначала сдвигаем, потом помещаем
+		
+CMOVcc		2	------	6
+BSWAP		1	------	4
+PUSHA/PUSHAD	0	------	1	A,C,D,B,SP,BP,SI,DI - в стек. Сначала помещаем, потом сдвигаем
+POPA/POPAD	0	------	1	sp не считывает, а только сдвигает
+	
+IN		2	------	0
+OUT		2	------	0
+	
+CWD/CDQ		0	------	0	dx=sign ax
+CBW/CWDE	0	------	0	ah=sign al
+MOVSX		2	------	3	копирование с расширением знаком
+MOVZX		2	------	3	копирование с расширением нулем
+	
+XLATB		0	------	0	al=es:[bx+al]
+
+LEA		2	------	0
+
+LDS
+LSS
+LES
+LFS
+LGS
+
+		argc	PZSOCA	Процессор
+--- 2.3.2. двоичная арифметика ---
+--- 2.3.4. логические ---
+INC		1	....-.	0
+DEC		1	....-.	0
+
+ADD		2	......	0
+ADC		2	......	0
+SUB		2	......	0
+SBB		2	......	0
+OR		2	.....?	0
+AND		2	.....?	0
+XOR		2	.....?	0
+CMP		2	......	0
+
+IMUL		3	???..?	1	со знаком, старшая часть отбрасывается
+IMUL		2	???..?	3	со знаком, старшая часть отбрасывается
+IMUL		1	???..?	0	со знаком, al,ax,eax*arg -> ah:al,dx:ax,edx:eax
+MUL		1	???..?	0	без знака
+IDIV		1	??????	0	al,ax,eax/arg -> al,ax,eax; al,ax,eax%arg -> ah,dx,edx
+DIV		1	??????	0	-..-
+					при делении на 0 int 0 или искл. #DE
+NEG		1	......	0
+NOT		1	------	0
+TEST		2	.....?	0
+
+XADD		2	......	4	XCHG, ADD
+CMPXCHG		2	......	4	if ax==arg1 then arg1=arg2 else ax=arg1
+CMPXCHG		1	......	5	if edx:eax==arg then arg=exc:ebx else edx:eax=arg
+		argc	PZSOCA	Процессор
+--- 2.3.3. Десятичная арифметика ---
+AAA		0	????..	0	ax, неупакованные, после сложения
+					ASCII Adjust After Addition
+DAA		0	...?..	0	al, упакованные, после сложения
+					—Decimal Adjust AL after Addition
+AAS		0	????..	0	ax, неупакованные, после вычитания
+DAS		0	...?..	0	al, упакованные, после вычитания
+
+AAM		0	...???	0	al->ah:al, двоичное->неупакованное десятичное (после умножения)
+AAD		0	...???	0	ah:al->al, неупакованное десятичное->двоичное (перед делением)
+--- 2.3.5. Сдвиговые ---
+SHL/SAL		1,2	.....?	0,1	0
+SHR		1,2	.....?	0,1	0
+SAR		1,2	.....?	0,1	знак
+ROL		1,2	.....?	0
+ROR		1,2	.....?	0
+RCL		1,2	.....?	0
+RCR		1,2	.....?	0
+		
+SHLD		3	.....?	3	arg1 = сдвиг(arg1_arg2)
+SHRD		3	.....?	3	arg1 = сдвиг(arg2_arg1)
+--- 2.3.6. Над битами и байтами ---
+BT		2	????.?	3	Проверка бита
+BTS		2	????.?	3	Проверка и инверсия бита
+BTR		2	????.?	3	Проверка и сброс бита
+BTC		2	????.?	3	Проверка и установка бита
+
+BSF		2		3	Прямое сканирование битов
+BSR		2		3	Обратное сканирование битов
+
+SETcc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP		Нет операции
+MOV		Копирование
+XCHG		Обмен
+
+NOT		Инверсия
+AND		Логическое И.
+OR		Логическое ИЛИ
+XOR		Логическое исключающее ИЛИ
+
+SHL/SAL		Сдвиг влево
+SHR		Логический сдвиг вправо
+ROL		Циклический сдвиг влево
+ROR		Циклический сдвиг вправо
+RCL		Циклический сдвиг влево через флаг переноса
+RCR		Циклический сдвиг вправо через флаг переноса
+SAR		Арифметический сдвиг вправо
+SHLD		Сдвиг двойной точности влево
+SHRD		Сдвиг двойной точности вправо
+
+BSF		Прямое сканирование битов
+BSR		Обратное сканирование битов
+BT		Проверка бита
+BTC		Проверка и инверсия бита
+BTR		Проверка и сброс бита
+BTS		Проверка и установка бита
+
+INC		Инкремент
+DEC		Декремент
+NEG		Изменение знака
+ADD		Сложение
+SUB		Вычитание
+MUL		Умножение без знака
+DIV		Деление без знака
+ADC		Сложение с учётом переноса.
+SBB		Вычитание с заёмом
+IDIV		Деление со знаком
+IMUL		Умножение со знаком
+
+MOVSX		Копирование со знаковым расширением
+MOVZX		Копирование с нулевым расширением
+CBW/CWDE	преобразование байта в слово / слова в двойное слово (рсширение знаком)
+CWD/CDQ		преобразование слова в двойное слово / двойного слова в учетверённое слово
+CMP		Сравнение
+TEST		Логическое сравнение
+
+CLC		Сброс флага переноса.
+STC		Установка флага переноса
+CLD		Сброс флага направления
+STD		Установка флага направления
+CLI		Сброс флага прерывания
+STI		Установка флага прерывания
+CMC		Инверсия флага переноса
+LAHF		Загрузка младшего байта регистра флагов в AH
+SAHF		Запись содержимого AH в младший байт регистра флагов
+
+POP		Извлечение из стека
+PUSH		Помещение в стек
+POPA/POPAD	Восстановление регистров общего назначения из стека
+PUSHA/PUSHAD	Помещение регистров общего назначения в стек
+POPF/POPFD	Извлечение регистра флагов из стека
+PUSHF/PUSHFD	Помещение регистра флагов в стек
+ENTER		Установка кадра стека
+LEAVE		Восстановление кадра стека
+
+CALL		Вызов процедуры или переключение задачи
+J(COND)		Условный переход
+JMP		Безусловный переход
+LOOP		Управление циклом со счетчиком в регистре СХ/ЕСХ
+LOOPNZ/LOOPNE	Управление циклом со счетчиком в регистре СХ/ЕСХ
+LOOPZ/LOOPE	Управление циклом со счетчиком в регистре СХ/ЕСХ.
+RET/RETN/RETF	Возврат из процедуры

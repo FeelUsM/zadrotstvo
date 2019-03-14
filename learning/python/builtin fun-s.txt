@@ -1,0 +1,82 @@
+abs(num)		модуль числа
+divmod(a,b)		(a//b,a%b)
+round(number[, ndigits])окугляет до блжайшего целого или до ndigits цифр после запятой
+pow(x, y[, z])		x**y[%z]
+min(iterable)		
+min(args...)		минимум
+max(iterable)		
+max(args...)		максимум
+sum(iterable[, start])	сумма
+all(*iterable)		AND...
+any(*iterable)		OR...
+
+bin(num)	'0bдвоичная_запись'
+oct(num)	'0oвосьмеричная_запись'
+hex(num)	'0xшестнадцатеричная_запись'
+ord(с)		юникодный номер символа
+chr(i)		юникодный символ номера
+repr(obj)	representation of obj, так, чтобы его можно было скормить eval() + __repr__()
+ascii(obj)	repr(obj) + экранирует непечатаемые символы
+format(value[, format_spec])	
+print()
+input()
+
+bool()		class
+int()
+float()		class
+complex()	class
+bytearray()	class	mutable
+bytes()		class	immutable
+str()		
+list()
+tuple()
+dict()		class	{1:2,3:4}
+set()
+frozenset()
+
+open()
+
+hash()
+sorted()
+
+len()
+next()
+slice()
+range()
+iter()
+enumerate(l)	возвращает генератор, который возвращает (i,l[i])
+map()
+filter(f,l)	возвращает итератор, который будет пропускать элементы item из l, для которых f(item)==False
+zip()
+reversed()
+
+type()
+dir()		список имен в объекте или текущей области видимости - не всё а то что для удобства
+vars([obj])	возвращает obj.__dict__
+
+hasattr()
+delattr()
+setattr()
+getattr()
+property()
+isinstance()
+issubclass()
+super()
+staticmethod()
+classmethod()	@classmethod
+
+compile()	возвращает скомпилированный объект
+globals()
+locals()
+eval()		выполняет код или то, что вернула compile(), как функцию
+exec()		выполняет код или то, что вернула compile(), как файл
+
+memoryview()
+breakpoint()
+
+callable()	можно ли вызывать как функцию
+help()
+id()
+object()
+
+__import__(name,...)	вызывается конструкцией import

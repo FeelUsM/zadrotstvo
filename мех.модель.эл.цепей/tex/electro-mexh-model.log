@@ -1,0 +1,591 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.15)  10 JUN 2016 14:34
+entering extended mode
+**./electro-mexh-model.tex
+(electro-mexh-model.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9n> and hyphenation patterns for 69 languages loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucs.sty"
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-global.def"
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count87
+\uc@combtoks=\toks16
+\uc@combtoksb=\toks17
+\uc@temptokena=\toks18
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2016/01/08 3.9n The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-russian\russianb.ldf"
+Language: russianb 2016/02/18 1.3h Russian support for the Babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2016/01/08 3.9n Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+
+Package babel Warning: No Cyrillic font encoding has been loaded so far.
+(babel)                A font encoding should be declared before babel.
+(babel)                Default `T2A' encoding will be loaded  on input line 69.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def"
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+)
+Package babel Info: Making " an active character on input line 111.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen104
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks20
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks21
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks22
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count101
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen115
+\Gm@wd@mp=\dimen116
+\Gm@odd@mp=\dimen117
+\Gm@even@mp=\dimen118
+\Gm@layoutwidth=\dimen119
+\Gm@layoutheight=\dimen120
+\Gm@layouthoffset=\dimen121
+\Gm@layoutvoffset=\dimen122
+\Gm@dimlist=\toks25
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen123
+\lightrulewidth=\dimen124
+\cmidrulewidth=\dimen125
+\belowrulesep=\dimen126
+\belowbottomsep=\dimen127
+\aboverulesep=\dimen128
+\abovetopsep=\dimen129
+\cmidrulesep=\dimen130
+\cmidrulekern=\dimen131
+\defaultaddspace=\dimen132
+\@cmidla=\count105
+\@cmidlb=\count106
+\@aboverulesep=\dimen133
+\@belowrulesep=\dimen134
+\@thisruleclass=\count107
+\@lastruleclass=\count108
+\@thisrulewidth=\dimen135
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen136
+\extrarowheight=\dimen137
+\NC@list=\toks26
+\extratabsurround=\skip46
+\backup@length=\skip47
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\paralist\paralist.sty"
+Package: paralist 2015/12/30 v2.5 Extended list environments
+\pltopsep=\skip48
+\plpartopsep=\skip49
+\plitemsep=\skip50
+\plparsep=\skip51
+\pl@lab=\toks27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks28
+\verbatim@line=\toks29
+\verbatim@in@stream=\read1
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen138
+\captionmargin@=\dimen139
+\captionwidth=\dimen140
+\caption@tempdima=\dimen141
+\caption@indent=\dimen142
+\caption@parindent=\dimen143
+\caption@hangindent=\dimen144
+)
+\c@ContinuedFloat=\count109
+)
+\c@KVtest=\count110
+\sf@farskip=\skip52
+\sf@captopadj=\dimen145
+\sf@capskip=\skip53
+\sf@nearskip=\skip54
+\c@subfigure=\count111
+\c@subfigure@save=\count112
+\c@lofdepth=\count113
+\c@subtable=\count114
+\c@subtable@save=\count115
+\c@lotdepth=\count116
+\sf@top=\skip55
+\sf@bottom=\skip56
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+\fancy@headwidth=\skip57
+\f@ncyO@elh=\skip58
+\f@ncyO@erh=\skip59
+\f@ncyO@olh=\skip60
+\f@ncyO@orh=\skip61
+\f@ncyO@elf=\skip62
+\f@ncyO@erf=\skip63
+\f@ncyO@olf=\skip64
+\f@ncyO@orf=\skip65
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty"
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tocbibind\tocbibind.sty"
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has section divisions on input line 50.
+
+
+Package tocbibind Note: Using section or other style headings.
+
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has section divisions on input line 44.
+\cftparskip=\skip66
+\cftbeforetoctitleskip=\skip67
+\cftaftertoctitleskip=\skip68
+\cftbeforepartskip=\skip69
+\cftpartnumwidth=\skip70
+\cftpartindent=\skip71
+\cftbeforesecskip=\skip72
+\cftsecindent=\skip73
+\cftsecnumwidth=\skip74
+\cftbeforesubsecskip=\skip75
+\cftsubsecindent=\skip76
+\cftsubsecnumwidth=\skip77
+\cftbeforesubsubsecskip=\skip78
+\cftsubsubsecindent=\skip79
+\cftsubsubsecnumwidth=\skip80
+\cftbeforeparaskip=\skip81
+\cftparaindent=\skip82
+\cftparanumwidth=\skip83
+\cftbeforesubparaskip=\skip84
+\cftsubparaindent=\skip85
+\cftsubparanumwidth=\skip86
+\cftbeforeloftitleskip=\skip87
+\cftafterloftitleskip=\skip88
+\cftbeforefigskip=\skip89
+\cftfigindent=\skip90
+\cftfignumwidth=\skip91
+\cftbeforelottitleskip=\skip92
+\cftafterlottitleskip=\skip93
+\cftbeforetabskip=\skip94
+\cfttabindent=\skip95
+\cfttabnumwidth=\skip96
+\cftbeforesubfigskip=\skip97
+\cftsubfigindent=\skip98
+\cftsubfignumwidth=\skip99
+\cftbeforesubtabskip=\skip100
+\cftsubtabindent=\skip101
+\cftsubtabnumwidth=\skip102
+)
+(electro-mexh-model.aux
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 3.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd"
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
+\openout1 = `electro-mexh-model.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count117
+\scratchdimen=\dimen146
+\scratchbox=\box28
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen147
+\MPnumerator=\count121
+\makeMPintoPDFobject=\count122
+\everyMPtoPDFconversion=\toks31
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-4.def"
+File: uni-4.def 2013/05/13 UCS: Unicode data U+0400..U+04FF
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
+
+
+LaTeX Warning: Command \cyrg invalid in math mode on input line 107.
+
+
+LaTeX Warning: Command \cyrd invalid in math mode on input line 107.
+
+
+LaTeX Warning: Command \cyre invalid in math mode on input line 107.
+
+Missing character: There is no г in font cmr10!
+Missing character: There is no д in font cmr10!
+Missing character: There is no е in font cmr10!
+[1
+
+{C:/Users/feelus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<../ustroistvo-differenciala.jpg, id=11, 376.40625pt x 376.40625pt>
+File: ../ustroistvo-differenciala.jpg Graphic file (type jpg)
+
+<use ../ustroistvo-differenciala.jpg>
+Package pdftex.def Info: ../ustroistvo-differenciala.jpg used on input line 126
+.
+(pdftex.def)             Requested size: 376.40532pt x 376.40532pt.
+ [2]
+LaTeX Font Info:    Try loading font information for T2A+cmss on input line 130
+.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\cyrillic\t2acmss.fd"
+File: t2acmss.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+) [3 <../ustroistvo-differenciala.jpg>] <../R.png, id=20, 225.84375pt x 301.125
+pt>
+File: ../R.png Graphic file (type png)
+ <use ../R.png>
+Package pdftex.def Info: ../R.png used on input line 142.
+(pdftex.def)             Requested size: 225.84319pt x 301.12425pt.
+
+<../C.png, id=22, 225.84375pt x 225.84375pt>
+File: ../C.png Graphic file (type png)
+ <use ../C.png>
+Package pdftex.def Info: ../C.png used on input line 156.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+ [4 <../R.png>]
+<../C1.png, id=27, 225.84375pt x 225.84375pt>
+File: ../C1.png Graphic file (type png)
+ <use ../C1.png>
+Package pdftex.def Info: ../C1.png used on input line 169.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+ [5 <../C.png>]
+<../L_rot.png, id=32, 225.84375pt x 225.84375pt>
+File: ../L_rot.png Graphic file (type png)
+ <use ../L_rot.png>
+Package pdftex.def Info: ../L_rot.png used on input line 173.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+
+<../L_post.png, id=33, 225.84375pt x 225.84375pt> [6 <../C1.png> <../L_rot.png>
+]
+File: ../L_post.png Graphic file (type png)
+ <use ../L_post.png>
+Package pdftex.def Info: ../L_post.png used on input line 186.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\uni-33.def"
+File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
+)
+<../L_ndiff.png, id=39, 225.84375pt x 225.84375pt>
+File: ../L_ndiff.png Graphic file (type png)
+ <use ../L_ndiff.png>
+Package pdftex.def Info: ../L_ndiff.png used on input line 200.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+
+[7 <../L_post.png>] <../RC.png, id=45, 225.84375pt x 225.84375pt>
+File: ../RC.png Graphic file (type png)
+
+<use ../RC.png>
+Package pdftex.def Info: ../RC.png used on input line 206.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+ [8 <../L_ndiff.png> <../RC.png>]
+<../plots/RC.png, id=52, 481.8pt x 361.35pt>
+File: ../plots/RC.png Graphic file (type png)
+ <use ../plots/RC.png>
+Package pdftex.def Info: ../plots/RC.png used on input line 214.
+(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
+
+Overfull \hbox (80.54514pt too wide) in paragraph at lines 214--215
+[][] 
+ []
+
+<../RL.png, id=53, 225.84375pt x 225.84375pt>
+File: ../RL.png Graphic file (type png)
+ <use ../RL.png>
+Package pdftex.def Info: ../RL.png used on input line 218.
+(pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
+ [9 <../plots/RC.png>] <../plots/RL.png, id=58, 481.8pt x 361.35pt> [10 <../RL.
+png>]
+File: ../plots/RL.png Graphic file (type png)
+
+<use ../plots/RL.png>
+Package pdftex.def Info: ../plots/RL.png used on input line 226.
+(pdftex.def)             Requested size: 481.79881pt x 361.34912pt.
+
+Overfull \hbox (80.54514pt too wide) in paragraph at lines 226--227
+[][] 
+ []
+
+
+Overfull \hbox (14.07149pt too wide) in paragraph at lines 238--239
+[]\T2A/cmr/m/n/10.95 L - сим-мет-рич-ная ($\OML/cmm/m/it/10.95 L[] \OT1/cmr/m/n
+/10.95 = \OML/cmm/m/it/10.95 L[]$\T2A/cmr/m/n/10.95 ) мат-ри-ца вза-им-ных ин-д
+ук-тив-но-стей $\OML/cmm/m/it/10.95 L[]; L[]; L[]; L[]$
+ []
+
+[11 <../plots/RL.png>] <../T_post.png, id=66, 376.40625pt x 376.40625pt>
+File: ../T_post.png Graphic file (type png)
+
+<use ../T_post.png>
+Package pdftex.def Info: ../T_post.png used on input line 253.
+(pdftex.def)             Requested size: 376.40532pt x 376.40532pt.
+ <../T_rot.png, id=67, 376.40625pt x 225.84375pt>
+File: ../T_rot.png Graphic file (type png)
+
+<use ../T_rot.png>
+Package pdftex.def Info: ../T_rot.png used on input line 257.
+(pdftex.def)             Requested size: 376.40532pt x 225.84319pt.
+ [12 <../T_post.png>] [13 <../T_rot.png>] [14]
+<../TR.png, id=83, 376.40625pt x 225.84375pt>
+File: ../TR.png Graphic file (type png)
+ <use ../TR.png>
+Package pdftex.def Info: ../TR.png used on input line 374.
+(pdftex.def)             Requested size: 376.40532pt x 225.84319pt.
+
+Overfull \hbox (50.438pt too wide) detected at line 416
+[] \OT1/cmr/m/n/10.95 = [][] = [] [] = [] []
+ []
+
+[15 <../TR.png>] [16] <../T_work.png, id=91, 376.40625pt x 225.84375pt>
+File: ../T_work.png Graphic file (type png)
+
+<use ../T_work.png>
+Package pdftex.def Info: ../T_work.png used on input line 470.
+(pdftex.def)             Requested size: 376.40532pt x 225.84319pt.
+ <../OM.png, id=92, 451.6875pt x 301.125pt>
+File: ../OM.png Graphic file (type png)
+ <use ../OM.png>
+Package pdftex.def Info: ../OM.png used on input line 475.
+(pdftex.def)             Requested size: 451.68639pt x 301.12425pt.
+
+Overfull \hbox (50.43271pt too wide) in paragraph at lines 475--476
+[][] 
+ []
+
+[17 <../T_work.png>] [18 <../OM.png>] (electro-mexh-model.aux) ) 
+Here is how much of TeX's memory you used:
+ 6490 strings out of 493634
+ 89821 string characters out of 3143741
+ 167781 words of memory out of 3000000
+ 9772 multiletter control sequences out of 15000+200000
+ 16344 words of font info for 40 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 44i,11n,43p,1576b,680s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\feel
+us\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\lass1200.pk> <C:\U
+sers\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\lass1440.
+pk> <C:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\unknown\unknown\d
+pi600\larm1095.pk> <C:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh
+\lh-t2a\dpi600\larm1200.pk> <C:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\lh\lh-t2a\dpi600\larm1728.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on electro-mexh-model.pdf (18 pages, 342182 bytes).
+PDF statistics:
+ 351 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+

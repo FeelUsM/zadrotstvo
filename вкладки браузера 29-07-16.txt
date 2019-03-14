@@ -1,0 +1,23 @@
+mediawiki: request:	https://www.mediawiki.org/wiki/Project:Requests#User:FeelUs
+php: Аргументы функции: http://php.net/manual/ru/functions.arguments.php
+http://localhost/my/variable__SERVER.php/nanana?qwe=asd
+http://localhost/phpmyadmin/db_structure.php?server=1&db=my_wiki&token=b5310e8e4b3cc2cf27dc50691a2426e7
+googlee: php учебник
+	Самоучитель PHP: Глава 4. Формы: http://phpfaq.ru/php5.ru/study/chapter4.html
+	Учебник по PHP 4: http://softtime.ru/bookphp/gl12_7.php
+habr: Простая реализация long polling механизма на PHP
+php: cache: http://php.net/manual/ru/book.wincache.php
+google: php composer
+	habr: Composer — менеджер зависимостей для PHP: https://habrahabr.ru/post/145946/
+	PEAR - PHP Extension and Application Repository: https://pear.php.net/
+		https://ru.wikipedia.org/wiki/PECL
+		https://ru.wikipedia.org/wiki/PEAR
+google: cgi c++
+	CGI-расширение на C++: http://i-novice.net/cgi-rasshirenie-na-c/
+	Подробнее:wiki:FastCGI:	https://ru.wikipedia.org/wiki/FastCGI
+		wiki:CGI:	https://ru.wikipedia.org/wiki/CGI
+	параметры конфигурации управляют настройкой ядра Apache:	http://www.apache.ru/docs/fishki.html
+google:	g++ профилирование
+	Оптимизация C/C++ приложений с помощью GProf: http://www.linuxfocus.org/Russian/March2005/article371.shtml
+	Профилирование программ: http://ssd.sscc.ru/sites/default/files/content/attach/317/lectureprofiling2013.pdf
+google: пользовательское и системное время

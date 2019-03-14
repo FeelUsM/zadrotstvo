@@ -1,0 +1,222 @@
+86f7e437 faa5a7fc e15d1ddc b9eaeaea 377667b8 'a' sha1sum
+8d6e 92cd 128c 7725 e5f3 431b 329a faf7 9184 3c08 'a' DSA
+276b 103b 1506 6c11 7d1d 8af0 0df1 623f ef96 00b9 'a' signer
+276b 103b 1506 6c11 7d1d 8af0 0df1 623f ef96 00b9
+
+2ac8 ce7d cea5 a4ae 85cc 1d43 83a5 6f44 bfe1 6a77
+
+
+
+
+Генерация простых чисел и ключей
+P = 006b ffff ffff ffff ffff ffff ffff ffff ffff ffff 3365
+Q = 0000 ffff ffff ffff ffff ffff ffff ffff ffff ffff fe1b
+Hn= 0005 ff66 ffff 4fff ffbb 624f f4fc fdf6 64ff f26f fdf3
+G = 0059 c1b3 f0ca c78e bb04 588e 0b47 c04f b9cc 276d 5d32
+X = 0000 9999 8888 7777 6666 5555 4444 3333 2222 1111 ffff
+k = 0000 ffff ffff ffff ffff 664f f4ff fff6 f4ff f2ff ffd8
+Y = 0066 f23a 628b 9fb2 2a46 be6d d3a9 ea34 91bf 48c7 024b
+H =      276b 103b 1506 6c11 7d1d 8af0 0df1 623f ef96 00b9
+R = 0000 1d82 3690 104e f26b aa1e e308 c446 9fb1 a0b5 2a77
+S = 0000 de58 5c8a 6ebb aadf 44a6 1f68 4d02 76d6 615a 423b
+A = 0000 19e0 47e9 d6b5 12d8 071f cea0 2019 51c3 6636 1cb7
+B = 0000 4976 2be4 d1e9 59e4 1961 b3a6 2642 a77e cea4 9adf
+V = 0000 1d82 3690 104e f26b aa1e e308 c446 9fb1 a0b5 2a77
+
+
+
+
+
+
+runcpp: clang++ signer.cpp (options = -std=gnu++11 -Wall -Wno-parentheses -v)
+clang version 3.5.2 (tags/RELEASE_352/final)
+Target: x86_64-unknown-windows-cygnus
+Thread model: posix
+ "/usr/bin/clang" 
+	-cc1 
+	-triple x86_64-unknown-windows-cygnus 
+	-emit-obj 
+	-mrelax-all 
+	-disable-free 
+	-disable-llvm-verifier 
+	-main-file-name signer.cpp 
+	-mrelocation-model static 
+	-mdisable-fp-elim 
+	-fmath-errno 
+	-masm-verbose 
+	-mconstructor-aliases 
+	-munwind-tables 
+	-target-cpu x86-64 
+	-target-linker-version 2.25 
+	-v 
+	-dwarf-column-info 
+	-resource-dir /usr/bin/../lib/clang/x86_64-pc-cygwin/3.5.2 
+	-Wall 
+	-Wno-parentheses 
+	-std=gnu++11 
+	-fdeprecated-macro 
+	-fdebug-compilation-dir /cygdrive/c/Users/feelus/Desktop/DSA 
+	-ferror-limit 19 
+	-fmessage-length 143 
+	-mstackrealign 
+	-fobjc-runtime=gcc 
+	-fcxx-exceptions 
+	-fexceptions 
+	-fdiagnostics-show-option 
+	-fcolor-diagnostics 
+	-o /tmp/signer-746460.o 
+	-x c++ signer.cpp
+clang -cc1 version 3.5.2 based upon LLVM 3.5.2 default target x86_64-unknown-windows-cygnus
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.9.2/include/c++"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.9.2/include/c++/x86_64-pc-cygwin"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.9.2/include/c++/backward"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.8.3/include/c++"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.8.3/include/c++/x86_64-pc-cygwin"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.8.3/include/c++/backward"
+	ignoring nonexistent directory "/usr/include/c++/4.4"
+	ignoring nonexistent directory "/usr/local/include"
+	ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-cygwin/4.9.2/include"
+	#include "..." search starts here:
+	#include <...> search starts here:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/include/c++
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/include/c++/x86_64-pc-cygwin
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/include/c++/backward
+	/usr/bin/../lib/clang/x86_64-pc-cygwin/3.5.2/include
+	/usr/include
+	/usr/include/w32api
+End of search list.
+ "/usr/bin/g++" 
+	-std=gnu++11 
+	-v 
+	-m64 
+	-o ./.signer.exe /tmp/signer-746460.o
+Используются внутренние спецификации.
+COLLECT_GCC=/usr/bin/g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/lto-wrapper.exe
+Целевая архитектура: x86_64-pc-cygwin
+Параметры конфигурации: 
+	/cygdrive/i/szsz/tmpp/gcc/gcc-4.9.3-1.x86_64/src/gcc-4.9.3/configure 
+	--srcdir=/cygdrive/i/szsz/tmpp/gcc/gcc-4.9.3-1.x86_64/src/gcc-4.9.3 
+	--prefix=/usr 
+	--exec-prefix=/usr 
+	--localstatedir=/var 
+	--sysconfdir=/etc 
+	--docdir=/usr/share/doc/gcc 
+	--htmldir=/usr/share/doc/gcc/html 
+	-C 
+	--build=x86_64-pc-cygwin 
+	--host=x86_64-pc-cygwin 
+	--target=x86_64-pc-cygwin 
+	--without-libiconv-prefix 
+	--without-libintl-prefix 
+	--libexecdir=/usr/lib 
+	--enable-shared 
+	--enable-shared-libgcc 
+	--enable-static 
+	--enable-version-specific-runtime-libs 
+	--enable-bootstrap 
+	--enable-__cxa_atexit 
+	--with-dwarf2 
+	--with-tune=generic 
+	--enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-graphite 
+	--enable-threads=posix 
+	--enable-libatomic 
+	--enable-libgomp 
+	--disable-libitm 
+	--enable-libquadmath 
+	--enable-libquadmath-support 
+	--enable-libssp 
+	--enable-libada 
+	--enable-libgcj-sublibs 
+	--disable-java-awt 
+	--disable-symvers 
+	--with-ecj-jar=/usr/share/java/ecj.jar 
+	--with-gnu-ld 
+	--with-gnu-as 
+	--with-cloog-include=/usr/include/cloog-isl 
+	--without-libiconv-prefix 
+	--without-libintl-prefix 
+	--with-system-zlib 
+	--enable-linker-build-id
+Модель многопоточности: posix
+gcc версия 4.9.3 (GCC)
+COMPILER_PATH=
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/:
+	/usr/lib/gcc/x86_64-pc-cygwin/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/:
+	/usr/lib/gcc/x86_64-pc-cygwin/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/bin/
+LIBRARY_PATH=
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/lib/../lib/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../lib/:
+	/lib/../lib/:
+	/usr/lib/../lib/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/lib/:
+	/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../:
+	/lib/:
+	/usr/lib/
+COLLECT_GCC_OPTIONS=
+	'-std=gnu++11' 
+	'-v' 
+	'-m64' 
+	'-o' './.signer.exe' 
+	'-shared-libgcc' 
+	'-mtune=generic' 
+	'-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-cygwin/4.9.3/collect2.exe 
+	-plugin /usr/lib/gcc/x86_64-pc-cygwin/4.9.3/cyglto_plugin.dll 
+	-plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/lto-wrapper.exe 
+	-plugin-opt=-fresolution=/tmp/ccswjHOx.res 
+	-plugin-opt=-pass-through=-lgcc_s 
+	-plugin-opt=-pass-through=-lgcc 
+	-plugin-opt=-pass-through=-lcygwin 
+	-plugin-opt=-pass-through=-ladvapi32 
+	-plugin-opt=-pass-through=-lshell32 
+	-plugin-opt=-pass-through=-luser32 
+	-plugin-opt=-pass-through=-lkernel32 
+	-plugin-opt=-pass-through=-lgcc_s 
+	-plugin-opt=-pass-through=-lgcc 
+	--build-id 
+	-m i386pep 
+	--wrap _Znwm 
+	--wrap _Znam 
+	--wrap _ZdlPv 
+	--wrap _ZdaPv 
+	--wrap _ZnwmRKSt9nothrow_t 
+	--wrap _ZnamRKSt9nothrow_t 
+	--wrap _ZdlPvRKSt9nothrow_t 
+	--wrap _ZdaPvRKSt9nothrow_t 
+	-Bdynamic 
+	--dll-search-prefix=cyg 
+	-tsaware 
+	-o 
+		./.signer.exe 
+		/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../lib/crt0.o 
+		/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/crtbegin.o 
+	-L/usr/lib/gcc/x86_64-pc-cygwin/4.9.3 
+	-L/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/lib/../lib 
+	-L/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../lib 
+	-L/lib/../lib 
+	-L/usr/lib/../lib 
+	-L/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/lib 
+	-L/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../.. /tmp/signer-746460.o 
+	-lstdc++ 
+	-lgcc_s 
+	-lgcc 
+	-lcygwin 
+	-ladvapi32 
+	-lshell32 
+	-luser32 
+	-lkernel32 
+	-lgcc_s 
+	-lgcc 
+		/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../lib/default-manifest.o 
+		/usr/lib/gcc/x86_64-pc-cygwin/4.9.3/crtend.o
+/tmp/signer-746460.o:(.xdata+0x8): undefined reference to `__gxx_personality_v0'
+/tmp/signer-746460.o:(.xdata+0x8): relocation truncated to fit: rva32 against undefined symbol `__gxx_personality_v0'
+collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+clang: error: linker (via gcc) command failed with exit code 1 (use -v to see invocation)
+***** ОШИБКА КОМПИЛЯЦИИ *****
+

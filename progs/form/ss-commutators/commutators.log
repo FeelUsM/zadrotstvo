@@ -1,0 +1,2025 @@
+FORM 4.1 (May 24 2017, v4.1-20131025-346-gcf71752) 64-bits  Run: Fri Sep  8 22:06:13 2017
+    #-
+    #define debug "1"
+    *=== Гамильтонианы ===
+    #define H "J(i,j)*d(al,be)*c(i,al)*c(j,be)/2 + h(i,al)*c(i,al)";
+    #define Hh "h(i,al)*c(i,al)";
+    #define HJ "J(i,j)*d(al,be)*c(i,al)*c(j,be)/2";
+    
+    local Ch = comm(`Hh',c(k1,ga1));
+    *local ChToCCh = comm(`Hh',d_(ga1,ga2)+i_*e_(ga1,ga2,nu1)*c(k1,nu1));
+    local CJ = comm(`HJ',c(k1,ga1));
+    *local CJToCCJ = comm(`HJ',d_(ga1,ga2)+i_*e_(ga1,ga2,nu1)*c(k1,nu1));
+    *local C  = comm(`H' ,c(k1,ga1));
+    *---
+    local CCh = comm(`Hh',c(k1,ga1)*c(k2,ga2));
+    local CCJ = comm(`HJ',c(k1,ga1)*c(k2,ga2));
+    *local CC  = comm(`H' ,c(k1,ga1)*c(k2,ga2));
+    *---
+    local C2h = comm(`Hh',c(k1,nu1)*c(k2,nu1));
+    local C2J = comm(`HJ',c(k1,nu1)*c(k2,nu1));
+    *local C2  = comm(`H' ,c(k1,nu1)*c(k2,nu1));
+    *---
+    local C3h = comm(`Hh',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
+    local C3J = comm(`HJ',c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
+    *local C3  = comm(`H' ,c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*e_(nu1,nu2,nu3));
+    #-
+
+Time =       0.00 sec    Generated terms =          2
+              Ch         Terms in output =          2
+     commutator expanded Bytes used      =        204
+
+Time =       0.00 sec    Generated terms =          2
+              CJ         Terms in output =          2
+     commutator expanded Bytes used      =        316
+
+Time =       0.00 sec    Generated terms =          2
+             CCh         Terms in output =          2
+     commutator expanded Bytes used      =        260
+
+Time =       0.00 sec    Generated terms =          2
+             CCJ         Terms in output =          2
+     commutator expanded Bytes used      =        372
+
+Time =       0.00 sec    Generated terms =          2
+             C2h         Terms in output =          2
+     commutator expanded Bytes used      =        260
+
+Time =       0.00 sec    Generated terms =          2
+             C2J         Terms in output =          2
+     commutator expanded Bytes used      =        372
+
+Time =       0.00 sec    Generated terms =          2
+             C3h         Terms in output =          2
+     commutator expanded Bytes used      =        364
+
+Time =       0.00 sec    Generated terms =          2
+             C3J         Terms in output =          2
+     commutator expanded Bytes used      =        476
+
+   Ch =
+       + c(i,al)*c(k1,ga1)*h(i,al)
+          - c(k1,ga1)*c(i,al)*h(i,al)
+         ;
+
+   CJ =
+       + 1/2*c(i,al)*c(j,be)*c(k1,ga1)*J(i,j)*d(al,be)
+          - 1/2*c(k1,ga1)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+         ;
+
+   CCh =
+       + c(i,al)*c(k1,ga1)*c(k2,ga2)*h(i,al)
+          - c(k1,ga1)*c(k2,ga2)*c(i,al)*h(i,al)
+         ;
+
+   CCJ =
+       + 1/2*c(i,al)*c(j,be)*c(k1,ga1)*c(k2,ga2)*J(i,j)*d(al,be)
+          - 1/2*c(k1,ga1)*c(k2,ga2)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+         ;
+
+   C2h =
+       + c(i,al)*c(k1,nu1)*c(k2,nu1)*h(i,al)
+          - c(k1,nu1)*c(k2,nu1)*c(i,al)*h(i,al)
+         ;
+
+   C2J =
+       + 1/2*c(i,al)*c(j,be)*c(k1,nu1)*c(k2,nu1)*J(i,j)*d(al,be)
+          - 1/2*c(k1,nu1)*c(k2,nu1)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+         ;
+
+   C3h =
+       + c(i,al)*c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          - c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+       + 1/2*c(i,al)*c(j,be)*c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+         ;
+
+=== cycle #1 ===
+
+Time =       0.00 sec    Generated terms =          4
+              Ch         Terms in output =          4
+             cycle-split Bytes used      =        376
+
+Time =       0.00 sec    Generated terms =          4
+              CJ         Terms in output =          4
+             cycle-split Bytes used      =        600
+
+Time =       0.00 sec    Generated terms =          4
+             CCh         Terms in output =          4
+             cycle-split Bytes used      =        600
+
+Time =       0.00 sec    Generated terms =          4
+             CCJ         Terms in output =          4
+             cycle-split Bytes used      =        824
+
+Time =       0.00 sec    Generated terms =          4
+             C2h         Terms in output =          4
+             cycle-split Bytes used      =        600
+
+Time =       0.00 sec    Generated terms =          4
+             C2J         Terms in output =          4
+             cycle-split Bytes used      =        824
+
+Time =       0.00 sec    Generated terms =          4
+             C3h         Terms in output =          4
+             cycle-split Bytes used      =        808
+
+Time =       0.00 sec    Generated terms =          4
+             C3J         Terms in output =          4
+             cycle-split Bytes used      =       1032
+
+   Ch =
+       + cc(i,al)*cc(k1,ga1)*h(i,al)
+          + cc(k1,al,ga1)*h(k1,al)
+          - cc(k1,ga1)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,al)*h(k1,al)
+         ;
+
+   CJ =
+       + 1/2*cc(i,al)*cc(j,be)*c(k1,ga1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al,be)*c(k1,ga1)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*c(j,be)*J(j,k1)*d(al,be)
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          - cc(k1,ga1,ga2)*c(i,al)*h(i,al)
+          )
+
+       + cc(i,al)*cc(k1,ga1)*c(k2,ga2)*h(i,al)
+          + cc(k1,al,ga1)*c(k2,ga2)*h(k1,al)
+          - cc(k1,ga1)*cc(k2,ga2)*c(i,al)*h(i,al)
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,ga1,ga2)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*c(k1,ga1)*c(k2,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al,be)*c(k1,ga1)*c(k2,ga2)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+         ;
+
+   C2h =
+
+       + eq(c(k1),c(k2)) * (
+          - cc(k1,nu1,nu1)*c(i,al)*h(i,al)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*c(k2,nu1)*h(i,al)
+          + cc(k1,al,nu1)*c(k2,nu1)*h(k1,al)
+          - cc(k1,nu1)*cc(k2,nu1)*c(i,al)*h(i,al)
+         ;
+
+   C2J =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,nu1,nu1)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*c(k1,nu1)*c(k2,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al,be)*c(k1,nu1)*c(k2,nu1)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*c(i,al)*c(j,be)*J(i,j)*d(al,be)
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2)) * (
+          - cc(k1,nu1,nu2)*c(k3,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*c(k2,nu2)*c(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*c(k2,nu2)*c(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*c(k3,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,nu1,nu2)*c(k3,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,j)*d(al,be)*
+      e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al,be)*c(k1,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,i)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*c(k3,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be
+         )*e_(nu1,nu2,nu3)
+         ;
+
+=== cycle #2 ===
+
+Time =       0.00 sec    Generated terms =          4
+              Ch         Terms in output =          4
+             cycle-split Bytes used      =        376
+
+Time =       0.00 sec    Generated terms =         10
+              CJ         Terms in output =         10
+             cycle-split Bytes used      =       1320
+
+Time =       0.00 sec    Generated terms =         10
+             CCh         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.00 sec    Generated terms =         10
+             CCJ         Terms in output =         10
+             cycle-split Bytes used      =       1712
+
+Time =       0.00 sec    Generated terms =         10
+             C2h         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.00 sec    Generated terms =         10
+             C2J         Terms in output =         10
+             cycle-split Bytes used      =       1712
+
+Time =       0.00 sec    Generated terms =         10
+             C3h         Terms in output =         10
+             cycle-split Bytes used      =       1952
+
+Time =       0.00 sec    Generated terms =         10
+             C3J         Terms in output =         10
+             cycle-split Bytes used      =       2484
+
+   Ch =
+       + cc(i,al)*cc(k1,ga1)*h(i,al)
+          + cc(k1,al,ga1)*h(k1,al)
+          - cc(k1,ga1)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,al)*h(k1,al)
+         ;
+
+   CJ =
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(i,al)*J(i,k1)*d(al,be)
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,ga1,ga2)*h(i,al)
+          + cc(k1,al,ga1,ga2)*h(k1,al)
+          - cc(k1,ga1,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,ga2,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,ga1)*cc(k2,ga2)*h(i,al)
+          + cc(k1,al,ga1)*cc(k2,ga2)*h(k1,al)
+          - cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1)*cc(k2,ga2,al)*h(k2,al)
+          - cc(k1,ga1,al)*cc(k2,ga2)*h(k1,al)
+          + cc(k2,al,ga2)*cc(k1,ga1)*h(k2,al)
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,ga1,ga2)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,al)*c(j,be)*J(j,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*c(k2,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*c(k2,ga2)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*c(k2,ga2)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*c(k2,ga2)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*c(k2,ga2)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,al)*c(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(k2,ga2)*c(j,be)*J(j,k1)*d(al,be)
+         ;
+
+   C2h =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu1)*h(i,al)
+          + cc(k1,al,nu1,nu1)*h(k1,al)
+          - cc(k1,nu1,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1,nu1,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu1)*h(i,al)
+          + cc(k1,al,nu1)*cc(k2,nu1)*h(k1,al)
+          - cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1)*cc(k2,nu1,al)*h(k2,al)
+          - cc(k1,nu1,al)*cc(k2,nu1)*h(k1,al)
+          + cc(k2,al,nu1)*cc(k1,nu1)*h(k2,al)
+         ;
+
+   C2J =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,nu1,nu1)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,al)*c(j,be)*J(j,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*c(k2,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*c(k2,nu1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*c(k2,nu1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,nu1)*c(k2,nu1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*c(k2,nu1)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,al)*c(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu1)*c(j,be)*J(j,k1)*d(al,be)
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          - cc(k1,nu1,nu2,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu2)*c(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu2)*c(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2)*cc(k3,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - cc(k1,nu1,nu3)*cc(k2,nu2)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          - cc(k1,nu1)*cc(k2,nu2,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu2)*c(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*cc(k2,nu2)*c(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*c(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2)*cc(k1,nu1)*c(k3,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          - 1/2*cc(k1,nu1,nu2,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,j)*d(al,be)*
+      e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*c(k2,nu2)*c(k3,nu3)*J(i,i)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1)*c(k2,nu2)*c(k3,nu3)*J(k1,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*c(k2,nu2)*c(k3,nu3)*J(j,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*c(i,al)*c(j,be)*J(i,j)*d(al,
+         be)*e_(nu1,nu2,nu3)
+         ;
+
+=== cycle #3 ===
+
+Time =       0.00 sec    Generated terms =          4
+              Ch         Terms in output =          4
+             cycle-split Bytes used      =        376
+
+Time =       0.00 sec    Generated terms =         10
+              CJ         Terms in output =         10
+             cycle-split Bytes used      =       1320
+
+Time =       0.00 sec    Generated terms =         10
+             CCh         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.00 sec    Generated terms =         30
+             CCJ         Terms in output =         30
+             cycle-split Bytes used      =       4312
+
+Time =       0.00 sec    Generated terms =         10
+             C2h         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.00 sec    Generated terms =         30
+             C2J         Terms in output =         30
+             cycle-split Bytes used      =       4312
+
+Time =       0.01 sec    Generated terms =         30
+             C3h         Terms in output =         30
+             cycle-split Bytes used      =       4624
+
+Time =       0.01 sec    Generated terms =         30
+             C3J         Terms in output =         30
+             cycle-split Bytes used      =       6160
+
+   Ch =
+       + cc(i,al)*cc(k1,ga1)*h(i,al)
+          + cc(k1,al,ga1)*h(k1,al)
+          - cc(k1,ga1)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,al)*h(k1,al)
+         ;
+
+   CJ =
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(i,al)*J(i,k1)*d(al,be)
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,ga1,ga2)*h(i,al)
+          + cc(k1,al,ga1,ga2)*h(k1,al)
+          - cc(k1,ga1,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,ga2,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,ga1)*cc(k2,ga2)*h(i,al)
+          + cc(k1,al,ga1)*cc(k2,ga2)*h(k1,al)
+          - cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1)*cc(k2,ga2,al)*h(k2,al)
+          - cc(k1,ga1,al)*cc(k2,ga2)*h(k1,al)
+          + cc(k2,al,ga2)*cc(k1,ga1)*h(k2,al)
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1,ga2)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1,ga2)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1,ga2)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1,ga2)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,be)*cc(i,al)*J(i,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*cc(k2,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*cc(k2,ga2)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al)*cc(k2,be,ga2)*cc(k1,ga1)*J(i,k2)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*cc(k2,ga2)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*cc(k2,ga2)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*cc(k2,ga2)*J(j,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(k2,be,ga2)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,al)*cc(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,al,be)*J(k2,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,be)*cc(i,al)*J(i,k2)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(k2,ga2)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(k2,ga2,be)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,ga1,al,be)*cc(k2,ga2)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(k2,ga2)*cc(i,al)*J(i,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(k2,ga2,al)*J(k1,k2)*d(al,be)
+          + 1/2*cc(k2,al,be,ga2)*cc(k1,ga1)*J(k2,k2)*d(al,be)
+          + 1/2*cc(k2,al,ga2)*cc(j,be)*cc(k1,ga1)*J(j,k2)*d(al,be)
+          + 1/2*cc(k2,al,ga2)*cc(k1,be,ga1)*J(k1,k2)*d(al,be)
+         ;
+
+   C2h =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu1)*h(i,al)
+          + cc(k1,al,nu1,nu1)*h(k1,al)
+          - cc(k1,nu1,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1,nu1,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu1)*h(i,al)
+          + cc(k1,al,nu1)*cc(k2,nu1)*h(k1,al)
+          - cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1)*cc(k2,nu1,al)*h(k2,al)
+          - cc(k1,nu1,al)*cc(k2,nu1)*h(k1,al)
+          + cc(k2,al,nu1)*cc(k1,nu1)*h(k2,al)
+         ;
+
+   C2J =
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,nu1,nu1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1,nu1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,be)*cc(i,al)*J(i,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*cc(k2,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*cc(k2,nu1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al)*cc(k2,be,nu1)*cc(k1,nu1)*J(i,k2)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*cc(k2,nu1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,nu1)*cc(k2,nu1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*cc(k2,nu1)*J(j,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1)*cc(k2,be,nu1)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,al)*cc(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,al,be)*J(k2,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,be)*cc(i,al)*J(i,k2)*d(al,be)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu1,be)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,nu1,al,be)*cc(k2,nu1)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu1)*cc(i,al)*J(i,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu1,al)*J(k1,k2)*d(al,be)
+          + 1/2*cc(k2,al,be,nu1)*cc(k1,nu1)*J(k2,k2)*d(al,be)
+          + 1/2*cc(k2,al,nu1)*cc(j,be)*cc(k1,nu1)*J(j,k2)*d(al,be)
+          + 1/2*cc(k2,al,nu1)*cc(k1,be,nu1)*J(k1,k2)*d(al,be)
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1,nu2,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,nu3,al)*h(k1,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu2)*cc(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2)*cc(k3,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2)*cc(k3,nu3,al)*h(k3,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,al)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k3,al,nu3)*cc(k1,nu1,nu2)*h(k3,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1,nu3)*cc(k2,nu2)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu3)*cc(k2,nu2)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3)*cc(k2,nu2)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3)*cc(k2,nu2,al)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3,al)*cc(k2,nu2)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2)*cc(k1,nu1,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1)*cc(k2,nu2,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*cc(k2,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,nu3,al)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,al)*cc(k2,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2,nu3)*cc(k1,nu1)*h(k2,al)*e_(nu1,nu2,nu3)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*cc(k2,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,al)*h(k3,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,al)*cc(k3,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,al)*cc(k2,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2)*cc(k1,nu1)*cc(k3,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          + cc(k3,al,nu3)*cc(k1,nu1)*cc(k2,nu2)*h(k3,al)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          - 1/2*cc(k1,nu1,nu2,nu3)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(nu1,nu2
+         ,nu3)
+          - 1/2*cc(k1,nu1,nu2,nu3,al)*c(j,be)*J(j,k1)*d(al,be)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu2)*c(k3,nu3)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu2)*c(k3,nu3)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu2)*c(k3,nu3)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1,nu2)*c(k3,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k1,al,nu1,nu2)*cc(j,be)*c(k3,nu3)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3,al)*c(j,be)*J(j,k3)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,al)*cc(k3,nu3)*c(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2,al)*c(j,be)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3,al)*cc(k2,nu2)*c(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3)*cc(i,al)*c(j,be)*J(i,j)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3,al)*c(j,be)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2,nu3)*c(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*cc(k2,nu2)*c(k3,nu3)*J(i,j)*d(al,be)
+      *e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*cc(k2,nu2)*c(k3,nu3)*J(i,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k2,be,nu2)*cc(k1,nu1)*c(k3,nu3)*J(i,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*cc(k2,nu2)*c(k3,nu3)*J(i,i)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1)*cc(k2,nu2)*c(k3,nu3)*J(k1,k1)*d(al,be)*e_(nu1
+         ,nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*cc(k2,nu2)*c(k3,nu3)*J(j,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(k2,be,nu2)*c(k3,nu3)*J(k1,k2)*d(al,be)*e_(nu1
+         ,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al)*c(j,be)*J(i,j)*d(al,
+         be)*e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,al)*c(j,be)*J(j,k3)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,al)*cc(k3,nu3)*c(j,be)*J(j,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2)*cc(k3,nu3)*c(j,be)*J(j,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k2,al,be,nu2)*cc(k1,nu1)*c(k3,nu3)*J(k2,k2)*d(al,be)*e_(nu1
+         ,nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(j,be)*cc(k1,nu1)*c(k3,nu3)*J(j,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(k1,be,nu1)*c(k3,nu3)*J(k1,k2)*d(al,be)*e_(nu1
+         ,nu2,nu3)
+         ;
+
+=== cycle #4 ===
+
+Time =       0.01 sec    Generated terms =          4
+              Ch         Terms in output =          4
+             cycle-split Bytes used      =        376
+
+Time =       0.01 sec    Generated terms =         10
+              CJ         Terms in output =         10
+             cycle-split Bytes used      =       1320
+
+Time =       0.01 sec    Generated terms =         10
+             CCh         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.01 sec    Generated terms =         30
+             CCJ         Terms in output =         30
+             cycle-split Bytes used      =       4312
+
+Time =       0.01 sec    Generated terms =         10
+             C2h         Terms in output =         10
+             cycle-split Bytes used      =       1168
+
+Time =       0.01 sec    Generated terms =         30
+             C2J         Terms in output =         30
+             cycle-split Bytes used      =       4312
+
+Time =       0.01 sec    Generated terms =         30
+             C3h         Terms in output =         30
+             cycle-split Bytes used      =       4624
+
+Time =       0.01 sec    Generated terms =        104
+             C3J         Terms in output =        104
+             cycle-split Bytes used      =      18268
+
+   Ch =
+       + cc(i,al)*cc(k1,ga1)*h(i,al)
+          + cc(k1,al,ga1)*h(k1,al)
+          - cc(k1,ga1)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,al)*h(k1,al)
+         ;
+
+   CJ =
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(i,al)*J(i,k1)*d(al,be)
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,ga1,ga2)*h(i,al)
+          + cc(k1,al,ga1,ga2)*h(k1,al)
+          - cc(k1,ga1,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1,ga2,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,ga1)*cc(k2,ga2)*h(i,al)
+          + cc(k1,al,ga1)*cc(k2,ga2)*h(k1,al)
+          - cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*h(i,al)
+          - cc(k1,ga1)*cc(k2,ga2,al)*h(k2,al)
+          - cc(k1,ga1,al)*cc(k2,ga2)*h(k1,al)
+          + cc(k2,al,ga2)*cc(k1,ga1)*h(k2,al)
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1,ga2)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1,ga2)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1,ga2)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1,ga2)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,ga2,be)*cc(i,al)*J(i,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,ga1)*cc(k2,ga2)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,ga1)*cc(k2,ga2)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al)*cc(k2,be,ga2)*cc(k1,ga1)*J(i,k2)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,ga1)*cc(k2,ga2)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,ga1)*cc(k2,ga2)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(j,be)*cc(k2,ga2)*J(j,k1)*d(al,be)
+          + 1/2*cc(k1,al,ga1)*cc(k2,be,ga2)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,al)*cc(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,al,be)*J(k2,k2)*d(al,be)
+          - 1/2*cc(k1,ga1)*cc(k2,ga2,be)*cc(i,al)*J(i,k2)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(k2,ga2)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,al)*cc(k2,ga2,be)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,ga1,al,be)*cc(k2,ga2)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(k2,ga2)*cc(i,al)*J(i,k1)*d(al,be)
+          - 1/2*cc(k1,ga1,be)*cc(k2,ga2,al)*J(k1,k2)*d(al,be)
+          + 1/2*cc(k2,al,be,ga2)*cc(k1,ga1)*J(k2,k2)*d(al,be)
+          + 1/2*cc(k2,al,ga2)*cc(j,be)*cc(k1,ga1)*J(j,k2)*d(al,be)
+          + 1/2*cc(k2,al,ga2)*cc(k1,be,ga1)*J(k1,k2)*d(al,be)
+         ;
+
+   C2h =
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu1)*h(i,al)
+          + cc(k1,al,nu1,nu1)*h(k1,al)
+          - cc(k1,nu1,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1,nu1,al)*h(k1,al)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu1)*h(i,al)
+          + cc(k1,al,nu1)*cc(k2,nu1)*h(k1,al)
+          - cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*h(i,al)
+          - cc(k1,nu1)*cc(k2,nu1,al)*h(k2,al)
+          - cc(k1,nu1,al)*cc(k2,nu1)*h(k1,al)
+          + cc(k2,al,nu1)*cc(k1,nu1)*h(k2,al)
+         ;
+
+   C2J =
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,nu1,nu1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1,nu1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,al)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,al,be)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,nu1,be)*cc(i,al)*J(i,k1)*d(al,be)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*cc(k2,nu1)*J(i,j)*d(al,be)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*cc(k2,nu1)*J(i,k1)*d(al,be)
+          + 1/2*cc(i,al)*cc(k2,be,nu1)*cc(k1,nu1)*J(i,k2)*d(al,be)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*cc(k2,nu1)*J(i,i)*d(al,be)
+          + 1/2*cc(k1,al,be,nu1)*cc(k2,nu1)*J(k1,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*cc(k2,nu1)*J(j,k1)*d(al,be)
+          + 1/2*cc(k1,al,nu1)*cc(k2,be,nu1)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1)*cc(i,al,be)*J(i,i)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,al)*cc(j,be)*J(j,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,al,be)*J(k2,k2)*d(al,be)
+          - 1/2*cc(k1,nu1)*cc(k2,nu1,be)*cc(i,al)*J(i,k2)*d(al,be)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu1)*cc(j,be)*J(j,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu1,be)*J(k1,k2)*d(al,be)
+          - 1/2*cc(k1,nu1,al,be)*cc(k2,nu1)*J(k1,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu1)*cc(i,al)*J(i,k1)*d(al,be)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu1,al)*J(k1,k2)*d(al,be)
+          + 1/2*cc(k2,al,be,nu1)*cc(k1,nu1)*J(k2,k2)*d(al,be)
+          + 1/2*cc(k2,al,nu1)*cc(j,be)*cc(k1,nu1)*J(j,k2)*d(al,be)
+          + 1/2*cc(k2,al,nu1)*cc(k1,be,nu1)*J(k1,k2)*d(al,be)
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1,nu2,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,nu3,al)*h(k1,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + cc(i,al)*cc(k1,nu1,nu2)*cc(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2)*cc(k3,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2)*cc(k3,nu3,al)*h(k3,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu2,al)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k3,al,nu3)*cc(k1,nu1,nu2)*h(k3,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1,nu3)*cc(k2,nu2)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1,nu3)*cc(k2,nu2)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3)*cc(k2,nu2)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3)*cc(k2,nu2,al)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,nu3,al)*cc(k2,nu2)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2)*cc(k1,nu1,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + cc(i,al)*cc(k1,nu1)*cc(k2,nu2,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*cc(k2,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,nu3,al)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,al)*cc(k2,nu2,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2,nu3)*cc(k1,nu1)*h(k2,al)*e_(nu1,nu2,nu3)
+          )
+
+       + cc(i,al)*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*h(i,al)*e_(nu1,nu2,nu3)
+          + cc(k1,al,nu1)*cc(k2,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al)*h(i,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,al)*h(k3,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1)*cc(k2,nu2,al)*cc(k3,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          - cc(k1,nu1,al)*cc(k2,nu2)*cc(k3,nu3)*h(k1,al)*e_(nu1,nu2,nu3)
+          + cc(k2,al,nu2)*cc(k1,nu1)*cc(k3,nu3)*h(k2,al)*e_(nu1,nu2,nu3)
+          + cc(k3,al,nu3)*cc(k1,nu1)*cc(k2,nu2)*h(k3,al)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu2,nu3)*J(i,j)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu2,nu3)*J(i,k1)*d(al,be)*e_(nu1,nu2,nu3
+         )
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu2,nu3)*J(i,i)*d(al,be)*e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1,nu2,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,nu1,nu2,nu3)*cc(j,be)*J(j,k1)*d(al,be)*e_(nu1,nu2,nu3
+         )
+          - 1/2*cc(k1,nu1,nu2,nu3)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,nu3)*cc(i,al,be)*J(i,i)*d(al,be)*e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,nu3,al)*cc(j,be)*J(j,k1)*d(al,be)*e_(nu1,nu2,nu3
+         )
+          - 1/2*cc(k1,nu1,nu2,nu3,al,be)*J(k1,k1)*d(al,be)*e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,nu3,be)*cc(i,al)*J(i,k1)*d(al,be)*e_(nu1,nu2,nu3
+         )
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu2)*cc(k3,nu3)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu2)*cc(k3,nu3)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al)*cc(k3,be,nu3)*cc(k1,nu1,nu2)*J(i,k3)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu2)*cc(k3,nu3)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1,nu2)*cc(k3,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k1,al,nu1,nu2)*cc(j,be)*cc(k3,nu3)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,nu1,nu2)*cc(k3,be,nu3)*J(k1,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3)*cc(i,al,be)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3,al)*cc(j,be)*J(j,k3)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3,al,be)*J(k3,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu2)*cc(k3,nu3,be)*cc(i,al)*J(i,k3)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,al)*cc(k3,nu3)*cc(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,al)*cc(k3,nu3,be)*J(k1,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu2,al,be)*cc(k3,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu2,be)*cc(k3,nu3)*cc(i,al)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu2,be)*cc(k3,nu3,al)*J(k1,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k3,al,be,nu3)*cc(k1,nu1,nu2)*J(k3,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k3,al,nu3)*cc(j,be)*cc(k1,nu1,nu2)*J(j,k3)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k3,al,nu3)*cc(k1,be,nu1,nu2)*J(k1,k3)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1,nu3)*cc(k2,nu2)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1,nu3)*cc(k2,nu2)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al)*cc(k2,be,nu2)*cc(k1,nu1,nu3)*J(i,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1,nu3)*cc(k2,nu2)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1,nu3)*cc(k2,nu2)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k1,al,nu1,nu3)*cc(j,be)*cc(k2,nu2)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,nu1,nu3)*cc(k2,be,nu2)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2)*cc(i,al,be)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2,al)*cc(j,be)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2,al,be)*J(k2,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu3)*cc(k2,nu2,be)*cc(i,al)*J(i,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3,al)*cc(k2,nu2)*cc(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3,al)*cc(k2,nu2,be)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu3,al,be)*cc(k2,nu2)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,nu3,be)*cc(k2,nu2)*cc(i,al)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,nu3,be)*cc(k2,nu2,al)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k2,al,be,nu2)*cc(k1,nu1,nu3)*J(k2,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k2,al,nu2)*cc(j,be)*cc(k1,nu1,nu3)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(k1,be,nu1,nu3)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*cc(k2,nu2,nu3)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*cc(k2,nu2,nu3)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al)*cc(k2,be,nu2,nu3)*cc(k1,nu1)*J(i,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*cc(k2,nu2,nu3)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1)*cc(k2,nu2,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*cc(k2,nu2,nu3)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(k2,be,nu2,nu3)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3)*cc(i,al)*cc(j,be)*J(i,j)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3)*cc(i,al,be)*J(i,i)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3,al)*cc(j,be)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3,al,be)*J(k2,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,nu3,be)*cc(i,al)*J(i,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2,nu3)*cc(j,be)*J(j,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2,nu3,be)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,al,be)*cc(k2,nu2,nu3)*J(k1,k1)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu2,nu3)*cc(i,al)*J(i,k1)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu2,nu3,al)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k2,al,be,nu2,nu3)*cc(k1,nu1)*J(k2,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          + 1/2*cc(k2,al,nu2,nu3)*cc(j,be)*cc(k1,nu1)*J(j,k2)*d(al,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*cc(k2,al,nu2,nu3)*cc(k1,be,nu1)*J(k1,k2)*d(al,be)*e_(nu1,nu2,
+         nu3)
+          )
+
+       + 1/2*cc(i,al)*cc(j,be)*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*J(i,j)*d(al,be
+      )*e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k1,be,nu1)*cc(k2,nu2)*cc(k3,nu3)*J(i,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k2,be,nu2)*cc(k1,nu1)*cc(k3,nu3)*J(i,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al)*cc(k3,be,nu3)*cc(k1,nu1)*cc(k2,nu2)*J(i,k3)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(i,al,be)*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*J(i,i)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,be,nu1)*cc(k2,nu2)*cc(k3,nu3)*J(k1,k1)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(j,be)*cc(k2,nu2)*cc(k3,nu3)*J(j,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(k2,be,nu2)*cc(k3,nu3)*J(k1,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k1,al,nu1)*cc(k3,be,nu3)*cc(k2,nu2)*J(k1,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al)*cc(j,be)*J(i,j)*d(al
+         ,be)*e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al,be)*J(i,i)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,al)*cc(j,be)*J(j,k3)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,al,be)*J(k3,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2)*cc(k3,nu3,be)*cc(i,al)*J(i,k3)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,al)*cc(k3,nu3)*cc(j,be)*J(j,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,al)*cc(k3,nu3,be)*J(k2,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,al,be)*cc(k3,nu3)*J(k2,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,be)*cc(k3,nu3)*cc(i,al)*J(i,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1)*cc(k2,nu2,be)*cc(k3,nu3,al)*J(k2,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2)*cc(k3,nu3)*cc(j,be)*J(j,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2)*cc(k3,nu3,be)*J(k1,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,al)*cc(k2,nu2,be)*cc(k3,nu3)*J(k1,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,al,be)*cc(k2,nu2)*cc(k3,nu3)*J(k1,k1)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu2)*cc(k3,nu3)*cc(i,al)*J(i,k1)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu2)*cc(k3,nu3,al)*J(k1,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          - 1/2*cc(k1,nu1,be)*cc(k2,nu2,al)*cc(k3,nu3)*J(k1,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k2,al,be,nu2)*cc(k1,nu1)*cc(k3,nu3)*J(k2,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(j,be)*cc(k1,nu1)*cc(k3,nu3)*J(j,k2)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(k1,be,nu1)*cc(k3,nu3)*J(k1,k2)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k2,al,nu2)*cc(k3,be,nu3)*cc(k1,nu1)*J(k2,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k3,al,be,nu3)*cc(k1,nu1)*cc(k2,nu2)*J(k3,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k3,al,nu3)*cc(j,be)*cc(k1,nu1)*cc(k2,nu2)*J(j,k3)*d(al,be)*
+         e_(nu1,nu2,nu3)
+          + 1/2*cc(k3,al,nu3)*cc(k1,be,nu1)*cc(k2,nu2)*J(k1,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+          + 1/2*cc(k3,al,nu3)*cc(k2,be,nu2)*cc(k1,nu1)*J(k2,k3)*d(al,be)*e_(
+         nu1,nu2,nu3)
+         ;
+
+=== end cycle ===
+
+Time =       0.01 sec    Generated terms =          6
+              Ch         Terms in output =          1
+             cycle-pauli Bytes used      =        116
+
+Time =       0.01 sec    Generated terms =         18
+              CJ         Terms in output =          6
+             cycle-pauli Bytes used      =        680
+
+Time =       0.01 sec    Generated terms =         18
+             CCh         Terms in output =          6
+             cycle-pauli Bytes used      =        920
+
+Time =       0.01 sec    Generated terms =         58
+             CCJ         Terms in output =         32
+             cycle-pauli Bytes used      =       4576
+
+Time =       0.01 sec    Generated terms =         15
+             C2h         Terms in output =          9
+             cycle-pauli Bytes used      =        892
+
+Time =       0.01 sec    Generated terms =         53
+             C2J         Terms in output =         37
+             cycle-pauli Bytes used      =       4420
+
+Time =       0.01 sec    Generated terms =         54
+             C3h         Terms in output =         36
+             cycle-pauli Bytes used      =       6044
+
+Time =       0.03 sec    Generated terms =        308
+             C3J         Terms in output =        164
+             cycle-pauli Bytes used      =      26956
+
+Time =       0.03 sec    Generated terms =          1
+              Ch         Terms in output =          1
+             cycle-pauli Bytes used      =        116
+
+Time =       0.03 sec    Generated terms =         10
+              CJ         Terms in output =          4
+             cycle-pauli Bytes used      =        468
+
+Time =       0.03 sec    Generated terms =         10
+             CCh         Terms in output =          6
+             cycle-pauli Bytes used      =        884
+
+Time =       0.03 sec    Generated terms =         82
+             CCJ         Terms in output =         26
+             cycle-pauli Bytes used      =       3800
+
+Time =       0.03 sec    Generated terms =          9
+             C2h         Terms in output =          9
+             cycle-pauli Bytes used      =        840
+
+Time =       0.03 sec    Generated terms =         60
+             C2J         Terms in output =         35
+             cycle-pauli Bytes used      =       3608
+
+Time =       0.03 sec    Generated terms =         49
+             C3h         Terms in output =         45
+             cycle-pauli Bytes used      =       6944
+
+Time =       0.03 sec    Generated terms =        281
+             C3J         Terms in output =        213
+             cycle-pauli Bytes used      =      31204
+
+Time =       0.03 sec    Generated terms =          1
+              Ch         Terms in output =          1
+             cycle-pauli Bytes used      =        116
+
+Time =       0.03 sec    Generated terms =          4
+              CJ         Terms in output =          4
+             cycle-pauli Bytes used      =        468
+
+Time =       0.03 sec    Generated terms =          6
+             CCh         Terms in output =          6
+             cycle-pauli Bytes used      =        884
+
+Time =       0.03 sec    Generated terms =         28
+             CCJ         Terms in output =         26
+             cycle-pauli Bytes used      =       3656
+
+Time =       0.03 sec    Generated terms =          9
+             C2h         Terms in output =          9
+             cycle-pauli Bytes used      =        840
+
+Time =       0.03 sec    Generated terms =         35
+             C2J         Terms in output =         35
+             cycle-pauli Bytes used      =       3608
+
+Time =       0.03 sec    Generated terms =         45
+             C3h         Terms in output =         44
+             cycle-pauli Bytes used      =       6648
+
+Time =       0.03 sec    Generated terms =        281
+             C3J         Terms in output =        231
+             cycle-pauli Bytes used      =      30428
+
+Time =       0.03 sec    Generated terms =          1
+              Ch         Terms in output =          1
+              before end Bytes used      =        128
+
+Time =       0.03 sec    Generated terms =          4
+              CJ         Terms in output =          4
+              before end Bytes used      =        480
+
+Time =       0.03 sec    Generated terms =          6
+             CCh         Terms in output =          6
+              before end Bytes used      =        656
+
+Time =       0.03 sec    Generated terms =         26
+             CCJ         Terms in output =         26
+              before end Bytes used      =       2764
+
+Time =       0.03 sec    Generated terms =          9
+             C2h         Terms in output =          9
+              before end Bytes used      =        732
+
+Time =       0.03 sec    Generated terms =         35
+             C2J         Terms in output =         35
+              before end Bytes used      =       3116
+
+Time =       0.03 sec    Generated terms =         44
+             C3h         Terms in output =         44
+              before end Bytes used      =       4312
+
+Time =       0.03 sec    Generated terms =        231
+             C3J         Terms in output =        231
+              before end Bytes used      =      20468
+
+   Ch =
+       + 2*h(k1,al)*ccc(k1,mu1)*e_(al,ga1,mu1)*i_
+         ;
+
+   CJ =
+       + J(i,k1)*ccc(i,al)*ccc(k1,mu1)*d(al,be)*e_(be,ga1,mu1)*i_
+          + J(j,k1)*ccc(j,be)*ccc(k1,mu1)*d(al,be)*e_(al,ga1,mu1)*i_
+          - 1/2*J(k1,k1)*ccc(k1,be)*d(be,ga1)
+          + 1/2*J(k1,k1)*ccc(k1,mu2)*d(ga1,mu2)
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          - h(k1,al)*ccc(k1,al)*d_(ga1,ga2)
+          + 2*h(k1,ga1)*ccc(k1,ga2)
+          - 2*h(k1,ga2)*ccc(k1,ga1)
+          + h(k1,mu2)*ccc(k1,mu2)*d_(ga1,ga2)
+          )
+
+       + 2*h(k1,al)*ccc(k1,mu1)*ccc(k2,ga2)*e_(al,ga1,mu1)*i_
+          + 2*h(k2,al)*ccc(k1,ga1)*ccc(k2,mu1)*e_(al,ga2,mu1)*i_
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k1,be)*d(al,be)*d_(ga1,ga2)
+          - J(i,k1)*ccc(i,al)*ccc(k1,ga1)*d(al,ga2)
+          + J(i,k1)*ccc(i,al)*ccc(k1,ga2)*d(al,ga1)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k1,mu2)*d(al,mu2)*d_(ga1,ga2)
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k1,al)*d(al,be)*d_(ga1,ga2)
+          - J(j,k1)*ccc(j,be)*ccc(k1,ga1)*d(be,ga2)
+          + J(j,k1)*ccc(j,be)*ccc(k1,ga2)*d(be,ga1)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k1,mu2)*d(be,mu2)*d_(ga1,ga2)
+          - 1/2*J(k1,k1)*ccc(k1,be)*d(al,be)*e_(al,ga1,ga2)*i_
+          + 1/2*J(k1,k1)*ccc(k1,ga2)*d(al,be)*e_(al,be,ga1)*i_
+          - 1/2*J(k1,k1)*ccc(k1,mu2)*d(al,be)*e_(al,be,mu2)*d_(ga1,ga2)*i_
+          + 1/2*J(k1,k1)*ccc(k1,mu2)*d(be,be)*e_(ga1,ga2,mu2)*i_
+          - 1/2*J(k1,k1)*ccc(k1,mu3)*d(be,ga1)*e_(be,ga2,mu3)*i_
+          + 1/2*J(k1,k1)*ccc(k1,mu3)*d(be,ga2)*e_(be,ga1,mu3)*i_
+          )
+
+       + J(i,k1)*ccc(i,al)*ccc(k1,mu1)*ccc(k2,ga2)*d(al,be)*e_(be,ga1,mu1)*i_
+          + J(i,k2)*ccc(i,al)*ccc(k1,ga1)*ccc(k2,mu1)*d(al,be)*e_(be,ga2,mu1)*
+         i_
+          + J(j,k1)*ccc(j,be)*ccc(k1,mu1)*ccc(k2,ga2)*d(al,be)*e_(al,ga1,mu1)*
+         i_
+          + J(j,k2)*ccc(j,be)*ccc(k1,ga1)*ccc(k2,mu1)*d(al,be)*e_(al,ga2,mu1)*
+         i_
+          - 1/2*J(k1,k1)*ccc(k1,be)*ccc(k2,ga2)*d(be,ga1)
+          + 1/2*J(k1,k1)*ccc(k1,mu2)*ccc(k2,ga2)*d(ga1,mu2)
+          + J(k1,k2)*ccc(k1,mu1)*d(al,ga2)*e_(al,ga1,mu1)*i_
+          + J(k1,k2)*ccc(k1,mu1)*d(be,ga2)*e_(be,ga1,mu1)*i_
+          + J(k1,k2)*ccc(k2,mu2)*d(al,ga1)*e_(al,ga2,mu2)*i_
+          + J(k1,k2)*ccc(k2,mu2)*d(be,ga1)*e_(be,ga2,mu2)*i_
+          - 1/2*J(k2,k2)*ccc(k1,ga1)*ccc(k2,be)*d(be,ga2)
+          + 1/2*J(k2,k2)*ccc(k1,ga1)*ccc(k2,mu2)*d(ga2,mu2)
+         ;
+
+   C2h =
+
+       + eq(c(k1),c(k2)) * (
+          - 3*h(k1,al)*ccc(k1,al)
+          + 2*h(k1,mu2)*ccc(k1,mu2)
+          + h(k1,nu1)*ccc(k1,nu1)
+          )
+
+       - 2*h(k1,al)*ccc(k1,mu1)*ccc(k2,nu1)*e_(al,mu1,nu1)*i_
+          - h(k1,al)*ccc(k2,al)
+          + h(k1,nu1)*ccc(k2,nu1)
+          - h(k2,al)*ccc(k1,al)
+          - 2*h(k2,al)*ccc(k1,nu1)*ccc(k2,mu1)*e_(al,mu1,nu1)*i_
+          + h(k2,nu1)*ccc(k1,nu1)
+         ;
+
+   C2J =
+
+       + eq(c(k1),c(k2)) * (
+          - 3/2*J(i,k1)*ccc(i,al)*ccc(k1,be)*d(al,be)
+          + J(i,k1)*ccc(i,al)*ccc(k1,mu2)*d(al,mu2)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k1,nu1)*d(al,nu1)
+          - 3/2*J(j,k1)*ccc(j,be)*ccc(k1,al)*d(al,be)
+          + J(j,k1)*ccc(j,be)*ccc(k1,mu2)*d(be,mu2)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k1,nu1)*d(be,nu1)
+          - 3/2*J(k1,k1)*ccc(k1,mu2)*d(al,be)*e_(al,be,mu2)*i_
+          + 1/2*J(k1,k1)*ccc(k1,nu1)*d(al,be)*e_(al,be,nu1)*i_
+          )
+
+       - J(i,k1)*ccc(i,al)*ccc(k1,mu1)*ccc(k2,nu1)*d(al,be)*e_(be,mu1,nu1)*i_
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k2,be)*d(al,be)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k2,nu1)*d(al,nu1)
+          - 1/2*J(i,k2)*ccc(i,al)*ccc(k1,be)*d(al,be)
+          - J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,mu1)*d(al,be)*e_(be,mu1,nu1)*
+         i_
+          + 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*d(al,nu1)
+          - J(j,k1)*ccc(j,be)*ccc(k1,mu1)*ccc(k2,nu1)*d(al,be)*e_(al,mu1,nu1)*
+         i_
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k2,al)*d(al,be)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k2,nu1)*d(be,nu1)
+          - 1/2*J(j,k2)*ccc(j,be)*ccc(k1,al)*d(al,be)
+          - J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,mu1)*d(al,be)*e_(al,mu1,nu1)*
+         i_
+          + 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*d(be,nu1)
+          - 1/2*J(k1,k1)*ccc(k1,be)*ccc(k2,al)*d(al,be)
+          + 1/2*J(k1,k1)*ccc(k1,mu2)*ccc(k2,be)*d(be,mu2)
+          - 1/2*J(k1,k1)*ccc(k1,mu2)*ccc(k2,mu2)*d(be,be)
+          + 1/2*J(k1,k1)*ccc(k1,nu1)*ccc(k2,nu1)*d(be,be)
+          - 1/2*J(k1,k2)*ccc(k1,mu1)*d(al,nu1)*e_(al,mu1,nu1)*i_
+          - 1/2*J(k1,k2)*ccc(k1,mu1)*d(be,nu1)*e_(be,mu1,nu1)*i_
+          - 1/2*J(k1,k2)*ccc(k2,mu2)*d(al,nu1)*e_(al,mu2,nu1)*i_
+          - 1/2*J(k1,k2)*ccc(k2,mu2)*d(be,nu1)*e_(be,mu2,nu1)*i_
+          - 1/2*J(k1,k2)*d(al,al)
+          - 1/2*J(k1,k2)*d(be,be)
+          + J(k1,k2)*d(nu1,nu1)
+          - 1/2*J(k2,k2)*ccc(k1,al)*ccc(k2,be)*d(al,be)
+          + 1/2*J(k2,k2)*ccc(k1,be)*ccc(k2,mu2)*d(be,mu2)
+          - 1/2*J(k2,k2)*ccc(k1,mu2)*ccc(k2,mu2)*d(be,be)
+          + 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k2,nu1)*d(be,be)
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          - 6*h(k1,al)*ccc(k1,al)*i_
+          + 2*h(k1,nu1)*ccc(k1,nu1)*i_
+          + h(k1,nu2)*ccc(k1,nu2)*i_
+          + 3*h(k1,nu3)*ccc(k1,nu3)*i_
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + 2*h(k1,al)*ccc(k1,mu2)*ccc(k3,nu3)*e_(al,mu2,nu3)
+          - 2*h(k1,al)*ccc(k3,al)*i_
+          + h(k1,nu1)*ccc(k1,nu2)*ccc(k3,nu3)*e_(nu1,nu2,nu3)
+          - h(k1,nu2)*ccc(k1,mu2)*ccc(k3,nu3)*e_(mu2,nu2,nu3)
+          - h(k1,nu2)*ccc(k3,nu2)*i_
+          + 3*h(k1,nu3)*ccc(k3,nu3)*i_
+          - 2*h(k3,al)*ccc(k1,al)*i_
+          + 4*h(k3,al)*ccc(k1,nu3)*ccc(k3,mu2)*e_(al,mu2,nu3)
+          + 2*h(k3,nu3)*ccc(k1,nu3)*i_
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 2*h(k1,al)*ccc(k1,mu2)*ccc(k2,nu2)*e_(al,mu2,nu2)
+          + 2*h(k1,al)*ccc(k2,al)*i_
+          + h(k1,nu1)*ccc(k1,nu3)*ccc(k2,nu2)*e_(nu1,nu2,nu3)
+          - 3*h(k1,nu2)*ccc(k2,nu2)*i_
+          - h(k1,nu3)*ccc(k1,mu2)*ccc(k2,nu2)*e_(mu2,nu2,nu3)
+          + h(k1,nu3)*ccc(k2,nu3)*i_
+          + 2*h(k2,al)*ccc(k1,al)*i_
+          - 4*h(k2,al)*ccc(k1,nu2)*ccc(k2,mu2)*e_(al,mu2,nu2)
+          - 2*h(k2,nu2)*ccc(k1,nu2)*i_
+          )
+
+       + eq(c(k2),c(k3)) * (
+          - 2*h(k1,mu2)*ccc(k2,mu2)*i_
+          + 2*h(k1,nu1)*ccc(k2,nu1)*i_
+          + 2*h(k1,nu2)*ccc(k1,nu3)*ccc(k2,mu2)*e_(mu2,nu2,nu3)
+          - 2*h(k1,nu3)*ccc(k1,nu2)*ccc(k2,mu2)*e_(mu2,nu2,nu3)
+          - 2*h(k2,al)*ccc(k1,al)*i_
+          + 2*h(k2,al)*ccc(k1,nu1)*ccc(k2,mu2)*e_(al,mu2,nu1)
+          + 3*h(k2,nu1)*ccc(k1,nu1)*i_
+          + h(k2,nu2)*ccc(k1,nu1)*ccc(k2,nu3)*e_(nu1,nu2,nu3)
+          + h(k2,nu3)*ccc(k1,nu1)*ccc(k2,mu2)*e_(mu2,nu1,nu3)
+          - h(k2,nu3)*ccc(k1,nu3)*i_
+          )
+
+       - h(k1,al)*ccc(k2,nu2)*ccc(k3,nu3)*e_(al,nu2,nu3)
+          + h(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu3)*e_(nu1,nu2,nu3)
+          - 2*h(k1,nu2)*ccc(k1,nu3)*ccc(k2,nu2)*ccc(k3,nu3)*i_
+          + 2*h(k1,nu3)*ccc(k1,nu2)*ccc(k2,nu2)*ccc(k3,nu3)*i_
+          + h(k2,al)*ccc(k1,nu1)*ccc(k3,nu3)*e_(al,nu1,nu3)
+          + 2*h(k2,nu1)*ccc(k1,nu1)*ccc(k2,nu3)*ccc(k3,nu3)*i_
+          + h(k2,nu2)*ccc(k1,nu1)*ccc(k3,nu3)*e_(nu1,nu2,nu3)
+          - 2*h(k2,nu3)*ccc(k1,nu1)*ccc(k2,nu1)*ccc(k3,nu3)*i_
+          - h(k3,al)*ccc(k1,nu1)*ccc(k2,nu2)*e_(al,nu1,nu2)
+          - 2*h(k3,nu1)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu2)*i_
+          + 2*h(k3,nu2)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu1)*i_
+          + h(k3,nu3)*ccc(k1,nu1)*ccc(k2,nu2)*e_(nu1,nu2,nu3)
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2))*eq(c(k1),c(k3)) * (
+          - 3*J(i,k1)*ccc(i,al)*ccc(k1,be)*d(al,be)*i_
+          + J(i,k1)*ccc(i,al)*ccc(k1,nu1)*d(al,nu1)*i_
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k1,nu2)*d(al,nu2)*i_
+          + 3/2*J(i,k1)*ccc(i,al)*ccc(k1,nu3)*d(al,nu3)*i_
+          - 3*J(j,k1)*ccc(j,be)*ccc(k1,al)*d(al,be)*i_
+          + J(j,k1)*ccc(j,be)*ccc(k1,nu1)*d(be,nu1)*i_
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k1,nu2)*d(be,nu2)*i_
+          + 3/2*J(j,k1)*ccc(j,be)*ccc(k1,nu3)*d(be,nu3)*i_
+          + 3*J(k1,k1)*ccc(k1,mu3)*d(al,be)*e_(al,be,mu3)
+          )
+
+       + eq(c(k1),c(k2)) * (
+          + J(i,k1)*ccc(i,al)*ccc(k1,mu2)*ccc(k3,nu3)*d(al,be)*e_(be,mu2,nu3)
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k1,mu2)*ccc(k3,nu3)*d(al,nu2)*e_(mu2,nu2
+         ,nu3)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k1,nu2)*ccc(k3,nu3)*d(al,nu1)*e_(nu1,nu2
+         ,nu3)
+          - J(i,k1)*ccc(i,al)*ccc(k3,be)*d(al,be)*i_
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k3,nu2)*d(al,nu2)*i_
+          + 3/2*J(i,k1)*ccc(i,al)*ccc(k3,nu3)*d(al,nu3)*i_
+          - J(i,k3)*ccc(i,al)*ccc(k1,be)*d(al,be)*i_
+          + 2*J(i,k3)*ccc(i,al)*ccc(k1,nu3)*ccc(k3,mu2)*d(al,be)*e_(be,mu2,nu3
+         )
+          + J(i,k3)*ccc(i,al)*ccc(k1,nu3)*d(al,nu3)*i_
+          + J(j,k1)*ccc(j,be)*ccc(k1,mu2)*ccc(k3,nu3)*d(al,be)*e_(al,mu2,nu3)
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k1,mu2)*ccc(k3,nu3)*d(be,nu2)*e_(mu2,nu2
+         ,nu3)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k1,nu2)*ccc(k3,nu3)*d(be,nu1)*e_(nu1,nu2
+         ,nu3)
+          - J(j,k1)*ccc(j,be)*ccc(k3,al)*d(al,be)*i_
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k3,nu2)*d(be,nu2)*i_
+          + 3/2*J(j,k1)*ccc(j,be)*ccc(k3,nu3)*d(be,nu3)*i_
+          - J(j,k3)*ccc(j,be)*ccc(k1,al)*d(al,be)*i_
+          + 2*J(j,k3)*ccc(j,be)*ccc(k1,nu3)*ccc(k3,mu2)*d(al,be)*e_(al,mu2,nu3
+         )
+          + J(j,k3)*ccc(j,be)*ccc(k1,nu3)*d(be,nu3)*i_
+          - J(k1,k1)*ccc(k1,be)*ccc(k3,al)*d(al,be)*i_
+          + J(k1,k1)*ccc(k1,mu3)*ccc(k3,be)*d(be,mu3)*i_
+          - J(k1,k1)*ccc(k1,mu3)*ccc(k3,mu3)*d(be,be)*i_
+          + J(k1,k1)*ccc(k1,nu3)*ccc(k3,nu3)*d(be,be)*i_
+          + J(k1,k1)*ccc(k3,nu3)*d(al,be)*e_(al,be,nu3)
+          - J(k1,k3)*ccc(k1,be)*ccc(k3,mu3)*d(be,mu3)*i_
+          - J(k1,k3)*ccc(k1,mu2)*ccc(k3,be)*d(be,mu2)*i_
+          + J(k1,k3)*ccc(k1,mu2)*ccc(k3,mu2)*d(be,be)*i_
+          - J(k1,k3)*ccc(k1,mu2)*ccc(k3,mu2)*d(nu2,nu2)*i_
+          + J(k1,k3)*ccc(k1,mu2)*ccc(k3,nu2)*d(mu2,nu2)*i_
+          - J(k1,k3)*ccc(k1,mu2)*d(nu2,nu3)*e_(mu2,nu2,nu3)
+          + J(k1,k3)*ccc(k1,mu3)*ccc(k3,mu3)*d(be,be)*i_
+          + J(k1,k3)*ccc(k1,nu2)*ccc(k3,nu1)*d(nu1,nu2)*i_
+          - J(k1,k3)*ccc(k1,nu2)*ccc(k3,nu2)*d(nu1,nu1)*i_
+          + J(k1,k3)*ccc(k1,nu2)*d(nu1,nu3)*e_(nu1,nu2,nu3)
+          - 1/2*J(k1,k3)*ccc(k3,mu3)*d(al,nu2)*e_(al,mu3,nu2)
+          + 3/2*J(k1,k3)*ccc(k3,mu3)*d(al,nu3)*e_(al,mu3,nu3)
+          - 1/2*J(k1,k3)*ccc(k3,mu3)*d(be,nu2)*e_(be,mu3,nu2)
+          + 3/2*J(k1,k3)*ccc(k3,mu3)*d(be,nu3)*e_(be,mu3,nu3)
+          - J(k1,k3)*d(al,al)*i_
+          - J(k1,k3)*d(be,be)*i_
+          - J(k1,k3)*d(nu2,nu2)*i_
+          + 3*J(k1,k3)*d(nu3,nu3)*i_
+          - J(k3,k3)*ccc(k1,al)*ccc(k3,be)*d(al,be)*i_
+          + J(k3,k3)*ccc(k1,be)*ccc(k3,mu3)*d(be,mu3)*i_
+          - J(k3,k3)*ccc(k1,mu3)*ccc(k3,mu3)*d(be,be)*i_
+          + J(k3,k3)*ccc(k1,nu3)*ccc(k3,nu3)*d(be,be)*i_
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - J(i,k1)*ccc(i,al)*ccc(k1,mu2)*ccc(k2,nu2)*d(al,be)*e_(be,mu2,nu2)
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k1,mu2)*ccc(k2,nu2)*d(al,nu3)*e_(mu2,nu2
+         ,nu3)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k1,nu3)*ccc(k2,nu2)*d(al,nu1)*e_(nu1,nu2
+         ,nu3)
+          + J(i,k1)*ccc(i,al)*ccc(k2,be)*d(al,be)*i_
+          - 3/2*J(i,k1)*ccc(i,al)*ccc(k2,nu2)*d(al,nu2)*i_
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k2,nu3)*d(al,nu3)*i_
+          + J(i,k2)*ccc(i,al)*ccc(k1,be)*d(al,be)*i_
+          - 2*J(i,k2)*ccc(i,al)*ccc(k1,nu2)*ccc(k2,mu2)*d(al,be)*e_(be,mu2,nu2
+         )
+          - J(i,k2)*ccc(i,al)*ccc(k1,nu2)*d(al,nu2)*i_
+          - J(j,k1)*ccc(j,be)*ccc(k1,mu2)*ccc(k2,nu2)*d(al,be)*e_(al,mu2,nu2)
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k1,mu2)*ccc(k2,nu2)*d(be,nu3)*e_(mu2,nu2
+         ,nu3)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k1,nu3)*ccc(k2,nu2)*d(be,nu1)*e_(nu1,nu2
+         ,nu3)
+          + J(j,k1)*ccc(j,be)*ccc(k2,al)*d(al,be)*i_
+          - 3/2*J(j,k1)*ccc(j,be)*ccc(k2,nu2)*d(be,nu2)*i_
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k2,nu3)*d(be,nu3)*i_
+          + J(j,k2)*ccc(j,be)*ccc(k1,al)*d(al,be)*i_
+          - 2*J(j,k2)*ccc(j,be)*ccc(k1,nu2)*ccc(k2,mu2)*d(al,be)*e_(al,mu2,nu2
+         )
+          - J(j,k2)*ccc(j,be)*ccc(k1,nu2)*d(be,nu2)*i_
+          + J(k1,k1)*ccc(k1,be)*ccc(k2,al)*d(al,be)*i_
+          - J(k1,k1)*ccc(k1,mu3)*ccc(k2,be)*d(be,mu3)*i_
+          + J(k1,k1)*ccc(k1,mu3)*ccc(k2,mu3)*d(be,be)*i_
+          - J(k1,k1)*ccc(k1,nu2)*ccc(k2,nu2)*d(be,be)*i_
+          - J(k1,k1)*ccc(k2,nu2)*d(al,be)*e_(al,be,nu2)
+          + J(k1,k2)*ccc(k1,be)*ccc(k2,mu3)*d(be,mu3)*i_
+          + J(k1,k2)*ccc(k1,mu2)*ccc(k2,be)*d(be,mu2)*i_
+          - J(k1,k2)*ccc(k1,mu2)*ccc(k2,mu2)*d(be,be)*i_
+          + J(k1,k2)*ccc(k1,mu2)*ccc(k2,mu2)*d(nu3,nu3)*i_
+          - J(k1,k2)*ccc(k1,mu2)*ccc(k2,nu3)*d(mu2,nu3)*i_
+          - J(k1,k2)*ccc(k1,mu2)*d(nu2,nu3)*e_(mu2,nu2,nu3)
+          - J(k1,k2)*ccc(k1,mu3)*ccc(k2,mu3)*d(be,be)*i_
+          - J(k1,k2)*ccc(k1,nu3)*ccc(k2,nu1)*d(nu1,nu3)*i_
+          + J(k1,k2)*ccc(k1,nu3)*ccc(k2,nu3)*d(nu1,nu1)*i_
+          + J(k1,k2)*ccc(k1,nu3)*d(nu1,nu2)*e_(nu1,nu2,nu3)
+          - 3/2*J(k1,k2)*ccc(k2,mu3)*d(al,nu2)*e_(al,mu3,nu2)
+          + 1/2*J(k1,k2)*ccc(k2,mu3)*d(al,nu3)*e_(al,mu3,nu3)
+          - 3/2*J(k1,k2)*ccc(k2,mu3)*d(be,nu2)*e_(be,mu3,nu2)
+          + 1/2*J(k1,k2)*ccc(k2,mu3)*d(be,nu3)*e_(be,mu3,nu3)
+          + J(k1,k2)*d(al,al)*i_
+          + J(k1,k2)*d(be,be)*i_
+          - 3*J(k1,k2)*d(nu2,nu2)*i_
+          + J(k1,k2)*d(nu3,nu3)*i_
+          + J(k2,k2)*ccc(k1,al)*ccc(k2,be)*d(al,be)*i_
+          - J(k2,k2)*ccc(k1,be)*ccc(k2,mu3)*d(be,mu3)*i_
+          + J(k2,k2)*ccc(k1,mu3)*ccc(k2,mu3)*d(be,be)*i_
+          - J(k2,k2)*ccc(k1,nu2)*ccc(k2,nu2)*d(be,be)*i_
+          )
+
+       + eq(c(k2),c(k3)) * (
+          - J(i,k1)*ccc(i,al)*ccc(k1,nu2)*ccc(k2,mu2)*d(al,nu3)*e_(mu2,nu2,nu3
+         )
+          + J(i,k1)*ccc(i,al)*ccc(k1,nu3)*ccc(k2,mu2)*d(al,nu2)*e_(mu2,nu2,nu3
+         )
+          - J(i,k1)*ccc(i,al)*ccc(k2,mu2)*d(al,mu2)*i_
+          + J(i,k1)*ccc(i,al)*ccc(k2,nu1)*d(al,nu1)*i_
+          - J(i,k2)*ccc(i,al)*ccc(k1,be)*d(al,be)*i_
+          + J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,mu2)*d(al,be)*e_(be,mu2,nu1)
+          + 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,mu2)*d(al,nu3)*e_(mu2,nu1
+         ,nu3)
+          + 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu3)*d(al,nu2)*e_(nu1,nu2
+         ,nu3)
+          + 3/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*d(al,nu1)*i_
+          - 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu3)*d(al,nu3)*i_
+          - J(j,k1)*ccc(j,be)*ccc(k1,nu2)*ccc(k2,mu2)*d(be,nu3)*e_(mu2,nu2,nu3
+         )
+          + J(j,k1)*ccc(j,be)*ccc(k1,nu3)*ccc(k2,mu2)*d(be,nu2)*e_(mu2,nu2,nu3
+         )
+          - J(j,k1)*ccc(j,be)*ccc(k2,mu2)*d(be,mu2)*i_
+          + J(j,k1)*ccc(j,be)*ccc(k2,nu1)*d(be,nu1)*i_
+          - J(j,k2)*ccc(j,be)*ccc(k1,al)*d(al,be)*i_
+          + J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,mu2)*d(al,be)*e_(al,mu2,nu1)
+          + 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,mu2)*d(be,nu3)*e_(mu2,nu1
+         ,nu3)
+          + 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu3)*d(be,nu2)*e_(nu1,nu2
+         ,nu3)
+          + 3/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*d(be,nu1)*i_
+          - 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu3)*d(be,nu3)*i_
+          - J(k1,k1)*ccc(k1,be)*ccc(k2,mu2)*d(be,mu2)*i_
+          - 1/2*J(k1,k1)*ccc(k1,mu3)*ccc(k2,mu3)*d(nu2,nu2)*i_
+          - 1/2*J(k1,k1)*ccc(k1,mu3)*ccc(k2,mu3)*d(nu3,nu3)*i_
+          + J(k1,k1)*ccc(k1,nu1)*ccc(k2,nu1)*d(be,be)*i_
+          + 1/2*J(k1,k1)*ccc(k1,nu2)*ccc(k2,mu3)*d(mu3,nu2)*i_
+          + 1/2*J(k1,k1)*ccc(k1,nu3)*ccc(k2,mu3)*d(mu3,nu3)*i_
+          + 1/2*J(k1,k1)*ccc(k2,mu3)*d(be,nu2)*e_(be,mu3,nu2)
+          + 1/2*J(k1,k1)*ccc(k2,mu3)*d(be,nu3)*e_(be,mu3,nu3)
+          - 1/2*J(k1,k1)*d(be,be)*i_
+          + 1/2*J(k1,k1)*d(nu3,nu3)*i_
+          - J(k1,k2)*ccc(k1,mu3)*ccc(k2,mu3)*d(nu3,nu3)*i_
+          + J(k1,k2)*ccc(k1,nu2)*ccc(k2,nu2)*d(nu3,nu3)*i_
+          - J(k1,k2)*ccc(k1,nu2)*d(al,nu3)*e_(al,nu2,nu3)
+          - J(k1,k2)*ccc(k1,nu2)*d(be,nu3)*e_(be,nu2,nu3)
+          + J(k1,k2)*ccc(k1,nu3)*ccc(k2,mu3)*d(mu3,nu3)*i_
+          - J(k1,k2)*ccc(k1,nu3)*ccc(k2,nu2)*d(nu2,nu3)*i_
+          + J(k1,k2)*ccc(k1,nu3)*d(al,nu2)*e_(al,nu2,nu3)
+          + J(k1,k2)*ccc(k1,nu3)*d(be,nu2)*e_(be,nu2,nu3)
+          - J(k1,k2)*ccc(k2,mu3)*d(al,mu2)*e_(al,mu2,mu3)
+          - J(k1,k2)*ccc(k2,mu3)*d(be,mu2)*e_(be,mu2,mu3)
+          + J(k1,k2)*ccc(k2,mu3)*d(nu1,nu3)*e_(mu3,nu1,nu3)
+          + J(k1,k2)*ccc(k2,nu3)*d(nu1,nu2)*e_(nu1,nu2,nu3)
+          - J(k1,k2)*d(al,al)*i_
+          - J(k1,k2)*d(be,be)*i_
+          + 3*J(k1,k2)*d(nu1,nu1)*i_
+          - J(k1,k2)*d(nu3,nu3)*i_
+          - J(k2,k2)*ccc(k1,al)*ccc(k2,be)*d(al,be)*i_
+          + J(k2,k2)*ccc(k1,be)*ccc(k2,mu3)*d(be,mu3)*i_
+          - J(k2,k2)*ccc(k1,mu3)*ccc(k2,mu3)*d(be,be)*i_
+          + J(k2,k2)*ccc(k1,nu1)*ccc(k2,nu1)*d(be,be)*i_
+          + J(k2,k2)*ccc(k1,nu1)*d(al,be)*e_(al,be,nu1)
+          )
+
+       + J(i,k1)*ccc(i,al)*ccc(k1,nu2)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,nu3)*i_
+          - J(i,k1)*ccc(i,al)*ccc(k1,nu3)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,nu2)*i_
+          - 1/2*J(i,k1)*ccc(i,al)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,be)*e_(be,nu2,
+         nu3)
+          + 1/2*J(i,k1)*ccc(i,al)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,nu1)*e_(nu1,nu2
+         ,nu3)
+          - J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu1)*ccc(k3,nu3)*d(al,nu3)*i_
+          + J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu3)*ccc(k3,nu3)*d(al,nu1)*i_
+          + 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k3,nu3)*d(al,be)*e_(be,nu1,
+         nu3)
+          + 1/2*J(i,k2)*ccc(i,al)*ccc(k1,nu1)*ccc(k3,nu3)*d(al,nu2)*e_(nu1,nu2
+         ,nu3)
+          + J(i,k3)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu1)*d(al,nu2)*i_
+          - J(i,k3)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu2)*d(al,nu1)*i_
+          - 1/2*J(i,k3)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu2)*d(al,be)*e_(be,nu1,
+         nu2)
+          + 1/2*J(i,k3)*ccc(i,al)*ccc(k1,nu1)*ccc(k2,nu2)*d(al,nu3)*e_(nu1,nu2
+         ,nu3)
+          + J(j,k1)*ccc(j,be)*ccc(k1,nu2)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,nu3)*i_
+          - J(j,k1)*ccc(j,be)*ccc(k1,nu3)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,nu2)*i_
+          - 1/2*J(j,k1)*ccc(j,be)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,be)*e_(al,nu2,
+         nu3)
+          + 1/2*J(j,k1)*ccc(j,be)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,nu1)*e_(nu1,nu2
+         ,nu3)
+          - J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu1)*ccc(k3,nu3)*d(be,nu3)*i_
+          + J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu3)*ccc(k3,nu3)*d(be,nu1)*i_
+          + 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k3,nu3)*d(al,be)*e_(al,nu1,
+         nu3)
+          + 1/2*J(j,k2)*ccc(j,be)*ccc(k1,nu1)*ccc(k3,nu3)*d(be,nu2)*e_(nu1,nu2
+         ,nu3)
+          + J(j,k3)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu1)*d(be,nu2)*i_
+          - J(j,k3)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu2)*d(be,nu1)*i_
+          - 1/2*J(j,k3)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu2)*d(al,be)*e_(al,nu1,
+         nu2)
+          + 1/2*J(j,k3)*ccc(j,be)*ccc(k1,nu1)*ccc(k2,nu2)*d(be,nu3)*e_(nu1,nu2
+         ,nu3)
+          - 1/2*J(k1,k1)*ccc(k1,be)*ccc(k2,nu2)*ccc(k3,nu3)*d(al,be)*e_(al,nu2
+         ,nu3)
+          + 1/2*J(k1,k1)*ccc(k1,mu2)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,nu2)*e_(be,
+         mu2,nu3)
+          - 1/2*J(k1,k1)*ccc(k1,mu2)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,nu3)*e_(be,
+         mu2,nu2)
+          + 1/2*J(k1,k1)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*J(k1,k1)*ccc(k2,be)*ccc(k3,nu3)*d(be,nu3)*i_
+          - 1/2*J(k1,k1)*ccc(k2,nu2)*ccc(k3,be)*d(be,nu2)*i_
+          + 1/2*J(k1,k2)*ccc(k1,al)*ccc(k3,nu3)*d(al,nu3)*i_
+          + 1/2*J(k1,k2)*ccc(k1,be)*ccc(k3,nu3)*d(be,nu3)*i_
+          + J(k1,k2)*ccc(k1,nu2)*ccc(k3,nu3)*d(nu2,nu3)*i_
+          - 1/2*J(k1,k2)*ccc(k1,nu3)*ccc(k3,nu3)*d(al,al)*i_
+          - 1/2*J(k1,k2)*ccc(k1,nu3)*ccc(k3,nu3)*d(be,be)*i_
+          - J(k1,k2)*ccc(k1,nu3)*ccc(k3,nu3)*d(nu2,nu2)*i_
+          - 1/2*J(k1,k2)*ccc(k2,be)*ccc(k3,nu3)*d(be,nu3)*i_
+          - 1/2*J(k1,k2)*ccc(k2,mu2)*ccc(k3,be)*d(be,mu2)*i_
+          + 1/2*J(k1,k2)*ccc(k2,mu2)*ccc(k3,mu2)*d(be,be)*i_
+          - J(k1,k2)*ccc(k2,nu1)*ccc(k3,nu3)*d(nu1,nu3)*i_
+          + 1/2*J(k1,k2)*ccc(k2,nu3)*ccc(k3,nu3)*d(be,be)*i_
+          + J(k1,k2)*ccc(k2,nu3)*ccc(k3,nu3)*d(nu1,nu1)*i_
+          + J(k1,k2)*ccc(k3,nu3)*d(nu1,nu2)*e_(nu1,nu2,nu3)
+          - 1/2*J(k1,k3)*ccc(k1,al)*ccc(k2,nu2)*d(al,nu2)*i_
+          - 1/2*J(k1,k3)*ccc(k1,be)*ccc(k2,nu2)*d(be,nu2)*i_
+          + 1/2*J(k1,k3)*ccc(k1,nu2)*ccc(k2,nu2)*d(al,al)*i_
+          + 1/2*J(k1,k3)*ccc(k1,nu2)*ccc(k2,nu2)*d(be,be)*i_
+          + J(k1,k3)*ccc(k1,nu2)*ccc(k2,nu2)*d(nu3,nu3)*i_
+          - J(k1,k3)*ccc(k1,nu3)*ccc(k2,nu2)*d(nu2,nu3)*i_
+          + 1/2*J(k1,k3)*ccc(k2,be)*ccc(k3,mu2)*d(be,mu2)*i_
+          - 1/2*J(k1,k3)*ccc(k2,mu2)*ccc(k3,mu2)*d(be,be)*i_
+          + 1/2*J(k1,k3)*ccc(k2,nu2)*ccc(k3,be)*d(be,nu2)*i_
+          + J(k1,k3)*ccc(k2,nu2)*ccc(k3,nu1)*d(nu1,nu2)*i_
+          - 1/2*J(k1,k3)*ccc(k2,nu2)*ccc(k3,nu2)*d(be,be)*i_
+          - J(k1,k3)*ccc(k2,nu2)*ccc(k3,nu2)*d(nu1,nu1)*i_
+          + J(k1,k3)*ccc(k2,nu2)*d(nu1,nu3)*e_(nu1,nu2,nu3)
+          - 1/2*J(k2,k2)*ccc(k1,be)*ccc(k3,nu3)*d(be,nu3)*i_
+          + 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k2,be)*ccc(k3,nu3)*d(al,be)*e_(al,nu1
+         ,nu3)
+          - 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k2,mu2)*ccc(k3,nu3)*d(be,nu1)*e_(be,
+         mu2,nu3)
+          + 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k2,mu2)*ccc(k3,nu3)*d(be,nu3)*e_(be,
+         mu2,nu1)
+          + 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,be)*e_(nu1,
+         nu2,nu3)
+          + 1/2*J(k2,k2)*ccc(k1,nu1)*ccc(k3,be)*d(be,nu1)*i_
+          - 1/2*J(k2,k3)*ccc(k1,be)*ccc(k3,mu2)*d(be,mu2)*i_
+          + 1/2*J(k2,k3)*ccc(k1,mu2)*ccc(k3,mu2)*d(be,be)*i_
+          + 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k2,al)*d(al,nu1)*i_
+          + 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k2,be)*d(be,nu1)*i_
+          - 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k2,nu1)*d(al,al)*i_
+          - 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k2,nu1)*d(be,be)*i_
+          - J(k2,k3)*ccc(k1,nu1)*ccc(k2,nu1)*d(nu3,nu3)*i_
+          + J(k2,k3)*ccc(k1,nu1)*ccc(k2,nu3)*d(nu1,nu3)*i_
+          - 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k3,be)*d(be,nu1)*i_
+          + 1/2*J(k2,k3)*ccc(k1,nu1)*ccc(k3,nu1)*d(be,be)*i_
+          + J(k2,k3)*ccc(k1,nu1)*ccc(k3,nu1)*d(nu2,nu2)*i_
+          - J(k2,k3)*ccc(k1,nu1)*ccc(k3,nu2)*d(nu1,nu2)*i_
+          + J(k2,k3)*ccc(k1,nu1)*d(nu2,nu3)*e_(nu1,nu2,nu3)
+          + 1/2*J(k3,k3)*ccc(k1,be)*ccc(k2,nu2)*d(be,nu2)*i_
+          - 1/2*J(k3,k3)*ccc(k1,nu1)*ccc(k2,be)*d(be,nu1)*i_
+          - 1/2*J(k3,k3)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,be)*d(al,be)*e_(al,nu1
+         ,nu2)
+          + 1/2*J(k3,k3)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,mu2)*d(be,nu1)*e_(be,
+         mu2,nu2)
+          - 1/2*J(k3,k3)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,mu2)*d(be,nu2)*e_(be,
+         mu2,nu1)
+          + 1/2*J(k3,k3)*ccc(k1,nu1)*ccc(k2,nu2)*ccc(k3,nu3)*d(be,be)*e_(nu1,
+         nu2,nu3)
+         ;
+
+
+Time =       0.04 sec    Generated terms =          1
+              Ch         Terms in output =          1
+                     end Bytes used      =        128
+
+Time =       0.04 sec    Generated terms =          2
+              CJ         Terms in output =          1
+                     end Bytes used      =        184
+
+Time =       0.04 sec    Generated terms =          6
+             CCh         Terms in output =          4
+                     end Bytes used      =        520
+
+Time =       0.04 sec    Generated terms =         16
+             CCJ         Terms in output =          6
+                     end Bytes used      =        908
+
+Time =       0.04 sec    Generated terms =          9
+             C2h         Terms in output =          2
+                     end Bytes used      =        284
+
+Time =       0.06 sec    Generated terms =         25
+             C2J         Terms in output =          4
+                     end Bytes used      =        616
+
+Time =       0.06 sec    Generated terms =         44
+             C3h         Terms in output =         12
+                     end Bytes used      =       1612
+
+Time =       0.09 sec    Generated terms =        179
+             C3J         Terms in output =         31
+                     end Bytes used      =       3804
+
+   Ch =
+       - 2*h(k1,mu1)*ccc(k1,mu2)*e_(ga1,mu1,mu2)*i_
+         ;
+
+   CJ =
+       + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*d(mu1,mu3)*e_(ga1,mu2,mu3)*i_
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          + 2*h(k1,ga1)*ccc(k1,ga2)
+          - 2*h(k1,ga2)*ccc(k1,ga1)
+          )
+
+       - 2*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,ga2)*e_(ga1,mu1,mu2)*i_
+          - 2*h(k2,mu1)*ccc(k1,ga1)*ccc(k2,mu2)*e_(ga2,mu1,mu2)*i_
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          - 2*J(i,k1)*ccc(i,mu1)*ccc(k1,ga1)*d(ga2,mu1)
+          + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,ga2)*d(ga1,mu1)
+          )
+
+       + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,ga2)*d(mu1,mu3)*e_(ga1,mu2,
+      mu3)*i_
+          + 2*J(i,k2)*ccc(i,mu1)*ccc(k1,ga1)*ccc(k2,mu2)*d(mu1,mu3)*e_(ga2,mu2
+         ,mu3)*i_
+          + 2*J(k1,k2)*ccc(k1,mu1)*d(ga2,mu2)*e_(ga1,mu1,mu2)*i_
+          + 2*J(k1,k2)*ccc(k2,mu1)*d(ga1,mu2)*e_(ga2,mu1,mu2)*i_
+         ;
+
+   C2h =
+       - 2*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)*i_
+          + 2*h(k2,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)*i_
+         ;
+
+   C2J =
+       - 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3,
+         mu4)*i_
+          + 2*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)*i_
+          + J(k1,k2)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)*i_
+          + J(k1,k2)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)*i_
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2)) * (
+          + 4*h(k1,mu1)*ccc(k1,mu2)*ccc(k3,mu3)*e_(mu1,mu2,mu3)
+          - 4*h(k3,mu1)*ccc(k1,mu2)*ccc(k3,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 4*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)
+          + 4*h(k2,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + 4*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)
+          - 4*h(k2,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       - 2*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,mu1)*ccc(k3,mu2)*i_
+          + 2*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,mu2)*ccc(k3,mu1)*i_
+          + 2*h(k2,mu1)*ccc(k1,mu1)*ccc(k2,mu2)*ccc(k3,mu2)*i_
+          - 2*h(k2,mu1)*ccc(k1,mu2)*ccc(k2,mu2)*ccc(k3,mu1)*i_
+          - 2*h(k3,mu1)*ccc(k1,mu1)*ccc(k2,mu2)*ccc(k3,mu2)*i_
+          + 2*h(k3,mu1)*ccc(k1,mu2)*ccc(k2,mu1)*ccc(k3,mu2)*i_
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2)) * (
+          + 4*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k3,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          - 4*J(i,k3)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k3,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          - 2*J(k1,k3)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          - 2*J(k1,k3)*ccc(k3,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 4*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          + 4*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          + 2*J(k1,k2)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + 4*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          - 4*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*d(mu1,mu4)*e_(mu2,mu3
+         ,mu4)
+          + 4*J(k1,k2)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu2)*ccc(k3,mu3)*d(mu1,mu3)*
+      i_
+          - 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*ccc(k3,mu2)*d(mu1,mu3
+         )*i_
+          - 2*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu2)*ccc(k3,mu3)*d(mu1,mu3
+         )*i_
+          + 2*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*ccc(k3,mu3)*d(mu1,mu2
+         )*i_
+          + 2*J(i,k3)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*ccc(k3,mu2)*d(mu1,mu3
+         )*i_
+          - 2*J(i,k3)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,mu3)*ccc(k3,mu3)*d(mu1,mu2
+         )*i_
+          - 2*J(k1,k2)*ccc(k1,mu1)*ccc(k3,mu1)*d(mu2,mu2)*i_
+          + 2*J(k1,k2)*ccc(k1,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          + 2*J(k1,k2)*ccc(k2,mu1)*ccc(k3,mu1)*d(mu2,mu2)*i_
+          - 2*J(k1,k2)*ccc(k2,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          + J(k1,k2)*ccc(k3,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          + 2*J(k1,k3)*ccc(k1,mu1)*ccc(k2,mu1)*d(mu2,mu2)*i_
+          - 2*J(k1,k3)*ccc(k1,mu1)*ccc(k2,mu2)*d(mu1,mu2)*i_
+          - 2*J(k1,k3)*ccc(k2,mu1)*ccc(k3,mu1)*d(mu2,mu2)*i_
+          + 2*J(k1,k3)*ccc(k2,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          - J(k1,k3)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          - 2*J(k2,k3)*ccc(k1,mu1)*ccc(k2,mu1)*d(mu2,mu2)*i_
+          + 2*J(k2,k3)*ccc(k1,mu1)*ccc(k2,mu2)*d(mu1,mu2)*i_
+          + 2*J(k2,k3)*ccc(k1,mu1)*ccc(k3,mu1)*d(mu2,mu2)*i_
+          - 2*J(k2,k3)*ccc(k1,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          + J(k2,k3)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+         ;
+
+
+Time =       0.09 sec    Generated terms =          1
+              Ch         Terms in output =          1
+               pricheson Bytes used      =        128
+
+Time =       0.09 sec    Generated terms =          1
+              CJ         Terms in output =          1
+               pricheson Bytes used      =        184
+
+Time =       0.09 sec    Generated terms =          4
+             CCh         Terms in output =          4
+               pricheson Bytes used      =        520
+
+Time =       0.09 sec    Generated terms =          6
+             CCJ         Terms in output =          6
+               pricheson Bytes used      =        908
+
+Time =       0.09 sec    Generated terms =          2
+             C2h         Terms in output =          2
+               pricheson Bytes used      =        196
+
+Time =       0.09 sec    Generated terms =          4
+             C2J         Terms in output =          4
+               pricheson Bytes used      =        528
+
+Time =       0.09 sec    Generated terms =         12
+             C3h         Terms in output =         12
+               pricheson Bytes used      =       1232
+
+Time =       0.09 sec    Generated terms =         31
+             C3J         Terms in output =         31
+               pricheson Bytes used      =       3512
+
+   Ch =
+       - 2*h(k1,mu1)*ccc(k1,mu2)*e_(ga1,mu1,mu2)*i_
+         ;
+
+   CJ =
+       + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*d(mu1,mu3)*e_(ga1,mu2,mu3)*i_
+         ;
+
+   CCh =
+
+       + eq(c(k1),c(k2)) * (
+          + 2*h(k1,ga1)*ccc(k1,ga2)
+          - 2*h(k1,ga2)*ccc(k1,ga1)
+          )
+
+       - 2*h(k1,mu1)*ccc(k1,mu2)*ccc(k2,ga2)*e_(ga1,mu1,mu2)*i_
+          - 2*h(k2,mu1)*ccc(k1,ga1)*ccc(k2,mu2)*e_(ga2,mu1,mu2)*i_
+         ;
+
+   CCJ =
+
+       + eq(c(k1),c(k2)) * (
+          - 2*J(i,k1)*ccc(i,mu1)*ccc(k1,ga1)*d(ga2,mu1)
+          + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,ga2)*d(ga1,mu1)
+          )
+
+       + 2*J(i,k1)*ccc(i,mu1)*ccc(k1,mu2)*ccc(k2,ga2)*d(mu1,mu3)*e_(ga1,mu2,mu3)*i_
+          + 2*J(i,k2)*ccc(i,mu1)*ccc(k1,ga1)*ccc(k2,mu2)*d(mu1,mu3)*e_(ga2,mu2,mu3)*i_
+          + 2*J(k1,k2)*ccc(k1,mu1)*d(ga2,mu2)*e_(ga1,mu1,mu2)*i_
+          + 2*J(k1,k2)*ccc(k2,mu1)*d(ga1,mu2)*e_(ga2,mu1,mu2)*i_
+         ;
+
+   C2h =
+       - 2*h(k1,mu1)*c2v(k1,k2,mu1)*i_
+          + 2*h(k2,mu1)*c2v(k1,k2,mu1)*i_
+         ;
+
+   C2J =
+       - 2*J(i,k1)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)*i_
+          + 2*J(i,k2)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)*i_
+          + J(k1,k2)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)*i_
+          + J(k1,k2)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)*i_
+         ;
+
+   C3h =
+
+       + eq(c(k1),c(k2)) * (
+          + 4*h(k1,mu1)*c2v(k1,k3,mu1)
+          - 4*h(k3,mu1)*c2v(k1,k3,mu1)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 4*h(k1,mu1)*c2v(k1,k2,mu1)
+          + 4*h(k2,mu1)*c2v(k1,k2,mu1)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + 4*h(k1,mu1)*c2v(k1,k2,mu1)
+          - 4*h(k2,mu1)*c2v(k1,k2,mu1)
+          )
+
+       - 2*h(k1,mu1)*ccc(k2,mu1)*c2(k1,k3)*i_
+          + 2*h(k1,mu1)*ccc(k3,mu1)*c2(k1,k2)*i_
+          + 2*h(k2,mu1)*ccc(k1,mu1)*c2(k2,k3)*i_
+          - 2*h(k2,mu1)*ccc(k3,mu1)*c2(k1,k2)*i_
+          - 2*h(k3,mu1)*ccc(k1,mu1)*c2(k2,k3)*i_
+          + 2*h(k3,mu1)*ccc(k2,mu1)*c2(k1,k3)*i_
+         ;
+
+   C3J =
+
+       + eq(c(k1),c(k2)) * (
+          + 4*J(i,k1)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k3,mu4)
+          - 4*J(i,k3)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k3,mu4)
+          - 2*J(k1,k3)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          - 2*J(k1,k3)*ccc(k3,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k1),c(k3)) * (
+          - 4*J(i,k1)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)
+          + 4*J(i,k2)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)
+          + 2*J(k1,k2)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+       + eq(c(k2),c(k3)) * (
+          + 4*J(i,k1)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)
+          - 4*J(i,k2)*ccc(i,mu1)*d(mu1,mu4)*c2v(k1,k2,mu4)
+          + 4*J(k1,k2)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          )
+
+          - 2*J(i,k1)*ccc(i,mu1)*ccc(k2,mu3)*d(mu1,mu3)*c2(k1,k3)*i_
+          + 2*J(i,k1)*ccc(i,mu1)*ccc(k3,mu3)*d(mu1,mu3)*c2(k1,k2)*i_
+          + 2*J(i,k2)*ccc(i,mu1)*ccc(k1,mu2)*d(mu1,mu2)*c2(k2,k3)*i_
+          - 2*J(i,k2)*ccc(i,mu1)*ccc(k3,mu3)*d(mu1,mu3)*c2(k1,k2)*i_
+          - 2*J(i,k3)*ccc(i,mu1)*ccc(k1,mu2)*d(mu1,mu2)*c2(k2,k3)*i_
+          + 2*J(i,k3)*ccc(i,mu1)*ccc(k2,mu3)*d(mu1,mu3)*c2(k1,k3)*i_
+          + 2*J(k1,k2)*ccc(k1,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          - 2*J(k1,k2)*ccc(k2,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          - 2*J(k1,k3)*ccc(k1,mu1)*ccc(k2,mu2)*d(mu1,mu2)*i_
+          + 2*J(k1,k3)*ccc(k2,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          + 2*J(k2,k3)*ccc(k1,mu1)*ccc(k2,mu2)*d(mu1,mu2)*i_
+          - 2*J(k2,k3)*ccc(k1,mu1)*ccc(k3,mu2)*d(mu1,mu2)*i_
+          + J(k1,k2)*ccc(k3,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          - J(k1,k3)*ccc(k2,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          + J(k2,k3)*ccc(k1,mu1)*d(mu2,mu3)*e_(mu1,mu2,mu3)
+          - 2*J(k1,k2)*d(mu2,mu2)*c2(k1,k3)*i_
+          + 2*J(k1,k2)*d(mu2,mu2)*c2(k2,k3)*i_
+          + 2*J(k1,k3)*d(mu2,mu2)*c2(k1,k2)*i_
+          - 2*J(k1,k3)*d(mu2,mu2)*c2(k2,k3)*i_
+          - 2*J(k2,k3)*d(mu2,mu2)*c2(k1,k2)*i_
+          + 2*J(k2,k3)*d(mu2,mu2)*c2(k1,k3)*i_
+         ;
+
+  0.09 sec out of 0.16 sec

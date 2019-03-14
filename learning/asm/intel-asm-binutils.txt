@@ -1,0 +1,107 @@
+--- по набору инструкций ---
+all:		x87	IA-32 	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4		SSE5	AVX	AVX2
+Core i9			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES-NI
+Core i7			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES-NI
+Core i5			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES	AVX
+Core i3			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES	AVX	AVX2	
+Core 2			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4 (Penryn)
+Pentium Dual-Core	x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3 
+Pentium D		IA-32	EM64T	MMX	SSE	SSE2	SSE3
+Pentium 4 =P7 =i786	IA-32	EM64T	MMX	SSE	SSE2	SSE3
+Pentium 3		IA-32		MMX	SSE
+Pentium 2		IA-32		MMX
+Pentuim Pro =P6 =i686	IA-32
+Pentium	(1) =P5 =i586	IA-32		MMX(в P55C)
+i486			x86
+i386			x86
+
+286			x86-16 (с MMU)
+188			x86-16
+186			x86-16
+8088			x86-16
+8086			x86-16
+	
+8085			79 инструкций
+8080			80 инструкций
+8008
+4040
+4004
+--- по внутренним характеристикам ---
+ТехПрцесс,нм		45		32		32		22		22		14		14		14		10		
+микроархитектура	1-tock		tick		2-tock		3-tick		4-tock		5-tick		6-Architecture	7-optimization	8		
+Core i9															Skylake-X, 			Coffee Lake-H	
+Core i7			Intel Nehalem, 			Sandy Bridge, 	Ivy Bridge, 	Haswell, 	Broadwell, 	Skylake, 	Kaby Lake, 	Coffee Lake	
+Core i5			Intel Nehalem, 			Sandy Bridge, 	Ivy Bridge, 	Haswell, 	Broadwell, 	Skylake, 	Kaby Lake, 	Coffee Lake	
+Core i3			Nehalem,	Westmere, 	Sandy Bridge, 	Ivy Bridge, 	Haswell, 			Skylake, 	Kaby Lake, 	Coffee Lake	
+------			микроархитектура	ядра
+Core 2			Core			Allendale,Conroe,Merom,Kentsfield,Wolfdale,Yorkfield
+Pentium Dual-Core	Core                    Yonah,Allendale,Wolfdale-2M,Merom-2M,Penryn-3M,Penryn-L
+Pentium D		NetBurst                Smithfield,Presler
+Pentium 4 =P7 =i786	NetBurst                Willamette,Northwood,Gallatin,Prescott,Cedar Mill
+Pentium 3		P6                      Katmai,Coppermine,Tualatin
+Pentium 2		P6                      Klamath,Deschutes,TongaDixon
+Pentuim Pro =P6 =i686	P6                      P6 (i686)
+Pentium	(1) =P5 =i586	--                      P5,P54C,P54CS,P55C,Tillamook
+i486			--                      SX,DX,DX2,DX4,SX2
+i386			
+
+--- микроархитектура ---
+Desktop: Coffee Lake (2nd Optimization)
+Mobile: Whiskey Lake (3rd Optimization)
+Mobile: Cannon Lake (Process)
+Servers and Desktop: Cascade Lake (3rd Optimization)
+----
+Skylake (Architecture)		i7
+Broadwell (tick/process)	
+Haswell Refresh (Optimization)	
+Haswell (Tock/Architecture)	
+Ivy Bridge (Tick)		
+Sandy Bridge (Tock)		
+Westmere (Tick)			
+Nehalem (Tock)			
+Penryn (tick)			
+Core (tock)			
+
+
+Assembler	Operating system			source	License	Development active
+GAS	Windows	DOS	Unix-like, 	OS/2		Yes	GNU GPL	Yes
+
+NASM	Windows	DOS	Linux, macOS,	OS/2		Yes	BSD	Yes
+WASM 	Windows	DOS, 	Linux, FreeBSD	OS/2		Yes	Sybase	Yes
+FASM	Windows	DOS, 	Unix-like			Yes	BSD	Yes
+Yasm	Windows	DOS, 	Unix-like			Yes	BSD	Yes
+TCCASM	Windows		Unix-like, 			Yes	GNU LGPL Yes
+
+TASM	Windows	DOS, no x64				Yes	LGPL	Yes
+MASM	Windows	DOS, 			OS/2		No	Commercial	Yes
+POASM	Windows				Windows Mobile	No	Freeware Yes
+
+
+NASM	netwide		x86, x86-64	sections	SASM
+FASM	flat		x86, x86-64	оптимизация	SASM, Аблязов
+WASM 	watcom	WCC			ближе к MASM-у	зубков
+Yasm	from NASM	x86, x86-64	
+TCCASM	TCC
+
+
+c++filt - Filter to demangle encoded C++ symbols.
+
+gprof 	- Displays profiling information.
+
+ar 	- A utility for creating, modifying and extracting from archives.
+ranlib 	- Generates an index to the contents of an archive.
+
+addr2line - Converts addresses into filenames and line numbers.
+nlmconv - Converts object code into an NLM.
+nm 	- Lists symbols from object files.
+objdump - Displays information from object files.
+strings - Lists printable strings from files.
+size 	- Lists the section sizes of an object or archive file.
+readelf - Displays information from any ELF format object file.
+
+strip 	- Discards symbols.
+objcopy - Copies and translates object files.
+
+dlltool - Creates files for building and using DLLs.
+windmc 	- A Windows compatible message compiler.
+windres - A compiler for Windows resource files.

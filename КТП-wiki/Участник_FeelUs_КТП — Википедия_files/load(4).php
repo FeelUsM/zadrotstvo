@@ -1,0 +1,1 @@
+#mw-fr-revisiontag{display:block}div.group-user-show,p.group-user-show{display:block}span.group-user-show{display:inline}table.group-user-show{display:table}.group-user-hide{display:none}.skin-minerva #mf-intro{display:none}

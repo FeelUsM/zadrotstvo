@@ -1,0 +1,229 @@
+=== [ActivityManager][Global Shortcuts] ===
+=== [kaccess][Global Shortcuts] ===
+	Meta+Alt+S	=Toggle Screen Reader On and Off
+=== [khotkeys][Global Shortcuts] ===
+	Monitor Brightness Down		=Decrease Screen Brightness
+	Monitor Brightness Up		=Increase Screen Brightness
+	Keyboard Brightness Down	=Decrease Keyboard Brightness
+	Keyboard Brightness Up		=Increase Keyboard Brightness
+	Keyboard Light On/Off		=Toggle Keyboard Backlight
+
+	Sleep		=Sleep
+	Hibernate	=Hibernate
+	Power Off	=PowerOff
+	Display		=display
+
+	Ctrl+Esc	=Show System Activity - Диспетчер задач
+
+	Ctrl+Alt+K	=Switch to Next Keyboard Layout - следующая раскладка
+
+	Print		={4467bba2-9fc0-40fc-acd1-c0d54b17e7c5} - запустить средство для print-screen-a
+	Shift+Print	={89c0fcfc-2651-401d-b71d-8f5adaeaedbf} - сделать снимок экрана
+	Meta+Print	={9797617a-9c6e-479d-b5d6-24f5608ab7ed} - сделать снимок окна
+
+	none	=Switch keyboard layout to Английская (США)
+	none	=Switch keyboard layout to Русская
+	none	={d03619b6-9b3c-48cc-9d9c-a2aadb485550}
+=== [kmix][Global Shortcuts] ===
+	Volume Down	=decrease_volume
+	Volume Up	=increase_volume
+	Volume Mute	=mute
+=== [krunner][Global Shortcuts] ===
+Alt+Space; Alt+F2; Search	=run command
+Alt+Shift+F2				=run command on clipboard contents - из буфера обмена
+
+=== [ksmserver][Global Shortcuts] ===
+Meta+F6	=MoveMouseToCenter
+Meta+F5	=MoveMouseToFocus
+
+none					=Show Desktop
+Ctrl+Alt+L; Screensaver	=Lock Session
+Ctrl+Alt+Esc			=Kill Window
+Ctrl+Alt+Del			=Log Out
+Ctrl+Alt+Shift+Del		=Log Out Without Confirmation
+Ctrl+Alt+Shift+PgUp		=Reboot Without Confirmation
+Ctrl+Alt+Shift+PgDown	=Halt Without Confirmation
+Alt+Shift+F12			=Suspend Compositing - ???
+
+Alt+F4			=Window Close
+Alt+F3			=Window Operations Menu
+
+Показать список окон
+	Ctrl+F7					=ExposeClass - одного класса - ???
+	Ctrl+F9					=Expose - текущего рабочего стола
+	Ctrl+F10; Launch (C)	=ExposeAll - всех столов
+переключится на окно слева/справа/сверху/снизу
+	Meta+Alt+Down	=Switch Window Down
+	Meta+Alt+Left	=Switch Window Left
+	Meta+Alt+Right	=Switch Window Right
+	Meta+Alt+Up		=Switch Window Up
+
+Ctrl+Alt+A			=Activate Window Demanding Attention
+Alt+Tab				=Walk Through Windows
+Alt+Shift+Backtab	=Walk Through Windows (Reverse)
+none				=Walk Through Windows Alternative
+none				=Walk Through Windows Alternative (Reverse)
+Alt+`	=Walk Through Windows of Current Application
+Alt+~	=Walk Through Windows of Current Application (Reverse)
+none	=Walk Through Windows of Current Application Alternative
+none	=Walk Through Windows of Current Application Alternative (Reverse)
+
+none	=Walk Through Window Tabs
+none	=Walk Through Window Tabs (Reverse)
+
+none	=Window Above Other Windows
+none	=Window Below Other Windows
+
+none	=Window Grow Horizontal
+none	=Window Grow Vertical
+none	=Window Shrink Horizontal
+none	=Window Shrink Vertical
+none	=Window Maximize Horizontal
+none	=Window Maximize Vertical
+none	=Window Maximize
+none	=Window Minimize
+
+none	=Window Fullscreen
+none	=Toggle Window Raise/Lower
+none	=Window Raise
+none	=Window Lower
+none	=Window No Border
+none	=Window Resize
+
+none	=Window Move
+none	=Window Shade
+
+none	=Window Pack Down
+none	=Window Pack Left
+none	=Window Pack Right
+none	=Window Pack Up
+
+Desktops - Ctrl+F(1,2,3,4,8)
+	none	=Window On All Desktops
+	Ctrl+F8	=ShowDesktopGrid
+	Ctrl+F1	=Switch to Desktop 1
+	Ctrl+F2	=Switch to Desktop 2
+	Ctrl+F3	=Switch to Desktop 3
+	Ctrl+F4	=Switch to Desktop 4
+	none	=Switch to Desktop 5
+	none	=Switch to Desktop 6
+	none	=Switch to Desktop 7
+	none	=Switch to Desktop 8
+	none	=Switch to Desktop 9
+	none	=Switch to Desktop 10
+	none	=Switch to Desktop 11
+	none	=Switch to Desktop 12
+	none	=Switch to Desktop 13
+	none	=Switch to Desktop 14
+	none	=Switch to Desktop 15
+	none	=Switch to Desktop 16
+	none	=Switch to Desktop 17
+	none	=Switch to Desktop 18
+	none	=Switch to Desktop 19
+	none	=Switch to Desktop 20
+	none	=Switch to Next Desktop
+	none	=Switch to Previous Desktop
+	none	=Switch One Desktop Down
+	none	=Switch One Desktop Up
+	none	=Switch One Desktop to the Left
+	none	=Switch One Desktop to the Right
+	none	=Walk Through Desktop List
+	none	=Walk Through Desktop List (Reverse)
+	none	=Walk Through Desktops
+	none	=Walk Through Desktops (Reverse)
+	none	=Window to Desktop 1
+	none	=Window to Desktop 2
+	none	=Window to Desktop 3
+	none	=Window to Desktop 4
+	none	=Window to Desktop 5
+	none	=Window to Desktop 6
+	none	=Window to Desktop 7
+	none	=Window to Desktop 8
+	none	=Window to Desktop 9
+	none	=Window to Desktop 10
+	none	=Window to Desktop 11
+	none	=Window to Desktop 12
+	none	=Window to Desktop 13
+	none	=Window to Desktop 14
+	none	=Window to Desktop 15
+	none	=Window to Desktop 16
+	none	=Window to Desktop 17
+	none	=Window to Desktop 18
+	none	=Window to Desktop 19
+	none	=Window to Desktop 20
+	none	=Window to Next Desktop
+	none	=Window to Previous Desktop
+	none	=Window One Desktop Down
+	none	=Window One Desktop Up
+	none	=Window One Desktop to the Left
+	none	=Window One Desktop to the Right
+
+Screens - none
+	none	=Switch to Screen 0
+	none	=Switch to Screen 1
+	none	=Switch to Screen 2
+	none	=Switch to Screen 3
+	none	=Switch to Screen 4
+	none	=Switch to Screen 5
+	none	=Switch to Screen 6
+	none	=Switch to Screen 7
+	none	=Switch to Next Screen
+	none	=Switch to Previous Screen
+	none	=Window to Screen 0
+	none	=Window to Screen 1
+	none	=Window to Screen 2
+	none	=Window to Screen 3
+	none	=Window to Screen 4
+	none	=Window to Screen 5
+	none	=Window to Screen 6
+	none	=Window to Screen 7
+	none	=Window to Next Screen
+	none	=Window to Previous Screen
+
+Window Quick Tiles - 8 шт. - none
+	none	=Window Quick Tile Left
+	none	=Window Quick Tile Right
+	none	=Window Quick Tile Top
+	none	=Window Quick Tile Bottom
+	none	=Window Quick Tile Top Left
+	none	=Window Quick Tile Top Right
+	none	=Window Quick Tile Bottom Left
+	none	=Window Quick Tile Bottom Right
+
+Zoom экрана - Meta+(=, -, 0, стрелки)
+	Meta+0	=view_actual_size
+	Meta+=	=view_zoom_in
+	Meta+-	=view_zoom_out
+	Meta+Left	=MoveZoomLeft
+	Meta+Right	=MoveZoomRight
+	Meta+Up		=MoveZoomUp
+	Meta+Down	=MoveZoomDown
+
+none	=Decrease Opacity
+none	=Increase Opacity
+none	=Invert Screen Colors
+none	=Remove Window From Group
+none	=Setup Window Shortcut
+
+
+=== [plasmashell][Global Shortcuts] ===
+Meta+A		=activate widget 2
+
+none		=clear-history
+none		=edit_clipboard
+Ctrl+Alt+X	=clipboard_action
+
+none		=cycleNextAction
+none		=cyclePrevAction
+Ctrl+Alt+R	=repeat_action
+
+Комнаты
+	Meta+Q		=manage activities
+	Meta+Tab		=next activity
+	Meta+Shift+Tab	=previous activity
+	Meta+S		=stop current activity
+
+
+Ctrl+F12	=show dashboard
+none		=show-barcode
+none		=show-on-mouse-pos

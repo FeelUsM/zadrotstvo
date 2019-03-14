@@ -1,0 +1,28 @@
+<Qucs Schematic 0.0.19>
+<Properties>
+  <View=0,0,800,800,1,0,0>
+  <Grid=10,10,0>
+  <DataSet=scheme1.dat>
+  <DataDisplay=scheme1.sch>
+  <OpenDisplay=1>
+  <Script=scheme1.m>
+  <RunScript=0>
+  <showFrame=0>
+  <FrameText0=Название>
+  <FrameText1=Чертил:>
+  <FrameText2=Дата:>
+  <FrameText3=Версия:>
+</Properties>
+<Symbol>
+</Symbol>
+<Components>
+</Components>
+<Wires>
+</Wires>
+<Diagrams>
+  <Tab 60 230 300 200 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 0 1 1 315 0 225 "" "" "">
+	<"u1.V" #0000ff 0 3 1 0 0>
+  </Tab>
+</Diagrams>
+<Paintings>
+</Paintings>

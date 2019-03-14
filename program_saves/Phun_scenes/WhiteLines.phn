@@ -1,0 +1,505 @@
+// Phun scene created by Phun beta 4.12
+
+FileInfo.title = "WhiteLines";
+FileInfo.author = "emilk";
+FileInfo.description = "Controil with WSAD and arrow keys";
+FileInfo.version = 2;
+Sim.gravity = [0.0, -9.800000190734863];
+Sim.gravitySwitch = false;
+Sim.airSwitch = false;
+Sim.airFrictionLinear = 0.009999999776482582;
+Sim.airFrictionQuadratic = 0.0;
+Sim.rotFrictionLinear = 0.009999999776482582;
+Sim.airDensity = 0.009999999776482582;
+Sim.timeFactor = 1.0;
+App.borders = true;
+App.waterColor = [0.1000000238418579, 0.1000000238418579, 1.0, 0.699999988079071];
+Scene.Camera.pan = [322.5696411132813, 0.7810934185981751];
+Scene.Camera.zoom = 65.29129028320313;
+App.Background.cloudOpacity = 0.8999999761581421;
+App.Background.drawClouds = false;
+App.Background.skyColor = [0.0, 0.0, 0.0, 1.0];
+App.fadeColor = [0, 0, 0];
+Scene.addCircle {
+    geomID = 64890;
+    entityID = 56;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [321.4693603515625, -1.896881103515625];
+    forceController = "keys up right down left";
+    zDepth = 0.0;
+    radius = 0.1233877688646317;
+    angle = 0.6019704341888428
+};
+Scene.addCircle {
+    geomID = 64891;
+    entityID = 57;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [319.8158569335938, -3.218875408172607];
+    forceController = "keys up right down left";
+    zDepth = 1.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 0.3705309927463532
+};
+Scene.addCircle {
+    geomID = 64892;
+    entityID = 58;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [322.9356384277344, -0.1714570075273514];
+    forceController = "keys up right down left";
+    zDepth = 2.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 0.6707153916358948
+};
+Scene.addCircle {
+    geomID = 64893;
+    entityID = 59;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [318.16162109375, -4.071784973144531];
+    forceController = "keys w d s a";
+    zDepth = 3.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 0.8714908957481384
+};
+Scene.addCircle {
+    geomID = 64894;
+    entityID = 60;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [324.0366821289063, 2.015569925308228];
+    forceController = "keys up right down left";
+    zDepth = 4.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = -0.7764761447906494
+};
+Scene.addCircle {
+    geomID = 64895;
+    entityID = 61;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [316.6993713378906, -4.857896327972412];
+    forceController = "keys w d s a";
+    zDepth = 5.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 1.678401350975037
+};
+Scene.addCircle {
+    geomID = 64896;
+    entityID = 62;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [323.63427734375, 3.813617706298828];
+    forceController = "keys up right down left";
+    zDepth = 6.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 0.3142141103744507
+};
+Scene.addCircle {
+    geomID = 64897;
+    entityID = 63;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [315.0067443847656, -5.242056369781494];
+    forceController = "keys w d s a";
+    zDepth = 7.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 0.2734130322933197
+};
+Scene.addCircle {
+    geomID = 64898;
+    entityID = 64;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [322.2159118652344, 4.309825897216797];
+    forceController = "keys up right down left";
+    zDepth = 8.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 3.140032529830933
+};
+Scene.addCircle {
+    geomID = 64899;
+    entityID = 65;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [313.4854125976563, -4.93403434753418];
+    forceController = "keys w d s a";
+    zDepth = 9.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 1.364430546760559
+};
+Scene.addCircle {
+    geomID = 64900;
+    entityID = 66;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [320.6137084960938, 4.002673625946045];
+    forceController = "keys up right down left";
+    zDepth = 10.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 2.678918600082398
+};
+Scene.addCircle {
+    geomID = 64901;
+    entityID = 67;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [313.0369262695313, -3.056179046630859];
+    forceController = "keys w d s a";
+    zDepth = 11.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = -0.9389930963516235
+};
+Scene.addCircle {
+    geomID = 64902;
+    entityID = 68;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [319.0991516113281, 3.112399816513062];
+    forceController = "keys up right down left";
+    zDepth = 12.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = 2.042923450469971
+};
+Scene.addCircle {
+    geomID = 64903;
+    entityID = 69;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [314.065185546875, -1.034494876861572];
+    forceController = "keys w d s a";
+    zDepth = 13.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = -1.253711104393005
+};
+Scene.addCircle {
+    geomID = 64904;
+    entityID = 70;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [317.3594055175781, 2.01378059387207];
+    forceController = "keys w d s a";
+    zDepth = 14.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = -0.600844144821167
+};
+Scene.addCircle {
+    geomID = 64905;
+    entityID = 71;
+    color = [0.9524065852165222, 0.1282418370246887, 0.4341053366661072, 0.0];
+    pos = [315.7372436523438, 0.6753157377243042];
+    forceController = "keys w d s a";
+    zDepth = 15.0;
+    radius = 0.1233877688646317;
+    controllerAcc = 10.80000019073486;
+    angle = -1.500636339187622
+};
+Scene.addPen {
+    geom = 64890;
+    relPoint = [-0.005803585052490234, -0.005803704261779785];
+    entityID = 72;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 16.0
+};
+Scene.addPen {
+    geom = 64891;
+    relPoint = [-0.005804301239550114, -0.005803018808364868];
+    entityID = 73;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 17.0
+};
+Scene.addPen {
+    geom = 64892;
+    relPoint = [-0.005803927779197693, -0.00580318458378315];
+    entityID = 74;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 18.0
+};
+Scene.addPen {
+    geom = 64893;
+    relPoint = [-0.005803801119327545, -0.005803608801215887];
+    entityID = 75;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 19.0
+};
+Scene.addPen {
+    geom = 64894;
+    relPoint = [-0.005804753862321377, -0.00580224534496665];
+    entityID = 76;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 20.0
+};
+Scene.addPen {
+    geom = 64895;
+    relPoint = [-0.005804507993161678, -0.005802669562399387];
+    entityID = 77;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 21.0
+};
+Scene.addPen {
+    geom = 64896;
+    relPoint = [-0.00580340763553977, -0.005804054904729128];
+    entityID = 78;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 22.0
+};
+Scene.addPen {
+    geom = 64897;
+    relPoint = [-0.005802684929221869, -0.005804955959320068];
+    entityID = 79;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 23.0
+};
+Scene.addPen {
+    geom = 64898;
+    relPoint = [-0.005803041160106659, -0.005804546177387238];
+    entityID = 80;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 24.0
+};
+Scene.addPen {
+    geom = 64899;
+    relPoint = [-0.005802557338029146, -0.005804970860481262];
+    entityID = 81;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 25.0
+};
+Scene.addPen {
+    geom = 64900;
+    relPoint = [-0.00580143928527832, -0.005806630942970514];
+    entityID = 82;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 26.0
+};
+Scene.addPen {
+    geom = 64901;
+    relPoint = [-0.005800955463200808, -0.005807055160403252];
+    entityID = 83;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 27.0
+};
+Scene.addPen {
+    geom = 64902;
+    relPoint = [-0.005801755469292402, -0.005806267727166414];
+    entityID = 84;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 28.0
+};
+Scene.addPen {
+    geom = 64903;
+    relPoint = [-0.005801986437290907, -0.005805738735944033];
+    entityID = 85;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 29.0
+};
+Scene.addPen {
+    geom = 64904;
+    relPoint = [-0.005801912397146225, -0.005806006956845522];
+    entityID = 86;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 30.0
+};
+Scene.addPen {
+    geom = 64905;
+    relPoint = [-0.005802466068416834, -0.005805396474897862];
+    entityID = 87;
+    color = [1.0, 1.0, 1.0, 1.0];
+    zDepth = 31.0
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007128884084522724, -0.0003967629454564303];
+    entityID = 88;
+    geom1pos = [-0.01149493362754583, 0.01046888437122107];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 32.0;
+    geom0 = 64892;
+    geom1 = 64890
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007127743680030108, -0.0003953745181206614];
+    entityID = 89;
+    geom1pos = [-0.01152306701987982, 0.01047654449939728];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 33.0;
+    geom0 = 64893;
+    geom1 = 64891
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.00713539170101285, -0.0003731792094185948];
+    entityID = 90;
+    geom1pos = [-0.006710064131766558, 0.01795455440878868];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 34.0;
+    geom0 = 64894;
+    geom1 = 64892
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007116056513041258, -0.0003853708039969206];
+    entityID = 91;
+    geom1pos = [-0.006708337925374508, 0.01795470528304577];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 35.0;
+    geom0 = 64895;
+    geom1 = 64893
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007111678365617991, -0.0003914606058970094];
+    entityID = 92;
+    geom1pos = [-0.002092447131872177, 0.01185146998614073];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 36.0;
+    geom0 = 64896;
+    geom1 = 64894
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007105960976332426, -0.0003822269209194928];
+    entityID = 93;
+    geom1pos = [-0.00210183160379529, 0.01187547296285629];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 37.0;
+    geom0 = 64897;
+    geom1 = 64895
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007108582649379969, -0.0003866920596919954];
+    entityID = 94;
+    geom1pos = [-0.006724889855831862, 0.01795466430485249];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 38.0;
+    geom0 = 64898;
+    geom1 = 64896
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007119723595678806, -0.0003715507627930492];
+    entityID = 95;
+    geom1pos = [-0.006735016591846943, 0.01796155981719494];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 39.0;
+    geom0 = 64899;
+    geom1 = 64897
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007132274564355612, -0.0003859477874357253];
+    entityID = 96;
+    geom1pos = [0.01857717894017696, 0.003476896788924933];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 40.0;
+    geom0 = 64900;
+    geom1 = 64898
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.0071109882555902, -0.0004009460390079767];
+    entityID = 97;
+    geom1pos = [0.01859649457037449, 0.003496485063806176];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 41.0;
+    geom0 = 64901;
+    geom1 = 64899
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007120579015463591, -0.0003777153906412423];
+    entityID = 98;
+    geom1pos = [0.004018719308078289, 0.01645409315824509];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 42.0;
+    geom0 = 64902;
+    geom1 = 64900
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007129495032131672, -0.0003738490922842175];
+    entityID = 99;
+    geom1pos = [0.004020301159471273, 0.01645872741937637];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 43.0;
+    geom0 = 64903;
+    geom1 = 64901
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.00711664604023099, -0.0003896285488735884];
+    entityID = 100;
+    geom1pos = [0.0001011744607239962, 0.04706744477152824];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 44.0;
+    geom0 = 64904;
+    geom1 = 64902
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [-0.001413249876350164, 0.008177280426025391];
+    entityID = 101;
+    geom1pos = [0.0001071703009074554, 0.04708954691886902];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 45.0;
+    geom0 = 64905;
+    geom1 = 64903
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.007115582004189491, -0.000376225303625688];
+    entityID = 102;
+    geom1pos = [-0.01098651066422463, 0.002110215136781335];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 46.0;
+    geom0 = 64905;
+    geom1 = 64904
+};
+Scene.addSpring {
+    length = 0.3529535830020905;
+    geom0pos = [0.009348765946924686, 0.008750008419156075];
+    entityID = 103;
+    geom1pos = [-0.01733684539794922, 0.002774174557998776];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.08642921596765518;
+    zDepth = 47.0;
+    geom0 = 64891;
+    geom1 = 64890
+};
+Scene.addGroup {
+    name = "";
+    entityIDs = [77, 74, 75, 79, 82, 84, 80, 81, 87, 78, 85, 86, 83, 73, 72, 76]
+};
+Scene.addGroup {
+    name = "selected";
+    entityIDs = []
+};
+Scene.addGroup {
+    name = "";
+    entityIDs = [101, 89, 97, 102, 100, 95, 90, 103, 98, 96, 92, 93, 94, 88, 91, 99]
+};
+Scene.addGroup {
+    name = "tracked";
+    entityIDs = [66, 58, 75, 63, 60, 101, 100, 74, 80, 70, 65, 62, 88, 103, 71, 90, 98, 77, 78, 81, 61, 57, 87, 89, 86, 99, 76, 97, 83, 72, 85, 102, 59, 68, 96, 91, 82, 84, 64, 93, 69, 79, 67, 56, 94, 73, 95, 92]
+};
+Scene.addGroup {
+    name = "";
+    entityIDs = [64, 58, 66, 61, 70, 59, 57, 67, 71, 60, 65, 68, 69, 63, 62, 56]
+}

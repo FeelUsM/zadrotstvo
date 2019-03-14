@@ -1,0 +1,98 @@
+// Phun scene created by Phun beta 4.12
+
+FileInfo.title = "Cycloid";
+FileInfo.author = "emilk";
+FileInfo.description = "Example of four cycloid curves";
+FileInfo.version = 2;
+Sim.gravity = [0.0, -9.800000190734863];
+Sim.gravitySwitch = true;
+Sim.airSwitch = true;
+Sim.airFrictionLinear = 0.009999999776482582;
+Sim.airFrictionQuadratic = 0.0;
+Sim.rotFrictionLinear = 0.009999999776482582;
+Sim.airDensity = 0.009999999776482582;
+Sim.timeFactor = 1.0;
+App.borders = true;
+App.waterColor = [0.1000000014901161, 0.1000000014901161, 1.0, 0.699999988079071];
+Scene.Camera.pan = [-0.01156476233154535, -1.638461947441101];
+Scene.Camera.zoom = 98.9630126953125;
+App.Background.cloudOpacity = 0.8999999761581421;
+App.Background.drawClouds = true;
+App.Background.skyColor = [0.300000011920929, 0.4000000059604645, 1.0, 1.0];
+App.fadeColor = [0.0, 0.0, 0.0];
+Scene.addCircle {
+    geomID = 167457;
+    entityID = 331;
+    body = 504;
+    color = [0.384973406791687, 0.384973406791687, 0.384973406791687, 0.7764227390289307];
+    pos = [-3.772110223770142, -1.505297183990479];
+    zDepth = 0.0;
+    collideSet = 0;
+    radius = 0.8292397260665894;
+    angle = 0.03127849102020264
+};
+Scene.addCircle {
+    geomID = 167458;
+    entityID = 332;
+    body = 504;
+    color = [0.7237622737884521, 0.7040030360221863, 0.6761064529418945, 1.0];
+    pos = [-3.773548603057861, -1.505512475967407];
+    zDepth = 1.0;
+    radius = 0.3599675893783569;
+    angle = 0.03127849102020264
+};
+Scene.addPlane {
+    entityID = 333;
+    color = [0.4625667929649353, 0.4625667929649353, 0.4625667929649353, 0.7195122241973877];
+    pos = [-0.7046718597412109, -2.196569919586182];
+    angle = 1.463993310928345;
+    collideSet = -1;
+    geomID = 167459;
+    zDepth = 2.0
+};
+Scene.addFixjoint {
+    geom0pos = [0.003789036301895976, -0.0003400702262297273];
+    entityID = 334;
+    geom1pos = [0.00234469654969871, -0.0005101818824186921];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.03275054693222046;
+    zDepth = 3.0;
+    geom0 = 167458;
+    geom1 = 167457
+};
+Scene.addPen {
+    geom = 167458;
+    relPoint = [0.002374172210693359, 0.1595081090927124];
+    entityID = 335;
+    color = [1.0, 0.9756097197532654, 0.0, 1.0];
+    size = 0.07524099200963974;
+    zDepth = 4.0
+};
+Scene.addPen {
+    geom = 167458;
+    relPoint = [0.005707502365112305, 0.3428415060043335];
+    entityID = 336;
+    color = [0.0, 1.0, 0.3658533096313477, 1.0];
+    size = 0.07524099200963974;
+    zDepth = 5.0
+};
+Scene.addPen {
+    geom = 167457;
+    relPoint = [0.01464200019836426, 0.5811753869056702];
+    entityID = 337;
+    color = [0.2666473388671875, 0.0, 1.0, 1.0];
+    size = 0.07524099200963974;
+    zDepth = 6.0
+};
+Scene.addPen {
+    geom = 167457;
+    relPoint = [0.02442049793899059, 0.7936781048774719];
+    entityID = 338;
+    color = [1.0, 0.165863037109375, 0.1658633351325989, 1.0];
+    size = 0.07524099200963974;
+    zDepth = 7.0
+};
+Scene.addGroup {
+    name = "selected";
+    entityIDs = []
+}

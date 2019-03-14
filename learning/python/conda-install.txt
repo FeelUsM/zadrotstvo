@@ -1,0 +1,38 @@
+conda
+pip
+libtiff
+
+
+conda install                menuinst
+	1.8 MB
+conda install -c anaconda    jupyter
+	222.7 MB
+conda install -c conda-forge jupyter_contrib_nbextensions
+	32.2 MB
+	http://localhost:8888/nbextensions
+conda install -c conda-forge jupyterlab
+conda install -c conda-forge nodejs
+conda install -c anaconda    spyder
+
+conda install -c anaconda    ipyparallel
+
+conda install -c anaconda    sympy
+	10.5 MB
+conda install -c conda-forge qutip
+	192.9 MB
+	conda install -c anaconda scipy
+		conda install -c anaconda numpy
+	conda install -c anaconda cython
+conda install -c anaconda    pandas
+	9.9 MB
+conda install -c conda-forge matplotlib
+	7.1 MB
+
+conda install -c conda-forge keras
+	conda install -c conda-forge tensorflow
+	conda install -c conda-forge theano
+
+conda install -c anaconda    networkx 
+conda install -c anaconda    graphviz
+
+conda install -c c3i_test2   console_shortcut

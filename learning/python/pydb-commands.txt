@@ -1,0 +1,92 @@
+w     	печатает стек
+bt     
+where 
+
+u          
+up    сдвигает фрейм стека куда-то
+
+d          
+down     
+
+l         печатает текущие тсроки кода
+
+ll        печатает текущие тсроки кода, только поменьше
+
+------------
+b      
+break  точки останова: печать и установка
+
+cl         
+clear      удаление точек останова
+
+j         
+jump lineno     устанавливает заданную строку следующей, которая будет выполняться
+
+s          шаг со входом
+step       
+
+n         
+next    шаг без входа
+
+r        
+return   выполнять до конца ф-ции
+
+c      
+cont       
+continue   выполнять до точки останова
+
+unt   
+until выполнять до ...
+
+-----------
+whatis arg  печатает тип arg
+
+p expr      печатает выражение
+
+pp expr     pretty print
+
+a      
+args   аргументы текущей функции
+
+rv         
+retval   печатает значение последней выполненной ф-ции
+
+display  
+undisplay
+
+----
+h        
+help     
+
+q        
+quit     
+exit     выход из ipdb
+
+source     
+psource  
+
+tbreak     
+restart  
+run      
+
+pdef    
+pdoc    
+pfile   
+pinfo   
+pinfo2  
+
+interact  
+list      
+longlist  
+
+disable  
+enable   
+
+ignore   
+commands   
+condition  
+debug      
+EOF    
+
+alias  
+unalias  

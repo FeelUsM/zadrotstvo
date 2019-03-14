@@ -1,0 +1,265 @@
+{
+шрифт, цвет
+    "color_scheme": "Monokai.sublime-color-scheme",
+    "font_face": "",
+    "font_size": 10,
+    //  - "no_bold": Disables bold text
+    //  - "no_italic": Disables italic text
+    //  - "no_antialias": Disables antialiasing
+    //  - "gray_antialias": Uses grayscale antialiasing instead of subpixel
+    //  - "no_liga": Disables standard ligatures (OpenType liga feature)
+    //  - "no_clig": Disables contextual ligatures (OpenType clig feature)
+    //  - "no_calt": Disables contextual alternatives (OpenType calt feature)
+    //  - "dlig": Enables discretionary ligatures (OpenType dlig feature)
+    //  - "ss01": Enables OpenType stylistic set 1. Can enable sets 1 to 10
+    //  - "directwrite": (default) Use DirectWrite for font rendering
+    //  - "gdi": Use GDI for font rendering
+    //  - "dwrite_cleartype_classic": Only applicable to "directwrite" mode,
+    //  - "dwrite_cleartype_natural": Only applicable to "directwrite" mode,
+    //  - "subpixel_antialias": Force ClearType antialiasing when disabled
+    //  - "no_round": Don't round glyph widths for monospace fonts when
+    "font_options": [],
+    "theme_font_options": [],
+    "line_padding_top": 0,
+    "line_padding_bottom": 0,
+каретка
+    // Valid values are "smooth", "phase", "blink" and "solid".
+    "caret_style": "smooth",
+    "caret_extra_top": 2,
+    "caret_extra_bottom": 2,
+    "caret_extra_width": 1,
+
+    "word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
+отображение номеров строк, левых полей, кнопок code_folding-а, правых полей
+    "line_numbers": true,
+    "gutter": true,
+    "margin": 4,
+    "fold_buttons": true,
+    "fade_fold_buttons": true,
+    "rulers": [],
+табуляция
+    "tab_size": 4,
+    "translate_tabs_to_spaces": false,
+    "use_tab_stops": true,
+отступы
+    "trim_automatic_white_space": true,
+    "detect_indentation": true,
+    "auto_indent": true,
+    "smart_indent": true,
+    "indent_to_bracket": false,
+    "shift_tab_unindent": false,
+    "draw_indent_guides": true,
+    // "draw_normal" and "draw_active". draw_active will draw the indent
+    "indent_guide_options": ["draw_normal"],
+автоперенос длинных строк
+    "word_wrap": "auto",
+    "wrap_width": 0,
+    "indent_subsequent_lines": true,
+    "draw_centered": false,
+spell_check
+    "spell_check": false,
+    "dictionary": "Packages/Language - English/en_US.dic",
+    "spelling_selector": "markup.raw, source string.quoted - punctuation - meta.preprocessor.include, source comment - source comment.block.preprocessor, -(source, constant, keyword, storage, support, variable, markup.underline.link, meta.tag)",
+minimap
+    "draw_minimap_border": false,
+    "always_show_minimap_viewport": false,
+подсветка при выделении
+    "highlight_line": false,
+    "match_selection": true,
+подстановка и подсветка парных скобок и тегов
+    "auto_match_enabled": true,
+    "match_brackets": true,
+    "match_brackets_content": true,
+    "match_brackets_square": true,
+    "match_brackets_braces": true,
+    "match_brackets_angle": false,
+    "match_tags": true,
+    "auto_close_tags": true,
+
+    // Set to false to disable scrolling past the end of the buffer.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    "scroll_past_end": true,
+
+    // This controls what happens when pressing up or down when on the first
+    // or last line.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    "move_to_limit_on_up_down": false,
+отображение непечатаемых символов
+    "draw_white_space": "selection",
+
+    "trim_trailing_white_space_on_save": false,
+    "ensure_newline_at_eof_on_save": false,
+    "save_on_focus_lost": false,
+    "atomic_save": false,
+    "fallback_encoding": "Western (Windows 1252)",
+    "default_encoding": "UTF-8",
+    "enable_hexadecimal_encoding": true,
+    "default_line_ending": "system",
+
+    "show_definitions": true,
+    "tab_completion": true,
+    "auto_complete": true,
+    "auto_complete_size_limit": 4194304,
+    "auto_complete_delay": 50,
+    "auto_complete_selector": "meta.tag - punctuation.definition.tag.begin, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc",
+    "auto_complete_triggers": [ {"selector": "text.html", "characters": "<"} ],
+    "auto_complete_commit_on_tab": false,
+    "auto_complete_with_fields": false,
+    "auto_complete_cycle": false,
+
+
+    // If true, the copy and cut commands will operate on the current line
+    // when the selection is empty, rather than doing nothing.
+    "copy_with_empty_selection": true,
+
+    // If true, the selected text will be copied into the find panel when it's
+    // shown.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    "find_selected_text": true,
+
+    // When auto_find_in_selection is enabled, the "Find in Selection" flag
+    // will be enabled automatically when multiple lines of text are selected
+    "auto_find_in_selection": false,
+
+    // When drag_text is enabled, clicking on selected text will begin a
+    // drag-drop operation. This is not currently implemented under Linux.
+    "drag_text": true,
+
+    //
+    // User Interface Settings
+    //
+
+    // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
+    "theme": "Default.sublime-theme",
+
+    // Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to
+    // scroll slower, or set to larger than 1 to scroll faster
+    "scroll_speed": 1.0,
+
+    // Controls side bar animation when expanding or collapsing folders
+    "tree_animation_enabled": true,
+
+    // Controls animation throughout the application
+    "animation_enabled": true,
+
+    // Makes tabs with modified files more visible
+    "highlight_modified_tabs": false,
+
+    "show_tab_close_buttons": true,
+
+    // Show folders in the side bar in bold
+    "bold_folder_labels": false,
+
+    // Draw divider lines between sections of the UI when using the Adaptive theme
+    "adaptive_dividers": true,
+
+    // Mac only. Valid values are true, false, and "auto". Auto will enable
+    "gpu_window_buffer": "auto",
+вертикальные полосы прокрутки
+    // Valid values are "system", "enabled" and "disabled"
+    "overlay_scroll_bars": "system",
+поведение области вкладок
+    "enable_tab_scrolling": true,
+статусбар
+    "show_encoding": false,
+    "show_line_endings": false,
+
+    // Magnifies the entire user interface. Sublime Text must be restarted for
+    // this to take effect.
+    "ui_scale": 1.0,
+
+    // Linux only. Sets the app DPI scale - a decimal number such as 1.0, 1.5,
+    // 2.0, etc. A value of 0 auto-detects the DPI scale. Sublime Text must be
+    // restarted for this to take effect.
+    "dpi_scale": 0,
+
+    //
+    // Application Behavior Settings
+    //
+
+    // Exiting the application with hot_exit enabled will cause it to close
+    // immediately without prompting. Unsaved modifications and open files will
+    // be preserved and restored when next starting.
+    //
+    // Closing a window with an associated project will also close the window
+    // without prompting, preserving unsaved changes in the workspace file
+    // alongside the project.
+    "hot_exit": true,
+
+    // remember_full_screen will allow Sublime Text to start in full screen
+    // mode if it was exited in full screen mode. When set to false, Sublime
+    // Text will never start in full screen mode.
+    "remember_full_screen": false,
+
+    // Mac only. If the user's default shell should be invoked to obtain the
+    // user's customized environment variables. May be a boolean, or a string
+    // of the path the shell to invoke. Sublime Text must be restarted for this
+    // to take effect.
+    "shell_environment": true,
+
+    // Always prompt before reloading a file, even if the file hasn't been
+    // modified. The default behavior is to automatically reload a file if it
+    // hasn't been edited. If a file has unsaved changes, a prompt will always
+    // be shown.
+    "always_prompt_for_file_reload": false,
+
+    // Mac only: When files are opened from finder, or by dragging onto the
+    // dock icon, this controls if a new window is created or not.
+    "open_files_in_new_window": true,
+
+    // Mac only: This controls if an empty window is created at startup or not.
+    "create_window_at_startup": true,
+
+    // Mac only: Show recent files on the Touch Bar.
+    "show_navigation_bar": true,
+
+    // Set to true to close windows as soon as the last file is closed, unless
+    // there's a folder open within the window.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    "close_windows_when_empty": false,
+
+    // Show the full path to files in the title bar.
+    // On Mac, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    "show_full_path": true,
+
+    // Shows the Build Results panel when building. If set to false, the Build
+    // Results can be shown via the Tools/Build Results menu.
+    "show_panel_on_build": true,
+
+    // Shows build errors just under the line on which they occur.
+    "show_errors_inline": true,
+
+    // Preview file contents when clicking on a file in the side bar. Double
+    // clicking or editing the preview will open the file and assign it a tab.
+    "preview_on_click": true,
+
+    // folder_exclude_patterns and file_exclude_patterns control which files
+    // are listed in folders on the side bar. These can also be set on a per-
+    // project basis.
+    "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS"],
+    "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.sublime-workspace"],
+    // These files will still show up in the side bar, but won't be included in
+    // Goto Anything or Find in Files
+    "binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"],
+
+    // File indexing parses all files in the side bar, and builds an index of
+    // their symbols. This is required for Goto Definition to work.
+    "index_files": true,
+
+    // Set the number threads to use for indexing. A value of 0 will make
+    // Sublime Text guess based on the number of cores. Use the index_files
+    // setting to disable all workers.
+    "index_workers": 0,
+
+    // index_exclude_patterns indicate which files won't be indexed.
+    "index_exclude_patterns": ["*.log"],
+
+    // List any packages to ignore here. When removing entries from this list,
+    // a restart may be required if the package contains plugins.
+    "ignored_packages": ["Vintage"]
+}

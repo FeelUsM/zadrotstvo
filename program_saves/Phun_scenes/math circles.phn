@@ -1,0 +1,211 @@
+// Phun scene created by Phun beta 4.12
+
+FileInfo.title = "math circles";
+FileInfo.author = "dark3negy";
+FileInfo.version = 2;
+Sim.gravity = [0.0, -9.800000190734863];
+Sim.gravitySwitch = true;
+Sim.airSwitch = true;
+Sim.airFrictionLinear = 0.009999999776482582;
+Sim.airFrictionQuadratic = 0.0;
+Sim.rotFrictionLinear = 0.009999999776482582;
+Sim.airDensity = 0.009999999776482582;
+Sim.timeFactor = 1.0;
+App.borders = true;
+App.waterColor = [0.1000000014901161, 0.1000000014901161, 1.0, 0.699999988079071];
+Scene.Camera.pan = [366.8100280761719, -84.60579681396484];
+Scene.Camera.zoom = 3.000000476837158;
+App.Background.cloudOpacity = 0.8999999761581421;
+App.Background.drawClouds = true;
+App.Background.skyColor = [0.300000011920929, 0.4000000059604645, 1.0, 1.0];
+App.fadeColor = [0.0, 0.0, 0.0];
+Scene.addBox {
+    entityID = 356;
+    color = [0.6996318697929382, 0.9790775179862976, 0.9056648015975952, 0.0];
+    pos = [368.2285766601562, 0.9597553610801697];
+    angle = -2.655211687088013;
+    size = [1.194198250770569, 48.12609100341797];
+    geomID = 443366;
+    zDepth = 0.0
+};
+Scene.addBox {
+    entityID = 357;
+    color = [0.6996318697929382, 0.9790775179862976, 0.9056648015975952, 0.0];
+    pos = [505.9003601074219, -4.041192054748535];
+    angle = -2.441037654876709;
+    size = [1.194198250770569, 48.12609100341797];
+    geomID = 443367;
+    zDepth = 1.0
+};
+Scene.addBox {
+    entityID = 358;
+    color = [0.6996318697929382, 0.9790775179862976, 0.9056648015975952, 0.0];
+    pos = [448.6530151367188, -133.1006469726562];
+    angle = -1.980573177337646;
+    size = [1.194198250770569, 48.12609100341797];
+    geomID = 443368;
+    zDepth = 2.0
+};
+Scene.addBox {
+    entityID = 359;
+    color = [0.3313153982162476, 0.5554723143577576, 0.6760107278823853, 0.0];
+    pos = [382.8158264160156, -14.28024959564209];
+    angle = -0.5471709966659546;
+    size = [0.9308462738990784, 13.82059669494629];
+    geomID = 443369;
+    zDepth = 6.0
+};
+Scene.addBox {
+    entityID = 360;
+    color = [0.3313153982162476, 0.5554723143577576, 0.6760107278823853, 0.0];
+    pos = [524.5586547851562, -16.46009063720703];
+    angle = -0.5489321351051331;
+    size = [0.9308462738990784, 13.82059669494629];
+    geomID = 443370;
+    zDepth = 7.0
+};
+Scene.addBox {
+    entityID = 361;
+    color = [0.3313153982162476, 0.5554723143577576, 0.6760107278823853, 0.0];
+    pos = [466.949462890625, -148.216552734375];
+    angle = 2.728206157684326;
+    size = [0.9308462738990784, 13.82059669494629];
+    geomID = 443371;
+    zDepth = 8.0
+};
+Scene.addHinge {
+    motorSpeed = 9.967180252075195;
+    geom0pos = [-0.04266609624028206, -22.6411304473877];
+    entityID = 362;
+    geom1pos = [357.230712890625, 21.33660697937012];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 1.541696429252625;
+    zDepth = 3.0;
+    geom0 = 443366;
+    motorTorque = +inf;
+    motor = true;
+    geom1 = 0
+};
+Scene.addHinge {
+    motorSpeed = 9.967180252075195;
+    geom0pos = [-0.04263844713568687, -22.64116287231445];
+    entityID = 363;
+    geom1pos = [490.8225402832031, 13.53234386444092];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 1.541696429252625;
+    zDepth = 4.0;
+    geom0 = 443367;
+    motorTorque = +inf;
+    motor = true;
+    geom1 = 0
+};
+Scene.addHinge {
+    motorSpeed = 7.61669397354126;
+    geom0pos = [-0.0426170751452446, -22.64118385314941];
+    entityID = 364;
+    geom1pos = [427.5625915527344, -124.0146713256836];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 1.541696429252625;
+    zDepth = 5.0;
+    geom0 = 443368;
+    motorTorque = +inf;
+    motor = true;
+    geom1 = 0
+};
+Scene.addHinge {
+    motorSpeed = 18.2551326751709;
+    ccw = true;
+    geom0pos = [0.003849574830383062, -6.282713890075684];
+    entityID = 365;
+    geom1pos = [-0.01858947053551674, 23.00420951843262];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.5841937661170959;
+    zDepth = 9.0;
+    geom0 = 443369;
+    motor = true;
+    motorTorque = +inf;
+    geom1 = 443366
+};
+Scene.addHinge {
+    motorSpeed = 5.442013740539551;
+    ccw = true;
+    geom0pos = [0.003845966653898358, -6.282733917236328];
+    entityID = 366;
+    geom1pos = [-0.01855750940740108, 23.00420951843262];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.5841937661170959;
+    zDepth = 10.0;
+    geom0 = 443370;
+    motor = true;
+    motorTorque = +inf;
+    geom1 = 443367
+};
+Scene.addHinge {
+    motorSpeed = 31.26052665710449;
+    ccw = true;
+    geom0pos = [0.003839561948552728, -6.282729148864746];
+    entityID = 367;
+    geom1pos = [-0.01856018230319023, 23.00420570373535];
+    color = [0.5, 0.5, 0.5, 0.0];
+    size = 0.5841937661170959;
+    zDepth = 11.0;
+    geom0 = 443371;
+    motor = true;
+    motorTorque = +inf;
+    geom1 = 443368
+};
+Scene.addPen {
+    geom = 443369;
+    relPoint = [0.02001953125, 6.068283081054688];
+    entityID = 368;
+    color = [0.8259398341178894, 0.9262606501579285, 0.3526601195335388, 1.0];
+    size = 0.4237588047981262;
+    zDepth = 12.0;
+    fadeTime = 52.51326370239258
+};
+Scene.addPen {
+    geom = 443370;
+    relPoint = [0.02001156285405159, 6.068281173706055];
+    entityID = 369;
+    color = [0.8259398341178894, 0.9262606501579285, 0.3526601195335388, 1.0];
+    size = 0.4237588047981262;
+    zDepth = 13.0;
+    fadeTime = 31.15874290466309
+};
+Scene.addPen {
+    geom = 443371;
+    relPoint = [0.02001953125, 6.068290710449219];
+    entityID = 370;
+    color = [0.8259398341178894, 0.9262606501579285, 0.3526601195335388, 1.0];
+    size = 1.125167489051819;
+    zDepth = 14.0;
+    fadeTime = 24.70751571655273
+};
+Scene.addGroup {
+    name = "selected";
+    entityIDs = [364]
+};
+Scene.addWidget {
+    groupID = "hinge";
+    minimized = false;
+    entityIDs = [364];
+    pos = [-2.0, 251.0];
+    widgetID = "HingeOptions";
+    title = "Hinge options for hinge"
+};
+Scene.addWidget {
+    groupID = "hinge";
+    minimized = false;
+    entityIDs = [367];
+    pos = [242.0, 252.0];
+    widgetID = "HingeOptions";
+    title = "Hinge options for hinge"
+};
+Scene.addWidget {
+    groupID = "5 objects";
+    minimized = false;
+    entityIDs = [361, 367, 364, 370, 358];
+    pos = [-3.0, 462.0];
+    widgetID = "PenOptions";
+    title = "Pen options for 5 objects"
+}

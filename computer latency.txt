@@ -1,0 +1,29 @@
+https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html
+							2016	2014	2012	2010	2008	2006	2004	2002	2000	98	96	94	92	90
+1	L1 cache reference: 				1ns	1ns	1ns	1ns	1ns	1ns	1ns	3ns	6ns	11ns	23ns	45ns	91ns	181ns
+3	L2 cache reference: 				4ns	4ns	4ns	4ns	4ns	4ns	6ns	12ns	25ns	49ns	98ns	196ns	392ns	784ns
+5	Main memory reference: 				100ns	100ns	100ns	100ns	100ns	100ns	100ns	100ns	100ns	116ns	134ns	155ns	179ns	207ns
+8	SSD random read: 				16μs	16μs	16μs	17μs	17μs	17μs	17μs	18μs	18μs	18μs	18μs	18μs	19μs	19μs
+12	Disk seek: 					3ms	4ms	4ms	5ms	6ms	7ms	8ms	9ms	10ms	11ms	13ms	15ms	17ms	20ms
+
+9	Read 1,000,000 bytes sequentially from memory: 	7μs	12μs	19μs	30μs	47μs	75μs	120μs	190μs	301μs	479μs	760μs	1,206μs	1,914μs	3,038μs
+11	Read 1,000,000 bytes sequentially from SSD: 	123μs	196μs	311μs	494μs	784μs	1ms	2ms	3ms	5ms	8ms	13ms	20ms	32ms	50ms
+13	Read 1,000,000 bytes sequentially from disk: 	1ms	2ms	2ms	3ms	4ms	6ms	8ms	10ms	20ms	40ms	80ms	160ms	320ms	640ms
+7	Send 2,000 bytes over commodity network: 	177ns	354ns	707ns	1μs	3μs	6μs	11μs	23μs	45μs	91μs	181μs	362μs	724μs	1,448μs
+
+2	Branch mispredict: 				3ns	3ns	3ns	3ns	3ns	3ns	5ns	9ns	19ns	38ns	75ns	151ns	302ns	603ns
+4	Mutex lock/unlock: 				17ns	17ns	17ns	17ns	17ns	17ns	24ns	47ns	94ns	189ns	377ns	754ns	1,508ns	3,017ns
+6	Compress 1KB wth Zippy: 			2μs	2μs	2μs	2μs	2μs	2μs	3μs	6μs	11μs	23μs	45μs	91μs	181μs	362μs
+10	Round trip in same datacenter: 			500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs	500μs
+14	Packet roundtrip CA to Netherlands: 		150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms	150ms
+
+
+1 CPU cycle: 0.3 ns => to human scale 1s
+L1 cache access: 0.9ns => 3s
+L2 cache access: 2.8ns => 9s
+L3 cache access: 12.9ns => 43s
+Main memory access: 120ns => 6 min
+SSD Disk: 50-150 us => 2-6 days
+Rotational Disk: 1-10ms => 1-12months
+Internet: San Francisco to New york: 40ms => 4 years﻿
+

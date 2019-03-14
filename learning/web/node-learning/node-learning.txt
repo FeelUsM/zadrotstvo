@@ -1,0 +1,83 @@
+дополнения (вне языка)
+	C/C++ Addons	C/C++ + API V8
+	VM		require('vm')	компиляция и последующее выполнение javascript-кода
+	V8		require('v8')	HeapStatistics
+	Debugger	не является полноценным дебаггером, но пошаговое выполнение и инспекция присутствуют
+			npm i -g node-inspector + см. скринкаст
+поддержка языка
+	Utilities	require('util')
+		.debuglog('section') - возвращает функцию, которая аналогична console.error, и срабатывает, 
+			если определена переменная среды NODE_DEBUG=fs,section,tls
+		.deprecate(function, string) - оборачивает функцию и при первом ее вызове 
+			emit a DeprecationWarning using the process.on('warning') event.
+			влияния оказывают:
+				--no-deprecation or --no-warnings, process.noDeprecation
+				--trace-deprecation or --trace-warnings, process.traceDeprecation
+				--throw-deprecation, process.throwDeprecation
+		.format(format[, ...args]) - возвращает отформатированную строку, используется console.log()
+			%s, %d, %j, %%
+		.inspect(object[, options]) - красивое вывод объектов..., используется console.log()
+			+ внутри объектов свойство inspect(depth, opts)
+			? как выглядит строка, содержащая цвета и стили ?
+		.inherits(constructor, superConstructor) - для наследования,
+			это не то же самое, что и язкаовое наследование в ES6 ...
+	Globals
+	Modules
+	Errors	new Error(mes) /*standard JavaScript*/
+			.message = mes.toString()
+			.stack - указывает на точку в коде, где вызван new Error(mes)
+		  Error.captureStackTrace(targetObject[, constructorOpt])
+		  Error.stackTraceLimit
+		*	Standard JavaScript errors
+				<EvalError>
+				<SyntaxError>
+				<RangeError>
+				<ReferenceError>
+				<TypeError>
+				<URIError>
+		*	System errors
+				.code
+				.errno
+				.syscall
+		*	User-specified errors
+		*	Assertion Errors
+		синхронные функции кидают через throw
+		асинхронные: (невозможно поймать через try/catch)
+			берут callback-функцию (err,data)
+			EventEmitter и его наследники имеют событие 'error'
+				если при ошибке нет обработчика 'error', нужно использовать domain или process.on('uncaughtException')
+			иногда всё-таки кидают через throw (?)
+	Events	EventEmitter = require('events')
+	Timers
+	Assertion Testing
+система, и взаимодействие с ОС и др. процессами
+	Command Line Options
+	Process
+	REPL
+	Buffer
+	Stream
+	Console
+	TTY
+	Readline
+
+	File System
+	Path
+
+	OS
+	Domain
+	Child Processes
+	Cluster		require('cluster')	для запуска процессов, которые имеют общие порты
+сеть
+	Net
+	HTTP
+	HTTPS
+	UDP/Datagram
+	DNS
+	URL
+прочее
+	Query Strings
+	String Decoder
+	Crypto
+	TLS/SSL
+	Punycode
+	ZLIB

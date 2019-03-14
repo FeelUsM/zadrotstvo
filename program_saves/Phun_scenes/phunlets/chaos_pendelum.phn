@@ -1,0 +1,56 @@
+// Phunlet created by Phun beta 4.0
+
+FileInfo.title = "ChaosPendelum";
+FileInfo.author = "emilk";
+FileInfo.description = "A simple chaos pendelum with a pen to draw its path.";
+FileInfo.version = 2;
+Scene.addBox {
+    entityID = 10;
+    color = [0.106213390827179, 0.6929032802581787, 0.195571780204773, 1.0];
+    pos = [3.959161758422852, -1.658787846565247];
+    angle = 0.002678184537217021;
+    size = [0.1266665458679199, 2.586666584014893];
+    geomID = 12513;
+    zDepth = 1.0
+};
+Scene.addBox {
+    entityID = 9;
+    color = [0.106213390827179, 0.6929032802581787, 0.195571780204773, 1.0];
+    pos = [3.922935009002686, -4.120821952819824];
+    angle = -0.0267102587968111;
+    size = [0.1266665458679199, 2.586666584014893];
+    geomID = 12512;
+    zDepth = 0.0
+};
+Scene.addPen {
+    geom = 12513;
+    relPoint = [0.0005831718444824219, 1.21043074131012];
+    entityID = 11;
+    color = [0.7424495816230774, 0.01449006795883179, 0.01449032872915268, 1.0];
+    size = 0.1152377873659134;
+    zDepth = 2.0;
+    fadeTime = 17.44628524780273
+};
+Scene.addHinge {
+    geom0pos = [-0.00999966636300087, -1.233335733413696];
+    entityID = 12;
+    geom1pos = [3.880000114440918, -5.353333473205566];
+    color = [0.5, 0.5, 0.5, 1.0];
+    buttonForward = "right";
+    size = 0.2257217913866043;
+    buttonBreak = "down";
+    zDepth = 3.0;
+    geom0 = 12512;
+    geom1 = 0;
+    buttonBack = "left"
+};
+Scene.addHinge {
+    geom0pos = [-0.009999771602451801, -1.233336567878723];
+    entityID = 13;
+    geom1pos = [-0.003333065658807755, 1.22666323184967];
+    color = [0.5, 0.5, 0.5, 1.0];
+    size = 0.2257217913866043;
+    zDepth = 4.0;
+    geom0 = 12513;
+    geom1 = 12512
+}

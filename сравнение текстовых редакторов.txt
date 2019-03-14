@@ -1,0 +1,87 @@
+										search in files
+			CLI	GUI	macro	collaborBigfile	bigline	MLregex		win	linux
+Komodo Edit 		? 	? 	Yes[87]	No 	? 	? 	Yes 	Yes	y	y
+Komodo IDE 		? 	? 	Yes[87]	Yes 	? 	? 	Yes 	Yes	y	y
+SciTE 			? 	? 	Yes 	No 	No 	? 	No 	Yes	y	y
+RText 			No 	Y 	Yes 	No 	No 	? 	Yes 	?	y	y
+Atom			n	y	y	?	?	?	?	?	y	y
+Sublime			n	y	y	?	?	?	?	?	y	y
+
+GNU Emacs 		Yes 	Yes 	Yes 	Yes 	2 EB 	? 	Yes 	Yes	y	y
+XEmacs 			Yes 	Yes 	Yes 	Yes 	on  	? 	Yes 	Yes	y	y
+gedit 			Yes 	Yes 	Yes[80]	Plug-in	No 	? 	No 	No	y	y
+Alphatk 		Yes 	Yes 	Yes[74]	No 	? 	? 	? 	?	y	y
+KEDIT 			Yes 	Yes 	Yes 	No 	Yes 	? 	Yes 	?	y	y
+SlickEdit 		Yes 	Yes 	Yes 	No 	2 TB 	Yes 	Yes 	Yes	y	y
+UltraEdit 		Yes 	Yes 	Yes 	No 	Yes 	Yes 	Yes 	Yes	y	y
+Vim 			Yes 	Yes 	Yes 	plug-in	memory 	? 	Yes 	Yes	y	y
+Geany 			Yes 	? 	Plug-in	? 	? 	? 	Yes 	Yes	y	y
+
+VisualStudioCode	?	y	y	?	?	?	?	?	y	y
+TextAdept		y	y	y	?	?	?	?	?	y	y
+
+Diakonos 		y 	No 	Yes 	No 	? 	? 	Yes 	?	y	y
+vi 			Yes 	No 	Yes 	No 	65 MB 	? 	Yes 	Yes	y	y
+Acme 			Yes 	No 	Yes 	No 	? 	? 	Yes 	?	y	y
+JED 			Yes 	No 	Yes 	No 	memory 	? 	? 	?	y	y
+jEdit 			Yes 	No 	Yes 	No 	No(heap)? 	Yes 	Yes	y	y
+
+=== ??? ===
+Arachnophilia		?	y	y	?	?	?	?	?	p	y
+JOE 			Yes 	No 	Yes 	No 	Yes[?] 	? 	? 	Yes[85]	p	y
+NEdit 			Yes 	Yes 	Yes 	No 	No 	? 	Yes 	?	p	y
+
+xeditor			?	?	?	?	?	?	?	?	y	y
+sam			?	?	?	?	?	?	?	?	y	y
+epsilon			?	?	?	?	?	?	?	?	y	y
+Arachnophilia		?	?	?	?	?	?	?	?	y	y
+ne			?	?	?	?	?	?	?	?	p	y
+=== НЕТ ===
+Programmer's Notepad 	No 	Yes 	Yes[80]	No 	slow[94]? 	Yes 	Yes
+Coda 			Yes 	No 	Yes[77]	Yes 	? 	? 	Yes 	Yes
+BBEdit 			Yes 	Yes 	Yes[75]	No 	memory 	? 	Yes 	Yes
+AkelPad 		Yes 	Yes 	Yes 	No 	memory 	Yes 	Yes 	Plug-in
+Aquamacs 		Yes 	Yes 	Yes 	Yes 	memory 	? 	Yes 	?
+ConTEXT 		No 	Yes 	Yes 	No 	memory 	? 	No 	?
+Crimson Editor 		No 	Yes 	Yes 	No 	No 	? 	No 	?
+EditPlus 		? 	Yes 	Yes 	No 	memory 	? 	Yes 	Yes
+EmEditor 		Yes 	Yes 	Yes 	No 	Yes 	? 	Yes 	Yes
+Notepad++ 		Yes 	Yes 	Yes 	plug-in	No[91] 	? 	Yes 	Yes
+NoteTab 		? 	? 	Yes 	? 	No 	? 	Yes[93]	?
+Peppermint 		Yes 	Yes 	Yes 	No 	Yes 	Yes 	Yes 	Yes
+PSPad 			Yes 	Yes 	Yes 	No 	memory	? 	plug-in	Yes
+RJ TextEd 		Yes 	Yes 	Yes 	No 	No 	? 	Yes 	?
+Source Insight 		? 	? 	Yes 	No 	? 	? 	No 	?
+TextMate 		Yes 	Yes 	Yes 	No 	No 	? 	Yes 	?
+TextPad 		No 	Yes 	Yes 	No 	memory 	? 	Yes 	Yes
+TextWrangler 		Yes 	Yes 	Yes 	No 	memory 	? 	Yes 	?
+The SemWare Editor 	Yes 	Yes 	Yes 	Yes	2 GB 	Yes 	? 	Yes
+VEDIT 			Yes 	Yes 	Yes 	No 	Yes 	? 	Yes 	Yes
+
+LE 			Yes 	No 	No 	No[88] 	memory 	? 	Yes 	?	p	y
+ne			?	?	?	?	?	?	?	?	n	y
+E Text Editor 		Yes 	Yes 	No[79] 	Yes 	Yes 	? 	Yes 	?
+ed 			No 	No 	No 	No 	? 	? 	? 	Yes	y	y
+Gobby 			? 	Yes 	No 	Yes 	? 	? 	No 	?	y	y
+JOVE 			Yes 	No 	No 	No 	memory 	? 	No 	No	y	y
+Kate 			Yes 	Yes 	No 	No 	No[86] 	? 	Yes 	Plug-in	y	y
+KWrite 			No 	No 	No 	No 	No[86] 	? 	No 	?	y	y
+Light Table 		No 	Yes 	No 	No 	? 	? 	No 	Yes	y	y
+Metapad 		Yes 	Yes 	No 	No 	memory 	? 	No 	No
+EDIT (MS-DOS) 		No 	No 	No 	No 	No 	No 	No 	No	y	y
+EDIT (DR-DOS) 		No 	No 	No 	No 	2 GB	Yes 	No 	No
+Nano 			Yes 	No 	No 	No 	? 	? 	? 	?	y	y
+Notepad 		Yes 	Yes 	No 	No 	memory 	? 	No 	No
+Notepad2 		No 	No 	No 	No 	memory 	? 	No 	?
+nvi 			Yes 	No 	No 	? 	? 	? 	? 	?	n	y
+PolyEdit 		Yes 	Yes 	No 	No 	Yes 	? 	Yes 	?
+SubEthaEdit 		Yes 	Yes 	No 	Yes 	? 	? 	Yes 	?
+TED Notepad 		Yes 	Yes 	No 	No 	No 	? 	? 	?
+TextEdit 		Yes 	Yes 	No 	No 	? 	? 	? 	?
+Brackets 		Yes 	Yes 	Extens.	No 	No 	? 	Partial	Yes	y	y
+Bluefish 		No 	Yes 	? 	Yes 	? 	? 	Yes 	?	y	y
+Editra 			? 	? 	? 	? 	2 GB 	? 	? 	?
+mined 			? 	? 	? 	? 	? 	? 	Yes 	?	y	y
+Pico 			? 	? 	? 	No 	? 	? 	? 	?	y	y
+Q10 			? 	? 	? 	? 	? 	? 	? 	?
+Smultron 		? 	? 	? 	? 	? 	? 	? 	?

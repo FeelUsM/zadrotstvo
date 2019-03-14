@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<script src="jquery-3.1.1.js"></script>
+</head>
+
+<body>
+	<textarea id="in" cols="120" rows="20"></textarea>
+	<button onclick="e_v_a_l()">eval</button>
+	<button onclick="$('#root').empty()">clear</button>
+	<div id="root"></div>
+<script>
+function e_v_a_l(){
+	var input = document.getElementById('in').value;
+	try{
+		eval(input);
+	}
+	catch(e){
+		alert(e)
+	}
+}
+$('#in').val(localStorage.getItem('eval'));
+$(window).on('beforeunload',save);
+function save(){
+	localStorage.setItem('eval',$('#in').val());
+}
+
+</script>
+</body>
+</html>

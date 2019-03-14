@@ -1,0 +1,158 @@
+1.1	300	3.36	pilot		land if u can	
+1.2	1610	4.27	grym grahn	the mountains
+1.3	2290	5.46	pilot		tomcat mission
+1.4	1760	8.09	pilot		northern sweden
+1.5	5630	8.57	meteor		world war snow
+1.6	2230	6.05	pilot		falkland 2
+2.1	100	2.37	felix havens	can you land
+2.2	2330	7.27	pilot		mountains2
+2.3	2200	7.18	nate		snow chaos
+2.4	1690	7.01	pilot		speed attack
+2.5	2700	4.10	pilot		sink the fleet
+2.6	2350	3.35	nate		harbor attack
+3.1	3140	6.01	Capr. Bram Tee	operation bay watch
+3.2	2770	7.35	pilot		wake island
+3.3	3840	8.09	irwin		irwin914
+3.4	4470	10.36	jeykey		jeykey
+3.5	2150	9.29	James king	fire wall
+3.6	1860	7.27	Ltn. Paul	optn: canyon run
+4.1	2670	8.55	pilot		Resa Bateni Iran
+4.2	2900	7.16	txkio		gulf war1
+4.3	2250	5.08	pilot		smash the fleet
+4.4	1480	5.41	soy		heavenly view
+4.5	3000	11.18	bvg6		fiffa
+4.6	2360	8.27	pilot		kill illuminaty
+5.1	1450	5.56	pmlot		landing
+5.2	1600	7.27	pilot		the wall
+5.3	1200	4.47	pilot		kaboom
+5.4	1300	5.14	captain nate	nitemare on ice
+5.5	3460	5.23	meteor		gauntlet
+5.6	2540	5.57	marc		arctic war 2
+6.1	1990	6.19	ltn paul	optn hurricane
+6.2	4370	8.13	galley7		lemon saw
+6.3	2020	6.30	airwolf		airwolf
+6.4	1380	5.26	justin		k2
+6.5	2060	6.29	pilot		cool running
+6.6	3700	5.33	captain nate	naval desaster
+7.1	3580	7.45	bob		fair fight 2
+7.2	2250	5.25	goon hungie	goon hungie
+7.3	1650	4.48	harry		exit hell
+7.4	3790	13.20	schmiot		instant defense
+7.5	1440	6.32	jon lee		hit and run v01
+7.6	2150	4.38	striker		topgun
+8.1	15340	8.06	daniel		destroy city
+8.2	2670	6.41	m rafi fajri 12	ugrko
+8.3	1680	11.26	pilot		stosm
+8.4	2850	8.53	lucas		hard erive
+8.5	1750	6.05	SSgt tyler	Island SEAD ops
+8.6	3310	11.05	pilot		walley of death
+9.1	3030	7.51	pilot		mm5
+9.2	2050	7.18	pilot		black eagle
+9.3	1700	6.55	pilot		tomcat
+9.4	3730	6.20	2ach		2achi
+9.5	1910	6.40	pilot		red october
+9.6	1260	5.49	pilot		thule
+10.1	3530	9.26	elias		shot gun
+10.2	5690	15.28	captain nate	endless missiion
+10.3	1800	7.14			haa
+10.4	2280	7.38	pilot		cat alley go go
+10.5	2500	10.02	986212238shasha	986212238shasha
+10.6	14470	11.04	dick cheese	big booms
+11.1	2350	6.41	lt causi	rambo 6
+11.2	11530	11.45	monk		son of sam
+11.3	2800	6.37	vonood		I dare you
+11.4	2790	6.42	daniel		escape and kill
+11.5	2780	6.52	pilot		venom
+11.6	3070	6.58	chibo 44	pop79
+12.1	1630	3.36	pilot		pilot emir
+12.2	2500	5.14	meteor1		helicopter hell
+12.3	2730	4.23	pilot		sitor
+12.4	2270	5.39	pilot		high lands
+12.5	2570	8.02	pilot		la cruna 12
+12.6	3400	9.10	pilot		tits
+13.1	2500	7.47	pilot		aattleship
+13.2	2000	8.01	pilot		lost attack
+13.3	1920	7.30	pilot		mount doom
+13.4	1340	6.49	TR pilot	NAVY training tomcat
+13.5	2960	14.32	pilot		oh shoot
+13.6	2770	9.43	tecsis		snake
+14.1	4250	6.40	pilot		river port
+14.2	3300	6.36	mavrick		mavrick stealth
+14.3	3130	7.59	pilot		ship port
+14.4	1860	8.59	pilot		title
+14.5	1900	5.13	ufd		se84
+14.6	1370	8.13	hosam		max fire
+15.1	2770	9.345	husos		figs1
+15.2	2020	8.15	pilot		nr2
+15.3	1990	5.39	txmarine1	semper fi 1
+15.4	1560	4.31	boa		radar
+15.5	2000	4.54	ojancok		black ops
+15.6	6070	10.42	jhenryb		recapture base
+16.1	2270	22.47	a1a		oils
+16.2	1500	6.35	pilot		war
+16.3	1680	4.30	anthony		snow32
+16.4	2910	7.12	radioflyer	savega2a
+16.5	1750	4.55	pilot		arctic battle
+16.6	2930	8.14	pilot		infiltrate
+17.1	2420	6.33	pilot		dont panic
+17.2	1500	7.40	habeeb		oisroy crusade 
+17.3	3450	10.03	pilot		2m2oog
+17.4	5060	9.04	magna		happy new year
+17.5	2630	7.09	pilot		britain
+17.6	4550	7.43	rufid		a flyby
+18.1	1290	5.51	pilot		operation: fighters
+18.2	2080	6.13	pilot		new scenario1
+18.3	3530	6.01	pilot		top gun 8
+18.4	2290	4.39	pilot		ulrimate tight
+18.5	3480	9.56	bash		operation bash
+18.6	2950	8.26	pilot		crash and burn
+19.1	2200	8.41	pilot		circuit
+19.2	2340	4.48	soy		night run
+19.3	4340	8.22	gen rypper	blackgold down
+19.4	2150	6.39	pilot		justice
+19.5	2800	6.23	arcan		natural harbor
+19.6	1810	5.28	pilot		elite
+20.1	2500	6.56	pilot		alpha
+20.2	2160	5.40	pilot		gun run
+20.3	7840	12.13	joe		speed big boom
+20.4	1710	8.28	maverick	alpin
+20.5	4970	10.25	got		total war
+20.6	2960	12.01	captain bele	aggsnbaconnhome
+21.1	3220	8.36	dexter		sam1
+21.2	1660	8.04	pilot		hafgan
+21.3	6290	10.36	make bravo	difficult
+21.4	2790	9.12	pilot		top gun 5
+21.5	2660	5.18	alpha01		korea
+21.6	3100	7.25	pilot		top flight
+22.1	2810	3.58	evobrows	op lerk
+22.2	1930	5.37	matthew		world war3
+22.3	4970	12.14	francois 51	hell and back
+22.4	2850	5.30	maverick	certain death
+22.5	3650	6.39	pilot		hammam x6
+22.6	4020	6.09	pilot		unblinded
+23.1	7200	27.12	hewson		hornst nest
+23.2	3300	7.28	peruken		peruken
+23.3	1700	6.45	wasim		2ar be a28
+23.4	2300	12.46	pilot		first effort
+23.5	2000	9.29	hakan ulugtekin	difficult 1
+23.6	5750	10.23	david king	secret spot
+24.1	2040	9.07	pilot		new scenario
+24.2	3150	8.13	pilot		maen2x
+24.3	1800	11.00	pilot		iraq1
+24.4	5080	8.04	lt dan		tiger 9
+24.5	2940	5.13	vab425		targets full
+24.6	4560	9.55	big buffalo	try to load
+25.1	2900	8.04	matt dawg	hills3
+25.2	2750	8.16	dade 998	defend island
+25.3	4430	11.33	obnny		desert storm 13
+25.4	5000	9.25	jack cole	jack cole
+25.5	7210	10.43	captin nate	oil fortress
+25.6	4140	6.53	monk		monk
+26.1	5040	11.13	gnsse		nootf
+26.2	2330	8.43	alex		dune
+26.3	3430	9.53	captain nate	mayory tomcat
+26.4	3060	13.47	pikuni7		flak heaven
+26.5	2820	9.10	mk		necerland
+26.6	5720	16.11	bbssemier	land of death		2 месяца не мог пройти
+27.1	3060	5.40	luke0103	escape			с 1го раза
+

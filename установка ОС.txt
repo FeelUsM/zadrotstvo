@@ -1,0 +1,46 @@
+переключил обновления - по запросу
+cygwin
+
+шрифты
+рабочий стол и пуск
+свойства папок
+изменил раскладку по умолчанию и при вводе пароля
+сделал маленькую толщину границ окон
+маленькие значки на рабоче столе
+
+обновления кроме *1033
+драйвера
+индекс производительности
+
+активировать				*
+
+firefox + настроить
+anvir					!
+puntoswitcher
+notepad++ + настроить
+java
+flash
+lockhunter				!
+winrar
+7zip
+vlc
+office 2007				*		x
+open office
+adobe reader
+djvu reader				!
+abbyy screen shot reader		*		<-
+yed
+LinuxLiveUSBCreator
+MarkDownPad
+Macmillan English Dictionaries		*
+matlab					*
+
+skype
+torrent					?
+ccleaner
+
+добавить cygwin  в контекстное меню проводника
+доступ к ext4
+
+------------------------------------------------
+Wm5C8me4XD - пароль домашней группы windows 7

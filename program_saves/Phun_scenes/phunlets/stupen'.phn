@@ -1,0 +1,89 @@
+// Phunlet created by Phun beta 4.22
+
+FileInfo.title = "stupen'";
+FileInfo.version = 2;
+Scene.addBox {
+    pos = [157.008759, 0.34352234];
+    geomID = 4;
+    entityID = 2;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 2;
+    collideSet = 1;
+    density = 0.173780128;
+    color = [0.225999996, 0.832000017, 0.0299999993, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 2.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.730127692, 1.40011764];
+    friction = 0.5;
+    angle = 0.0012144245
+};
+Scene.addBox {
+    pos = [158.907608, 0.345827579];
+    geomID = 15;
+    entityID = 13;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 2;
+    collideSet = 1;
+    density = 0.173780128;
+    color = [0.225999996, 0.832000017, 0.0299999993, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 13.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.730127692, 1.40011764];
+    friction = 0.5;
+    angle = 0.0012144245
+};
+Scene.addBox {
+    pos = [157.970581, 1.03478456];
+    geomID = 26;
+    entityID = 24;
+    controllerReverseXY = false;
+    controllerInvertX = false;
+    controllerInvertY = false;
+    body = 2;
+    collideSet = 1;
+    density = 9.99999975e-05;
+    color = [0.225999996, 0.832000017, 0.0299999993, 1.0];
+    controllerAcc = 10.8000002;
+    zDepth = 24.0;
+    collideWater = true;
+    airFrictionMult = 1.0;
+    restitution = 0.5;
+    heteroCollide = false;
+    size = [0.730127692, 1.94407487];
+    friction = 0.5;
+    angle = -1.56971443
+};
+Scene.addFixjoint {
+    geom0pos = [0.173620835, -0.807467341];
+    entityID = 744;
+    geom1pos = [0.149750292, 0.515818894];
+    color = [0.5, 0.5, 0.5, 1.0];
+    buttonDestroy = "2";
+    size = 0.262004524;
+    zDepth = 744.0;
+    geom0 = 26;
+    geom1 = 4
+};
+Scene.addFixjoint {
+    geom0pos = [0.185018644, 0.771136224];
+    entityID = 740;
+    geom1pos = [-0.170492128, 0.504211664];
+    color = [0.5, 0.5, 0.5, 1.0];
+    buttonDestroy = "z";
+    size = 0.262004524;
+    zDepth = 740.0;
+    geom0 = 26;
+    geom1 = 15
+}

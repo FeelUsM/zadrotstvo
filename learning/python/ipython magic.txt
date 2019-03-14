@@ -1,0 +1,158 @@
+Available line magics:
+
+--- консольная работа с файлами ---
+%alias  
+%unalias  
+%echo  
+%env  
+%pwd  
+%cd  
+%popd  
+%pushd  
+%dirs  
+%more  
+%less  
+%pycat  %less с подсветкой синтаксиса
+%ls  	dir /ad /on
+%ldir	dir /ad /on
+%ddir  	dir 	/on
+%mkdir  
+%rmdir  
+%copy  
+--- управление терминалом ---
+%loadpy  	load
+%load  		загружает код в ячейку
+%%writefile
+%ed  		edit
+%edit		вызов внешнего редактора
+%qtconsole  	вызов обычной консоли
+%rep  		recall
+%recall  	последний результат сделать кодом
+%store  	хранение переменных между терминалами
+
+%macro  	макросы из ранее запущенных команд
+
+%clear  
+%cls  
+%colors  	//NoColor, Linux, LightBG
+%autocall  	//делат функцию вызываемой без скобок
+%automagic 	//делает команду вызываемой без %
+%autosave  	//устанавливает период автосохранения
+%config  
+%connect_info  
+%dhist  
+%hist  
+%history  
+%doctest_mode  	наиболее полное соответсвие обычному терминалу
+%gui  
+%load_ext  	Load an IPython extension by its module name
+%reload_ext  
+%unload_ext  
+--- магия ---
+%magic  
+%alias_magic  
+%lsmagic  
+%quickref  
+--- питонские фичи ---
+%autoawait  
+%bookmark  
+--- интроспрекция ---
+%who  		просмотр переменных
+%whos  		детальный просмотр переменных
+%pdef  		сигнатура вызова
+%pdoc  		строка документации
+%pfile  	файл с определением
+%psource  	файл с определением
+%pinfo obj 	obj? - строка документации
+%pinfo2 obj 	obj?? - файл с определением
+%psearch  	поиск переменной по паттерну
+--- отладка, запуск и профилирование ---
+%run  
+%rerun  
+%pdb  
+%prun  
+%%prun  
+%debug  
+%%debug  
+%time  
+%%time  
+%timeit  
+%%timeit  
+--- интегрированный ввод-вывод ---
+%pprint  	вкл/выкл красивой печати
+%precision  	формат красивой мечсати
+%pylab  
+%matplotlib  
+--- логгирование ---
+%logoff  
+%logon  
+%logstart  
+%logstop  
+%logstate  
+
+
+%notebook  
+%page  
+%pastebin  
+%rehashx  
+%ren  
+%reset  
+%reset_selective  
+%save  
+%sc  
+%set_env  
+%sx  
+%system  
+%tb  
+%who_ls  
+%xdel  
+%xmode
+%%capture  
+%%file  
+%%sx  
+%%system  
+%%pypy  
+
+
+Available cell magics:
+
+%%HTML  
+%%html  
+%%SVG  
+%%svg  
+
+
+--- разные языки ---
+%%script  
+%killbgscripts  
+
+%%javascript  
+%%js  
+%%python  
+%%python2  
+%%python3  
+%%ruby  
+%%sh  
+%%bash  
+%%cmd  
+%%!  
+%%latex  
+%%markdown  
+%%perl  
+--- jupyter Available subcommands: ---
+bundlerextension 
+console 
+contrib 
+kernel 
+kernelspec
+migrate 
+nbconvert 
+nbextension 
+nbextensions_configurator 
+notebook 
+qtconsole 
+run
+script 
+serverextension 
+troubleshoot 
+trust

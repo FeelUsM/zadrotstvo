@@ -1,0 +1,371 @@
+	Menu
+	File
+C-N		New File				new_file
+C-O		Open File...				prompt_open_file
+		Open Folder...
+		Open Recent
+M-O 		___					switch_file
+		"args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "hh", "h", "ipp", "inl", "m", "mm"]} },
+C-S-T			Reopen Closed File		reopen_last_file
+			...
+			Clear Items
+		Reopen with Encoding		windows	ISO-8859
+			UTF -8/-16LE/-16BE
+			Western			1252	1/3/15
+			DOS CP 437
+			Arabic			1256	6
+			Baltic			1257	4
+			Celtic				14
+			Central European	1250	2
+			Cyrillic		1251/866 5	KOI8-R/KOI8-U
+			Estonian			13
+			Greek			1253	7
+			Hebrew			1255	8
+			Nordic				10
+			Romanian			16
+			Turkish			1254	9
+			Vietnamise		1258
+			Hexadecimal
+		New View into File
+C-S		Save					save
+		Save with Encoding
+			...+BOM
+C-S-S		Save as...				prompt_save_as
+		Save All
+C-S-N		New Window				new_window
+C-S-W		Close Window				close_window
+C-W		Close File				close
+C-F4	 	___					close_file
+		Revert File
+		Close All Files
+		Exit
+	Edit
+C-Z		Undo<>					undo
+C-S-Z		___					redo
+C-Y		Repeat<>				redo_or_repeat
+		Undo selection
+C-U			Undo<>				soft_undo
+C-S-U			Redo<>				soft_redo
+C-C		Copy					copy
+C-Ins		___					copy
+C-X		Cut					cut
+S-Del		___					cut
+C-V		Paste					paste
+S-Ins		___					paste
+C-S-V		Paste and Indent			paste_and_indent
+C-K C-V		Paste from History...			paste_from_history
+		Line
+C-]			Indent				indent
+C-[			Unindent			unindent
+			Reindent
+C-S-Up			Swap Line Up			swap_line_up
+C-S-Down		Swap Line Down			swap_line_down
+C-S-D			Duplicate Line			duplicate_line
+C-S-K			Delete Line			run_macro_file "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"}
+C-J			Join Lines			join_lines
+		Comment
+C-/			Toggle Comment			toggle_comment "args": { "block": false }
+C-S-/			Toggle Block Comment		toggle_comment "args": { "block": true }
+		Text
+C-S-Enter		Insert Line Before		run_macro_file "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"}
+C-Enter			Insert Line After		run_macro_file "args": {"file": "res://Packages/Default/Add Line.sublime-macro"}
+C-Del			Delete Word Forward		delete_word "args": { "forward": true }
+C-S-Del			___				run_macro_file "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"}
+C-Bsp			Delete Word Backward		delete_word "args": { "forward": false }
+C-S-Bsp			___				run_macro_file "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"}
+C-S-K			Delete Line			run_macro_file "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"}
+C-K C-K			Delete to End			run_macro_file "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"}
+C-K C-Bsp		Delete to Beginning		run_macro_file "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"}
+C-T			Transpose			transpose
+		Tag
+M-.			Close Tag			close_tag
+C-S-A			Expand Selection to Tag		expand_selection "args": {"to": "tag"}
+M-S-W			Wrap Selection with Tag		insert_snippet "args": { "name": "Packages/XML/Snippets/long-tag.sublime-snippet" }
+		Mark
+C-K C-Spc		Set Mark			set_mark
+C-K C-A			Select to Mark			select_to_mark
+C-K C-W			Delete to Mark			delete_to_mark
+C-K C-X			Swap with Mark			swap_with_mark
+C-K C-G			Clear Mark			clear_bookmarks
+C-K C-Y			Yank				yank
+		Code Folding
+C-S-[			Fold				fold
+C-S-]			Unfold				unfold
+C-K C-J			Unfold All			unfold_all
+C-K C-0			___				unfold_all
+C-K C-1			Fold All			fold_by_level "args": {"level": 1}
+C-K C-2			Fold Level 2			fold_by_level "args": {"level": 2}
+			...				...
+C-K C-9			Fold Level 9			fold_by_level "args": {"level": 9}
+C-K C-T			Fold Tag Attributes		fold_tag_attributes
+		Convert Case
+			Title Case
+C-K C-U			Upper Case			upper_case
+C-K C-L			Lower Case			lower_case
+			Swap
+		Wrap
+M-Q			Wrap Paragraph at Ruler		wrap_lines
+			Wrap Paragraph at 70 Characters
+			Wrap Paragraph at 72 Characters
+			Wrap Paragraph at 78 Characters
+			Wrap Paragraph at 80 Characters
+			Wrap Paragraph at 100 Characters
+			Wrap Paragraph at 120 Characters
+C-Spc		Show Completeions			auto_complete
+							replace_completion_with_auto_complete "context"...
+F9		Sort Lines				sort_lines "args": {"case_sensitive": false}
+C-F9		Sort Lines (Case Sensitive)		sort_lines "args": {"case_sensitive": true}
+		Permute Lines
+			Reverse
+			Unique
+			Shuffle
+		Permute Selections
+			Sort
+			Sort (Case Sensitive)
+			Reverse
+			Unique
+			Shuffle
+	Selection
+C-S-L		Split Into Lines			split_selection_into_lines
+C-M-Up		Add Previous Line			select_lines "args": {"forward": false}
+C-M-Down	Add Next Line				select_lines "args": {"forward": true}
+Esc		Single Selection			...
+		Invert Selection
+C-A		Select All				select_all
+C-L		Expand Selection to Line		expand_selection "args": {"to": "line"}
+C-D		Expand Selection to Word		find_under_expand
+		Expand Selection to Paragraph
+C-S-Spc		Expand Selection to Scope		expand_selection "args": {"to": "scope"}
+C-S-M		Expand Selection to Brackets		expand_selection "args": {"to": "brackets"}
+C-S-J		Expand Selection to Indentation		expand_selection "args": {"to": "indentation"}
+C-S-A		Expand Selection to Tag			expand_selection "args": {"to": "tag"}
+	Find
+C-F		Find...					show_panel "args": {"panel": "find", "reverse": false}
+F3		Find Next				find_next
+S-F3		Find Previous				find_prev
+C-I		Incremental Find			show_panel "args": {"panel": "incremental_find", "reverse": false}
+C-S-I							show_panel "args": {"panel": "incremental_find", "reverse": true}
+C-H		Replace...				show_panel "args": {"panel": "replace", "reverse": false}
+C-S-H		Replace Next				replace_next
+C-F3		Quick Find				find_under
+C-S-F3							find_under_prev
+M-F3		Quick Find All				find_all_under
+C-D		Quick Add Next				find_under_expand
+C-K C-D		Quick Skip Next				find_under_expand_skip
+C-E		Use Selection for Find			slurp_find_string
+C-S-E		Use Selection for Replace		slurp_replace_string
+C-S-F		Find in Files...			show_panel "args": {"panel": "find_in_files"}
+		Find Results
+			Show Results Panel
+F4			Next Result			next_result
+S-F4			Previous Result			prev_result
+	View
+		Side Bar
+C-K C-B			Hide Side Bar			toggle_side_bar
+			Show Open files
+		Hide Minimap
+		Hide Tabs
+		Hide Status Bar
+		Hide Menu
+C-`		Show Console				show_panel "args": {"panel": "console", "toggle": true}
+F11		Enter Fullscreen			toggle_full_screen
+S-F11		Enter Distraction Free Mode		toggle_distraction_free
+		Layout
+M-S-1			Single				set_layout 
+	"args": { "cols": [0.0, 1.0], 			"rows": [0.0, 1.0], 	"cells": [[0, 0, 1, 1]] }
+M-S-2			Columns: 2			set_layout 
+	"args": { "cols": [0.0, 0.5, 1.0], 		"rows": [0.0, 1.0], 	"cells": [[0, 0, 1, 1], [1, 0, 2, 1]] }
+M-S-3			Columns: 3			set_layout 
+	"args": { "cols": [0.0, 0.33, 0.66, 1.0], 	"rows": [0.0, 1.0], 	"cells": [[0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1]] }
+M-S-4			Columns: 4			set_layout 
+	"args": { "cols": [0.0, 0.25, 0.5, 0.75, 1.0], 	"rows": [0.0, 1.0], 	"cells": [[0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1],
+[3, 0, 4, 1]] }
+M-S-8			Rows: 2				set_layout 
+	"args": { "cols": [0.0, 1.0], 		"rows": [0.0, 0.5, 1.0], 	"cells": [[0, 0, 1, 1], [0, 1, 1, 2]] }
+M-S-9			Rows: 3				set_layout 
+	"args": { "cols": [0.0, 1.0], 		"rows": [0.0, 0.33, 0.66, 1.0], "cells": [[0, 0, 1, 1], [0, 1, 1, 2], [0, 2, 1, 3]] }
+M-S-5			Grid: 4				set_layout 
+	"args": { "cols": [0.0, 0.5, 1.0], 	"rows": [0.0, 0.5, 1.0], 	"cells": [ [0, 0, 1, 1], [1, 0, 2, 1], [0, 1, 1, 2], [1, 1,
+2, 2] ] }
+		Groups
+C-K C-Up		Move File to New Group		new_pane
+C-K C-S-Up		New Group			new_pane "args": {"move": false}
+C-K C-Down		Close Group			close_pane
+			Max Columns: 1			
+			Max Columns: 2
+			Max Columns: 3
+			Max Columns: 4
+			Max Columns: 5
+		Focus Group
+C-K C-Right		Next				focus_neighboring_group
+C-K C-Left		Previous			focus_neighboring_group "args": {"forward": false}
+C-0			___				focus_side_bar
+C-1			Group 1				focus_group "args": { "group": 0 }
+...			...				...
+C-9			Group 9				focus_group "args": { "group": 8 }
+		Move File to Group
+C-K C-S-Right		Next				move_to_neighboring_group
+C-K C-S-Left		Previous			move_to_neighboring_group "args": {"forward": false}
+C-S-1			Group 1				move_to_group "args": { "group": 0 }
+...			...				...
+C-S-9			Group 9				move_to_group "args": { "group": 8 }
+		Syntax
+			Open all with currant extension as ...
+			...
+		Indentation
+			Indent Using Spaces
+			Tab Width: 1
+			Tab Width: 2
+			Tab Width: 3
+			Tab Width: 4
+			Tab Width: 5
+			Tab Width: 6
+			Tab Width: 7
+			Tab Width: 8
+			Guess Settings from Buffer
+			Convert Indentation to Spaces
+			Convert Indentation to Tabs
+		Line Endings
+			Windows
+			Unix
+			Mac OS 9
+		Word Wrap
+		Word Wrap Column
+			Automatic
+			70
+			72
+			78
+			80
+			100
+			120
+		Ruler
+			None
+			70
+			72
+			78
+			80
+			100
+			120
+F6		Spell Check				toggle_setting "args": {"setting": "spell_check"}
+C-F6		Next Misspelling			next_misspelling
+C-S-F6		prev Misspelling			prev_misspelling
+		Dictionary
+			En_GB
+			En_US
+	Goto
+C-P		Goto Anything...			show_overlay "args": {"overlay": "goto", "show_files": true}
+C-R		Goto Symbol...				show_overlay "args": {"overlay": "goto", "text": "@"}
+C-S-P		Goto Symbol in Project...		show_overlay "args": {"overlay": "command_palette"}
+F12		Goto Definition...			goto_definition
+S-F12		Goto Reference...			goto_reference
+C-G		Goto Line...				show_overlay "args": {"overlay": "goto", "text": ":"}
+C-;		___					show_overlay "args": {"overlay": "goto", "text": "#"}
+M--		Jump Back				jump_back
+M-keypad_minis	___					jump_back
+M-S--		Jump Forward				jump_forward
+M-S-keypad_minis ___					jump_forward
+		Switch File
+C-PgDown		Next File			next_view
+C-PgUp			Previous File			prev_view
+C-Tab			Next File in Stack		next_view_in_stack
+C-S-Tab			Previous File in Stack		prev_view_in_stack
+M-1			File 1				select_by_index "args": { "index": 0 }
+...			...				...
+M-0			File 0				select_by_index "args": { "index": 9 }
+		Scroll
+C-K C-C			Scroll to Selection
+C-Up			Line Up				scroll_lines
+			"args": {"amount": 1.0 }
+C-Down			Line Down			scroll_lines
+			"args": {"amount": -1.0 }
+		Bookmarks
+C-F2			Toggle Bookmark			toggle_bookmark
+F2			Next Bookmark			next_bookmark
+S-F2			Prev Bookmark			prev_bookmark
+C-S-F2			Clear Bookmarks			clear_bookmarks
+M-F2			Select All Bookmarks		select_all_bookmarks
+			<bookmarks>
+C-M		Jump to Matching Bracket		move_to "args": {"to": "brackets"}
+	Tools
+C-S-P		Command Palette...			
+		Snippets...
+		Build System
+			Automatic
+			<>
+			New Build System...
+C-B		Build					build
+F7		___					build
+C-S-B		Build with...				build "args": {"select": true}
+C-Break		Cancel Build				cancel_build
+		Build Results
+			Show Build Results
+F4			Next Result			next_result
+S-F4			Previous Result			prev-result
+		Save All on Build
+C-Q		Record/Stop Macro			toggle_record_macro
+C-S-Q		Playback Macro				run_macro
+		Save Macro...
+		Macros
+			Add Line Before
+			Add Line in Braces
+			Add Line
+			Delete Left Right
+			Delete Line
+			Delete to BOL
+			Delete to EOL
+			Delete to Hard BOL
+			Delete to Hard EOL
+		Developer
+			New Plugin...
+			New Snippet...
+			New Syntax...
+			New Syntax from Plain text.tmLanguage...
+			Profile Plugins
+C-M-S-P			Show Scope Name			show_scope_name
+	Project
+		Open Project...
+		Switch Project...
+		Quick Switch Project...
+		Open Recent
+			<>
+		Save Project As...
+		Close Project
+		Edit Project
+		New Workspace for Project
+		Save Workspace As...
+		Remove All Folders from Project
+		Refresh Folders
+	Preferences
+		Browse Packages...
+		Settings
+		Settings - Syntax Specific
+		Settings - Distraction Free
+		Key Bindings
+		Color Scheme...
+		Theme...
+		Font		
+C-=			Larger				increase_font_size
+C-S-=			Smaller				decrease_font_size
+			Reset
+		Package Settingas
+			Package Control
+				Settings Default
+				Settings User
+		Package Control
+	Help
+		Documentation
+		Twitter
+		Indexing Status...
+		Purchase License
+		Enter License
+		Check for Updates...
+		Changelog...
+		About Sublime Text
+
+
+
+
+
+
+
+

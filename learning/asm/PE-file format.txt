@@ -1,0 +1,160 @@
+поля заголовков в памяти:	https://upload.wikimedia.org/wikipedia/commons/7/70/Portable_Executable_32_bit_Structure_in_SVG.svg
+описание всего вот этого:	https://docs.microsoft.com/ru-ru/windows/desktop/Debug/pe-format
+полезный пример:		https://hsto.org/getpro/habr/comment_images/86e/1f4/e20/86e1f4e202090df43dea97f4ed19c2a6.png
+
+=== MZ file header === 
+ typedef struct _IMAGE_DOS_HEADER {
+/*00*/	WORD  e_magic;      /* 00: MZ Header signature */
+/*02*/	WORD  e_cblp;       /* 02: Bytes on last page of file */
+/*04*/	WORD  e_cp;         /* 04: Pages in file (page size is 512)*/
+/*06*/	WORD  e_crlc;       /* 06: number of Relocations */
+/*08*/	WORD  e_cparhdr;    /* 08: Size of header in paragraphs (paragraph size is 16)*/
+/*0A*/	WORD  e_minalloc;   /* 0a: Minimum extra paragraphs needed */
+/*0C*/	WORD  e_maxalloc;   /* 0c: Maximum extra paragraphs needed */
+/*0E*/	WORD  e_ss;         /* 0e: Initial (relative) SS value */
+/*10*/	WORD  e_sp;         /* 10: Initial SP value */
+/*12*/	WORD  e_csum;       /* 12: Checksum */
+/*14*/	WORD  e_ip;         /* 14: Initial IP value */
+/*16*/	WORD  e_cs;         /* 16: Initial (relative) CS value */
+/*18*/	WORD  e_lfarlc;     /* 18: File address of relocation table */    <---------------------
+/*1A*/	WORD  e_ovno;       /* 1a: Overlay number (0 for resident part of the program) */
+/*1C*/	WORD  e_res[4];     /* 1c: Reserved words */
+/*24*/	WORD  e_oemid;      /* 24: OEM identifier (for e_oeminfo) */
+/*26*/	WORD  e_oeminfo;    /* 26: OEM information; e_oemid specific */
+/*28*/	WORD  e_res2[10];   /* 28: Reserved words */
+/*3C*/	DWORD e_lfanew;     /* 3c: Offset to extended header */		<-------------------------
+ } IMAGE_DOS_HEADER, *PIMAGE_DOS_HEADER;
+ 
+struct EXE_RELOC {
+  unsigned short offset;
+  unsigned short segment;
+};
+
+
+1.	резидентная часть программы выполняет операцию загрузки
+	после этого получаем PSP
+	
+2.	Считываем в память заголовок
+
+3.	Определяем размер загрузочнгого модуля _start_segment_ на основе nblocks, lastsize, hdrsize
+
+4.	В память считывается загрузочный модуль в начало сегмента
+
+5.	в рабочую область считываются relocation объекты
+
+6.	...
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+=== PE header ===
+
+typedef struct _IMAGE_NT_HEADERS {
+/*00*/	DWORD                 Signature; 	// ="PE\0\0"
+/*04*/	IMAGE_FILE_HEADER     FileHeader;
+/*18*/	IMAGE_OPTIONAL_HEADER OptionalHeader;
+} IMAGE_NT_HEADERS, *PIMAGE_NT_HEADERS;
+
+=== COFF File header ===
+typedef struct _IMAGE_FILE_HEADER {
+/*04*/	WORD  		Machine;		//  https://docs.microsoft.com/ru-ru/windows/desktop/Debug/pe-format#machine-types
+/*06*/	WORD  		NumberOfSections;
+/*08*/	DWORD 		TimeDateStamp;
+/*0C*/	DWORD 		PointerToSymbolTable; 	//Deprecated
+/*10*/	DWORD 		NumberOfSymbols;	//Deprecated
+/*14*/	WORD  		SizeOfOptionalHeader;	//
+/*16*/	WORD  		Characteristics;	// https://docs.microsoft.com/ru-ru/windows/desktop/Debug/pe-format#characteristics
+} IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
+
+typedef struct _IMAGE_OPTIONAL_HEADER {			// (Image Only) 
+//= PE32 =	= PE32+ =
+// adr	size	adr	size
+/*18*/	WORD  	/*18*/	WORD  	Magic;				//0x10B - PE32, 0x20B - PE32+ (x64), 0x107 - ROM
+/*1A*/	BYTE  	/*1A*/	BYTE  	MajorLinkerVersion;		
+/*1B*/	BYTE  	/*1B*/	BYTE  	MinorLinkerVersion;		
+/*1C*/	DWORD 	/*1C*/	DWORD 	SizeOfCode;			//сумма длин всех секций .text
+/*20*/	DWORD 	/*20*/	DWORD 	SizeOfInitializedData;		
+/*24*/	DWORD 	/*24*/	DWORD 	SizeOfUninitializedData;	
+/*28*/	DWORD 	/*28*/	DWORD 	AddressOfEntryPoint;		//RVA отн. базы образа, 0 - нет точки входа
+/*2C*/	DWORD 	/*2C*/	DWORD 	BaseOfCode;			//RVA отн. базы образа
+/*30*/	DWORD 			BaseOfData;			//RVA отн. базы образа
+//  	^^ - стандартные поля
+		
+/*34*/	DWORD 	/*30*/	QWORD 	ImageBase;			//предпочтительный базовый адрес загрузки программы *64кБ (*0x1_00_00). 
+								//Обычно для dll - 0x1000, Windows CE - 0x0001, Windows Me - 0x0040
+/*38*/	DWORD 	/*38*/	DWORD 	SectionAlignment;		//не меньше FileAlignment. Обычно размер страницы для архитектуры
+/*3C*/	DWORD 	/*3C*/	DWORD 	FileAlignment;			//внутри файла
+/*40*/	WORD  	/*40*/	WORD  	MajorOperatingSystemVersion;	
+/*42*/	WORD  	/*42*/	WORD  	MinorOperatingSystemVersion;	
+/*44*/	WORD  	/*44*/	WORD  	MajorImageVersion;		
+/*46*/	WORD  	/*46*/	WORD  	MinorImageVersion;		
+/*48*/	WORD  	/*48*/	WORD  	MajorSubsystemVersion;		
+/*4A*/	WORD  	/*4A*/	WORD  	MinorSubsystemVersion;		
+/*4C*/	DWORD 	/*4C*/	DWORD 	Win32VersionValue;		
+/*50*/	DWORD 	/*50*/	DWORD 	SizeOfImage;			//размер файла, кратен SectionAlignment
+/*54*/	DWORD 	/*54*/	DWORD 	SizeOfHeaders;			//размер всех заголовков
+/*58*/	DWORD 	/*58*/	DWORD 	CheckSum;			
+/*5C*/	WORD  	/*5C*/	WORD  	Subsystem;			// https://docs.microsoft.com/ru-ru/windows/desktop/Debug/pe-format#windows-subsystem
+/*5E*/	WORD  	/*5E*/	WORD  	DllCharacteristics;		
+/*60*/	DWORD 	/*60*/	QWORD 	SizeOfStackReserve;		
+/*64*/	DWORD 	/*68*/	QWORD 	SizeOfStackCommit;		
+/*68*/	DWORD 	/*70*/	QWORD 	SizeOfHeapReserve;		
+/*6C*/	DWORD 	/*78*/	QWORD 	SizeOfHeapCommit;		
+/*70*/	DWORD 	/*80*/	DWORD 	LoaderFlags;			
+/*74*/	DWORD 	/*84*/	DWORD 	NumberOfRvaAndSizes;		//=16 количество каталогов в таблице директорий
+/*78*/		/*88*/	IMAGE_DATA_DIRECTORY 
+				DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTRIES];
+} IMAGE_OPTIONAL_HEADER, *PIMAGE_OPTIONAL_HEADER;
+
+typedef struct _IMAGE_DATA_DIRECTORY {
+	DWORD 		VirtualAddress;
+	DWORD 		Size;
+} IMAGE_DATA_DIRECTORY, *PIMAGE_DATA_DIRECTORY;
+
+// Directory Entries
+PE32	PE32+
+78	88	#define IMAGE_DIRECTORY_ENTRY_EXPORT          	 0   // .edata	Export Directory
+80	90	#define IMAGE_DIRECTORY_ENTRY_IMPORT          	 1   // .idata	Import Directory
+88	98	#define IMAGE_DIRECTORY_ENTRY_RESOURCE           2   // .rsrc	Resource Directory
+90	A0	#define IMAGE_DIRECTORY_ENTRY_EXCEPTION       	 3   // .pdata	Exception Directory
+98	A8	#define IMAGE_DIRECTORY_ENTRY_SECURITY        	 4   // **	Security Directory (сертификат)
+A0	B0	#define IMAGE_DIRECTORY_ENTRY_BASERELOC       	 5   // .reloc	Base Relocation Table
+A8	B8	#define IMAGE_DIRECTORY_ENTRY_DEBUG           	 6   // .debug	Debug Directory
+B0	C0	#define IMAGE_DIRECTORY_ENTRY_ARCHITECTURE    	 7   // 0	Architecture Specific Data
+B8	C8	#define IMAGE_DIRECTORY_ENTRY_GLOBALPTR       	 8   // 	RVA of GP
+C0	D0	#define IMAGE_DIRECTORY_ENTRY_TLS             	 9   // .tls	TLS Directory
+C8	D8	#define IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG    	10   // 	Load Configuration Directory
+D0	E0	#define IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT  	11   // 	Bound Import Directory in headers
+D8	E8	#define IMAGE_DIRECTORY_ENTRY_IAT            	12   // 	Import Address Table
+E0	F0	#define IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT   	13   // 	Delay Load Import Descriptors
+E8	F8	#define IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR 	14   // .cormeta COM Runtime descriptor/CLR Runtime Header 
+F0	100							15   // 0000 - reserved
+---
+F8	108	finish	
+**	вместо RVA file pointer
+
+=== Section headers ===
+NumberOfSections раз:
+
+typedef struct _IMAGE_SECTION_HEADER {
+	BYTE  	Name[IMAGE_SIZEOF_SHORT_NAME/*8*/];
+		/* UTF-8 строка, заканчивающаяся \0 или занимающая все 8 символов
+		   В объектных файлах можно использовать "\nnn" где nnn - номер в таблице строк
+		   В объектных файлах text$<char> вносит вклад в секцию text в алфавитном порядке
+		*/
+	DWORD 	VirtualSize;		// or(union) 	  DWORD PhysicalAddress;
+	DWORD 	VirtualAddress;
+		/* Для исполняемых - RVA
+		   Для объектных - адрес первого байта перед применением релокации
+			вычитается из смещение при релокации
+		*/
+	DWORD 	SizeOfRawData;		// 0 для неинициализированных данных
+	DWORD 	PointerToRawData;	// 0 для неинициализированных данных
+	DWORD 	PointerToRelocations;	// file pointer, =0 для исполняемых
+	DWORD 	PointerToLinenumbers;	// =0 для исполняемых, т.к. дебаг устарел
+	WORD  	NumberOfRelocations;
+	WORD 	NumberOfLinenumbers;
+	DWORD	Characteristics;	// https://docs.microsoft.com/ru-ru/windows/desktop/Debug/pe-format#section-flags
+} IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
+
+
+

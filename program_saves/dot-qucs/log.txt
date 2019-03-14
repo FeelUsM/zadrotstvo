@@ -1,0 +1,31 @@
+Выход:
+-------
+
+Начало нового моделирования в Вт 19. фев 2019 в 11:30:57:363
+
+создание схемы... готово
+ЗапускC:/Users/FeelUs/Downloads/qucs-0.0.19-win32-mingw482-asco-freehdl-adms/bin/qucsator.exe
+
+project location: 
+modules to load: 0
+factorycreate.size() is 0
+factorycreate has registered:
+parsing netlist...
+checking netlist...
+netlist content
+      3 IProbe instances
+      1 BJT instances
+      1 DC instances
+      2 SW instances
+      2 Vdc instances
+creating netlist...
+
+Моделирование закончено в Вт 19. фев 2019 в 11:30:57:959
+Готово.
+
+
+
+Ошибки и предупреждения:
+--------------------
+
+

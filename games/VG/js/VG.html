@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+	<script>
+		function f() {
+			var in_txt = $('#in').val();
+			var arr = JSON.parse(in_txt);
+			var out_txt='', err_arr=[], note_txt='';
+			for(var i=0; i<arr.length; i++) {
+				var cur = arr[i];
+				if(
+					cur.message_type!=1 ||
+					cur.message_subject!="Шпионский доклад" ||
+					cur.owner_social_id!="1" ||
+					cur.message_from!="Командование флотом" ||
+					cur.message_owner!= "12022828" ||
+					cur.message_sender!="0"
+					//cur.message_day!="5"
+				){
+					cur.what='common';
+					err_arr.push(cur);
+					continue;
+				}
+				cur.message_text = JSON.parse(cur.message_text);
+				cur=cur.message_text;
+				var str='', note_str='';
+				
+				// координаты время
+				var name = (/\[([^\]]*)\]/.exec(cur[1])[1]);
+				str+=name.replace(/(\d*)\:(\d*)\:(\d*)/,'$1-x-$2\t$3\t');
+				str+=new Date(arr[i].message_time*1000).toLocaleDateString()+'\t';
+				str+=new Date(arr[i].message_time*1000).toLocaleTimeString()+'\t';
+				// основное
+				if(cur[3]!='')
+					note_str+='Альянс:'+cur[3]+'\t';
+				if(cur[14]!=0)
+					if(cur[14]==-1)
+						note_str+='Шпионский спутник был уничтожен\t';
+					else
+						note_str+='Погрешность:'+cur[14]+'\t';
+				cur[4]=+(cur[4].replace(/\./g,''))/1000;
+				cur[5]=+(cur[5].replace(/\./g,''))/1000;
+				cur[6]=+(cur[6].replace(/\./g,''))/1000;
+				cur[7]=+(cur[7].replace(/\./g,''))/1000;
+				cur[8]=+(cur[8].replace(/\./g,''))/1000;
+				cur[9]=+(cur[9].replace(/\./g,''))/1000;
+				str+=(cur[4]+'').replace('.',',')+'\t';
+				str+=(cur[5]+'').replace('.',',')+'\t';
+				str+=(cur[6]+'').replace('.',',')+'\t';
+				if(cur[8]>100 || cur[9]>100)
+					note_str+='На орбите: титана:'+cur[8]+',кремния:'+cur[9]+'\t';
+				// корабли ? 10
+				if(!('10' in cur))
+					note_str+='скрыто [10]\t'
+				else if(!(cur[10] instanceof Array) || cur[10].length!=1 || !(cur[10][0] instanceof Array) || cur[10][0].length!=0) {
+					cur.what='10'
+					cur.name = name;
+					err_arr.push(cur);
+				}
+				// оборона ? 11
+				if(!('11' in cur))
+					note_str+='скрыта оборона\t';
+				else if(cur[13] instanceof Array) {
+					if(cur[13].length != 0) {
+						cur.what='11';
+						cur.name = name;
+						err_arr.push(cur)
+					}
+				}
+				else if(cur[11] instanceof Object) {
+					var xx=cur[11];
+					/*
+				"401":"Ракетный блок" 
+				"402":"Инфракрасный лазер"
+				"405":"Фотонная пушка"
+				*/
+					if("401" in xx) note_str+= xx[401]+' РБ\t';
+					if("402" in xx) note_str+= xx[402]+' ИЛ\t';
+					if("405" in xx) note_str+= xx[405]+' Фотонок\t';
+					delete xx[401];
+					delete xx[402];
+					delete xx[405];
+					for(let i in xx) {
+						xx.what='in 11';
+						xx.name = name;
+						err_arr.push(xx)
+						break;
+					}
+				}
+				else {
+					cur.name = name;
+					cur.what='11';
+					err_arr.push(cur)
+				}
+				// постройки 12
+				if(!('12' in cur))
+					note_str+='скрыты постройки\t';
+				else if(cur[12] instanceof Array) {
+					if(cur[12].length != 0) {
+						cur.what='12';
+						cur.name = name;
+						err_arr.push(cur)
+					}
+					else {
+						str+= '0\t';
+						str+= '0\t';
+						str+= '0\t';
+						str+='\t\t\t\t'
+						str+= '0\t';
+						str+= '0\t';
+						str+= '0\t';
+					}
+				}
+				else if(cur[13] instanceof Object) {
+					var xx=cur[12];
+					str+= (xx[1]===undefined?0:xx[1])+'\t';
+					str+= (xx[2]===undefined?0:xx[2])+'\t';
+					str+= (xx[3]===undefined?0:xx[3])+'\t';
+					str+='\t\t\t\t'
+					str+= (xx[22]===undefined?0:xx[22])+'\t';
+					str+= (xx[23]===undefined?0:xx[23])+'\t';
+					str+= (xx[24]===undefined?0:xx[24])+'\t';
+					delete xx[1];
+					delete xx[2];
+					delete xx[3];
+					delete xx[4];
+					delete xx[12];
+					delete xx[14];
+					delete xx[15];
+					delete xx[21];
+					delete xx[22];
+					delete xx[23];
+					delete xx[24];
+					delete xx[31];
+					delete xx[33];
+					delete xx[34];
+					for(let i in xx) {
+						xx.what='in 12';
+						xx.name = name;
+						err_arr.push(xx)
+						break;
+					}
+				}
+				else {
+					cur.what='12';
+					cur.name = name;
+					err_arr.push(cur)
+				}
+				// технологии 13
+				if(!('13' in cur))
+					note_str+='скрыты технологии\t';
+				else if(cur[13] instanceof Array) {
+					if(cur[13].length != 0) {
+						cur.what='13';
+						cur.name = name;
+						err_arr.push(cur)
+					}
+				}
+				else if(cur[13] instanceof Object) {
+					var xx=cur[13];
+					delete xx[106];
+					delete xx[108];
+					delete xx[109];
+					delete xx[110];
+					delete xx[111];
+					delete xx[113];
+					delete xx[114];
+					delete xx[115];
+					delete xx[117];
+					delete xx[118];
+					delete xx[120];
+					delete xx[121];
+					delete xx[122];
+					delete xx[124];
+					delete xx[150];
+					for(let i in xx) {
+						xx.what='in 13';
+						xx.name = name;
+						err_arr.push(xx)
+						break;
+					}
+				}
+				else {
+					cur.name = name;
+					cur.what='13';
+					err_arr.push(cur)
+				}
+				
+				out_txt+=str+'\n'
+				if(note_str!='')
+					note_txt += name+'\t'+note_str+'\n';
+				//new Date(arr[i].message_time*1000)
+				delete cur[1];
+				delete cur[2];
+				delete cur[3];
+				delete cur[4];
+				delete cur[5];
+				delete cur[6];
+				delete cur[7];
+				delete cur[8];
+				delete cur[9];
+				delete cur[10];
+				delete cur[11];
+				delete cur[12];
+				delete cur[13];
+				delete cur[14];
+				for(let i in cur) {
+					cur.name = name;
+					err_arr.push(cur)
+					break;
+				}
+			}
+			$('#out').val(out_txt);
+			$('#notes').val(note_txt);
+			$('#err').val(JSON.stringify(err_arr,'',4));
+			$('#debug').val(JSON.stringify(arr,'',4));
+		}
+	</script>
+	<textarea id="in" rows="3" cols="100"></textarea>
+	<button onclick="f()">do</button>
+	<textarea id="out" rows="15" cols="120"></textarea>
+	<textarea id="notes" rows="10" cols="100"></textarea>
+	<textarea id="err" rows="30" cols="100"></textarea>
+	<textarea id="debug" rows="30" cols="100"></textarea>
+	
+</body>
+</html>
+<!--
+    {
+        "message_text": {
+            "1": "назване[координаты]",
+            "2": "игрок",
+            "3": "альянс", 
+
+            "4": "титана",
+            "5": "кремния",
+            "6": "антиматерии",
+            "7": "энергии",
+            "8": "титана на орбите",
+            "9": "кремния на орбите",
+            "10": [
+                []
+            ],
+            "11": {
+				"401":"Ракетный блок" 
+				"402":"Инфракрасный лазер"
+				"405":"Фотонная пушка"
+			},
+            "12": {
+                "1": "титановая шахта"
+                "2": "кремниевая шахта",
+                "3": "коллайдер",
+                "4": "нейтринная электростанция"
+                "12": "аннигиляционный реактор",
+                "14": "робофабрика",
+				"15": "Нанофабрика"
+                "21": "док",
+                "22": "склад титана",
+                "23": ?"склад кремния",
+                "24": ?"склад антиматерии",
+                "31": "научный центр"
+				"33": "Планетарный энергоузел"
+				"34": "Заправочная база: Присутствует"
+	},
+            "13": {
+                "106": "планетарное сканирование",
+                "108": "навигация"
+                "109": "вооружения",
+                "110": "защита кораблей",
+                "111": "Энергетические поля",
+                "113": "энергетика",
+                "114": "Перемещение в подпространстве",
+                "115": "барионный двигатель",
+                "117": "аннигиляционный двигатель",
+                "118": "Подпространственный двигатель",
+                "120": "Боевые лазеры",
+                "121": "Фотонное оружие",
+                "122": "Лептонное оружие",
+                "124": "Тахионное сканирование",
+                "150": "Освоение планет"
+	},
+            "14": 0 ? Погрешность информации, полученной спутником
+        },
+        "message_type": "1",
+        "message_time": "1486757627",
+        "message_subject": "Шпионский доклад",
+        "owner_social_id": "1",
+        "message_from": "Командование флотом",
+        "message_owner": "12022828",
+        "message_sender": "0",
+        "message_day": "5",
+        "message_id": "771555294"
+    },
+-->

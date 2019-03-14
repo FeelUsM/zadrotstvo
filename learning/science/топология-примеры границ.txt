@@ -1,0 +1,13 @@
+	M	|M|	d|M|	<|M|>	\M	|\M|	d|\M|	<|\M|>	dM	<dM>	<M>	<\M>	<dM>^M	<dM>^\M	ddM^M	ddM^\M	other	
+(-inf,3)				x	x		x				x					
+{3}	x	x	x			x	x		x						x		
+(3,4)	x	x		x							x						
+{4}		x		x	x	x	x		x							x	
+(4,5)	x	x		x							x						
+{5}		x		x	x	x	x		x							x	
+I(5,6)	x	x		x		x		x	x	x			x				
+Q(5,6)		x		x	x	x		x	x	x				x			
+{6}		x	x		x	x		x	x							x	
+(6,19)					x	x		x				x					
+{19}	x	x	x			x		x	x						x		
+(19,inf)				x	x		x				x					

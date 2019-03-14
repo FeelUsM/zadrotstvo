@@ -1,0 +1,63 @@
+=== поддержка языка ===
+<cassert> (assert.h)	диагностические утверждения
+<csetjmp> (setjmp.h)	не локальные прыжки
+<cstdarg> (stdarg.h)	поддержка ... в аргументах
+<ciso646> (iso646.h)	макросы для операторов и, или, не
+=== определения ===
+<cstddef> (stddef.h)	size_t, ptrdiff_t, max_align_t, nullptr_t, offsetof, NULL
+<climits> (limits.h)	макросы пределов целочисленных типов
+<cstdbool> (stdbool.h)	(c++11)определяет bool true и false
+<cstdint> (stdint.h)	(c++11)int8_t, uint_least32_t и лимиты указанных типов
+<cinttypes> (inttypes.h)(c++11)	макросы для использования в форматированном вводе-выводе
+=== разное ===
+<cstdlib> (stdlib.h)	
+	String conversion, 
+	Pseudo-random, 
+	Dynamic memory management, 
+	Environment, 
+	Searching and sorting, 
+	Integer arithmetics, 
+	Multibyte characters, (UTF-8, GB18030, EUC-JP, Shift-JIS, и т.д - зависит от локали)
+	Multibyte strings
+=== system ===
+<cerrno> (errno.h)	код последней ошибки
+<csignal> (signal.h)	обработка сигналов
+<cstdio> (stdio.h)	ввод-вывод
+<ctime> (time.h)
+=== символы и строки ===
+<clocale> (locale.h)
+<cctype> (ctype.h)
+<cwctype> (wctype.h)
+<cstring> (string.h)	строки: копирование, сранение, поиск
+<cwchar> (wchar.h)	stdio, stlib, string для wchar_t
+<cuchar> (uchar.h)	(c++11)преобразования utf-16 и utf-32 в/из многобайтовую
+=== плавающая точка ===
+<cfloat> (float.h)	лимиты и характеристики плавающей точки
+<cfenv> (fenv.h)	(c++11) среда плавающей точки (округления и исключения)
+<cmath> (math.h)	математические функции для double (в unix могут дублироваться с суффиксами l и f для float и  double соответственно)
+<ctgmath> (tgmath.h)	(c++11)
+	в с11 добавили встроенный тип (т.е. модификатор типа) complex
+	и вот в файле <complex.h> определены функции из math для этих complex
+	и вот tgmath.h каким-то образом(специальными встроенными макросами) все это объединяет в себе
+=== сонтейнеры ===
+<array>
+<vector>
+<deque>
+<forward_list>
+<list>
+<queue>
+<stack>
+<set>
+<map>
+<unordered_set>
+<unordered_map>
+=== ввод-вывод ===
+<ios>			ios_base, (w)ios
+<iosfwd>		только определения
+<streambuf>		streambuf
+<istream>		istream, iostream
+<ostream>		ostream
+<iostream>		cin, cout, cerr, clog
+<stream>		filebuf, ifstream, ofstream, fstream
+<sstream>		stringbuf, istringstream, ostringstream, stringstream
+<iomanip>

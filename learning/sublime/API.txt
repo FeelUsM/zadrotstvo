@@ -1,0 +1,213 @@
+API
+=== sublime ===
+	вызов функций по расписанию
+		set_timeout(callback, delay)		None	deley - в милисекундах
+		set_timeout_async(callback, delay)	None
+	простые диалоги и уведомления
+		error_message(string)			None	окно с рисунком крестика
+		message_dialog(string)			None	окно
+		ok_cancel_dialog(string, <ok_title>)	bool	
+		yes_no_cancel_dialog(string, 
+			<yes_title>, <no_title>)	int	-> sublime.DIALOG_YES, sublime.DIALOG_NO or sublime.DIALOG_CANCEL
+	ресурсы (???)
+				load_resource(name)			str	name should be in the format Packages/Default/Main.sublime-menu
+				load_binary_resource(name)		str	name should be in the format Packages/Default/Main.sublime-menu
+				find_resources(pattern)			[str]	
+	JSON и настройки
+		encode_value(value, <pretty>=False)	str	JSON.stringify(); pretty - добавлять ли новые строки
+		decode_value(string)			value	JSON.parse()
+		expand_variables(value, variables)	value	рекрсивно по спискам и словарям заменяет подстроки ${name} на значения из variables['name']
+		load_settings(base_name)		Settings - имя файла, но не путь. (?) пакеты будут искать соотв. файл. С диска он загружается только 1 раз.
+		save_settings(base_name)		None
+	получение окон
+		windows()				[Window]
+		active_window()				Window
+	пути
+		packages_path()				str	
+		installed_packages_path()		str
+		cache_path()				str
+	буфер обмена
+		get_clipboard(<size_limit>)		str
+		set_clipboard(string)			None
+
+	score_selector(scope, selector)		int	???
+	команды, макросы, логгирование
+		run_command(string, <args>)		None	
+		get_macro()				[dict]	список команд текущего макроса
+		log_commands(flag)			None	логгирование команд по кейбиндингам и меню
+		log_input(flag)				None	логгирование нажатий клавиш
+		log_result_regex(flag)			None	логгирование regexp-ов, полезно для отладки систем сборки
+	about
+		version()				str
+		platform()				str
+		arch()					str
+
+------------------------------------------------------------------------------------------------------------------------
+=== Window ===
+	id()					int
+	меню файл
+		new_file()				View
+		open_file(file_name, <flags>)		View	что насчет текущей директории?
+								флаги:	sublime.ENCODED_POSITION - ...???
+									sublime.TRANSIENT - только как превью, вкладка будет отсутствовать, пока его не модифицируют (?)
+								пока view.is_loading() - еще не загрузился
+		find_open_file(file_name)		View/None - ищет среди списка открытых файлов
+	группы(подокна) и вкладки
+		active_sheet()				Sheet
+		active_view()				View
+		active_sheet_in_group(group)		Sheet	group - ?
+		active_view_in_group(group)		View	
+		sheets()				[Sheet]	
+		sheets_in_group(group)			[Sheet]	
+		views()					[View]	
+		views_in_group(group)			[View]	
+		num_groups()				int	
+		active_group()				int	Returns the index of the currently selected group.
+
+		focus_group(group)			None	
+		focus_sheet(sheet)			None	
+		focus_view(view)			None	
+
+		get_sheet_index(sheet)			(int, int)	Returns the group, and index within the group of the sheet. Returns -1 if not found.
+		set_sheet_index(sheet, group, index)	None		Moves the sheet to the given group and index.
+		get_view_index(view)			(int, int)	Returns the group, and index within the group of the view. Returns -1 if not found.
+		set_view_index(view, group, index)	None		Moves the view to the given group and index.
+
+	status_message(string)			None	на короткое время
+	показывать или нет: меню, sidebar, область вкладок, minimap, statusbar
+		is_menu_visible()			bool	
+		set_menu_visible(flag)			None	
+		is_sidebar_visible()			bool	
+		set_sidebar_visible(flag)		None	
+		get_tabs_visible()			bool	
+		set_tabs_visible(flag)			None	
+		is_minimap_visible()			bool	
+		set_minimap_visible(flag)		None	
+		is_status_bar_visible()			bool	
+		set_status_bar_visible(flag)		None	
+	папки и проекты
+		folders()				[str]	Returns a list of the currently open folders.
+		project_file_name()			str	
+		project_data()				dict	The data is in the same format as the contents of a .sublime-project file.
+		set_project_data(data)			None	Updates the project data associated with the current window. 
+								If the window is associated with a .sublime-project file, the project file will be updated on disk, 
+								otherwise the window will store the data internally.
+
+	run_command(string, <args>)		None
+	show_quick_panel(items, on_done, 
+		<flags>, <selected_index>, 
+		<on_highlighted>)		None	выпадающий список посередине сверху
+							items - список строк (или списков строк)
+							on_done - вызовется и получит индекс выбранного элемента (или -1 если esc)
+							...
+	show_input_panel(caption, initial_text, 
+		on_done(x), on_change(x), on_cancel())	View	снизу на всю ширину поле однострочного ввода
+
+	create_output_panel(name, <unlisted>)	View	???
+	find_output_panel(name)				View or None
+	destroy_output_panel(name)			None
+	active_panel()					str or None
+	panels()					[str]
+
+	lookup_symbol_in_index(symbol)			[location]	???
+	lookup_symbol_in_open_files(symbol)		[location]	???
+	extract_variables()				dict
+
+------------------------------------------------------------------------------------------------------------------------
+group	подокно
+
+point	int
+Region	пара позиций
+	Region(a, b)
+	a	int
+	b	int
+	xpos	int	???
+	begin()			int	Returns the minimum of a and b.
+	end()			int	Returns the maximum of a and b.
+	size()			int	Returns the number of characters spanned by the region. Always >= 0.
+	empty()			bool	Returns True iff begin() == end().
+	cover(region)		Region	объединение + если не пересекаются, то что между ними
+	intersection(region)	Region	
+	intersects(region)	bool	
+	contains(region)	bool	
+	contains(point)		bool	
+Selection - список регионов
+	clear()			None
+	add(region)		None
+	add_all(regions)	None
+	subtract(region)	None
+	contains(region)	bool
+dip	float
+vector	(dip,dip)
+
+=== Sheet === - вкладка в окне - окно+view или image preview(?)
+	id()					int
+	window()				Window or None
+	view()					View or None
+
+=== View === - просмотр(view) текстового буфера
+	about постоянное
+		id()					int	
+		buffer_id()				int	
+		is_primary()				bool	
+		file_name()				str	полное имя файла или None если его нет на диске
+	about 
+		name()					str	имя буфера (если есть)
+		set_name(name)				None	
+		is_loading()				bool	буфер продолжает загружаться с диска
+		is_dirty()				bool	в буфере есть несохраненные изменения
+		is_read_only()				bool	буфер только для чтения
+		set_read_only(value)			None	
+		is_scratch()				bool	буфер is sctrach. такой буфер никогда не будет dirty
+		set_scratch(value)			None	
+
+	settings()				Settings - настройки только данного view
+	window()				Window
+	run_command(string, <args>)		None	запуск команды из какого-нибудь плагина
+
+	работа с буфером
+		size()					int
+		substr(region)				str
+		substr(point)				str	от точки до конца файла
+
+		insert(edit, point, string)		int	edit - ???
+		erase(edit, region)			None	
+		replace(edit, region, string)		None	
+	разбиение на строки
+		sel()					Selection
+		line(point)				Region
+		line(region)				Region
+		full_line(point)			Region	line(...) с переводом строки
+		full_line(region)			Region	
+		lines(region)				[Region] - строки пересекающиеся с данным регионом
+		split_by_newlines(region)		[Region] - регион разбиваем по переносам
+	классификация: слова, подслова, пунктуация, строки
+		word(point)				Region	слово
+		word(region)				Region	от начала первого слова до конца последнего слова
+		classify(point)				int	питовое или следующих флагов
+			sublime.CLASS_WORD_START
+			sublime.CLASS_WORD_END
+			sublime.CLASS_PUNCTUATION_START
+			sublime.CLASS_PUNCTUATION_END
+			sublime.CLASS_SUB_WORD_START
+			sublime.CLASS_SUB_WORD_END
+			sublime.CLASS_LINE_START
+			sublime.CLASS_LINE_END
+			sublime.CLASS_EMPTY_LINE
+		find_by_class(point, forward, 
+			classes, <separators>)		Region	forward:bool
+		expand_by_class(point, classes, 
+			<separators>)			Region	расширяет влево и в право
+		expand_by_class(region, classes, 
+			<separators>)			Region	
+		find(pattern, start_point, <flags>)	Region	
+			flags - sublime.LITERAL | sublime.IGNORECASE
+		find_all(pattern, <flags>, <format>, 
+			<extractions>)			[Region]
+
+	rowcol(point)				(int, int)
+	text_point(row, col)			int
+
+	set_syntax_file(syntax_file)		None
+
+	extract_scope(point)			Region	возвращает extent of the syntax scope name соответствующего символа в данной точке

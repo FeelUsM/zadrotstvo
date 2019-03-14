@@ -1,0 +1,34 @@
+<Qucs Schematic 0.0.19>
+<Properties>
+  <View=0,0,1011,998,1,0,414>
+  <Grid=10,10,0>
+  <DataSet=cbUU.dat>
+  <DataDisplay=cbUU.sch>
+  <OpenDisplay=1>
+  <Script=cbUU.m>
+  <RunScript=0>
+  <showFrame=0>
+  <FrameText0=Название>
+  <FrameText1=Чертил:>
+  <FrameText2=Дата:>
+  <FrameText3=Версия:>
+</Properties>
+<Symbol>
+</Symbol>
+<Components>
+</Components>
+<Wires>
+</Wires>
+<Diagrams>
+  <Rect3D 20 492 410 472 3 #c0c0c0 1 00 1 0 0.2 1 1 -0.1 0.5 1.1 1 -0.1 0.5 1.1 315 0 225 "" "" "">
+	<"Ib.I" #0000ff 0 3 0 0 1>
+  </Rect3D>
+  <Rect3D 500 511 443 491 3 #c0c0c0 1 00 1 0 0.2 1 1 -0.1 0.5 1.1 1 -0.1 0.5 1.1 315 0 225 "" "" "">
+	<"Ic.I" #0000ff 0 3 0 0 1>
+  </Rect3D>
+  <Rect3D 20 958 450 418 3 #c0c0c0 1 00 1 0 0.2 1 1 -0.1 0.5 1.1 1 -0.1 0.5 1.1 315 0 225 "" "" "">
+	<"Ie.I" #0000ff 0 3 0 0 1>
+  </Rect3D>
+</Diagrams>
+<Paintings>
+</Paintings>

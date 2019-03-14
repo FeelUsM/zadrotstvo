@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Таблица</title>
+  <style>
+   table {
+    //width: 100%; /* Ширина таблицы */
+    //border-collapse: collapse; /* Убираем двойные границы */
+	background-color: red;
+   }
+   td, th {
+    //border: 1px solid #333; /* */
+    padding: 3px; /* Поля в ячейках */
+	margin: 40px;
+	background-color: blue;
+   }
+   thead, tfoot {
+    background: #f0f0f0; /* Цвет фона */
+   }
+   tbody:hover {
+    background: #f5e0cd; /* Цвет фона при наведении курсора */
+    color: #ce232a; /* Цвет текста */
+   }
+  </style>
+ </head>
+ <body>
+  <table>
+   <caption>Материал для гаек по ГОСТ 1759.5–87</caption>
+   <thead>
+    <tr>
+     <th>Класс прочности</th>
+     <th>Технологические процессы</th>
+     <th>Марка стали</th>
+     <th>Обозначение стандарта</th>
+    </tr>
+   </thead>
+   <tfoot>
+    <tr>
+     <th>Класс прочности</th>
+     <th>Технологические процессы</th>
+     <th>Марка стали</th>
+     <th>Обозначение стандарта</th>
+    </tr>
+   </tfoot>
+   <tbody>
+    <tr>
+     <td>4</td>
+     <td>Горячая штамповка</td>
+     <td>20, Ст3кп3, Ст3сп3</td>
+     <td>ГОСТ 1050–79</td>
+    </tr>
+   </tbody>
+   <tbody>
+    <tr>
+     <td rowspan="2">5</td>
+     <td>Холодная штамповка</td>
+     <td>10, 10кп</td>
+     <td>ГОСТ 0702–78</td>
+    </tr>
+    <tr>
+     <td>Горячая штамповка</td>
+     <td>20</td><td></td>
+    </tr>
+   </tbody>
+   <tbody>
+    <tr>
+     <td>6</td>
+     <td>Холодная штамповка</td>
+     <td>10, 10кп, 15, 15кп</td>
+     <td>ГОСТ 0702–78</td>
+    </tr>
+   </tbody>
+   <tbody>
+    <tr>
+     <td rowspan="2">8, 9</td>
+     <td>Горячая штамповка</td>
+     <td>35</td>
+     <td rowspan="2">ГОСТ 1050–74<br>ГОСТ 4543–71<br>ГОСТ 10702–78</td>
+    </tr>
+    <tr>
+     <td>Холодная штамповка</td>
+     <td>20, 20кп</td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

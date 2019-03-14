@@ -1,0 +1,1666 @@
+== символы, обозначения и соглашения ==
+=== символы ===
+<math>\mathcal{L} \quad \mathcal{H} \quad \mathcal{P} \quad \mathcal{M} \quad
+\vec x \quad \dot x \quad \hat x \quad \bar x \quad \tilde x \quad
+\sqrt{x}\quad \frac{x}{x} \quad \partial\!\!\!/ \quad 
+\phi \quad \varphi \quad \epsilon \quad \varepsilon \quad \theta \quad \vartheta \quad
+\pm \quad \mp \quad \times \quad \otimes \quad \cdot \quad 
+\Rightarrow \quad \rightarrow \quad \infty \quad \ldots </math> 
+
+<math>\quad A\;\langle_{\!\!\!\!0} |\rangle \quad [\;] \quad \{\}\quad
+\int_a^b\sum_i^n\prod_i^n\lim_x^y\sin \cos \dim \mathop{\rm Tr} \operatorname{Tr}
+\begin{cases}1,&2\\3,&4\end{cases}</math>
+<math>\begin{pmatrix}1,&2\\3,&4\end{pmatrix}\quad </math>
+<math>\begin{bmatrix}1,&2\\3,&4\end{bmatrix}\quad</math>
+
+=== соглашения ===
+у Пескина: 
+:<math>p^\mu=(E,+\vec p) = i\partial^\mu = (i\frac{d}{dt},-i\vec \nabla)</math>
+:<math>p_\mu=(E,-\vec p) = i\partial_\mu = (i\frac{d}{dt},+i\vec \nabla)</math>
+:<math>i\partial^\mu(e^{-ikx}) = k^\mu e^{-ikx}</math>
+я привык: :<math>p^\mu=(E,+\vec p)</math>, т.е. совпадает
+
+== основная логика: ==
+* В кинематике и сечении понимаем, что для вычисления сечения нужно посчитать матричный элемент
+* В квантах и представлениях мы понимаем, что для вычисления матричного элемента в возмущенной теории достаточно посчитать Т упорядочение в невозмущенной.
+* В каждом поле имеется теорема Вика, которая говорит, что Т упорядочение можно вычислить через нормальное упорядочение и свертки
+* И в конце мы из этих сверток конструируем диаграммы
+
+== 1++. Кинематика и сечения ==
+=== Нормировки ВФ ===
+Распределение (<math>f(x)=f(x')dx'/dx</math>) на массовой поверхности: 
+:<math>\frac{dp'^z}{dp^z}=\beta+\beta\gamma\frac{dE}{dp^z}=
+\beta+\beta\gamma\frac{d\sqrt{p^2+m^2}}{dp^z}=
+\beta+\beta\gamma\frac{p^z}{\sqrt{p^2+m^2}}=
+\frac{\beta E+\beta\gamma p^z}{E} = \frac{E'}{E} \quad \Rightarrow </math> если 
+:<math>f(p)=|\phi(p)|^2</math>, то <math>\sqrt{2 E_p}\phi(p) = \sqrt{2 E_{p'}}\phi(p')</math>.
+:2 - удобен из-за похожего множителя в квантовом решении, а может из-за знаменателя в пропагаторе.
+:<math>(2\pi)\delta(0)=\int e^{-i0x}dx=\lim_{L\to\infty}L</math>
+:<math>\langle\vec p|\vec k\rangle = 2E_p(2\pi)^3\delta^3(\vec p - \vec k)</math> - лоренц-инвариантно
+:...<math>j^\mu=2|N|^2 p^\mu; \qquad \rho=2|N|^2E_p; \qquad W=\rho V := 2E_p; \qquad2E_p</math> частиц в объеме V
+:<math>\langle\vec x|\vec y\rangle = (2\pi)^3\delta^3(\vec x - \vec y)</math> - кажется уже нет (?)
+:<math>|\psi\rangle = \int\frac{d^3\vec p}{(2\pi)^3}\frac{\psi_p(\vec p)}{\sqrt{2E_p}}|\vec p\rangle = \int d^3\vec x \psi_x(\vec x)|\vec x\rangle</math>
+
+:НКМ: <math>\langle\vec x|\vec \hat p|\vec p\rangle = 
+\vec p\langle\vec x|\vec p\rangle = 
+-i\vec\nabla\langle\vec x|\vec p\rangle \; \Rightarrow \; 
+\langle\vec x|\vec p\rangle = e^{+i\vec p \vec x}</math>
+:КТП: <math>\langle\vec x|\vec p\rangle = \sqrt{2E_p}e^{+i\vec p \vec x}</math>
+:<math>\psi_p(\vec q) = \int d^3\vec x e^{-i\vec q \vec x}\psi_x(\vec x); \qquad
+\psi_x(\vec y) = \int\frac{d^3\vec p}{(2\pi)^3}e^{+i\vec p \vec y}\psi_p(\vec p) </math>
+:<math>|\vec q\rangle = \sqrt{2E_q}\int d^3\vec x e^{+i\vec q \vec x}|\vec x\rangle; \qquad
+|\vec y\rangle = \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-i\vec p \vec y}}{\sqrt{2E_p}}|\vec p\rangle </math>
+:<math></math>
+
+=== кинематика ===
+:<math>p_A+p_B=p_1+p_2</math>
+:<math>s=(p_A+p_B)^2=(p_1+p_2)^2 = m_A^2+m_B^2+2p_A p_B = m_1^2+m_2^2+2p_1 p_2</math>
+:<math>t=(p_A-p_1)^2=(p_B-p_2)^2 = m_A^2+m_1^2-2p_A p_1 = m_B^2+m_2^2-2p_B p_2</math>
+:<math>u=(p_A-p_2)^2=(p_B-p_1)^2 = m_A^2+m_2^2-2p_A p_2 = m_1^2+m_B^2-2p_1 p_B</math>
+:<math>s+t+u=m_A^2+m_B^2+m_1^2+m_2^2</math>
+:<math></math>
+:<math>E_1^2 E_2^2|\vec v_1 - \vec v_2|^2 = (p_1 p_2)^2-m_1^2 m_2^2</math> - только если <math>\vec v_1||\vec v_2</math>
+:<math>\vec v_{rel}</math> - скорость одной частицы в системе покоя другой
+:<math>(p_1,p_2)^2 \vec v_{rel}^2 = 
+E_1^2 E_2^2((\vec v_1 - \vec v_2)^2-[\vec v_1 \times \vec v_2]^2) = 
+(p_1,p_2)^2-m_1^2m_2^2</math>
+:в СЦМ <math>\vec q_{12}=\vec p_1 = -\vec p_2</math>
+:<math>\vec q_{12}^2=\frac{(p_1 p_2)^2-m_1^2 m_2^2}{s}=\frac{\lambda(s,m_1^2,m_2^2)}{4s}</math>
+:<math>\lambda(a,b,c)=a^2+b^2+c^2-2ab-2bc-2ca=
+(a-(\sqrt b + \sqrt c)^2)(a-(\sqrt b - \sqrt c)^2)=</math>
+<math>=-(\sqrt a+\sqrt b +\sqrt c)(\sqrt a+\sqrt b -\sqrt c)(\sqrt a+\sqrt c -\sqrt b)(\sqrt c+\sqrt b -\sqrt a)</math>
+:<math>y=\frac{E_{k_1}-E_{k_2}}{E_{k_1}} = \frac{(p_1,(k_1-k_2))}{(p_1,k_1)}</math> - Бьёркиновский y
+
+=== Инвариантное сечение  ===
+* <math>\lambda</math> пучка &lt;&lt; расстояния между рассеивающими центрами - чтобы не было когерентного рассеяния
+* мишень тонкая - чтобы не было многократного рассеяния
+: <math>\Delta N</math> - число событий
+: <math>\vec j = n_1 \vec v_1</math> - налетающий поток
+: <math>N_c = n_{02} \Delta V</math> - число рассеивающих центров, <math>n_{02}</math> - покоящихся, <math>n_2</math> - движущихся
+<math>\Delta N = |\vec j| \Delta t N_c \sigma 
+= n_1 n_{02} |\vec v_1|\Delta t \Delta V \sigma
+= \frac{n_1}{E_1} \frac{n_{02}}{m_2} E_1 m_2|\vec v_1|\Delta t \Delta V \sigma
+= \frac{n_1}{E_1} \frac{n_{2}}{E_2} (p_1,p_2)|v_{rel}|\Delta t \Delta V \sigma
+</math>
+
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = выводим через <math>TV \to \infty</math> 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+:<math>\varphi_i(x)=\frac{1}{\sqrt{V}}e^{-ip_ix}</math> далее V - чисто нормировка
+:<math>\langle f|T|i\rangle = -i\mathcal{M}\int
+ \varphi_3^*(x) \varphi_4^*(x) \varphi_1(x) \varphi_2(x) d^4 x = 
+ -i\frac{\mathcal{M}}{V^2}\int e^{i(p_i-p_f)x}d^4 x = 
+ -i\frac{\mathcal{M}}{V^2}(2\pi)^4\delta^4(p_i-p_f) = 
+-i\frac{\mathcal{M}}{V^2}TV</math>
+:<math>|\langle f|T|i\rangle|^2=
+-i\frac{|\mathcal{M}|^2}{V^4}(2\pi)^4\delta^4(p_i-p_f)TV</math> - плотность вер-ти по фаз. объему конечных частиц
+:<math>W=-i\frac{|\mathcal{M}|^2}{V^4}(2\pi)^4\delta^4(p_i-p_f)TV
+\int \frac{d^3p_3V}{(2\pi)^2 2E_{p_3}}\int \frac{d^3p_4V}{(2\pi)^2 2E_{p_4}}</math> - вероятность перейти из i в f
+:<math>w=\frac{W}{TV}</math> - вероятность перейти из i в f в ед. времени в ед. объема
+:<math>j=n_1 n_2\frac{p_1,p_2}{E_1E_2}|v_{rel}| = \frac{n_1}{E_1}\frac{n_2}{E_2}(p_1,p_2) |v_{rel}|= \frac{4}{V^2}(p_1,p_2) |v_{rel}|</math> - инвариантный поток
+:<math>N=d\sigma j TV</math> - число событий
+:<math>d\sigma j=w</math> - число событий в ед. вр в ед. объема
+ }}
+<math>\Delta N = |\vec j| \Delta t N_c \sigma 
+= n_1 n_{02} |\vec v_1|\Delta t \Delta V \sigma
+= \frac{n_1}{E_1} \frac{n_{02}}{m_2} E_1 m_2|\vec v_1|\Delta t \Delta V \sigma
+= \frac{n_1}{E_1} \frac{n_{2}}{E_2} E_1 E_2|v_1 - v_2|\Delta t \Delta V \sigma
+</math>
+:Лоренц-инвариантны: <math>\frac{n_1}{E_1}; \qquad \Delta t \Delta V; \qquad \Delta N</math>
+:<math>E_1 E_2|v_1 - v_2|</math> - лоренц-инвариантно, только если <math>\vec v_1 || \vec v_2</math>, по этому далее считаем <math>v_1 = v_1^z; \quad v_2 = v_2^z; </math>
+далее по Пескину, раздел 4.5.
+:<math>\langle f|S|i\rangle = \langle f|1+iT|i\rangle</math> - отбрасываем то, что не взаимодействует, считаем <math>\langle f| i \rangle =0</math>
+:<math>\langle\vec p_1 \vec p_2 \ldots|iT|\vec p_A \vec p_B\rangle =
+(2\pi)^4\delta^4(p_1 + p_2 + \ldots - p_A - p_B)i\mathcal{M}(p_1,p_2,\ldots,p_A,p_B)</math> - закон сохранения импульсов выполнится в любом случае
+
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = выводим через волновые пакеты
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+:начальное состояние зависит от прицельного параметра b: <math>|\phi_A \phi_B\rangle = 
+\int \frac{d^3\vec k_A}{(2\pi)^3}\frac{\phi_A(\vec k_A)}{\sqrt{2E_{k_A}}}
+\frac{d^3\vec k_B}{(2\pi)^3}\frac{\phi_B(\vec k_B)}{\sqrt{2E_{k_B}}}
+e^{-i\vec k_B \vec b}|\vec k_A \vec k_B\rangle</math>
+:где <math>|\phi_A(\vec k_A)|^2 = (2\pi)^3\delta^3(\vec k_A - \vec p_A); \quad 
+|\phi_B(\vec k_B)|^2 = (2\pi)^3\delta^3(\vec k_B - \vec p_B)</math>
+
+:<math>P(\vec b) = \frac{d^3\vec p_1 d^3\vec p_2 \ldots}{(2\pi)^3 2E_{p_1}(2\pi)^3 2E_{p_2}\ldots}
+|\langle\vec p_1 \vec p_2 \ldots|iT|\phi_A\phi_B\rangle|^2</math> - вероятность рассеятся в <math>d^3p_1\ldots d^3p_n</math> при условии, что налетающая частица имеет прицельный параметр b
+:число событий <math>N=\int d^2b n_B P(b)</math>, где <math>n_B</math> - число налетающих частиц на единицу площади
+:<math>d\sigma = \frac{N}{n_B N_A} = \frac{N}{n_B \cdot 1} = \int d^2\vec b P(\vec b)</math>
+}}
+:<math>d\sigma = \frac{|\mathcal{M}(p_1,p_2,\ldots,p_A,p_B)|^2}{2E_A 2E_B|v_A-v_B|}
+\frac{d^3\vec p_1 d^3\vec p_2 \ldots}{(2\pi)^3 2E_{p_1} (2\pi)^3 2E_{p_2}\ldots}
+(2\pi)^4\delta^4(p_1 + p_2 + \ldots - p_A - p_B)
+</math>
+:если есть n тождественных частиц (каждого сорта), то его надо будет разделить на n! (каждого сорта).
+кароче
+:<math>d\sigma = \frac{|\mathcal{M}|^2}{4I}d\Phi</math>
+:<math>I = \sqrt{(p_A p_B)^2-m_A^2 m_B^2} = E_A E_B |v_A - v_B|</math>
+:<math>d\Phi = \frac{d^3\vec p_1 d^3\vec p_2 \ldots}{(2\pi)^3 2E_{p_1} (2\pi)^3 2E_{p_2}\ldots}
+(2\pi)^4\delta^4(p_1 + p_2 + \ldots - p_A - p_B)</math>
+
+=== Ширины Г ===
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = выводим через <math>TV\to\infty</math>
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+:<math>\varphi(x)=e^{-ipx}</math>
+:<math>A_{fi}=\frac{\langle f|T|i\rangle}{\sqrt{\langle f|f\rangle\langle i|i\rangle}}=
+\frac{(2\pi)^4\delta(p_i-p_f)i\mathcal{M}}{\sqrt{\prod_i(2E_iV)\prod_f(2E_fV)}}</math>
+:<math>P_{fi}=|A_{fi}|^2\prod_f\frac{d^3p_fV}{(2\pi)^3}=
+\frac{(2\pi)^4\delta^4(p_i-p_f)TV|i\mathcal{M}|^2}{\prod_i(2E_iV)}\prod_f\frac{d^3p_f}{(2\pi)^32E_f}</math>
+:<math>d\Gamma=\frac{dP_{fi}}{dt}</math>
+
+}}
+:Ширины вычисляются по аналогии, но будут доказаны в Пескине 7.3.
+кароче
+:<math>d\Gamma=\frac{|\mathcal{M}|^2}{2E_A}d\Phi</math>
+:<math>d\Phi=(2\pi)^4\delta^4(p_A-p_f)\prod_i\frac{d^3p_i}{(2\pi)^32E_{p_i}}</math>
+
+=== фазовые объемы ===
+2 частицы:
+:<math>d\Phi=(2\pi)^4\delta^4(p_1+p_2-p_i)\frac{d^3\vec p_1}{(2\pi)^32E_1}\frac{d^3\vec p_2}{(2\pi)^32E_2} = 
+\delta(E_1+E_2-E_i)\frac{|\vec p_1| dE_1 d\Omega}{(2\pi)^2 4E_2}</math>
+В системе центра масс: 
+:<math>d\Phi=\frac{|\vec p_1| d\Omega}{(2\pi)^2 4\sqrt{s}};\qquad
+I=|\vec p_A|\sqrt{s};\qquad
+\frac{d\sigma}{d\Omega}=\frac{|\mathcal{M}|^2|\vec p_1|}{64\pi^2s|\vec p_A|}</math>
+В лаб. системе
+:<math>I=|\vec p_A|m_B</math>
+
+== 1+. Кванты и представления ==
+=== 1+.1. Шрёдингер: ===
+:<math>i\frac{\partial\psi(x,t)}{\partial t}=H \psi(x,t)</math> - Ландавшиц выводил из ур-я Гамильтона-Якоби
+:<math>H \psi_n(x) = E_n \psi_n(x)</math> - разделение переменных, все дела...
+:<math>\psi(x,t) = \sum_n a_n\psi_n(x)e^{-iE_nt}</math>
+:<math>\psi(x,t)=e^{-i\hat H t}\psi(x,0)</math>
+:<math>\langle\psi|\psi\rangle=1</math>
+:вероятность, что <math>\psi</math> есть <math>\phi</math> равна <math>|\langle\phi|\psi\rangle|^2</math>
+:вероятность, что <math>\psi</math> перейдет в <math>\phi</math> за t равна <math>|\langle\phi|e^{-i\hat Ht}|\psi\rangle|^2</math>
+:<math>\langle M \rangle = \langle \psi|\hat M | \psi \rangle</math>
+:подробнее про измерения - Нильсен-Чанг, Квантовые вычисления, раздел 2.2.
+
+=== 1+.2. Гайзенберг: ===
+:<math>\langle O(t) \rangle = \langle \psi(t) | \hat O | \psi(t)\rangle = 
+\langle \psi(0) | e^{i\hat H t} \hat O e^{-i\hat H t}| \psi(0)\rangle = \langle \psi(0) | \hat O(t) | \psi(0)\rangle</math>
+:<math>i\frac{\partial\hat O(t)}{\partial t}=[\hat O(t) , \hat H ]</math> - подставляем, проверяем.
+:В частности выр-я для <math>\hat q</math> и <math>\hat p</math> соответствуют ур-ям Гамильтона.
+по прежнему
+:вероятность, что <math>\psi</math> есть <math>\phi</math> равна <math>|\langle\phi|\psi\rangle|^2</math>
+:вероятность, что <math>\psi</math> перейдет в <math>\phi</math> за t равна <math>|\langle\phi|e^{-i\hat Ht}|\psi\rangle|^2</math>
+
+=== 1+.3. Дирак (представление взаимодействия): ===
+:<math>H = H_0 + V</math>. Для <math>H_0</math> решать умеем, т.е. знаем <math>e^{-iH_0 t}</math>. <math>V</math> - возмущение.
+==== 1+.3.1. из Шрёдингера ====
+:<math>i\frac{\partial\psi_S}{\partial t}=H \psi_S</math>
+:будем искать ввиде <math>\psi_S = e_{-iH_0 t}\psi_I</math>
+:тогда (*) <math>i\frac{\partial\psi_I}{\partial t} = e^{iH_0 t} V e^{-iH_0 t} \psi_I = V(t) \psi_I \neq \psi_I V(t) </math> - всё-таки к операторам потом применять будем
+:<math>\psi_I(t) = U(t,t_0) \psi_I(t_0)</math>
+:<math>U(t,t_0) = T\{exp(-i\int_{t_0}^t dt_1 V(t_1))\}</math> - в ряд Тейлора и упорядочение по времени - в каждом учебнике имеется картиночка
+:<math>U^+U=I;\quad U^{-1}(t,t_0)=U^+(t,t_0)=U(t_0,t); \quad U(t_2,t_1)U(t_1,t_0)=U(t_2,t_0)</math>
+:S-матрица: <math>S = \lim_{t_0 \to - \infty; \; t \to + \infty}U(t,t_0); \quad \langle fin |S| ini \rangle</math> - матричный элемент
+
+==== 1+.3.2. из Гайзенберга ====
+далее по Пескину - раздел 4.2.
+:хотим: <math>\hat\phi(t)=e^{+i(H_0+V)t}\hat\phi(0) e^{-i(H_0+V)t}</math>
+:знаем: <math>\hat\phi_I(t)=e^{+iH_0 t}\hat\phi(0) e^{-i H_0 t}</math>
+:<math>\hat \phi(t) = U^+(t,0)\hat \phi_I(t)U(t,0) = U(0,t)\hat \phi_I(t)U(t,0) </math>
+:<math>U(t,t_0) = e^{i H_0(t-t_0)}e^{-iH(t-t_0)}</math>
+:<math>i\frac{\partial U}{\partial t} = e^{iH_0 t} V e^{-iH_0 t} U = V(t) U</math>, а это тоже самое, что и (*)
+
+==== 1+.3.3. новое вакуумное состояние ====
+:Было: <math>H_0|0\rangle = 0|0\rangle</math>. Стало: <math>H|\Omega\rangle = E_0|\Omega\rangle</math>. 
+:разложим: <math>e^{-iHT}|0\rangle = e^{-iE_0T}|\Omega\rangle \langle\Omega|0\rangle + \sum_{n \neq 0}e^{-iE_nT}|n\rangle\langle n|0\rangle</math>
+:ненормированное <math>\Rightarrow |\Omega\rangle_{nn} = \lim_{T \to \infty(1+i\epsilon)}e^{-iHT}|0\rangle = U(0,-T)|0\rangle</math>
+:для произвольных <math>\hat \phi_1(t_1), \hat \phi_2(t_2), \hat \phi_3(t_3) </math> 
+:<math> \langle\Omega|\hat \phi_1 \hat \phi_2 \hat \phi_3 |\Omega\rangle 
+= \frac{\langle\Omega|\hat \phi_1 \hat \phi_2 \hat \phi_3 |\Omega\rangle_{nn}}{\langle\Omega|\Omega\rangle_{nn}} 
+= \lim_{T \to \infty(1+i\epsilon)} 
+\frac{\langle 0|T\{ \hat \phi_{I1} \hat \phi_{I2} \hat \phi_{I3}
+ exp(-i\int_{t_0}^T dt_1 V(t_1))\}|0\rangle} 
+{\langle 0|T\{exp(-i\int_{t_0}^T dt_1 V(t_1))\}|0\rangle}</math>
+
+== 1. Лагранжев Формализм ==
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+==== 1.0. Действие 1d, 4d, Вариация = 0 ====
+:<math>S=\int L dt; \quad \delta S=0</math>
+:<math>S=\int \mathcal{L} d^4x; \quad \delta S=0</math>
+
+==== 1.1. Уравнения Лагранжа (из 1.0.) ====
+: <math>\frac{\partial L}{\partial q} = \frac{d}{dt} \frac{\partial L}{\partial \dot q}</math> - для каждого q
+: <math>\frac{\partial \mathcal{L}}{\partial \phi} = \partial_\mu \frac{\partial \mathcal{L}}{\partial \partial_\mu\phi}</math> - для каждого фи
+
+==== 1.3. Теорема Нётер (из 1.0 и 1.1) ====
+: Если при <math>\delta\phi: \quad L \rightarrow L+\frac{df}{dt};</math> или <math>\mathcal{L} \rightarrow \mathcal{L}+\partial_\mu J^\mu</math>, то <math>\delta S=0</math> (если <math>\phi</math> удовлетворяет ур-ям Лагранжа)
+: <math>\Rightarrow j^\mu = \sum_\phi\frac{\partial \mathcal{L}}{\partial \partial_\mu \phi} \delta\phi - J^\mu = const(x)</math>
+
+==== 1.2. Тензор энергии-импульса (из 1.0. и 1.1. или из 1.3) ====
+:<math>E = \sum_q pv-L(q,\dot q); \quad p=\frac{\partial L}{\partial \dot q}; \quad v = \dot q</math>
+:<math>T^{\mu\nu} = \sum_\phi\frac{\partial \mathcal{L}}{\partial \partial_\mu \phi}\partial^\nu \phi - g^{\mu\nu}\mathcal{L}</math>
+:Еще есть тензор моментов, но нам он не понадобится
+
+==== 1.5. Гамильтониан, уравнения Гамильтона, Плотность Гамильтониана (из ...)  ====
+:<math>H(q,p) = \sum_q pv(q,p)-L(q,p)</math> - преобразование Лежандра
+:<math>\dot p = -\frac{\partial H}{q}; \quad \dot q = \frac{\partial H}{p}</math>
+:<math>\mathcal{H}=T^{00} = \sum_\phi\frac{\partial \mathcal{L}}{\partial \partial_0 \phi}\partial^0 \phi - \mathcal{L} = \sum_\phi\pi \dot\phi - \mathcal{L};\quad H=\int d^3\vec x \mathcal{H}</math>
+:<math>\mathcal{\vec P} = T^{0i} = -\sum_\phi\pi\vec\nabla\phi;\quad \vec P=\int d^3\vec x \mathcal{\vec P}; \quad \pi = \frac{\partial \mathcal{L}}{\partial \partial_0 \phi}</math>
+}}
+
+== 2. Свободные поля с пропагаторами и теоремами Вика ==
+=== 2.1. Скалярное действительное ===
+<!--{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   -->
+==== 2.1.1. Классическое ====
+:<math>\mathcal{L} = \frac{1}{2}\partial_\mu\phi\partial^\mu\phi - \frac{m^2}{2}\phi^2</math>
+:<math>\frac{\partial\mathcal{L}}{\partial\partial_\mu\phi} = \partial^\mu\phi</math>
+:<math>\mathcal{H}=\frac{1}{2}((\frac{\partial \phi}{dt})^2+(\nabla \phi)^2+m^2\phi^2)</math>
+:<math>\mathcal{\vec P}=\partial_0\phi\vec\nabla\phi</math>
+Глобальные калибровочные преобразования:<math>\phi \rightarrow e^{i\delta\alpha}\phi
+\; \Rightarrow \; \delta\phi = i\delta\alpha\phi \; \Rightarrow \; J^\mu=0
+\; \Rightarrow \;</math>
+:<math>j^\mu = i\partial^\mu\phi\phi = i\frac{1}{2}\partial^\mu(\phi^2)</math> - ток чисто мнимый
+
+===== 2.1.1.0. уравнение К-Г - Клейна-Гордона(-Фока) =====
+:<math>(\partial^2+m^2)\phi=0</math>
+ищем решение в виде: <math>\phi(\vec x, t)=\int \frac{d^3\vec p}{(2\pi)^3}e^{+i\vec p \vec x}\phi(\vec p,t)</math>
+:(*) получаем <math>(\frac{\partial^2}{\partial t^2}+E_p^2)\phi(\vec p,t)=0</math>
+:<math>\phi(\vec p, t) = a(\vec p)e^{-iE_pt}+a^*(\vec p)e^{+iE_pt}</math>,
+:<math>\phi(x)=\int\frac{d^3\vec p}{(2\pi)^3}(a(\vec p)e^{-ipx}+a^*(-\vec p)e^{+ipx})</math>
+нормировка абсолютно не имеет значения, но чтобы всё было лоренц-инвариантно (?: почему мы делим а не умножаем на <math>\sqrt{2E_p}</math>? - может чтобы <math>\langle0|\phi(\vec x)|\vec p\rangle = e^{i\vec p\vec x}</math>):
+:<math>\phi(x)=\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}(a(\vec p)e^{-ipx}+a^*(-\vec p)e^{+ipx})</math>
+
+===== 2.1.1.1. Функции Грина =====
+:<math> (\partial^2+m^2)\phi_0(x)=0 </math>
+:<math> (\partial^2+m^2)G(x)=-i\delta^4(x) </math>
+:<math> (\partial^2+m^2)\phi(x)=j(x) </math>
+:<math>\phi(x) = \phi_0(x) + i\int d^4yG(x-y)j(y)</math>
+:<math>G(p) = \frac{i}{p^2-m^2}</math>
+:<math>G(x) = \int \frac{d^4p}{(2\pi)^4}\frac{i}{p^2-m^2}e^{-ipx} = 
+\frac{i}{2\pi}\int \frac{d^3\vec p}{(2\pi)^3}\int_{-\infty}^{+\infty}\frac{dp_0}{p_0^2-E_p^2}e^{-ipx}</math>
+:при комплексном <math>p_0</math> экспонента становится действительной, и мы замыкаем контур с той стороны, где она убывает (а не возрастает), т.е. при <math>x_0<0</math> - сверху, а при <math>x_0>0</math> - снизу
+запаздывающая (retarded) (знаем источник, хотим найти поле) - оба полюса обходим сверху
+: <math>G_R(x)=\begin{cases}0, & x_0<0 \\
+\frac{i}{2\pi}\int\frac{d^3\vec p}{(2\pi)^3}(-2\pi i)(\frac{e^{-ipx}}{2E_p} - \frac{e^{+ipx}}{2E_p}), & x_0>0
+\end{cases}</math>
+опережающая (advanced) (знаем поле, хотим найти источник (?)) - оба полюса обходим снизу
+: <math>G_A(x)=\begin{cases}
+\frac{i}{2\pi}\int\frac{d^3\vec p}{(2\pi)^3}(2\pi i)(\frac{e^{-ipx}}{2E_p} - \frac{e^{+ipx}}{2E_p}), & x_0<0 \\
+0, & x_0>0
+\end{cases}</math>
+фейнмановская (для частиц - запаздывающая, для античастиц - опережающая (fixme)) - отрицательный полюс обходим снизу, а положительный - сверху
+: <math>D_F(x) = G_F(x) = \int \frac{d^4p}{(2\pi)^4}\frac{i}{p^2-m^2+i\epsilon}e^{-ipx} = \begin{cases}
+\frac{i}{2\pi}\int\frac{d^3\vec p}{(2\pi)^3}(2\pi i)\frac{e^{-ipx}}{2E_p}, & x_0<0 \\
+\frac{i}{2\pi}\int\frac{d^3\vec p}{(2\pi)^3}(2\pi i)\frac{e^{+ipx}}{2E_p}, & x_0>0
+\end{cases}</math>
+:<math>D_F(p) = \frac{i}{p^2-m^2+i\epsilon};\qquad D_F(x)=D_F(-x)</math>
+
+==== 2.1.2 Квантовое ====
+:когда много частиц: <math>[q_i,p_j]=i\delta_{ij}; \qquad [q_i,q_j]=[p_i,p_j]=0;</math>
+:когда поле: <math>[\phi(\vec x),\pi(\vec y)]=i\delta^3(\vec x-\vec y); \qquad 
+[\phi(\vec x),\phi(\vec y)]=[\pi(\vec x),\pi(\vec y)]=0;</math>
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = простой гармонический осциллятор 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+::<math>q=\frac{1}{\sqrt{2\omega}}(a+a^+); \qquad p=-i\sqrt{\frac{\omega}{2}}(a-a^+)</math>
+::<math>[q,p]=i; \quad \Rightarrow \quad [a,a^+]=1</math>
+::<math>H=\frac{p^2}{2}+\frac{\omega^2q^2}{2}=\frac{\omega}{2}(a^+a+1)</math>
+}}
+:каждая мода Фурье рассматривается как НЕЗАВИСИМЫЙ осциллятор
+:<math>\phi(\vec x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+(a_{\vec p}e^{+i\vec p\vec x} + a^+_{\vec p}e^{-i\vec p\vec x})
+ = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+(a_{\vec p} + a^+_{-\vec p})e^{i\vec p\vec x}</math>
+:<math>\pi(\vec x) = \int\frac{d^3\vec p}{(2\pi)^3}(-i)\sqrt{\frac{E_p}{2}}
+(a_{\vec p}e^{+i\vec p\vec x} - a^+_{\vec p}e^{-i\vec p\vec x})
+ = \int\frac{d^3\vec p}{(2\pi)^3}(-i)\sqrt{\frac{E_p}{2}}
+(a_{\vec p} - a^+_{-\vec p})e^{i\vec p\vec x}</math>
+:<math>\Rightarrow\quad [a_{\vec p},a^+_{\vec q}] = (2\pi)^3\delta^3(\vec p - \vec q)</math>
+:<math>\phi^+=\phi</math> - поле действительное
+: и тогда <math>\phi(\vec p)=\frac{a(\vec p)+a^+(-\vec p)}{\sqrt{2E_p}}; \quad
+\pi(\vec p) = -i\sqrt{\frac{E_p}{2}}(a(\vec p)-a^+(-\vec p))</math>
+:механизм возникновения двойки в <math>\sqrt{2E_p}</math>: записываем коммутационные соотношения для a → записываем фи → находим пи → проверяем коммутационные соотношения для [фи,пи]
+
+:Н можно находить двумя способами: подставить фи в гамильтониан поля или подставить фи и пи в гамильтониан гарм. осциллятора
+:<math>H = \int d^3\vec x \mathcal{H} = \int\frac{d^3\vec p}{(2\pi)^3}E_p
+\frac{a_{\vec p}^+a_{\vec p}+a_{\vec p}a_{\vec p}^+}{2} = 
+\int\frac{d^3\vec p}{(2\pi)^3}E_p(a_{\vec p}^+a_{\vec p}+\frac{1}{2}[a_{\vec p}a_{\vec p}^+]) =
+\int\frac{d^3\vec p}{(2\pi)^3}E_p a_{\vec p}^+a_{\vec p}+const 
+</math>
+:<math>[H,a^+_{\vec p}] = E_pa^+_{\vec p}; \quad [H,a_{\vec p}] = -E_pa_{\vec p}</math>
+:<math>\vec P = \int d^3\vec x \mathcal{\vec P} = \int\frac{d^3\vec p}{(2\pi)^3}\vec p
+a_{\vec p}^+a_{\vec p}</math>
+:<math>Q = ?</math>
+
+===== 2.1.2.1. Состояния =====
+:2 - удобен из-за похожего множителя в квантовом решении, а может из-за знаменателя в пропагаторе.
+:<math>|\vec p\rangle = \sqrt{2E_p}a^+_{\vec p}|0\rangle; \quad 
+\langle\vec p|\vec q\rangle=2E_p(2\pi)^3\delta^3(\vec p - \vec q)</math>
+:<math>\phi(\vec x)|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{2E_p}e^{-i\vec p \vec x}|\vec p\rangle; \quad 
+\langle0|\phi(\vec x)|\vec p\rangle = e^{i\vec p\vec x}</math>
+:<math>|\vec x\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}e^{-i\vec p \vec x}|\vec p\rangle;</math> - (по словам Наумова) его нельзя выразить через <math>\phi \; \Rightarrow</math> (а может <math>\Leftarrow</math>) решением ур-я КГ не является
+
+===== 2.1.2.2. Эволюция: =====
+:<math>i\frac{\partial \phi}{\partial t} = [\phi,H] = i\pi; \quad i\frac{\partial \pi}{\partial t} = [\pi,H] = -i(-\nabla^2+m^2)\phi; </math>
+:<math>H a_{\vec p} = a_{\vec p}(H-E_p) \; \Rightarrow \; 
+H^n a_{\vec p} = a_{\vec p}(H-E_p)^n</math>
+:<math>\Rightarrow \; e^{iHt}a_{\vec p}e^{-iHt} = a_{\vec p}e^{-iE_pt}; \quad
+e^{iHt}a^+_{\vec p}e^{-iHt} = a^+_{\vec p}e^{+iE_pt}</math>
+:<math>\phi(x)=\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+(a_{\vec p}e^{-ipx} + a^+_{\vec p}e^{+ipx})|_{p^0=E_p}; \quad
+\pi(x)=\frac{\partial \phi}{\partial t}</math>
+:<math>e^{-i\vec P\vec x}a_{\vec p}e^{+i\vec P\vec x} = a_{\vec p}e^{+i\vec p\vec x}; \quad
+e^{-i\vec P\vec x}a^+_{\vec p}e^{+i\vec P\vec x} = a^+_{\vec p}e^{-i\vec p\vec x}</math>
+:<math>P=(H,\vec P) \; \Rightarrow \; \phi(x) = e^{iPx}\phi(0)e^{-iPx}</math>
+
+===== 2.1.2.3. Пропагатор - амплитуда распространения частицы =====
+:<math>D(y-x) := \langle0|\phi(y)\phi(x)|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{2E_p}e^{-ip(y-x)}</math>
+:Если <math>A(x)=\sum_n a_n \phi^{2n}(x) \quad</math> и <math>\quad B(y)=\sum_n a_n \phi^{2n}(y)</math> - операторы измерений в соотв. точках, и x и y - разнесены пространственно-подобно, 
+:то <math>B(y)A(x)|\psi\rangle = A(x)B(y)|\psi\rangle \; \Leftrightarrow [A(x),B(y)]=0 \;
+\Leftarrow [\phi(x),\phi(y)]=0 \; or \; \{\phi(x),\phi(y)\}=0</math>
+
+:<math>[\phi(y),\phi(x)] = \langle 0|[\phi(y),\phi(x)]|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-ip(y-x)}-e^{+ip(y-x)}}{2E_p} = 
+\begin{cases} \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-i\vec p\vec r}-e^{+i\vec p \vec r}}{2E_p} = 0, & x^0=y^0
+\\ \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-iE_pt}-e^{+iE_pt}}{2E_p}, & \vec x = \vec y
+\end{cases}</math>
+:<math>D(y-x)\neq 0</math> при пространственно-подобном интервале, т.е. квантовая телепортация остается возможной.
+:если <math>y^0 > x^0 \; </math> то <math>\; [\phi(y),\phi(x)] = G_R(y-x) = D(y-x) - D(x-y)</math>
+:<math>\langle 0|T\{\phi(y)\phi(x)\}|0\rangle = D_F(y-x) = 
+\begin{cases}
+\langle 0|\phi(y)\phi(x)|0\rangle = D(y-x), & y^0 > x^0
+\\
+\langle 0|\phi(x)\phi(y)|0\rangle = D(x-y), & x^0 > y^0
+\end{cases}
+</math>
+
+===== 2.1.2.4. Теорема Вика =====
+:Т упорядочение: слева новые, справа старые
+:N упорядочение: слева <math>a^+</math>, справа <math>a</math>, при перестановке знак не меняется.
+:<math>\phi(x)=\phi^{(+)}(x)+\phi^{(-)}(x); \quad 
+\phi^{(+)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a_{\vec p}e^{-ipx}; \quad
+\phi^{(-)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a^+_{\vec p}e^{+ipx}
+</math>
+:свертка <math>\phi(x)\phi(y) := 
+\begin{cases}
+[\phi^{(+)}(x),\phi^{(-)}(y)] = \langle 0 | \phi(x)\phi(y) |0\rangle, & x^0 > y^0
+\\
+.[\phi^{(+)}(y),\phi^{(-)}(x)] = \langle 0 | \phi(y)\phi(x) |0\rangle, & y^0 > x^0
+\end{cases}
+</math>
+:свертка <math>\phi(x)\phi(y) = D_F(x-y) = D_F(y-x)</math>
+:теорема: <math>T\{\phi_1 \ldots \phi_n\} = N\{\sum_{all\; convs}\phi_1 \ldots \phi_n\}</math>
+<!--}}-->
+
+=== 2.2. Скалярное комплексное ===
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+==== 2.2.1. Классическое ====
+:<math>\mathcal{L} = \partial_\mu\phi\partial^\mu\phi^* - m^2\phi\phi^*</math>
+:<math>\frac{\partial\mathcal{L}}{\partial\partial_\mu\phi} = \partial^\mu\phi^*;\qquad
+\frac{\partial\mathcal{L}}{\partial\partial_\mu\phi^*} = \partial^\mu\phi;</math>
+:<math>\mathcal{H}=|\frac{\partial \phi}{dt}|^2+|\nabla \phi|^2+m^2|\phi|^2</math>
+:<math>\mathcal{\vec P}=\partial_0\phi^*\vec\nabla\phi + \partial_0\phi\vec\nabla\phi^*</math>
+Глобальные калибровочные преобразования:<math>\phi \rightarrow e^{i\delta\alpha}\phi
+\; \Rightarrow \; \delta\phi = i\delta\alpha\phi \; \Rightarrow \; J^\mu=0
+\; \Rightarrow \;</math>
+:<math>j^\mu = i (\partial^\mu\phi^*\phi - \partial^\mu\phi\phi^*)</math>
+
+===== 2.1.1.0. уравнение К-Г - Клейна-Гордона(-Фока) =====
+:<math>(\partial^2+m^2)\phi=0</math>
+ищем решение в виде: <math>\phi(\vec x, t)=\int \frac{d^3\vec p}{(2\pi)^3}e^{+i\vec p \vec x}\phi(\vec p,t)</math>
+:(*) получаем <math>(\frac{\partial^2}{\partial t^2}+E_p^2)\phi(\vec p,t)=0</math>
+:<math>\phi(\vec p, t) = a(\vec p)e^{-iE_pt}+b^*(\vec p)e^{+iE_pt}</math>,
+:<math>\phi(x)=\int\frac{d^3\vec p}{(2\pi)^3}(a(\vec p)e^{-ipx}+b^*(-\vec p)e^{+ipx})</math>
+
+===== 2.2.1.1. Функции Грина =====
+по моему здесь всё так же как и для скалярного действительного
+
+==== 2.2.2. Квантовое ====
+:в квантовом случае: <math>\phi</math> - оператор "координаты поля"
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = в одноточечном случае для (*) 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+::<math>\hat \mathcal{H}(\vec p) = 
+  \frac{1}{2}(\hat\pi^2(\vec p)+E_p^2\hat\phi^2(\vec p)) = 
+  E_p(b^+_{\vec p}a_{\vec p}+\frac{1}{2})</math>
+::<math>[\hat\phi(\vec p),\hat\pi(\vec p)]=i; \quad [\hat a(\vec p),\hat b^+(\vec p)]=1</math>
+::<math>\hat\phi(\vec p)=\frac{\hat a(\vec p)+\hat b^+(\vec p)}{\sqrt{2E_p}}; \quad 
+\hat \pi(\vec p) = -i\sqrt{\frac{E_p}{2}}(\hat a(\vec p)-\hat b^+(\vec p))</math>
+(далее операторы без шляпок)
+}}
+но мы хотим <math>[\phi(\vec x),\pi(\vec x')]=i\delta(\vec x - \vec x'); \quad 
+[a(\vec p),a^+(\vec p')]=(2\pi)^3\delta(\vec p - \vec p')\quad
+[b(\vec p),b^+(\vec p')]=(2\pi)^3\delta(\vec p - \vec p')
+</math>
+: остальные коммутаторы =0
+: и тогда <math>\phi(\vec p)=\frac{a(\vec p)+b^+(-\vec p)}{\sqrt{2E_p}}; \quad
+\pi(\vec p) = -i\sqrt{\frac{E_p}{2}}(b(\vec p)-a^+(-\vec p))</math>
+
+:<math>\phi(\vec x)=\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+(a_{\vec p}e^{+i\vec p\vec x} + b^+_{\vec p}e^{-i\vec p\vec x})</math>
+:<math>\pi(\vec x)=\int\frac{d^3\vec p}{(2\pi)^3}(-i)\sqrt{\frac{E_p}{2}}
+(b_{\vec p}e^{+i\vec p\vec x} - a^+_{\vec p}e^{-i\vec p\vec x})</math>
+
+:<math>H = \int d^3\vec x \mathcal{H} = \int\frac{d^3\vec p}{(2\pi)^3}E_p
+(b_{\vec p}^+b_{\vec p}+a_{\vec p}a_{\vec p}^+) = 
+\int\frac{d^3\vec p}{(2\pi)^3}E_p(b_{\vec p}^+b_{\vec p}+a_{\vec p}^+a_{\vec p}+[a_{\vec p}a_{\vec p}^+]) =
+\int\frac{d^3\vec p}{(2\pi)^3}E_p(a_{\vec p}^+a_{\vec p}+b_{\vec p}^+b_{\vec p})+const 
+</math>
+:<math>[H,a^+_{\vec p}] = E_pa^+_{\vec p}; \quad [H,a_{\vec p}] = -E_pa_{\vec p} \qquad
+[H,b^+_{\vec p}] = E_pb^+_{\vec p}; \quad [H,b_{\vec p}] = -E_pb_{\vec p}</math>
+:<math>\vec P = \int d^3\vec x \mathcal{\vec P} = 
+\int\frac{d^3\vec p}{(2\pi)^3}\vec p (a_{\vec p}^+a_{\vec p} + b_{\vec p}^+b_{\vec p})</math>
+:<math>Q = \int d^3\vec x j^0 = \int\frac{d^3\vec p}{(2\pi)^3}
+(a_{\vec p}^+a_{\vec p} - b_{\vec p}^+b_{\vec p})</math>
+
+===== 2.2.2.1. Состояния =====
+:вроде всё то же самое, только 2 типа частиц
+:<math>|\vec p\rangle = \sqrt{2E_p}a^+_{\vec p}|0\rangle; \quad 
+\langle\vec p|\vec q\rangle=2E_p(2\pi)^3\delta^3(\vec p - \vec q)</math>
+:<math>\phi(\vec x)|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{2E_p}e^{-i\vec p \vec x}|\vec p\rangle; \quad 
+\langle0|\phi(\vec x)|\vec p\rangle = e^{i\vec p\vec x}</math>
+:<math>|\vec x\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}e^{-i\vec p \vec x}|\vec p\rangle;</math> - (по словам Наумова) его нельзя выразить через <math>\phi \; \Rightarrow</math> (а может <math>\Leftarrow</math>) решением ур-я КГ не является
+
+===== 2.2.2.2. Эволюция: =====
+:вроде всё то же самое, только 2 типа частиц
+:<math>i\frac{\partial \phi}{\partial t} = [\phi,H] = i\pi^+; \quad i\frac{\partial \pi^+}{\partial t} = [\pi^+,H] = -i(-\nabla^2+m^2)\phi; </math>
+:<math>H a_{\vec p} = a_{\vec p}(H-E_p) \; \Rightarrow \; 
+H^n a_{\vec p} = a_{\vec p}(H-E_p)^n</math>
+:<math>\Rightarrow \; e^{iHt}a_{\vec p}e^{-iHt} = a_{\vec p}e^{-iE_pt}; \quad
+e^{iHt}a^+_{\vec p}e^{-iHt} = a^+_{\vec p}e^{+iE_pt}</math>
+:<math>\phi(x)=\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+(a_{\vec p}e^{-ipx} + b^+_{\vec p}e^{+ipx})|_{p^0=E_p}; \quad
+\pi(x)=\frac{\partial \phi^+}{\partial t}</math>
+:<math>e^{-i\vec P\vec x}a_{\vec p}e^{+i\vec P\vec x} = a_{\vec p}e^{+i\vec p\vec x}; \quad
+e^{-i\vec P\vec x}a^+_{\vec p}e^{+i\vec P\vec x} = a^+_{\vec p}e^{-i\vec p\vec x}</math>
+:<math>P=(H,\vec P) \; \Rightarrow \; \phi(x) = e^{iPx}\phi(0)e^{-iPx}</math>
+
+===== 2.2.2.3. Пропагатор - амплитуда распространения частицы =====
+:<math>D(y-x) := \langle0|\phi^+(y)\phi(x)|0\rangle = \langle0|\phi(y)\phi^+(x)|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{2E_p}e^{-ip(y-x)}</math>
+:Если <math>A(x)=\sum_n (a_n \phi^{2n}(x)+b_n {\phi^+}^{2n}(x) )\quad</math> и <math>
+\quad B(y)=\sum_n ( a_n \phi^{2n}(y) + b_n {\phi^+}^{2n}(y))</math> - операторы измерений в соотв. точках, и x и y - разнесены пространственно-подобно, 
+:то <math>B(y)A(x)|\psi\rangle = A(x)B(y)|\psi\rangle \; \Leftrightarrow [A(x),B(y)]=0 \;
+\Leftarrow [\phi^{[+]}(x),\phi^{[+]}(y)]=0 \; or \; \{\phi^{[+]}(x),\phi^{[+]}(y)\}=0</math>
+:<math>[\phi(y),\phi(x)] = [\phi^+(y),\phi^+(x)] = 0</math>
+:<math>[\phi^+(y),\phi(x)] = \langle 0|[\phi^+(y),\phi(x)]|0\rangle = 
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-ip(y-x)}-e^{+ip(y-x)}}{2E_p} = 
+\begin{cases} \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-i\vec p\vec r}-e^{+i\vec p \vec r}}{2E_p} = 0, & x^0=y^0
+\\ \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-iE_pt}-e^{+iE_pt}}{2E_p}, & \vec x = \vec y
+\end{cases}</math>
+:<math>D(y-x)\neq 0</math> при пространственно-подобном интервале, т.е. квантовая телепортация остается возможной.
+:если <math>y^0 > x^0 \; </math> то <math>\; [\phi^+(y),\phi(x)] = G_R(y-x) = D(y-x) - D(x-y)</math>
+:<math>\langle 0|T\{\phi^+(y)\phi(x)\}|0\rangle = D_F(y-x) = 
+\begin{cases}
+\langle 0|\phi^+(y)\phi(x)|0\rangle = D(y-x), & y^0 > x^0
+\\
+\langle 0|\phi^+(x)\phi(y)|0\rangle = D(x-y), & x^0 > y^0
+\end{cases}
+</math>
+
+===== 2.2.2.4. Теорема Вика =====
+:Т упорядочение: слева новые, справа старые
+:N упорядочение: слева <math>a^+, b^+</math>, справа <math>a, b</math>, при перестановке знак не меняется.
+:<math>\phi(x)=\phi^a(x)+\phi^{b+}(x); \quad 
+\phi^a(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a_{\vec p}e^{-ipx}; \quad
+\phi^{a+}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}a^+_{\vec p}e^{+ipx}
+</math>
+:<math>\phi^+(x)=\phi^{a+}(x)+\phi^b(x); \quad 
+\phi^b(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}b_{\vec p}e^{-ipx}; \quad
+\phi^{b+}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}b^+_{\vec p}e^{+ipx}
+</math>
+:свертка <math>\phi(x)\phi^+(y) := 
+\begin{cases}
+[\phi^{a}(x),\phi^{a+}(y)] = \langle 0 | \phi(x)\phi^+(y) |0\rangle, & x^0 > y^0
+\\
+.[\phi^{b}(y),\phi^{b+}(x)] = \langle 0 | \phi(y)\phi^+(x) |0\rangle, & y^0 > x^0
+\end{cases}
+</math>
+:свертка <math>\phi^+(x)\phi(y) := 
+\begin{cases}
+[\phi^{b}(x),\phi^{b+}(y)] = \langle 0 | \phi^+(x)\phi(y) |0\rangle, & x^0 > y^0
+\\
+.[\phi^{a}(y),\phi^{a+}(x)] = \langle 0 | \phi^+(y)\phi(x) |0\rangle, & y^0 > x^0
+\end{cases}
+</math>
+:свёрток <math>\phi\phi</math> или <math>\phi^+\phi^+</math> не бывает
+:свертка <math>\phi^+(x)\phi(y) = \phi(x)\phi^+(y) = D_F(x-y) = D_F(y-x)</math>
+:теорема: <math>T\{\phi_1 \ldots \phi_n\} = N\{\sum_{all\; convs}\phi_1 \ldots \phi_n\}</math>
+}}
+
+=== 2.3. Спинорное ===
+==== 2.3.1. Арифметика <math>\gamma</math> матриц ====
+:<math>1 = \begin{pmatrix}1&0\\0&1\end{pmatrix} \qquad
+i = \begin{pmatrix}0&-1\\1&0\end{pmatrix} \qquad
+\cos \varphi + i\sin\varphi = 
+  \begin{pmatrix}\cos \varphi&-\sin\varphi
+  \\ \sin\varphi&\cos\varphi\end{pmatrix} \qquad
+</math>
+:<math>1 = \begin{pmatrix}1&0\\0&1\end{pmatrix} \qquad
+\sigma_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix} \qquad
+\sigma_2 = \begin{pmatrix}0&-i\\i&0\end{pmatrix} \qquad
+\sigma_3 = \begin{pmatrix}1&0\\0&-1\end{pmatrix} \qquad
+\operatorname{Tr}\sigma_i=0
+</math>
+:<math>\sigma^i = \sigma_i</math>
+:<math>\sigma_i\sigma_j = i\varepsilon_{ijk}\sigma_k+\delta_{ij};\quad
+[\sigma_i\sigma_j] = 2i\varepsilon_{ijk}\sigma_k;\quad
+\{\sigma_i\sigma_j\} = 2\delta_{ij}; \quad
+\sigma_1\sigma_2\sigma_3=1
+</math>
+:<math>(\vec \sigma \vec a)(\vec \sigma \vec b) = (\vec a \vec b)+i(\vec\sigma[\vec a \times \vec b])</math>
+:<math>e^{i\vec a\vec \sigma}=\cos|\vec a|+i\frac{\vec a\vec\sigma}{|\vec a|}\sin|\vec a|
+\;\Rightarrow\;\operatorname{Tr} e^{i\vec a\vec \sigma} = 2\cos|\vec a|</math>
+:<math>e^{\vec a\vec \sigma}=
+\operatorname{ch}|\vec a|+i\frac{\vec a\vec\sigma}{|\vec a|}\operatorname{sh}|\vec a|
+\;\Rightarrow\;\operatorname{Tr} e^{\vec a\vec \sigma} = 2\operatorname{ch}|\vec a|</math>
+
+Представление Дирака: 
+:<math>\gamma^0 = \beta = \begin{pmatrix}1&0\\0&-1\end{pmatrix}\qquad
+\vec \gamma = \beta\vec\alpha = \begin{pmatrix}0&\vec\sigma\\-\vec\sigma&0\end{pmatrix}\qquad
+\gamma^5=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+</math>
+:<math>\beta^2=1;\quad\vec\alpha\beta = - \beta\vec\alpha;\quad\alpha^k\alpha^n = \delta^{kn};
+\quad \gamma^\alpha = g^{\alpha\beta}\gamma_\beta
+</math>
+Другие представления:
+:<math>\tilde\psi = V\psi; \quad \tilde\gamma^\mu=V\gamma^\mu V^+; \quad VV^+=V^+V=1;\qquad \sigma_\pm^\mu=(1,\pm\vec\sigma)</math>
+:Вейля(у Пескина): <math>V=\begin{pmatrix}1&-1\\1&1\end{pmatrix}/\sqrt{2} \quad \Rightarrow \;
+\gamma^\mu=\begin{pmatrix}0&\sigma_+^\mu\\\sigma_-^\mu&0\end{pmatrix}</math>
+:Спинорное: <math>V=\begin{pmatrix}1&1\\1&-1\end{pmatrix}/\sqrt{2} \quad \Rightarrow \;
+\gamma^\mu=\begin{pmatrix}0&\sigma_-^\mu\\\sigma_+^\mu&0\end{pmatrix}</math>
+:<math>\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu=2g^{\mu\nu};\qquad
+\operatorname{Tr}\gamma^\mu=0</math>
+:<math>\gamma^5=\gamma_5=
+\frac{i}{4!}\varepsilon_{\mu\nu\sigma\rho}\gamma^\mu\gamma^\nu\gamma^\sigma\gamma^\rho = 
+i\varepsilon_{0123}\gamma^0\gamma^1\gamma^2\gamma^3; \quad \varepsilon_{0123} = +1</math>
+:<math>\gamma^5\gamma^\mu = -\gamma^\mu\gamma^5;\qquad
+{\gamma^5}^2=1</math>
+.
+
+:<math>(\gamma^\alpha)^+ = \gamma^0\gamma^\alpha\gamma^0;\qquad
+(\gamma^0\gamma^\alpha)^+ = \gamma^0\gamma^\alpha;\qquad
+(\gamma^\alpha\gamma^0)^+ = \gamma^\alpha\gamma^0
+</math>
+:<math>\gamma^0\gamma^2\gamma^\mu\gamma^0\gamma^2=-(\gamma^\mu)^T;\qquad
+\mathop{\rm Tr}(\gamma^\alpha\gamma^\beta\gamma^\mu\ldots)=
+\mathop{\rm Tr}(\ldots\gamma^\mu\gamma^\beta\gamma^\alpha)</math>
+.
+
+:<math>\gamma^\mu\gamma_\mu=4;\qquad
+\gamma^\mu\gamma^\nu R\gamma_\mu+\gamma^\nu\gamma^\mu R\gamma_\mu= 2R\gamma^\nu;\qquad
+\gamma^\mu \hat A R\gamma_\mu+\hat A\gamma^\mu R\gamma_\mu= 2R\hat A;\qquad
+</math>
+:<math>\gamma^\mu \hat A\gamma_\mu=-2\hat A; \qquad
+\gamma^\mu \hat A\hat B\gamma_\mu=+4A^\mu B_\mu; \qquad
+\gamma^\mu \hat A\hat B\hat C\gamma_\mu=-2\hat C\hat B\hat A</math>
+:<math>\mathop{\rm Tr}\gamma^\mu\gamma^\nu = 4g^{\mu\nu};\qquad
+\mathop{\rm Tr}\gamma^\mu\gamma^\nu\gamma^5=0;\qquad
+\operatorname{Tr}\gamma_{\mu_1}\ldots\gamma_{\mu_{2n+1}}=0</math>
+:<math>\mathop{\rm Tr}\gamma_\alpha\gamma_\beta\gamma_\mu\gamma_\nu = 
+\mathop{\rm Tr}\gamma_\nu\gamma_\alpha\gamma_\beta\gamma_\mu = 
+\mathop{\rm Tr}(2g_{\nu\alpha}-\gamma_\alpha\gamma_\nu)\gamma_\beta\gamma_\mu = \ldots = 
+8g_{\alpha\nu}g_{\beta\mu}-8g_{\beta\nu}g_{\alpha\mu}+8g_{\mu\nu}g_{\alpha\beta}-
+\mathop{\rm Tr}\gamma_\alpha\gamma_\beta\gamma_\mu\gamma_\nu</math>
+:<math>\Rightarrow \mathop{\rm Tr}\gamma_\alpha\gamma_\beta\gamma_\mu\gamma_\nu = 
+4(+g_{\alpha\beta}g_{\mu\nu}+g_{\beta\mu}g_{\nu\alpha}-g_{\alpha\mu}g_{\beta\nu});\qquad
+\operatorname{Tr}\gamma_{\mu_1}\ldots\gamma_{\mu_{2n}}</math> - аналогично
+.
+
+* скаляр (S): <math>1</math>
+* вектор (V): <math>\gamma_\mu</math>
+* тензор (T) (6 шт.): <math>\sigma_{\mu\nu}=\frac{i}{2}[\gamma_\mu,\gamma_\nu]</math>
+* псевдовектор (A): <math>\gamma_\mu\gamma_5</math>
+* псевдоскаляр (P): <math>\gamma_5</math>
+:<math>\gamma^\mu\gamma^\nu = g^{\mu\nu} - i\sigma^{\mu\nu};\qquad
+\gamma^\mu\gamma^\nu\gamma^5 = g^{\mu\nu}\gamma^5 - \frac{i}{2}
+\varepsilon^{\mu\nu\alpha\beta}\gamma_\alpha\gamma_\beta</math>
+:<math>\mathop{\rm Tr}\gamma_\alpha\gamma_\beta\gamma_\mu\gamma_\nu\gamma_5=
+-i4\varepsilon_{\alpha\beta\mu\nu}</math>
+Преобразование Фирца
+:<math>(\bar a {O_i}^\alpha b)(\bar c {O_i}_\alpha d) = 
+\sum_{j\in\{S,V,T,A,P\}} C_{i,j}(\bar a {O_j}^\alpha d)(\bar c {O_j}_\alpha b); \quad
+i\in\{S,V,T,A,P\}</math>
+{|  class="standard" | width="100%"
+|-
+!C
+!S
+!V
+!T
+!A
+!P
+
+|-
+!S
+!1/4
+!1/4
+!1/8
+!-1/4
+!1/4
+
+|-
+!V
+!1
+!-1/2
+!0
+!-1/2
+!-1
+
+|-
+!T
+!3
+!0
+!-1/2
+!0
+!3
+
+|-
+!A
+!-1
+!-1/2
+!0
+!-1/2
+!1
+
+|-
+!P
+!1/4
+!-1/4
+!1/8
+!1/4
+!1/4
+
+|}
+:<math></math>
+
+==== 2.3.2. Преобразования Лоренца ====
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = вращения 3d
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+:<math>\psi \rightarrow L\psi; \qquad 
+\psi^+ \rightarrow \psi^+L^+
+;\qquad L\sigma^\mu L^+ = R^\mu_\nu\sigma^\nu;\quad\psi
+</math> - двух-компонентный спинор
+:<math>L=exp(-\frac{i}{2}\vec\alpha \vec \sigma); \qquad </math>
+:где <math>\vec\alpha</math> - (?псевдо?)вектор, задающий угол поворота, а <math>R^\mu_\nu</math> - матрица этого поворота
+}}
+:<math>\psi \rightarrow L\psi; \qquad 
+\bar \psi = \psi^+\gamma^0 \rightarrow \psi^+L^+\gamma^0 = \psi^+\gamma^0L^{-1}=\bar\psi L^{-1}
+;\qquad L^{-1}\gamma^\mu L = \Lambda^\mu_\nu\gamma^\nu;\quad
+</math>
+:<math>L=exp(-\frac{i}{2}\omega_{\mu\nu}S^{\mu\nu}); \qquad 
+S^{\mu\nu} = \frac{i}{4}[\gamma^\mu,\gamma^\nu]</math>
+:где <math>\omega_{\mu\nu}</math> - антисимметричный тензор, задающий углы. (? как найти <math>\omega_{\mu\nu}</math> из <math>\Lambda^\mu_\nu</math>?)
+:Например при <math>\omega_{12}=-\omega_{21}=\theta</math> будет поворот, а при  <math>\omega_{01}=-\omega_{10}=\eta</math> будет буст.
+Пескин в разделе 3.1. и 3.2 подробнее рассказывает как с этим связаны алгебры Ли.
+
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = поле
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+==== 2.3.3. Классическое ====
+:<math>\mathcal{L} = \bar\psi(i\partial\!\!\!/-m)\psi</math>
+:<math>\frac{\partial\mathcal{L}}{\partial\partial_\mu\psi}=\bar\psi i\gamma^\mu;\qquad
+\frac{\partial\mathcal{L}}{\partial\partial_\mu\bar\psi}=0;\qquad
+\pi=\bar\psi i\gamma^0 = i\psi^+</math>
+:<math>\mathcal{H}=\bar\psi(i\vec\gamma\vec\nabla+m)\psi</math>, но у Пескина в 3.5 <math>\mathcal{H}=\bar\psi(-i\vec\gamma\vec\nabla+m)\psi</math>
+:<math>\vec\mathcal{P} = i\psi^+\vec\nabla\psi</math>, но у Пескина в 3.5 <math>
+\vec\mathcal{P} = -i\psi^+\vec\nabla\psi</math>
+:<math>\psi \rightarrow e^{i\alpha}\psi
+\;\Rightarrow\;j^\mu = \bar\psi\gamma^\mu\psi;\qquad
+j^0=\psi^+\psi;\qquad\vec j = \psi^+\vec\alpha\psi</math>
+:<math>\mathcal{L}=\bar\psi i\partial\!\!\!/\psi :\qquad
+\psi \rightarrow e^{i\alpha\gamma^5}\psi
+\;\Rightarrow\;j^\mu = \bar\psi\gamma^\mu\gamma^5\psi;\qquad</math>
+:<math></math>
+
+==== 2.3.4. Уравнение Дирака ====
+:<math>(i\partial\!\!\!/-m)\psi=0</math>
+:<math>\psi(x)=e^{-ipx}u(p);\qquad p^2=m^2</math>
+дальше ищем собственные векторы алгебраического уравнения
+:<math>(p\!\!\!/-m)u=0,\qquad E_p>0</math>
+:<math>u_r(\vec p)=\begin{pmatrix}\sqrt{E_p+m}\\r\sqrt{E_p-m}\end{pmatrix}\otimes \chi_r
+</math> - в представлении Дирака
+:<math>u^+_r u_s=2E_p\delta_{rs};\qquad\bar u_ru_s=2m\delta_{rs};\qquad
+\sum_r u_r\otimes\bar u_r = p\!\!\!/+m</math>
+:<math>(p\!\!\!/+m)v=0,\qquad E_p<0\;\Rightarrow\;p\rightarrow-p</math>
+:<math>v_r(\vec p)=\begin{pmatrix}r\sqrt{E_p-m}\\\sqrt{E_p+m}\end{pmatrix}\otimes \eta_r
+</math> - в представлении Дирака
+:<math>v^+_rv_s=2E_p\delta_{rs};\qquad\bar v_rv_s=-2m\delta_{rs};\qquad
+\sum_r v_r\otimes\bar v_r = p\!\!\!/-m</math>
+:<math>\frac{\vec p\vec \sigma}{|\vec p|}\chi_r = r\chi_r;\qquad
+\frac{\vec p\vec \sigma}{|\vec p|}\eta_r = r\eta_r;\qquad
+\sum_s \chi_s\otimes\chi_s^+=1</math> 
+:r=+1 - вдоль импульса, r=-1 - против - спиральность
+:но можно(?) выбрать и другой базис поляризаций, если решать в представлении Вейля
+итого:
+:<math>\psi(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+\sum_r(a_r(\vec p)u_r(\vec p)e^{-ipx} + b_r^*(\vec p)v_r(\vec p)e^{+ipx})</math>
+:<math></math>
+
+==== 2.3.5. функция Грина ====
+:<math>(i\partial\!\!\!/-m)\psi_0(x)=0</math>
+:<math>(i\partial\!\!\!/-m)G(x)=+i\delta^4(x)</math>
+:<math>(i\partial\!\!\!/-m)\psi(x)=j(x)</math>
+:<math>\psi(x)=\psi_0(x)-i\int d^4yG(x-y)j(y)</math>
+:<math>G(p)=\frac{i}{p\!\!\!/-1} = \frac{i(p\!\!\!/+m)}{p^2-m^2}</math>
+:<math>G(x)=\int\frac{d^4p}{(2\pi)^4}\frac{i(p\!\!\!/+m)}{p^2-m^2}e^{-ipx} = 
+(i\partial\!\!\!/+m)\int\frac{d^4p}{(2\pi)^4}\frac{i}{p^2-m^2}e^{-ipx}</math>
+:<math>G_R(x)=\begin{cases}0,&x_0<0\\(i\partial\!\!\!/-m)(D(x)-D(-x)),&x_0>0\end{cases}</math>
+:<math>G_A(x)=\begin{cases}(i\partial\!\!\!/-m)(D(x)-D(-x)),&x_0<0\\0,&x_0>0\end{cases}</math>
+:<math>S_F(x)=G_F(x)=\int\frac{d^4p}{(2\pi)^4}\frac{i(p\!\!\!/+m)}{p^2-m^2+i\epsilon}e^{-ipx} = 
+(i\partial\!\!\!/-m)D_F(x) = 
+(i\partial\!\!\!/-m)\begin{cases}D(x),&x_0<0\\D(-x),&x_0>0\end{cases}</math>
+:<math>S_F(p)=\frac{i(p\!\!\!/+m)}{p^2-m^2+i\epsilon};\qquad
+S_F(x)=S_F(-x)</math>
+:<math></math>
+
+==== 2.3.6. Квантуем ====
+:под произведением операторов ψ понимаем тензорное произведение
+:<math>\{\psi(\vec x),\pi(\vec y)\}=i\delta^3(\vec x - \vec y)\;\Rightarrow\;
+\{\psi(\vec x),\psi^+(\vec y)\}=\delta^3(\vec x - \vec y)</math>
+:<math>\{a_{\vec p}^r,a^{s+}_{\vec q}\}=\{b_{\vec p}^r,b^{s+}_{\vec q}\}=
+(2\pi)^3\delta^3(\vec p - \vec q)\delta^{rs}</math>
+:остальные АНТИкоммутаторы =0
+:<math>\psi(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+\sum_r(a^r_{\vec p}u^r(\vec p)e^{-ipx} + b^{r+}_{\vec p}v^r(\vec p)e^{+ipx})</math>
+:<math>\bar\psi(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}
+\sum_r(b^r_{\vec p}\bar v^r(\vec p)e^{-ipx} + a^{r+}_{\vec p}\bar u^r(\vec p)e^{+ipx})</math>
+:<math>H=\int\frac{d^3\vec p}{(2\pi)^3}E_p\sum_s
+(a_{\vec p}^{s+}a_{\vec p}^s+b_{\vec p}^{s+}b_{\vec p}^s)</math>
+:<math>\vec P=\int\frac{d^3\vec p}{(2\pi)^3}\vec p\sum_s
+(a_{\vec p}^{s+}a_{\vec p}^s+b_{\vec p}^{s+}b_{\vec p}^s)</math>
+:<math>Q=\int\frac{d^3\vec p}{(2\pi)^3}\sum_s
+(a_{\vec p}^{s+}a_{\vec p}^s-b_{\vec p}^{s+}b_{\vec p}^s)</math>
+:<math></math>
+===== 2.3.6.1. Состояния =====
+:<math>|\vec p,s\rangle = \sqrt{2E_p}a^{s+}_{\vec p}|0\rangle; \quad 
+\langle\vec p,r|\vec q,s\rangle=2E_p(2\pi)^3\delta^3(\vec p - \vec q)\delta^{rs}</math>
+
+===== 2.3.6.2. Пропагатор =====
+:<math>\langle 0|\psi(x)\bar\psi(y)|0\rangle =  \langle 0|\bar\psi(x)\psi(y)|0\rangle =  
+(i\partial_x\!\!\!\!\!\!/+m)D(x-y)</math>
+:<math>\langle 0|\bar\psi(y)\psi(x)|0\rangle = \langle 0|\psi(y)\bar\psi(x)|0\rangle = 
+-(i\partial_x\!\!\!\!\!\!/+m)D(y-x)</math>
+:<math>\{\psi(x)\bar\psi(y)\} = \langle 0|\{\psi(x)\bar\psi(y)\}|0\rangle = 
+(i\partial_x\!\!\!\!\!\!/+m)\int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-ip(y-x)}-e^{+ip(y-x)}}{2E_p} = </math>
+:<math>=(i\partial_x\!\!\!\!\!\!/+m)\begin{cases}
+\int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-i\vec p\vec r}-e^{+i\vec p \vec r}}{2E_p} = 0, & x^0=y^0
+\\ \int\frac{d^3\vec p}{(2\pi)^3}\frac{e^{-iE_pt}-e^{+iE_pt}}{2E_p}, & \vec x = \vec y
+\end{cases}</math>
+:<math>\langle 0|T\{\psi(x)\bar\psi(y)\}|0\rangle = S_F(x-y) = (i\partial_x\!\!\!\!\!\!/+m)D_F(x-y) = 
+\begin{cases}
+\langle 0|\psi(x)\bar\psi(y)|0\rangle,&x^0>y^0
+\\
+-\langle 0|\bar\psi(y)\psi(x)|0\rangle,&y^0>x^0
+\end{cases}</math>
+
+===== 2.3.6.3. теорема Вика =====
+:Т упорядочение: слева новые, справа старые, при перестановке знак меняется.
+:N упорядочение: слева <math>a^+, b^+</math>, справа <math>a, b</math>, при перестановке знак меняется.
+:<math>\psi(x)=\psi^a(x)+\psi^{b+}(x)=\psi^{(+)}(x)+\psi^{(-)}(x); \quad 
+\bar\psi(x)=\psi^{a+}(x)+\psi^b(x)=\bar\psi^{(-)}(x)+\bar\psi^{(+)}(x)</math>
+
+:<math>\psi^a(x) = \psi^{(+)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}\sum_r 
+ a_{\vec p}u^r(\vec p)e^{-ipx}; \quad
+\psi^{a+}(x) = \bar\psi^{(-)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}\sum_r
+ a^{r+}_{\vec p}\bar u^r(\vec p)e^{+ipx}
+</math>
+:<math>
+\psi^b(x) = \bar\psi^{(+)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}\sum_r
+ b^r_{\vec p}\bar v^r(\vec p)e^{-ipx}; \quad
+\psi^{b+}(x) = \psi^{(-)}(x) = \int\frac{d^3\vec p}{(2\pi)^3}\frac{1}{\sqrt{2E_p}}\sum_r
+ b^{r+}_{\vec p}v^r(\vec p)e^{+ipx}
+</math>
+
+:свертка <math>\psi(x)\bar\psi(y) := 
+\begin{cases}
+\{\psi^{a}(x),\psi^{a+}(y)\} = \langle 0 | \psi(x)\bar\psi(y) |0\rangle, & x^0 > y^0
+\\
+-\{\psi^{b}(y),\psi^{b+}(x)\} = -\langle 0 | \psi(y)\bar\psi(x) |0\rangle, & y^0 > x^0
+\end{cases}
+</math>
+:свертка <math>\bar\psi(x)\psi(y) := 
+\begin{cases}
+\{\psi^{b}(x),\psi^{b+}(y)\} = \langle 0 | \bar\psi(x)\psi(y) |0\rangle, & x^0 > y^0
+\\
+-\{\psi^{a}(y),\psi^{a+}(x)\} = \langle 0 | \bar\psi(y)\psi(x) |0\rangle, & y^0 > x^0
+\end{cases}
+</math>
+:свёрток <math>\psi\psi</math> или <math>\bar\psi\bar\psi</math> не бывает
+:свертка <math>\bar\psi(x)\psi(y) = \psi(x)\bar\psi(y) = S_F(x-y) = S_F(y-x)</math>
+:теорема: <math>T\{\psi_1 \ldots \psi_n\} = N\{\sum_{all\; convs}\psi_1 \ldots \psi_n\}</math>
+:причем свертка 13 <math>N(\psi_1\psi_2\bar\psi_3\bar\psi_4) = -S_F(x_1-x_3)N(\psi_2\bar\psi_4)</math>
+}}
+
+=== 2.4. Электромагнитное ===
+
+=== 2.5. Векторное массивное ===
+:<math>F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu</math>
+:<math>\mathcal{L}=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{1}{2}m^2A_\mu A^\mu</math>
+:<math>\frac{\partial\mathcal{L}}{\partial A_\alpha} = m^2A^\alpha;\qquad
+\frac{\partial \mathcal{L}}{\partial \partial_\beta A_\alpha} = F^{\alpha\beta}</math>
+:<math>\partial_\mu F^{\mu\nu}+m^2A^\nu = 0</math> - уравнение Прока
+:<math>\partial_\nu(\partial_\mu F^{\mu\nu}+m^2A^\nu) = m^2\partial_\nu A^\nu = 0 \quad 
+\Rightarrow \quad m=0 \;\; or \;\; \partial_\nu A^\nu=0</math>
+:<math>(\partial^2+m^2)A^\nu = 0</math>
+:<math></math>
+==== Функция Грина ====
+:<math></math>
+
+== 2+ Итого пропагаторы и матрицы плотности ==
+=== 2.1+ Скалярное действительное ===
+:<math>D_F(p) = \frac{i}{p^2-m^2+i\epsilon};\qquad D_F(x)=D_F(-x)</math>
+=== 2.2+ Скалярное комплексное ===
+:<math>D_F(p) = \frac{i}{p^2-m^2+i\epsilon};\qquad D_F(x)=D_F(-x)</math>
+=== 2.3+ Спинорное ===
+:<math>S_F(p)=\frac{i(p\!\!\!/+m)}{p^2-m^2+i\epsilon} = (i\partial_x\!\!\!\!\!\!/+m)D_F(x-y);\qquad
+S_F(x)=S_F(-x)</math>
+:<math>\sum_r u_r\otimes\bar u_r = p\!\!\!/+m</math>
+:<math>\sum_r v_r\otimes\bar v_r = p\!\!\!/-m</math>
+:<math>u(p,s)\otimes\bar u(p,s) = \frac{1}{2}(\hat p+m)(1+\gamma_5\hat S)</math> //...
+:<math>\Lambda_\pm = \frac{\pm\hat p+m}{2m}</math> - проектор на частицу/античастицу
+:<math>\Sigma_s=\frac{1}{2}(1+\gamma_5\hat S_s); </math> - проектор на состояние с определенным спином (оператор спиральности)
+:<math>S^\mu=(\frac{\vec\zeta\vec p}{m},\vec\zeta+\frac{\vec p(\vec \zeta \vec p)}{m(E_p+m)}); 
+\qquad pS=0; \vec\zeta</math> - вектор спина
+: Спиральность = +-1 когда спин направлен вдоль или против вектора импульса.
+:<math>P_{R/L}=\frac{1}{2}(1\pm\gamma_5)</math> - оператор хиральности
+
+=== 2.4+ Электромагнитное ===
+:<math>D_F(p) = \frac{-i g_{\mu\nu}}{p^2+i\epsilon}</math> // Калибровки...
+:<math>\sum_{\lambda}\varepsilon^*_\mu\varepsilon_\nu = -g_{\mu\nu}</math>
+=== 2.5+ Векторное массивное ===
+:<math>D_F(p) = \frac{i (g_{\mu\nu}+\frac{q_\mu q_\nu}{m^2})}{p^2-m^2+i\epsilon}</math>
+:<math>\sum_{\lambda}\varepsilon^*_\mu\varepsilon_\nu = -(g_{\mu\nu}-\frac{p_\mu p_\nu}{m^2})</math>
+
+== 4. Взаимодействия и правила Фейнмана ==
+=== 4.1. К-Г <math>-\frac{\lambda}{4!}\phi^4</math> ===
+:<math>\mathcal{L} = \frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m^2\phi^2 - \frac{\lambda}{4!}\phi^4</math>
+:<math>(\partial^2+m^2)\phi=\frac{\lambda}{3!}\phi^3</math>
+:<math>H = H_0 + V = H_0 + \frac{\lambda}{4!}\int d^3\vec x \phi(\vec x) \phi(\vec x) \phi(\vec x) \phi(\vec x)</math>
+
+==== Корреляционная функция (Пескин 4.4) ====
+:<math>\langle 0 | N\{\sum_{all\;convs}\phi(x)\phi(y)exp(-i\frac{\lambda}{4!}\int d^4z\phi(z)\phi(z)\phi(z)\phi(z))\}|0\rangle = </math>
+{|  class="standard" | width="100%"
+|-
+! 
+! <center>координатное</center>
+! <center>импульсное</center>
+|-
+! вершины
+|
+: <math>(-i\lambda)\int d^4x</math>
+|
+: <math>(-i\lambda)</math> + ЗСИ
+|-
+! свертки
+|
+: <math>D_F(x-y)</math>
+|
+: <math>D_F(p)</math> + <math>\int\frac{d^4p}{(2\pi)^4}</math> по каждому импульсу
+|-
+! внешние точки
+|
+: <math>1</math>
+|
+: <math>e^{-ipx}</math>
+|}
+и разделить на порядок симметрии диаграммы
+:все вакуумные поддиаграммы из всех вкладов можно вынести как один фазовый множитель
+
+==== Матричный элемент (Пескин 4.6) ====
+:<math>\langle \vec p_1 \ldots \vec p_n |iT|\vec p_A \vec p_B\rangle = 
+i\mathcal{M}(2\pi)^4\delta^4(p_1 + \ldots + p_n - p_A - p_B) = </math>
+:<math> = A\;\langle_{\!\!\!\!0} \vec p_1 \ldots \vec p_n | N\{\sum_{all\;convs}exp(-i\frac{\lambda}{4!}\int d^4z\phi(z)\phi(z)\phi(z)\phi(z))\}|\vec p_A \vec p_B\rangle_0</math> - связный, ампутированный
+:A=1, если нет петель
+:все вакуумные поддиаграммы из всех вкладов можно вынести как один фазовый множитель
+:ампутированные части - эволюция внешних состояний
+:несвязные - вклад в 1 в S - когда начальное и конечное состояния тождественны (? - а частично несвязные)
+:свертка <math>\phi(x)|\vec p\rangle = e^{-ipx}</math>
+:свертка <math>\langle \vec p|\phi(x) = e^{+ipx}</math>
+{|  class="standard" | width="100%"
+|-
+! 
+! <center>координатное <math>\rightarrow \langle . |iT|.\rangle</math></center>
+! <center>импульсное <math>\rightarrow i\mathcal{M}</math></center>
+|-
+! вершины
+|
+: <math>(-i\lambda)\int d^4x</math>
+|
+: <math>(-i\lambda)</math> + ЗСИ
+|-
+! свертки
+|
+: <math>D_F(x-y)</math>
+|
+: <math>D_F(p)</math> + <math>\int\frac{d^4p}{(2\pi)^4}</math> по каждому незафиксированному импульсу
+|-
+! внешние линии
+|
+: <math>e^{-ipx}</math>
+|
+: <math>1</math>
+|}
+и разделить на порядок симметрии диаграммы
+
+Пескин обещает строго вывести через корреляционную функцию в 7.3. - оптическая теорема
+
+=== 4.2. теория Юкавы: Дирак + К-Г <math>-g\bar\psi\psi\phi</math> ===
+:<math>\mathcal{L} = \bar\psi(i\partial\!\!\!/-m)\psi + 
+\frac{1}{2}(\partial_\mu\phi)^2 - \frac{1}{2}m^2\phi^2 -g\bar\psi\psi\phi</math>
+:т.к. гамильтониан взаимодействия всегда содержит чётное число спиноров, то знак минус в определении Т упорядочения для фермионов не нарушает корректность вычислений
+==== Потенциал Юкавы ====
+см. Пескин стр. 131
+
+=== 4.3. КЭД: Дирак + Максвелл <math>-e\bar \psi\gamma^\mu\psi A_\mu</math> ===
+
+==== Классическая электродинамика ====
+:<math>S=S_m+S_f+S_{mf} = -\sum m \int ds - \int d^4x F_{\mu\nu}F^{\mu\nu} - \int d^4x A_\mu j^\mu </math>
+калибровочная инвариантность:
+:<math>+= const = \int d^4x \partial_\mu(fj^\mu) = 
+\int d^4x (\partial_\mu f j^\mu + f \partial_\mu j^\mu) =\int d^4x(\partial_\mu f)j^\mu </math>
+:<math>\partial_\mu j^\mu=0</math> - закон сохранения заряда
+:<math>A_\mu \rightarrow A_\mu+\partial_\mu f \qquad \Rightarrow \qquad 
+F_{\mu\nu} \rightarrow F_{\mu\nu}</math>
+
+==== Квантовая электродинамика ====
+:<math>\mathcal{L} = 
+\bar\psi(i\hat\partial-m)\psi - \frac{1}{4}(F_{\mu\nu})^2-e\bar\psi\gamma^\mu\psi A_\mu = 
+\bar\psi(i\hat D-m)\psi - \frac{1}{4}(F_{\mu\nu})^2</math>
+:<math>i D_\mu := i\partial_\mu+eA_\mu(x)</math> - калибровочно-инвариантная производная
+Локальные калибровочные преобразования, сохраняющие лагранжиан:
+:<math>\psi(x)\rightarrow e^{i\alpha(x)}\psi(x); \qquad 
+A_\mu \rightarrow A_\mu - \frac{1}{e}\partial_\mu\alpha(x)</math>
+:<math>\psi(x)\rightarrow S\psi(x); \qquad SS^+=1;\qquad
+A_\mu \rightarrow A_\mu - \frac{i}{e}(\partial_\mu S)S^+</math>
+:<math>(i\hat D - m)\psi = 0</math>
+:<math>\partial_\mu F^{\mu\nu} = e\bar\psi\gamma^\nu\psi = ej^\nu</math>
+:<math>F_{\mu\nu}=\frac{i}{e}[D_\mu,D_\nu]</math>
+.
+:<math>\mathcal{H}(x)=e\bar\psi(x)\gamma^\mu\psi(x)A_\mu(x)</math>
+:<math>-ie\gamma^\mu</math> - вершина
+:<math>\alpha=e^2/4\pi\approx 1/137</math>
+
+==== процессы ====
+* [https://github.com/FeelUsM/form-SANC/blob/master/ComptonBorn.frm эффект Комптона]
+* [https://github.com/FeelUsM/form-SANC/blob/master/BhabhaBorn.frm Баба рассеяние]
+
+=== 4.4. скалярная электродинамика: К-Г + Максвелл + <math>\frac{1}{2}e^2A^2|\phi|^2</math> ===
+:<math>\mathcal{L} = \frac{1}{2}|D_\mu\phi|^2 - \frac{1}{2}m^2|\phi|^2 = 
+\frac{1}{2}|\partial_\mu\phi|^2 - \frac{1}{2}m^2|\phi|^2 + \frac{1}{2}e^2A^2|\phi|^2</math>
+:<math></math>
+==== Абелев механизм Хиггса ====
+
+=== 4.5 Теория Янга-Миллса (SU(2)-инвариантная) ===
+:<math>\mathcal{L}=\bar\psi(i\hat D-M)\psi-\frac{1}{2}\mathop{Tr}G_{\mu\nu}G^{\mu\nu}
++\sum_i\frac{m_i^2}{2}A_\mu^i A^\mu_i</math>
+:<math>\psi=\begin{pmatrix}\psi_1\\ \psi_2\end{pmatrix};\qquad
+M=\begin{pmatrix}m_{f1}&0\\0&m_{f2}\end{pmatrix}; \qquad \psi_{1,2}</math> - спиноры <math>\quad A_\mu^{1,2,3}</math> - три векторные поля
+:<math>iD_\mu=i\partial_\mu I_{2\times 2}+gA_\mu; \qquad 
+A_\mu=A_\mu^iT^i=\vec A_\mu \vec T; \qquad
+T^i=\frac{\sigma^i}{2}</math> - генераторы
+:<math>G_{\mu\nu}=\frac{i}{g}[D_\mu,D_\nu]=:G_{\mu\nu}^i T^i; \qquad
+\mathop{Tr}G_{\mu\nu}G^{\mu\nu}=G_{\mu\nu}^iG^{\mu\nu}_i/2</math>
+Локальные калибровочные преобразования
+:<math>\psi \rightarrow S\psi = e^{i\vec \alpha(x)\vec T}\psi; \qquad SS^+ = 1; 
+\quad \Rightarrow \quad A_\mu \rightarrow SA_\mu S^+-\frac{i}{g}(\partial_\mu S)S^+</math>
+:<math>\Rightarrow \quad G_{\mu\nu}\rightarrow S G_{\mu\nu} S^+; \qquad m_{f1}=m_{f2}</math>
+:<math>A_\mu^i \rightarrow ???</math>
+:m<sub>i</sub> - произвольные, рассмотрим частный случай когда они равны.
+:тогда <math>A_\mu^i A^\mu_i = \frac{1}{2}\mathop{Tr}A_\mu A^\mu \rightarrow 
+\frac{1}{2}\mathop{Tr}(A_\mu A^\mu - 
+  \frac{2i}{g}S^+(\partial_\mu S)A^\mu-
+  \frac{1}{g^2}S^+(\partial_\mu S)S^+(\partial^\mu S)) 
+\neq \frac{1}{2}\mathop{Tr}A_\mu A^\mu + \partial_\mu J^\mu</math>
+:может быть массы какие-то конкретные и не равны между собой, но наш лагранжиан инвариантен относительно перестановок <math>A_\mu^1, A_\mu^2, A_\mu^3</math>
+:<math>\Rightarrow m_{1,2,3} = 0</math>
+==== Неабелев механизм Хиггса ====
+см. электрослабую теорию
+
+== Электрослабая теория (Вайнберга-Салама) ==
+
+=== Одно поколение лептонов ===
+:<math>\mathcal{L}=
+  \bar L i \hat D L+\bar d_R i \hat D d_R + \bar u_R i \hat D u_R - 
+  \frac{1}{4}B_{\mu\nu}B^{\mu\nu} - \frac{1}{2}\operatorname{Tr}G_{\mu\nu}G^{\mu\nu} 
+  + |D_\mu \phi|^2-
+</math>
+:<math>
+  -\frac{1}{2}\lambda^2(|\phi|^2-\frac{\eta^2}{2})^2 
+  - f_d(\bar L d_R \phi + \bar d_R L \phi^*)
+  - f_u(\bar L u_R \phi_C + \bar u_R L \phi_C^*)
+</math>
+:<math>iD_\mu = 
+  i\partial_\mu + g\vec T \vec W_\mu + g' \frac{Y}{2}B_\mu; \quad
+</math> Y - гиперзаряд - средний заряд по мультиплету; <math>Y=2 \langle Q \rangle=q_u+q_d;</math>
+:<math>\vec T = \frac{\vec \sigma}{2}; \quad </math> - слабый изоспин - на синглеты не действует (=0)
+:<math>L=\begin{pmatrix}u_L\\d_L\end{pmatrix},
+\begin{pmatrix}\nu_L\\e_L\end{pmatrix}; \quad 
+  Y=q_u+q_d; \qquad
+  iD_\mu = i\partial_\mu + g\vec T \vec W_\mu + \frac{(q_u+q_d)g'}{2}B_\mu</math>
+:<math>d_R; \quad Y=2q_d; \quad iD_\mu = i\partial_\mu + q_dg'B_\mu</math>
+:<math>u_R; \quad Y=2q_u; \quad iD_\mu = i\partial_\mu + q_ug'B_\mu</math>
+:<math>\phi=\begin{pmatrix}\phi^+\\ \phi_0\end{pmatrix}; \quad Y=+1; \quad 
+  iD_\mu = i\partial_\mu + g\vec T \vec W_\mu + \frac{g'}{2}B_\mu</math>
+:<math>C=i\sigma_2; \qquad \phi_C=C\phi^*=\begin{pmatrix}\phi_0\\-\phi^-\end{pmatrix}</math>
+:после нарушения: <math>
+  \phi=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\ \eta+\chi \end{pmatrix}
+</math> - наверное (?) так можно сделать при помощи калибровочного SU(2) как в Янге-Миллсе
+:<math>u_L,u_R,d_L,d_R</math> - дираковские спинорные поля, <math>
+W_\mu^1,W_\mu^2,W_\mu^3,B_\mu</math> - векторные действительные поля, <math>
+\phi_0,\phi^+,\phi^-=\phi^{+*}</math> - скалярные комплексные поля(?), <math>\chi</math> - действительное скалярное поле
+Калибровочная инвариантность:
+:<math>U(2)=SU(2)\times U(1)\times \{+,-\}</math> - (?)
+:<math>SU(2)</math> - обсуждалась в теории Янга-Миллса
+:<math>U(1)</math> - не действует на изначально действительные калибровочные поля, и очевидно сохраняет лагранжиан для всех членов из двух комплексных полей
+:Для Юкавских членов:
+:<math>Y_\phi+Y_{e_R}-Y_L=1-2-(-1)=0</math>
+:<math>Y_{\phi_C}+Y_{\nu_R}-Y_L=-1+0-(-1)=0</math>
+:<math>Y_\phi+Y_{d_R}-Y_L=1-2/3-1/3=0</math>
+:<math>Y_{\phi_C}+Y_{u_R}-Y_L=-1+4/3-1/3=0</math>
+
+=== Массы калибровочных бозонов ===
+:<math>\sigma_\pm=\frac{\sigma_1\pm i\sigma_2}{\sqrt{2}}; \qquad
+  W_\mu^\pm=\frac{(W^1\pm iW^2)_\mu}{\sqrt{2}}; \qquad 
+  (\sigma_1 W^1 + \sigma_2 W^2)_\mu = (\sigma_+ W^- + \sigma_- W^+)_\mu</math>
+:<math>
+         \sigma_+ = \begin{pmatrix}0&1\\0&0\end{pmatrix}\sqrt{2}
+</math> - повышающий <math>
+  \qquad \sigma_- = \begin{pmatrix}0&0\\1&0\end{pmatrix}\sqrt{2}
+</math> - понижающий
+:<math>\begin{pmatrix}Z\\A\end{pmatrix}_\mu=
+  \begin{pmatrix}\cos \theta_W&-\sin \theta_W\\\sin \theta_W&\cos\theta_W\end{pmatrix}
+  \begin{pmatrix}W^3\\B\end{pmatrix}_\mu; \qquad
+  \begin{pmatrix}W^3\\B\end{pmatrix}_\mu=
+  \begin{pmatrix}\cos \theta_W&\sin \theta_W\\-\sin \theta_W&\cos\theta_W\end{pmatrix}
+  \begin{pmatrix}Z\\A\end{pmatrix}_\mu
+</math>
+:<math>g=\bar g \cos \theta_W; \qquad g'=\bar g \sin \theta_W; \qquad
+  \bar g^2=g^2+g'^2;\qquad 
+  G_F=\frac{\sqrt{2}g^2}{8 m_W^2} \approx 1.166\times 10^{-5} GeV^{-2}</math>
+:<math>e_e = \bar g\cos\theta_W\sin\theta_W = g\sin\theta_W =  g'\cos\theta_W; \qquad
+  \frac{1}{e_e^2}=\frac{1}{g^2}+\frac{1}{g'^2}; \qquad 
+  \alpha=\frac{e_e^2}{4\pi}\approx 1/137</math>
+*<math>|D_\mu \phi|^2 = 
+  \frac{(\partial_\mu \chi)^2}{2}+
+  \frac{\bar g^2(\eta+\chi)^2}{8}Z_\mu Z^\mu+
+  \frac{g^2(\eta+\chi)^2}{8}W^-_\mu W^{+\mu} = </math>
+:<math>= 
+  \frac{(\partial_\mu \chi)^2}{2}+
+  \frac{m_Z^2}{2}Z_\mu Z^\mu+
+    \frac{\bar g^2 \eta}{4}\chi Z_\mu Z^\mu+ \frac{\bar g^2}{8}\chi^2 Z_\mu Z^\mu+
+  \frac{m_W^2}{2}W^-_\mu W^{+\mu}+
+    \frac{g^2 \eta}{4}\chi W^-_\mu W^{+\mu}+ \frac{g^2}{8}\chi^2 W^-_\mu W^{+\mu}
+</math>
+:<math>
+  m_Z^2=\frac{\bar g^2\eta^2}{4} \approx (91 GeV)^2;\qquad 
+  m_W^2=\frac{g^2\eta^2}{4} \approx (80GeV)^2;\qquad
+  \frac{m_W}{m_Z}=\frac{g}{\bar g} = \cos\theta_W
+</math>
+:<math>\eta\approx246 GeV</math> - вакуумное среднее поля Хиггса
+:<math>  \sin^2\theta_W\approx0.215 </math> - из g и e
+:<math>  \sin^2\theta_W\approx0.222 </math> - из масс W и Z бозонов
+:<math>  \sin^2\theta_W\approx0.231 </math> - из PDG (причем там 2 варианта 0.231...)
+:<math>  \sin^2\theta_W\approx\frac{1}{4}   </math> - грубо
+*Вершины ([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в SANC]):
+**<math>Z_\mu Z_\nu \chi \quad \rightarrow \quad 
+  +\frac{i g m_W}{\cos^2\theta_W}g_{\mu\nu} \qquad
+  (-\frac{g m_W}{\cos^2\theta_W}g_{\mu\nu}) </math>
+**<math>Z_\mu Z_\nu \chi \chi \quad \rightarrow \quad 
+  +\frac{ig^2}{2\cos^2\theta_W}g_{\mu\nu} \qquad
+  (-\frac{g^2}{2\cos^2\theta_W}g_{\mu\nu})</math>
+**<math>W_\mu W_\nu \chi \quad \rightarrow \quad 
+  + igm_W g_{\mu\nu} \qquad
+  (-g m_W g_{\mu\nu})</math>
+**<math>W_\mu W_\nu \chi \chi \quad \rightarrow \quad 
+  +\frac{ig^2}{2}g_{\mu\nu} \qquad
+  (-\frac{g^2}{2}g_{\mu\nu})</math>
+
+=== Самодействия калибровочных бозонов ===
+:<math>B_{\mu\nu}=
+\frac{i}{g'}[\partial_\mu-ig'\frac{Y}{2}B_\mu,\partial_\nu-ig'\frac{Y}{2}B_\nu]
+=\frac{Y}{2}(\partial_\mu B_\nu-\partial_\nu B_\mu);\qquad
+Y=???</math>
+:<math>G_{\mu\nu}=
+\frac{i}{g}[\partial_\mu-ig\vec T\vec W_\mu,\partial_\nu-ig\vec T \vec W_\nu];\qquad
+G_{\mu\nu}^i=\partial_\mu W_\nu^i-\partial_\nu W_\mu^i+g\varepsilon^{ijk}W_\mu^j W_\nu^k
+</math>
+:<math>W^1_\mu=\frac{(W^+ + W^-)_\mu}{\sqrt{2}};\qquad
+W^2_\mu=\frac{(W^+ - W^-)_\mu}{i\sqrt{2}}</math>
+:<math>(A,Z,W^\pm)_{\mu\nu}=\partial_\mu (A,Z,W^\pm)_\nu-\partial_\nu (A,Z,W^\pm)_\mu</math>
+*<math>-\frac{1}{4}B_{\mu\nu}B^{\mu\nu} = -\frac{Y^2}{16}(
+\sin^2\theta_W Z_{\mu\nu}Z^{\mu\nu}+\cos^2\theta_W A_{\mu\nu}A^{\mu\nu})</math>
+*<math>-\frac{1}{4}G_{\mu\nu}^iG^{\mu\nu i} = 
+       - \sin^2\theta_W    A_{\mu \nu} A^{\mu \nu}
+</math><math>
+       - \cos^2\theta_W    Z_{\mu \nu} Z^{\mu \nu}
+</math><math>
+       - 2 W^+_{\mu \nu} W^{- \mu \nu}
+</math><math>
+       - 2 \cos\theta_W \sin\theta_W    A_{\mu \nu} Z^{\mu \nu}
+</math><math>
+       + 2 i g \sin\theta_W (
+          + W^+_{\mu \nu} W^{-\mu} A^\nu
+          + W^-_{\mu \nu} A^\mu W^{+\nu}
+          - A_{\mu \nu} W^{+\mu} W^{-\nu}
+       )
+</math><math>
+       + 2 i g \cos\theta_W (
+          + W^+_{\mu \nu} W^{-\mu} Z^\nu
+          + W^-_{\mu \nu} Z^\mu W^{+\nu}
+          - Z_  {\mu \nu} W^{+\mu} W^{-\nu}
+       )
+</math><math>
+       - g^2 \cos\theta_W \sin\theta_W (
+          + 2 (W^+ W^-) (A Z)
+          - (W^+ A) (W^- Z)
+          - (W^+ Z) (W^- A)
+       )
+</math><math>
+       - g^2 /2 (
+          - (W^+ W^+) (W^- W^-)
+          + (W^+ W^-)^2
+       )
+</math><math>
+       - g^2 \sin^2\theta_W (
+          + (W^+ W^-) (A A)
+          - (W^+ A) (W^- A)
+       )
+</math><math>
+       - g^2 \cos^2\theta_W (
+          + (W^+ W^-) (Z Z)
+          - (W^+ Z) (W^- Z)
+       )
+</math>
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = Код на форме 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+<source>
+FORM 4.1 (May 24 2017, v4.1-20131025-346-gcf71752) 64-bits  Run: Sun Jun  4 15:42:57 2017
+    index mu,nu;
+    Cfun G1,G2,G3, A1,A2,A3, fWp,fWm,fA,fZ, d;
+    sym g,costw,sintw,sqr2,smth;
+    vector Wp,Wm,A,Z;
+    cfun FWp(antisym),FWm(antisym),FA(antisym),FZ(antisym);
+
+    local GGG = -1/4*(G1(mu,nu)*G1(mu,nu)+G2(mu,nu)*G2(mu,nu)+G3(mu,nu)*G3(mu,nu));
+
+    id G1(mu?,nu?) = A1(nu,d(mu))-A1(mu,d(nu))+g*A2(mu)*A3(nu)-g*A3(mu)*A2(nu);
+    id G2(mu?,nu?) = A2(nu,d(mu))-A2(mu,d(nu))+g*A3(mu)*A1(nu)-g*A1(mu)*A3(nu);
+    id G3(mu?,nu?) = A3(nu,d(mu))-A3(mu,d(nu))+g*A1(mu)*A2(nu)-g*A2(mu)*A1(nu);
+    id A1(?smth) = (fWp(?smth)+fWm(?smth))/sqr2;
+    id A2(?smth) = (fWp(?smth)-fWm(?smth))/i_/sqr2;
+    id A3(?smth) = costw*fZ(?smth)+sintw*fA(?smth);
+    id sqr2^2 = 2;
+    id sqr2^-2 = 1/2;
+
+    id fWp(mu?) = Wp(mu);
+    id fWm(mu?) = Wm(mu);
+    id fA(mu?)  = A(mu);
+    id fZ(mu?)  = Z(mu);
+
+    id fWp(mu?,d(nu?)) = (FWp(nu,mu)-FWp(mu,nu))/2;
+    id fWm(mu?,d(nu?)) = (FWm(nu,mu)-FWm(mu,nu))/2;
+    id fA(mu?,d(nu?))  = (FA(nu,mu) -FA(mu,nu) )/2;
+    id fZ(mu?,d(nu?))  = (FZ(nu,mu) -FZ(mu,nu) )/2;
+
+    b sintw, costw, g;
+    print +s;
+    .end
+
+Time =       0.01 sec    Generated terms =        436
+             GGG         Terms in output =         19
+                         Bytes used      =       1364
+
+   GGG =
+
+       + sintw^2 * (
+          - FA(mu,nu)^2
+          )
+
+       + costw*sintw * (
+          - 2*FA(mu,nu)*FZ(mu,nu)
+          )
+
+       + costw^2 * (
+          - FZ(mu,nu)^2
+          )
+
+       + g*sintw * (
+          - 2*FWp(Wm,A)*i_
+          + 2*FWm(Wp,A)*i_
+          - 2*FA(Wp,Wm)*i_
+          )
+
+       + g*costw * (
+          - 2*FWp(Wm,Z)*i_
+          + 2*FWm(Wp,Z)*i_
+          - 2*FZ(Wp,Wm)*i_
+          )
+
+       + g^2 * (
+          + 1/2*Wp.Wp*Wm.Wm
+          - 1/2*Wp.Wm^2
+          )
+
+       + g^2*sintw^2 * (
+          - Wp.Wm*A.A
+          + Wp.A*Wm.A
+          )
+
+       + g^2*costw*sintw * (
+          - 2*Wp.Wm*A.Z
+          + Wp.A*Wm.Z
+          + Wp.Z*Wm.A
+          )
+
+       + g^2*costw^2 * (
+          - Wp.Wm*Z.Z
+          + Wp.Z*Wm.Z
+          )
+
+       - 2*FWp(mu,nu)*FWm(mu,nu)
+         ;
+
+  0.01 sec out of 0.01 sec
+</source>
+}}
+и оно не совсем совпадает с [[:en:Electroweak_interaction]]:
+{{Скрытый
+ |Рамка                  = 
+ |Ссылка                 = 
+ |Выравнивание_заголовка = 
+ |Заголовок              = Код на форме 
+ |Наклон_текста          = 
+ |Фон_заголовка          = #ccccff
+ |Содержание             =   
+<source>
+FORM 4.1 (May 24 2017, v4.1-20131025-346-gcf71752) 64-bits  Run: Mon Jun  5 18:20:15 2017
+    index mu,nu;
+    Cfun G1,G2,G3, A1,A2,A3, fWp,fWm,fA,fZ, d;
+    sym g,costw,sintw,sqr2,smth;
+    vector Wp,Wm,A,Z;
+    cfun FWp(antisym),FWm(antisym),FA(antisym),FZ(antisym);
+
+    local GGG = -i_*g*((FWp(mu,nu)*Wm(mu)-Wp(mu)*FWm(mu,nu))*(A(nu)*sintw-Z(nu)*cost
+    w)+
+    Wm(nu)*Wp(mu)*(FA(mu,nu)*sintw-FZ(mu,nu)*costw))
+    -g^2/4*((2*Wp(mu)*Wm(mu)+(A(mu)*sintw-Z(mu)*costw)^2)^2-
+    (Wp(mu)*Wm(nu)+Wp(nu)*Wm(mu)+(A(mu)*sintw-Z(mu)*costw)*(A(nu)*sintw-Z(nu)*costw)
+    )^2);
+
+
+    b sintw, costw, g;
+    print +s;
+    .end
+
+Time =       0.00 sec    Generated terms =         35
+             GGG         Terms in output =         17
+                         Bytes used      =       1100
+
+   GGG =
+
+       + g*sintw * (
+          - FWp(Wm,A)*i_
+          + FWm(Wp,A)*i_
+          - FA(Wp,Wm)*i_
+          )
+
+       + g*costw * (
+          + FWp(Wm,Z)*i_
+          - FWm(Wp,Z)*i_
+          + FZ(Wp,Wm)*i_
+          )
+
+       + g^2 * (
+          + 1/2*Wp.Wp*Wm.Wm
+          - 1/2*Wp.Wm^2
+          )
+
+       + g^2*sintw^2 * (
+          - Wp.Wm*A.A
+          + Wp.A*Wm.A
+          )
+
+       + g^2*costw*sintw * (
+          + 2*Wp.Wm*A.Z
+          - Wp.A*Wm.Z
+          - Wp.Z*Wm.A
+          )
+
+       + g^2*costw^2 * (
+          - Wp.Wm*Z.Z
+          + Wp.Z*Wm.Z
+          )
+
+       + g^2*costw^2*sintw^2 * (
+          - A.A*Z.Z
+          + A.Z^2
+          );
+
+  0.00 sec out of 0.00 sec
+</source>
+}}
+
+Трехбозонные вершины:
+:<math>\mathcal{L}_{WWV}=-ig[(W_{\mu\nu}^+W^{-\mu}-W^{+\mu}W_{\mu\nu}^-)(A^\nu\sin\theta_W-Z^\nu\cos\theta_W)+W_\nu^-W_\mu^+(A^{\mu\nu}\sin\theta_W-Z^{\mu\nu}\cos\theta_W)] = 
+</math><math>
+     = + i g \sin\theta_W (
+          + W^+_{\mu \nu} W^{-\mu} A^\nu
+          + W^-_{\mu \nu} A^\mu W^{+\nu}
+          - A_{\mu \nu} W^{+\mu} W^{-\nu}
+       )
+</math><math>
+       - i g \cos\theta_W (
+          + W^+_{\mu \nu} W^{-\mu} Z^\nu
+          + W^-_{\mu \nu} Z^\mu W^{+\nu}
+          - Z_  {\mu \nu} W^{+\mu} W^{-\nu}
+       )
+</math>
+*([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в вершинах SANC])
+**<math>A_\mu(p) W^+_\alpha(q) W^-_\beta(k) \quad\rightarrow\quad
+  (+g \sin\theta_W(+g_{\mu\alpha}(p_\beta-q_\beta)
+                   +g_{\alpha\beta}(q_\mu-k_\mu)
+                   +g_{\mu\beta}(k_\alpha-p_\alpha))
+)</math>
+**<math>Z_\mu(p) W^+_\alpha(q) W^-_\beta(k) \quad\rightarrow\quad
+  (+g \cos\theta_W(+g_{\mu\alpha}(p_\beta-q_\beta)
+                   +g_{\alpha\beta}(q_\mu-k_\mu)
+                   +g_{\mu\beta}(k_\alpha-p_\alpha))
+)</math>
+Четырехбозонные вершины:
+:<math>
+\begin{align}
+\mathcal{L}_{WWVV} = -\frac{g^2}4 \Big\{&[2W_\mu^+W^{-\mu} + (A_\mu\sin\theta_W - Z_\mu\cos\theta_W)^2]^2
+\\
+&- [W_\mu^+W_\nu^- + W_\nu^+W_\mu^- + (A_\mu\sin\theta_W - Z_\mu\cos\theta_W) (A_\nu\sin\theta_W - Z_\nu\cos\theta_W)]^2\Big\}
+\end{align}
+</math><math> =
+       + g^2/2 (
+          + (W^+ W^+)(W^- W^-)
+          - (W^+ W^-)^2
+          )
+</math><math>
+       + g^2 \sin^2\theta_W (
+          - (W^+ W^-)(A A)
+          + (W^+ A)(W^- A)
+          )
+</math><math>
+       + g^2 \cos\theta_W \sin\theta_W (
+          + 2(W^+ W^-)(A Z)
+          - (W^+ A)(W^- Z)
+          - (W^+ Z)(W^- A)
+          )
+</math><math>
+       + g^2 \cos^2\theta_W (
+          - (W^+ W^-)(Z Z)
+          + (W^+ Z)(W^- Z)
+          )
+</math><math>
+       + g^2 \cos^2\theta_W \sin^2\theta_W (
+          - (A A)(Z Z)
+          + (A Z)^2
+          );
+</math>
+*([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в вершинах SANC])
+**<math>A_\mu A_\nu W^+_\alpha W^-_\beta \quad\rightarrow\quad
+(-g^2 \sin^2\theta_W (2 g_{\mu\nu}g_{\alpha\beta}
+                       -g_{\mu\beta}g_{\nu\alpha}
+                       -g_{\mu\alpha}g_{\nu\beta}))</math>
+**<math>Z_\mu Z_\nu W^+_\alpha W^-_\beta \quad\rightarrow\quad
+(-g^2 \cos^2\theta_W (2 g_{\mu\nu}g_{\alpha\beta}
+                       -g_{\mu\beta}g_{\nu\alpha}
+                       -g_{\mu\alpha}g_{\nu\beta}))</math>
+**<math>A_\mu Z_\nu W^+_\alpha W^-_\beta \quad\rightarrow\quad
+(-g^2 \cos\theta_W \sin\theta_W (2 g_{\mu\nu}g_{\alpha\beta}
+                       -g_{\mu\beta}g_{\nu\alpha}
+                       -g_{\mu\alpha}g_{\nu\beta}))</math>
+**<math>W^+_\mu W^-_\nu W^+_\alpha W^-_\beta \quad\rightarrow\quad
+(-g^2 \cos\theta_W \sin\theta_W (2 g_{\mu\alpha}g_{\nu\beta}
+                                  -g_{\mu\beta}g_{\nu\alpha}
+                                  -g_{\mu\nu}g_{\alpha\beta}))</math>
+
+=== Масса и самодействие Хиггса ===
+*<math>-\frac{1}{2}\lambda^2(|\phi|^2-\frac{\eta^2}{2})^2 = 
+-\frac{m_\chi^2}{2}\chi^2-\frac{\lambda^2\eta}{2}\chi^3-\frac{\lambda^2}{8}\chi^4; \qquad m_\chi=\lambda\eta\approx 125GeV</math>
+*Вершины ([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в SANC]):
+**<math>\chi \chi \chi \quad \rightarrow \quad 
+  -\frac{3}{2} \frac{i g m_\chi^2}{m_W} \qquad
+  (-\frac{3}{2} \frac{g m_\chi^2}{m_W})</math>
+**<math>\chi \chi \chi \chi \quad \rightarrow \quad 
+  -\frac{3}{4}\frac{i g^2 m_\chi^2}{m_W^2} \qquad
+  (-\frac{3}{4} \frac{g^2 m_\chi^2}{m_W^2})</math>
+
+=== Взаимодействия фермионов с калибровочными бозонами ===
+:<math>
+  \psi_L=\frac{1-\gamma^5}{2}\psi; \qquad 
+  \psi_R=\frac{1+\gamma^5}{2}\psi; \qquad
+  \bar\psi_L=\bar\psi\frac{1+\gamma^5}{2}; \qquad 
+  \bar\psi_R=\bar\psi\frac{1-\gamma^5}{2}; \qquad
+</math>
+:<math>Q:=T_3+\frac{Y}{2}I=\frac{1}{2}(\sigma_3+Y) = 
+\begin{pmatrix}q_u & 0 \\ 0 & q_d\end{pmatrix}; \quad</math> - оператор заряда - генератор новой симметрии U<sub>EM</sub>(1) (?)
+:<math>q_u-q_d=1</math>
+:<math>(gT_3W_3+g'\frac{Y}{2}B)_\mu = eA_\mu Q+\frac{g}{\cos\theta_W}Z_\nu(T_3-\sin^2\theta_W Q)</math>
+*<math>\bar L i\hat D L = 
+   \bar u i\hat\partial \frac{1-\gamma_5}{2} u
+  +\bar d i\hat\partial \frac{1-\gamma_5}{2} d
+</math><math>
+  +\frac{g}{\sqrt{2}}\bar u\gamma^\mu \frac{1-\gamma^5}{2} u W^-_\mu
+  +\frac{g}{\sqrt{2}}\bar d\gamma^\mu \frac{1-\gamma^5}{2} d W^+_\mu
+</math><math>
+  +e_e q_u \bar u\gamma^\mu \frac{1-\gamma^5}{2} u A_\mu
+  +e_e q_d \bar d\gamma^\mu \frac{1-\gamma^5}{2} d A_\mu
+</math><math>
+  +\frac{g( 1/2-q_u\sin^2\theta_W)}{\cos\theta_W}\bar u\gamma^\mu\frac{1-\gamma^5}{2} u Z_\mu
+  +\frac{g(-1/2-q_d\sin^2\theta_W)}{\cos\theta_W}\bar d\gamma^\mu\frac{1-\gamma^5}{2} d Z_\mu
+</math>
+*<math>\bar u_R i\hat D u_R = 
+    \bar u i\hat \partial \frac{1+\gamma_5}{2}u
+  + e_e q_u \bar u \hat \gamma_\mu \frac{1+\gamma_5}{2} u A^\mu
+  - \frac{q_u g \sin^2\theta_W}{\cos\theta_W} \bar u \hat \gamma_\mu \frac{1+\gamma_5}{2} u A^\mu
+</math>
+*<math>\bar d_R i\hat D d_R = 
+    \bar d i\hat \partial \frac{1+\gamma_5}{2}d
+  + e_e q_d \bar d \hat \gamma_\mu \frac{1+\gamma_5}{2} d A^\mu
+  - \frac{q_d g \sin^2\theta_W}{\cos\theta_W} \bar d \hat \gamma_\mu \frac{1+\gamma_5}{2} d A^\mu
+</math>
+*<math>\bar L i\hat D L + \bar u_R i\hat D u_R + \bar d_R i\hat D d_R = 
+  \bar u i\hat\partial u + \bar d i\hat\partial d
+  + e_e q_u \bar u\gamma^\mu u A_\mu + e_e q_d \bar d\gamma^\mu d A_\mu
+</math><math>
+  +\frac{g}{2\sqrt{2}}\bar u \gamma^\mu(1-\gamma^5) d W^-_\mu
+  +\frac{g}{2\sqrt{2}}\bar d \gamma^\mu(1-\gamma^5) u W^+_\mu
+</math><math>
+  +\frac{g}{2\cos\theta_W}\bar u \gamma_\mu (g_{uV}-g_{uA} \gamma_5)u Z^\mu
+  +\frac{g}{2\cos\theta_W}\bar d \gamma_\mu (g_{dV}-g_{dA} \gamma_5)d Z^\mu
+</math>
+:<math>  g_V-g_A\gamma_5=g_L(1-\gamma_5)+g_R(1+\gamma_5) </math>
+{|  class="standard" | width="100%"
+|-
+! частицы
+! <center><math>t_3</math></center>
+! <center><math>q</math></center>
+! <center><math>g_V=t_3-2q\sin^2\theta_W</math></center>
+! <center><math>g_A=t_3</math></center>
+! <center><math>g_L=t_3-q\sin^2\theta_W</math></center>
+! <center><math>g_R=-q\sin^2\theta_W</math></center>
+|-
+! <math>\nu_e \nu_\mu \nu_\tau</math>
+|
++1/2
+|
+0
+|
++1/2
+|
++1/2
+|
++1/2
+|
+0
+|-
+! <math>e \mu \tau</math>
+|
+-1/2
+|
+-1
+|
+<math>-1/2+2\sin^2\theta_W\approx 0</math>
+|
+-1/2
+|
+<math>-1/2+\sin^2\theta_W\approx -1/4</math>
+|
+<math>\sin^2\theta_W \approx 1/4</math>
+|-
+! <math>uct</math>
+|
++1/2
+|
++2/3
+|
+<math>1/2-4/3\sin^2\theta_W\approx 1/6</math>
+|
++1/2
+|
+<math>1/2+2/3\sin^2\theta_W\approx 2/3</math>
+|
+<math>2/3\sin^2\theta_W \approx 1/6</math>
+|-
+! <math>dsb</math>
+|
+-1/2
+|
+-1/3
+|
+<math>-1/2+2/3\sin^2\theta_W\approx -1/3</math>
+|
+-1/2
+|
+<math>-1/2+1/3\sin^2\theta_W\approx -5/12</math>
+|
+<math>1/3\sin^2\theta_W\approx 1/12</math>
+|}
+
+([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в вершинах SANC])
+*<math>j_\mu^{em} =q_f \bar f \gamma_\mu f</math> - электромагнитный нейтральный ток
+**<math>\bar f f A \quad \rightarrow \quad 
+  +i e_e q \gamma_\mu \qquad
+  (+i e_e q \gamma_\mu)</math>
+
+*<math>j_\mu^{3}  =t_3 \bar f \gamma_\mu \frac{1-\gamma^5}{2}f</math> - слабый нейтральный ток 
+**<math>\bar f f Z \quad \rightarrow \quad 
+  +\frac{ig}{2\cos\theta_W}\gamma_\mu (g_{V}-g_{A}\gamma^5) \qquad
+  (+\frac{ig}{4\cos\theta_W}\gamma_\mu (2g_L(1-\gamma_5)+ 2g_R(1+\gamma_5)))</math>
+
+*<math>j_\mu^{+}  =\bar u \gamma_\mu \frac{1-\gamma^5}{2} d; \quad j_\mu^{-}  =\bar d \gamma_\mu \frac{1-\gamma^5}{2} u</math> - слабый заряженный ток 
+**<math>\bar f f W \quad \rightarrow \quad 
+  +\frac{ig}{2\sqrt{2}}\gamma_\mu (1-\gamma^5) \qquad
+  (+\frac{ig}{2\sqrt{2}}\gamma_\mu (1+\gamma^5))</math>
+
+=== Массы фермионов ===
+*<math>- f_u(\bar Lu_R \phi + \bar u_R L \phi^*)=-\frac{f_u}{\sqrt{2}}\bar u u(\eta+\chi)
+= -m_u\bar u u -\frac{m_u}{\eta}\bar uu\chi</math>
+*<math>- f_d(\bar Ld_R \phi + \bar d_R L \phi^*)=-\frac{f_d}{\sqrt{2}}\bar d d(\eta+\chi)
+= -m_d\bar d d -\frac{m_d}{\eta}\bar dd\chi</math>
+:<math>
+m_u=\frac{f_u\eta}{\sqrt{2}};\qquad
+m_d=\frac{f_d\eta}{\sqrt{2}};\qquad</math>
+*Вершины ([https://github.com/FeelUsM/form-SANC/blob/master/FeynmanRules.prc то, что используется в SANC]):
+**<math>\bar u u \chi \quad \rightarrow \quad 
+  -\frac{i g m_u}{2 m_W} \qquad
+  (-\frac{g m_u}{4 m_W})</math>
+**<math>\bar d d \chi \quad \rightarrow \quad 
+  -\frac{i g m_d}{2 m_W} \qquad
+  (-\frac{g m_d}{4 m_W})</math>
+
+=== Смешивание фермионов ===
+:<math>q_{Li}=\begin{pmatrix}u_{Li}\\ d_{Li}\end{pmatrix};\qquad i=1,2,3;\qquad f=f^+</math> (?)
+*<math>\mathcal{L}=\mathcal{L}_{bozon}
+  +i\bar q_{Li}\hat D q_{Li}+i\bar u_{Ri}\hat D u_{Ri}+i\bar d_{Ri}\hat D d_{Ri}
+  -f^d_{ij}(\bar q_{Li}d_{Rj}\phi + h.c.)-f^u_{ij}(\bar q_{Li}u_{Rj}\phi_C + h.c.)
+</math>
+*<math>-f^d_{ij}(\bar q_{Li}d_{Rj}\phi + h.c.) = 
+-(  \bar d_{L}f^d    d_{R}\frac{\eta+\chi}{\sqrt{2}} 
+  + \bar d_{R}f^{d+} d_{L}\frac{\eta+\chi}{\sqrt{2}}) = 
+-(  \bar d'_{L}\tilde f^d    d'_{R}\frac{\eta+\chi}{\sqrt{2}} 
+  + \bar d'_{R}\tilde f^{d+} d'_{L}\frac{\eta+\chi}{\sqrt{2}})
+</math>
+:<math>d_R=V^d_R d'_R; \qquad (V^d_R)^+ V^d_R =1; \qquad
+ d_L=V^d_L d'_L; \qquad (V^d_L)^+ V^d_L =1; \qquad
+ \tilde f^d = (V^d_L)^+ f V^d_R </math> - диагональныя
+:члены, где только нижние или только верхние кварки, не изменятся
+*<math>\frac{g}{2\sqrt{2}}\bar u_i\gamma^\mu(1-\gamma^5) d_i W^-_\mu = 
+  (V_L^u)^+_{ij}(V^d_L)_{ik}\frac{g}{\sqrt{2}}\bar u'_{Lj} \gamma^\mu d'_{Lk} W^-_\mu 
+</math><math>
+  = 
+  V_{jk}\frac{g}{\sqrt{2}}\bar u'_{Lj} \gamma^\mu d'_{Lk} W^-_\mu = 
+  V_{jk}\frac{g}{2\sqrt{2}}\bar u'_{j} \gamma^\mu (1-\gamma^5) d'_{k} W^-_\mu
+</math>
+:<math>V_{jk}</math> - [[CKM-матрица#"Стандартные" параметры|CKM матрица]] - для кварков -> ... осцилляции странности в каонах
+:<math>V_{jk}</math> - PMNS матрица - для лептонов -> ... осцилляции нейтрино
+Для нейтрин есть альтернативные теории, например механизм seesaw

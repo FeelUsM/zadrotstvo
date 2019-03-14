@@ -1,0 +1,586 @@
+builtin modules:
+[__builtin__ === __builtins__
+	'BaseException',
+		'SystemExit',
+		'KeyboardInterrupt', # C-c
+		'GeneratorExit',
+		'Exception', # базовый класс пользовательских исключений
+			'StopIteration',
+			'StopAsyncIteration',
+			'ArithmeticError',
+				'FloatingPointError',
+				'OverflowError',
+				'ZeroDivisionError',
+			'BufferError',
+			'LookupError',
+				'IndexError',
+				'KeyError',
+			--- 
+			'AssertionError',
+			'EOFError',
+			'ImportError',
+				'ModuleNotFoundError',
+			'NameError',
+				'UnboundLocalError',
+			'MemoryError',
+			'AttributeError',
+			'ReferenceError',
+			'SyntaxError',
+				'IndentationError',
+					'TabError',
+			'TypeError',
+			'RuntimeError',
+				'NotImplementedError',
+				'RecursionError',
+			'ValueError',
+				'UnicodeError',
+					'UnicodeDecodeError',
+					'UnicodeEncodeError',
+					'UnicodeTranslateError',
+			'SystemError',
+			---
+			'EnvironmentError',
+			'IOError',
+			'WindowsError',
+			'OSError',
+				'BlockingIOError',
+				'ChildProcessError',
+				'ConnectionError',
+					'BrokenPipeError',
+					'ConnectionAbortedError',
+					'ConnectionRefusedError',
+					'ConnectionResetError',
+				'FileExistsError',
+				'FileNotFoundError',
+				'InterruptedError',
+				'IsADirectoryError',
+				'NotADirectoryError',
+				'PermissionError',
+				'ProcessLookupError',
+				'TimeoutError',
+			---
+			'Warning',
+				'DeprecationWarning',
+				'PendingDeprecationWarning',
+				'RuntimeWarning',
+				'SyntaxWarning',
+				'UserWarning',
+				'FutureWarning',
+				'ImportWarning',
+				'UnicodeWarning',
+				'BytesWarning',
+				'ResourceWarning',
+	константы:
+		'False',
+		'True',
+		'None',
+		'NotImplemented',
+		'Ellipsis',
+	'__debug__', - True/False - влияет на assert
+
+	'__IPYTHON__',
+	'__build_class__',
+	'__doc__',
+	'__import__',	(name, globals=None, locals=None, fromlist=(), level=0)
+	'__loader__',
+	'__name__',
+	'__package__',
+	'__spec__',
+	числовые функции
+		'abs',		(x)
+		'divmod',	(a, b)
+		'pow',		(x, y[, z])
+		'round',	(number[, ndigits])
+	формат
+		'bin',		(x)
+		'oct',		(x)
+		'hex',		(x)
+		'format',	(value[, format_spec])
+	числа-символы
+		'chr',		(i)
+		'ord',		(c)
+	repr
+		'repr',		(object)
+		'ascii',	(object)
+	файлы, ввод/вывод
+		'open',		(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+		'print',	(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+		'input',	([prompt])
+	аккумулирующие функции
+		'sum',		(iterable[, start])
+		'max',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
+		'min',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
+		'all',		(iterable)
+		'any',		(iterable)
+	типы и преобразования к ним
+		'bool',		class ([x])
+		'int',		class ([x])/(x, base=10)
+		'float',	class ([x])
+		'complex',	class ([real[, imag]])
+		'str',		class (object='')/(object=b'', encoding='utf-8', errors='strict')
+		'bytes',	class ([source[, encoding[, errors]]])
+		'bytearray', 	class ([source[, encoding[, errors]]])	- изменяемый bytes
+		'tuple',	([iterable])
+		'list',		class ([iterable])
+		'frozenset',	class ([iterable])
+		'set',		class ([iterable])
+		'dict',		class (**kwarg)/(mapping, **kwarg)/(iterable, **kwarg)
+	объекты и наследование
+		'type',		class (object)/(name, bases, dict)
+		'object',	class 
+		'isinstance',	(object, classinfo)
+		'issubclass',	(class, classinfo)
+		'super',	([type[, object-or-type]])
+	свойства и методы
+		'staticmethod',	@
+		'classmethod',	@
+		'property',	class (fget=None, fset=None, fdel=None, doc=None)
+	атрибуты(поля) объектов
+		'hasattr',	(object, name)
+		'getattr',	(object, name[, default])
+		'setattr',	(object, name, value)
+		'delattr',	(object, name)
+		'callable',	(object)
+	массивы и итераторы
+		'iter',		(object[, sentinel])
+		'reversed',	(seq)
+		'len',		(s)
+		'slice',	class (stop)/(start, stop[, step])
+		'range',	(stop)/(start, stop[, step])
+		'next',		(iterator[, default])
+	map-reduce
+		'filter',	(function, iterable)	[i for i in iterable if finction(i)]
+		'map',		(function, iterable, ...)
+		'enumerate',	(iterable, start=0)	[a,b,c]->[(0,a),(1,b),(2,c)]
+		'zip'		(*iterables)
+		'sorted',	(iterable, *, key=None, reverse=False)
+	id, hash
+		'id',		(object)
+		'hash',		(object)
+	globals, locals
+		'globals',	()
+		'locals',	()
+		'dir',		([object])
+		'vars',		([object])
+	eval и отладка
+		'eval',		(expression, globals=None, locals=None)
+		'exec',		(object[, globals[, locals]])
+		'compile',	(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
+		'breakpoint',	(*args, **kws) вызывает отладчик в данной точке
+		'memoryview',	(obj)
+	help
+		'help',		([object])
+
+	---
+	'display',	???
+	'get_ipython',	???
+	'credits',	???
+	'copyright',	???
+	'license',	???
+]
+
+(sys.builtin_module_names:
+	'builtins',
+	'sys',
+	'time',
+
+	'cmath',
+	'math',
+
+	'array',
+	'itertools',
+	'mmap',
+
+	'parser',
+
+	'atexit',
+	'faulthandler',
+	'errno',
+
+	'audioop',
+	'binascii',
+	'gc',
+	'marshal',
+	'xxsubtype',
+	'zipimport',
+	'zlib'
+
+	'msvcrt',
+	'nt',
+	'winreg',
+
+	'_ast',
+	'_bisect',
+	'_blake2',
+	'_codecs',
+	'_codecs_cn',
+	'_codecs_hk',
+	'_codecs_iso2022',
+	'_codecs_jp',
+	'_codecs_kr',
+	'_codecs_tw',
+	'_collections',
+	'_csv',
+	'_datetime',
+	'_functools',
+	'_heapq',
+	'_imp',
+	'_io',
+	'_json',
+	'_locale',
+	'_lsprof',
+	'_md5',
+	'_multibytecodec',
+	'_opcode',
+	'_operator',
+	'_pickle',
+	'_random',
+	'_sha1',
+	'_sha256',
+	'_sha3',
+	'_sha512',
+	'_signal',
+	'_sre',
+	'_stat',
+	'_string',
+	'_struct',
+	'_symtable',
+	'_thread',
+	'_tracemalloc',
+	'_warnings',
+	'_weakref',
+	'_winapi',
+)
+
+__name__ == '__main__' как модуль или как скрипт
+
+[sys:
+	'__displayhook__',
+	'__doc__',
+	'__excepthook__',
+	'__interactivehook__',
+	'__loader__',
+	'__name__',
+	'__package__',
+	'__spec__',
+	'__stderr__',
+	'__stdin__',
+	'__stdout__',
+
+	'_clear_type_cache',
+	'_current_frames',
+	'_debugmallocstats',
+	'_enablelegacywindowsfsencoding',
+	'_getframe',
+	'_git',
+	'_home',
+	'_xoptions',
+
+	'builtin_module_names',
+	'modules',	уже загруженные модули
+
+	'byteorder',
+
+	'call_tracing',
+	'callstats',
+	'displayhook',
+	'excepthook',
+	'dllhandle',
+	'dont_write_bytecode',
+	'flags',
+	'float_repr_style',
+	'exc_info',
+	'float_info',
+	'hash_info',
+	'int_info',
+	''thread_info',
+	'intern',
+	is_finalizing',
+	'maxsize',
+	'maxunicode',
+	'meta_path',
+	'path_hooks',
+	'path_importer_cache',
+	'warnoptions',
+
+	'get_asyncgen_hooks',
+	'get_coroutine_wrapper',
+	'getallocatedblocks',
+	'getcheckinterval',
+	'setcheckinterval',
+	'getdefaultencoding',
+	'getfilesystemencodeerrors',
+	'getfilesystemencoding',
+	'getprofile',
+	'setprofile',
+	'getrecursionlimit',
+	'setrecursionlimit',
+	'getrefcount',
+	'getsizeof',
+	'getswitchinterval',
+	'setswitchinterval',
+	'gettrace',
+	'settrace',
+	'set_asyncgen_hooks',
+	'set_coroutine_wrapper',
+
+	'base_exec_prefix',
+	'base_prefix',
+	'exec_prefix',	platform dependent
+	'prefix',	platform independent
+	'executable',	путь к интерпретатору
+
+	'ps1',	'>>> '	'In : '
+	'ps2',	'... '	'... '
+	'ps3',	''	'Out : '
+
+	'argv',
+	'path',
+	'stderr',
+	'stdin',
+	'stdout',
+	'exit',
+
+	'platform',
+	'implementation',
+	'copyright',
+	'version',
+	'hexversion',
+	'version_info',
+	'getwindowsversion',
+	'api_version',
+	'abiflags',	POSIX only
+	'winver'
+]
+
+[os:
+	'W_OK',
+	'X_OK',
+	'F_OK',
+	'R_OK',
+	'O_BINARY',
+	'O_TEXT',
+	'O_APPEND',
+	'O_CREAT',
+	'O_RDONLY',
+	'O_WRONLY',
+	'O_RDWR',
+	'O_EXCL',
+	'O_NOINHERIT',
+	'O_RANDOM',
+	'O_SEQUENTIAL',
+	'O_SHORT_LIVED',
+	'O_TEMPORARY',
+	'O_TRUNC',
+
+	'SEEK_CUR',
+	'SEEK_END',
+	'SEEK_SET',
+	'TMP_MAX',
+
+	'__all__',
+	'__builtins__',
+	'__cached__',
+	'__doc__',
+	'__file__',
+	'__loader__',
+	'__name__',
+	'__package__',
+	'__spec__',
+
+	'_Environ',
+	'_execvpe',
+	'_exists',
+	'_exit',
+	'_fspath',
+	'_get_exports_list',
+	'_putenv',
+	'_unsetenv',
+	'_wrap_close',
+
+	'MutableMapping',
+	'error',	=== OSError
+
+	'errno',	module	с константами ошибок
+	'path',		module
+
+константы
+	'cpu_count',	()
+	'curdir',	'.'
+	'pardir',	'..'
+
+	'sep',		dir separator			'/','\\'
+	'altsep		alternative dir separator	', None,'/'
+	'extsep',	extension separator		'.'
+	'linesep',	line separator			'\n','\r\n'
+
+	'pathsep',	':'/';'
+	'defpath',	path, если нет переменной среды PATH
+	'devnull',	'/dev/null'/'nul'
+
+	'name',		'posix', 'nt', 'java'
+переменные среды
+	'environ',	env - при запуске интерпретатора
+	'getenv',	(key, default=None)	env - кодировка sys.getfilesystemencoding()
+	'getenvb'	(key, default=None)	on Unix
+	'putenv',	(key, default=None)	env
+
+	'getcwd',	()	pwd - string
+	'getcwdb',	()	pwd - bytes
+	'chdir',	(path)	cd
+запуск процессов	+module subprocess	+module signal
+	'getpid',	()	pid текущего процесса
+	'getppid',	()	parent’s process id
+	execl		(path, arg0, arg1, ...)
+	execle		(path, arg0, arg1, ..., env)
+	execlp		(file, arg0, arg1, ...)
+	execlpe		(file, arg0, arg1, ..., env)
+	execv		(path, args)
+	execve		(path, args, env)
+	execvp		(file, args)
+	execvpe		(file, args, env)
+				запускает новый процесс, а сам уничтожается
+	spawnl		(mode, path, ...)
+	spawnle		(mode, path, ..., env)
+	//spawnlp	(mode, file, ...)
+	//spawnlpe	(mode, file, ..., env)
+	spawnv		(mode, path, args)
+	spawnve		(mode, path, args, env)
+	//spawnvp	(mode, file, args)
+	//spawnvpe	(mode, file, args, env)
+		'P_NOWAIT',	не ждать, вернуть id подпроцесса
+		'P_NOWAITO',	не ждать, вернуть id подпроцесса
+		'P_WAIT',	ждать, пока выполнится подпроцесс, вернуть его код возврата
+		'P_DETACH',	(Windows) P_NOWAIT + отделить процесс от консоли
+		'P_OVERLAY',	(Windows) как exec
+	'startfile',	(path[, operation])	открывает файл дефолтным приложением (Windows)
+	'system',	(command)	запускает новый процесс и ждет его окончания
+	'pipe',		()	(r,w)	- пара файловых дескрипторов, которые не inheritable - сразу закрываются в дочерних процессах
+	'popen',	(cmd, mode='r', buffering=-1)	-> fd	запускает новый процесс, с которым можно общаться
+	'kill',		(pid, sig)
+	'abort',	()	кидает сигнал SIGABRT
+папки	+ codecs.surrogateescape
+	'PathLike',	abstract class
+		__fspath__()	file system path representation
+	'DirEntry',	class
+		name	base filename, relative to the scandir() path argument
+		path	full path name	- тип и абсолютность/относительность такая же как в scandir() path argument
+		inode()	os.stat(entry.path, follow_symlinks=False).st_ino
+		is_dir(*, follow_symlinks=True)	
+		is_file(*, follow_symlinks=True)
+		is_symlink()
+		stat(*, follow_symlinks=True) ->stat_result
+	'scandir',	(path='.')	итератор типа DirEntry, 
+		пробегает в произвольном порядке, 
+		'.','..' - не пробегает, 
+		with os.scandir(path) as it:
+	    		for entry in it:
+	        		if not entry.name.startswith('.') and entry.is_file():
+	            			print(entry.name)
+	'listdir',	(path='.')	список файлов/папок без '.','..'
+
+	'mkdir',	(path, mode=0o777, *, dir_fd=None)	+umask
+	'makedirs',	(name, mode=0o777, exist_ok=False)	+umask +все пром. директории
+	'rmdir',	(path, *, dir_fd=None)	удаляет пустую директорию
+	'removedirs',	(name)	рекурсивно удаляет каталоги пока они пусты
+папки-файлы
+	'stat_result'	class
+		st_mode		???
+		st_ino		inode/file index
+		st_dev		девайс, на котором расположен файл
+		st_nlink	количество hardlink-ов
+		st_uid	
+		st_gid
+		st_size		в байтах, для файла или симлинка (его длина)
+		st_atime	access (может быть float)
+		st_mtime	modification
+		st_ctime	metadata chage/creation
+		st_atime_ns
+		st_mtime_ns
+		st_ctime_ns
+		<Unix(Linux)>
+		st_blocks	колчество (?)512-байтных блоков, (?) может ыть меньше, если в файле есть дыры
+		st_blksize	предпочтительный размер буфера для чтения/записи файла
+		st_rdev		тип устройства
+		st_flags	пользовательские флаги (?)
+		st_gen		File generation number
+		st_birthtime
+		<Solaris attrs>
+		...
+		<Windows>
+		st_file_attributes	...
+	'stat',	(path, *, dir_fd=None, follow_symlinks=True) ->stat_result
+	'fstat',(fd) ->stat_result
+	'lstat',(path, *, dir_fd=None) ->stat_result, //follow_symlinks=False
+	'umask',(mask)	устанавливает новую и возвращает старую
+	'chmod',(path, mode, *, dir_fd=None, follow_symlinks=True)
+
+	'readlink',	(path, *, dir_fd=None)				раскрывает симлинк
+	'link',		(src, dst, *, src_dir_fd=None, dst_dir_fd=None, follow_symlinks=True)	создает hardlink
+	'symlink',	(src, dst, target_is_directory=False, *, dir_fd=None)	создает symlink
+	'remove',	(path, *, dir_fd=None)				удаляет файл (но не директорию)
+	'unlink',	(path, *, dir_fd=None)				=== remove
+	'rename',	(src, dst, *, src_dir_fd=None, dst_dir_fd=None)	mv
+	'replace',	(src, dst, *, src_dir_fd=None, dst_dir_fd=None)	mv
+	'renames',	(old, new)					mv +все пром. директории
+файлы
+	'fdopen',	(fd, *args, **kwargs)	как open, только заренее нужен fd
+	'open',		
+	'close',	
+
+	'device_encoding', (fd)
+	'read',		
+	'write'		
+
+	'lseek',	
+
+	'access',
+
+	'closerange',
+	'dup',
+	'dup2',
+
+	'fsdecode',
+	'fsencode',
+	'fspath',
+
+	'fsync',
+	'ftruncate',
+	'get_exec_path',
+
+	'get_handle_inheritable',
+	'set_handle_inheritable',
+	'get_inheritable',
+	'set_inheritable',
+
+	'getlogin',
+	'stat_float_times',
+	'statvfs_result',
+	'strerror',
+	'supports_bytes_environ',
+	'supports_dir_fd',
+	'supports_effective_ids',
+	'supports_fd',
+	'supports_follow_symlinks',
+	'times',
+	'utime',
+	'times_result',
+	'truncate',
+	'uname_result',
+	'urandom',
+	'waitpid',
+	'walk',
+
+	'isatty',
+	'terminal_size',
+	'get_terminal_size',
+
+	'abc',	???
+	'st',	???
+	'sys',	???
+]
+
+shutil
+tempfile
+subprocess
+signal

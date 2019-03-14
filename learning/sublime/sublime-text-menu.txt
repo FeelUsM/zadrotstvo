@@ -1,0 +1,240 @@
+File 
+	New File		C-N
+	Open File...	C-O
+	Open Folder...
+	Open Recent 
+		Reopen Closed File	C-S-T
+		---
+		Clear Items
+	
+	Reopen with Encoding 
+		UTF-8
+		UTF-16LE
+		UTF-16BE
+		---
+		...
+		Cyrilllic (Windows 1251)
+		Cyrilllic (Windows 866)
+		Cyrilllic (ISO 8859-5)
+		Cyrilllic (KOI8-R)
+		Cyrilllic (KOI8-U)
+		...
+	
+	New View into File				???
+	Save			C-S
+	Save with Encoding 
+		UTF-8
+		UTF-8 with BOM
+		UTF-16LE
+		UTF-16LE with BOM
+		UTF-16BE
+		UTF-16BE with BOM
+		---
+		...
+		Cyrilllic (Windows 1251)
+		Cyrilllic (Windows 866)
+		Cyrilllic (ISO 8859-5)
+		Cyrilllic (KOI8-R)
+		Cyrilllic (KOI8-U)
+		...
+	
+	Save As...		C-S-S
+	Save All
+	---
+	New Window		C-S-N
+	Close Window	C-S-W
+	---
+	Close File		C-W
+	Revert File						???
+	Close All Files
+	---
+	Exit
+
+Edit 
+	Undo				C-Z
+	Redo				C-Y
+	Undo Selection 				!!!
+		Soft Undo		C-U
+		Soft Redo		C-S-U
+	
+	---
+	Copy				C-C
+	Cut					C-X
+	Paste				C-V
+	Paste and Indent	C-S-V
+	---
+	Line 							!!!
+		Indent			C-[
+		Unindent		C-]
+		Reindent		
+		Swap Line Up	C-S-Up
+		Swap Line Down	C-S-Down
+		Duplicate Line	C-S-D
+		Delete line		C-S-K
+		Join Lines		C-J
+	
+	Comment 						!!!
+		Toggle Comment			C-/
+		Toggle Block Comment	C-S-/
+	
+	Text 
+		Insert Line Before		C-S-Enter
+		Insert Line After		C-Enter
+		---
+		Delete Word Forward		C-Delete
+		Delete Word backward	C-Backspace
+		Delete Line				C-S-K
+		Delete to End			C-K C-K
+		Delete to Beginning		C-K C-Backspace
+		---
+		Transpose				C-T
+	
+	Tag 							!!!
+		Close Tag				M-.
+		Expand Selection to Tag	C-S-A
+		Wrap Selection to Tag	M-S-W
+	
+	Mark 							???
+		Set Mark		C-K C-Space
+		Select To Mark	C-K C-A
+		Delete To Mark	C-K C-W
+		Swap with Mark	C-K C-X
+		Clear Mark		C-K C-G
+		---
+		Yank			C-K C-Y
+	
+	Code Folding 					!!!
+		Fold			C-S-[
+		Unfold			C-S-]
+		Unfold All		C-K C-J
+		---
+		Fold All		C-K C-1
+		Fold Level 2	C-K C-2
+		Fold Level 3	C-K C-3
+		Fold Level 4	C-K C-4
+		Fold Level 5	C-K C-5
+		Fold Level 6	C-K C-6
+		Fold Level 7	C-K C-7
+		Fold Level 8	C-K C-8
+		Fold Level 9	C-K C-9
+		---
+		Fold Tag Attributes 	C-K C-T
+	
+	Convert Case 
+		Title Case
+		Upper Case	C-K C-U
+		Lower Case	C-K C-L
+		Swap Case
+	
+	Wrap 
+		Wrap Paragraph at Ruler				M-Q
+		Wrap Paragraph at 70 characters
+		Wrap Paragraph at 78 characters
+		Wrap Paragraph at 80 characters
+		Wrap Paragraph at 100 characters
+		Wrap Paragraph at 120 characters
+	
+	Show Completions	C-Space
+	---
+	Sort Lines					F9
+	Sort Lines (Case Sensetive)	C-F9
+	Permute Lines 
+		Reverse
+		Unique
+		Shuffle
+	
+	Permute Selections 
+		Sort
+		Sort (Case Sensetive)
+		Reverse
+		Unique
+		Shuffle
+	
+
+Selection 
+	Split into Lines		C-S-L
+	Add Previous Line		C-M-Up
+	Add Next Line			C-M-Down
+	Single Selection		Escape
+	Invert Selection		
+	---
+	Select All							C-A
+	Expand Selection to Line			C-L
+	Expand Selection to Word			C-D
+	Expand Selection to Paragraph
+	Expand Selection to Scope			C-S-Space
+	Expand Selection to Breackets		C-S-M
+	Expand Selection to Indentation		C-S-J
+	Expand Selection to Tag				C-S-A
+
+Find 
+	Find...				C-F
+	Find Next			F3
+	Find Previous		S-F3
+	Incremental Find	C-I		???
+	---
+	Replace...			C-H
+	Replace Next		C-S-H
+	---							???
+	Quick Find			C-F3
+	Quick Find All		M-F3
+	Quick Add Next		C-D
+	Quick Skip Next		C-K C-D
+	---
+	Use Selection for Find		C-E
+	Use Selection for Replace	C-S-E
+	---
+	Find in Files		C-S-F
+	Find Results 
+		Show Results Panel	
+		Next Result			F4
+		Previous Result		S-F4
+	
+
+View 
+	Side Bar 
+		Hide Side Bar	C-K C-B
+		---
+		Show Open Files
+	
+	Hide Minimap
+	Hide Tabs
+	Hide Status Bar
+	Hide Menu
+	Show Console				C-`
+	---
+	Enter Full Screen			F11
+	Enter Destination Free Mode	S-F11
+	---
+	Layout 
+		Single			M-S-1
+		Coloumns: 2		M-S-2
+		Coloumns: 3		M-S-3
+		Coloumns: 4		M-S-4
+		Rows: 2			M-S-8
+		Rows: 3			M-S-9
+		Grid: 4			M-S-5
+	
+	Groups 
+		Move File to New Group	C-K C-Up
+		New Group				C-K C-S-Up
+		Close Group				C-K C-Down 	1q``
+	
+	Focus Group
+	Move File to Group
+	---
+
+Goto 
+	
+
+Tools 
+	
+
+Project 
+	
+
+Preferences 
+	
+
+Help 
+	

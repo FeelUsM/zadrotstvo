@@ -1,0 +1,342 @@
+plotly
+'absolute_import', # offline.offline
+'optional_imports', # offline.offline
+
+'graph_objs',
+	'__builtins__',
+	'__cached__',
+	'__doc__',
+	'__file__',
+	'__loader__',
+	'__name__',
+	'__package__',
+	'__path__',
+	'__spec__',
+
+	'Data',
+	'Figure',
+
+	'AngularAxis',
+	'RadialAxis',
+	'Annotation',
+	'Annotations',
+	'FigureWidget',
+	'Font',
+	'Frame',
+	'Frames',
+	'Legend',
+	'Line',
+	'Margin',
+	'Marker',
+	'Scene',
+	'Stream',
+
+	'ErrorX',
+	'ErrorY',
+	'ErrorZ',
+	'Trace',
+	'XAxis',
+	'XBins',
+	'YAxis',
+	'YBins',
+	'ZAxis',
+
+	'_deprecations',
+	'_figure',
+	'_figurewidget',
+	'_frame',
+
+	'layout', 		'_layout',		'Layout',
+		['arg=None', 
+		'angularaxis=None', 
+		'annotations=None', 
+		'annotationdefaults=None', 
+		'autosize=None', 
+		'bargap=None', 
+		'bargroupgap=None', 
+		'barmode=None', 
+		'barnorm=None', 
+		'boxgap=None', 
+		'boxgroupgap=None', 
+		'boxmode=None', 
+		'calendar=None', 
+		'clickmode=None', 
+		'colorscale=None', 
+		'colorway=None', 
+		'datarevision=None', 
+		'direction=None', 
+		'dragmode=None', 
+		'editrevision=None', 
+		'extendpiecolors=None', 
+		'font=None', 
+		'geo=None', 
+		'grid=None', 
+		'height=None', 
+		'hiddenlabels=None', 
+		'hiddenlabelssrc=None', 
+		'hidesources=None', 
+		'hoverdistance=None', 
+		'hoverlabel=None', 
+		'hovermode=None', 
+		'images=None', 
+		'imagedefaults=None', 
+		'legend=None', 
+		'mapbox=None', 
+		'margin=None', 
+		'meta=None', 
+		'metasrc=None', 
+		'modebar=None', 
+		'orientation=None', 
+		'paper_bgcolor=None', 
+		'piecolorway=None', 
+		'plot_bgcolor=None', 
+		'polar=None', 
+		'radialaxis=None', 
+		'scene=None', 
+		'selectdirection=None', 
+		'selectionrevision=None', 
+		'separators=None', 
+		'shapes=None', 
+		'shapedefaults=None', 
+		'showlegend=None', 
+		'sliders=None', 
+		'sliderdefaults=None', 
+		'spikedistance=None', 
+		'template=None', 
+		'ternary=None', 
+		'title=None', 
+		'titlefont=None', 
+		'transition=None', 
+		'uirevision=None', 
+		'updatemenus=None', 
+		'updatemenudefaults=None', 
+		'violingap=None', 
+		'violingroupgap=None', 
+		'violinmode=None', 
+		'width=None', 
+		'xaxis=None', 
+		'yaxis=None', 
+		'**kwargs'],
+
+
+	'scatter', 		'_scatter',		'Scatter',
+		'x=None', 		'y=None', 
+		'x0=None', 		'y0=None', 
+		'dx=None', 		'dy=None', 
+		'xaxis=None', 		'yaxis=None', 
+		'xcalendar=None', 	'ycalendar=None', 
+		'xsrc=None', 		'ysrc=None', 
+		'error_x=None', 	'error_y=None', 
+
+		't=None', 
+		'tsrc=None', 
+		'r=None', 
+		'rsrc=None', 
+
+		'arg=None', 
+		'cliponaxis=None', 
+		'connectgaps=None', 
+		'customdata=None', 
+		'customdatasrc=None', 
+		'fill=None', 
+		'fillcolor=None', 
+		'groupnorm=None', 
+		'hoverinfo=None', 
+		'hoverinfosrc=None', 
+		'hoverlabel=None', 
+		'hoveron=None', 
+		'hovertemplate=None', 
+		'hovertemplatesrc=None', 
+		'hovertext=None', 
+		'hovertextsrc=None', 
+		'ids=None', 
+		'idssrc=None', 
+		'legendgroup=None', 
+		'line=None', 
+		'marker=None', 
+		'mode=None', 
+		'name=None', 
+		'opacity=None', 
+		'orientation=None', 
+		'selected=None', 
+		'selectedpoints=None', 
+		'showlegend=None', 
+		'stackgaps=None', 
+		'stackgroup=None', 
+		'stream=None', 
+		'text=None', 
+		'textfont=None', 
+		'textposition=None', 
+		'textpositionsrc=None', 
+		'textsrc=None', 
+		'uid=None', 
+		'uirevision=None', 
+		'unselected=None', 
+		'visible=None', 
+		'**kwargs'],
+
+	'scatter3d', 		'_scatter3d',		'Scatter3d',
+	'mesh3d', 		'_mesh3d',		'Mesh3d',
+ 	'surface', 		'_surface',		'Surface',
+
+	'area', 		'_area',		'Area',
+	'bar', 			'_bar',			'Bar',			'ColorBar',
+	'barpolar', 		'_barpolar',		'Barpolar',
+	'box', 			'_box',			'Box',
+	'candlestick', 		'_candlestick',		'Candlestick',
+	'carpet', 		'_carpet',		
+	'choropleth', 		'_choropleth',		'Choropleth',
+	'cone', 		'_cone',		'Cone',
+	'contour', 		'_contour',		'Contour',		'Contours',
+	'contourcarpet',	'_contourcarpet',	'Contourcarpet',
+	'heatmap', 		'_heatmap',		'Heatmap',
+	'heatmapgl', 		'_heatmapgl',		'Heatmapgl',
+	'histogram', 		'_histogram',		'Histogram',
+	'histogram2d', 		'_histogram2d',		'Histogram2d',
+	'histogram2dcontour', 	'_histogram2dcontour',	'Histogram2dContour', 	'Histogram2dcontour',
+	'isosurface', 		'_isosurface',		'Isosurface',
+	'ohlc', 		'_ohlc',		'Ohlc',
+	'parcats', 		'_parcats',		'Parcats',
+	'parcoords', 		'_parcoords',		'Parcoords',
+	'pie', 			'_pie',			'Pie',
+	'pointcloud', 		'_pointcloud',		'Pointcloud',
+	'sankey', 		'_sankey',		'Sankey',
+	'scattercarpet', 	'_scattercarpet',	'Scattercarpet',
+	'scattergeo', 		'_scattergeo',		'Scattergeo',
+	'scattergl', 		'_scattergl',		'Scattergl',
+	'scattermapbox', 	'_scattermapbox',	'Scattermapbox',
+	'scatterpolar', 	'_scatterpolar',	'Scatterpolar',
+	'scatterpolargl', 	'_scatterpolargl',	'Scatterpolargl',
+	'scatterternary', 	'_scatterternary',	'Scatterternary',
+	'splom', 		'_splom',		'Splom',
+ 	'streamtube', 		'_streamtube',		'Streamtube',
+ 	'table', 		'_table',		'Table',
+ 	'violin' 		'_violin',		'Violin',
+
+'grid_objs',
+
+'offline',		This module provides offline functionality.
+	'_plotlyjs_version',
+	'offline',	Plotly Offline  A module to use Plotly's graphing library with Python without connecting to a public or private plotly enterprise server.
+		'_build_mathjax_script',
+		'_build_resize_script',
+		'_get_jconfig',
+		'_json',
+		'_mathjax_config',
+		'_plot_html',
+		'_window_plotly_config',
+		'get_image_download_script',
+		'ipython',
+		'ipython_display',
+		'matplotlib',
+		'os',
+		'pkgutil',
+		'plotly',
+		'six',
+		'time',
+		'tools',
+		'utils',
+		'uuid',
+		'warnings',
+		'webbrowser'
+	'download_plotlyjs',
+	'enable_mpl_offline',
+	'get_plotlyjs',
+	'get_plotlyjs_version',
+	'init_notebook_mode',
+	'iplot',
+		Signature:
+		plotly.offline.iplot([
+		    'figure_or_data', 
+		    'show_link=False', 
+		    "link_text='Export to plot.ly'", 
+		    'validate=True', 
+		    'image=None', 
+		    "filename='plot_image'", 
+		    'image_width=800', 
+		    'image_height=600', 
+		    'config=None'
+		],)
+		Docstring:
+		Draw plotly graphs inside an IPython or Jupyter notebook without connecting to an external server.
+		To save the chart to Plotly Cloud or Plotly Enterprise, use `plotly.plotly.iplot`.
+		To embed an image of the chart, use `plotly.image.ishow`.
+
+		figure_or_data -- a plotly.graph_objs.Figure 
+				or  plotly.graph_objs.Data 
+				or  dict 
+				or  list that describes a Plotly graph.
+		                  See https://plot.ly/python/ for examples of graph descriptions.
+
+		Keyword arguments:
+		show_link (default=False) -- display a link in the bottom-right corner of
+		                            of the chart that will export the chart to
+		                            Plotly Cloud or Plotly Enterprise
+		link_text (default='Export to plot.ly') -- the text of export link
+		validate (default=True) -- validate that all of the keys in the figure
+		                           are valid? omit if your version of plotly.js
+		                           has become outdated with your version of
+		                           graph_reference.json or if you need to include
+		                           extra, unnecessary keys in your figure.
+		image (default=None |'png' |'jpeg' |'svg' |'webp') -- This parameter sets
+		    the format of the image to be downloaded, if we choose to download an
+		    image. This parameter has a default value of None indicating that no
+		    image should be downloaded. Please note: for higher resolution images
+		    and more export options, consider making requests to our image servers.
+		    Type: `help(py.image)` for more details.
+		filename (default='plot') -- Sets the name of the file your image
+		    will be saved to. The extension should not be included.
+		image_height (default=600) -- Specifies the height of the image in `px`.
+		image_width (default=800) -- Specifies the width of the image in `px`.
+		config (default=None) -- Plot view options dictionary. Keyword arguments
+		    `show_link` and `link_text` set the associated options in this
+		    dictionary if it doesn't contain them already.
+
+		Example:
+		```
+		from plotly.offline import init_notebook_mode, iplot
+		init_notebook_mode()
+		iplot([{'x': [1, 2, 3], 'y': [5, 2, 7]}])
+		# We can also download an image of the plot by setting the image to the
+		format you want. e.g. `image='png'`
+		iplot([{'x': [1, 2, 3], 'y': [5, 2, 7]}], image='png')
+		```
+		File:      c:\users\feelus\miniconda3\lib\site-packages\plotly\offline\offline.py
+		Type:      function
+
+
+	'iplot_mpl',
+	'plot',
+	'plot_mpl'
+'plotly',
+
+'basedatatypes',
+'basewidget',
+'config',
+
+'animation',
+'api',
+'callbacks',
+'colors',
+'dashboard_objs',
+'files',
+'io',
+'serializers',
+'session',
+'tools',
+'utils',
+'validators',
+'exceptions',
+
+'version'
+
+Subpackages:
+- plotly: all functionality that requires access to Plotly's servers
+- graph_objs: objects for designing figures and visualizing data
+- matplotlylib: tools to convert matplotlib figures
+Modules:
+- tools: some helpful tools that do not require access to Plotly's servers
+- utils: functions that you probably won't need, but that subpackages use
+- version: holds the current API version
+- exceptions: defines our custom exception classes
+

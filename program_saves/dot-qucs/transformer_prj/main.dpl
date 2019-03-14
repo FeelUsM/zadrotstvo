@@ -1,0 +1,45 @@
+<Qucs Schematic 0.0.19>
+<Properties>
+  <View=0,0,1070,800,1,43,0>
+  <Grid=10,10,0>
+  <DataSet=main.dat>
+  <DataDisplay=main.sch>
+  <OpenDisplay=1>
+  <Script=main.m>
+  <RunScript=0>
+  <showFrame=0>
+  <FrameText0=Название>
+  <FrameText1=Чертил:>
+  <FrameText2=Дата:>
+  <FrameText3=Версия:>
+</Properties>
+<Symbol>
+</Symbol>
+<Components>
+</Components>
+<Wires>
+</Wires>
+<Diagrams>
+  <Rect 500 200 240 160 3 #c0c0c0 1 00 1 0 0.02 0.1 1 -5 5 5 1 -1 1 1 315 0 225 "" "" "">
+	<"I11.It" #0000ff 0 3 0 0 0>
+	<"I21.It" #ff0000 0 3 0 0 0>
+  </Rect>
+  <Rect 500 380 240 160 3 #c0c0c0 1 00 1 0 0.02 0.1 1 -6.83576e-07 1e-06 1.39352e-06 1 -1 1 1 315 0 225 "" "" "">
+	<"G1.Vt" #0000ff 0 3 0 0 0>
+	<"G2.Vt" #ff0000 0 3 0 0 0>
+  </Rect>
+  <Rect 500 580 240 160 3 #c0c0c0 1 00 1 0 0.2 1 1 -0.1 0.5 1.1 1 -0.1 0.5 1.1 315 0 225 "" "" "">
+	<"I12.It" #0000ff 0 3 0 0 0>
+	<"I22.It" #ff0000 0 3 0 0 0>
+  </Rect>
+  <Rect 130 580 240 160 3 #c0c0c0 1 00 1 0 0.02 0.1 1 -500 500 500 1 -1 1 1 315 0 225 "" "" "">
+	<"U12.Vt" #0000ff 0 3 0 0 0>
+	<"U22.Vt" #ff0000 0 3 0 0 0>
+  </Rect>
+  <Rect 130 200 240 160 3 #c0c0c0 1 00 1 0 0.02 0.1 1 -500 500 500 1 -1 1 1 315 0 225 "" "" "">
+	<"U11.Vt" #0000ff 0 3 0 0 0>
+	<"U21.Vt" #ff0000 0 3 0 0 0>
+  </Rect>
+</Diagrams>
+<Paintings>
+</Paintings>

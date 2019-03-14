@@ -1,0 +1,301 @@
+info	5540!!!		ист	(3)	40 Years of RFCs
+info	3251!!!		шутка	(9)	Electricity over IP
+hist	1157!!!	SNMP	ист	(36)	A Simple Network Management Protocol (SNMP)
+hist	3540!!!	->ECN	ист	(13)	Robust Explicit Congestion Notification (ECN)  Signaling with Nonces
+=== STD ===
+STD	RFC
+1
+2
+4
+11
+12
+14
+15
+18
+34
+39
+50
+
+3	1122!!!		архитек	(116)	Requirements for Internet Hosts - Communication Layers
+  3	1123!!!		архитек	(98)	Requirements for Internet Hosts - Application and Support
+prop	1812		архитек	(175)	Requirements for IP Version 4 Routers
+info	4413!!!		архитек	(44)	TCP/IP Field Behavior
+info	2544!!!		архитек	(31)	Benchmarking Methodology for Network Interconnect Devices
+info	3631!!!		общее	(20)	Security Mechanisms for the Internet
+info	2196!!!		общее	(75)	Site Security Handbook
+info	1180!!!		общее	(28)	A TCP/IP Tutorial
+----------- поверх ethernet, транспортные ---------------------------------------
+51	1661	PPP		(52)	The Point-to-Point Protocol (PPP)
+  51	1662	PPP		(25)	PPP in HDLC-like Framing
+info	2516!!!	PPPoE		(17)	A Method for Transmitting PPP Over Ethernet (PPPoE)
+info	4638!!!	->PPPoE		(9)	Accommodating a Maximum Transit Unit/Maximum Receive Unit (MTU/MRU)  Greater Than 1492 in the  Point-to-Point Protocol over Ethernet (PPPoE)
+{5	791!!!	IP		(45)	Internet Protocol
+					формат заголовка IP, фрагментация датаграмм
+					IP адреса, их типы (A,B,C)
+					задание маршрутов и определение по каким маршрутам движутся датаграммы
+}
+  5	792!!!	ICMP		(21)	Internet Control Message Protocol
+  5	950!!!			(18)	Internet Standard Subnetting Procedure
+  5	1112!!!	IGMP		(17)	Host extensions for IP multicasting
+  5	919!!!			(8)	Broadcasting Internet Datagrams
+  5	922!!!			(12)	Broadcasting Internet datagrams in the presence of subnets
+info	3514!!!	->IP		(6)	The Security Flag in the IPv4 Header
+info	3027!!!	->IP		(20)	Protocol Complications with the IP Network Address Translator
+prop	4302!!!	->IP		(34)	IP Authentication Header
+prop	3846!!!	->IP		(8)	Mobile IPv4 Extension for Carrying Network Access Identifiers
+prop	3173!!!	IPComp		(13)	IP Payload Compression Protocol (IPComp)
+prop	3033!!!	->IP		(25)	The Assignment of the Information Field and Protocol Identifier  in the Q.2941 Generic Identifier and Q.2957 User-to-user Signaling  for the Internet Protocol
+prop	2225	->IP,ARP	(28)	(1626!!!) Classical IP and ARP over ATM
+86	8200	IPv6		(42)	(2460!!!) Internet Protocol, Version 6 (IPv6) Specification
+draft	4291!!!	->IPv6		(25)	IP Version 6 Addressing Architecture
+prop	6275	->IPv6		(169)	(3775!!!) Mobility Support in IPv6
+----------- поверх ethernet, управляющие --------------------------------------------
+37	826!!!	ARP		(9)	An Ethernet Address Resolution Protocol: Or Converting Network Protocol Addresses to 48.bit Ethernet Address for Transmission on Ethernet Hardware
+38	903!!!	RARP		(4)	A Reverse Address Resolution Protocol
+prop	4884!!!	->ICMP		(19)	Extended ICMP to Support Multi-Part Messages
+89	4443	ICMPv6		(24)	(2463!!!) Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification
+40	907	HAP		(75)	Host Access Protocol specification
+44	891			(26)	DCN Local-Network Protocols
+45	1044			(43)	Internet Protocol on Network System's HYPERchannel: Protocol Specification
+55	2427!!!			(34)	Multiprotocol Interconnect over Frame Relay
+
+36	1390	IP-FDDI		(11)	Transmission of IP and ARP over FDDI Networks
+41	894!!!			(3)	A Standard for the Transmission of IP Datagrams over Ethernet Networks
+42	895			(3)	Standard for the transmission of IP datagrams over experimental Ethernet networks
+43	1042!!!			(15)	Standard for the transmission of IP datagrams over IEEE 802 networks
+49	1132			(4)	Standard for the transmission of 802.2 packets over IPX networks
+
+47	1055			(6)	Nonstandard for transmission of IP datagrams over serial lines: SLIP
+46	1201			(7)	Transmitting IP traffic over ARCNET networks
+52	1209			(11)	The Transmission of IP Datagrams over the SMDS Service
+48	1088			(3)	Standard for the transmission of IP datagrams over NetBIOS networks
+---------- поверх IP, транспортные ----------------------------------
+6	768!!!	UDP	трансп	(3)	User Datagram Protocol
+prop	3828!!!	UDP-Lite	(12)	The Lightweight User Datagram Protocol (UDP-Lite)
+7	793!!!	TCP	трансп	(85)	Transmission Control Protocol
+info	3562!!!	->TCP		(7)	Key Management Considerations for  the TCP MD5 Signature Option
+draft	5681	->TCP		(18)	(2581!!!) TCP Congestion Control
+prop	5681	->TCP		(18)	(2001!!!) TCP Congestion Control
+info	1613!!!	->XOT		(13)	cisco Systems X.25 over TCP (XOT)
+prop	5348!!!	TFRC		(58)	TCP Friendly Rate Control (TFRC): Protocol Specification
+info	3286!!!	->SCTP		(10)	An Introduction to the Stream Control Transmission Protocol (SCTP)
+---------- поверх UDP/TCP, управляющие --------------------------------
+draft	2131	DHCP		(45)	Dynamic Host Configuration Protocol
+56	2453!!!	RIP	U520	(39)	RIP Version 2
+57	1722	RIP	U520	(5)	RIP Version 2 Protocol Applicability Statement
+prop	2080	RIPng	U520	(19)	RIPng for IPv6
+54	2328	OSPF	маршр	(244)	OSPF Version 2
+83	7761	PIM-SM	маршр	(137)	Protocol Independent Multicast - Sparse Mode (PIM-SM): Protocol Specification (Revised)
+
+19	1002	NetBIOS	сеанс	(85)	Protocol standard for a NetBIOS service on a TCP/UDP transport: Detailed specifications
+  19	1001		сеанс	(68)	Protocol standard for a NetBIOS service on a TCP/UDP transport: Concepts and methods
+
+13	1034	DNS	прикл-c	(55)	Domain names - concepts and facilities
+  13	1035	->DNS	прикл-c	(55)	Domain names - implementation and specification
+66	3986	URI		(61)	Uniform Resource Identifier (URI): Generic Syntax
+prop	2397!!!	URL		(5)	The "data" URL scheme
+69	5731	EPP		(44)	Extensible Provisioning Protocol (EPP) Domain Name Mapping
+  69	5730	EPP		(67)	Extensible Provisioning Protocol (EPP)
+  69	5732	EPP		(29)	Extensible Provisioning Protocol (EPP) Host Mapping
+  69	5733	EPP		(41)	Extensible Provisioning Protocol (EPP) Contact Mapping
+  69	5734	EPP		(13)	Extensible Provisioning Protocol (EPP) Transport over TCP
+74	5011	->DNS		(14)	Automated Updates of DNS Security (DNSSEC) Trust Anchors
+75	6891	->DNS		(16)	Extension Mechanisms for DNS (EDNS(0))
+88	3596	->DNS		(8)	DNS Extensions to Support IP Version 6
+info	4367!!!	->DNS		(17)	What's in a Name: False Assumptions about DNS Names
+info	4027!!!	->DNS		(6)	Domain Name System Media Types
+prop	4033!!!	->DNS		(21)	DNS Security Introduction and Requirements
+experim	2540!!!	->DNS		(6)	Detached Domain Name System (DNS) Information
+
+16	1212	MIB	?	(19)	Concise MIB definitions
+  16	1155	MIB	?	(22)	Structure and identification of management information for TCP/IP-based internets
+17	1213	MIB-II	?	(70)	Management Information Base for Network Management of TCP/IP-based internets: MIB-II
+58	2578			(43)	Structure of Management Information Version 2 (SMIv2)
+  58	2579			(26)	Textual Conventions for SMIv2
+  58	2580			(29)	Conformance Statements for SMIv2
+59	2819			(98)	Remote Network Monitoring Management Information Base
+prop	4113!!!	->MIB		(19)	Management Information Base for the User Datagram Protocol (UDP)
+
+62	3411		T161	An Architecture for Describing Simple Network Management Protocol (SNMP) Management Frameworks
+  62	3412		T161	Message Processing and Dispatching for the Simple Network Management Protocol (SNMP)
+  62	3413		T161	Simple Network Management Protocol (SNMP) Applications
+  62	3414		T161	User-based Security Model (USM) for version 3 of the Simple Network Management Protocol (SNMPv3)
+  62	3415		T161	View-based Access Control Model (VACM) for the Simple Network Management Protocol (SNMP)
+  62	3416		T161	Version 2 of the Protocol Operations for the Simple Network Management Protocol (SNMP)
+  62	3417		T161	Transport Mappings for the Simple Network Management Protocol (SNMP)
+  62	3418		T161	Management Information Base (MIB) for the Simple Network Management Protocol (SNMP)
+78	5343			Simple Network Management Protocol (SNMP) Context EngineID Discovery
+  78	5590			Transport Subsystem for the Simple Network Management Protocol (SNMP)
+  78	5591			Transport Security Model for the Simple Network Management Protocol (SNMP)
+  78	6353			Transport Layer Security (TLS) Transport Model for the Simple Network Management Protocol (SNMP)
+
+81	7679	IPPM		A One-Way Delay Metric for IP Performance Metrics (IPPM)
+82	7680	IPPM		A One-Way Loss Metric for IP Performance Metrics (IPPM)
+91	8341			Network Configuration Access Control Model
+---------- соглашения о форматах данных ------------------------------
+80	20	ASCII		ASCII format for network interchange
+63	3629	UTF-8		UTF-8, a transformation format of ISO 10646
+68	5234!!!	ABNF		Augmented BNF for Syntax Specifications: ABNF
+90	8259	JSON		The JavaScript Object Notation (JSON) Data Interchange Format
+info	1321!!!	->MD5		(6)	The MD5 Message-Digest Algorithm
+info	3874!!!	SHA-224		(6)	A 224-bit One-way Hash Function: SHA-224
+---------- поверх TCP/UDP, транспортные ------------------------------------------------------------
+  8	854	Telnet		TCP-23	Telnet Protocol Specification
+  8	855			TCP-23	Telnet Option Specifications
+27	856	TOPT-BIN	TCP-23	Telnet Binary Transmission
+28	857	TOPT-ECHO	TCP-23	Telnet Echo Option
+29	858	TOPT-SUPP	TCP-23	Telnet Suppress Go Ahead Option
+30	859			TCP-23	Telnet Status Option
+31	860	TOPT-TIM	TCP-23	Telnet Timing Mark Option
+32	861	TOPT-EXTOP	TCP-23	Telnet Extended Options: List Option
+prop	4251	SSH		TCP-22	The Secure Shell (SSH) Protocol Architecture
+prop	4251!!!	SSH		(30)	The Secure Shell (SSH) Protocol Architecture
+
+9	959	FTP		TCP-20-21	File Transfer Protocol
+info	2577!!!	->FTP		(8)	FTP Security Considerations
+prop	5797!!!	->FTP		(10)	FTP Command and Extension Registry
+33	1350	TFTP		TCP69	The TFTP Protocol (Revision 2)
+prop	4511!!!	LDAP		(68)	Lightweight Directory Access Protocol (LDAP): The Protocol
+experim	4533!!!	->LDAP		(32)	The Lightweight Directory Access Protocol (LDAP)  Content Synchronization Operation
+prop	3062!!!	->LDAP		(6)	LDAP Password Modify Extended Operation
+prop	2849!!!	LDIF		(14)	The LDAP Data Interchange Format (LDIF) - Technical Specification
+
+draft	5321!!!	SMTP		TCP-25	(95)	Simple Mail Transfer Protocol
+10	1870	->SMTP		TCP-25	SMTP Service Extension for Message Size Declaration
+60	2920	->SMTP			SMTP Service Extension for Command Pipelining
+71	6152	->SMTP			SMTP Service Extension for 8-bit MIME Transport
+draft	2045	MIME		(31)	(1521!!!) Multipurpose Internet Mail Extensions  (MIME) Part One:  Format of Internet Message Bodies
+prop	4954	->SMTP		(20)	(2554!!!) SMTP Service Extension for Authentication
+pract	2505!!!	->SMTP		(24)	Anti-Spam Recommendations for SMTP MTAs
+53	1939!!!	POP3		TCP-110	Post Office Protocol - Version 3
+draft	5322!!!				(57)	Internet Message Format
+72	6409				Message Submission for Mail
+
+20	862!!!	echo		TCP-7	Echo Protocol
+21	863!!!	discard		TCP-9	Discard Protocol
+22	864!!!	chargen		TCP-19	Character Generator Protocol
+23	865	quote/QUOTD	TCP-17	Quote of the Day Protocol
+24	866	users/SYSTAT	TCP-11	(1)	Active users
+25	867	DAYTIME		TCP-13	Daytime Protocol
+draft	3912!!!	WHOIS		TCP-43	(4)	WHOIS Protocol Specification
+26	868			TCP-37	Time Protocol
+35	1006			TCP-102	ISO Transport Service on top of the TCP Version: 3
+
+64	3550			TCP-5004,5005	RTP: A Transport Protocol for Real-Time Applications
+65	3551			TCP-5004,5005	RTP Profile for Audio and Video Conferences with Minimal Control
+
+92	8010			Internet Printing Protocol/1.1: Encoding and Transport
+  92	8011			Internet Printing Protocol/1.1: Model and Semantics
+
+prop	7230 	HTTP		(89)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing
+prop	7231 	HTTP		(101)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content
+prop	7232 	HTTP		(28)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests
+prop	7233 	HTTP		(25)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Range Requests
+prop	7234 	HTTP		(43)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Caching
+prop	7235 	HTTP		(19)	(2068!!!) Hypertext Transfer Protocol (HTTP/1.1): Authentication
+experim	2659!!!	->HTML		(4)	Security Extensions For HTML
+prop	6797!!!	HSTS		(46)	HTTP Strict Transport Security (HSTS)
+
+
+61	2289			A One-Time Password System
+67	4506			XDR: External Data Representation Standard
+70	5652			Cryptographic Message Syntax (CMS)
+73	6522			The Multipart/Report Media Type for the Reporting of Mail System Administrative Messages
+76	6376			DomainKeys Identified Mail (DKIM) Signatures
+77	7011			Specification of the IP Flow Information Export (IPFIX) Protocol for the Exchange of Flow Information
+79	7296	IKEv2		(142)	(4306!!!) Internet Key Exchange Protocol Version 2 (IKEv2)
+prop	8247	->IKEv2		(19)	(4307!!!) Algorithm Implementation Requirements and Usage Guidance  for the Internet Key Exchange Protocol Version 2 (IKEv2)
+84	8077			Pseudowire Setup and Maintenance Using the Label Distribution Protocol (LDP)
+85	8098			Message Disposition Notification
+87	8201			Path MTU Discovery for IP version 6
+
+
+
+
+draft	4271!!!	BGP-4		(104)	A Border Gateway Protocol 4 (BGP-4)
+draft	4760!!!	->BGP-4		(12)	Multiprotocol Extensions for BGP-4
+draft	5492!!!	->BGP-4		(7)	Capabilities Advertisement with BGP-4
+info	4278!!!	->BGP-4,TCP	(7)	Standards Maturity Variance Regarding the TCP MD5 Signature Option  (RFC 2385) and the BGP-4 Specification
+info	4277!!!	->BGP-4		(19)	Experience with the BGP-4 Protocol
+prop	5292!!!	->BGP-4		(6)	Address-Prefix-Based Outbound Route Filter for BGP-4
+prop	5291!!!	->BGP-4		(12)	Outbound Route Filtering Capability for BGP-4
+draft	4456!!!	->IBGP		(12)	BGP Route Reflection:  An Alternative to Full Mesh Internal BGP (IBGP)
+prop	5195!!!	->BGP,VPN	(10)	BGP-Based Auto-Discovery for Layer-1 VPNs
+draft	5065!!!	->BGP		(14)	Autonomous System Confederations for BGP
+info	4451!!!	->BGP		(13)	BGP MULTI_EXIT_DISC (MED) Considerations
+info	4272!!!	->BGP		(22)	BGP Security Vulnerabilities Analysis
+info	4264!!!	->BGP		(10)	BGP Wedgies
+pract	4384!!!	->BGP		(12)	BGP Communities for Data Collection
+info	3882!!!	->BGP		(8)	Configuring BGP to Block Denial-of-Service Attacks
+prop	4360!!!	->BGP		(12)	BGP Extended Communities Attribute
+prop	4273!!!	->BGP-4		(32)	Definitions of Managed Objects for BGP-4
+prop	2918!!!	->BGP-4		(4)	Route Refresh Capability for BGP-4
+prop	4761!!!	VPLS		(28)	Virtual Private LAN Service (VPLS)  Using BGP for Auto-Discovery and Signaling
+
+info	3715!!!	->NAT		(18)	IPsec-Network Address Translation (NAT) Compatibility Requirements
+info	3022!!!	->NAT		(16)	Traditional IP Network Address Translator (Traditional NAT)
+info	2993!!!	->NAT		(29)	Architectural Implications of NAT
+
+draft	2865!!!	RADIUS		(76)	Remote Authentication Dial In User Service (RADIUS)
+info	2866!!!	->RADIUS	(28)	RADIUS Accounting
+prop	4675!!!	VLAN		(15)	RADIUS Attributes for Virtual LAN and Priority Support
+
+prop	3031!!!	MPLS		(61)	Multiprotocol Label Switching Architecture
+prop	3032!!!	->MPLS		(23)	MPLS Label Stack Encoding
+prop	3035!!!	->MPLS		(20)	MPLS using LDP and ATM VC Switching
+
+info	3401!!!	DDDS		(5)	Dynamic Delegation Discovery System (DDDS)  Part One: The Comprehensive DDDS
+prop	3402!!!	DDDS		(17)	Dynamic Delegation Discovery System (DDDS)  Part Two: The Algorithm
+prop	3403!!!	DDDS		(14)	Dynamic Delegation Discovery System (DDDS)  Part Three: The Domain Name System (DNS) Database
+prop	3404!!!	DDDS		(18)	Dynamic Delegation Discovery System (DDDS)  Part Four: The Uniform Resource Identifiers (URI)  Resolution Application
+pract	3405!!!	DDDS		(10)	Dynamic Delegation Discovery System (DDDS) Part Five: URI.ARPA  Assignment Procedures
+
+info	3985!!!	->PWE3		(42)	Pseudo Wire Emulation Edge-to-Edge (PWE3) Architecture
+info	3916!!!	->PWE3		(19)	Requirements for Pseudo-Wire Emulation Edge-to-Edge (PWE3)
+
+prop	1929!!!	->SOCKS		(2)	Username/Password Authentication for SOCKS V5
+prop	1928!!!	SOCKS		(9)	SOCKS Protocol Version 5
+
+
+draft	1191!!!			(19)	Path MTU Discovery
+info	5212!!!		глоб.	(28)	Requirements for GMPLS-Based  Multi-Region and Multi-Layer Networks (MRN/MLN)
+info	4197!!!			(24)	Requirements for Edge-to-Edge Emulation of Time Division Multiplexed (TDM) Circuits over  Packet Switching Networks
+info	3954!!!			(33)	Cisco Systems NetFlow Services Export Version 9
+info	3549!!!			(33)	Linux Netlink as an IP Services Protocol
+
+info	2556!!!	->OSI,UDP	(4)	OSI connectionless transport services on top  of UDP Applicability Statement for Historic Status
+info	2475!!!			(36)	An Architecture for Differentiated Services
+info	7322			(24)	(2223!!!) RFC Style Guide
+info	1951!!!	DEFLATE		(17)	DEFLATE Compressed Data Format Specification version 1.3
+prop	5905!!!	NTPv4		(110)	Network Time Protocol Version 4: Protocol and Algorithms Specification
+prop	5426!!!	->Syslog	(9)	Transmission of Syslog Messages over UDP
+prop	5424!!!	Syslog		(38)	The Syslog Protocol
+prop	5280!!!			(151)	Internet X.509 Public Key Infrastructure Certificate  and Certificate Revocation List (CRL) Profile
+
+prop	4505!!!	SASL		(9)	Anonymous Simple Authentication and Security Layer (SASL) Mechanism
+prop	4422!!!	SASL		(33)	Simple Authentication and Security Layer (SASL)
+prop	2444!!!	->SASL		(7)	The One-Time-Password SASL Mechanism
+
+prop	4340!!!	DCCP		(128)	Datagram Congestion Control Protocol (DCCP)
+prop	4308!!!			(7)	Cryptographic Suites for IPsec
+prop	8221			(15)	(4305!!!) Cryptographic Algorithm Implementation Requirements and Usage Guidance  for Encapsulating Security Payload (ESP) and Authentication Header (AH)
+prop	4304!!!	->ISAKMP	(5)	Extended Sequence Number (ESN) Addendum to  IPsec Domain of Interpretation (DOI)  for Internet Security Association  and Key Management Protocol (ISAKMP)
+prop	4303!!!	ESP		(44)	IP Encapsulating Security Payload (ESP)
+prop	6120	XMPP		(211)	(3920!!!) Extensible Messaging and Presence Protocol (XMPP): Core
+prop	3748!!!	EAP		(67)	Extensible Authentication Protocol (EAP)
+prop	3168!!!	->ECN		(63)	The Addition of Explicit Congestion Notification (ECN) to IP
+prop	3034!!!			(24)	Use of Label Switching on Frame Relay Networks  Specification
+prop	2684!!!			(23)	Multiprotocol Encapsulation over ATM Adaptation Layer 5
+prop	8446	TLS		(160)	(2246!!!) The Transport Layer Security (TLS) Protocol Version 1.3
+prop	3501			(108)	(2060!!!) INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev1
+prop	1413!!!			(8)	Identification Protocol
+pract	4084!!!			(11)	Terminology for Describing Internet Connectivity
+pract	3013!!!			(13)	Recommended Internet Service Provider Security Services and Procedures
+pract	2827!!!			(10)	Network Ingress Filtering:  Defeating Denial of Service Attacks which employ  IP Source Address Spoofing
+pract	2644!!!			(4)	Changing the Default for Directed Broadcasts in Routers
+pract	2119!!!			(3)	Key words for use in RFCs to Indicate Requirement Levels
+pract	1918!!!			(9)	Address Allocation for Private Internets
+info	1071!!!			(24)	Computing the Internet Checksum
+undef	1033!!!			(22)	DOMAIN ADMINISTRATORS OPERATIONS GUIDE
+undef	917!!!			(22)	INTERNET SUBNETS
+experim	1459!!!			(65)	Internet Relay Chat Protocol

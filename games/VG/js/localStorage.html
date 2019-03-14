@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+	<script>
+	function update() {
+		var $select = $('#select');
+		$select.empty();
+		for(var name in localStorage)
+			$select.append($('<option>').val(name).text(name));
+		show()
+	}
+	function add() {
+		var name = prompt('введите имя ключа');
+		if(name===null) return;
+		if(name in localStorage) { alert('ключ '+name+' уже существует'); return;}
+		localStorage.setItem(name,'');
+		$('#select').append($('<option>').val(name).text(name));
+		$('#select').val(name);
+		show()
+	}
+	function remove() {
+		var name = $('#select').val();
+		if(name===null) { confirm('а удалять-то?'); return; }
+		localStorage.removeItem(name);
+		update(); // - > show()
+	}
+	
+	function show(){
+		var name = $('#select').val();
+		if(name===null){ alert('а что показывать-то?'); return; }
+		var data = localStorage.getItem(name);
+		if(data===null){ alert('ключ '+name+' отсутствует'); return; }
+		if($('#JSON').prop('checked')) {
+			try{
+				var data_j = JSON.parse(data);
+				data = JSON.stringify(data_j,'',4)
+			}
+			catch(err){
+				$('#JSON').prop('checked',false)
+			}
+		}
+		$('#data').val(data);
+	}
+	function save(){
+		var name = $('#select').val();
+		if(name===null){ alert('а куда сохранять-то?'); return; }
+		var data = $('#data').val()
+		if($('#JSON').prop('checked')) {
+			try{
+				var data_j = JSON.parse(data);
+				data = JSON.stringify(data_j)
+			}
+			catch(err){
+				alert(err.message)
+				return
+			}
+		}
+		localStorage.setItem(name,data);
+	}
+	
+	</script>
+	<select id="select" onchange="show()"></select>
+	<button onclick="save()">записать</button>
+	<button onclick="show()">показать из БД</button>
+	<button onclick="add()">добавить</button>
+	<button onclick="remove()">удалить</button>
+	<input type="checkbox" id="JSON" onchange="show()">JSON</input>
+	<br>
+	<textarea id="data" rows="30" cols="100"></textarea>
+	<script>
+	update()
+	</script>
+</body>
+</html>

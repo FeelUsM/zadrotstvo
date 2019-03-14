@@ -1,0 +1,28 @@
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{1}
+
+\bibitem{sqparam}
+N.~Il'in, E.~Shpagina, F.~Uskov, O.~Lychkovskiy
+\newblock Squaring parametrization of constrained and
+  unconstrained sets of quantum states.
+\newblock {\em arXiv:1704.03861}.
+
+\bibitem{hroero}
+Lychkovskiy, Oleg and Gamayun, Oleksandr and Cheianov, Vadim
+\newblock Time Scale for Adiabaticity Breakdown in Driven Many-Body Systems and Orthogonality Catastrophe
+\newblock {\em Phys. Rev. Lett. 119},200401 (2017).
+
+\bibitem{VarPr}
+David A. Mazziotti
+\newblock Advances in Chemical Physics, Reduced-Density-Matrix Mechanics: With Application to Many-Electron Atoms and Molecules
+\newblock {\em Volume 134. Wiley-Interscience, 1 edition.}, 2007.
+
+\bibitem{TarrahValenti}
+R.~Tarrah and R.~Valenti
+\newblock Exact lower bounds to the ground-state energy of spin systems: The two-dimensional $S=\frac12$ antiferromagnetic Heisenberg model
+\newblock {\em Physical review B}, 1990.
+
+
+
+
+\end{thebibliography}

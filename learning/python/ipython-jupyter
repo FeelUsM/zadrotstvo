@@ -1,0 +1,193 @@
+ipython
+интроспекция
+история между сессиями
+кэширование результатов и ссылки между ними
+автодополнение
+магические команды
+различные environment
+логгирование и перезапуск
+доп. синтаксис
+доступ к системной командной строке
+embedding в другие программы
+встроенный отладчик и профилеровщик
+
+многострочное редактирование
+подсветка синтаксиса
+интеграция с текстовым редактором
+
+отображение html, latex, картинок, звука и видео
+интерактивные виджеты
+
+
+
+
+
+API управления юпитером...
+
+import IPyththon
+import ipwidgets
+from IPython.core.display import display, HTML
+display(HTML('<h1>Hello, world!</h1>'))
+
+
+--- system commands ---
+%alias:		    Define an alias for a system command.
+%unalias:	    Remove an alias
+%cat:		    Alias for `!cat`
+%cp:		    Alias for `!cp`
+%mkdir:		    Alias for `!mkdir`
+%mv:		    Alias for `!mv`
+%rm:		    Alias for `!rm`
+%rmdir:		    Alias for `!rmdir`
+%man:		    Alias for `!man`
+%more:		    Alias for `!more`
+%less:		    Alias for `!less`
+%clear:		    Alias for `!clear`
+%ls:		    Alias for `!ls -F -G`
+%ll:		    Alias for `!ls -F -l -G`
+%ldir:		    Alias for `!ls -F -G -l %l | grep /$`
+%lf:		    Alias for `!ls -F -l -G %l | grep ^-`
+%lk:		    Alias for `!ls -F -l -G %l | grep ^l`
+%lx:		    Alias for `!ls -F -l -G %l | grep ^-..x`
+
+--- перемещение по директориям, переменные среды ---
+%cd:		    Change the current working directory.
+%dhist:		    Print your history of visited directories.
+%dirs:		    Return the current directory stack.
+%pushd:		    Place the current dir on stack and change directory.
+%popd:		    Change to directory popped off the top of the stack.
+%pwd:		    Return the current working directory path.
+%env:		    Get, set, or list environment variables.
+%set_env:	    Set environment variables.  Assumptions are that either "val" is a
+
+--- common magic ---
+%alias_magic:	    ::
+%automagic:	    Make magic functions callable without having to type the initial %.
+%magic:		    Print information about the magic function system.
+%lsmagic:	    List currently available magic functions.
+
+--- закладки ---
+%bookmark:	    Manage IPython's bookmark system.
+
+--- интаксис ---
+%autocall:	    Make functions callable without having to type parentheses.
+
+--- отображение ---
+%autoindent:	    Toggle autoindent on/off (if available).
+%colors:	    Switch color scheme for prompts, info system and exception handlers.
+
+--- редактирование ---
+%cpaste:	    Paste & execute a pre-formatted code block from clipboard.
+%paste:		    Paste & execute a pre-formatted code block from clipboard.
+%ed:		    Alias for `%edit`.
+%edit:		    Bring up an editor and execute the resulting code.
+
+--- история и макросы ---
+%hist:		    Alias for `%history`.
+%history:	    ::
+%macro:		    Define a macro for future re-execution. It accepts ranges of history,
+%save:		    Save a set of lines or a macro to a given filename.
+
+--- логгирование ---
+%logoff:	    Temporarily stop logging.
+%logon:		    Restart logging.
+%logstart:	    Start logging anywhere in a session.
+%logstate:	    Print the status of the logging system.
+%logstop:	    Fully stop logging and close log file.
+
+--- просмотр переменных и управление ими ---
+%who:		    Print all interactive variables, with some minimal formatting.
+%who_ls:	    Return a sorted list of all interactive variables.
+%whos:		    Like %who, but gives some extra information about each variable.
+%psearch:	    Search for object in namespaces by wildcard.
+%reset:		    Resets the namespace by removing all names defined by the user, if
+%reset_selective:   Resets the namespace by removing names defined by the user.
+%store:		    Lightweight persistence for python variables.
+
+
+%config:	    configure IPython
+%doctestmode:	    Toggle doctest mode on and off.
+%gui:		    Enable or disable IPython GUI event loop integration.
+%install_ext:	    Download and install an extension from a URL, e.g.::
+%reload_ext:	    Reload an IPython extension by its module name.
+%unload_ext:	    Unload an IPython extension by its module name.
+
+%matplotlib:	    ::
+%notebook:	    ::
+%pylab:		    ::
+
+
+%loadpy:	    Alias of `%load`
+%load:		    Load code into the current frontend.
+%load_ex:	    Load an IPython extension by its module name.
+
+
+%page:		    Pretty print the object and display it through a pager.
+%pdef:		    Print the call signature for any callable object.
+%pdoc:		    Print the docstring for an object.
+%pfile:		    Print (or run through pager) the file where an object is defined.
+%pinfo:		    Provide detailed information about an object.
+%pinfo2:	    Provide extra detailed information about an object.
+%pprint:	    Toggle pretty printing on/off.
+%precision:	    Set floating point precision for pretty printing.
+%profile:	    Print your currently active IPython profile.
+%psource:	    Print (or run through pager) the source code for an object.
+%pycat:		    Show a syntax-highlighted file through a pager.
+%quickref:	    Show a quick reference sheet
+%rep:		    Alias for `%recall`.
+%recall:	    Repeat a command, or get command to input line for editing.
+%rehashx:	    Update the alias table with all executable files in $PATH.
+%rerun:		    Re-run previous input
+%run:		    Run the named file inside IPython as a program.
+%tb:		    Print the last traceback with the currently active exception mode.
+%xdel:		    Delete a variable, trying to clear it from anywhere that
+%xmode:		    Switch modes for the exception handlers.
+
+%pastebin:	    Upload code to Github's Gist paste bin, returning the URL.
+
+--- отобразить в формате ---
+%%HTML:		    Alias for `%%html`.
+%%html:		    Render the cell as a block of HTML
+%%SVG:		    Alias for `%%svg`.
+%%svg:		    Render the cell as an SVG literal
+%%latex:	    Render the cell as a block of latex
+
+--- отладка, профилировние и производительность ---
+ %time:		    Time execution of a Python statement or expression.
+%%time:		    Time execution of a Python statement or expression.
+ %timeit:	    Time execution of a Python statement or expression
+%%timeit:	    Time execution of a Python statement or expression
+ %prun:		    Run a statement through the python code profiler.
+%%prun:		    Run a statement through the python code profiler.
+ %pdb:		    Control the automatic calling of the pdb interactive debugger.
+ %debug:	    ::
+%%debug:	    ::
+
+--- ??? ---
+%%capture:	    ::
+%%file:		    Alias for `%%writefile`.
+%%writefile:	    ::
+ %killbgscripts:    Kill all BG processes started by %%script and its family.
+%%script:	    ::
+
+--- запуск скриптов ---
+%%!:		    Shell execute - run shell command and capture output (!! is short-hand).
+ %sx:		    Shell execute - run shell command and capture output (!! is short-hand).
+%%sx:		    Shell execute - run shell command and capture output (!! is short-hand).
+ %system:	    Shell execute - run shell command and capture output (!! is short-hand).
+%%system:	    Shell execute - run shell command and capture output (!! is short-hand).
+%%sh:		    %%sh script magic
+%%bash:		    %%bash script magic
+%%javascript:	    Run the cell block of Javascript code
+%%perl:		    %%perl script magic
+%%pypy:		    %%pypy script magic
+%%python:	    %%python script magic
+%%python2:	    %%python2 script magic
+%%python3:	    %%python3 script magic
+%%ruby:		    %%ruby script magic
+
+
+--- deprecated ---
+%install_default_config:    %install_default_config has been deprecate and will be removed in IPython 5.0.
+%install_profiles:    %install_profiles has been deprecated.
+%sc:		    Shell capture - run shell command and capture output (DEPRECATED use !).

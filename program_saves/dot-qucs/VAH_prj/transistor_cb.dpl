@@ -1,0 +1,31 @@
+<Qucs Schematic 0.0.19>
+<Properties>
+  <View=0,0,1057,800,1,0,0>
+  <Grid=10,10,0>
+  <DataSet=transistor_cb.dat>
+  <DataDisplay=transistor_cb.sch>
+  <OpenDisplay=1>
+  <Script=transistor_cb.m>
+  <RunScript=0>
+  <showFrame=0>
+  <FrameText0=Название>
+  <FrameText1=Чертил:>
+  <FrameText2=Дата:>
+  <FrameText3=Версия:>
+</Properties>
+<Symbol>
+</Symbol>
+<Components>
+</Components>
+<Wires>
+</Wires>
+<Diagrams>
+  <Rect3D 10 494 444 424 3 #c0c0c0 1 00 1 -1e-06 2e-07 1e-06 1 -1.2e-07 2e-08 1.2e-07 1 -1.00001e+08 2e+08 1.10001e+09 295 0 33 "" "" "">
+	<"Ucb.V" #0000ff 0 3 0 0 1>
+  </Rect3D>
+  <Rect3D 530 504 437 424 3 #c0c0c0 1 00 1 -1e-06 2e-07 1e-06 1 -1.2e-07 2e-08 1.2e-07 1 -1e+09 2e+09 1.1e+10 295 0 33 "" "" "">
+	<"Ueb.V" #0000ff 0 3 0 0 1>
+  </Rect3D>
+</Diagrams>
+<Paintings>
+</Paintings>

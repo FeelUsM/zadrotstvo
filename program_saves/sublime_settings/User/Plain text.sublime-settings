@@ -1,0 +1,5 @@
+// These settings override both User and Default settings for the Plain text syntax
+{
+	"tab_size": 8,
+	"tab_completion": false
+}

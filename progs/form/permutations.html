@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>permutations</title>
+</head>
+<body>
+<script>
+function firstPerm(m){
+	var llist=[null];
+	var n=1;
+	for(var i=1; i<=m; i++, n++)
+		llist.push(n);
+	var hlist=[null];
+	for(var i=1; i<=m; i++, n++)
+		hlist.push(n);
+	return [llist,hlist];
+}
+function nextPerm(list,npart){
+	var llist=list[0];
+	var hlist=list[1];
+	var ll = llist.length-1;
+	var used=[];
+	for(var i=1; i<=npart; i++)	used[i]=false;
+	for(var i=1; i<=ll; i++)
+		used[llist[i]]=true;
+	for(var i=1; i<ll; i++)//последнюю цифру не кладем
+		used[hlist[i]]=true;
+	var dopUsed = llist[ll]==npart-1;
+	
+	//генерирует-инициализирует элемент старшего списка, Возврщает, удачно ли это получилсь
+	function newHlistElement(n){
+		if(dopUsed && n!=ll){
+			var val = llist[n]+1;
+			while(val<npart && used[val])val++;
+			if(val>=npart)return false;
+			for(;val<npart;val++){
+				if(used[val]) continue;
+				hlist[n]=val;
+				used[val]=true;
+				if(newHlistElement(n+1)) return true;
+				used[val]=false;
+			}
+			return false;
+		}
+		else{
+			var val = llist[n]+1;
+			while(val<=npart && used[val])val++;
+			if(val>npart)return false;
+			if(n==ll){
+				hlist[n]=val;
+				return true;
+			}
+			for(;val<=npart;val++){
+				if(used[val]) continue;
+				hlist[n]=val;
+				used[val]=true;
+				if(newHlistElement(n+1)) return true;
+				used[val]=false;
+			}
+			return false;
+		}
+	}
+	function nextHlistElement(n){
+		if(n==0)return nextLlistElement(ll);
+		if(dopUsed){
+			if(n==ll) return nextHlistElement(n-1);
+			var val=hlist[n]
+			used[val]=false;
+			val++;
+			while(val<npart && used[val])val++;
+			if(val>=npart)return nextHlistElement(n-1);
+			for(;val<npart;val++){
+				if(used[val]) continue;
+				hlist[n]=val;
+				used[val]=true;
+				if(newHlistElement(n+1)) return true;
+				used[val]=false;
+			}
+			return nextHlistElement(n-1);
+		}
+		else{
+			var val=hlist[n]
+			used[val]=false;
+			val++;
+			while(val<=npart && used[val])val++;
+			if(val>npart)return nextHlistElement(n-1);
+			for(;val<=npart;val++){
+				if(used[val]) continue;
+				hlist[n]=val;
+				if(n==ll) return true;
+				used[val]=true;
+				if(newHlistElement(n+1)) return true;
+				used[val]=false;
+			}
+			return nextHlistElement(n-1);
+		}
+	}
+	function newLlistElement(n){
+		if(n==1){
+			llist[n]=1;
+			used[1]=true;
+			if(ll==1)
+				return newHlistElement(1);//должно быть true
+			else
+				return newLlistElement(n+1);//должно быть true
+		}
+		else{
+			if(n==ll){
+				llist[n]=llist[n-1]+1;
+				used[llist[n]]=true;
+				dopUsed = llist[ll]==npart-1;
+				return newHlistElement(1);//должно быть true
+			}
+			else{
+				llist[n]=llist[n-1]+1;
+				used[llist[n]]=true;
+				return newLlistElement(n+1);//должно быть true
+			}
+		}
+	}
+	function nextLlistElement(n){
+		if(n==0)return newLlistElement(1);
+		var val=llist[n];
+		used[val]=false;
+		val++;
+		for(;val<2*(n-ll)+npart;val++){
+			llist[n]=val;
+			if(n==ll){
+				dopUsed = val==npart-1;
+				used[val]=true;
+				if(newHlistElement(1)) return true;
+				used[val]=false;
+			}
+			else{
+				used[val]=true;
+				if(newLlistElement(n+1)) return true;
+				used[val]=false;
+			}
+		}
+		return nextLlistElement(n-1);
+	}
+	if(!nextHlistElement(ll)) throw "error";
+	return [llist,hlist];
+}
+function listPerms(npair,npart){
+	function eqArr(lhs,rhs){
+		if(lhs.length!=rhs.length) throw "diff length";
+		for(var i=0; i<lhs.length; i++)
+			if(lhs[i]!=rhs[i]) return false;
+		return true;
+	}
+	function eqPerms(lhs,rhs){
+		return eqArr(lhs[0],rhs[0]) && eqArr(lhs[1],rhs[1]);
+	}
+	var stop = firstPerm(npair);
+	var res=[stop[0].concat(stop[1])];
+	for(var tmp=nextPerm(firstPerm(npair),npart); !eqPerms(tmp,stop); tmp=nextPerm(tmp,npart))
+		res.push(tmp[0].concat(tmp[1]));
+	return res;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+echo * | while read '-d ' name; do if [ ${name%.*} = $name ] ; then mv $name ${name}.svg; fi; ; done;
+sed 's/([0-9a-f]{35,45})/\1.svg/g' -i Участник_FeelUs_КТП\ —\ Википедия.html

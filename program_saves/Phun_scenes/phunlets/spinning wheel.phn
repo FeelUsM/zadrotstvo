@@ -1,0 +1,44 @@
+// Phunlet created by Phun beta 4.0
+
+FileInfo.title = "funny circle";
+FileInfo.author = "oscar";
+FileInfo.description = "funny circle, use the \"w s a d\" keys to move";
+FileInfo.version = 2;
+Scene.addCircle {
+    geomID = 126;
+    entityID = 124;
+    color = [1.0, 1.0, 1.0, 1.0];
+    pos = [0.381605327129364, -2.286257266998291];
+    forceController = "keys w d s a";
+    zDepth = 1.0;
+    radius = 0.6467011570930481;
+    angle = -2.85946798324585
+};
+Scene.addPen {
+    geom = 126;
+    relPoint = [0.03075199015438557, 0.1509378254413605];
+    entityID = 127;
+    color = [0.1527699083089828, 0.1261274814605713, 1.0, 1.0];
+    zDepth = 4.0
+};
+Scene.addPen {
+    geom = 126;
+    relPoint = [-0.04328032955527306, -0.09071912616491318];
+    entityID = 126;
+    color = [1.0, 0.02691233158111572, 0.02691302821040154, 1.0];
+    zDepth = 3.0
+};
+Scene.addPen {
+    geom = 126;
+    relPoint = [0.1297064125537872, 0.4867916405200958];
+    entityID = 128;
+    color = [0.0, 0.6117886304855347, 0.1648029237985611, 1.0];
+    zDepth = 5.0
+};
+Scene.addPen {
+    geom = 126;
+    relPoint = [-0.1463074237108231, -0.4874224662780762];
+    entityID = 125;
+    color = [0.8719512224197388, 0.4919903874397278, 0.0, 1.0];
+    zDepth = 2.0
+}

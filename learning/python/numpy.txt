@@ -1,0 +1,193 @@
+=== Memory layout ===
+ndarray.flags		Information about the memory layout of the array.
+ndarray.shape		Tuple of array dimensions.
+ndarray.strides		Tuple of bytes to step in each dimension when traversing an array.
+ndarray.ndim		Number of array dimensions.
+ndarray.data		Python buffer object pointing to the start of the array’s data.
+ndarray.size		Number of elements in the array.
+ndarray.itemsize	Length of one array element in bytes.
+ndarray.nbytes		Total bytes consumed by the elements of the array.
+ndarray.base		Base object if memory is from some other object.
+
+ndarray.dtype		Data-type of the array’s elements.
+
+=== Other attributes ===
+ndarray.T		Same as self.transpose(), except that self is returned if self.ndim < 2.
+ndarray.real		The real part of the array.
+ndarray.imag		The imaginary part of the array.
+ndarray.flat		A 1-D iterator over the array.
+ndarray.ctypes		An object to simplify the interaction of the array with the ctypes module.
+
+=== Array conversion ===
+ndarray.item(*args)		Copy an element of an array to a standard Python scalar and return it.
+ndarray.tolist()		Return the array as a (possibly nested) list.
+ndarray.itemset(*args)		Insert scalar into an array (scalar is cast to array’s dtype, if possible)
+ndarray.tostring([order])	Construct Python bytes containing the raw data bytes in the array.
+ndarray.tobytes([order])	Construct Python bytes containing the raw data bytes in the array.
+ndarray.tofile(fid[, sep, format])	Write array to a file as text or binary (default).
+ndarray.dump(file)		Dump a pickle of the array to the specified file.
+ndarray.dumps()			Returns the pickle of the array as a string.
+ndarray.astype(dtype[, order, casting, …])	Copy of the array, cast to a specified type.
+ndarray.byteswap([inplace])	Swap the bytes of the array elements
+ndarray.copy([order])		Return a copy of the array.
+ndarray.view([dtype, type])	New view of array with the same data.
+ndarray.getfield(dtype[, offset])	Returns a field of the given array as a certain type.
+ndarray.setflags([write, align, uic])	Set array flags WRITEABLE, ALIGNED, (WRITEBACKIFCOPY and UPDATEIFCOPY), respectively.
+ndarray.fill(value)		Fill the array with a scalar value.
+
+=== Shape manipulation ===
+ndarray.reshape(shape[, order])	Returns an array containing the same data with a new shape.
+ndarray.resize(new_shape[, refcheck])	Change shape and size of array in-place.
+ndarray.transpose(*axes)	Returns a view of the array with axes transposed.
+ndarray.swapaxes(axis1, axis2)	Return a view of the array with axis1 and axis2 interchanged.
+ndarray.flatten([order])	Return a copy of the array collapsed into one dimension.
+ndarray.ravel([order])		Return a flattened array.
+ndarray.squeeze([axis])		Remove single-dimensional entries from the shape of a.
+
+=== Item selection and manipulation ===
+ndarray.take(indices[, axis, out, mode])	Return an array formed from the elements of a at the given indices.
+ndarray.put(indices, values[, mode])		Set a.flat[n] = values[n] for all n in indices.
+ndarray.repeat(repeats[, axis])			Repeat elements of an array.
+ndarray.choose(choices[, out, mode])		Use an index array to construct a new array from a set of choices.
+ndarray.sort([axis, kind, order])		Sort an array, in-place.
+ndarray.argsort([axis, kind, order])		Returns the indices that would sort this array.
+ndarray.partition(kth[, axis, kind, order])	Rearranges the elements in the array in such a way that the value of the element in kth position is in the position it would be in a sorted array.
+ndarray.argpartition(kth[, axis, kind, order])	Returns the indices that would partition this array.
+ndarray.searchsorted(v[, side, sorter])		Find indices where elements of v should be inserted in a to maintain order.
+ndarray.nonzero()				Return the indices of the elements that are non-zero.
+ndarray.compress(condition[, axis, out])	Return selected slices of this array along given axis.
+ndarray.diagonal([offset, axis1, axis2])	Return specified diagonals.
+
+=== Calculation ===
+ndarray.argmax([axis, out])		Return indices of the maximum values along the given axis.
+ndarray.min([axis, out, keepdims])	Return the minimum along a given axis.
+ndarray.argmin([axis, out])		Return indices of the minimum values along the given axis of a.
+ndarray.ptp([axis, out, keepdims])	Peak to peak (maximum - minimum) value along a given axis.
+ndarray.clip([min, max, out])		Return an array whose values are limited to [min, max].
+ndarray.conj()				Complex-conjugate all elements.
+ndarray.round([decimals, out])		Return a with each element rounded to the given number of decimals.
+ndarray.trace([offset, axis1, axis2, dtype, out])	Return the sum along diagonals of the array.
+ndarray.sum([axis, dtype, out, keepdims])	Return the sum of the array elements over the given axis.
+ndarray.cumsum([axis, dtype, out])		Return the cumulative sum of the elements along the given axis.
+ndarray.mean([axis, dtype, out, keepdims])	Returns the average of the array elements along given axis.
+ndarray.var([axis, dtype, out, ddof, keepdims])	Returns the variance of the array elements, along given axis.
+ndarray.std([axis, dtype, out, ddof, keepdims])	Returns the standard deviation of the array elements along given axis.
+ndarray.prod([axis, dtype, out, keepdims])	Return the product of the array elements over the given axis
+ndarray.cumprod([axis, dtype, out])	Return the cumulative product of the elements along the given axis.
+ndarray.all([axis, out, keepdims])	Returns True if all elements evaluate to True.
+ndarray.any([axis, out, keepdims])	Returns True if any of the elements of a evaluate to True.
+
+------------------------------------------------------------------------------------
+=== ufuncs ===
+==== Math operations ====
+add(x1, x2, /[, out, where, casting, order, …])	Add arguments element-wise.
+subtract(x1, x2, /[, out, where, casting, …])	Subtract arguments, element-wise.
+multiply(x1, x2, /[, out, where, casting, …])	Multiply arguments element-wise.
+divide(x1, x2, /[, out, where, casting, …])	Returns a true division of the inputs, element-wise.
+logaddexp(x1, x2, /[, out, where, casting, …])	Logarithm of the sum of exponentiations of the inputs.
+logaddexp2(x1, x2, /[, out, where, casting, …])	Logarithm of the sum of exponentiations of the inputs in base-2.
+true_divide(x1, x2, /[, out, where, …])	Returns a true division of the inputs, element-wise.
+floor_divide(x1, x2, /[, out, where, …])	Return the largest integer smaller or equal to the division of the inputs.
+negative(x, /[, out, where, casting, order, …])	Numerical negative, element-wise.
+positive(x, /[, out, where, casting, order, …])	Numerical positive, element-wise.
+power(x1, x2, /[, out, where, casting, …])	First array elements raised to powers from second array, element-wise.
+remainder(x1, x2, /[, out, where, casting, …])	Return element-wise remainder of division.
+mod(x1, x2, /[, out, where, casting, order, …])	Return element-wise remainder of division.
+fmod(x1, x2, /[, out, where, casting, …])	Return the element-wise remainder of division.
+divmod(x1, x2[, out1, out2], / [[, out, …])	Return element-wise quotient and remainder simultaneously.
+absolute(x, /[, out, where, casting, order, …])	Calculate the absolute value element-wise.
+fabs(x, /[, out, where, casting, order, …])	Compute the absolute values element-wise.
+rint(x, /[, out, where, casting, order, …])	Round elements of the array to the nearest integer.
+sign(x, /[, out, where, casting, order, …])	Returns an element-wise indication of the sign of a number.
+heaviside(x1, x2, /[, out, where, casting, …])	Compute the Heaviside step function.
+conj(x, /[, out, where, casting, order, …])	Return the complex conjugate, element-wise.
+exp(x, /[, out, where, casting, order, …])	Calculate the exponential of all elements in the input array.
+exp2(x, /[, out, where, casting, order, …])	Calculate 2**p for all p in the input array.
+log(x, /[, out, where, casting, order, …])	Natural logarithm, element-wise.
+log2(x, /[, out, where, casting, order, …])	Base-2 logarithm of x.
+log10(x, /[, out, where, casting, order, …])	Return the base 10 logarithm of the input array, element-wise.
+expm1(x, /[, out, where, casting, order, …])	Calculate exp(x) - 1 for all elements in the array.
+log1p(x, /[, out, where, casting, order, …])	Return the natural logarithm of one plus the input array, element-wise.
+sqrt(x, /[, out, where, casting, order, …])	Return the non-negative square-root of an array, element-wise.
+square(x, /[, out, where, casting, order, …])	Return the element-wise square of the input.
+cbrt(x, /[, out, where, casting, order, …])	Return the cube-root of an array, element-wise.
+reciprocal(x, /[, out, where, casting, …])	Return the reciprocal of the argument, element-wise.
+gcd(x1, x2, /[, out, where, casting, order, …])	Returns the greatest common divisor of |x1| and |x2|
+lcm(x1, x2, /[, out, where, casting, order, …])	Returns the lowest common multiple of |x1| and |x2|
+
+==== Trigonometric functions ====
+sin(x, /[, out, where, casting, order, …])	Trigonometric sine, element-wise.
+cos(x, /[, out, where, casting, order, …])	Cosine element-wise.
+tan(x, /[, out, where, casting, order, …])	Compute tangent element-wise.
+arcsin(x, /[, out, where, casting, order, …])	Inverse sine, element-wise.
+arccos(x, /[, out, where, casting, order, …])	Trigonometric inverse cosine, element-wise.
+arctan(x, /[, out, where, casting, order, …])	Trigonometric inverse tangent, element-wise.
+arctan2(x1, x2, /[, out, where, casting, …])	Element-wise arc tangent of x1/x2 choosing the quadrant correctly.
+hypot(x1, x2, /[, out, where, casting, …])	Given the “legs” of a right triangle, return its hypotenuse.
+sinh(x, /[, out, where, casting, order, …])	Hyperbolic sine, element-wise.
+cosh(x, /[, out, where, casting, order, …])	Hyperbolic cosine, element-wise.
+tanh(x, /[, out, where, casting, order, …])	Compute hyperbolic tangent element-wise.
+arcsinh(x, /[, out, where, casting, order, …])	Inverse hyperbolic sine element-wise.
+arccosh(x, /[, out, where, casting, order, …])	Inverse hyperbolic cosine, element-wise.
+arctanh(x, /[, out, where, casting, order, …])	Inverse hyperbolic tangent element-wise.
+deg2rad(x, /[, out, where, casting, order, …])	Convert angles from degrees to radians.
+rad2deg(x, /[, out, where, casting, order, …])	Convert angles from radians to degrees.
+
+==== Bit-twiddling functions ====
+These function all require integer arguments and they manipulate the bit-pattern of those arguments.
+bitwise_and(x1, x2, /[, out, where, …])	Compute the bit-wise AND of two arrays element-wise.
+bitwise_or(x1, x2, /[, out, where, casting, …])	Compute the bit-wise OR of two arrays element-wise.
+bitwise_xor(x1, x2, /[, out, where, …])	Compute the bit-wise XOR of two arrays element-wise.
+invert(x, /[, out, where, casting, order, …])	Compute bit-wise inversion, or bit-wise NOT, element-wise.
+left_shift(x1, x2, /[, out, where, casting, …])	Shift the bits of an integer to the left.
+right_shift(x1, x2, /[, out, where, …])	Shift the bits of an integer to the right.
+
+==== Comparison functions ====
+greater(x1, x2, /[, out, where, casting, …])	Return the truth value of (x1 > x2) element-wise.
+greater_equal(x1, x2, /[, out, where, …])	Return the truth value of (x1 >= x2) element-wise.
+less(x1, x2, /[, out, where, casting, …])	Return the truth value of (x1 < x2) element-wise.
+less_equal(x1, x2, /[, out, where, casting, …])	Return the truth value of (x1 =< x2) element-wise.
+not_equal(x1, x2, /[, out, where, casting, …])	Return (x1 != x2) element-wise.
+equal(x1, x2, /[, out, where, casting, …])	Return (x1 == x2) element-wise.
+logical_and(x1, x2, /[, out, where, …])	Compute the truth value of x1 AND x2 element-wise.
+logical_or(x1, x2, /[, out, where, casting, …])	Compute the truth value of x1 OR x2 element-wise.
+logical_xor(x1, x2, /[, out, where, …])	Compute the truth value of x1 XOR x2, element-wise.
+logical_not(x, /[, out, where, casting, …])	Compute the truth value of NOT x element-wise.
+maximum(x1, x2, /[, out, where, casting, …])	Element-wise maximum of array elements.
+minimum(x1, x2, /[, out, where, casting, …])	Element-wise minimum of array elements.
+fmax(x1, x2, /[, out, where, casting, …])	Element-wise maximum of array elements.
+fmin(x1, x2, /[, out, where, casting, …])	Element-wise minimum of array elements.
+
+==== Floating functions ====
+Recall that all of these functions work element-by-element over an array, returning an array output. The description details only a single operation.
+
+isfinite(x, /[, out, where, casting, order, …])	Test element-wise for finiteness (not infinity or not Not a Number).
+isinf(x, /[, out, where, casting, order, …])	Test element-wise for positive or negative infinity.
+isnan(x, /[, out, where, casting, order, …])	Test element-wise for NaN and return result as a boolean array.
+isnat(x, /[, out, where, casting, order, …])	Test element-wise for NaT (not a time) and return result as a boolean array.
+fabs(x, /[, out, where, casting, order, …])	Compute the absolute values element-wise.
+signbit(x, /[, out, where, casting, order, …])	Returns element-wise True where signbit is set (less than zero).
+copysign(x1, x2, /[, out, where, casting, …])	Change the sign of x1 to that of x2, element-wise.
+nextafter(x1, x2, /[, out, where, casting, …])	Return the next floating-point value after x1 towards x2, element-wise.
+spacing(x, /[, out, where, casting, order, …])	Return the distance between x and the nearest adjacent number.
+modf(x[, out1, out2], / [[, out, where, …])	Return the fractional and integral parts of an array, element-wise.
+ldexp(x1, x2, /[, out, where, casting, …])	Returns x1 * 2**x2, element-wise.
+frexp(x[, out1, out2], / [[, out, where, …])	Decompose the elements of x into mantissa and twos exponent.
+fmod(x1, x2, /[, out, where, casting, …])	Return the element-wise remainder of division.
+floor(x, /[, out, where, casting, order, …])	Return the floor of the input, element-wise.
+ceil(x, /[, out, where, casting, order, …])	Return the ceiling of the input, element-wise.
+trunc(x, /[, out, where, casting, order, …])	Return the truncated value of the input, element-wise.
+
+---------------------------------------------------------------------
+random
+
+matlib
+linalg
+fft
+ctypeslib
+
+dual
+emath
+
+testing
+distutils

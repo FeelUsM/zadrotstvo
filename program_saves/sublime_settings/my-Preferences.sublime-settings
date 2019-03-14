@@ -1,0 +1,37 @@
+{
+обязательно
+	"always_prompt_for_file_reload": true,
+	"copy_with_empty_selection": false,
+	"default_line_ending": "unix",
+	"dictionary": "Packages/User/Russian-English Bilingual.dic",
+	"fade_fold_buttons": false,
+	"fallback_encoding": "Cyrillic (Windows 1251)",
+	"show_encoding": true,
+не обязательно
+	"always_show_minimap_viewport": true,
+	"draw_minimap_border": true,
+	"font_size": 10,
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+		120
+	],
+на крупнозернистом экране
+	"font_face": "Lucida Console",
+	"font_options":
+	[
+		"no_antialias"
+	],
+
+не важно	
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+	"theme": "Default.sublime-theme",
+	"word_wrap": true
+
+по умолчанию
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"tab_size": 4,
+}
