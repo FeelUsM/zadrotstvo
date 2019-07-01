@@ -1,5 +1,6 @@
 .directory
 .*.exe
+.ipynb_checkpoints/*
 
 program_saves/sublime_settings/User/Package Control.last-run
 program_saves/sublime_settings/User/Package Control.cache/*
