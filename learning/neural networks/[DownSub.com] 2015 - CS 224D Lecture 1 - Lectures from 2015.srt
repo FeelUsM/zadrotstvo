@@ -1,0 +1,6944 @@
+1
+00:00:00,030 --> 00:00:01,410
+the most interesting intellectual
+
+2
+00:00:01,410 --> 00:00:04,290
+endeavors you could embark on at our
+
+3
+00:00:04,290 --> 00:00:06,330
+current time it is right at the
+
+4
+00:00:06,330 --> 00:00:09,719
+intersection of AI and a natural
+
+5
+00:00:09,719 --> 00:00:11,130
+language processing or machine learning
+
+6
+00:00:11,130 --> 00:00:14,969
+and so when we think about you know what
+
+7
+00:00:14,969 --> 00:00:16,049
+are sort of the most interesting
+
+8
+00:00:16,049 --> 00:00:17,730
+manifestations of our human intelligence
+
+9
+00:00:17,730 --> 00:00:20,730
+I think language comes up at the top for
+
+10
+00:00:20,730 --> 00:00:22,680
+most in most answers it is very
+
+11
+00:00:22,680 --> 00:00:26,039
+inextricably linked to thought and also
+
+12
+00:00:26,039 --> 00:00:27,330
+information and you know we're an
+
+13
+00:00:27,330 --> 00:00:28,920
+Information Age so natural language
+
+14
+00:00:28,920 --> 00:00:31,380
+processing is an immensely useful piece
+
+15
+00:00:31,380 --> 00:00:33,870
+of technology at the same time deep
+
+16
+00:00:33,870 --> 00:00:36,360
+learning is similar in the sense that it
+
+17
+00:00:36,360 --> 00:00:38,610
+is very broadly applicable you can do
+
+18
+00:00:38,610 --> 00:00:40,050
+speech recognition with deep learning
+
+19
+00:00:40,050 --> 00:00:41,610
+you can do image pacification and you
+
+20
+00:00:41,610 --> 00:00:43,469
+can do a lot of different tasks inside
+
+21
+00:00:43,469 --> 00:00:45,329
+natural language processing so deep
+
+22
+00:00:45,329 --> 00:00:47,910
+learning is also a very very interesting
+
+23
+00:00:47,910 --> 00:00:50,910
+tool for you to have going forward in
+
+24
+00:00:50,910 --> 00:00:54,270
+your lives and so basically we're
+
+25
+00:00:54,270 --> 00:00:56,699
+combining these two so it will both be
+
+26
+00:00:56,699 --> 00:00:58,680
+interesting from an academic and
+
+27
+00:00:58,680 --> 00:01:00,930
+intellectual perspective as well as for
+
+28
+00:01:00,930 --> 00:01:02,760
+industry there are a lot of companies
+
+29
+00:01:02,760 --> 00:01:05,309
+out there right now who are trying very
+
+30
+00:01:05,309 --> 00:01:07,619
+hard to hire people with deep learning
+
+31
+00:01:07,619 --> 00:01:10,229
+skills so I think hopefully this will
+
+32
+00:01:10,229 --> 00:01:13,110
+help you both if you decide to work in
+
+33
+00:01:13,110 --> 00:01:14,909
+an academic setting or an industry
+
+34
+00:01:14,909 --> 00:01:19,920
+setting so basically by the end of the
+
+35
+00:01:19,920 --> 00:01:22,710
+lecture you will be able to build an
+
+36
+00:01:22,710 --> 00:01:24,869
+algorithm that can kind of do what you
+
+37
+00:01:24,869 --> 00:01:26,820
+can see here which is it can interpret
+
+38
+00:01:26,820 --> 00:01:29,520
+the sentence like the first 50 minutes
+
+39
+00:01:29,520 --> 00:01:31,560
+were dry but by the end I really enjoyed
+
+40
+00:01:31,560 --> 00:01:33,869
+the lecture and so the algorithm here
+
+41
+00:01:33,869 --> 00:01:35,970
+learned what the grammatical structure
+
+42
+00:01:35,970 --> 00:01:37,590
+of that sentence should be and it
+
+43
+00:01:37,590 --> 00:01:39,720
+assigned a label which in this case
+
+44
+00:01:39,720 --> 00:01:42,329
+happens to be a sentiment label - every
+
+45
+00:01:42,329 --> 00:01:44,820
+phrase of that sentence and will
+
+46
+00:01:44,820 --> 00:01:46,710
+basically give you an introduction of
+
+47
+00:01:46,710 --> 00:01:49,020
+why the tree looks the way it does and
+
+48
+00:01:49,020 --> 00:01:51,329
+why it assigns these positive and
+
+49
+00:01:51,329 --> 00:01:52,920
+negative labels so what's kind of
+
+50
+00:01:52,920 --> 00:01:54,659
+amazing here is we did not have to
+
+51
+00:01:54,659 --> 00:01:57,540
+eventually say that you have here a so
+
+52
+00:01:57,540 --> 00:01:59,630
+called contrastive conjunction name but
+
+53
+00:01:59,630 --> 00:02:02,040
+but really we just had to give it a lot
+
+54
+00:02:02,040 --> 00:02:04,770
+of examples and I was able to learn that
+
+55
+00:02:04,770 --> 00:02:06,840
+really you can say the first part is
+
+56
+00:02:06,840 --> 00:02:08,699
+negative and you know the first 15
+
+57
+00:02:08,699 --> 00:02:09,600
+minutes
+
+58
+00:02:09,600 --> 00:02:11,190
+that is a neutral phrase and then once
+
+59
+00:02:11,190 --> 00:02:12,930
+you say they were dry it becomes
+
+60
+00:02:12,930 --> 00:02:14,910
+negative and then you have a contrastive
+
+61
+00:02:14,910 --> 00:02:16,470
+conjunction which usually which usually
+
+62
+00:02:16,470 --> 00:02:19,380
+means that what comes afterwards matters
+
+63
+00:02:19,380 --> 00:02:21,180
+more in the overall interpretation of
+
+64
+00:02:21,180 --> 00:02:22,890
+the sentence none of that we have to
+
+65
+00:02:22,890 --> 00:02:24,540
+explicitly tell the algorithm but it
+
+66
+00:02:24,540 --> 00:02:26,370
+will be able to pick it up and you will
+
+67
+00:02:26,370 --> 00:02:28,710
+train algorithms that will be able to do
+
+68
+00:02:28,710 --> 00:02:31,680
+that and just as the sentence says we'll
+
+69
+00:02:31,680 --> 00:02:34,910
+start with a couple of boring logistics
+
+70
+00:02:34,910 --> 00:02:37,080
+but you know they're important for you
+
+71
+00:02:37,080 --> 00:02:39,600
+to understand what's going on moving
+
+72
+00:02:39,600 --> 00:02:40,800
+forward and then we'll actually
+
+73
+00:02:40,800 --> 00:02:43,710
+introduce in an almost ridiculously
+
+74
+00:02:43,710 --> 00:02:45,810
+short amount of time natural language
+
+75
+00:02:45,810 --> 00:02:47,460
+processing deep learning and the
+
+76
+00:02:47,460 --> 00:02:50,820
+intersection of the two 
+
+
+
+
+
+
+
+
+
+so let's dive
+
+
+
+77
+00:02:50,820 --> 00:02:51,420
+right in
+
+78
+00:02:51,420 --> 00:02:53,190
+my name is Richard so sure I actually
+
+79
+00:02:53,190 --> 00:02:55,620
+got a PhD from Stanford last year and
+
+80
+00:02:55,620 --> 00:02:58,140
+happen to work on deep learning for
+
+81
+00:02:58,140 --> 00:02:59,670
+natural language processing and a little
+
+82
+00:02:59,670 --> 00:03:01,230
+bit of computer vision I'm now the
+
+83
+00:03:01,230 --> 00:03:03,120
+founder and CTO of meta mind which is a
+
+84
+00:03:03,120 --> 00:03:04,770
+startup that also happens to do deep
+
+85
+00:03:04,770 --> 00:03:06,930
+learning for those two application
+
+86
+00:03:06,930 --> 00:03:09,810
+fields we have three awesome TAS maybe
+
+87
+00:03:09,810 --> 00:03:12,570
+they can wave their hands we get Ian
+
+88
+00:03:12,570 --> 00:03:14,700
+back there and within the camera from
+
+89
+00:03:14,700 --> 00:03:18,390
+SWA and poong right there so we'll have
+
+90
+00:03:18,390 --> 00:03:21,180
+four office hours at least
+
+91
+00:03:21,180 --> 00:03:25,620
+if the enrollment stays as high as it is
+
+92
+00:03:25,620 --> 00:03:27,390
+maybe we'll get a fourth one because
+
+93
+00:03:27,390 --> 00:03:28,890
+it'll be a lot of grading otherwise for
+
+94
+00:03:28,890 --> 00:03:32,550
+you three I'm sorry we had to change the
+
+95
+00:03:32,550 --> 00:03:34,590
+time in place we originally had a room
+
+96
+00:03:34,590 --> 00:03:36,690
+from the 60 people and now we have
+
+97
+00:03:36,690 --> 00:03:39,300
+hundred 60 people students enrolled so
+
+98
+00:03:39,300 --> 00:03:41,190
+we had to move to this I hope it's not
+
+99
+00:03:41,190 --> 00:03:43,020
+too bad we'll try our best to actually
+
+100
+00:03:43,020 --> 00:03:46,050
+record all the all the lectures on video
+
+101
+00:03:46,050 --> 00:03:47,910
+and put those up we still need to figure
+
+102
+00:03:47,910 --> 00:03:49,610
+out if we can just put them on YouTube
+
+103
+00:03:49,610 --> 00:03:52,640
+well soon find out hopefully this week
+
+104
+00:03:52,640 --> 00:03:55,020
+we will have a lot of problem sets so
+
+105
+00:03:55,020 --> 00:03:58,230
+basically three problem sets that will
+
+106
+00:03:58,230 --> 00:04:01,350
+make you basically program these kinds
+
+107
+00:04:01,350 --> 00:04:03,180
+of algorithms and there will be a
+
+108
+00:04:03,180 --> 00:04:05,880
+midterm and a final project and in fact
+
+109
+00:04:05,880 --> 00:04:07,560
+the final project is something that you
+
+110
+00:04:07,560 --> 00:04:08,520
+might want to start thinking about
+
+111
+00:04:08,520 --> 00:04:11,520
+starting today this is going to be an
+
+112
+00:04:11,520 --> 00:04:13,950
+important part and hopefully as we go
+
+113
+00:04:13,950 --> 00:04:16,048
+over a bunch of applications you'll see
+
+114
+00:04:16,048 --> 00:04:17,940
+you know you have some ideas on what you
+
+115
+00:04:17,940 --> 00:04:20,640
+want to do you can find our office hours
+
+116
+00:04:20,640 --> 00:04:22,240
+and soon also office hour
+
+117
+00:04:22,240 --> 00:04:24,819
+locations on the website I'm sorry that
+
+118
+00:04:24,819 --> 00:04:26,770
+will probably not be any course notes
+
+119
+00:04:26,770 --> 00:04:28,630
+but we will put up the slides and the
+
+120
+00:04:28,630 --> 00:04:31,599
+videos shortly after and if I'm on top
+
+121
+00:04:31,599 --> 00:04:34,630
+of my things maybe even before the
+
+lecture
+----- 3 ------
+
+
+
+
+122
+00:04:34,630 --> 00:04:38,560
+ so the grades for those of you
+
+123
+00:04:38,560 --> 00:04:41,949
+who take not a pass/fail we basically
+
+124
+00:04:41,949 --> 00:04:43,690
+have the three problem sets that count
+
+125
+00:04:43,690 --> 00:04:46,990
+for roughly 1/2 and the midterm is 15%
+
+126
+00:04:46,990 --> 00:04:48,970
+the midterm we want to make sure you
+
+127
+00:04:48,970 --> 00:04:50,319
+actually understand some of the very
+
+128
+00:04:50,319 --> 00:04:54,160
+basics of the math behind behind what
+
+129
+00:04:54,160 --> 00:04:55,860
+you're programming in the problem sets
+
+130
+00:04:55,860 --> 00:04:59,830
+the final project will be 40% we have a
+
+131
+00:04:59,830 --> 00:05:01,960
+milestone and usually when you start out
+
+132
+00:05:01,960 --> 00:05:03,940
+your project definition you say oh I'm
+
+133
+00:05:03,940 --> 00:05:05,620
+gonna solve NLP it's gonna be so great
+
+134
+00:05:05,620 --> 00:05:08,110
+and epic and then we have the milestones
+
+135
+00:05:08,110 --> 00:05:10,720
+and what we often then get I was a TA
+
+136
+00:05:10,720 --> 00:05:12,669
+for 229 in machine learning classes
+
+137
+00:05:12,669 --> 00:05:15,400
+we're struggling collecting the data and
+
+138
+00:05:15,400 --> 00:05:17,080
+that is actually it's a very common
+
+139
+00:05:17,080 --> 00:05:19,030
+problem a lot of these algorithms need a
+
+140
+00:05:19,030 --> 00:05:21,280
+lot of data and just dealing storing a
+
+141
+00:05:21,280 --> 00:05:23,080
+lot of data might not fit on your laptop
+
+142
+00:05:23,080 --> 00:05:25,479
+you might need some other machines so
+
+143
+00:05:25,479 --> 00:05:27,280
+we're going to give you two bonus points
+
+144
+00:05:27,280 --> 00:05:30,159
+or percent of the entire class if you
+
+145
+00:05:30,159 --> 00:05:32,020
+have your data ready and run a single
+
+146
+00:05:32,020 --> 00:05:33,849
+experiment could be just a simple
+
+147
+00:05:33,849 --> 00:05:37,659
+baseline if you actually have yeah some
+
+148
+00:05:37,659 --> 00:05:39,280
+experiments done at the time of the
+
+149
+00:05:39,280 --> 00:05:40,900
+milestone and then the final write-up
+
+150
+00:05:40,900 --> 00:05:42,490
+project and presentation will have a
+
+151
+00:05:42,490 --> 00:05:44,199
+poster presentation instead of the final
+
+152
+00:05:44,199 --> 00:05:47,169
+will be 35 percent are there any
+
+153
+00:05:47,169 --> 00:05:50,460
+questions so far
+
+154
+00:05:52,249 --> 00:05:55,889
+all right so yeah bonus points also for
+
+155
+00:05:55,889 --> 00:05:58,409
+exceptional poster presentations delayed
+
+156
+00:05:58,409 --> 00:06:00,150
+policy we're trying to not have to hear
+
+157
+00:06:00,150 --> 00:06:01,499
+about your grandmother so we'll give you
+
+158
+00:06:01,499 --> 00:06:03,779
+seven free late days you can use them as
+
+159
+00:06:03,779 --> 00:06:04,379
+you please
+
+160
+00:06:04,379 --> 00:06:07,050
+except that you can only use three for
+
+161
+00:06:07,050 --> 00:06:09,930
+one problem set at a time so after three
+
+162
+00:06:09,930 --> 00:06:11,610
+days we want to basically talk about the
+
+163
+00:06:11,610 --> 00:06:13,409
+solutions during the office hours and
+
+164
+00:06:13,409 --> 00:06:15,330
+want to move the class along because the
+
+165
+00:06:15,330 --> 00:06:16,949
+next problem said will be do you know
+
+166
+00:06:16,949 --> 00:06:18,389
+two weeks after and oftentimes they
+
+167
+00:06:18,389 --> 00:06:20,069
+built on top of each other so you want
+
+168
+00:06:20,069 --> 00:06:21,479
+to be able to share the solution so you
+
+169
+00:06:21,479 --> 00:06:24,120
+can turn your problem sets in at most
+
+170
+00:06:24,120 --> 00:06:27,509
+three three days late after you either
+
+171
+00:06:27,509 --> 00:06:29,939
+exceed those or you hand it in
+
+172
+00:06:29,939 --> 00:06:31,740
+no so once you hand it in late it's gone
+
+173
+00:06:31,740 --> 00:06:34,229
+instead if you exceed your seven late
+
+174
+00:06:34,229 --> 00:06:37,349
+days you will lose 25% per late day
+
+175
+00:06:37,349 --> 00:06:40,169
+after that and it unfortunately cannot
+
+176
+00:06:40,169 --> 00:06:41,250
+apply to the final course project
+
+177
+00:06:41,250 --> 00:06:42,779
+because we have to put in the grades
+
+178
+00:06:42,779 --> 00:06:46,699
+into the system so collaboration policy
+
+179
+00:06:46,699 --> 00:06:49,979
+Stanford recently got into the news not
+
+180
+00:06:49,979 --> 00:06:52,469
+so pleasantly so please do read your
+
+181
+00:06:52,469 --> 00:06:54,659
+codebook and the honor code obviously
+
+182
+00:06:54,659 --> 00:06:58,379
+you can you know talk about things
+
+183
+00:06:58,379 --> 00:07:00,180
+during a lecture and your understanding
+
+184
+00:07:00,180 --> 00:07:01,560
+but you have to write down the own
+
+185
+00:07:01,560 --> 00:07:02,969
+solution and most importantly have to
+
+186
+00:07:02,969 --> 00:07:05,099
+program your own solution and not try to
+
+187
+00:07:05,099 --> 00:07:07,409
+find some code somewhere on the internet
+
+188
+00:07:07,409 --> 00:07:09,270
+or something like that
+
+189
+00:07:09,270 --> 00:07:11,520
+on the final project you can actually
+
+190
+00:07:11,520 --> 00:07:14,699
+work in teams of two people and maybe if
+
+191
+00:07:14,699 --> 00:07:16,080
+you have a really ambitious project and
+
+192
+00:07:16,080 --> 00:07:17,879
+you have a very clear setting of what's
+
+193
+00:07:17,879 --> 00:07:19,349
+going on we can make an exception and
+
+194
+00:07:19,349 --> 00:07:21,270
+have three but ideally you'll just be
+
+195
+00:07:21,270 --> 00:07:22,409
+two because otherwise it's hard to
+
+196
+00:07:22,409 --> 00:07:26,639
+attribute who did what all right any
+
+197
+00:07:26,639 --> 00:07:30,710
+questions about all the grading
+
+--- 5 ---
+
+198
+00:07:31,989 --> 00:07:35,899
+great alright so prerequisites on a very
+
+199
+00:07:35,899 --> 00:07:38,899
+high-level note I will rather air and
+
+200
+00:07:38,899 --> 00:07:40,610
+decide of boring some people in the
+
+201
+00:07:40,610 --> 00:07:43,519
+beginning and you know make sure
+
+202
+00:07:43,519 --> 00:07:47,119
+everybody gets the very basics of the
+
+203
+00:07:47,119 --> 00:07:49,369
+math and the programming so if you have
+
+204
+00:07:49,369 --> 00:07:51,050
+taken all the prerequisites and you've
+
+205
+00:07:51,050 --> 00:07:53,239
+got a pluses in all of them and you know
+
+206
+00:07:53,239 --> 00:07:54,559
+that was all pretty boring because you
+
+207
+00:07:54,559 --> 00:07:56,749
+already kind of knew it I unfortunately
+
+208
+00:07:56,749 --> 00:07:58,519
+you will be a little bored in the first
+
+209
+00:07:58,519 --> 00:08:01,580
+like handful of lectures maybe to what I
+
+210
+00:08:01,580 --> 00:08:02,300
+found
+
+211
+00:08:02,300 --> 00:08:04,009
+seeing is it's better to err on that
+
+212
+00:08:04,009 --> 00:08:05,629
+side and then we can you know ramp up
+
+213
+00:08:05,629 --> 00:08:07,189
+the speed as we go to more complex
+
+214
+00:08:07,189 --> 00:08:09,050
+models really once you know some of the
+
+215
+00:08:09,050 --> 00:08:10,969
+basic building blocks off deep learning
+
+216
+00:08:10,969 --> 00:08:12,589
+you can very quickly put them together
+
+217
+00:08:12,589 --> 00:08:14,089
+in interesting new ways they're kind of
+
+218
+00:08:14,089 --> 00:08:16,009
+LEGO pieces you just need to understand
+
+219
+00:08:16,009 --> 00:08:17,749
+how they're put together and then build
+
+220
+00:08:17,749 --> 00:08:20,929
+amazing stuff so that being said you
+
+221
+00:08:20,929 --> 00:08:22,429
+will have an easier time if you're
+
+222
+00:08:22,429 --> 00:08:24,649
+proficient in Python all the class
+
+223
+00:08:24,649 --> 00:08:27,110
+assignments will be in Python will use
+
+224
+00:08:27,110 --> 00:08:29,929
+numpy but obviously not packages likes I
+
+225
+00:08:29,929 --> 00:08:31,759
+could learn because that's the kind of
+
+226
+00:08:31,759 --> 00:08:32,839
+stuff we want to learn how to do
+
+227
+00:08:32,839 --> 00:08:35,990
+ourselves so we will you know provide a
+
+228
+00:08:35,990 --> 00:08:37,549
+tutorial here actually from a previous
+
+229
+00:08:37,549 --> 00:08:42,409
+class to 31 and and so let me ask in the
+
+230
+00:08:42,409 --> 00:08:44,360
+room show of hands who would want to
+
+231
+00:08:44,360 --> 00:08:46,730
+have a Python refresher to make sure
+
+232
+00:08:46,730 --> 00:08:48,620
+their can hit the ground running raise
+
+233
+00:08:48,620 --> 00:08:53,389
+your hand okay who does not need a
+
+234
+00:08:53,389 --> 00:08:55,779
+Python refreshment
+
+235
+00:08:55,779 --> 00:08:57,579
+all right well it does seem like there
+
+236
+00:08:57,579 --> 00:08:58,899
+are very few people who really need it
+
+237
+00:08:58,899 --> 00:09:02,110
+so maybe those people in the interest of
+
+238
+00:09:02,110 --> 00:09:04,180
+our th time I can just talk to some of
+
+239
+00:09:04,180 --> 00:09:06,810
+the TAS they're only like a handful of
+
+240
+00:09:06,810 --> 00:09:08,910
+hands raised
+
+241
+00:09:08,910 --> 00:09:12,910
+hmm and yeah during office hours of
+
+242
+00:09:12,910 --> 00:09:15,490
+course yeah all right college-level
+
+243
+00:09:15,490 --> 00:09:17,230
+calculus and linear algebra will be
+
+244
+00:09:17,230 --> 00:09:17,620
+great
+
+245
+00:09:17,620 --> 00:09:20,499
+so who here no singular value
+
+246
+00:09:20,499 --> 00:09:24,279
+decomposition all right all right I'm
+
+247
+00:09:24,279 --> 00:09:26,050
+that's this is awesome all right you'll
+
+248
+00:09:26,050 --> 00:09:28,379
+have you'll have a great time on
+
+249
+00:09:28,379 --> 00:09:30,699
+Wednesday because well we'll kind of
+
+250
+00:09:30,699 --> 00:09:32,439
+assume that that you know SVD and we can
+
+251
+00:09:32,439 --> 00:09:34,240
+then move to to neural networks more
+
+252
+00:09:34,240 --> 00:09:36,639
+quickly so basic probability and
+
+253
+00:09:36,639 --> 00:09:38,680
+statistics is also good you don't need
+
+254
+00:09:38,680 --> 00:09:40,059
+to know crazy lebesgue measures or
+
+255
+00:09:40,059 --> 00:09:41,649
+anything for deep learning but you know
+
+256
+00:09:41,649 --> 00:09:43,689
+knowing what the you know log likelihood
+
+257
+00:09:43,689 --> 00:09:45,699
+is and things like that will make your
+
+258
+00:09:45,699 --> 00:09:48,720
+life a lot easier and really if you've
+
+259
+00:09:48,720 --> 00:09:52,480
+have fully understood CS 229 in all its
+
+260
+00:09:52,480 --> 00:09:54,879
+gory details you'll have a lot easier
+
+261
+00:09:54,879 --> 00:09:57,339
+time in general conceptually moving
+
+262
+00:09:57,339 --> 00:09:58,749
+through this class we'll have a lot of
+
+263
+00:09:58,749 --> 00:10:01,240
+cost functions and basically once we
+
+264
+00:10:01,240 --> 00:10:03,009
+write down our cost function everything
+
+265
+00:10:03,009 --> 00:10:04,329
+else will be kind of straightforward you
+
+266
+00:10:04,329 --> 00:10:05,620
+take derivatives sort of a bunch of
+
+267
+00:10:05,620 --> 00:10:08,100
+matrix multiplications and then you run
+
+268
+00:10:08,100 --> 00:10:10,240
+some optimization algorithm like
+
+269
+00:10:10,240 --> 00:10:13,809
+gradient descent any questions on the
+
+270
+00:10:13,809 --> 00:10:16,350
+prerequisites
+
+-- 10 --
+
+271
+00:10:19,850 --> 00:10:23,670
+all right so that was the boring part
+
+272
+00:10:23,670 --> 00:10:25,889
+and I'm very hopeful from the hands
+
+273
+00:10:25,889 --> 00:10:29,189
+being raised so far that we can move
+
+274
+00:10:29,189 --> 00:10:31,379
+somewhat quickly through through the
+
+275
+00:10:31,379 --> 00:10:33,929
+early parts of the class material so
+
+276
+00:10:33,929 --> 00:10:35,779
+what is natural language processing
+
+277
+00:10:35,779 --> 00:10:38,399
+again these are very very short
+
+278
+00:10:38,399 --> 00:10:40,139
+descriptions and in some ways it's still
+
+279
+00:10:40,139 --> 00:10:42,959
+a reasonably young field so the the
+
+280
+00:10:42,959 --> 00:10:44,910
+definition is is a little bit subjective
+
+281
+00:10:44,910 --> 00:10:47,249
+but most people I think would agree with
+
+282
+00:10:47,249 --> 00:10:48,990
+the minimum subset here that that I
+
+283
+00:10:48,990 --> 00:10:51,209
+describe which is that natural language
+
+284
+00:10:51,209 --> 00:10:52,350
+processing is a field at the
+
+285
+00:10:52,350 --> 00:10:53,910
+intersection of computer science
+
+286
+00:10:53,910 --> 00:10:56,160
+artificial intelligence and linguistics
+
+287
+00:10:56,160 --> 00:10:57,809
+you will often find researchers working
+
+288
+00:10:57,809 --> 00:11:01,949
+in NLP to be associated with these kinds
+
+289
+00:11:01,949 --> 00:11:03,420
+of departments and you know in some
+
+290
+00:11:03,420 --> 00:11:06,269
+cases some universities have an AI or
+
+291
+00:11:06,269 --> 00:11:08,160
+machine learning Department and most
+
+292
+00:11:08,160 --> 00:11:10,290
+cases AI is kind of part of computer
+
+293
+00:11:10,290 --> 00:11:13,379
+science so the main goal for NLP or
+
+294
+00:11:13,379 --> 00:11:14,879
+natural language processing is for
+
+295
+00:11:14,879 --> 00:11:17,279
+computers to understand and process
+
+296
+00:11:17,279 --> 00:11:18,869
+natural language in order to perform
+
+297
+00:11:18,869 --> 00:11:21,029
+tasks that are useful and in most cases
+
+298
+00:11:21,029 --> 00:11:23,819
+useful to us back as humans for instance
+
+299
+00:11:23,819 --> 00:11:26,759
+question answering of course the the
+
+300
+00:11:26,759 --> 00:11:28,230
+tricky bit is and the reason I put
+
+301
+00:11:28,230 --> 00:11:29,839
+understanding quotation marks is
+
+302
+00:11:29,839 --> 00:11:31,889
+computers don't really understand
+
+303
+00:11:31,889 --> 00:11:33,540
+language the way we understand language
+
+304
+00:11:33,540 --> 00:11:36,569
+there's a lot of you know linguistic
+
+305
+00:11:36,569 --> 00:11:38,579
+knowledge world knowledge and and the
+
+306
+00:11:38,579 --> 00:11:40,649
+connections to thought and planning and
+
+307
+00:11:40,649 --> 00:11:42,869
+you know love life and happiness and all
+
+308
+00:11:42,869 --> 00:11:44,850
+that that will make it very hard for a
+
+309
+00:11:44,850 --> 00:11:46,139
+computer to fully understand and
+
+310
+00:11:46,139 --> 00:11:48,899
+appreciate language so we're and there's
+
+311
+00:11:48,899 --> 00:11:50,759
+actually a lot of interesting stuff in
+
+312
+00:11:50,759 --> 00:11:52,350
+the philosophy of language too and you
+
+313
+00:11:52,350 --> 00:11:53,999
+can spend many many hours reading about
+
+314
+00:11:53,999 --> 00:11:56,429
+Frigga and victim Stein and a lot of
+
+315
+00:11:56,429 --> 00:11:58,379
+philosophy of language which we will not
+
+316
+00:11:58,379 --> 00:12:00,240
+do in this class it's very interesting
+
+317
+00:12:00,240 --> 00:12:02,160
+but in order to actually give you tools
+
+318
+00:12:02,160 --> 00:12:05,009
+to you know do what's possible now with
+
+319
+00:12:05,009 --> 00:12:07,019
+deep learning we kind of have to move
+
+320
+00:12:07,019 --> 00:12:10,319
+over that pretty quickly so we'll
+
+321
+00:12:10,319 --> 00:12:12,059
+basically take a very pragmatic approach
+
+322
+00:12:12,059 --> 00:12:15,089
+and look at a lot of tasks that are very
+
+323
+00:12:15,089 --> 00:12:18,480
+concrete and helpful to humans and in
+
+324
+00:12:18,480 --> 00:12:20,850
+some ways perfect language understanding
+
+325
+00:12:20,850 --> 00:12:23,189
+is so-called AI complete problem in the
+
+326
+00:12:23,189 --> 00:12:24,389
+sense that you kind of have to solve
+
+327
+00:12:24,389 --> 00:12:26,790
+almost all of other AI right I can talk
+
+328
+00:12:26,790 --> 00:12:29,100
+about planning I can talk about my motor
+
+329
+00:12:29,100 --> 00:12:31,390
+control in a robot I
+
+330
+00:12:31,390 --> 00:12:33,160
+talk about visual inputs and if you
+
+331
+00:12:33,160 --> 00:12:34,300
+really want to understand what the
+
+332
+00:12:34,300 --> 00:12:35,800
+meaning of greenness you know or blue
+
+333
+00:12:35,800 --> 00:12:38,080
+how do you really do that without seeing
+
+334
+00:12:38,080 --> 00:12:41,230
+the outside world and and so on so it's
+
+335
+00:12:41,230 --> 00:12:43,030
+a very complex problem and in many ways
+
+336
+00:12:43,030 --> 00:12:45,970
+we will simplify it 
+
+
+--- NLP levels ---
+
+
+
+one thing that has
+
+337
+00:12:45,970 --> 00:12:47,320
+been it is pretty well established
+
+338
+00:12:47,320 --> 00:12:50,340
+inside NLP are different levels of
+
+339
+00:12:50,340 --> 00:12:54,040
+linguistic representation and skill and
+
+340
+00:12:54,040 --> 00:12:57,340
+so it starts with speech or in the case
+
+341
+00:12:57,340 --> 00:12:58,720
+of many computers who don't actually
+
+342
+00:12:58,720 --> 00:13:00,280
+have you know microphones or not
+
+343
+00:13:00,280 --> 00:13:02,980
+programmed to deal with speech with raw
+
+344
+00:13:02,980 --> 00:13:05,380
+text those could be pixely scans and in
+
+345
+00:13:05,380 --> 00:13:07,240
+PDF format or something in the case of
+
+346
+00:13:07,240 --> 00:13:09,280
+speech will then do phonetics or
+
+347
+00:13:09,280 --> 00:13:11,650
+phonology it's just the subfield that
+
+348
+00:13:11,650 --> 00:13:12,970
+deal it's basically we're trying to
+
+349
+00:13:12,970 --> 00:13:15,940
+understand speech and map it into a
+
+350
+00:13:15,940 --> 00:13:18,430
+system that humans can understand and
+
+351
+00:13:18,430 --> 00:13:21,280
+analyze and in the case of text we might
+
+352
+00:13:21,280 --> 00:13:23,440
+do optical character recognition and
+
+353
+00:13:23,440 --> 00:13:25,900
+tokenization just finding word do words
+
+354
+00:13:25,900 --> 00:13:30,430
+end and and start and this kind of you
+
+355
+00:13:30,430 --> 00:13:32,440
+know tokenization is pretty easy for
+
+356
+00:13:32,440 --> 00:13:34,000
+english right we just have spaces but
+
+357
+00:13:34,000 --> 00:13:35,710
+for other languages like Chinese you
+
+358
+00:13:35,710 --> 00:13:37,300
+might not know where specific word
+
+359
+00:13:37,300 --> 00:13:40,420
+starts or ends once you say all right I
+
+360
+00:13:40,420 --> 00:13:43,720
+have at least roughly the words that I
+
+361
+00:13:43,720 --> 00:13:45,190
+want to deal with you can then try to
+
+362
+00:13:45,190 --> 00:13:47,050
+understand and analyze these words and
+
+363
+00:13:47,050 --> 00:13:49,000
+that's the subfield of morphology and
+
+364
+00:13:49,000 --> 00:13:51,160
+again for linguists you might start
+
+365
+00:13:51,160 --> 00:13:53,130
+cringing here because any one of those
+
+366
+00:13:53,130 --> 00:13:56,980
+you know boxes could be its entire own
+
+367
+00:13:56,980 --> 00:13:59,140
+class right so we're doing a very very
+
+368
+00:13:59,140 --> 00:14:01,570
+bird's-eye view here of the field of NLP
+
+369
+00:14:01,570 --> 00:14:03,430
+and I'm I'm sorry to all the real
+
+370
+00:14:03,430 --> 00:14:05,740
+linguists in the room who who might
+
+371
+00:14:05,740 --> 00:14:08,140
+cringe now so morphology basically tries
+
+372
+00:14:08,140 --> 00:14:10,120
+to understand how words are constructed
+
+373
+00:14:10,120 --> 00:14:12,460
+you know if they're prefixes so I could
+
+374
+00:14:12,460 --> 00:14:15,160
+be it unfortunately so on would be a
+
+375
+00:14:15,160 --> 00:14:18,010
+prefix of the overall word unfortunately
+
+376
+00:14:18,010 --> 00:14:20,710
+for instance once you understand the
+
+377
+00:14:20,710 --> 00:14:23,740
+words and you know their meaning you in
+
+378
+00:14:23,740 --> 00:14:26,290
+general and sort of traditional NLP you
+
+379
+00:14:26,290 --> 00:14:28,240
+move on to syntactic analysis trying to
+
+380
+00:14:28,240 --> 00:14:30,880
+understand how words are put together so
+
+381
+00:14:30,880 --> 00:14:34,060
+I Can Has Cheezburger for instance does
+
+382
+00:14:34,060 --> 00:14:36,310
+not sound like a syntactically correct
+
+383
+00:14:36,310 --> 00:14:38,380
+phrase in the English language and
+
+384
+00:14:38,380 --> 00:14:40,840
+syntactic or syntax basically tells you
+
+385
+00:14:40,840 --> 00:14:42,910
+what is a reasonable syntactic phrase
+
+386
+00:14:42,910 --> 00:14:44,499
+how this grammar were
+
+387
+00:14:44,499 --> 00:14:45,789
+what is grammatical what is
+
+388
+00:14:45,789 --> 00:14:49,239
+ungrammatical and so on a lot of people
+
+389
+00:14:49,239 --> 00:14:51,009
+in traditional I know key would assume
+
+390
+00:14:51,009 --> 00:14:52,839
+that you need to have the morphological
+
+391
+00:14:52,839 --> 00:14:54,849
+and syntactic understanding order to go
+
+392
+00:14:54,849 --> 00:14:56,469
+to the next one but we'll actually see
+
+393
+00:14:56,469 --> 00:14:58,269
+that in some cases deep learning can
+
+394
+00:14:58,269 --> 00:15:00,279
+move straight into semantics
+
+395
+00:15:00,279 --> 00:15:02,499
+interpretations or semantics which
+
+396
+00:15:02,499 --> 00:15:03,879
+basically deals with trying to
+
+397
+00:15:03,879 --> 00:15:06,039
+understand the meaning of not just a
+
+398
+00:15:06,039 --> 00:15:07,569
+single words but also how they compose
+
+399
+00:15:07,569 --> 00:15:10,749
+into a complete sentence and once we
+
+400
+00:15:10,749 --> 00:15:12,519
+understand the meaning of a sentence
+
+401
+00:15:12,519 --> 00:15:14,319
+which is also a tricky bit and there are
+
+402
+00:15:14,319 --> 00:15:15,849
+lots of different definitions of what is
+
+403
+00:15:15,849 --> 00:15:18,309
+actually the meaning of a sentence once
+
+404
+00:15:18,309 --> 00:15:20,109
+we understand that we can maybe go to
+
+405
+00:15:20,109 --> 00:15:22,569
+discourse analysis or pragmatics which
+
+406
+00:15:22,569 --> 00:15:24,309
+tries to deal with and tries to
+
+407
+00:15:24,309 --> 00:15:26,739
+understand how multiple sentences from
+
+408
+00:15:26,739 --> 00:15:28,209
+the meaning of an entire story you know
+
+409
+00:15:28,209 --> 00:15:31,029
+a novel or a you know conversation
+
+410
+00:15:31,029 --> 00:15:32,769
+between people which can be very useful
+
+411
+00:15:32,769 --> 00:15:35,679
+once you want to have a phone agent or
+
+412
+00:15:35,679 --> 00:15:37,539
+something that can let you book a flight
+
+413
+00:15:37,539 --> 00:15:39,579
+ticket and wants to need to keep track
+
+414
+00:15:39,579 --> 00:15:41,169
+of the things you've said already in the
+
+415
+00:15:41,169 --> 00:15:46,689
+past we will mostly focus on syntactic
+
+416
+00:15:46,689 --> 00:15:48,369
+and semantic interpretations in the
+
+417
+00:15:48,369 --> 00:15:50,799
+class but there will be a little bit of
+
+418
+00:15:50,799 --> 00:15:52,599
+phonetics because and in phonology
+
+419
+00:15:52,599 --> 00:15:54,939
+because speech recognition has been
+
+420
+00:15:54,939 --> 00:15:56,979
+somewhat revolutionized by deep learning
+
+421
+00:15:56,979 --> 00:15:59,619
+so it's still part of NLP a lot of
+
+422
+00:15:59,619 --> 00:16:01,149
+people put speech into a little
+
+423
+00:16:01,149 --> 00:16:03,849
+subsection of four separate from NLP but
+
+424
+00:16:03,849 --> 00:16:05,499
+clearly speech is part of language
+
+425
+00:16:05,499 --> 00:16:07,839
+processing so mostly will focus on
+
+426
+00:16:07,839 --> 00:16:10,569
+semantic and syntactic interpretations
+
+427
+00:16:10,569 --> 00:16:11,979
+which are also the ones that are closer
+
+428
+00:16:11,979 --> 00:16:14,199
+to the real tasks that we might care
+
+429
+00:16:14,199 --> 00:16:17,439
+about so what what could those be that
+
+430
+00:16:17,439 --> 00:16:19,599
+any questions so far about the different
+
+431
+00:16:19,599 --> 00:16:22,169
+LP levels
+
+432
+00:16:23,839 --> 00:16:28,260
+just a head scratch alright 
+
+
+--- 9 (A tiny simple) NLP applications ---
+
+
+so what our
+
+433
+00:16:28,260 --> 00:16:30,060
+NLP applications basically they range
+
+434
+00:16:30,060 --> 00:16:33,240
+from very very simple ones to extremely
+
+435
+00:16:33,240 --> 00:16:34,949
+complex systems that have you know
+
+436
+00:16:34,949 --> 00:16:37,199
+dozens or hundreds or even thousands of
+
+437
+00:16:37,199 --> 00:16:40,110
+PhDs work for multiple decades on so
+
+438
+00:16:40,110 --> 00:16:42,209
+some of the simple ones that we now
+
+439
+00:16:42,209 --> 00:16:43,980
+don't even consider artificial
+
+440
+00:16:43,980 --> 00:16:46,019
+intelligence anymore oftentimes we
+
+441
+00:16:46,019 --> 00:16:48,149
+define AI as the thing we cannot yet
+
+442
+00:16:48,149 --> 00:16:49,980
+quite do just like with chess we thought
+
+443
+00:16:49,980 --> 00:16:52,019
+Oh once we can play chess we have real
+
+444
+00:16:52,019 --> 00:16:53,760
+intelligence and then we play chess and
+
+445
+00:16:53,760 --> 00:16:54,720
+they're like oh it's just some branch
+
+446
+00:16:54,720 --> 00:16:56,130
+and bound search algorithm it's not
+
+447
+00:16:56,130 --> 00:16:58,380
+really AI and we will actually observe
+
+448
+00:16:58,380 --> 00:17:00,029
+that also in the class where things that
+
+449
+00:17:00,029 --> 00:17:02,430
+used to be considered amazing AI
+
+450
+00:17:02,430 --> 00:17:03,990
+technology are now kind of you know I
+
+451
+00:17:03,990 --> 00:17:06,089
+just talking to my phone and it's Syrian
+
+452
+00:17:06,089 --> 00:17:08,609
+that is not not AI anymore to some
+
+453
+00:17:08,609 --> 00:17:11,609
+people so so the simple simple tasks are
+
+454
+00:17:11,609 --> 00:17:13,470
+spell checking keyword search which is
+
+455
+00:17:13,470 --> 00:17:15,449
+what most search engines had worked on
+
+456
+00:17:15,449 --> 00:17:17,369
+in the past but now actually a lot of
+
+457
+00:17:17,369 --> 00:17:19,109
+them are moving closer and closer to
+
+458
+00:17:19,109 --> 00:17:21,660
+semantic analysis and harder tasks or
+
+459
+00:17:21,660 --> 00:17:24,000
+finding synonyms just setting up and you
+
+460
+00:17:24,000 --> 00:17:26,040
+know learning a thesaurus is a useful
+
+461
+00:17:26,040 --> 00:17:28,980
+task and helps people in in their
+
+462
+00:17:28,980 --> 00:17:32,549
+day-to-day lives next are sort of some
+
+463
+00:17:32,549 --> 00:17:34,710
+slightly more complex problems and many
+
+464
+00:17:34,710 --> 00:17:36,510
+of those will actually tackle in the
+
+465
+00:17:36,510 --> 00:17:38,520
+class and you'll be able to come up with
+
+466
+00:17:38,520 --> 00:17:40,260
+models or learn about models that can
+
+467
+00:17:40,260 --> 00:17:42,690
+solve many of those in that with the
+
+468
+00:17:42,690 --> 00:17:44,610
+same kind of model so we could for
+
+469
+00:17:44,610 --> 00:17:46,500
+instance try to extract specific types
+
+470
+00:17:46,500 --> 00:17:49,020
+of information from literature but also
+
+471
+00:17:49,020 --> 00:17:51,419
+from websites so you might want to find
+
+472
+00:17:51,419 --> 00:17:54,419
+all the prices of a product from some
+
+473
+00:17:54,419 --> 00:17:56,370
+free text or you might want to find the
+
+474
+00:17:56,370 --> 00:17:58,260
+dates and locations or people names or
+
+475
+00:17:58,260 --> 00:17:59,760
+company names in a large document
+
+476
+00:17:59,760 --> 00:18:02,160
+imagine you want to understand novel and
+
+477
+00:18:02,160 --> 00:18:04,020
+you want to find an algorithm that
+
+478
+00:18:04,020 --> 00:18:05,610
+creates a social network just from
+
+479
+00:18:05,610 --> 00:18:08,490
+reading a novel that is something that
+
+480
+00:18:08,490 --> 00:18:09,809
+you could do once you find all the
+
+481
+00:18:09,809 --> 00:18:11,760
+people and how close the people's names
+
+482
+00:18:11,760 --> 00:18:13,890
+are to each other
+
+483
+00:18:13,890 --> 00:18:16,350
+you can also classify text into really
+
+484
+00:18:16,350 --> 00:18:17,940
+anything and this is one of the very
+
+485
+00:18:17,940 --> 00:18:20,610
+sort of simple but also powerful ideas
+
+486
+00:18:20,610 --> 00:18:22,500
+if you have any kind of text and any
+
+487
+00:18:22,500 --> 00:18:24,000
+kind of label you can associate it with
+
+488
+00:18:24,000 --> 00:18:26,980
+it as long as people are able to
+
+489
+00:18:26,980 --> 00:18:29,110
+assign that label consistently you'll
+
+490
+00:18:29,110 --> 00:18:30,940
+probably be able to train an algorithm
+
+491
+00:18:30,940 --> 00:18:32,470
+to assign that label consistently as
+
+492
+00:18:32,470 --> 00:18:34,240
+well and that sounds kind of abstract
+
+493
+00:18:34,240 --> 00:18:35,980
+and boring until you realize oh boy
+
+494
+00:18:35,980 --> 00:18:37,330
+there are lots of interesting labels
+
+495
+00:18:37,330 --> 00:18:40,090
+that you can assign to a body of text
+
+496
+00:18:40,090 --> 00:18:42,340
+that could be you know reading levels of
+
+497
+00:18:42,340 --> 00:18:44,230
+school texts or it could be positive
+
+498
+00:18:44,230 --> 00:18:46,480
+negative sentiment of longer documents
+
+499
+00:18:46,480 --> 00:18:49,000
+and that might allow you to trade in a
+
+500
+00:18:49,000 --> 00:18:51,880
+automatic algorithmic trading algorithm
+
+501
+00:18:51,880 --> 00:18:54,340
+which is immensely useful for some
+
+502
+00:18:54,340 --> 00:18:56,140
+people and has some other problems and
+
+503
+00:18:56,140 --> 00:18:58,660
+then you come to the very very hard
+
+504
+00:18:58,660 --> 00:19:00,730
+tasks of machine translation where again
+
+505
+00:19:00,730 --> 00:19:02,620
+you kind of need to have a lot of world
+
+506
+00:19:02,620 --> 00:19:04,210
+knowledge linguistic knowledge
+
+507
+00:19:04,210 --> 00:19:05,950
+situational knowledge you need to keep
+
+508
+00:19:05,950 --> 00:19:07,990
+track of what has been said before and
+
+509
+00:19:07,990 --> 00:19:10,840
+so on so those are very hard tasks
+
+510
+00:19:10,840 --> 00:19:12,670
+similarly spoken dialogue systems or
+
+511
+00:19:12,670 --> 00:19:14,470
+real question answering where you don't
+
+512
+00:19:14,470 --> 00:19:16,810
+just do a search and then you find a
+
+513
+00:19:16,810 --> 00:19:19,030
+website that has the answer in it but
+
+514
+00:19:19,030 --> 00:19:21,100
+you actually get the answer so so those
+
+515
+00:19:21,100 --> 00:19:22,960
+are some super hard and you'll p
+
+516
+00:19:22,960 --> 00:19:24,520
+applications and will actually scratch a
+
+517
+00:19:24,520 --> 00:19:27,610
+little bit on those as well
+
+518
+00:19:27,610 --> 00:19:30,700
+so I mentioned NLP is very useful in
+
+519
+00:19:30,700 --> 00:19:32,860
+industry as well so obviously we all
+
+520
+00:19:32,860 --> 00:19:34,030
+know search and that has you know
+
+521
+00:19:34,030 --> 00:19:36,370
+modified a lot of or changed a lot of
+
+522
+00:19:36,370 --> 00:19:38,980
+our lives and in very nice way so we can
+
+523
+00:19:38,980 --> 00:19:40,930
+find information very quickly can be
+
+524
+00:19:40,930 --> 00:19:43,330
+written or spoken online advertisement
+
+525
+00:19:43,330 --> 00:19:45,790
+is also in some ways originally a very
+
+526
+00:19:45,790 --> 00:19:47,380
+simple tasks you just find a certain
+
+527
+00:19:47,380 --> 00:19:47,770
+keyword
+
+528
+00:19:47,770 --> 00:19:49,870
+you put ads right next to that but if
+
+529
+00:19:49,870 --> 00:19:51,250
+you actually have a better understanding
+
+530
+00:19:51,250 --> 00:19:53,350
+and you realize oh there's some
+
+531
+00:19:53,350 --> 00:19:55,150
+sentiment associated with it and you you
+
+532
+00:19:55,150 --> 00:19:56,680
+know they're complaining about this so
+
+533
+00:19:56,680 --> 00:19:58,270
+maybe you don't want to put your ad
+
+534
+00:19:58,270 --> 00:20:00,190
+right next to the one in the text that
+
+535
+00:20:00,190 --> 00:20:01,660
+says oh this product actually is really
+
+536
+00:20:01,660 --> 00:20:04,000
+bad because you know it's wasted money
+
+537
+00:20:04,000 --> 00:20:07,240
+to put the ad there you have automated
+
+538
+00:20:07,240 --> 00:20:09,310
+and I usually say assisted translation
+
+539
+00:20:09,310 --> 00:20:11,200
+if you have fully automated translation
+
+540
+00:20:11,200 --> 00:20:13,210
+you might get a hair salon that is
+
+541
+00:20:13,210 --> 00:20:14,980
+called could not connect to the
+
+542
+00:20:14,980 --> 00:20:17,470
+translator service so and that is a
+
+543
+00:20:17,470 --> 00:20:19,900
+particularly bad example but in other
+
+544
+00:20:19,900 --> 00:20:23,560
+cases you oftentimes the translation is
+
+545
+00:20:23,560 --> 00:20:25,600
+really raw it doesn't quite get the
+
+546
+00:20:25,600 --> 00:20:27,490
+subtleties so for instance if you
+
+547
+00:20:27,490 --> 00:20:30,640
+translate they were all pregnant into
+
+548
+00:20:30,640 --> 00:20:33,250
+French now in French there's a different
+
+549
+00:20:33,250 --> 00:20:35,950
+day for all male and all female or mixed
+
+550
+00:20:35,950 --> 00:20:38,350
+and so if you now say the male because
+
+551
+00:20:38,350 --> 00:20:40,310
+males are unfortunately still much more
+
+552
+00:20:40,310 --> 00:20:42,230
+in text so the algorithm will air and
+
+553
+00:20:42,230 --> 00:20:44,960
+decide of using the mail they in French
+
+554
+00:20:44,960 --> 00:20:46,490
+you'll say all those males were pregnant
+
+555
+00:20:46,490 --> 00:20:48,620
+and you know that doesn't work so it's
+
+556
+00:20:48,620 --> 00:20:50,570
+still in many cases just assisted
+
+557
+00:20:50,570 --> 00:20:52,810
+translation and not fully automated
+
+558
+00:20:52,810 --> 00:20:55,670
+similar the sentiment analysis is
+
+559
+00:20:55,670 --> 00:20:57,350
+getting better and better also partly
+
+560
+00:20:57,350 --> 00:20:59,510
+things to keep learning but it also has
+
+561
+00:20:59,510 --> 00:21:01,970
+its problems so here is an interesting
+
+562
+00:21:01,970 --> 00:21:04,760
+example from a couple of years ago where
+
+563
+00:21:04,760 --> 00:21:06,650
+Anne Hathaway starred in a movie and
+
+564
+00:21:06,650 --> 00:21:08,660
+then the movie reviews came out and they
+
+565
+00:21:08,660 --> 00:21:09,530
+were very positive
+
+566
+00:21:09,530 --> 00:21:11,690
+she acted really great and so on and
+
+567
+00:21:11,690 --> 00:21:13,250
+then immediately the stocks for the
+
+568
+00:21:13,250 --> 00:21:17,690
+company Berkshire Hathaway rose and so
+
+569
+00:21:17,690 --> 00:21:19,700
+you might think wow it's crazy they
+
+570
+00:21:19,700 --> 00:21:21,020
+really they start you're doing
+
+571
+00:21:21,020 --> 00:21:22,790
+algorithmic trading with these kinds of
+
+572
+00:21:22,790 --> 00:21:24,650
+algorithms and honestly if they had used
+
+573
+00:21:24,650 --> 00:21:26,630
+deep learning and had you know a little
+
+574
+00:21:26,630 --> 00:21:27,770
+bit better sense of entity
+
+575
+00:21:27,770 --> 00:21:30,140
+disambiguation they may have made a lot
+
+576
+00:21:30,140 --> 00:21:32,780
+more money and then speech recognition
+
+577
+00:21:32,780 --> 00:21:35,540
+is another task that can be seen as its
+
+578
+00:21:35,540 --> 00:21:37,280
+own sort of application in industry but
+
+579
+00:21:37,280 --> 00:21:38,630
+really it's connected to a lot of other
+
+580
+00:21:38,630 --> 00:21:43,000
+ones so translation and search and so on
+
+581
+00:21:43,000 --> 00:21:46,760
+so let's have one very very
+
+582
+00:21:46,760 --> 00:21:49,580
+oversimplified slide on why natural
+
+583
+00:21:49,580 --> 00:21:51,980
+language processing is actually hard so
+
+584
+00:21:51,980 --> 00:21:54,350
+I kind of alluded to this before but
+
+585
+00:21:54,350 --> 00:21:55,670
+there's really a huge amount of
+
+586
+00:21:55,670 --> 00:21:58,670
+complexity in representing and learning
+
+587
+00:21:58,670 --> 00:22:00,980
+automatically a lot of different types
+
+588
+00:22:00,980 --> 00:22:02,540
+of knowledge so we have linguistic
+
+589
+00:22:02,540 --> 00:22:04,790
+knowledge we know what grammar you know
+
+590
+00:22:04,790 --> 00:22:07,490
+what kinds of sentences give us you know
+
+591
+00:22:07,490 --> 00:22:09,230
+what kind of sentences are correct or
+
+592
+00:22:09,230 --> 00:22:09,380
+not
+
+593
+00:22:09,380 --> 00:22:11,300
+we have situational knowledge I know
+
+594
+00:22:11,300 --> 00:22:12,740
+that there are certain things I can say
+
+595
+00:22:12,740 --> 00:22:15,010
+in certain situations and not in others
+
+596
+00:22:15,010 --> 00:22:19,100
+we have a lot of world knowledge visual
+
+597
+00:22:19,100 --> 00:22:20,930
+knowledge that we might be referring to
+
+598
+00:22:20,930 --> 00:22:22,400
+and so on
+
+599
+00:22:22,400 --> 00:22:24,470
+so that is that is one of the examples
+
+600
+00:22:24,470 --> 00:22:25,940
+so here for instance let's let's assume
+
+601
+00:22:25,940 --> 00:22:28,100
+we try to build an algorithm that
+
+602
+00:22:28,100 --> 00:22:30,680
+understands who she is
+
+603
+00:22:30,680 --> 00:22:32,600
+in this sentence right here so this ends
+
+604
+00:22:32,600 --> 00:22:37,220
+this Jane hit June and then she fell so
+
+605
+00:22:37,220 --> 00:22:40,090
+now who is she
+
+606
+00:22:40,090 --> 00:22:45,620
+right well wait OOP June exactly and
+
+607
+00:22:45,620 --> 00:22:48,020
+then but now it's the sentences Jane had
+
+608
+00:22:48,020 --> 00:22:50,870
+June and then she ran so now you know
+
+609
+00:22:50,870 --> 00:22:52,580
+it's actually almost ambiguous ambiguous
+
+610
+00:22:52,580 --> 00:22:54,680
+again because it could be well you got
+
+611
+00:22:54,680 --> 00:22:56,000
+hidden and you want to run away or you
+
+612
+00:22:56,000 --> 00:22:57,320
+hit somebody and then you ran away so
+
+613
+00:22:57,320 --> 00:22:59,210
+again there's almost situational
+
+614
+00:22:59,210 --> 00:23:01,070
+knowledge but here you know it's more
+
+615
+00:23:01,070 --> 00:23:03,350
+likely to be Jane than June and it's in
+
+616
+00:23:03,350 --> 00:23:05,180
+some sense it's probabilistic but in the
+
+617
+00:23:05,180 --> 00:23:07,910
+first case it's very clear that it was
+
+618
+00:23:07,910 --> 00:23:10,880
+June and so being like how do we now
+
+619
+00:23:10,880 --> 00:23:13,610
+represent those that fact that we just
+
+620
+00:23:13,610 --> 00:23:15,650
+you know for us is very intuitive who
+
+621
+00:23:15,650 --> 00:23:17,900
+she is depending on on the verb how do
+
+622
+00:23:17,900 --> 00:23:19,940
+we instill that in an algorithm and that
+
+623
+00:23:19,940 --> 00:23:22,040
+will be one of the big questions and
+
+624
+00:23:22,040 --> 00:23:23,720
+we'll provide one so you should know
+
+625
+00:23:23,720 --> 00:23:25,340
+deep learning and it's not the only one
+
+626
+00:23:25,340 --> 00:23:26,870
+but it's actually one that that I think
+
+627
+00:23:26,870 --> 00:23:28,850
+moving forward is going to be very
+
+628
+00:23:28,850 --> 00:23:31,880
+powerful so so that is that is the first
+
+629
+00:23:31,880 --> 00:23:34,670
+large problem and then the second one is
+
+630
+00:23:34,670 --> 00:23:36,950
+ambiguity so here we have a sentence I
+
+631
+00:23:36,950 --> 00:23:41,510
+made her duck so who here has you know
+
+632
+00:23:41,510 --> 00:23:43,220
+an interpretation of what that could
+
+633
+00:23:43,220 --> 00:23:49,250
+mean rephrased yes exactly I made her a
+
+634
+00:23:49,250 --> 00:23:54,970
+duck and it tasted very good you know
+
+635
+00:23:55,950 --> 00:23:57,990
+exactly maybe in the end you have a
+
+636
+00:23:57,990 --> 00:24:00,120
+wooden duck or something so you made her
+
+637
+00:24:00,120 --> 00:24:05,750
+you carved one for her yeah exactly
+
+638
+00:24:05,750 --> 00:24:10,440
+like that and there's one there's a
+
+639
+00:24:10,440 --> 00:24:17,090
+fourth one dead uh yes
+
+640
+00:24:17,240 --> 00:24:20,480
+you what
+
+641
+00:24:22,860 --> 00:24:25,540
+like a master plan
+
+642
+00:24:25,540 --> 00:24:28,700
+interesting all right I did not think of
+
+643
+00:24:28,700 --> 00:24:30,830
+that one before there's one that s
+
+644
+00:24:30,830 --> 00:24:33,290
+actually very similar to the first one
+
+645
+00:24:33,290 --> 00:24:34,790
+which is you know I cook the duck for
+
+646
+00:24:34,790 --> 00:24:37,040
+her which could be I cooked the duck
+
+647
+00:24:37,040 --> 00:24:40,220
+that she owned so I actually made her
+
+648
+00:24:40,220 --> 00:24:41,990
+duck and not you know my other friends
+
+649
+00:24:41,990 --> 00:24:46,340
+stuff so lots of ambiguity right and you
+
+650
+00:24:46,340 --> 00:24:49,220
+can probably think of even more 
+
+
+
+
+
+
+all
+
+651
+00:24:49,220 --> 00:24:52,790
+right so that leads us maybe to deep
+
+652
+00:24:52,790 --> 00:24:55,040
+learning though there are some problems
+
+653
+00:24:55,040 --> 00:24:56,780
+here that I brought up that I don't know
+
+654
+00:24:56,780 --> 00:24:58,840
+if deep learning can solve it either yet
+
+655
+00:24:58,840 --> 00:25:01,160
+basically what is deep learning
+
+656
+00:25:01,160 --> 00:25:03,679
+it's a subfield of machine learning
+
+657
+00:25:03,679 --> 00:25:05,960
+hence the prerequisite of 2:29 being
+
+658
+00:25:05,960 --> 00:25:09,290
+very useful and to really appreciate the
+
+659
+00:25:09,290 --> 00:25:11,270
+difference between traditional machine
+
+660
+00:25:11,270 --> 00:25:12,830
+learning and deep learning we have to
+
+661
+00:25:12,830 --> 00:25:14,990
+kind of look at how does you know how
+
+662
+00:25:14,990 --> 00:25:16,610
+does traditional machine learning solve
+
+663
+00:25:16,610 --> 00:25:19,400
+some really hard tasks so let's take the
+
+664
+00:25:19,400 --> 00:25:21,650
+well semi-hard task of finding named
+
+665
+00:25:21,650 --> 00:25:26,090
+entities just identifying that you know
+
+666
+00:25:26,090 --> 00:25:27,950
+like Anne Hathaway is a person and
+
+667
+00:25:27,950 --> 00:25:29,510
+Berkshire Hathaway is a company for
+
+668
+00:25:29,510 --> 00:25:32,720
+instance we can look at traditional
+
+669
+00:25:32,720 --> 00:25:34,820
+systems that use for instance graphical
+
+670
+00:25:34,820 --> 00:25:36,230
+models like conditional random fields
+
+671
+00:25:36,230 --> 00:25:38,360
+and see how they actually solved that
+
+672
+00:25:38,360 --> 00:25:41,000
+task and what we observe then is that
+
+673
+00:25:41,000 --> 00:25:43,309
+really once you dig into it and you try
+
+674
+00:25:43,309 --> 00:25:44,870
+to improve the system or try to really
+
+675
+00:25:44,870 --> 00:25:46,910
+understand how it works you find that
+
+676
+00:25:46,910 --> 00:25:49,400
+the most important aspect of that isn't
+
+677
+00:25:49,400 --> 00:25:51,230
+the conditional random field that gives
+
+678
+00:25:51,230 --> 00:25:52,940
+you a sequence model on top it's really
+
+679
+00:25:52,940 --> 00:25:56,120
+the features that represent the decision
+
+680
+00:25:56,120 --> 00:25:57,920
+that represent sort of the input that we
+
+681
+00:25:57,920 --> 00:26:00,559
+give to a machine learning algorithm so
+
+682
+00:26:00,559 --> 00:26:02,870
+for named entity recognition for
+
+683
+00:26:02,870 --> 00:26:04,880
+instance we will look at the current
+
+684
+00:26:04,880 --> 00:26:06,440
+word the previous word in the next word
+
+685
+00:26:06,440 --> 00:26:09,080
+those are fairly straightforward and
+
+686
+00:26:09,080 --> 00:26:11,090
+then we might also look at character
+
+687
+00:26:11,090 --> 00:26:13,400
+engrams so you know if it's duck then
+
+688
+00:26:13,400 --> 00:26:16,160
+it's D you see you see K and and things
+
+689
+00:26:16,160 --> 00:26:18,170
+like that so character trigrams or by
+
+690
+00:26:18,170 --> 00:26:18,650
+Graham's
+
+691
+00:26:18,650 --> 00:26:21,650
+which just happens to be after a PhD
+
+692
+00:26:21,650 --> 00:26:23,270
+student looked at you know these kinds
+
+693
+00:26:23,270 --> 00:26:25,400
+of errors long enough found that that is
+
+694
+00:26:25,400 --> 00:26:26,630
+a useful feature that ran some
+
+695
+00:26:26,630 --> 00:26:27,860
+experiments that helped under
+
+696
+00:26:27,860 --> 00:26:30,380
+development set and so on you might want
+
+697
+00:26:30,380 --> 00:26:32,690
+to run a POS tagger so a part of speech
+
+698
+00:26:32,690 --> 00:26:34,070
+tagger that now it's a completely
+
+699
+00:26:34,070 --> 00:26:36,770
+separate system but you know oh you know
+
+700
+00:26:36,770 --> 00:26:38,940
+oftentimes named entities are nouns
+
+701
+00:26:38,940 --> 00:26:41,099
+so it clearly helps to have part of
+
+702
+00:26:41,099 --> 00:26:43,200
+speech so now you basically ran a
+
+703
+00:26:43,200 --> 00:26:44,820
+different machine learning system that
+
+704
+00:26:44,820 --> 00:26:47,070
+is also a sequence tagger on the whole
+
+705
+00:26:47,070 --> 00:26:48,869
+document and said alright this is a noun
+
+706
+00:26:48,869 --> 00:26:51,299
+as an adjective and so on so you know
+
+707
+00:26:51,299 --> 00:26:53,429
+not not ideal if you have to build now a
+
+708
+00:26:53,429 --> 00:26:55,769
+pipeline system that runs one system and
+
+709
+00:26:55,769 --> 00:26:57,419
+that first system is not modified by
+
+710
+00:26:57,419 --> 00:26:59,970
+what you want to do afterwards you might
+
+711
+00:26:59,970 --> 00:27:01,549
+look at the surrounding part of speech
+
+712
+00:27:01,549 --> 00:27:05,159
+sequences the word shape of the actual
+
+713
+00:27:05,159 --> 00:27:06,629
+word in question what is word shape it
+
+714
+00:27:06,629 --> 00:27:07,950
+basically tells you the capitalization
+
+715
+00:27:07,950 --> 00:27:10,049
+is the word all caps or just the first
+
+716
+00:27:10,049 --> 00:27:11,940
+letter or is it your daughter no
+
+717
+00:27:11,940 --> 00:27:14,190
+capitalized letters in the word and so
+
+718
+00:27:14,190 --> 00:27:15,869
+on and like I could go on so these are
+
+719
+00:27:15,869 --> 00:27:17,460
+just a subset of all the features that
+
+720
+00:27:17,460 --> 00:27:20,190
+in the end are in a system that now does
+
+721
+00:27:20,190 --> 00:27:22,519
+sort of professional state-of-the-art
+
+722
+00:27:22,519 --> 00:27:27,059
+level named entity recognition and so in
+
+723
+00:27:27,059 --> 00:27:29,190
+this kind of setting machine learning we
+
+724
+00:27:29,190 --> 00:27:32,009
+just becomes sort of it's reduced to
+
+725
+00:27:32,009 --> 00:27:34,049
+just optimizing the weights to make a
+
+726
+00:27:34,049 --> 00:27:35,940
+final prediction and the weights are oh
+
+727
+00:27:35,940 --> 00:27:38,369
+I think and you know this with this kind
+
+728
+00:27:38,369 --> 00:27:40,859
+of word shape all caps letters and the
+
+729
+00:27:40,859 --> 00:27:43,739
+next word being you know half the way or
+
+730
+00:27:43,739 --> 00:27:46,739
+something then this is the right this is
+
+731
+00:27:46,739 --> 00:27:50,970
+probably this kind of named entity so
+
+732
+00:27:50,970 --> 00:27:55,080
+really yeah this is kind of this is all
+
+733
+00:27:55,080 --> 00:27:56,399
+that machine learning does in that case
+
+734
+00:27:56,399 --> 00:27:58,440
+it has all these weights and it finds it
+
+735
+00:27:58,440 --> 00:28:00,570
+tries to optimize you know how important
+
+736
+00:28:00,570 --> 00:28:02,129
+is this feature in correlation in
+
+737
+00:28:02,129 --> 00:28:04,019
+connection with this feature and so on
+
+
+
+
+
+
+
+
+
+
+
+738
+00:28:04,019 --> 00:28:06,419
+so really when we look at machine
+
+739
+00:28:06,419 --> 00:28:08,849
+learning in practice we have these two
+
+740
+00:28:08,849 --> 00:28:12,090
+types we you know these two subtasks
+
+741
+00:28:12,090 --> 00:28:14,429
+which is first describe your data with
+
+742
+00:28:14,429 --> 00:28:16,019
+features that a computer can understand
+
+743
+00:28:16,019 --> 00:28:18,090
+you know a computer doesn't understand
+
+744
+00:28:18,090 --> 00:28:19,619
+that oh because she fell and she could
+
+745
+00:28:19,619 --> 00:28:21,450
+run away you know like and so on like
+
+746
+00:28:21,450 --> 00:28:22,529
+they don't have that knowledge we have
+
+747
+00:28:22,529 --> 00:28:24,059
+to somewhere somehow give it to them and
+
+748
+00:28:24,059 --> 00:28:26,549
+once we distilled all that then we give
+
+749
+00:28:26,549 --> 00:28:27,809
+it to our learning algorithm that just
+
+750
+00:28:27,809 --> 00:28:30,029
+computes the weights so really when we
+
+751
+00:28:30,029 --> 00:28:32,239
+talk about artificial intelligence and
+
+752
+00:28:32,239 --> 00:28:35,639
+for a very long time in the past it was
+
+753
+00:28:35,639 --> 00:28:37,739
+more human intelligence of PhD students
+
+754
+00:28:37,739 --> 00:28:40,019
+learning how to describe the features
+
+755
+00:28:40,019 --> 00:28:42,239
+how to describe these different tasks
+
+756
+00:28:42,239 --> 00:28:44,549
+and different problems and in the end
+
+757
+00:28:44,549 --> 00:28:46,739
+the learning algorithm was actually you
+
+758
+00:28:46,739 --> 00:28:49,349
+know just optimizing the weights so that
+
+759
+00:28:49,349 --> 00:28:51,340
+has in some ways you know
+
+760
+00:28:51,340 --> 00:28:52,960
+allowed us to make progress because it's
+
+761
+00:28:52,960 --> 00:28:55,030
+very hard to represent everything but
+
+762
+00:28:55,030 --> 00:28:57,100
+it's also what deep learning is trying
+
+763
+00:28:57,100 --> 00:29:00,280
+to overcome and in some ways deprecated
+
+764
+00:29:00,280 --> 00:29:01,990
+in a sense that the learning tries to do
+
+765
+00:29:01,990 --> 00:29:04,300
+the entire process so you just give it
+
+766
+00:29:04,300 --> 00:29:06,790
+raw input it learns what how to
+
+767
+00:29:06,790 --> 00:29:08,680
+represent that input and then it makes
+
+768
+00:29:08,680 --> 00:29:11,950
+also a final output so on a very high
+
+769
+00:29:11,950 --> 00:29:14,260
+level what does that look like and no
+
+770
+00:29:14,260 --> 00:29:16,300
+worries if you don't yet understand what
+
+771
+00:29:16,300 --> 00:29:18,340
+all these kinds of figures mean we'll
+
+772
+00:29:18,340 --> 00:29:20,260
+really very carefully and very slowly go
+
+773
+00:29:20,260 --> 00:29:23,320
+through those in the lecture not this
+
+774
+00:29:23,320 --> 00:29:24,460
+extra but you know throughout the
+
+775
+00:29:24,460 --> 00:29:26,770
+quarter so basically the idea of deep
+
+776
+00:29:26,770 --> 00:29:28,240
+learning is to do representation
+
+777
+00:29:28,240 --> 00:29:30,460
+learning when basically attempt to
+
+778
+00:29:30,460 --> 00:29:32,590
+automatically learn good features or
+
+779
+00:29:32,590 --> 00:29:34,510
+representations like the ones I just
+
+780
+00:29:34,510 --> 00:29:36,780
+mentioned for a named entity recognition
+
+781
+00:29:36,780 --> 00:29:39,490
+learning algorithms essentially attempt
+
+782
+00:29:39,490 --> 00:29:41,770
+to learn multiple levels of these kinds
+
+783
+00:29:41,770 --> 00:29:43,510
+of representations so you start with
+
+784
+00:29:43,510 --> 00:29:45,430
+ideally as raw of an input as possible
+
+785
+00:29:45,430 --> 00:29:47,560
+so just words for instance in the case
+
+786
+00:29:47,560 --> 00:29:49,600
+of natural language processing or and
+
+787
+00:29:49,600 --> 00:29:50,890
+that's kind of one of the fascinating
+
+788
+00:29:50,890 --> 00:29:52,780
+things in the case of computer vision a
+
+789
+00:29:52,780 --> 00:29:54,430
+lot of the same techniques that we'll
+
+790
+00:29:54,430 --> 00:29:56,290
+cover in this class actually also work
+
+791
+00:29:56,290 --> 00:29:58,150
+for computer vision and so there it
+
+792
+00:29:58,150 --> 00:29:59,920
+would be just the raw pixels so either
+
+793
+00:29:59,920 --> 00:30:02,740
+pixels or words or you know raw speech
+
+794
+00:30:02,740 --> 00:30:05,950
+signals and you give those and then you
+
+795
+00:30:05,950 --> 00:30:07,930
+piped them through a so called neural
+
+796
+00:30:07,930 --> 00:30:09,250
+network or a deep learning architecture
+
+797
+00:30:09,250 --> 00:30:12,670
+a model and in the end you get some
+
+798
+00:30:12,670 --> 00:30:15,960
+output in this case here the last layer
+
+799
+00:30:15,960 --> 00:30:18,970
+so because this lecture is recorded in
+
+800
+00:30:18,970 --> 00:30:20,830
+there lots of people online who will
+
+801
+00:30:20,830 --> 00:30:22,180
+probably say oh but you didn't mention
+
+802
+00:30:22,180 --> 00:30:24,460
+you know this person and this person's
+
+803
+00:30:24,460 --> 00:30:26,770
+you know impact on the field from from
+
+804
+00:30:26,770 --> 00:30:28,480
+twenty years ago I want to have one
+
+805
+00:30:28,480 --> 00:30:30,430
+slide on a little bit of the history of
+
+806
+00:30:30,430 --> 00:30:32,560
+the term and again it's grossly
+
+807
+00:30:32,560 --> 00:30:34,360
+oversimplified history here we could
+
+808
+00:30:34,360 --> 00:30:36,030
+have an entire history on deep learning
+
+809
+00:30:36,030 --> 00:30:40,630
+class so basically what we'll focus on
+
+810
+00:30:40,630 --> 00:30:43,200
+are different kinds of neural networks
+
+811
+00:30:43,200 --> 00:30:45,550
+neural networks you know are only one
+
+812
+00:30:45,550 --> 00:30:47,050
+type of deep learning there are actually
+
+813
+00:30:47,050 --> 00:30:50,200
+other probabilistic graphical models but
+
+814
+00:30:50,200 --> 00:30:51,910
+recently and especially for natural
+
+815
+00:30:51,910 --> 00:30:53,290
+language processing and neural networks
+
+816
+00:30:53,290 --> 00:30:55,210
+are the kinds of models that actually
+
+817
+00:30:55,210 --> 00:30:57,850
+work a lot better and they're faster to
+
+818
+00:30:57,850 --> 00:31:00,260
+train and and simpler to analyze
+
+819
+00:31:00,260 --> 00:31:03,090
+basically yeah it's become the de-facto
+
+820
+00:31:03,090 --> 00:31:06,390
+dominant model family inside the field
+
+821
+00:31:06,390 --> 00:31:09,630
+of deep learning you could be snarky and
+
+822
+00:31:09,630 --> 00:31:11,670
+say well really neural networks and deep
+
+823
+00:31:11,670 --> 00:31:13,020
+learning are just clever sort of
+
+824
+00:31:13,020 --> 00:31:15,360
+marketing terminology for what is
+
+825
+00:31:15,360 --> 00:31:17,280
+essentially stacked logistic regression
+
+826
+00:31:17,280 --> 00:31:19,320
+units so if you're familiar of logistic
+
+827
+00:31:19,320 --> 00:31:22,710
+regression in some way we could abstract
+
+828
+00:31:22,710 --> 00:31:24,210
+this entire class as just saying we put
+
+829
+00:31:24,210 --> 00:31:27,420
+a lot of logistic issues together so on
+
+830
+00:31:27,420 --> 00:31:29,280
+the other hand you know so this is
+
+831
+00:31:29,280 --> 00:31:31,500
+somewhat true but at the same time there
+
+832
+00:31:31,500 --> 00:31:32,850
+are a lot of interesting modeling
+
+833
+00:31:32,850 --> 00:31:34,890
+principles that come up when we try to
+
+834
+00:31:34,890 --> 00:31:36,330
+say oh we're learning the features we
+
+835
+00:31:36,330 --> 00:31:38,610
+try to transform our inputs we try to
+
+836
+00:31:38,610 --> 00:31:41,070
+understand how words compose and so on
+
+837
+00:31:41,070 --> 00:31:43,230
+and there are actually in some cases
+
+838
+00:31:43,230 --> 00:31:45,060
+interesting connections to neuroscience
+
+839
+00:31:45,060 --> 00:31:48,420
+especially in the visual case that we
+
+840
+00:31:48,420 --> 00:31:51,540
+don't cover very much so for NLP I will
+
+841
+00:31:51,540 --> 00:31:52,950
+personally stay away from making any
+
+842
+00:31:52,950 --> 00:31:54,720
+analogies to the brain I'm not a
+
+843
+00:31:54,720 --> 00:31:56,190
+neuroscientist that there are some
+
+844
+00:31:56,190 --> 00:32:00,240
+people actually in it Stanford - who do
+
+845
+00:32:00,240 --> 00:32:01,980
+think that there are very interesting
+
+846
+00:32:01,980 --> 00:32:05,340
+and important connections between deep
+
+847
+00:32:05,340 --> 00:32:07,410
+learning and neuroscience for us it will
+
+848
+00:32:07,410 --> 00:32:10,410
+be functions that we optimize and I'll
+
+849
+00:32:10,410 --> 00:32:11,070
+yeah
+
+850
+00:32:11,070 --> 00:32:14,010
+no no brain analogies for me moving
+
+851
+00:32:14,010 --> 00:32:17,700
+forward also and this is sort of just
+
+852
+00:32:17,700 --> 00:32:20,730
+yeah disclaimer I will not be taking a
+
+853
+00:32:20,730 --> 00:32:22,590
+historical approach here there are a lot
+
+854
+00:32:22,590 --> 00:32:24,210
+of techniques that have been invented in
+
+855
+00:32:24,210 --> 00:32:25,860
+the past and then have been somewhat
+
+856
+00:32:25,860 --> 00:32:27,870
+superseded and instead I will try to
+
+857
+00:32:27,870 --> 00:32:29,730
+just teach you the stuff that really
+
+858
+00:32:29,730 --> 00:32:32,460
+works well right now and in some cases I
+
+859
+00:32:32,460 --> 00:32:33,660
+mentioned that you know there's a
+
+860
+00:32:33,660 --> 00:32:35,640
+progression of ideas here and I will
+
+861
+00:32:35,640 --> 00:32:37,110
+point you to the papers that you know
+
+862
+00:32:37,110 --> 00:32:38,850
+you're definitely welcome to read but
+
+863
+00:32:38,850 --> 00:32:41,520
+we'll try to you know make it keep it as
+
+864
+00:32:41,520 --> 00:32:44,970
+current as possible if you're interested
+
+865
+00:32:44,970 --> 00:32:46,230
+in the history of deep learning there's
+
+866
+00:32:46,230 --> 00:32:47,970
+a great paper by your new youtuber and
+
+867
+00:32:47,970 --> 00:32:49,560
+keep learning in real networks and
+
+868
+00:32:49,560 --> 00:32:52,890
+overview so I'll just refer to that all
+
+869
+00:32:52,890 --> 00:32:56,250
+right so why why deep learning why do we
+
+870
+00:32:56,250 --> 00:32:58,470
+not use you know have a special class on
+
+871
+00:32:58,470 --> 00:32:59,970
+graphical models the natural language
+
+872
+00:32:59,970 --> 00:33:01,110
+processing which they're you know
+
+873
+00:33:01,110 --> 00:33:02,960
+there's a lot of work in that field to
+
+874
+00:33:02,960 --> 00:33:04,840
+basically
+
+875
+00:33:04,840 --> 00:33:08,140
+the manually designed features that are
+
+876
+00:33:08,140 --> 00:33:09,670
+often used in traditional machine
+
+877
+00:33:09,670 --> 00:33:11,710
+learning are often over specified
+
+878
+00:33:11,710 --> 00:33:14,230
+incomplete and take a long time to
+
+879
+00:33:14,230 --> 00:33:15,700
+design and validate right if you're a
+
+880
+00:33:15,700 --> 00:33:17,200
+PhD student you want to improve the
+
+881
+00:33:17,200 --> 00:33:19,510
+performance on your tasks in order to
+
+882
+00:33:19,510 --> 00:33:20,980
+publish a paper and improve you know
+
+883
+00:33:20,980 --> 00:33:24,070
+science and engineering you might have
+
+884
+00:33:24,070 --> 00:33:25,660
+to you know I have this idea you look at
+
+885
+00:33:25,660 --> 00:33:27,640
+your errors and then you you add another
+
+886
+00:33:27,640 --> 00:33:29,290
+extra feature to it and that's a very
+
+887
+00:33:29,290 --> 00:33:31,720
+slow process and in many cases and we'll
+
+888
+00:33:31,720 --> 00:33:34,000
+go through some examples it'll be you
+
+889
+00:33:34,000 --> 00:33:35,170
+know you've probably missed some things
+
+890
+00:33:35,170 --> 00:33:36,910
+because you can look at all the ways you
+
+891
+00:33:36,910 --> 00:33:38,560
+could possibly negate something all the
+
+892
+00:33:38,560 --> 00:33:41,980
+words that are possibly positive in the
+
+893
+00:33:41,980 --> 00:33:44,230
+world right now on the other hand the
+
+894
+00:33:44,230 --> 00:33:45,910
+features that will you will keep
+
+895
+00:33:45,910 --> 00:33:47,800
+learning our to keep learning algorithms
+
+896
+00:33:47,800 --> 00:33:48,940
+will cover in this class we'll be able
+
+897
+00:33:48,940 --> 00:33:51,160
+to learn are very easy to adapt you have
+
+898
+00:33:51,160 --> 00:33:53,080
+a different task just give that as an
+
+899
+00:33:53,080 --> 00:33:54,460
+input and all the intermediate
+
+900
+00:33:54,460 --> 00:33:56,050
+representations and features will be
+
+901
+00:33:56,050 --> 00:33:59,770
+learned so basically you've learning
+
+902
+00:33:59,770 --> 00:34:02,440
+will provide us also very flexible and I
+
+903
+00:34:02,440 --> 00:34:05,020
+would say almost universal or Universal
+
+904
+00:34:05,020 --> 00:34:06,820
+and learn about framework for
+
+905
+00:34:06,820 --> 00:34:08,440
+representing different kinds of
+
+906
+00:34:08,440 --> 00:34:09,668
+information or different kinds of
+
+907
+00:34:09,668 --> 00:34:11,440
+knowledge so I mentioned the world
+
+908
+00:34:11,440 --> 00:34:12,909
+knowledge there are ways we can
+
+909
+00:34:12,909 --> 00:34:15,790
+represent a bunch of facts in neural
+
+910
+00:34:15,790 --> 00:34:16,330
+networks
+
+911
+00:34:16,330 --> 00:34:18,639
+we'll have visual knowledge that you
+
+912
+00:34:18,639 --> 00:34:20,590
+know we can very easily connect to also
+
+913
+00:34:20,590 --> 00:34:22,870
+and as well as linguistic information
+
+914
+00:34:22,870 --> 00:34:26,020
+all right and what's also important is
+
+915
+00:34:26,020 --> 00:34:27,639
+we can do both unsupervised and
+
+916
+00:34:27,639 --> 00:34:29,918
+supervised learning so an unsupervised
+
+917
+00:34:29,918 --> 00:34:31,418
+learning we just give it a bunch of text
+
+918
+00:34:31,418 --> 00:34:33,040
+and it will actually learn how to
+
+919
+00:34:33,040 --> 00:34:35,230
+represent certain thing and actually be
+
+920
+00:34:35,230 --> 00:34:37,270
+able to extract information from just
+
+921
+00:34:37,270 --> 00:34:38,949
+you know all of Wikipedia without any
+
+922
+00:34:38,949 --> 00:34:41,290
+specific text at the same time I can say
+
+923
+00:34:41,290 --> 00:34:43,090
+this is a positive sentence find other
+
+924
+00:34:43,090 --> 00:34:44,889
+positive sentences and so it you know
+
+925
+00:34:44,889 --> 00:34:49,139
+that's also possible
+
+926
+00:34:49,219 --> 00:34:52,550
+a tiny historical approach to you know
+
+927
+00:34:52,550 --> 00:34:54,739
+what's relevant right now is you know in
+
+928
+00:34:54,739 --> 00:34:56,418
+many ways like I said deep learning
+
+929
+00:34:56,418 --> 00:34:58,940
+techniques go way back maybe starting in
+
+930
+00:34:58,940 --> 00:35:01,550
+the 60s and so you might ask well why
+
+931
+00:35:01,550 --> 00:35:02,300
+why now
+
+932
+00:35:02,300 --> 00:35:04,790
+why have we not had this class you know
+
+933
+00:35:04,790 --> 00:35:07,400
+ten years ago and so the the main reason
+
+934
+00:35:07,400 --> 00:35:10,100
+is that in 2006 these kinds of
+
+935
+00:35:10,100 --> 00:35:12,290
+techniques actually started to work so
+
+936
+00:35:12,290 --> 00:35:14,510
+they you know we're out there in theory
+
+937
+00:35:14,510 --> 00:35:16,010
+people had published papers on very
+
+938
+00:35:16,010 --> 00:35:17,840
+small data sets of like ten sentences
+
+939
+00:35:17,840 --> 00:35:19,160
+and they kind of had some interesting
+
+940
+00:35:19,160 --> 00:35:22,130
+patterns at least in the case of NLP but
+
+941
+00:35:22,130 --> 00:35:24,620
+really now after 2006 and then really
+
+942
+00:35:24,620 --> 00:35:26,750
+picking up in the last five years they
+
+943
+00:35:26,750 --> 00:35:28,730
+started to work incredibly well and
+
+944
+00:35:28,730 --> 00:35:30,860
+sometimes better than systems that
+
+945
+00:35:30,860 --> 00:35:33,050
+hundreds and thousands of researchers
+
+946
+00:35:33,050 --> 00:35:36,500
+have worked on before the three main
+
+947
+00:35:36,500 --> 00:35:38,510
+reasons for that is that deep learning
+
+948
+00:35:38,510 --> 00:35:40,670
+techniques benefit a lot from having
+
+949
+00:35:40,670 --> 00:35:43,790
+more data and something that if you're
+
+950
+00:35:43,790 --> 00:35:47,870
+still familiar with 2:29 you will
+
+951
+00:35:47,870 --> 00:35:49,580
+appreciate it imagine you had a
+
+952
+00:35:49,580 --> 00:35:53,050
+classification problem and you wanted to
+
+953
+00:35:53,050 --> 00:35:56,810
+classify any element from this class
+
+954
+00:35:56,810 --> 00:36:03,950
+versus elements from that class and now
+
+955
+00:36:03,950 --> 00:36:08,120
+if you had a very simple model a linear
+
+956
+00:36:08,120 --> 00:36:11,210
+model like logistic regression you could
+
+957
+00:36:11,210 --> 00:36:12,800
+only have you know you'd say everything
+
+958
+00:36:12,800 --> 00:36:19,820
+on this side is in class one and
+
+959
+00:36:19,820 --> 00:36:21,710
+everything on the other side is in class
+
+960
+00:36:21,710 --> 00:36:24,440
+two now deep learning will actually
+
+961
+00:36:24,440 --> 00:36:26,630
+allow us to learn much more complex
+
+962
+00:36:26,630 --> 00:36:28,730
+decision boundaries and no worries we'll
+
+963
+00:36:28,730 --> 00:36:29,840
+go through all of these things here in
+
+964
+00:36:29,840 --> 00:36:31,580
+detail but it might actually be able to
+
+965
+00:36:31,580 --> 00:36:34,400
+learn that this is potentially the
+
+966
+00:36:34,400 --> 00:36:37,340
+better decision boundary and if we have
+
+967
+00:36:37,340 --> 00:36:39,620
+a lot of data then this might actually
+
+968
+00:36:39,620 --> 00:36:42,620
+you know be a much better one that will
+
+969
+00:36:42,620 --> 00:36:45,440
+in the end generalize better so if you
+
+970
+00:36:45,440 --> 00:36:48,790
+now have an example here for instance
+
+971
+00:36:48,790 --> 00:36:51,350
+whereas the previous simple linear
+
+972
+00:36:51,350 --> 00:36:52,910
+decision boundary would have gotten that
+
+973
+00:36:52,910 --> 00:36:55,190
+not gotten that right a deep learning
+
+974
+00:36:55,190 --> 00:36:56,840
+model would have gotten gotten it right
+
+975
+00:36:56,840 --> 00:36:59,660
+so basically deep learning can benefit a
+
+976
+00:36:59,660 --> 00:37:00,660
+lot more from
+
+977
+00:37:00,660 --> 00:37:03,030
+more data it's a very powerful model
+
+978
+00:37:03,030 --> 00:37:04,230
+family
+
+979
+00:37:04,230 --> 00:37:06,000
+it'll also actually benefit a lot from
+
+980
+00:37:06,000 --> 00:37:09,450
+faster machines and CPUs and GPUs so
+
+981
+00:37:09,450 --> 00:37:11,940
+your graphics cards from gaming actually
+
+982
+00:37:11,940 --> 00:37:14,309
+has now transformed the company Nvidia
+
+983
+00:37:14,309 --> 00:37:16,109
+that used to build these mostly for
+
+984
+00:37:16,109 --> 00:37:17,609
+gaming and now they're really interested
+
+985
+00:37:17,609 --> 00:37:18,900
+in excited about deep learning deep
+
+986
+00:37:18,900 --> 00:37:21,240
+learning in the end will boil down to a
+
+987
+00:37:21,240 --> 00:37:23,039
+lot of matrix multiplications and it
+
+988
+00:37:23,039 --> 00:37:24,359
+turns out those can be very easily
+
+989
+00:37:24,359 --> 00:37:28,440
+paralyzed so again a big advantage and
+
+990
+00:37:28,440 --> 00:37:30,480
+also moving forward I think you know
+
+991
+00:37:30,480 --> 00:37:32,069
+there will be even more multi-core
+
+992
+00:37:32,069 --> 00:37:34,890
+processing systems so it'll benefit even
+
+993
+00:37:34,890 --> 00:37:37,170
+more and lastly and that is kind of the
+
+994
+00:37:37,170 --> 00:37:38,849
+most interesting part to me personally
+
+995
+00:37:38,849 --> 00:37:41,130
+and also the one that will cover most in
+
+996
+00:37:41,130 --> 00:37:42,450
+the classes there are actually a lot of
+
+997
+00:37:42,450 --> 00:37:44,940
+new models new optimization algorithms
+
+998
+00:37:44,940 --> 00:37:48,150
+and ideas that have you know come up in
+
+999
+00:37:48,150 --> 00:37:50,309
+the last couple of years are any
+
+1000
+00:37:50,309 --> 00:37:53,390
+questions so far
+
+1001
+00:37:57,260 --> 00:38:00,140
+all right I guess I'm either being very
+
+1002
+00:38:00,140 --> 00:38:03,620
+clear or everybody has a food coma all
+
+1003
+00:38:03,620 --> 00:38:06,740
+right so let's look at two of the
+
+1004
+00:38:06,740 --> 00:38:08,540
+breakthroughs of deep learning and how
+
+1005
+00:38:08,540 --> 00:38:10,790
+you know why why there was such a high
+
+1006
+00:38:10,790 --> 00:38:13,370
+impact so the first huge breakthrough
+
+1007
+00:38:13,370 --> 00:38:16,370
+result of deep learning came for large
+
+1008
+00:38:16,370 --> 00:38:18,410
+scale and large datasets speech
+
+1009
+00:38:18,410 --> 00:38:20,900
+recognition so where traditional
+
+1010
+00:38:20,900 --> 00:38:24,170
+features had got new specific word error
+
+1011
+00:38:24,170 --> 00:38:26,060
+rate in an acoustic model that basically
+
+1012
+00:38:26,060 --> 00:38:30,350
+is given some new acoustic features and
+
+1013
+00:38:30,350 --> 00:38:32,090
+tries to predict a phoneme or a word
+
+1014
+00:38:32,090 --> 00:38:36,050
+from that deep learning by somebody who
+
+1015
+00:38:36,050 --> 00:38:38,600
+wasn't traditionally an expert in speech
+
+1016
+00:38:38,600 --> 00:38:40,610
+recognition he had not done previous
+
+1017
+00:38:40,610 --> 00:38:42,680
+work actually a friend of mine George
+
+1018
+00:38:42,680 --> 00:38:46,130
+Dahl he was able to get a 33% reduction
+
+1019
+00:38:46,130 --> 00:38:48,800
+in error in terms of the word error rate
+
+1020
+00:38:48,800 --> 00:38:51,410
+compared to traditional human design
+
+1021
+00:38:51,410 --> 00:38:53,870
+features so every time you now speak
+
+1022
+00:38:53,870 --> 00:38:56,030
+into your phone your Android or your
+
+1023
+00:38:56,030 --> 00:38:58,100
+Microsoft phone or whatever or your
+
+1024
+00:38:58,100 --> 00:39:00,260
+iPhone there is a deep learning system
+
+1025
+00:39:00,260 --> 00:39:02,120
+behind that that will try to understand
+
+1026
+00:39:02,120 --> 00:39:04,310
+your speech
+
+1027
+00:39:04,310 --> 00:39:07,010
+the second huge breakthrough and we'll
+
+1028
+00:39:07,010 --> 00:39:09,290
+actually talk about the speech more in
+
+1029
+00:39:09,290 --> 00:39:11,480
+subsequent lectures the the second big
+
+1030
+00:39:11,480 --> 00:39:12,980
+breakthrough which we won't be able to
+
+1031
+00:39:12,980 --> 00:39:14,810
+cover in this class were came in
+
+1032
+00:39:14,810 --> 00:39:18,350
+computer vision in 2012 were basically
+
+1033
+00:39:18,350 --> 00:39:21,470
+until then most of the large deep
+
+1034
+00:39:21,470 --> 00:39:23,150
+learning groups had to spend most of the
+
+1035
+00:39:23,150 --> 00:39:25,010
+time on speech and computer vision and
+
+1036
+00:39:25,010 --> 00:39:27,290
+so the big breakthrough paper here by
+
+1037
+00:39:27,290 --> 00:39:29,720
+Alex Khrushchev ski from 2012 was
+
+1038
+00:39:29,720 --> 00:39:31,730
+imagenet classification with deep
+
+1039
+00:39:31,730 --> 00:39:33,290
+convolutional neural networks and so
+
+1040
+00:39:33,290 --> 00:39:36,530
+unlike before you can now literally as
+
+1041
+00:39:36,530 --> 00:39:37,760
+easy as drag and drop
+
+1042
+00:39:37,760 --> 00:39:39,620
+classified different kinds of images
+
+1043
+00:39:39,620 --> 00:39:42,530
+it's it's become very very easy to use
+
+1044
+00:39:42,530 --> 00:39:44,330
+this technology instead of just saying
+
+1045
+00:39:44,330 --> 00:39:46,340
+this is you know a dog versus a house or
+
+1046
+00:39:46,340 --> 00:39:48,950
+you know the a bird versus a national
+
+1047
+00:39:48,950 --> 00:39:50,870
+park that you can actually find all
+
+1048
+00:39:50,870 --> 00:39:52,850
+different kinds of birds and so on and
+
+1049
+00:39:52,850 --> 00:39:54,650
+here are also some very interesting
+
+1050
+00:39:54,650 --> 00:39:57,170
+connections to neuroscience and and so
+
+1051
+00:39:57,170 --> 00:39:59,780
+the visual cortex and what it does as
+
+1052
+00:39:59,780 --> 00:40:02,330
+you learn more abstract layers in neural
+
+1053
+00:40:02,330 --> 00:40:03,530
+networks and don't worry if you don't
+
+1054
+00:40:03,530 --> 00:40:04,880
+understand all the details here but
+
+1055
+00:40:04,880 --> 00:40:08,030
+basically in the first layer of of these
+
+1056
+00:40:08,030 --> 00:40:09,240
+kind of visual
+
+1057
+00:40:09,240 --> 00:40:11,220
+deep learning algorithms you'll capture
+
+1058
+00:40:11,220 --> 00:40:13,349
+just very simple edges you know there
+
+1059
+00:40:13,349 --> 00:40:15,480
+are lots of crooked edges or straight
+
+1060
+00:40:15,480 --> 00:40:17,400
+ones and so on and different color
+
+1061
+00:40:17,400 --> 00:40:19,500
+features and as you move higher and
+
+1062
+00:40:19,500 --> 00:40:21,990
+higher in the architecture you'll find
+
+1063
+00:40:21,990 --> 00:40:23,730
+more complex shapes so maybe here you
+
+1064
+00:40:23,730 --> 00:40:26,579
+have some you know half circles and
+
+1065
+00:40:26,579 --> 00:40:28,589
+different color gradients and so on and
+
+1066
+00:40:28,589 --> 00:40:30,240
+then as you move to the next layer you
+
+1067
+00:40:30,240 --> 00:40:32,460
+might find specific features for wheels
+
+1068
+00:40:32,460 --> 00:40:36,349
+or certain types of fruits and so on
+
+1069
+00:40:36,349 --> 00:40:40,260
+alright so that was a very very quick
+
+1070
+00:40:40,260 --> 00:40:42,300
+and oversimplified introduction to deep
+
+1071
+00:40:42,300 --> 00:40:45,240
+learning and again you know that is what
+
+1072
+00:40:45,240 --> 00:40:47,190
+we'll cover a lot more of throughout
+
+1073
+00:40:47,190 --> 00:40:49,859
+this lecture so basically when we say
+
+1074
+00:40:49,859 --> 00:40:52,530
+deep learning NLP it's sort of long word
+
+1075
+00:40:52,530 --> 00:40:54,240
+so we'll just refer to that in the
+
+1076
+00:40:54,240 --> 00:40:57,540
+future as a deep NLP and basically we're
+
+1077
+00:40:57,540 --> 00:41:00,450
+combining the ideas and goals of NLP and
+
+1078
+00:41:00,450 --> 00:41:02,099
+use representation learning and deep
+
+1079
+00:41:02,099 --> 00:41:04,020
+learning to actually solve a lot of
+
+1080
+00:41:04,020 --> 00:41:06,500
+different kinds of problems and
+
+1081
+00:41:06,500 --> 00:41:09,210
+basically there have been several big
+
+1082
+00:41:09,210 --> 00:41:10,859
+improvements in recent years across
+
+1083
+00:41:10,859 --> 00:41:13,530
+various different NLP levels so speech
+
+1084
+00:41:13,530 --> 00:41:16,079
+morphology syntax and semantics as well
+
+1085
+00:41:16,079 --> 00:41:19,230
+as applications and so in the last part
+
+1086
+00:41:19,230 --> 00:41:20,730
+of this lecture we'll actually go
+
+1087
+00:41:20,730 --> 00:41:23,280
+through a couple of these and that will
+
+1088
+00:41:23,280 --> 00:41:26,849
+you know make it a little less terse on
+
+1089
+00:41:26,849 --> 00:41:28,829
+your NLP background knowledge but you
+
+1090
+00:41:28,829 --> 00:41:31,170
+don't really have to you know memorize
+
+1091
+00:41:31,170 --> 00:41:32,579
+the IPA table like you would in a
+
+1092
+00:41:32,579 --> 00:41:35,550
+phonology class so let's look and in the
+
+1093
+00:41:35,550 --> 00:41:38,400
+next couple of slides on different
+
+1094
+00:41:38,400 --> 00:41:40,890
+levels of representation in traditional
+
+1095
+00:41:40,890 --> 00:41:43,470
+linguistics and NLP versus deep learning
+
+1096
+00:41:43,470 --> 00:41:45,810
+and then look at how those actually
+
+1097
+00:41:45,810 --> 00:41:49,910
+affect real applications so in phonology
+
+1098
+00:41:49,910 --> 00:41:53,550
+what a linguists might come up with is
+
+1099
+00:41:53,550 --> 00:41:56,839
+different ways of categorizing different
+
+1100
+00:41:56,839 --> 00:41:59,000
+phonemes so we have for instance
+
+1101
+00:41:59,000 --> 00:42:03,329
+fricatives like that or closest so like
+
+1102
+00:42:03,329 --> 00:42:05,010
+basically they try to come up and
+
+1103
+00:42:05,010 --> 00:42:07,650
+realize all the ways that your speech
+
+1104
+00:42:07,650 --> 00:42:09,660
+apparatus can create different kinds of
+
+1105
+00:42:09,660 --> 00:42:11,000
+sounds
+
+1106
+00:42:11,000 --> 00:42:13,640
+and in many cases and we'll observe this
+
+1107
+00:42:13,640 --> 00:42:15,770
+in in the future deep learning actually
+
+1108
+00:42:15,770 --> 00:42:18,950
+uses some of the ideas from traditional
+
+1109
+00:42:18,950 --> 00:42:21,530
+linguistics but only as a final output
+
+1110
+00:42:21,530 --> 00:42:24,290
+label internally they will represent all
+
+1111
+00:42:24,290 --> 00:42:27,290
+these different sounds as simply vectors
+
+1112
+00:42:27,290 --> 00:42:29,870
+so vectors as literally just a list of
+
+1113
+00:42:29,870 --> 00:42:33,500
+numbers all right so let's assume we're
+
+1114
+00:42:33,500 --> 00:42:35,090
+able to find phonemes
+
+1115
+00:42:35,090 --> 00:42:38,240
+in in texts or in speech the next step
+
+1116
+00:42:38,240 --> 00:42:41,180
+was morphology and so in traditional
+
+1117
+00:42:41,180 --> 00:42:44,570
+morphology you might analyze a word like
+
+1118
+00:42:44,570 --> 00:42:47,600
+uninterested in you know terms of its
+
+1119
+00:42:47,600 --> 00:42:50,930
+prefix stem and suffix and the sort of
+
+1120
+00:42:50,930 --> 00:42:53,270
+not quite magic but you know initially
+
+1121
+00:42:53,270 --> 00:42:56,000
+it might feel like magic in for deep
+
+1122
+00:42:56,000 --> 00:42:58,250
+learning again every morpheme will be a
+
+1123
+00:42:58,250 --> 00:43:00,380
+vector so just a list of numbers and
+
+1124
+00:43:00,380 --> 00:43:02,570
+will actually be able to train a neural
+
+1125
+00:43:02,570 --> 00:43:04,640
+network that will combine two vectors
+
+1126
+00:43:04,640 --> 00:43:08,690
+into one vector and really we'll we'll
+
+1127
+00:43:08,690 --> 00:43:10,130
+describe all this and in a lot of
+
+1128
+00:43:10,130 --> 00:43:12,260
+details throughout this lecture but you
+
+1129
+00:43:12,260 --> 00:43:14,810
+know you just say on is a list of
+
+1130
+00:43:14,810 --> 00:43:16,220
+numbers fortunate is a list of numbers
+
+1131
+00:43:16,220 --> 00:43:18,350
+and unfortunate now combines to another
+
+1132
+00:43:18,350 --> 00:43:20,540
+list of numbers and ideally that list of
+
+1133
+00:43:20,540 --> 00:43:23,660
+numbers will somehow capture as much
+
+1134
+00:43:23,660 --> 00:43:25,820
+information as possible so just to give
+
+1135
+00:43:25,820 --> 00:43:27,740
+you a very rough sense of what is
+
+1136
+00:43:27,740 --> 00:43:29,690
+actually captured in these vectors we
+
+1137
+00:43:29,690 --> 00:43:31,370
+can actually project them down using
+
+1138
+00:43:31,370 --> 00:43:35,000
+something like PCA into a lower
+
+1139
+00:43:35,000 --> 00:43:36,560
+dimensional two dimensional vector space
+
+1140
+00:43:36,560 --> 00:43:38,330
+so we can actually visualize and see
+
+1141
+00:43:38,330 --> 00:43:39,950
+what's going on inside these numbers
+
+1142
+00:43:39,950 --> 00:43:41,720
+that we now just learned based on
+
+1143
+00:43:41,720 --> 00:43:44,000
+predicting something and so what we'll
+
+1144
+00:43:44,000 --> 00:43:45,740
+observe and I'll zoom in in a second is
+
+1145
+00:43:45,740 --> 00:43:48,440
+that will actually have similar
+
+1146
+00:43:48,440 --> 00:43:52,850
+linguistic structures emerging by by
+
+1147
+00:43:52,850 --> 00:43:56,270
+itself from deep learning models so all
+
+1148
+00:43:56,270 --> 00:43:59,240
+the words in this area of the projective
+
+1149
+00:43:59,240 --> 00:44:01,340
+vector space here will actually be
+
+1150
+00:44:01,340 --> 00:44:04,220
+announced so let's zoom into this and
+
+1151
+00:44:04,220 --> 00:44:07,100
+what we notice afterwards is where the
+
+1152
+00:44:07,100 --> 00:44:09,770
+large areas of the vector space are are
+
+1153
+00:44:09,770 --> 00:44:11,840
+just part of speech tags once you zoom
+
+1154
+00:44:11,840 --> 00:44:12,920
+in you actually have semantic
+
+1155
+00:44:12,920 --> 00:44:15,740
+substructure so the model and deep
+
+1156
+00:44:15,740 --> 00:44:16,970
+learning models that we'll cover in this
+
+1157
+00:44:16,970 --> 00:44:19,190
+class and actually start with this
+
+1158
+00:44:19,190 --> 00:44:21,080
+Wednesday will actually capture the fact
+
+1159
+00:44:21,080 --> 00:44:23,180
+that France and Germany are somewhat
+
+1160
+00:44:23,180 --> 00:44:24,859
+more similar to each other
+
+1161
+00:44:24,859 --> 00:44:27,710
+then you know Britain and China for
+
+1162
+00:44:27,710 --> 00:44:32,089
+instance and in other parts of the space
+
+1163
+00:44:32,089 --> 00:44:36,230
+you may have a lot of verbs and you can
+
+1164
+00:44:36,230 --> 00:44:38,119
+see up Soleri verbs for instance where
+
+1165
+00:44:38,119 --> 00:44:40,130
+linguists would say oh I think you know
+
+1166
+00:44:40,130 --> 00:44:43,970
+is where was an our our auxiliary verbs
+
+1167
+00:44:43,970 --> 00:44:46,400
+it just learns to automatically cluster
+
+1168
+00:44:46,400 --> 00:44:50,180
+them and group them together alright so
+
+1169
+00:44:50,180 --> 00:44:52,900
+that is basically the way we represent
+
+1170
+00:44:52,900 --> 00:44:55,670
+morphology and word information is just
+
+1171
+00:44:55,670 --> 00:44:58,039
+a list of numbers a vector well let's
+
+1172
+00:44:58,039 --> 00:44:59,569
+move on to the next level which is
+
+1173
+00:44:59,569 --> 00:45:02,180
+syntax basically the traditional
+
+1174
+00:45:02,180 --> 00:45:05,869
+representation of syntax and again I've
+
+1175
+00:45:05,869 --> 00:45:07,640
+actually personally taken like three
+
+1176
+00:45:07,640 --> 00:45:09,799
+different class or four actually on
+
+1177
+00:45:09,799 --> 00:45:12,829
+syntax so it this again is only a very
+
+1178
+00:45:12,829 --> 00:45:14,869
+very bird's eye view and one example
+
+1179
+00:45:14,869 --> 00:45:16,579
+picked out from all of syntactic theory
+
+1180
+00:45:16,579 --> 00:45:19,220
+there's a lot more to all of this but
+
+1181
+00:45:19,220 --> 00:45:20,980
+one traditional way to represent
+
+1182
+00:45:20,980 --> 00:45:24,079
+syntactic categories is just in in terms
+
+1183
+00:45:24,079 --> 00:45:26,450
+of discrete phrase structures so you
+
+1184
+00:45:26,450 --> 00:45:28,579
+might say you know there's a noun phrase
+
+1185
+00:45:28,579 --> 00:45:32,239
+like the house or a verb phrase like is
+
+1186
+00:45:32,239 --> 00:45:34,999
+read so is is a verb read is an
+
+1187
+00:45:34,999 --> 00:45:35,480
+adjective
+
+1188
+00:45:35,480 --> 00:45:38,210
+together they become a verb phrase and
+
+1189
+00:45:38,210 --> 00:45:40,579
+you may have recursive structure in here
+
+1190
+00:45:40,579 --> 00:45:42,710
+where you may have a noun phrase inside
+
+1191
+00:45:42,710 --> 00:45:44,480
+another noun phrase so you might say the
+
+1192
+00:45:44,480 --> 00:45:46,880
+house at the end of the street is red so
+
+1193
+00:45:46,880 --> 00:45:49,099
+now the street is a noun phrase but off
+
+1194
+00:45:49,099 --> 00:45:50,869
+the street is a prepositional phrase
+
+1195
+00:45:50,869 --> 00:45:52,730
+where that starts with the preposition
+
+1196
+00:45:52,730 --> 00:45:56,660
+off and so you may ask 10 linguists to
+
+1197
+00:45:56,660 --> 00:45:59,299
+come up with a tree structure and in
+
+1198
+00:45:59,299 --> 00:46:00,529
+many cases they may actually come up
+
+1199
+00:46:00,529 --> 00:46:02,180
+with different ones so that's it's a
+
+1200
+00:46:02,180 --> 00:46:04,730
+it's tricky because we use language and
+
+1201
+00:46:04,730 --> 00:46:06,529
+it's a very fluid system and sometimes
+
+1202
+00:46:06,529 --> 00:46:08,359
+you start making mistakes and then if
+
+1203
+00:46:08,359 --> 00:46:09,650
+enough people make those mistakes they
+
+1204
+00:46:09,650 --> 00:46:11,420
+actually become the de facto standard
+
+1205
+00:46:11,420 --> 00:46:13,489
+and then you know so things things are
+
+1206
+00:46:13,489 --> 00:46:14,779
+very fluid things that might have been
+
+1207
+00:46:14,779 --> 00:46:17,420
+wrong in English 100 years ago now are
+
+1208
+00:46:17,420 --> 00:46:23,269
+totally acceptable and so yeah discrete
+
+1209
+00:46:23,269 --> 00:46:24,859
+categories that's that's the main idea
+
+1210
+00:46:24,859 --> 00:46:27,349
+and now in deep learning we could
+
+1211
+00:46:27,349 --> 00:46:29,119
+actually use the idea of having free
+
+1212
+00:46:29,119 --> 00:46:31,609
+structures but instead of saying this is
+
+1213
+00:46:31,609 --> 00:46:32,930
+a specific noun phrase or a
+
+1214
+00:46:32,930 --> 00:46:34,849
+prepositional phrase maybe we'll just
+
+1215
+00:46:34,849 --> 00:46:36,530
+say it's a vector
+
+1216
+00:46:36,530 --> 00:46:38,780
+we have already vectors describing words
+
+1217
+00:46:38,780 --> 00:46:41,920
+now we'll train neural networks to
+
+1218
+00:46:41,920 --> 00:46:44,870
+basically take in two to word vectors
+
+1219
+00:46:44,870 --> 00:46:48,110
+and produce a phrase vector and this is
+
+1220
+00:46:48,110 --> 00:46:49,940
+kind of it's kind of crazy when you
+
+1221
+00:46:49,940 --> 00:46:51,590
+think about it right we're now trying to
+
+1222
+00:46:51,590 --> 00:46:55,220
+represent an arbitrarily long phrase of
+
+1223
+00:46:55,220 --> 00:46:56,900
+multiple words maybe it's just one word
+
+1224
+00:46:56,900 --> 00:46:59,150
+maybe it's ten words maybe it's 25 words
+
+1225
+00:46:59,150 --> 00:47:00,710
+and just a list of numbers
+
+1226
+00:47:00,710 --> 00:47:02,810
+all right so in throughout this class
+
+1227
+00:47:02,810 --> 00:47:05,450
+we'll have to very carefully analyze how
+
+1228
+00:47:05,450 --> 00:47:07,610
+many numbers are enough yeah you know
+
+1229
+00:47:07,610 --> 00:47:09,470
+what is actually being represented in
+
+1230
+00:47:09,470 --> 00:47:11,990
+those numbers are similar phrases now
+
+1231
+00:47:11,990 --> 00:47:14,120
+close to each other in the vector space
+
+1232
+00:47:14,120 --> 00:47:16,100
+or not there's a lot of a lot of
+
+1233
+00:47:16,100 --> 00:47:18,310
+interesting questions that we can ask
+
+1234
+00:47:18,310 --> 00:47:24,260
+once we actually try to attempt this any
+
+1235
+00:47:24,260 --> 00:47:27,100
+questions yes
+
+1236
+00:47:31,850 --> 00:47:33,960
+that's a great question so the question
+
+1237
+00:47:33,960 --> 00:47:35,610
+is am i putting these more vectors into
+
+1238
+00:47:35,610 --> 00:47:38,910
+the network or not will actually will
+
+1239
+00:47:38,910 --> 00:47:40,470
+cover word vectors because they're kind
+
+1240
+00:47:40,470 --> 00:47:42,120
+of the first building block for a lot of
+
+1241
+00:47:42,120 --> 00:47:44,760
+the other subsequent models that we work
+
+1242
+00:47:44,760 --> 00:47:47,670
+on in the next two lectures and to
+
+1243
+00:47:47,670 --> 00:47:49,410
+answer is that we actually often have a
+
+1244
+00:47:49,410 --> 00:47:51,120
+model that learns word vectors in
+
+1245
+00:47:51,120 --> 00:47:53,400
+unsupervised way and then we take them
+
+1246
+00:47:53,400 --> 00:47:55,020
+and we plug them into another system
+
+1247
+00:47:55,020 --> 00:47:56,790
+like a sentiment analysis algorithm for
+
+1248
+00:47:56,790 --> 00:48:03,890
+instance yes
+
+1249
+00:48:07,720 --> 00:48:10,130
+sorry sagen
+
+1250
+00:48:10,130 --> 00:48:13,069
+oh is it the you clean this so there
+
+1251
+00:48:13,069 --> 00:48:15,140
+will actually be a lot of different
+
+1252
+00:48:15,140 --> 00:48:17,029
+kinds of distance metrics that we can
+
+1253
+00:48:17,029 --> 00:48:19,519
+use to define similarity and vector
+
+1254
+00:48:19,519 --> 00:48:21,230
+space could be cosine distance Euclidean
+
+1255
+00:48:21,230 --> 00:48:22,970
+distance simple inner products and so on
+
+1256
+00:48:22,970 --> 00:48:25,609
+so we'll go a little bit into that as
+
+1257
+00:48:25,609 --> 00:48:27,789
+well
+
+1258
+00:48:41,180 --> 00:48:43,339
+is there a way to standardize different
+
+1259
+00:48:43,339 --> 00:48:44,480
+representations of the training data
+
+1260
+00:48:44,480 --> 00:48:47,359
+image so yeah so did I mention that's a
+
+1261
+00:48:47,359 --> 00:48:51,470
+good question so a lot of cases a lot of
+
+1262
+00:48:51,470 --> 00:48:53,540
+experiments that will run the question
+
+1263
+00:48:53,540 --> 00:48:56,869
+how many dimensions are enough will come
+
+1264
+00:48:56,869 --> 00:48:59,059
+up and in fact in your problem sets you
+
+1265
+00:48:59,059 --> 00:49:00,829
+will have to run cross-validation
+
+1266
+00:49:00,829 --> 00:49:03,319
+experiments you'll have to try maybe 10
+
+1267
+00:49:03,319 --> 00:49:04,700
+is enough for this really simple task
+
+1268
+00:49:04,700 --> 00:49:07,309
+maybe I need 50 maybe for a very complex
+
+1269
+00:49:07,309 --> 00:49:09,319
+large document classification task I
+
+1270
+00:49:09,319 --> 00:49:11,480
+would need more but sometimes the longer
+
+1271
+00:49:11,480 --> 00:49:13,400
+the document is that actually is simpler
+
+1272
+00:49:13,400 --> 00:49:16,309
+the problem becomes so if you want to
+
+1273
+00:49:16,309 --> 00:49:17,780
+understand sentiment for instance and
+
+1274
+00:49:17,780 --> 00:49:19,190
+you have a thousand words to go off of
+
+1275
+00:49:19,190 --> 00:49:21,589
+well if you see awesome and wonderful
+
+1276
+00:49:21,589 --> 00:49:23,480
+and family and good times and so on
+
+1277
+00:49:23,480 --> 00:49:24,859
+multiple times they'll actually become
+
+1278
+00:49:24,859 --> 00:49:26,000
+quite straightforward that it's a
+
+1279
+00:49:26,000 --> 00:49:27,950
+positive one but if you see only a
+
+1280
+00:49:27,950 --> 00:49:29,990
+single sentence and you might say this
+
+1281
+00:49:29,990 --> 00:49:32,990
+was not the most awesome movie then it
+
+1282
+00:49:32,990 --> 00:49:34,490
+becomes harder because Yuri need to
+
+1283
+00:49:34,490 --> 00:49:36,020
+understand the one meaning of the knot
+
+1284
+00:49:36,020 --> 00:49:38,900
+to get that sentence right so it'll
+
+1285
+00:49:38,900 --> 00:49:40,880
+actually depend on the task
+
+1286
+00:49:40,880 --> 00:49:47,119
+great question all right so the last and
+
+1287
+00:49:47,119 --> 00:49:49,010
+I think most interesting representation
+
+1288
+00:49:49,010 --> 00:49:52,910
+there or you know layer of level of
+
+1289
+00:49:52,910 --> 00:49:54,680
+natural language processing is semantics
+
+1290
+00:49:54,680 --> 00:49:57,970
+and again semantics very complex field
+
+1291
+00:49:57,970 --> 00:50:00,200
+lots of connections to the philosophy of
+
+1292
+00:50:00,200 --> 00:50:02,569
+language you could take at least two
+
+1293
+00:50:02,569 --> 00:50:04,490
+very very interesting lectures on just
+
+1294
+00:50:04,490 --> 00:50:07,910
+semantics one way to represent semantics
+
+1295
+00:50:07,910 --> 00:50:10,369
+is lambda calculus and I'm going to try
+
+1296
+00:50:10,369 --> 00:50:12,950
+to explain to you this expression right
+
+1297
+00:50:12,950 --> 00:50:15,079
+here but don't worry we'll actually not
+
+1298
+00:50:15,079 --> 00:50:16,490
+use those kinds of representations
+
+1299
+00:50:16,490 --> 00:50:18,770
+throughout the rest of the class so no
+
+1300
+00:50:18,770 --> 00:50:20,480
+worries if you don't really understand
+
+1301
+00:50:20,480 --> 00:50:23,540
+that and can follow basically you assume
+
+1302
+00:50:23,540 --> 00:50:25,730
+that certain words are very carefully in
+
+1303
+00:50:25,730 --> 00:50:29,450
+human design functions so you have that
+
+1304
+00:50:29,450 --> 00:50:31,280
+take as input other functions so for
+
+1305
+00:50:31,280 --> 00:50:33,230
+instance likes you might say is a
+
+1306
+00:50:33,230 --> 00:50:35,869
+function that takes as input an object
+
+1307
+00:50:35,869 --> 00:50:39,290
+entity and then that creates another
+
+1308
+00:50:39,290 --> 00:50:41,780
+function that now requires a subject
+
+1309
+00:50:41,780 --> 00:50:44,270
+entity and in the end produces the
+
+1310
+00:50:44,270 --> 00:50:47,290
+overall sentence representation likes
+
+1311
+00:50:47,290 --> 00:50:51,869
+MSM for Mary and Esther sue so
+
+1312
+00:50:51,869 --> 00:50:54,749
+that has some problems right one what if
+
+1313
+00:50:54,749 --> 00:50:56,849
+somebody said liked now you need to have
+
+1314
+00:50:56,849 --> 00:50:59,339
+this different representation or maybe
+
+1315
+00:50:59,339 --> 00:51:02,880
+the same for for that also that kind of
+
+1316
+00:51:02,880 --> 00:51:05,099
+discrete representation doesn't allow
+
+1317
+00:51:05,099 --> 00:51:07,680
+you to now capture similarity or some of
+
+1318
+00:51:07,680 --> 00:51:09,089
+the fuzziness that we have in language
+
+1319
+00:51:09,089 --> 00:51:11,579
+so there's no connection between likes
+
+1320
+00:51:11,579 --> 00:51:13,319
+and liked right you would then have to
+
+1321
+00:51:13,319 --> 00:51:15,299
+say well those are just two completely
+
+1322
+00:51:15,299 --> 00:51:17,670
+separate types of words and you kind of
+
+1323
+00:51:17,670 --> 00:51:19,170
+stuck again with how do you make a
+
+1324
+00:51:19,170 --> 00:51:21,150
+computer understand that likes and liked
+
+1325
+00:51:21,150 --> 00:51:23,609
+and maybe enjoying to hang out with are
+
+1326
+00:51:23,609 --> 00:51:27,269
+actually roughly similar so basically
+
+1327
+00:51:27,269 --> 00:51:29,099
+there's no notion here of similarity and
+
+1328
+00:51:29,099 --> 00:51:31,650
+you have these discrete representations
+
+1329
+00:51:31,650 --> 00:51:36,480
+and now you probably are starting to be
+
+1330
+00:51:36,480 --> 00:51:37,109
+able to guess it
+
+1331
+00:51:37,109 --> 00:51:41,249
+but for deep learning every word every
+
+1332
+00:51:41,249 --> 00:51:43,980
+phrase from last slide and every single
+
+1333
+00:51:43,980 --> 00:51:45,569
+logical expression that compares
+
+1334
+00:51:45,569 --> 00:51:48,240
+different sentences will also just be a
+
+1335
+00:51:48,240 --> 00:51:50,700
+vector and at this point if you're a
+
+1336
+00:51:50,700 --> 00:51:52,710
+critical mind you should start wondering
+
+1337
+00:51:52,710 --> 00:51:54,240
+if that is actually the right thing to
+
+1338
+00:51:54,240 --> 00:51:57,089
+do right logic is a very discrete kind
+
+1339
+00:51:57,089 --> 00:51:58,470
+of endeavor right it's either true or
+
+1340
+00:51:58,470 --> 00:51:58,950
+false
+
+1341
+00:51:58,950 --> 00:52:01,289
+this element is a you know either in
+
+1342
+00:52:01,289 --> 00:52:03,900
+this set or it's not in this set and so
+
+1343
+00:52:03,900 --> 00:52:06,900
+if you think about this this will kind
+
+1344
+00:52:06,900 --> 00:52:08,700
+of blow your mind right it's it
+
+1345
+00:52:08,700 --> 00:52:11,730
+basically will say the sentence all
+
+1346
+00:52:11,730 --> 00:52:15,349
+reptiles walk and some turtles move and
+
+1347
+00:52:15,349 --> 00:52:17,609
+everything here is a vector reptiles is
+
+1348
+00:52:17,609 --> 00:52:19,920
+a vector to phrase for all reptiles is a
+
+1349
+00:52:19,920 --> 00:52:22,140
+vector all reptiles walk is a vector and
+
+1350
+00:52:22,140 --> 00:52:25,319
+now the comparison of all reptiles walk
+
+1351
+00:52:25,319 --> 00:52:27,930
+and some turtles move can be classified
+
+1352
+00:52:27,930 --> 00:52:30,269
+in the end as the so called entailment
+
+1353
+00:52:30,269 --> 00:52:32,849
+relationship if all reptiles walk then
+
+1354
+00:52:32,849 --> 00:52:35,519
+clearly the some turtles also move so
+
+1355
+00:52:35,519 --> 00:52:37,730
+one logically follows from the other and
+
+1356
+00:52:37,730 --> 00:52:40,079
+the crazy thing is deep learning can
+
+1357
+00:52:40,079 --> 00:52:42,059
+actually capture that they can actually
+
+1358
+00:52:42,059 --> 00:52:43,710
+learn these kinds of logical
+
+1359
+00:52:43,710 --> 00:52:45,059
+representations and that is something
+
+1360
+00:52:45,059 --> 00:52:47,190
+that was very unintuitive to a lot of
+
+1361
+00:52:47,190 --> 00:52:51,230
+people working in the field of NLP
+
+1362
+00:52:52,450 --> 00:52:59,330
+any questions so far all right so let's
+
+1363
+00:52:59,330 --> 00:53:01,070
+move on to some of the applications that
+
+1364
+00:53:01,070 --> 00:53:03,110
+you will be able to program throughout
+
+1365
+00:53:03,110 --> 00:53:06,290
+this class and and that are exciting to
+
+1366
+00:53:06,290 --> 00:53:08,600
+work on so the first one is sentiment
+
+1367
+00:53:08,600 --> 00:53:11,600
+analysis and I just want to again sort
+
+1368
+00:53:11,600 --> 00:53:13,700
+of show you the difference between the
+
+1369
+00:53:13,700 --> 00:53:15,590
+traditional approach here and how deep
+
+1370
+00:53:15,590 --> 00:53:17,480
+learning we'll deal with this
+
+1371
+00:53:17,480 --> 00:53:19,460
+traditionally you may have curated
+
+1372
+00:53:19,460 --> 00:53:21,890
+sentiment dictionaries that come you
+
+1373
+00:53:21,890 --> 00:53:23,570
+know are combined with some kind of bag
+
+1374
+00:53:23,570 --> 00:53:25,100
+of words representation so you might
+
+1375
+00:53:25,100 --> 00:53:27,410
+just say if I want to find if this new
+
+1376
+00:53:27,410 --> 00:53:29,090
+document here is positive or negative I
+
+1377
+00:53:29,090 --> 00:53:30,800
+will look into my list of positive words
+
+1378
+00:53:30,800 --> 00:53:33,140
+that I came up with like awesome
+
+1379
+00:53:33,140 --> 00:53:35,120
+wonderful and great and so on and if
+
+1380
+00:53:35,120 --> 00:53:36,980
+whenever I find a word from that list
+
+1381
+00:53:36,980 --> 00:53:39,140
+that an expert created I will say that's
+
+1382
+00:53:39,140 --> 00:53:40,070
+a positive you know
+
+1383
+00:53:40,070 --> 00:53:44,000
++1 for positive but of course you know
+
+1384
+00:53:44,000 --> 00:53:47,180
+there will be tricky sentences like
+
+1385
+00:53:47,180 --> 00:53:50,540
+badass or awesome or you know where it's
+
+1386
+00:53:50,540 --> 00:53:52,250
+other words that you might come up with
+
+1387
+00:53:52,250 --> 00:53:54,350
+now that an expert you know five years
+
+1388
+00:53:54,350 --> 00:53:56,030
+ago or 10 years ago may not have put
+
+1389
+00:53:56,030 --> 00:53:58,940
+into their list of positive words and so
+
+1390
+00:53:58,940 --> 00:54:01,100
+that is that is one one problem here
+
+1391
+00:54:01,100 --> 00:54:02,870
+with with traditional sentiment analysis
+
+1392
+00:54:02,870 --> 00:54:04,520
+and then a so-called bag of words
+
+1393
+00:54:04,520 --> 00:54:06,290
+representation and we'll just say does
+
+1394
+00:54:06,290 --> 00:54:08,000
+this word appear in the document or not
+
+1395
+00:54:08,000 --> 00:54:11,210
+and we'll look at these more in the
+
+1396
+00:54:11,210 --> 00:54:12,860
+future but basically that will never
+
+1397
+00:54:12,860 --> 00:54:14,930
+allow you to capture word order and so
+
+1398
+00:54:14,930 --> 00:54:18,140
+if you you know say Jane loves john or
+
+1399
+00:54:18,140 --> 00:54:20,510
+john loves jane it would be the same if
+
+1400
+00:54:20,510 --> 00:54:21,710
+you had a bag of words representation
+
+1401
+00:54:21,710 --> 00:54:24,170
+and that can be problematic for
+
+1402
+00:54:24,170 --> 00:54:26,480
+capturing some sentiment next you might
+
+1403
+00:54:26,480 --> 00:54:28,340
+say all right well just looking at
+
+1404
+00:54:28,340 --> 00:54:29,810
+positive and negative words wasn't
+
+1405
+00:54:29,810 --> 00:54:31,880
+enough now I want to create negation
+
+1406
+00:54:31,880 --> 00:54:34,310
+features so whenever I see not in front
+
+1407
+00:54:34,310 --> 00:54:36,230
+of something positive I will say it
+
+1408
+00:54:36,230 --> 00:54:37,760
+flips entirely and becomes negative
+
+1409
+00:54:37,760 --> 00:54:39,890
+which is not quite true either and you
+
+1410
+00:54:39,890 --> 00:54:41,690
+might think that you might say my
+
+1411
+00:54:41,690 --> 00:54:44,180
+intuition about sentiment analysis might
+
+1412
+00:54:44,180 --> 00:54:46,340
+tell me that that's negative but it's
+
+1413
+00:54:46,340 --> 00:54:47,540
+not quite true so if you say for
+
+1414
+00:54:47,540 --> 00:54:49,280
+instance the movie was not awesome but
+
+1415
+00:54:49,280 --> 00:54:52,160
+it was pretty good you know it's still
+
+1416
+00:54:52,160 --> 00:54:54,380
+roughly on the positive side so it's not
+
+1417
+00:54:54,380 --> 00:54:56,930
+like negation always flips to sentiment
+
+1418
+00:54:56,930 --> 00:55:00,380
+perfectly right and so and at the same
+
+1419
+00:55:00,380 --> 00:55:02,480
+time you know there will be a slang
+
+1420
+00:55:02,480 --> 00:55:03,780
+language you know
+
+1421
+00:55:03,780 --> 00:55:04,920
+and gonna capture everything basically
+
+1422
+00:55:04,920 --> 00:55:07,650
+like the kinds of negative negation
+
+1423
+00:55:07,650 --> 00:55:08,730
+features that you might come up with
+
+1424
+00:55:08,730 --> 00:55:11,070
+might not be exhaustive for describing
+
+1425
+00:55:11,070 --> 00:55:15,060
+the full space now here's here's one
+
+1426
+00:55:15,060 --> 00:55:16,800
+cool result which is the same deep
+
+1427
+00:55:16,800 --> 00:55:18,780
+learning model and one that we'll go
+
+1428
+00:55:18,780 --> 00:55:21,450
+over in this class that was used for the
+
+1429
+00:55:21,450 --> 00:55:23,880
+morphology analysis or the same model
+
+1430
+00:55:23,880 --> 00:55:25,710
+was used for the morphology analysis I
+
+1431
+00:55:25,710 --> 00:55:27,990
+just described the syntactic analysis
+
+1432
+00:55:27,990 --> 00:55:30,990
+the logical semantics and now sentiment
+
+1433
+00:55:30,990 --> 00:55:33,090
+it's the same and in this case it's
+
+1434
+00:55:33,090 --> 00:55:34,560
+called a recursive neural network and
+
+1435
+00:55:34,560 --> 00:55:35,790
+section one that I worked on a lot
+
+1436
+00:55:35,790 --> 00:55:38,490
+during my PhD it's the same kind of
+
+1437
+00:55:38,490 --> 00:55:41,160
+network is allows you to solve these
+
+1438
+00:55:41,160 --> 00:55:43,530
+different tasks allows you to represent
+
+1439
+00:55:43,530 --> 00:55:46,380
+different levels of linguistics all in
+
+1440
+00:55:46,380 --> 00:55:48,900
+vector spaces so it's a very very
+
+1441
+00:55:48,900 --> 00:55:51,030
+powerful tool and so we can kind of look
+
+1442
+00:55:51,030 --> 00:55:54,180
+at what this what this looks like in
+
+1443
+00:55:54,180 --> 00:55:57,780
+practice so here's a demo from one of my
+
+1444
+00:55:57,780 --> 00:56:04,650
+old papers from two years ago and here
+
+1445
+00:56:04,650 --> 00:56:06,380
+we can come up with the sentence that
+
+1446
+00:56:06,380 --> 00:56:09,600
+would in most traditional NLP systems
+
+1447
+00:56:09,600 --> 00:56:10,920
+would have been misclassified is
+
+1448
+00:56:10,920 --> 00:56:12,990
+positive the sentence is this movie
+
+1449
+00:56:12,990 --> 00:56:14,700
+doesn't care about cleverness wit or any
+
+1450
+00:56:14,700 --> 00:56:17,310
+other kind of intelligent humor in a
+
+1451
+00:56:17,310 --> 00:56:19,110
+traditional system you might say well
+
+1452
+00:56:19,110 --> 00:56:21,930
+it's got humor intelligent kind with
+
+1453
+00:56:21,930 --> 00:56:24,930
+cleverness care how negative could it be
+
+1454
+00:56:24,930 --> 00:56:25,560
+right
+
+1455
+00:56:25,560 --> 00:56:27,000
+but then there's one little dozen in
+
+1456
+00:56:27,000 --> 00:56:29,580
+front of it and that doesn't have a so
+
+1457
+00:56:29,580 --> 00:56:31,860
+has a so-called scope over the entire
+
+1458
+00:56:31,860 --> 00:56:34,740
+rest of the sentence so when you send
+
+1459
+00:56:34,740 --> 00:56:37,230
+that to a system what it will do is
+
+1460
+00:56:37,230 --> 00:56:39,900
+basically give you this analysis so
+
+1461
+00:56:39,900 --> 00:56:41,790
+realize intelligent humor is indeed
+
+1462
+00:56:41,790 --> 00:56:44,220
+something positive and any other kind is
+
+1463
+00:56:44,220 --> 00:56:47,520
+and cleverness and wit are positive and
+
+1464
+00:56:47,520 --> 00:56:49,590
+you know care here it actually makes a
+
+1465
+00:56:49,590 --> 00:56:52,050
+mistake it's thinks it's neutral but you
+
+1466
+00:56:52,050 --> 00:56:53,460
+can see here a probability distribution
+
+1467
+00:56:53,460 --> 00:56:55,410
+and still realizes there's a lot of
+
+1468
+00:56:55,410 --> 00:56:59,010
+positive sentiment in here and once it
+
+1469
+00:56:59,010 --> 00:57:01,650
+realizes that doesn't care about it then
+
+1470
+00:57:01,650 --> 00:57:04,530
+it flips then flips it and makes
+
+1471
+00:57:04,530 --> 00:57:07,080
+actually makes it negative and again we
+
+1472
+00:57:07,080 --> 00:57:09,540
+did not have to program Oh doesn't plus
+
+1473
+00:57:09,540 --> 00:57:10,740
+something positive becomes negative
+
+1474
+00:57:10,740 --> 00:57:12,750
+right it just learned it from a lot of
+
+1475
+00:57:12,750 --> 00:57:15,470
+examples so we could actually see
+
+1476
+00:57:15,470 --> 00:57:20,750
+here this movie I know didn't care and
+
+1477
+00:57:20,750 --> 00:57:29,410
+you know it's still negative or it does
+
+1478
+00:57:29,410 --> 00:57:35,200
+care a lot
+
+1479
+00:57:35,430 --> 00:57:38,099
+and now it even realizes that you know
+
+1480
+00:57:38,099 --> 00:57:40,230
+caring a lot actually does is positive
+
+1481
+00:57:40,230 --> 00:57:42,900
+all the way so you can play around with
+
+1482
+00:57:42,900 --> 00:57:45,569
+this demo yourself and a lot of people
+
+1483
+00:57:45,569 --> 00:57:48,869
+have and you know obviously it's I have
+
+1484
+00:57:48,869 --> 00:57:50,460
+lots of people commented on into it or
+
+1485
+00:57:50,460 --> 00:57:53,609
+some funny things in there it's the
+
+1486
+00:57:53,609 --> 00:57:57,569
+internet so I tried to not not the
+
+1487
+00:57:57,569 --> 00:58:00,420
+censor it but uh so yeah so you can
+
+1488
+00:58:00,420 --> 00:58:02,670
+basically learn a lot of interesting
+
+1489
+00:58:02,670 --> 00:58:05,339
+facts from this and and play around with
+
+1490
+00:58:05,339 --> 00:58:07,589
+it and see where does it break right you
+
+1491
+00:58:07,589 --> 00:58:10,019
+can be very very sarcastic or some
+
+1492
+00:58:10,019 --> 00:58:12,029
+people put in like this movie is not not
+
+1493
+00:58:12,029 --> 00:58:14,849
+not not not not good right and then you
+
+1494
+00:58:14,849 --> 00:58:15,990
+know they're like oh it should flip
+
+1495
+00:58:15,990 --> 00:58:17,519
+every time but that's also not how
+
+1496
+00:58:17,519 --> 00:58:19,140
+humans would use that right if you said
+
+1497
+00:58:19,140 --> 00:58:20,549
+this was no no no no no no not good
+
+1498
+00:58:20,549 --> 00:58:22,589
+nobody keeps track and like flips the
+
+1499
+00:58:22,589 --> 00:58:23,700
+sentiment right it's just a really
+
+1500
+00:58:23,700 --> 00:58:35,880
+strong not so you know depends yes great
+
+1501
+00:58:35,880 --> 00:58:37,829
+question so we will go through all of
+
+1502
+00:58:37,829 --> 00:58:39,749
+those in all the gory details and
+
+1503
+00:58:39,749 --> 00:58:41,339
+ideally in the end you can reimplemented
+
+1504
+00:58:41,339 --> 00:58:44,069
+self and have an gain an intuition
+
+1505
+00:58:44,069 --> 00:58:46,049
+oftentimes when you work on these
+
+1506
+00:58:46,049 --> 00:58:47,489
+projects the very first time you
+
+1507
+00:58:47,489 --> 00:58:49,499
+implement your own the learning
+
+1508
+00:58:49,499 --> 00:58:51,599
+algorithm you you have no idea should I
+
+1509
+00:58:51,599 --> 00:58:54,329
+have 25 or 500 dimensions and very
+
+1510
+00:58:54,329 --> 00:58:56,400
+quickly after two or three hopefully
+
+1511
+00:58:56,400 --> 00:58:59,009
+programming and problem sets you'll gain
+
+1512
+00:58:59,009 --> 00:59:01,650
+some intuition and that can go all the
+
+1513
+00:59:01,650 --> 00:59:03,150
+way to if you work on it for a couple of
+
+1514
+00:59:03,150 --> 00:59:04,769
+years you get into the unfortunate
+
+1515
+00:59:04,769 --> 00:59:06,749
+situation where the very first guess
+
+1516
+00:59:06,749 --> 00:59:08,489
+that you've had is actually so good that
+
+1517
+00:59:08,489 --> 00:59:10,049
+running proper cross-validation doesn't
+
+1518
+00:59:10,049 --> 00:59:11,730
+improve it anymore so that that is
+
+1519
+00:59:11,730 --> 00:59:14,339
+actually the downside of that so in this
+
+1520
+00:59:14,339 --> 00:59:17,069
+case we only need it around 30 or so
+
+1521
+00:59:17,069 --> 00:59:19,589
+dimensions for every for representing
+
+1522
+00:59:19,589 --> 00:59:22,619
+every phrase and and and every word and
+
+1523
+00:59:22,619 --> 00:59:26,339
+this model actually is a single layer
+
+1524
+00:59:26,339 --> 00:59:28,019
+model but it's a different type of layer
+
+1525
+00:59:28,019 --> 00:59:29,970
+and one that we'll cover in the lecture
+
+1526
+00:59:29,970 --> 00:59:31,859
+2 it's a tensor layer so instead of
+
+1527
+00:59:31,859 --> 00:59:34,739
+having a standard sort of matrix
+
+1528
+00:59:34,739 --> 00:59:35,940
+multiplication this is going a little
+
+1529
+00:59:35,940 --> 00:59:37,349
+bit into too many details don't worry if
+
+1530
+00:59:37,349 --> 00:59:39,390
+you don't understand that yet but if you
+
+1531
+00:59:39,390 --> 00:59:40,859
+have a tensor you have a much more
+
+1532
+00:59:40,859 --> 00:59:42,900
+powerful interaction so it's a different
+
+1533
+00:59:42,900 --> 00:59:44,730
+type of neural network
+
+1534
+00:59:44,730 --> 00:59:48,280
+um in this case like sentiment analysis
+
+1535
+00:59:48,280 --> 00:59:50,320
+does is the training set have to be
+
+1536
+00:59:50,320 --> 00:59:52,900
+annotated yes yeah so this is a good
+
+1537
+00:59:52,900 --> 00:59:54,640
+example where you really want to have a
+
+1538
+00:59:54,640 --> 00:59:56,170
+lot of annotations so I guess to answer
+
+1539
+00:59:56,170 --> 00:59:58,240
+your other part here you had to have
+
+1540
+00:59:58,240 --> 01:00:01,480
+10,000 labeled sentences and these were
+
+1541
+01:00:01,480 --> 01:00:03,280
+labeled both on the phrase level and the
+
+1542
+01:00:03,280 --> 01:00:11,020
+sentence level alright so let's move to
+
+1543
+01:00:11,020 --> 01:00:14,110
+the last two tasks of today which are
+
+1544
+01:00:14,110 --> 01:00:15,940
+also the hardest ones and in some ways
+
+1545
+01:00:15,940 --> 01:00:18,310
+are the most amazing ones so question
+
+1546
+01:00:18,310 --> 01:00:20,620
+answering is is one of the hardest tasks
+
+1547
+01:00:20,620 --> 01:00:25,870
+in NLP and it basically in the past has
+
+1548
+01:00:25,870 --> 01:00:27,940
+required a lot of feature engineering to
+
+1549
+01:00:27,940 --> 01:00:29,770
+capture a lot of different world
+
+1550
+01:00:29,770 --> 01:00:31,180
+knowledge and other types of knowledge
+
+1551
+01:00:31,180 --> 01:00:34,240
+so you know in again question answering
+
+1552
+01:00:34,240 --> 01:00:36,370
+you might want to ask you know who built
+
+1553
+01:00:36,370 --> 01:00:38,500
+the Taj Mahal or who you know
+
+1554
+01:00:38,500 --> 01:00:40,030
+constructed the Eiffel Tower or
+
+1555
+01:00:40,030 --> 01:00:41,860
+something and so what originally you
+
+1556
+01:00:41,860 --> 01:00:43,870
+would have done is you know is the view
+
+1557
+01:00:43,870 --> 01:00:45,640
+asks like is the main verb a certain
+
+1558
+01:00:45,640 --> 01:00:47,290
+trigger and if it is then look for a
+
+1559
+01:00:47,290 --> 01:00:49,030
+certain regular expression and a certain
+
+1560
+01:00:49,030 --> 01:00:52,180
+WH word that exactly tries to you know
+
+1561
+01:00:52,180 --> 01:00:55,840
+find these kinds of types of agents or a
+
+1562
+01:00:55,840 --> 01:00:59,590
+specific type of theme and again for
+
+1563
+01:00:59,590 --> 01:01:01,540
+deep learning we can actually use the
+
+1564
+01:01:01,540 --> 01:01:03,070
+exact same neural network architecture
+
+1565
+01:01:03,070 --> 01:01:06,190
+that we use from a faulty syntax logics
+
+1566
+01:01:06,190 --> 01:01:09,130
+and and sentiment to try to do question
+
+1567
+01:01:09,130 --> 01:01:12,700
+answering and what's kind of amazing is
+
+1568
+01:01:12,700 --> 01:01:15,580
+a missing the citation here this is a
+
+1569
+01:01:15,580 --> 01:01:19,450
+paper from a year in Maryland the
+
+1570
+01:01:19,450 --> 01:01:21,700
+amazing thing is when we learn it when
+
+1571
+01:01:21,700 --> 01:01:23,260
+we learn these kinds of models for
+
+1572
+01:01:23,260 --> 01:01:25,080
+question answering it will actually
+
+1573
+01:01:25,080 --> 01:01:27,430
+capture that Ronald Reagan and Jimmy
+
+1574
+01:01:27,430 --> 01:01:29,050
+Carter for instance are quite similar
+
+1575
+01:01:29,050 --> 01:01:31,660
+kinds of entities you know there are
+
+1576
+01:01:31,660 --> 01:01:34,840
+both presidents in a certain time span
+
+1577
+01:01:34,840 --> 01:01:36,910
+or you know Thomas Jefferson here in
+
+1578
+01:01:36,910 --> 01:01:39,130
+George Washington it will just learn to
+
+1579
+01:01:39,130 --> 01:01:41,050
+project these somewhere into the space
+
+1580
+01:01:41,050 --> 01:01:43,840
+it will deal with all the gory details
+
+1581
+01:01:43,840 --> 01:01:45,580
+that we would otherwise have to think
+
+1582
+01:01:45,580 --> 01:01:47,770
+about for decades on how do we represent
+
+1583
+01:01:47,770 --> 01:01:49,180
+the fact that they're both presidents
+
+1584
+01:01:49,180 --> 01:01:51,460
+but one sort of in an early time and was
+
+1585
+01:01:51,460 --> 01:01:53,170
+in War of Independence and so on it'll
+
+1586
+01:01:53,170 --> 01:01:54,400
+just push that somewhere into the vector
+
+1587
+01:01:54,400 --> 01:01:56,600
+space and deal with that problem for you
+
+1588
+01:01:56,600 --> 01:01:58,820
+of course that has the one big downside
+
+1589
+01:01:58,820 --> 01:02:00,860
+is you can't tell it any more where you
+
+1590
+01:02:00,860 --> 01:02:02,690
+want you might say well I have this one
+
+1591
+01:02:02,690 --> 01:02:04,310
+specific extra fact that to me
+
+1592
+01:02:04,310 --> 01:02:06,110
+personally makes it very different I
+
+1593
+01:02:06,110 --> 01:02:07,220
+want it I want that number to be
+
+1594
+01:02:07,220 --> 01:02:08,150
+different you can't do these things
+
+1595
+01:02:08,150 --> 01:02:09,830
+anymore all right so you lose a little
+
+1596
+01:02:09,830 --> 01:02:11,660
+bit of the freedom but at the same time
+
+1597
+01:02:11,660 --> 01:02:14,330
+the model actually is able to store
+
+1598
+01:02:14,330 --> 01:02:16,400
+these facts in a way that makes the
+
+1599
+01:02:16,400 --> 01:02:18,140
+gives you the best performance for the
+
+1600
+01:02:18,140 --> 01:02:20,540
+task in question and so this specific
+
+1601
+01:02:20,540 --> 01:02:23,030
+model actually is able to compete in a
+
+1602
+01:02:23,030 --> 01:02:25,400
+quiz bowl trivia competition challenge
+
+1603
+01:02:25,400 --> 01:02:27,380
+it actually beats a couple of human
+
+1604
+01:02:27,380 --> 01:02:29,840
+players so you know just to give you an
+
+1605
+01:02:29,840 --> 01:02:31,850
+idea of how how crazy that is
+
+1606
+01:02:31,850 --> 01:02:34,370
+right you you have Watson the system
+
+1607
+01:02:34,370 --> 01:02:36,170
+that won jeopardy against the world's
+
+1608
+01:02:36,170 --> 01:02:38,660
+experts of expert players that was a
+
+1609
+01:02:38,660 --> 01:02:40,850
+gigantic very complex system that
+
+1610
+01:02:40,850 --> 01:02:43,100
+required a supercomputer to run and has
+
+1611
+01:02:43,100 --> 01:02:45,110
+access to all of Wikipedia and can look
+
+1612
+01:02:45,110 --> 01:02:46,790
+up tons of things and it had you know
+
+1613
+01:02:46,790 --> 01:02:48,860
+many many millions of dollars being
+
+1614
+01:02:48,860 --> 01:02:51,530
+being spent on it in order to get a good
+
+1615
+01:02:51,530 --> 01:02:53,630
+performance and now one grad student was
+
+1616
+01:02:53,630 --> 01:02:55,610
+able to build a system using deep
+
+1617
+01:02:55,610 --> 01:02:57,710
+learning technology to also build a
+
+1618
+01:02:57,710 --> 01:03:00,920
+question-answering system so this is why
+
+1619
+01:03:00,920 --> 01:03:02,660
+you know this is such a useful skill for
+
+1620
+01:03:02,660 --> 01:03:05,390
+you to acquire it's it's a very very
+
+1621
+01:03:05,390 --> 01:03:08,510
+powerful tool all right so the last last
+
+1622
+01:03:08,510 --> 01:03:09,890
+application for today machine
+
+1623
+01:03:09,890 --> 01:03:12,740
+translation basically again there are
+
+1624
+01:03:12,740 --> 01:03:15,170
+lots of different levels that you can
+
+1625
+01:03:15,170 --> 01:03:19,010
+use for translation you can try to do a
+
+1626
+01:03:19,010 --> 01:03:21,080
+direct translation from you know words
+
+1627
+01:03:21,080 --> 01:03:22,370
+in this language towards in that
+
+1628
+01:03:22,370 --> 01:03:24,020
+language just look up in a dictionary
+
+1629
+01:03:24,020 --> 01:03:25,640
+and so on but of course that will never
+
+1630
+01:03:25,640 --> 01:03:27,080
+give you a very good translation because
+
+1631
+01:03:27,080 --> 01:03:29,300
+many there's it's usually an end to end
+
+1632
+01:03:29,300 --> 01:03:31,520
+mapping right one word can mean lots of
+
+1633
+01:03:31,520 --> 01:03:33,800
+different things in another language so
+
+1634
+01:03:33,800 --> 01:03:35,780
+then you know and this is again these
+
+1635
+01:03:35,780 --> 01:03:38,150
+are progressions here over decades and
+
+1636
+01:03:38,150 --> 01:03:40,910
+and hundreds of PhD students and or
+
+1637
+01:03:40,910 --> 01:03:42,590
+probably even thousands in the case of
+
+1638
+01:03:42,590 --> 01:03:45,110
+of machine translation that that have
+
+1639
+01:03:45,110 --> 01:03:46,970
+been worked through so you might have
+
+1640
+01:03:46,970 --> 01:03:48,590
+syntactic transfer you look at certain
+
+1641
+01:03:48,590 --> 01:03:50,180
+phrases and if I have a very large
+
+1642
+01:03:50,180 --> 01:03:52,160
+corpus these are all trained on parallel
+
+1643
+01:03:52,160 --> 01:03:53,900
+corpora so you have you know here's a
+
+1644
+01:03:53,900 --> 01:03:56,300
+paragraph of you know the European
+
+1645
+01:03:56,300 --> 01:03:58,730
+Parliament paragraph description in
+
+1646
+01:03:58,730 --> 01:04:00,410
+German here's one in English and one in
+
+1647
+01:04:00,410 --> 01:04:02,450
+French or an Italian and so on and you
+
+1648
+01:04:02,450 --> 01:04:04,070
+might say well that particular phrase
+
+1649
+01:04:04,070 --> 01:04:05,900
+not just the word but that phrase often
+
+1650
+01:04:05,900 --> 01:04:07,850
+corkers with that other phrase in the
+
+1651
+01:04:07,850 --> 01:04:08,610
+other language
+
+1652
+01:04:08,610 --> 01:04:10,350
+and then you know basically you can
+
+1653
+01:04:10,350 --> 01:04:12,180
+parse and try to translate whole phrases
+
+1654
+01:04:12,180 --> 01:04:13,710
+and then sometimes you see the whole
+
+1655
+01:04:13,710 --> 01:04:15,030
+sentence and maybe you can try to
+
+1656
+01:04:15,030 --> 01:04:16,640
+translate the whole sentence right away
+
+1657
+01:04:16,640 --> 01:04:18,780
+that is the next level and then you can
+
+1658
+01:04:18,780 --> 01:04:20,430
+use the semantic level and say well
+
+1659
+01:04:20,430 --> 01:04:22,920
+sometimes I describe this in lot in
+
+1660
+01:04:22,920 --> 01:04:26,130
+terms of logic you know X made Y happy
+
+1661
+01:04:26,130 --> 01:04:29,250
+and now I have this interlingua the sort
+
+1662
+01:04:29,250 --> 01:04:31,350
+of language between the languages that
+
+1663
+01:04:31,350 --> 01:04:33,420
+abstracts away from all the complexities
+
+1664
+01:04:33,420 --> 01:04:34,560
+and subtleties of
+
+1665
+01:04:34,560 --> 01:04:36,630
+each language and has one general
+
+1666
+01:04:36,630 --> 01:04:38,490
+description which is also very very hard
+
+1667
+01:04:38,490 --> 01:04:40,110
+if you know like different cultures and
+
+1668
+01:04:40,110 --> 01:04:42,000
+so on and you might say okay I will
+
+1669
+01:04:42,000 --> 01:04:44,130
+translate everything into this logical
+
+1670
+01:04:44,130 --> 01:04:47,670
+or very discrete semantic representation
+
+1671
+01:04:47,670 --> 01:04:49,080
+and then I will just generate a surface
+
+1672
+01:04:49,080 --> 01:04:53,390
+form a specific way to describe that so
+
+1673
+01:04:53,390 --> 01:04:56,400
+what do people think is the inter lingua
+
+1674
+01:04:56,400 --> 01:05:01,260
+for deep learning exactly it's vectors
+
+1675
+01:05:01,260 --> 01:05:03,990
+and so this is a very recent result from
+
+1676
+01:05:03,990 --> 01:05:05,550
+just last year they're actually a couple
+
+1677
+01:05:05,550 --> 01:05:08,280
+of groups that are starting now to use
+
+1678
+01:05:08,280 --> 01:05:09,930
+deep learning for machine translation
+
+1679
+01:05:09,930 --> 01:05:12,990
+but basically the crazy result here is
+
+1680
+01:05:12,990 --> 01:05:15,720
+we could literally take word vectors we
+
+1681
+01:05:15,720 --> 01:05:17,940
+squeeze them through a very deep very
+
+1682
+01:05:17,940 --> 01:05:20,460
+powerful deep learning architecture and
+
+1683
+01:05:20,460 --> 01:05:22,230
+we take the entire sentence and we just
+
+1684
+01:05:22,230 --> 01:05:23,790
+describe it in terms of one vector and
+
+1685
+01:05:23,790 --> 01:05:25,980
+we have another neural network that just
+
+1686
+01:05:25,980 --> 01:05:28,470
+says now translate that vector from the
+
+1687
+01:05:28,470 --> 01:05:29,580
+previous language into the other
+
+1688
+01:05:29,580 --> 01:05:32,580
+language and it kind of works its I mean
+
+1689
+01:05:32,580 --> 01:05:35,220
+this system is not yet as good as the
+
+1690
+01:05:35,220 --> 01:05:36,720
+system that you know Google has built
+
+1691
+01:05:36,720 --> 01:05:39,870
+over the last ten years and you know
+
+1692
+01:05:39,870 --> 01:05:42,840
+with many many millions of you know
+
+1693
+01:05:42,840 --> 01:05:45,690
+dollars and lots of brainpower but in
+
+1694
+01:05:45,690 --> 01:05:48,810
+you know just one year one group of deep
+
+1695
+01:05:48,810 --> 01:05:50,040
+learning experts could build a system
+
+1696
+01:05:50,040 --> 01:05:52,320
+that is actually very competitive and if
+
+1697
+01:05:52,320 --> 01:05:55,140
+you can do that so quickly it's only a
+
+1698
+01:05:55,140 --> 01:05:56,100
+matter of time I think
+
+1699
+01:05:56,100 --> 01:05:57,690
+but again I'm optimistic and slightly
+
+1700
+01:05:57,690 --> 01:06:01,470
+biased that it will outperform human
+
+1701
+01:06:01,470 --> 01:06:03,720
+systems because unlike for sentiment it
+
+1702
+01:06:03,720 --> 01:06:06,180
+is basically impossible to describe all
+
+1703
+01:06:06,180 --> 01:06:08,010
+the features for machine translation by
+
+1704
+01:06:08,010 --> 01:06:10,680
+hand right you can have no no set of
+
+1705
+01:06:10,680 --> 01:06:12,330
+people could do that it changes over
+
+1706
+01:06:12,330 --> 01:06:16,280
+time it's incredibly complex we
+
+1707
+01:06:28,150 --> 01:06:30,220
+you can do that in fact some people I
+
+1708
+01:06:30,220 --> 01:06:31,360
+mean you could do that with any system
+
+1709
+01:06:31,360 --> 01:06:33,910
+and it just gets worse and worse and at
+
+1710
+01:06:33,910 --> 01:06:35,110
+some point it's so ridiculous I think
+
+1711
+01:06:35,110 --> 01:06:37,050
+there's a video on YouTube where people
+
+1712
+01:06:37,050 --> 01:06:40,030
+translate the song song lyrics like five
+
+1713
+01:06:40,030 --> 01:06:42,400
+times through a translation system and
+
+1714
+01:06:42,400 --> 01:06:44,410
+it just comes out pretty much garbage
+
+1715
+01:06:44,410 --> 01:06:49,510
+but um it's possible alright so this was
+
+1716
+01:06:49,510 --> 01:06:51,820
+today's first lecture very high level
+
+1717
+01:06:51,820 --> 01:06:54,670
+very bird's-eye view in the next lecture
+
+1718
+01:06:54,670 --> 01:06:56,650
+we'll actually look at the first and
+
+1719
+01:06:56,650 --> 01:06:59,230
+most important representation that all
+
+1720
+01:06:59,230 --> 01:07:00,820
+these different models start from which
+
+1721
+01:07:00,820 --> 01:07:02,740
+is work vectors and we'll see that these
+
+1722
+01:07:02,740 --> 01:07:05,230
+models capture lots of interesting facts
+
+1723
+01:07:05,230 --> 00:00:00,000
+about them thank you
+

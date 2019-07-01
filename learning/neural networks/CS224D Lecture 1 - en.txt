@@ -1,0 +1,269 @@
+0.0	2 Welcome
+	the most interesting intellectual endeavors you could embark on at our current time it is right at the intersection of AI and a natural language processing or machine learning 
+	and so when we think about you know what are sort of the most interesting manifestations of our human intelligence I think language comes up at the top for most in most answers 
+	it is very inextricably linked to thought and also information
+	and you know we're an Information Age so natural language processing is an immensely useful piece of technology 
+	at the same time deep learning is similar in the sense that it is very broadly applicable 
+	you can do speech recognition with deep learning 
+	you can do image classification 
+	and you can do a lot of different tasks inside natural language processing 
+	so deep learning is also a very very interesting tool for you to have going forward in your lives 
+	and so basically we're combining these two 
+	so it will both be interesting from an academic and intellectual perspective as well as for industry 
+	there are a lot of companies out there right now who are trying very hard to hire people with deep learning skills 
+	so I think hopefully this will help you both if you decide to work in an academic setting or an industry setting 
+	so basically by the end of the lecture you will be able to build an algorithm that can kind of do what you can see here which is it can interpret the sentence like 
+	the first 50 minutes were dry but by the end I really enjoyed the lecture
+	and so the algorithm here learned what the grammatical structure of that sentence should be 
+	and it assigned a label which in this case happens to be a sentiment label - every phrase of that sentence 
+	and will basically give you an introduction of why the tree looks the way it does and why it assigns these positive and negative labels 
+	so what's kind of amazing here is we did not have to eventually say that you have here a so called contrastive conjunction name but 
+	but really we just had to give it a lot of examples 
+	and I was able to learn that really you can say the first part is negative 
+	and you know the first 15 minutes that is a neutral phrase 
+	and then once you say they were dry it becomes negative 
+	and then you have a contrastive conjunction which usually 
+	which usually means that what comes afterwards matters more in the overall interpretation of the sentence 
+	none of that we have to explicitly tell the algorithm but it will be able to pick it up 
+	and you will train algorithms that will be able to do that 
+	and just as the sentence says we'll start with a couple of boring logistics 
+	but you know they're important for you to understand what's going on moving forward 
+	and then we'll actually introduce in an almost ridiculously short amount of time natural language processing deep learning and the intersection of the two 
+2.49	3 Course Logistcs
+	so let's dive right in 
+	my name is Richard 
+	so sure I actually got a PhD from Stanford last year and happen to work on deep learning for natural language processing and a little bit of computer vision 
+	I'm now the founder and CTO of meta mind which is a startup that also happens to do deep learning 
+	for those two application fields we have three awesome TAS 
+	maybe they can wave their hands 
+	we get Ian back there and within the camera francua and poong right there 
+	so we'll have four office hours at least 
+	if the enrollment stays as high as it is maybe we'll get a fourth one because it'll be a lot of grading otherwise for you three 
+	I'm sorry we had to change the time in place we originally had a room from the 60 people and now we have hundred 60 people students enrolled so we had to move to this 
+	I hope it's not too bad 
+	we'll try our best to actually record all the all the lectures on video and put those up 
+	we still need to figure out if we can just put them on YouTube 
+	well soon find out hopefully this week we will have a lot of problem sets 
+	so basically three problem sets that will make you basically program these kinds of algorithms 
+	and there will be a midterm and a final project 
+	and in fact the final project is something that you might want to start thinking about starting today 
+	this is going to be an important part and hopefully as we go over a bunch of applications
+	you'll see you know you have some ideas on what you want to do
+	you can find our office hours 
+	and soon also office hour locations on the website 
+	I'm sorry that will probably not be any course notes 
+	but we will put up the slides and the videos shortly after 
+	and if I'm on top of my things maybe even before the lecture
+4.35	5 Grading Policy
+	so the grades for those of you who take not a pass/fail we basically have the three problem sets that count for roughly 1/2 and the midterm is 15% 
+	the midterm we want to make sure you actually understand some of the very basics of the math behind what you're programming in the problem sets 
+	the final project will be 40% 
+	we have a milestone and usually when you start out your project definition you say: oh I'm gonna solve NLP, it's gonna be so great and epic 
+	and then we have the milestones 
+	and what we often then get 
+	I was a TA for 229 in machine learning classes 
+	we're struggling collecting the data 
+	and that is actually it's a very common problem 
+	a lot of these algorithms need a lot of data and just dealing storing a lot of data might not fit on your laptop 
+	you might need some other machines 
+	so we're going to give you two bonus points or percent of the entire class 
+	if you have your data ready and run a single experiment could be just a simple baseline 
+	if you actually have some experiments done at the time of the milestone 
+	and then the final write-up project and presentation will have a poster presentation instead of that final will be 35 percent 
+	are there any questions so far 
+	all right 
+	so yeah bonus points also for exceptional poster presentations 
+	delayed policy we're trying to not have to hear about your grandmother 
+	so we'll give you seven free late days 
+	you can use them as you please except that you can only use three for one problem set at a time 
+	so after three days we want to basically talk about the solutions during the office hours 
+	and want to move the class along because the next problem said will be do you know two weeks after 
+	and oftentimes they built on top of each other 
+	so you want to be able to share the solution 
+	so you can turn your problem sets in at most three three days late after you either exceed those 
+	or you hand it in no 
+	so once you hand it in late it's gone instead 
+	if you exceed your seven late days you will lose 25% per late day after that 
+	and it unfortunately cannot apply to the final course project because we have to put in the grades into the system 
+	so collaboration policy Stanford recently got into the news not so pleasantly 
+	so please do read your codebook and the honor code obviously you can you know talk about things during a lecture and your understanding 
+	but you have to write down the own solution 
+	and most importantly have to program your own solution and not try to find some code somewhere on the internet or something like that 
+	on the final project you can actually work in teams of two people 
+	and maybe if you have a really ambitious project 
+	and you have a very clear setting of what's going on 
+	we can make an exception and have three 
+	but ideally you'll just be two because otherwise it's hard to attribute who did what 
+	all right 
+	any questions about all the grading 
+	6 High Level Plan for Problem Sets
+7.32	4 Pre-requisites
+	great 
+	alright 
+	so prerequisites 
+	on a very high-level note I will rather air and decide of boring some people in the beginning 
+	and you know make sure everybody gets the very basics of the math and the programming 
+	so if you have taken all the prerequisites and you've got a pluses in all of them 
+	and you know that was all pretty boring because you already kind of knew it 
+	unfortunately you will be a little bored in the first like handful of lectures  maybe two 
+	what I found seeing is it's better to err on that side and then we can you know ramp up the speed as we go to more complex models really 
+	once you know some of the basic building blocks off deep learning 
+	you can very quickly put them together in interesting new ways 
+	they're kind of LEGO pieces 
+	you just need to understand how they're put together and then build amazing stuff 
+	so that being said you will have an easier time if you're proficient in Python 
+	all the class assignments will be in Python  
+	will use numpy but obviously not packages likes I could learn 
+	because that's the kind of stuff we want to learn how to do ourselves 
+	so we will you know provide a tutorial here actually from a previous class to 31 and and 
+	so let me ask in the room show of hands who would want to have a Python refresher to make sure their can hit the ground running 
+	raise your hand 
+	okay 
+	who does not need a Python refreshment 
+	all right 
+	well it does seem like there are very few people who really need it 
+	so maybe those people in the interest of our TA time I can just talk to some of the TAS they're only like a handful of hands raised hmm 
+	and yeah during office hours of course 
+	yeah all right 
+	college-level calculus and linear algebra will be great 
+	so who here know singular value decomposition 
+	all right all right 
+	I'm that's this is awesome 
+	all right 
+	you'll have you'll have a great time on Wednesday 
+	because well we'll kind of assume that that you know SVD and we can then move to to neural networks more quickly 
+	so basic probability and statistics is also good 
+	you don't need to know crazy lebesgue measures or anything for deep learning 
+	but knowing what the log likelihood is and things like that will make your life a lot easier 
+	and really if you've have fully understood CS 229 in all its gory details
+	you'll have a lot easier time in general conceptually moving through this class 
+	we'll have a lot of cost functions and basically once we write down our cost function everything else will be kind of straightforward 
+	you take derivatives sort of a bunch of matrix multiplications 
+	and then you run some optimization algorithm like gradient descent 
+	any questions on the prerequisites 
+10.20	7 What is Natural Language Processing (NLP)?
+	all right 
+	so that was the boring part 
+	and I'm very hopeful from the hands being raised so far 
+	that we can move somewhat quickly through through the early parts of the class material 
+	so what is natural language processing 
+	again these are very very short descriptions and in some ways it's still a reasonably young field 
+	so the the definition is is a little bit subjective 
+	but most people I think would agree with the minimum subset here that that 
+	I describe which is that natural language processing is a field at the intersection of computer science artificial intelligence and linguistics 
+	you will often find researchers working in NLP to be associated with these kinds of departments 
+	and you know in some cases some universities have an AI or machine learning Department and most cases AI is kind of part of computer science 
+	so the main goal for NLP or natural language processing is for computers to understand and process natural language in order to perform tasks that are useful 
+	and in most cases useful to us back as humans 
+	for instance question answering 
+	of course the the tricky bit is and the reason I put understanding quotation marks is computers don't really understand language the way we understand language 
+	there's a lot of you know linguistic knowledge world knowledge and and the connections to thought and planning and you know love life and happiness 
+	and all that that will make it very hard for a computer to fully understand and appreciate language 
+	so we're and there's actually a lot of interesting stuff in the philosophy of language too 
+	and you can spend many many hours reading about Frigga and Vitkenstein and a lot of philosophy of language 
+	which we will not do in this class  
+	it's very interesting but in order to actually give you tools to you know do what's possible now with deep learning we kind of have to move over that pretty quickly 
+	so we'll basically take a very pragmatic approach and look at a lot of tasks that are very concrete and helpful to humans 
+	and in some ways perfect language understanding is so-called AI complete problem in the sense that you kind of have to solve almost all of other AI 
+	right 
+	I can talk about planning 
+	I can talk about my motor control in a robot 
+	I talk about visual inputs 
+	and if you really want to understand what the meaning of greenness you know or blue 
+	how do you really do that without seeing the outside world and and so on 
+	so it's a very complex problem and in many ways we will simplify it  
+12.45	8 NLP Levels
+	one thing that has been it is pretty well established inside NLP are different levels of linguistic representation and skill and 
+	so it starts with speech or in the case of many computers who don't actually have, you know, microphones 
+	or not programmed to deal with speech with raw text those could be pixely scans and in PDF format or something 
+	in the case of speech will then do phonetics or phonology 
+	it's just the subfield that deal it's basically we're trying to understand speech and map it into a system that humans can understand and analyze 
+	and in the case of text we might do optical character recognition and tokenization 
+	just finding word do words end and and start 
+	and this kind of, you know, tokenization is pretty easy for english, right, we just have spaces 
+	but for other languages like Chinese you might not know where specific word starts or ends 
+	once you say, all right, I have at least roughly the words that I want to deal with 
+	you can then try to understand and analyze these words and that's the subfield of morphology 
+	and again for linguists you might start cringing here because any one of those, you know, boxes could be its entire own class right 
+	so we're doing a very very bird's-eye view here of the field of NLP and I'm I'm sorry to all the real linguists in the room who who might cringe now 
+	so morphology basically tries to understand how words are constructed, you know, if they're prefixes 
+	so I could be it unfortunately so on would be a prefix of the overall word unfortunately for instance 
+
+	once you understand the words and, you know, their meaning you in general and sort of traditional NLP you move on to syntactic analysis trying to understand how words are put together 
+	so I Can Has Cheezburger for instance does not sound like a syntactically correct phrase in the English language 
+	and syntactic or syntax basically tells you what is a reasonable syntactic phrase 
+	how this grammar were what is grammatical what is ungrammatical and so on 
+	a lot of people in traditional I know key would assume that you need to have the morphological and syntactic understanding order to go to the next one 
+	but we'll actually see that in some cases deep learning can move straight into semantics interpretations or semantics 
+	which basically deals with trying to understand the meaning of not just a single words but also how they compose into a complete sentence 
+	and once we understand the meaning of a sentence which is also a tricky bit and there are lots of different definitions of what is actually the meaning of a sentence 
+	once we understand that we can maybe go to discourse analysis or pragmatics which tries to deal with and tries to understand how multiple sentences from the meaning of an entire story, you know, a novel or a, you know, conversation between people 
+	which can be very useful once you want to have a phone agent or something that can let you book a flight ticket and wants to need to keep track of the things you've said already in the past 
+	we will mostly focus on syntactic and semantic interpretations in the class but there will be a little bit of phonetics because and in phonology because speech recognition has been somewhat revolutionized by deep learning 
+	so it's still part of NLP a lot of people put speech into a little subsection of four separate from NLP but clearly speech is part of language processing 
+	so mostly will focus on semantic and syntactic interpretations which are al
+	so the ones that are closer to the real tasks that we might care about 
+	so what what could those be that any questions 
+	so far about the different LP levels just a head scratch alright  
+16.25	9 (A tiny simple) NLP applications
+19.26	10 NLP in industry
+21.43	11 Why is NLP hard?
+	so let's have one very very oversimplified slide on why natural language processing is actually hard
+	so I kind of alluded to this before but there's really a huge amount of complexity in representing and learning automatically a lot of different types of knowledge
+	so we have linguistic knowledge 
+	we know what grammar, you know, what kinds of sentences give us, you know, what kind of sentences are correct or not 
+	we have situational knowledge I know that there are certain things I can say in certain situations and not in others 
+	we have a lot of world knowledge visual knowledge that we might be referring to and so on
+	so that is that is one of the examples
+	so here for instance let's let's assume we try to build an algorithm that understands who she is in this sentence right here
+	so this ends this Jane hit June and then she fell
+	so now who is she 
+	right well wait OOP 
+	June exactly 
+	and then but now it's the sentences Jane had June and then she ran
+	so now you know it's actually almost ambiguous ambiguous again because it could be well you got hidden and you want to run away or you hit somebody and then you ran away
+	so again there's almost situational knowledge but here you know it's more likely to be Jane than June 
+	and it's in some sense it's probabilistic but in the first case it's very clear that it was June 
+	and
+	so being like how do we now represent those that fact that we just you know for us is very intuitive who she is depending on on the verb 
+	how do we instill that in an algorithm 
+	and that will be one of the big questions and we'll provide one so you should know deep learning and it's not the only one but it's actually one that that I think moving forward is going to be very powerful
+	so so that is that is the first large problem and then the second one is ambiguity
+	so here we have a sentence I made her duck
+	so who here has you know an interpretation of what that could mean rephrased 
+	yes exactly 
+	I made her a duck and it tasted very good 
+	you know 
+	exactly maybe in the end you have a wooden duck or something
+	so you made her you carved one for her yeah 
+	exactly 
+	like that 
+	and there's one there's a fourth one dead uh 
+	yes 
+	you what 
+	like a master plan 
+	interesting all right 
+	I did not think of that one before there's one that s actually very similar to the first one which is you know I cook the duck for her which could be I cooked the duck that she owned
+	so I actually made her duck and not you know my other friends stuff
+	so lots of ambiguity right and you can probably think of even more
+24.50	12 What's deep learning (DL)?
+28.03	13 Machine learning vs deep learning
+	14 What's deep learning (DL)?
+	15 On the history and term of "deep learning"
+	16 Reasons for exploring Deep Learning
+	17 Reasons for exploring Deep Learning
+	18 Deep Learning for speech
+	19 Deep Learning for computer vision
+	20 Deep Learning + NLP = Deep NLP
+	21 Representations at NLP levels: phonology
+	22 Representations at NLP levels: morphology
+	23 Neural word vectors - visualization
+	24 Representations at NLP levels: syntax
+	25 Representations at NLP levels: semantics
+	26 NLP Applications: Sentiment analisys
+	27 question answering
+	28 Machine translation
+	29 Machine translation
+	30 Machine translation
+	31 Dynamic memory network by MetaMind
+	32 Representation for all levels: Vectors

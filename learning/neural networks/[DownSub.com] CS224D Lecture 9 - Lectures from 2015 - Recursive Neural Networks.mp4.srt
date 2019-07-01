@@ -1,0 +1,7015 @@
+1
+00:00:00,030 --> 00:00:03,480
+ninth lecture of CS 224 d today we'll
+
+2
+00:00:03,480 --> 00:00:05,460
+talk about recursive neural networks I
+
+3
+00:00:05,460 --> 00:00:07,410
+have a somewhat personally relationship
+
+4
+00:00:07,410 --> 00:00:09,000
+with these since I've worked a lot of
+
+5
+00:00:09,000 --> 00:00:11,610
+these kinds of models during my PhD 
+
+
+---------------------------------------- 2(2) Overview
+
+
+so
+
+6
+00:00:11,610 --> 00:00:14,160
+we'll actually spend two lectures on
+
+7
+00:00:14,160 --> 00:00:15,330
+these just like recurrent neural
+
+8
+00:00:15,330 --> 00:00:16,710
+networks are pretty important they're
+
+9
+00:00:16,710 --> 00:00:19,609
+very flexible kinds of models and so
+
+10
+00:00:19,609 --> 00:00:21,930
+basically today will motivate them a
+
+11
+00:00:21,930 --> 00:00:23,519
+little bit with so called
+
+12
+00:00:23,519 --> 00:00:26,670
+compositionality meaning you know a sort
+
+13
+00:00:26,670 --> 00:00:28,560
+of technique to get to the meaning of
+
+14
+00:00:28,560 --> 00:00:30,630
+longer phrases and then we'll actually
+
+15
+00:00:30,630 --> 00:00:32,668
+look at a slightly different kind of
+
+16
+00:00:32,668 --> 00:00:34,020
+objective function a structure
+
+17
+00:00:34,020 --> 00:00:36,180
+prediction kind of objective function
+
+18
+00:00:36,180 --> 00:00:38,460
+today and back propagation through
+
+19
+00:00:38,460 --> 00:00:40,559
+structure is really going to be very
+
+20
+00:00:40,559 --> 00:00:42,329
+similar to back propagation which you
+
+21
+00:00:42,329 --> 00:00:44,520
+already know with just three you know
+
+22
+00:00:44,520 --> 00:00:46,950
+slight modifications and then the nice
+
+23
+00:00:46,950 --> 00:00:48,090
+thing is that these models are very
+
+24
+00:00:48,090 --> 00:00:50,219
+general and so if we have enough time at
+
+25
+00:00:50,219 --> 00:00:52,590
+the end we can also actually have you
+
+26
+00:00:52,590 --> 00:00:54,629
+know two or three slides on a computer
+
+27
+00:00:54,629 --> 00:00:56,910
+vision example turns out the exact same
+
+28
+00:00:56,910 --> 00:01:00,120
+model will work for images as well and
+
+29
+00:01:00,120 --> 00:01:02,370
+then in the next lecture we can go and
+
+30
+00:01:02,370 --> 00:01:03,719
+look into a couple of modifications
+
+31
+00:01:03,719 --> 00:01:05,840
+couple of extensions to the standard
+
+32
+00:01:05,840 --> 00:01:08,729
+recursive neural networks when I mention
+
+33
+00:01:08,729 --> 00:01:12,510
+RNN today it will be mostly recursive
+
+34
+00:01:12,510 --> 00:01:14,850
+neural networks it's unfortunate because
+
+35
+00:01:14,850 --> 00:01:16,409
+our nents and the last couple of
+
+36
+00:01:16,409 --> 00:01:17,700
+lectures were a recurrent neural
+
+37
+00:01:17,700 --> 00:01:19,320
+networks and we'll actually look into
+
+38
+00:01:19,320 --> 00:01:21,540
+the difference between those two as well
+
+--------------------------------------------- 3 (11) Building on Word Vector Space Models
+
+
+
+39
+00:01:21,540 --> 00:01:24,990
+all right so we're very familiar by now
+
+40
+00:01:24,990 --> 00:01:27,869
+with word vector space models where you
+
+41
+00:01:27,869 --> 00:01:29,820
+know words that are similar in meaning
+
+42
+00:01:29,820 --> 00:01:32,009
+and have similar kinds of part of speech
+
+43
+00:01:32,009 --> 00:01:34,079
+tags are close by so all the nouns are
+
+44
+00:01:34,079 --> 00:01:37,770
+clustered together and inside the non
+
+45
+00:01:37,770 --> 00:01:39,600
+cluster would have you know different
+
+46
+00:01:39,600 --> 00:01:42,240
+semantic sub structures so the vector of
+
+47
+00:01:42,240 --> 00:01:44,220
+germany would be closer to the vector of
+
+48
+00:01:44,220 --> 00:01:45,840
+France for instance and Monday and
+
+49
+00:01:45,840 --> 00:01:48,590
+Tuesday will be closer to one another
+
+50
+00:01:48,590 --> 00:01:51,000
+but of course words never appear in
+
+51
+00:01:51,000 --> 00:01:53,460
+isolation and so so far we haven't
+
+52
+00:01:53,460 --> 00:01:57,030
+really thought about what happens to
+
+53
+00:01:57,030 --> 00:01:59,009
+vector representations when we want to
+
+54
+00:01:59,009 --> 00:02:01,979
+represent specific short sub phrases so
+
+55
+00:02:01,979 --> 00:02:03,930
+what if I have the two phrases the
+
+56
+00:02:03,930 --> 00:02:05,490
+country of my birth and the place where
+
+57
+00:02:05,490 --> 00:02:07,619
+I was born for instance if I was to
+
+58
+00:02:07,619 --> 00:02:09,479
+build a text summarization system
+
+59
+00:02:09,479 --> 00:02:11,008
+clearly I wouldn't want to have both of
+
+60
+00:02:11,008 --> 00:02:13,069
+these together despite
+
+61
+00:02:13,069 --> 00:02:15,349
+you know country in place not being that
+
+62
+00:02:15,349 --> 00:02:18,349
+similar and birth as a you know noun and
+
+63
+00:02:18,349 --> 00:02:20,780
+where I was born as a verb but ideally
+
+64
+00:02:20,780 --> 00:02:22,549
+if we build a sex organization system we
+
+65
+00:02:22,549 --> 00:02:23,840
+wouldn't include both of these phrases
+
+66
+00:02:23,840 --> 00:02:26,450
+right and so the question is how should
+
+67
+00:02:26,450 --> 00:02:28,310
+we represent the meaning of these longer
+
+68
+00:02:28,310 --> 00:02:31,639
+phrases and the answer that is similar
+
+69
+00:02:31,639 --> 00:02:34,579
+you know to or the answer will basically
+
+70
+00:02:34,579 --> 00:02:38,150
+give to that today is by mapping those
+
+71
+00:02:38,150 --> 00:02:40,489
+phrases into the exact same vector space
+
+72
+00:02:40,489 --> 00:02:46,069
+where we had words 
+
+
+--------------------------------------- 4 (12) Semantic Vector Spaces
+
+
+and so just to give
+
+73
+00:02:46,069 --> 00:02:47,900
+you a sort of broader sense of where
+
+74
+00:02:47,900 --> 00:02:49,790
+that puts us there are a lot of these
+
+75
+00:02:49,790 --> 00:02:51,650
+representations for single word vectors
+
+76
+00:02:51,650 --> 00:02:53,540
+we look through word Tyvek and and Club
+
+77
+00:02:53,540 --> 00:02:55,879
+vectors basically they're sort of
+
+78
+00:02:55,879 --> 00:02:57,169
+distributed and distributional
+
+79
+00:02:57,169 --> 00:02:58,909
+techniques it's actually a lot of other
+
+80
+00:02:58,909 --> 00:03:01,370
+ones such as brown clusters which we're
+
+81
+00:03:01,370 --> 00:03:02,930
+not going to cover much in this class
+
+82
+00:03:02,930 --> 00:03:06,290
+but basically they also capture core
+
+83
+00:03:06,290 --> 00:03:09,739
+current statistics and so they are great
+
+84
+00:03:09,739 --> 00:03:11,750
+but they really can capture longer
+
+85
+00:03:11,750 --> 00:03:13,280
+phrases and then there are a lot of
+
+86
+00:03:13,280 --> 00:03:14,900
+other models that are very widely used
+
+87
+00:03:14,900 --> 00:03:18,199
+such as bag of words models or the PCA
+
+88
+00:03:18,199 --> 00:03:20,989
+based models that we discovered for
+
+89
+00:03:20,989 --> 00:03:23,299
+document representations and those are
+
+90
+00:03:23,299 --> 00:03:25,280
+reasonably good for information
+
+91
+00:03:25,280 --> 00:03:27,439
+retrieval we just want to find you know
+
+92
+00:03:27,439 --> 00:03:29,780
+specific documents of mention specific
+
+93
+00:03:29,780 --> 00:03:32,689
+phrases or document exploration we just
+
+94
+00:03:32,689 --> 00:03:35,239
+want to know these documents roughly
+
+95
+00:03:35,239 --> 00:03:37,129
+about politics or sports or things like
+
+96
+00:03:37,129 --> 00:03:38,989
+that but of course they ignore the word
+
+97
+00:03:38,989 --> 00:03:40,849
+order and so we can't really get too
+
+98
+00:03:40,849 --> 00:03:42,590
+detailed understanding inside our
+
+99
+00:03:42,590 --> 00:03:46,310
+representation and so today we'll look
+
+100
+00:03:46,310 --> 00:03:49,579
+at another technique for finding vectors
+
+101
+00:03:49,579 --> 00:03:51,079
+that really represent phrases and
+
+102
+00:03:51,079 --> 00:03:53,180
+sentences without ignoring word order
+
+103
+00:03:53,180 --> 00:03:55,280
+and actually trying to capture both the
+
+104
+00:03:55,280 --> 00:03:56,900
+syntactic structure as well as the
+
+105
+00:03:56,900 --> 00:04:01,219
+semantic information of those phrases 
+
+-------------------------------------------- 5 (13) How should we map phrases into a vector space?
+
+
+so
+
+106
+00:04:01,219 --> 00:04:03,109
+that leads us to the question of how we
+
+107
+00:04:03,109 --> 00:04:06,259
+should go about doing this and in this
+
+108
+00:04:06,259 --> 00:04:08,599
+lecture we'll introduce and use the
+
+109
+00:04:08,599 --> 00:04:11,569
+principle of compositionality which in
+
+110
+00:04:11,569 --> 00:04:13,729
+our case states that the meaning vector
+
+111
+00:04:13,729 --> 00:04:16,820
+of a sentence is determined by one the
+
+112
+00:04:16,820 --> 00:04:18,500
+meaning of its words the word vectors
+
+113
+00:04:18,500 --> 00:04:20,329
+and throughout the lecture I will
+
+114
+00:04:20,329 --> 00:04:22,250
+describe those you know I straight those
+
+115
+00:04:22,250 --> 00:04:24,260
+in two dimensions but of course there
+
+116
+00:04:24,260 --> 00:04:26,060
+will generally be you know 21
+
+117
+00:04:26,060 --> 00:04:28,160
+to 300 dimensional so much larger
+
+118
+00:04:28,160 --> 00:04:30,710
+dimensional and to the rules that are
+
+119
+00:04:30,710 --> 00:04:32,750
+used to combine them and unlike before
+
+120
+00:04:32,750 --> 00:04:34,820
+where we just go from left to right and
+
+121
+00:04:34,820 --> 00:04:36,440
+we just compute one vector for
+
+122
+00:04:36,440 --> 00:04:40,100
+everything that we've read so far from
+
+123
+00:04:40,100 --> 00:04:42,260
+the left side this time we'll actually
+
+124
+00:04:42,260 --> 00:04:44,210
+adhere to the grammatical structure of
+
+125
+00:04:44,210 --> 00:04:45,970
+the sentence and we'll try to find
+
+126
+00:04:45,970 --> 00:04:48,680
+specific noun phrases that go together
+
+127
+00:04:48,680 --> 00:04:52,250
+so for instance my birth is by itself a
+
+128
+00:04:52,250 --> 00:04:55,220
+reasonably grammatical or syntactic
+
+129
+00:04:55,220 --> 00:04:57,889
+phrase and similarly the country is a
+
+130
+00:04:57,889 --> 00:05:00,260
+noun phrase and so we can combine those
+
+131
+00:05:00,260 --> 00:05:02,660
+two and then of my birth is actually a
+
+132
+00:05:02,660 --> 00:05:04,700
+prepositional phrase so those you know
+
+133
+00:05:04,700 --> 00:05:07,070
+the word vector of off will be combined
+
+134
+00:05:07,070 --> 00:05:09,979
+with the word vector of my birth and so
+
+135
+00:05:09,979 --> 00:05:12,950
+on and then ideally at the end of it
+
+136
+00:05:12,950 --> 00:05:15,200
+the final resulting vector will actually
+
+137
+00:05:15,200 --> 00:05:17,479
+be somewhere close to other countries in
+
+138
+00:05:17,479 --> 00:05:20,870
+a single word vector space and so the
+
+139
+00:05:20,870 --> 00:05:23,750
+neat thing about these models today is
+
+140
+00:05:23,750 --> 00:05:26,270
+that they basically can jointly learn
+
+141
+00:05:26,270 --> 00:05:29,020
+these so-called parse trees and
+
+142
+00:05:29,020 --> 00:05:31,039
+compositional vector representations
+
+143
+00:05:31,039 --> 00:05:33,350
+that ideally captures syntactic and
+
+144
+00:05:33,350 --> 00:05:35,780
+semantic information of the phrases
+
+145
+00:05:35,780 --> 00:05:38,120
+underneath them and not of the entire
+
+146
+00:05:38,120 --> 00:05:40,010
+context that we've had so far to the
+
+147
+00:05:40,010 --> 00:05:44,479
+left 
+
+
+------------------------------------- 6 (14) Sentence Parsing: What we want
+
+
+so what is what is sentence parsing
+
+148
+00:05:44,479 --> 00:05:46,550
+what when we say we want to parse a
+
+149
+00:05:46,550 --> 00:05:48,650
+sentence what do we actually want out of
+
+150
+00:05:48,650 --> 00:05:50,270
+it so let's assume we start with a
+
+151
+00:05:50,270 --> 00:05:52,370
+sentence like the cat sat on the mat
+
+152
+00:05:52,370 --> 00:05:54,889
+very simple phrase what were sentence
+
+153
+00:05:54,889 --> 00:05:57,350
+what we would want is to have a model
+
+154
+00:05:57,350 --> 00:05:59,479
+that understands that the cat is a
+
+155
+00:05:59,479 --> 00:06:00,979
+proper noun phrase and I could now
+
+156
+00:06:00,979 --> 00:06:03,680
+replace that noun phrase with any other
+
+157
+00:06:03,680 --> 00:06:04,940
+noun phrase and it would still be a
+
+158
+00:06:04,940 --> 00:06:07,460
+grammatical English sentence so I could
+
+159
+00:06:07,460 --> 00:06:10,610
+say the car sat on the mat or you know
+
+160
+00:06:10,610 --> 00:06:14,510
+the whole class sat on the mat like any
+
+161
+00:06:14,510 --> 00:06:16,280
+kind of noun phrase could now be
+
+162
+00:06:16,280 --> 00:06:19,130
+replaced with this one and it would
+
+163
+00:06:19,130 --> 00:06:20,419
+still be a grammatical sentence
+
+164
+00:06:20,419 --> 00:06:23,150
+similarly the mat is a noun phrase and
+
+165
+00:06:23,150 --> 00:06:25,460
+now on the mat is a prepositional phrase
+
+166
+00:06:25,460 --> 00:06:26,930
+and again we could replace that
+
+167
+00:06:26,930 --> 00:06:28,700
+prepositional phrase with any other one
+
+168
+00:06:28,700 --> 00:06:31,190
+and still get a syntactically or
+
+169
+00:06:31,190 --> 00:06:32,960
+grammatically plausible English sentence
+
+170
+00:06:32,960 --> 00:06:36,200
+so we could say the cat sat you know
+
+171
+00:06:36,200 --> 00:06:39,260
+beyond the scope of this lecture you
+
+172
+00:06:39,260 --> 00:06:39,620
+know
+
+173
+00:06:39,620 --> 00:06:41,630
+that doesn't make any semantic sense but
+
+174
+00:06:41,630 --> 00:06:43,370
+is actually a grammatically correct
+
+175
+00:06:43,370 --> 00:06:46,580
+sentence and that is that is a big an
+
+176
+00:06:46,580 --> 00:06:47,900
+important distinction right grammar
+
+177
+00:06:47,900 --> 00:06:49,910
+doesn't tell you that much about
+
+178
+00:06:49,910 --> 00:06:53,900
+semantics and then to sit on the math as
+
+179
+00:06:53,900 --> 00:06:56,479
+a verb phrase and together this whole
+
+180
+00:06:56,479 --> 00:06:59,500
+thing is a sentence that is sort of the
+
+181
+00:06:59,500 --> 00:07:02,330
+standard way of defining the parsing
+
+182
+00:07:02,330 --> 00:07:04,040
+tasks we get these discrete tree
+
+183
+00:07:04,040 --> 00:07:06,410
+structures and they're different
+
+184
+00:07:06,410 --> 00:07:10,430
+depending on the input 
+
+
+------------------------------------------- 8 (15) Learn Structure and Representation
+
+
+
+of course where
+
+185
+00:07:10,430 --> 00:07:12,050
+we will want is not just having this
+
+186
+00:07:12,050 --> 00:07:13,550
+discrete structures but ideally we want
+
+187
+00:07:13,550 --> 00:07:15,139
+to have again everything represented as
+
+188
+00:07:15,139 --> 00:07:17,690
+a vector and so we'll actually look into
+
+189
+00:07:17,690 --> 00:07:19,130
+how we can compute these vector
+
+190
+00:07:19,130 --> 00:07:21,500
+representations that now represent any
+
+191
+00:07:21,500 --> 00:07:24,979
+specific sub phrase without the context
+
+
+------------------------------------------------ 8 (16) Learn Structure and Representation?
+
+
+
+192
+00:07:24,979 --> 00:07:28,160
+and so the first question we have to ask
+
+193
+00:07:28,160 --> 00:07:30,229
+ourselves here is do we really need
+
+194
+00:07:30,229 --> 00:07:32,720
+these structures you know we're saying
+
+195
+00:07:32,720 --> 00:07:34,160
+we learn structure and representation
+
+196
+00:07:34,160 --> 00:07:35,389
+but reading the last couple of lectures
+
+197
+00:07:35,389 --> 00:07:38,210
+we've also learned some kind of
+
+198
+00:07:38,210 --> 00:07:40,190
+structure and representation it just
+
+199
+00:07:40,190 --> 00:07:42,080
+happened to be that that representation
+
+200
+00:07:42,080 --> 00:07:44,120
+was always everything to the left of you
+
+201
+00:07:44,120 --> 00:07:45,950
+know what do what the current word is
+
+
+-------------------------------------------- 9 (17) Sidenote: Recursive vs recurrent neural networks
+
+
+202
+00:07:45,950 --> 00:07:50,210
+and so that leads us to three slides of
+
+203
+00:07:50,210 --> 00:07:52,430
+the side note of you know should we use
+
+204
+00:07:52,430 --> 00:07:54,410
+these recursive structures the tree
+
+205
+00:07:54,410 --> 00:07:57,130
+structures or just change structures and
+
+206
+00:07:57,130 --> 00:08:00,139
+this could be a very lengthy argument
+
+207
+00:08:00,139 --> 00:08:02,330
+I'm going to try to distill it in in
+
+208
+00:08:02,330 --> 00:08:05,090
+just three three slides but basically
+
+209
+00:08:05,090 --> 00:08:07,880
+the main difference here is that you
+
+210
+00:08:07,880 --> 00:08:09,949
+know chains are actually special types
+
+211
+00:08:09,949 --> 00:08:12,320
+of trees right they just happen to
+
+212
+00:08:12,320 --> 00:08:15,410
+always branch in one direction all right
+
+213
+00:08:15,410 --> 00:08:18,139
+so from general graph theory you know
+
+214
+00:08:18,139 --> 00:08:20,120
+that changes are special types of trees
+
+215
+00:08:20,120 --> 00:08:23,300
+and so in that sense the recursive ones
+
+216
+00:08:23,300 --> 00:08:25,460
+are just generalizations of recurrent
+
+217
+00:08:25,460 --> 00:08:27,949
+ones and the default could be to just
+
+218
+00:08:27,949 --> 00:08:30,139
+say well I just take all the words and
+
+219
+00:08:30,139 --> 00:08:31,669
+instead of looking at their grammar I
+
+220
+00:08:31,669 --> 00:08:34,130
+just combine them one at a time right
+
+221
+00:08:34,130 --> 00:08:40,339
+and so you can see this as you know when
+
+222
+00:08:40,339 --> 00:08:42,950
+you have these specific words you could
+
+223
+00:08:42,950 --> 00:08:46,010				пишет на доске
+just say you know I keep combining them
+
+224
+00:08:46,010 --> 00:08:50,510
+one word to the right all right and that
+
+225
+00:08:50,510 --> 00:08:52,700
+is also tree it just happens to
+
+226
+00:08:52,700 --> 00:08:55,430
+be able to flatten it out and call it a
+
+227
+00:08:55,430 --> 00:08:57,650
+chain all rights in that sense they're
+
+228
+00:08:57,650 --> 00:08:58,880
+actually not that different
+
+
+------------------------------------------------- 10 (18) Sidenote: Are languages recursive?
+
+
+229
+00:08:58,880 --> 00:09:01,880
+however the question is sort of then is
+
+230
+00:09:01,880 --> 00:09:05,600
+language a recursive kind of thing and
+
+231
+00:09:05,600 --> 00:09:09,980
+so there's a long history here of papers
+
+232
+00:09:09,980 --> 00:09:12,290
+and I don't think it's yet clear whether
+
+233
+00:09:12,290 --> 00:09:15,260
+this is cognitively plausible like do
+
+234
+00:09:15,260 --> 00:09:18,200
+people really put together specific
+
+235
+00:09:18,200 --> 00:09:20,600
+phrases in their brains and so on and
+
+236
+00:09:20,600 --> 00:09:24,050
+fortunately we're not cognitive science
+
+237
+00:09:24,050 --> 00:09:25,880
+class right now so we can kind of put
+
+238
+00:09:25,880 --> 00:09:28,100
+that on the table and say well maybe
+
+239
+00:09:28,100 --> 00:09:30,860
+maybe not but recursion is clearly
+
+240
+00:09:30,860 --> 00:09:33,020
+helpful in describing natural language
+
+241
+00:09:33,020 --> 00:09:35,300
+it is very helpful to say for instance
+
+242
+00:09:35,300 --> 00:09:36,950
+that you know the church which has nice
+
+243
+00:09:36,950 --> 00:09:39,050
+windows the church which has nice
+
+244
+00:09:39,050 --> 00:09:40,760
+windows is a noun phrase I can replace
+
+245
+00:09:40,760 --> 00:09:41,960
+that noun phrase with another noun
+
+246
+00:09:41,960 --> 00:09:43,070
+phrase they've got a grammatical
+
+247
+00:09:43,070 --> 00:09:45,800
+sentence and yet inside that noun phrase
+
+248
+00:09:45,800 --> 00:09:47,720
+we have a relative clause which has nice
+
+249
+00:09:47,720 --> 00:09:50,180
+windows and that itself also contains a
+
+250
+00:09:50,180 --> 00:09:52,940
+noun phrase namely the nice windows and
+
+251
+00:09:52,940 --> 00:09:57,860
+so that from just describing language is
+
+252
+00:09:57,860 --> 00:10:00,860
+clearly very useful and now there are
+
+253
+00:10:00,860 --> 00:10:03,410
+basically four arguments of you know
+
+254
+00:10:03,410 --> 00:10:06,230
+that we use for now and basically say it
+
+255
+00:10:06,230 --> 00:10:08,360
+is just kind of helpful for a lot of
+
+256
+00:10:08,360 --> 00:10:10,460
+different tasks that we encounter in
+
+257
+00:10:10,460 --> 00:10:12,730
+natural language processing
+
+258
+00:10:12,730 --> 00:10:16,550
+one of those is disambiguation so here I
+
+259
+00:10:16,550 --> 00:10:19,250
+show you the first two parse trees that
+
+260
+00:10:19,250 --> 00:10:20,840
+look a little more realistic something
+
+261
+00:10:20,840 --> 00:10:22,520
+you would actually see when you parse
+
+262
+00:10:22,520 --> 00:10:25,310
+the sentence and you see here the the
+
+263
+00:10:25,310 --> 00:10:26,960
+sentence you need read them from the
+
+264
+00:10:26,960 --> 00:10:29,090
+left to right so here he eats spaghetti
+
+265
+00:10:29,090 --> 00:10:31,460
+with a spoon and the other sentences he
+
+266
+00:10:31,460 --> 00:10:36,680
+eats spaghetti with meat now what this
+
+267
+00:10:36,680 --> 00:10:39,530
+tells us here is basically we have PE
+
+268
+00:10:39,530 --> 00:10:41,390
+which is a personal pronoun and personal
+
+269
+00:10:41,390 --> 00:10:43,220
+pronouns are noun phrases so far so good
+
+270
+00:10:43,220 --> 00:10:45,470
+we have verb phrase this year and now
+
+271
+00:10:45,470 --> 00:10:47,480
+the entirety of that sentence eats
+
+272
+00:10:47,480 --> 00:10:48,920
+spaghetti or that phrase eat spaghetti
+
+273
+00:10:48,920 --> 00:10:51,890
+with a spoon is a verb phrase eats is
+
+274
+00:10:51,890 --> 00:10:54,860
+the verb now spaghetti is a plural noun
+
+275
+00:10:54,860 --> 00:10:57,500
+and now this is the interesting part
+
+276
+00:10:57,500 --> 00:10:59,810
+here this is a so-called PP or a
+
+277
+00:10:59,810 --> 00:11:02,990
+prepositional phrase and this overall
+
+278
+00:11:02,990 --> 00:11:05,840
+problem here is a PP attached
+
+279
+00:11:05,840 --> 00:11:08,810
+ambiguity so if a computer was to read
+
+280
+00:11:08,810 --> 00:11:12,050
+the sentence and you know reads he eats
+
+281
+00:11:12,050 --> 00:11:13,910
+spaghetti with a spoon versus he eats
+
+282
+00:11:13,910 --> 00:11:17,810
+spaghetti with meat now how can we know
+
+283
+00:11:17,810 --> 00:11:19,670
+whether the computer understands that
+
+284
+00:11:19,670 --> 00:11:22,100
+when I say with a spoon I actually mean
+
+285
+00:11:22,100 --> 00:11:23,870
+that I modify the way I eat the
+
+286
+00:11:23,870 --> 00:11:27,620
+spaghetti as in this PP should attach to
+
+287
+00:11:27,620 --> 00:11:31,130
+the verb phrase versus I say he'd
+
+288
+00:11:31,130 --> 00:11:32,960
+spaghetti with meat whereas this with
+
+289
+00:11:32,960 --> 00:11:35,480
+which also just has some noun phrase
+
+290
+00:11:35,480 --> 00:11:37,970
+inside of it this PP actually attaches
+
+291
+00:11:37,970 --> 00:11:40,100
+to the type of spaghetti because we're
+
+292
+00:11:40,100 --> 00:11:42,770
+not modifying how we were modifying what
+
+293
+00:11:42,770 --> 00:11:46,100
+we'd alright so if we have this kind of
+
+294
+00:11:46,100 --> 00:11:47,720
+structure and we make this explicit it
+
+295
+00:11:47,720 --> 00:11:50,000
+will be useful to disambiguate these two
+
+296
+00:11:50,000 --> 00:11:51,920
+cases and now the model could actually
+
+297
+00:11:51,920 --> 00:11:54,440
+you know tell us whether it got it right
+
+298
+00:11:54,440 --> 00:11:57,770
+and you know we can do downstream tasks
+
+299
+00:11:57,770 --> 00:12:00,080
+now and also query for instance the
+
+300
+00:12:00,080 --> 00:12:01,880
+model and ask give me all the different
+
+301
+00:12:01,880 --> 00:12:03,470
+ways somebody could eat spaghetti
+
+302
+00:12:03,470 --> 00:12:04,970
+alright maybe you did it with a fork
+
+303
+00:12:04,970 --> 00:12:06,740
+maybe you do a fork and a spoon and so
+
+304
+00:12:06,740 --> 00:12:10,640
+on 
+
+
+--------------------------------------------------- 11 (19) Is recursion useful?
+
+
+
+are there any questions about this
+
+305
+00:12:10,640 --> 00:12:12,800
+part state you again yeah so back in
+
+306
+00:12:12,800 --> 00:12:14,720
+undergrad I actually took two entire
+
+307
+00:12:14,720 --> 00:12:17,630
+semesters of just syntax and grammar
+
+308
+00:12:17,630 --> 00:12:20,180
+theory and things like that and so again
+
+309
+00:12:20,180 --> 00:12:21,440
+this is like an insane
+
+310
+00:12:21,440 --> 00:12:23,000
+oversimplification here could literally
+
+311
+00:12:23,000 --> 00:12:24,770
+spend an entire year just talking about
+
+312
+00:12:24,770 --> 00:12:26,720
+all the subtleties of how these trees
+
+313
+00:12:26,720 --> 00:12:29,300
+are created so a bit of a cognitive
+
+314
+00:12:29,300 --> 00:12:32,470
+overload in some ways
+
+315
+00:13:04,130 --> 00:13:06,900
+so the question is are they really
+
+316
+00:13:06,900 --> 00:13:08,010
+useful for sort of semantic
+
+317
+00:13:08,010 --> 00:13:09,420
+understanding versus just grammatical
+
+318
+00:13:09,420 --> 00:13:11,520
+understanding and the answer here is in
+
+319
+00:13:11,520 --> 00:13:13,410
+some ways both and a lot of linguists
+
+320
+00:13:13,410 --> 00:13:15,630
+postulate that in order to understand
+
+321
+00:13:15,630 --> 00:13:17,400
+the sentence you first understand the
+
+322
+00:13:17,400 --> 00:13:19,230
+words then you understand how words are
+
+323
+00:13:19,230 --> 00:13:21,420
+put together and then you know you get
+
+324
+00:13:21,420 --> 00:13:23,220
+to the actual meaning of that sentence
+
+325
+00:13:23,220 --> 00:13:24,600
+and you understand you get to the
+
+326
+00:13:24,600 --> 00:13:26,610
+meaning through the structure first and
+
+327
+00:13:26,610 --> 00:13:29,160
+some people say well maybe not all right
+
+328
+00:13:29,160 --> 00:13:30,930
+so this is this is a very much up for
+
+329
+00:13:30,930 --> 00:13:33,240
+debate clearly here we see you know a
+
+330
+00:13:33,240 --> 00:13:36,270
+noun phrase well there's no there's no
+
+331
+00:13:36,270 --> 00:13:38,490
+noun phrase here inside another noun
+
+332
+00:13:38,490 --> 00:13:40,680
+phrase but here here that is the case
+
+333
+00:13:40,680 --> 00:13:43,080
+right with meat the meat is a noun
+
+334
+00:13:43,080 --> 00:13:44,760
+phrase in the spaghetti so we did
+
+335
+00:13:44,760 --> 00:13:46,500
+understand more about grammatical
+
+336
+00:13:46,500 --> 00:13:48,510
+structure here and certainly if we were
+
+337
+00:13:48,510 --> 00:13:51,420
+to for instance train whether students
+
+338
+00:13:51,420 --> 00:13:53,790
+are using correct grammar this seems
+
+339
+00:13:53,790 --> 00:13:57,900
+like clearly a very useful model however
+
+340
+00:13:57,900 --> 00:14:00,510
+we also got some better understanding of
+
+341
+00:14:00,510 --> 00:14:02,370
+what the model actually understood here
+
+342
+00:14:02,370 --> 00:14:04,140
+when it read those sentences right so
+
+343
+00:14:04,140 --> 00:14:05,790
+eating spaghetti with a spoon and now
+
+344
+00:14:05,790 --> 00:14:07,500
+here the model understood that with the
+
+345
+00:14:07,500 --> 00:14:10,200
+Spooner you know understood rotation
+
+346
+00:14:10,200 --> 00:14:12,420
+marks understood that with the spoon
+
+347
+00:14:12,420 --> 00:14:14,460
+here actually attaches to the verb
+
+348
+00:14:14,460 --> 00:14:16,650
+phrase and hence it modifies how you eat
+
+349
+00:14:16,650 --> 00:14:18,330
+the spaghetti so we did gain both
+
+350
+00:14:18,330 --> 00:14:20,250
+syntactic and semantic understanding of
+
+351
+00:14:20,250 --> 00:14:27,230
+this in yes
+
+352
+00:14:28,940 --> 00:14:32,630
+individual earning offices
+
+353
+00:14:42,670 --> 00:14:44,750
+so I did not what is the difference
+
+354
+00:14:44,750 --> 00:14:47,200
+between what
+
+355
+00:14:52,680 --> 00:14:54,269
+that's a great question well we'll
+
+356
+00:14:54,269 --> 00:14:55,439
+actually get to that a little bit
+
+357
+00:14:55,439 --> 00:14:59,550
+throughout the lecture 
+
+
+--------------------------------------------------- 11 (19) -------------------------------
+
+
+
+
+so the the next
+
+358
+00:14:59,550 --> 00:15:02,759
+three reasons are sort of you know let's
+
+359
+00:15:02,759 --> 00:15:05,730
+say recursive structure cognitively
+
+360
+00:15:05,730 --> 00:15:10,139
+questionable but clearly useful as a way
+
+361
+00:15:10,139 --> 00:15:13,499
+to describe language now it's also
+
+362
+00:15:13,499 --> 00:15:15,809
+useful for just real tasks so let's say
+
+363
+00:15:15,809 --> 00:15:18,240
+we wanted to for instance do somewhat
+
+364
+00:15:18,240 --> 00:15:21,420
+complex co-reference analysis where and
+
+365
+00:15:21,420 --> 00:15:23,519
+koreff what we basically want to
+
+366
+00:15:23,519 --> 00:15:26,790
+understand is when you refer today or it
+
+367
+00:15:26,790 --> 00:15:29,579
+what did you actually mean when you when
+
+368
+00:15:29,579 --> 00:15:31,170
+you say that right and it usually means
+
+369
+00:15:31,170 --> 00:15:33,179
+you have some anaphora for instance so
+
+370
+00:15:33,179 --> 00:15:34,740
+here's here's an example john and jane
+
+371
+00:15:34,740 --> 00:15:37,259
+went to a big festival they enjoyed the
+
+372
+00:15:37,259 --> 00:15:38,999
+trip and the music there now
+
+373
+00:15:38,999 --> 00:15:41,309
+co-reference resolution would be the
+
+374
+00:15:41,309 --> 00:15:43,889
+task of understanding who is they when I
+
+375
+00:15:43,889 --> 00:15:46,649
+actually mentioned that you know this
+
+376
+00:15:46,649 --> 00:15:48,540
+day right here and in this case here
+
+377
+00:15:48,540 --> 00:15:50,879
+would be John and Jane so now we want to
+
+378
+00:15:50,879 --> 00:15:55,379
+refer to that entire phrase now when I
+
+379
+00:15:55,379 --> 00:15:57,959
+say they enjoy the trip and I ask what
+
+380
+00:15:57,959 --> 00:16:00,600
+do you mean by the trip then ideally you
+
+381
+00:16:00,600 --> 00:16:02,699
+would say well the trip meant they went
+
+382
+00:16:02,699 --> 00:16:05,639
+to a festival right and so now going to
+
+383
+00:16:05,639 --> 00:16:07,559
+a festival is a specific type of trip
+
+384
+00:16:07,559 --> 00:16:10,800
+and it's not that Jane and John went to
+
+385
+00:16:10,800 --> 00:16:12,480
+the big festival is the specific type of
+
+386
+00:16:12,480 --> 00:16:13,949
+trip it's just you know going to a
+
+387
+00:16:13,949 --> 00:16:15,779
+festival so you might want to refer to
+
+388
+00:16:15,779 --> 00:16:17,579
+just that and now somebody else could
+
+389
+00:16:17,579 --> 00:16:20,040
+have that same trip and you know you can
+
+390
+00:16:20,040 --> 00:16:23,579
+refer to that as one coherent unit and
+
+391
+00:16:23,579 --> 00:16:26,069
+now there would be potentially you know
+
+392
+00:16:26,069 --> 00:16:28,709
+the big festival maybe there are two
+
+393
+00:16:28,709 --> 00:16:30,389
+festivals a big one in small one they
+
+394
+00:16:30,389 --> 00:16:33,089
+went to one not the other now you go
+
+395
+00:16:33,089 --> 00:16:36,569
+basically there so this year basically
+
+396
+00:16:36,569 --> 00:16:38,850
+we've seen a couple of times we could
+
+397
+00:16:38,850 --> 00:16:41,549
+also refer to just her and just him for
+
+398
+00:16:41,549 --> 00:16:43,799
+instance just Jane and just John and in
+
+399
+00:16:43,799 --> 00:16:46,110
+both cases we wouldn't want to have only
+
+400
+00:16:46,110 --> 00:16:48,149
+a representation for everything that was
+
+401
+00:16:48,149 --> 00:16:50,610
+you know read until now right we would
+
+402
+00:16:50,610 --> 00:16:52,619
+only want to have something we can refer
+
+403
+00:16:52,619 --> 00:16:55,699
+to that is a sub phrase in that sentence
+
+404
+00:16:55,699 --> 00:16:57,720
+third reason is that the labeling
+
+405
+00:16:57,720 --> 00:17:00,360
+sometimes becomes less clear so if we if
+
+406
+00:17:00,360 --> 00:17:02,670
+we basically only have a single label at
+
+407
+00:17:02,670 --> 00:17:04,949
+each word so here we have a sentence
+
+408
+00:17:04,949 --> 00:17:06,060
+such as I like the bride
+
+409
+00:17:06,060 --> 00:17:08,160
+strean but not the buggy slow keyboard
+
+410
+00:17:08,160 --> 00:17:10,650
+of the phone now ideally we could just
+
+411
+00:17:10,650 --> 00:17:13,440
+classify buggy so keyboard of the phone
+
+412
+00:17:13,440 --> 00:17:16,470
+or buggy slow keyboard by itself as an
+
+413
+00:17:16,470 --> 00:17:18,869
+entity and that is negative whereas
+
+414
+00:17:18,869 --> 00:17:21,569
+something before here is positive right
+
+415
+00:17:21,569 --> 00:17:23,520
+and we don't necessarily just want to
+
+416
+00:17:23,520 --> 00:17:25,290
+classify the entire sentence here or
+
+417
+00:17:25,290 --> 00:17:27,890
+this entire paragraph but we ideally
+
+418
+00:17:27,890 --> 00:17:30,690
+understand you know each of these sub
+
+419
+00:17:30,690 --> 00:17:32,940
+phrases and they can have different
+
+420
+00:17:32,940 --> 00:17:34,470
+kinds of labels if we were to classify
+
+421
+00:17:34,470 --> 00:17:37,800
+sentiment for instance and again here it
+
+422
+00:17:37,800 --> 00:17:40,350
+is an interesting co-reference problem
+
+423
+00:17:40,350 --> 00:17:42,930
+it was a pain to type with or it was
+
+424
+00:17:42,930 --> 00:17:45,740
+nice to look at depending on what the
+
+425
+00:17:45,740 --> 00:17:48,120
+information here is the semantics of
+
+426
+00:17:48,120 --> 00:17:49,740
+what's following the it it's actually
+
+427
+00:17:49,740 --> 00:17:51,180
+you know either referring to the screen
+
+428
+00:17:51,180 --> 00:17:53,520
+or the keyboard so this is the task of
+
+429
+00:17:53,520 --> 00:17:55,110
+coroner's resolution it's actually kind
+
+430
+00:17:55,110 --> 00:17:59,190
+of an interesting task and NLP alright
+
+431
+00:17:59,190 --> 00:18:01,650
+and then the last argument is somewhat
+
+432
+00:18:01,650 --> 00:18:04,440
+of a pragmatic argument which is in some
+
+433
+00:18:04,440 --> 00:18:06,360
+tasks it just works better to use these
+
+434
+00:18:06,360 --> 00:18:08,940
+grammatical structures but this is also
+
+435
+00:18:08,940 --> 00:18:10,710
+an ongoing field of research so maybe
+
+436
+00:18:10,710 --> 00:18:12,960
+eventually we'll find that we could get
+
+437
+00:18:12,960 --> 00:18:15,450
+away which is some very very deep lsdm
+
+438
+00:18:15,450 --> 00:18:17,730
+model and we don't need them at all and
+
+439
+00:18:17,730 --> 00:18:20,700
+maybe whenever you have a phrase you can
+
+440
+00:18:20,700 --> 00:18:22,830
+kind of have some neurons that kind of
+
+441
+00:18:22,830 --> 00:18:24,270
+just capture now as a phrase and then
+
+442
+00:18:24,270 --> 00:18:25,980
+the forget GAE turns on and and they are
+
+443
+00:18:25,980 --> 00:18:27,690
+the next layer will kind of deal with
+
+444
+00:18:27,690 --> 00:18:29,760
+this thing it's it's still up for debate
+
+445
+00:18:29,760 --> 00:18:31,670
+and it's a very active area of research
+
+446
+00:18:31,670 --> 00:18:34,650
+but okay let's for now assume and it's
+
+447
+00:18:34,650 --> 00:18:37,440
+still the case that on some tasks these
+
+448
+00:18:37,440 --> 00:18:39,660
+models work the best right now on some
+
+449
+00:18:39,660 --> 00:18:41,730
+standard benchmark data sets 
+
+
+------------------------------------- 12 (20) Recursive Neural Networks for Structure Prediction
+
+
+
+and so
+
+450
+00:18:41,730 --> 00:18:43,740
+let's define actually what a recursive
+
+451
+00:18:43,740 --> 00:18:45,780
+neural network is and how we get these
+
+452
+00:18:45,780 --> 00:18:49,500
+parse tree structures so basically we'll
+
+453
+00:18:49,500 --> 00:18:52,200
+have two inputs which are in general the
+
+454
+00:18:52,200 --> 00:18:55,200
+candidate children's representations so
+
+455
+00:18:55,200 --> 00:18:56,760
+in the beginning those will just be the
+
+456
+00:18:56,760 --> 00:18:58,710
+words for instance the and mat and then
+
+457
+00:18:58,710 --> 00:19:00,120
+later on it could be you know
+
+458
+00:19:00,120 --> 00:19:01,950
+representations of freight phrase
+
+459
+00:19:01,950 --> 00:19:04,200
+vectors that actually already were
+
+460
+00:19:04,200 --> 00:19:08,010
+computed before and the output in the
+
+461
+00:19:08,010 --> 00:19:11,520
+first kind of example where we actually
+
+462
+00:19:11,520 --> 00:19:13,020
+look at how to compute the tree
+
+463
+00:19:13,020 --> 00:19:15,750
+structure will be two things the first
+
+464
+00:19:15,750 --> 00:19:17,970
+one is the semantic representation if we
+
+465
+00:19:17,970 --> 00:19:19,530
+merge these two nodes
+
+466
+00:19:19,530 --> 00:19:21,660
+and the second one will be a score of
+
+467
+00:19:21,660 --> 00:19:24,660
+how plausible the new node would be so
+
+468
+00:19:24,660 --> 00:19:27,530
+ideally here again we'll compute a score
+
+--------------------------------------------------- 13 (21) Recursive Neural Network Definition
+
+
+
+469
+00:19:27,530 --> 00:19:30,570
+that will say this is a reasonable
+
+470
+00:19:30,570 --> 00:19:33,090
+syntactic phrase and we want to increase
+
+471
+00:19:33,090 --> 00:19:35,790
+that score if it was actually true and
+
+472
+00:19:35,790 --> 00:19:37,680
+we want to decrease it if it's some
+
+473
+00:19:37,680 --> 00:19:41,130
+random ungrammatical phrase so what is
+
+474
+00:19:41,130 --> 00:19:43,020
+what are the equations for this model
+
+475
+00:19:43,020 --> 00:19:45,630
+here well it's a very simple one the
+
+476
+00:19:45,630 --> 00:19:47,100
+first thing we do here is we just
+
+477
+00:19:47,100 --> 00:19:49,830
+concatenate c1 and c2 the children the
+
+478
+00:19:49,830 --> 00:19:51,870
+left child and the right child of each
+
+479
+00:19:51,870 --> 00:19:54,990
+node in the tree we concatenate them and
+
+480
+00:19:54,990 --> 00:19:56,970
+then we multiply them by this matrix W
+
+481
+00:19:56,970 --> 00:20:00,510
+here and now the parent vector P should
+
+482
+00:20:00,510 --> 00:20:03,330
+have the same dimensionality as each of
+
+483
+00:20:03,330 --> 00:20:06,630
+the single children so let me ask you
+
+484
+00:20:06,630 --> 00:20:09,210
+what should the dimensionality now of W
+
+485
+00:20:09,210 --> 00:20:13,710
+be let's say c1 and c2 each one is n
+
+486
+00:20:13,710 --> 00:20:15,200
+dimensional it's an N dimensional vector
+
+487
+00:20:15,200 --> 00:20:18,930
+now what should the dimensionality of W
+
+488
+00:20:18,930 --> 00:20:21,080
+be
+
+489
+00:20:26,630 --> 00:20:31,460
+say louder yes exactly and bite to it
+
+490
+00:20:31,460 --> 00:20:34,130
+and so to understand this a little bit
+
+491
+00:20:34,130 --> 00:20:37,160
+we can also write this in a different
+
+492
+00:20:37,160 --> 00:20:44,110
+way we could instead of writing W times
+
+493
+00:20:44,110 --> 00:20:49,669
+c1 and c2 we could rewrite this and say
+
+494
+00:20:49,669 --> 00:20:54,830
+well W is a block w1 w2 so like we said
+
+495
+00:20:54,830 --> 00:21:00,020
+this is an R and by 2n matrix and this
+
+496
+00:21:00,020 --> 00:21:02,809
+matrix will be exactly this and we have
+
+497
+00:21:02,809 --> 00:21:05,919
+here C 1 and C 2 as our vector
+
+498
+00:21:05,919 --> 00:21:08,480
+representation and now this is actually
+
+499
+00:21:08,480 --> 00:21:14,299
+equal to W 1 C 1 plus W 2 C 2 all right
+
+500
+00:21:14,299 --> 00:21:16,760
+and that looks very similar to various
+
+501
+00:21:16,760 --> 00:21:19,340
+equations we've had in recurrent neural
+
+502
+00:21:19,340 --> 00:21:22,520
+networks to where one was the history of
+
+503
+00:21:22,520 --> 00:21:24,409
+you know that we had in the past HT
+
+504
+00:21:24,409 --> 00:21:26,780
+minus 1 and another one is X 1 the next
+
+505
+00:21:26,780 --> 00:21:29,570
+word now it just turns out that C could
+
+506
+00:21:29,570 --> 00:21:31,909
+be both it could be single words or it
+
+507
+00:21:31,909 --> 00:21:34,490
+could be hidden dimensions and we'll go
+
+508
+00:21:34,490 --> 00:21:37,190
+through an example here in the next
+
+509
+00:21:37,190 --> 00:21:41,750
+couple of slides so the reason we call
+
+510
+00:21:41,750 --> 00:21:45,440
+this recursive and before recurrent is
+
+511
+00:21:45,440 --> 00:21:47,480
+that we use a also here the same W
+
+512
+00:21:47,480 --> 00:21:49,840
+parameters at all the nodes of the tree
+
+513
+00:21:49,840 --> 00:21:52,640
+so in order to compute any one of these
+
+514
+00:21:52,640 --> 00:21:54,919
+here we'll share the weight so we tie
+
+515
+00:21:54,919 --> 00:21:57,200
+the weights and basically have the same
+
+516
+00:21:57,200 --> 00:21:59,630
+W here to compute every single parent
+
+517
+00:21:59,630 --> 00:22:02,860
+vector yes
+
+518
+00:22:11,770 --> 00:22:14,900
+that is correct yeah the the word this
+
+519
+00:22:14,900 --> 00:22:17,810
+model is not it really depends on the
+
+520
+00:22:17,810 --> 00:22:22,850
+order of the words okay so this is the
+
+521
+00:22:22,850 --> 00:22:25,940
+main equation and again we see here this
+
+522
+00:22:25,940 --> 00:22:27,980
+is really essentially just a standard
+
+523
+00:22:27,980 --> 00:22:30,740
+single layer neural network just happens
+
+524
+00:22:30,740 --> 00:22:33,170
+to have as input two vectors that we
+
+525
+00:22:33,170 --> 00:22:34,490
+concatenate which the model doesn't
+
+526
+00:22:34,490 --> 00:22:35,810
+really know so the model is just a
+
+527
+00:22:35,810 --> 00:22:37,610
+single vector but the way we put them
+
+528
+00:22:37,610 --> 00:22:39,650
+together is by taking one vector from
+
+529
+00:22:39,650 --> 00:22:41,210
+the left child and one vector from the
+
+530
+00:22:41,210 --> 00:22:45,680
+right shop so the central equation of of
+
+531
+00:22:45,680 --> 00:22:48,350
+today 
+
+
+--------------------------------------------------- 14 (22) Parsing a sentence with an RNN
+
+
+
+and so now how do we actually use
+
+532
+00:22:48,350 --> 00:22:51,740
+this to compute a tree structure that is
+
+533
+00:22:51,740 --> 00:22:53,690
+you know captures the grammar of that
+
+534
+00:22:53,690 --> 00:22:58,100
+sentence we basically and this is the
+
+535
+00:22:58,100 --> 00:22:59,930
+first simple version of how to describe
+
+536
+00:22:59,930 --> 00:23:02,210
+this and basically the only one we'll
+
+537
+00:23:02,210 --> 00:23:04,760
+describe in detail today so called
+
+538
+00:23:04,760 --> 00:23:06,950
+greedy search mechanism here we just
+
+539
+00:23:06,950 --> 00:23:10,610
+basically look at how how likely would
+
+540
+00:23:10,610 --> 00:23:13,730
+it be to combine the vector of the and
+
+541
+00:23:13,730 --> 00:23:16,400
+the vector of cat with this neural
+
+542
+00:23:16,400 --> 00:23:18,770
+network and you know that would get some
+
+543
+00:23:18,770 --> 00:23:20,450
+kind of vector representation first and
+
+544
+00:23:20,450 --> 00:23:22,490
+then a score that was just a linear
+
+545
+00:23:22,490 --> 00:23:24,860
+layer so again here the score which we
+
+546
+00:23:24,860 --> 00:23:26,930
+kind of skipped is just a simple inner
+
+547
+00:23:26,930 --> 00:23:28,700
+product same kind of score that we used
+
+548
+00:23:28,700 --> 00:23:32,360
+before so now we look at this and then
+
+549
+00:23:32,360 --> 00:23:34,850
+we'll just look at every possible pair
+
+550
+00:23:34,850 --> 00:23:38,990
+of words and how likely they would be to
+
+551
+00:23:38,990 --> 00:23:41,420
+combine to a reasonable syntactic phrase
+
+552
+00:23:41,420 --> 00:23:45,020
+and now it's just you know in dramatic
+
+553
+00:23:45,020 --> 00:23:47,510
+structure and according to linguists on
+
+554
+00:23:47,510 --> 00:23:50,450
+the is not a reasonable syntactic phrase
+
+555
+00:23:50,450 --> 00:23:53,330
+but the mat is a nice proper noun phrase
+
+556
+00:23:53,330 --> 00:23:55,160
+so that would get a large score and
+
+557
+00:23:55,160 --> 00:23:58,700
+likewise the cat is a very obvious very
+
+558
+00:23:58,700 --> 00:24:00,500
+simple combination of a determinant a
+
+559
+00:24:00,500 --> 00:24:02,840
+noun so we put those together 
+
+
+--------------------------------------------------- 15 (23) Parsing a sentence
+
+
+so now the
+
+560
+00:24:02,840 --> 00:24:05,660
+cat here gets the higher score and in
+
+561
+00:24:05,660 --> 00:24:08,030
+this kind of greedy search mechanism we
+
+562
+00:24:08,030 --> 00:24:09,140
+will just say all right well then let's
+
+563
+00:24:09,140 --> 00:24:11,540
+combine those two let's instead of
+
+564
+00:24:11,540 --> 00:24:13,880
+having these two separate word vectors
+
+565
+00:24:13,880 --> 00:24:15,650
+here we will now just take the phrase
+
+566
+00:24:15,650 --> 00:24:17,240
+vector which is really just the output
+
+567
+00:24:17,240 --> 00:24:20,230
+of the hidden layer
+
+568
+00:24:22,580 --> 00:24:26,910
+so now the model basically has a one
+
+569
+00:24:26,910 --> 00:24:28,470
+vector here and that's the first vector
+
+570
+00:24:28,470 --> 00:24:29,940
+of the sequence and that vector
+
+571
+00:24:29,940 --> 00:24:33,840
+represents now the cat and now we have
+
+572
+00:24:33,840 --> 00:24:35,429
+basically have here the cat has a vector
+
+573
+00:24:35,429 --> 00:24:38,790
+and then still a set on the mat as each
+
+574
+00:24:38,790 --> 00:24:43,260
+one being a separate word vector and now
+
+575
+00:24:43,260 --> 00:24:45,240
+the model doesn't yet know how likely
+
+576
+00:24:45,240 --> 00:24:49,110
+would it be to combine the cats at and
+
+577
+00:24:49,110 --> 00:24:52,050
+so this is where the recursion comes in
+
+578
+00:24:52,050 --> 00:24:54,990
+the output of the first time we apply it
+
+579
+00:24:54,990 --> 00:24:58,200
+the neural network becomes the input to
+
+580
+00:24:58,200 --> 00:25:00,300
+that same neural network and that's why
+
+581
+00:25:00,300 --> 00:25:06,929
+it's recursive so now the cat set is
+
+582
+00:25:06,929 --> 00:25:09,390
+somewhat of a reasonable phrase you know
+
+583
+00:25:09,390 --> 00:25:11,929
+we could just say in the cat suits
+
+584
+00:25:11,929 --> 00:25:13,860
+instead of you know if the cat stands
+
+585
+00:25:13,860 --> 00:25:16,620
+and so this would get a reasonably large
+
+586
+00:25:16,620 --> 00:25:19,590
+score however the mat was an even more
+
+587
+00:25:19,590 --> 00:25:21,900
+obvious noun phrase 
+
+
+--------------------------------------------------- 16 (24) Parsing a sentence
+
+
+and so we'll merge
+
+588
+00:25:21,900 --> 00:25:26,280
+those two nodes next and now again the
+
+589
+00:25:26,280 --> 00:25:29,070
+model doesn't know how likely it would
+
+590
+00:25:29,070 --> 00:25:32,250
+be to combine the word vector on with
+
+591
+00:25:32,250 --> 00:25:35,220
+the phrase vector the Matt and so we'll
+
+592
+00:25:35,220 --> 00:25:41,870
+again apply the same neural network yes
+
+593
+00:25:46,049 --> 00:25:48,789
+it's a great question we'll actually
+
+594
+00:25:48,789 --> 00:25:54,669
+them so boy it goes a little bit too far
+
+595
+00:25:54,669 --> 00:25:56,470
+so I can't go into too many details but
+
+596
+00:25:56,470 --> 00:25:58,090
+for those of you who actually have taken
+
+597
+00:25:58,090 --> 00:26:01,899
+the you know to 24 and no CQ I see you
+
+598
+00:26:01,899 --> 00:26:05,830
+okay it's just three names parsing and
+
+599
+00:26:05,830 --> 00:26:08,080
+chart parsing in chart parsing you can
+
+600
+00:26:08,080 --> 00:26:09,070
+actually make certain independence
+
+601
+00:26:09,070 --> 00:26:10,899
+assumptions kind of like you make markov
+
+602
+00:26:10,899 --> 00:26:13,240
+assumptions for language models we say I
+
+603
+00:26:13,240 --> 00:26:15,370
+don't care about anything else that came
+
+604
+00:26:15,370 --> 00:26:17,409
+before but right now this phrase is a
+
+605
+00:26:17,409 --> 00:26:19,840
+noun phrase and because of that you can
+
+606
+00:26:19,840 --> 00:26:22,389
+then say well I can find the global
+
+607
+00:26:22,389 --> 00:26:25,029
+optimum here because I can make certain
+
+608
+00:26:25,029 --> 00:26:26,559
+simplifying assumptions use dynamic
+
+609
+00:26:26,559 --> 00:26:29,049
+programming here you can't really use
+
+610
+00:26:29,049 --> 00:26:31,539
+that because the vectors on which you
+
+611
+00:26:31,539 --> 00:26:33,190
+make those assumptions are continuous
+
+612
+00:26:33,190 --> 00:26:36,279
+and so really changing the vector just a
+
+613
+00:26:36,279 --> 00:26:38,470
+little bit would change potentially the
+
+614
+00:26:38,470 --> 00:26:41,620
+overall score so while one phrase might
+
+615
+00:26:41,620 --> 00:26:44,259
+be locally the best highest-scoring
+
+616
+00:26:44,259 --> 00:26:46,659
+phrase it might not actually do to the
+
+617
+00:26:46,659 --> 00:26:48,340
+global optimum so all you could do here
+
+618
+00:26:48,340 --> 00:26:50,200
+is a so-called dynamic beam search but
+
+619
+00:26:50,200 --> 00:26:52,149
+don't worry if you don't weren't able to
+
+620
+00:26:52,149 --> 00:26:55,600
+follow that little sidenote so in the
+
+621
+00:26:55,600 --> 00:26:57,850
+end what we'll do is a CKY like beam
+
+622
+00:26:57,850 --> 00:27:00,490
+search but again don't worry about this
+
+623
+00:27:00,490 --> 00:27:03,220
+it's enough to understand so this greedy
+
+624
+00:27:03,220 --> 00:27:04,600
+procedure here for finding the best
+
+625
+00:27:04,600 --> 00:27:08,679
+Street 
+
+
+
+--------------------------------------------------- 17 (25) Parsing a sentence
+
+
+
+okay so now we basically keep
+
+626
+00:27:08,679 --> 00:27:10,659
+building up this tree find the
+
+627
+00:27:10,659 --> 00:27:12,700
+highest-scoring potential candidate and
+
+628
+00:27:12,700 --> 00:27:17,100
+in the end have the full tree structure
+
+629
+00:27:17,100 --> 00:27:20,100
+yes
+
+630
+00:27:24,370 --> 00:27:27,690
+sorry can you speak a little louder
+
+631
+00:27:32,360 --> 00:27:33,950
+that's a so there are certain
+
+632
+00:27:33,950 --> 00:27:36,140
+constraints on these two that they have
+
+633
+00:27:36,140 --> 00:27:37,730
+to be symmetric that's actually an
+
+634
+00:27:37,730 --> 00:27:40,490
+interesting question there are none so
+
+635
+00:27:40,490 --> 00:27:42,080
+right now they can just be any arbitrary
+
+636
+00:27:42,080 --> 00:27:44,960
+matrix and it turns out that there are
+
+637
+00:27:44,960 --> 00:27:47,270
+interesting extensions that we'll go
+
+638
+00:27:47,270 --> 00:27:49,430
+into later in the lecture that actually
+
+639
+00:27:49,430 --> 00:27:52,580
+allow us to really understand a little
+
+640
+00:27:52,580 --> 00:27:54,230
+bit better how each what the role of
+
+641
+00:27:54,230 --> 00:27:57,380
+they are of these two blocks are their
+
+642
+00:27:57,380 --> 00:28:00,410
+left block and the right block well
+
+643
+00:28:00,410 --> 00:28:03,020
+we'll get to it in a couple slides but
+
+644
+00:28:03,020 --> 00:28:05,300
+yeah in general it's just a W matrix it
+
+645
+00:28:05,300 --> 00:28:07,670
+will be updated with SGD or other kinds
+
+646
+00:28:07,670 --> 00:28:09,530
+of optimization methods and there's no
+
+647
+00:28:09,530 --> 00:28:12,380
+no way to sort of force and force kind
+
+648
+00:28:12,380 --> 00:28:13,670
+of seventeen you don't want to enforce
+
+649
+00:28:13,670 --> 00:28:15,440
+symmetry because maybe on the left the
+
+650
+00:28:15,440 --> 00:28:17,930
+left phrase or left word might be more
+
+651
+00:28:17,930 --> 00:28:22,160
+important than the right one and any
+
+652
+00:28:22,160 --> 00:28:23,990
+other questions on how this sort of
+
+653
+00:28:23,990 --> 00:28:33,020
+greedy search procedure happened yet so
+
+654
+00:28:33,020 --> 00:28:35,240
+yes the same neural network here was
+
+655
+00:28:35,240 --> 00:28:39,280
+used for every single node computation
+
+656
+00:28:42,500 --> 00:28:45,860
+combined way back to work to balance
+
+657
+00:28:45,860 --> 00:28:47,770
+another
+
+658
+00:28:47,770 --> 00:29:10,500
+I just
+
+659
+00:29:12,760 --> 00:29:18,360
+so wonder for example you
+
+660
+00:29:28,040 --> 00:29:30,840
+alright so the question I guess is it's
+
+661
+00:29:30,840 --> 00:29:32,100
+a little fuzzy is it okay
+
+662
+00:29:32,100 --> 00:29:35,160
+to do this well it turns out it's okay
+
+663
+00:29:35,160 --> 00:29:36,810
+for tasks for certain tasks yeah it's
+
+664
+00:29:36,810 --> 00:29:38,790
+good enough to get you know these day of
+
+665
+00:29:38,790 --> 00:29:47,190
+the art performance on them yeah so the
+
+666
+00:29:47,190 --> 00:29:48,960
+question is is it good to have different
+
+667
+00:29:48,960 --> 00:29:50,550
+kinds of neural networks and actually
+
+668
+00:29:50,550 --> 00:29:52,440
+relax the assumptions so the way I
+
+669
+00:29:52,440 --> 00:29:55,830
+describe this so far is that these kinds
+
+670
+00:29:55,830 --> 00:29:57,450
+of models actually more recursive than
+
+671
+00:29:57,450 --> 00:29:58,920
+actual natural language natural language
+
+672
+00:29:58,920 --> 00:30:00,750
+tests sometimes a noun phrase inside a
+
+673
+00:30:00,750 --> 00:30:01,860
+relative clause inside a noun phrase
+
+674
+00:30:01,860 --> 00:30:03,660
+here we use the exact same neural
+
+675
+00:30:03,660 --> 00:30:05,250
+network at every single node of the tree
+
+676
+00:30:05,250 --> 00:30:07,050
+and so we'll actually relax that
+
+677
+00:30:07,050 --> 00:30:07,500
+assumption
+
+678
+00:30:07,500 --> 00:30:10,800
+later on the lecture 
+
+
+--------------------------------------------------- 18 (26) Max-Margin Framework - Details
+
+
+so how do we
+
+679
+00:30:10,800 --> 00:30:12,720
+actually train this we will use a
+
+680
+00:30:12,720 --> 00:30:15,330
+similar max margin objective function to
+
+681
+00:30:15,330 --> 00:30:19,770
+what we had used before in one of the
+
+682
+00:30:19,770 --> 00:30:22,050
+earlier lectures but now we'll define
+
+683
+00:30:22,050 --> 00:30:25,380
+the score of the entire tree and we
+
+684
+00:30:25,380 --> 00:30:26,940
+don't just have a single window we have
+
+685
+00:30:26,940 --> 00:30:29,040
+a tree that actually was computed from
+
+686
+00:30:29,040 --> 00:30:30,690
+multiple different kinds of scores and
+
+687
+00:30:30,690 --> 00:30:33,390
+so the score of the full tree is for us
+
+688
+00:30:33,390 --> 00:30:36,210
+right now simply the sum of all the
+
+689
+00:30:36,210 --> 00:30:39,510
+scores at each node so let's define here
+
+690
+00:30:39,510 --> 00:30:43,560
+the score of a specific sentence X with
+
+691
+00:30:43,560 --> 00:30:47,640
+a specific tree Y we basically look at
+
+692
+00:30:47,640 --> 00:30:49,680
+all the nodes that that tree had and we
+
+693
+00:30:49,680 --> 00:30:52,800
+compute the scores at each of these
+
+694
+00:30:52,800 --> 00:30:54,660
+nodes and again these scores here were
+
+695
+00:30:54,660 --> 00:30:57,120
+just simple inner products with the same
+
+696
+00:30:57,120 --> 00:31:01,710
+view vector 
+
+
+--------------------------------------------------- 19 (27) Max-Margin Framework - Details
+
+
+
+so here comes the the most
+
+697
+00:31:01,710 --> 00:31:03,240
+important and kind of interesting new
+
+698
+00:31:03,240 --> 00:31:07,200
+equation of of today's lecture basically
+
+699
+00:31:07,200 --> 00:31:10,290
+this is called max margin parsing and we
+
+700
+00:31:10,290 --> 00:31:12,750
+have here this max margin objective
+
+701
+00:31:12,750 --> 00:31:14,070
+function so let's walk through this
+
+702
+00:31:14,070 --> 00:31:17,160
+objective function very slowly what we
+
+703
+00:31:17,160 --> 00:31:19,380
+want to do we want to generally maximize
+
+704
+00:31:19,380 --> 00:31:23,070
+this function and we assume we have a
+
+705
+00:31:23,070 --> 00:31:25,770
+labeled training data set so we assume a
+
+706
+00:31:25,770 --> 00:31:28,800
+bunch of linguists sat down and said for
+
+707
+00:31:28,800 --> 00:31:30,730
+every sentence X I
+
+708
+00:31:30,730 --> 00:31:33,190
+I have I give you the correct tree why I
+
+709
+00:31:33,190 --> 00:31:37,240
+and now this again here was just the sum
+
+710
+00:31:37,240 --> 00:31:39,100
+of all the nodes of those trees and that
+
+711
+00:31:39,100 --> 00:31:40,750
+sum was just a sum of a bunch of inner
+
+712
+00:31:40,750 --> 00:31:43,179
+products right so again when you think
+
+713
+00:31:43,179 --> 00:31:44,950
+about you know how would you train this
+
+714
+00:31:44,950 --> 00:31:46,600
+model it's just a bunch of gradients of
+
+715
+00:31:46,600 --> 00:31:48,990
+you know a sum of inner products
+
+716
+00:31:48,990 --> 00:31:51,910
+underneath which you have a neural
+
+717
+00:31:51,910 --> 00:31:54,880
+network okay so that that's easy but now
+
+718
+00:31:54,880 --> 00:31:56,980
+if we just maximize all the scores of
+
+719
+00:31:56,980 --> 00:31:59,260
+all the correct trees well we could just
+
+720
+00:31:59,260 --> 00:32:01,090
+everything would go to infinity right we
+
+721
+00:32:01,090 --> 00:32:02,950
+just maximize everything well we
+
+722
+00:32:02,950 --> 00:32:04,809
+actually have to tell the model is how
+
+723
+00:32:04,809 --> 00:32:08,110
+to deal with finding the right tree by
+
+724
+00:32:08,110 --> 00:32:10,690
+itself and this is what the second part
+
+725
+00:32:10,690 --> 00:32:12,700
+here is so we're going to try to find
+
+726
+00:32:12,700 --> 00:32:16,390
+the maximum over this set and the set a
+
+727
+00:32:16,390 --> 00:32:20,130
+of X I is the set of all possible trees
+
+728
+00:32:20,130 --> 00:32:24,940
+that you could construct from X I and so
+
+729
+00:32:24,940 --> 00:32:27,850
+there if you're familiar with with
+
+730
+00:32:27,850 --> 00:32:30,390
+combinatorics they're Catalan many
+
+731
+00:32:30,390 --> 00:32:32,410
+potential binary trees so it's
+
+732
+00:32:32,410 --> 00:32:35,020
+exponentially many possible binary trees
+
+733
+00:32:35,020 --> 00:32:36,640
+you can actually compute that number and
+
+734
+00:32:36,640 --> 00:32:39,130
+blows up very very quickly
+
+735
+00:32:39,130 --> 00:32:40,870
+it's an exponentially many number of
+
+736
+00:32:40,870 --> 00:32:43,210
+trees so this is where we will have to
+
+737
+00:32:43,210 --> 00:32:45,970
+find some smarter way to go through them
+
+738
+00:32:45,970 --> 00:32:48,580
+and find the highest-scoring one and the
+
+739
+00:32:48,580 --> 00:32:50,620
+simplest one that I described was in
+
+740
+00:32:50,620 --> 00:32:52,270
+basically this greedy procedure here we
+
+741
+00:32:52,270 --> 00:32:54,370
+just take the highest-scoring current
+
+742
+00:32:54,370 --> 00:32:56,500
+set and hope that that will lead us
+
+743
+00:32:56,500 --> 00:32:57,970
+eventually to the highest-scoring tree
+
+744
+00:32:57,970 --> 00:32:59,380
+but of course that isn't necessarily
+
+745
+00:32:59,380 --> 00:33:01,480
+true here we found the correct tree but
+
+746
+00:33:01,480 --> 00:33:03,850
+maybe the model incorrectly would have
+
+747
+00:33:03,850 --> 00:33:05,860
+said cats at is the highest-scoring one
+
+748
+00:33:05,860 --> 00:33:08,080
+and then we couldn't recover that later
+
+749
+00:33:08,080 --> 00:33:10,780
+on right so this is basically a search
+
+750
+00:33:10,780 --> 00:33:12,700
+procedure and they're different ways to
+
+751
+00:33:12,700 --> 00:33:14,980
+do search and and in some ways if you
+
+752
+00:33:14,980 --> 00:33:16,660
+you know interested in kind of the
+
+753
+00:33:16,660 --> 00:33:19,120
+search aspect of machine learning and
+
+754
+00:33:19,120 --> 00:33:22,240
+they I then I think 221 is the right
+
+755
+00:33:22,240 --> 00:33:23,350
+kind of lecture takes sort of an
+
+756
+00:33:23,350 --> 00:33:25,570
+introduction to AI different kind of
+
+757
+00:33:25,570 --> 00:33:27,880
+search strategies all right so let's
+
+758
+00:33:27,880 --> 00:33:29,679
+assume for now that we find the
+
+759
+00:33:29,679 --> 00:33:31,120
+highest-scoring one simply with this
+
+760
+00:33:31,120 --> 00:33:34,540
+greedy procedure and we basically you
+
+761
+00:33:34,540 --> 00:33:36,160
+know do exactly what I described the
+
+762
+00:33:36,160 --> 00:33:38,200
+previous slides and now we define one
+
+763
+00:33:38,200 --> 00:33:41,110
+specific Y that is the maximum of all
+
+764
+00:33:41,110 --> 00:33:43,240
+the trees which we could build and now
+
+765
+00:33:43,240 --> 00:33:44,200
+because of this my
+
+766
+00:33:44,200 --> 00:33:46,510
+here we're going to try to minimize the
+
+767
+00:33:46,510 --> 00:33:50,700
+score of that highest-scoring tree and
+
+768
+00:33:50,700 --> 00:33:53,649
+let's assume let's ignore this part for
+
+769
+00:33:53,649 --> 00:33:55,840
+now if the highest-scoring tree that
+
+770
+00:33:55,840 --> 00:33:58,120
+we're now minimizing actually happens to
+
+771
+00:33:58,120 --> 00:34:00,399
+be the exact correct tree well then
+
+772
+00:34:00,399 --> 00:34:02,139
+we're done here right then why I and
+
+773
+00:34:02,139 --> 00:34:04,480
+this y are actually the same these two
+
+774
+00:34:04,480 --> 00:34:06,090
+cancel out and we're done
+
+775
+00:34:06,090 --> 00:34:09,520
+and now this is where the interesting
+
+776
+00:34:09,520 --> 00:34:12,010
+margin penalty comes in which as indeed
+
+777
+00:34:12,010 --> 00:34:14,020
+actually an important part of this
+
+778
+00:34:14,020 --> 00:34:17,168
+objective function and this margin here
+
+779
+00:34:17,168 --> 00:34:19,810
+essentially penalizes every incorrect
+
+780
+00:34:19,810 --> 00:34:22,690
+decision that you have made so if you
+
+781
+00:34:22,690 --> 00:34:25,270
+incorrectly combine two words then you
+
+782
+00:34:25,270 --> 00:34:29,168
+add one to that tree structure and what
+
+783
+00:34:29,168 --> 00:34:30,699
+that the result of that will be that
+
+784
+00:34:30,699 --> 00:34:33,699
+once you actually get the correct tree
+
+785
+00:34:33,699 --> 00:34:36,790
+here as Y and y actually is weii then
+
+786
+00:34:36,790 --> 00:34:39,550
+that Y will have a high score that is
+
+787
+00:34:39,550 --> 00:34:41,260
+higher up to a certain margin to the
+
+788
+00:34:41,260 --> 00:34:45,909
+next scoring but incorrect tree let's
+
+789
+00:34:45,909 --> 00:34:49,139
+parse that pretty complex sentence so
+
+790
+00:34:49,139 --> 00:34:52,168
+essentially what this Delta here does is
+
+791
+00:34:52,168 --> 00:34:54,819
+it encourages the model to make mistakes
+
+792
+00:34:54,819 --> 00:34:57,490
+it will add a bonus point to every
+
+793
+00:34:57,490 --> 00:35:00,130
+mistake the model makes and once it goes
+
+794
+00:35:00,130 --> 00:35:03,040
+past that bonus it actually makes the
+
+795
+00:35:03,040 --> 00:35:05,800
+right decision with a margin of Delta
+
+796
+00:35:05,800 --> 00:35:07,060
+which you usually just for every
+
+797
+00:35:07,060 --> 00:35:08,920
+incorrect decision we set it to one so
+
+798
+00:35:08,920 --> 00:35:10,839
+to score for the right decision will
+
+799
+00:35:10,839 --> 00:35:13,210
+that new one larger than the score of an
+
+800
+00:35:13,210 --> 00:35:15,670
+incorrect decision so in the beginning
+
+801
+00:35:15,670 --> 00:35:17,770
+here we encourage the model to basically
+
+802
+00:35:17,770 --> 00:35:20,440
+do the worst possible thing all right
+
+803
+00:35:20,440 --> 00:35:22,480
+and then model makes all these mistakes
+
+804
+00:35:22,480 --> 00:35:24,130
+and then you can tell them well these
+
+805
+00:35:24,130 --> 00:35:25,839
+were all wrong and you minimize all the
+
+806
+00:35:25,839 --> 00:35:27,760
+scores of these incorrect decisions and
+
+807
+00:35:27,760 --> 00:35:31,060
+that's that's where yeah that's sort of
+
+808
+00:35:31,060 --> 00:35:35,069
+the idea of the next margin loss
+
+809
+00:35:37,090 --> 00:35:49,390
+are there any questions about this yeah
+
+810
+00:35:49,390 --> 00:35:52,420
+so in almost every single weight in all
+
+811
+00:35:52,420 --> 00:35:53,770
+these different loss functions that I
+
+812
+00:35:53,770 --> 00:35:55,480
+always describe has a standard l2
+
+813
+00:35:55,480 --> 00:36:06,400
+penalty and all the weights the Delta
+
+814
+00:36:06,400 --> 00:36:08,020
+yeah the Delta does not it just
+
+815
+00:36:08,020 --> 00:36:09,610
+basically encourages the model to make
+
+816
+00:36:09,610 --> 00:36:11,500
+mistakes during the search procedure
+
+817
+00:36:11,500 --> 00:36:14,260
+it doesn't actually back up something in
+
+818
+00:36:14,260 --> 00:36:22,500
+itself great question yes
+
+819
+00:36:24,549 --> 00:36:26,290
+I
+
+820
+00:36:26,290 --> 00:36:30,400
+okay so again X I is the sentence so in
+
+821
+00:36:30,400 --> 00:36:31,450
+this case you know your cat sat on the
+
+822
+00:36:31,450 --> 00:36:36,060
+mat Y is the correct tree structure
+
+823
+00:36:36,060 --> 00:36:38,740
+basically linguists sat down went
+
+824
+00:36:38,740 --> 00:36:42,160
+through a lot of sentences in most cases
+
+825
+00:36:42,160 --> 00:36:45,130
+so-called penn treebank and in the
+
+826
+00:36:45,130 --> 00:36:46,840
+pantry bank they said all right for this
+
+827
+00:36:46,840 --> 00:36:48,910
+sentence this is the correct grammatical
+
+828
+00:36:48,910 --> 00:36:52,350
+analysis of that sentence
+
+829
+00:36:56,620 --> 00:36:59,230
+all right
+
+830
+00:36:59,230 --> 00:37:06,040
+yes can one turn be negative yes
+
+831
+00:37:06,040 --> 00:37:07,839
+so these scores here just inner products
+
+832
+00:37:07,839 --> 00:37:09,970
+right inner products of real numbers so
+
+833
+00:37:09,970 --> 00:37:17,170
+they can be very negative 
+
+
+--------------------------------------------------- 20 (28) Backpropagation Through Structure
+
+
+
+all right so
+
+834
+00:37:17,170 --> 00:37:19,990
+how do we actually train this kind of
+
+835
+00:37:19,990 --> 00:37:22,540
+model and what does it what does this
+
+836
+00:37:22,540 --> 00:37:26,680
+look like again in some ways you could
+
+837
+00:37:26,680 --> 00:37:28,960
+just do this right away will require a
+
+838
+00:37:28,960 --> 00:37:32,800
+lot of thought I little embarrassing but
+
+839
+00:37:32,800 --> 00:37:34,150
+I actually had reinvented this whole
+
+840
+00:37:34,150 --> 00:37:36,070
+thing I didn't know it was it existed I
+
+841
+00:37:36,070 --> 00:37:37,599
+didn't have a name for what I was doing
+
+842
+00:37:37,599 --> 00:37:39,160
+so I actually had reinvented this whole
+
+843
+00:37:39,160 --> 00:37:40,510
+thing and only later I was like I'm
+
+844
+00:37:40,510 --> 00:37:42,099
+gonna call the recursive one recursive
+
+845
+00:37:42,099 --> 00:37:43,359
+known that or it's the best thing ever
+
+846
+00:37:43,359 --> 00:37:45,579
+and then I you know a couple days later
+
+847
+00:37:45,579 --> 00:37:46,780
+I'm like I should Google recursive
+
+848
+00:37:46,780 --> 00:37:48,130
+neural network and and of course some
+
+849
+00:37:48,130 --> 00:37:50,320
+people had invented it in the past but
+
+850
+00:37:50,320 --> 00:37:52,300
+have a more emotional connection now
+
+851
+00:37:52,300 --> 00:37:53,440
+since I had reinvented the wheel a
+
+852
+00:37:53,440 --> 00:37:55,210
+little bit so this is really just
+
+853
+00:37:55,210 --> 00:37:57,970
+standard like taking derivatives again
+
+854
+00:37:57,970 --> 00:37:59,589
+but there's you know they're cut a
+
+855
+00:37:59,589 --> 00:38:01,240
+couple of subtleties here so let's walk
+
+856
+00:38:01,240 --> 00:38:05,319
+through those quickly the main equations
+
+857
+00:38:05,319 --> 00:38:07,270
+that we had derived in their gory
+
+858
+00:38:07,270 --> 00:38:09,160
+details and you know you can read up in
+
+859
+00:38:09,160 --> 00:38:11,440
+a lecture notes now to again we have
+
+860
+00:38:11,440 --> 00:38:13,240
+these Delta's the error messages that
+
+861
+00:38:13,240 --> 00:38:14,980
+come from every layer and they're
+
+862
+00:38:14,980 --> 00:38:16,869
+basically being passed down the neural
+
+863
+00:38:16,869 --> 00:38:19,750
+network and we will update the different
+
+864
+00:38:19,750 --> 00:38:22,869
+W matrices here with this outer product
+
+865
+00:38:22,869 --> 00:38:24,550
+of the delta from the previous layer
+
+866
+00:38:24,550 --> 00:38:26,170
+times the activations of the current
+
+867
+00:38:26,170 --> 00:38:28,420
+layer so those equations will still be
+
+868
+00:38:28,420 --> 00:38:30,369
+the same but there are a couple of
+
+869
+00:38:30,369 --> 00:38:33,790
+couple of subtleties here namely the
+
+870
+00:38:33,790 --> 00:38:37,660
+following three differences that result
+
+871
+00:38:37,660 --> 00:38:40,300
+from having now the structured object
+
+872
+00:38:40,300 --> 00:38:43,230
+instead of just the same chain that goes
+
+873
+00:38:43,230 --> 00:38:45,520
+you know and has different weights at
+
+874
+00:38:45,520 --> 00:38:48,550
+every single layer of the network 
+
+
+--------------------------------------------------- 21 (29) BTS: 1) Sum derivatives of all nodes
+
+
+
+so
+
+875
+00:38:48,550 --> 00:38:51,190
+let's walk through slowly through
+
+876
+00:38:51,190 --> 00:38:53,619
+through these differences so the first
+
+877
+00:38:53,619 --> 00:38:56,230
+one is we can actually just sum up all
+
+878
+00:38:56,230 --> 00:38:58,660
+the derivatives at all the nodes which
+
+879
+00:38:58,660 --> 00:39:00,790
+initially might not be that intuitive
+
+880
+00:39:00,790 --> 00:39:02,440
+right because in theory this is a
+
+881
+00:39:02,440 --> 00:39:06,880
+function of W which is a function of W
+
+882
+00:39:06,880 --> 00:39:08,589
+which is a function of W and so on goes
+
+883
+00:39:08,589 --> 00:39:11,020
+down the tree so just to give you an
+
+884
+00:39:11,020 --> 00:39:12,410
+intuition here
+
+885
+00:39:12,410 --> 00:39:15,110
+of how this comes about I basically just
+
+886
+00:39:15,110 --> 00:39:17,420
+wrote down all the gory details for a
+
+887
+00:39:17,420 --> 00:39:20,200
+very very simple sort of recurrent
+
+888
+00:39:20,200 --> 00:39:23,150
+function it's the same for recursion so
+
+889
+00:39:23,150 --> 00:39:25,910
+let's assume here it's just a tree that
+
+890
+00:39:25,910 --> 00:39:27,680
+happens to be a chain it just goes up
+
+891
+00:39:27,680 --> 00:39:29,870
+and up and up and there's only one input
+
+892
+00:39:29,870 --> 00:39:32,330
+X and you could even think through this
+
+893
+00:39:32,330 --> 00:39:34,430
+as just being single numbers W is just a
+
+894
+00:39:34,430 --> 00:39:35,870
+single number X is just a single number
+
+895
+00:39:35,870 --> 00:39:37,400
+and you know we just take the derivative
+
+896
+00:39:37,400 --> 00:39:41,270
+with respect to W now we can basically
+
+897
+00:39:41,270 --> 00:39:43,490
+write that out and assuming W here is
+
+898
+00:39:43,490 --> 00:39:47,000
+the same we'll you know apply the chain
+
+899
+00:39:47,000 --> 00:39:48,740
+rule but now you know when you take
+
+900
+00:39:48,740 --> 00:39:50,780
+derivative of a function in
+
+901
+00:39:50,780 --> 00:39:52,130
+multiplication you know have to take
+
+902
+00:39:52,130 --> 00:39:53,840
+derivative of both sides if their
+
+903
+00:39:53,840 --> 00:39:56,510
+parameters inside and this is really
+
+904
+00:39:56,510 --> 00:39:58,520
+basic algebra you basically end up with
+
+905
+00:39:58,520 --> 00:40:01,520
+this kind of equation and now if we
+
+906
+00:40:01,520 --> 00:40:04,400
+assumed that instead of having the same
+
+907
+00:40:04,400 --> 00:40:07,490
+W here you actually have a different one
+
+908
+00:40:07,490 --> 00:40:09,890
+this is W 2 and this is W 1 so assuming
+
+909
+00:40:09,890 --> 00:40:12,350
+that you had a different W at all the
+
+910
+00:40:12,350 --> 00:40:14,270
+different nodes in the tree and in this
+
+911
+00:40:14,270 --> 00:40:15,770
+case even simpler than just a simple
+
+912
+00:40:15,770 --> 00:40:17,960
+function you actually end up with
+
+913
+00:40:17,960 --> 00:40:20,810
+something that looks exactly the same if
+
+914
+00:40:20,810 --> 00:40:22,520
+you're in the end just get rid of the
+
+915
+00:40:22,520 --> 00:40:24,950
+indices again so this is fairly
+
+916
+00:40:24,950 --> 00:40:26,240
+straightforward you can just write down
+
+917
+00:40:26,240 --> 00:40:29,540
+the derivatives by yourselves and you'll
+
+918
+00:40:29,540 --> 00:40:35,830
+arrive at basically this kind of
+
+919
+00:40:35,830 --> 00:40:39,080
+property 
+
+
+--------------------------------------------------- 22 (30) BTS: 2) Split derivatives at each node
+
+
+so really all we need to do is
+
+920
+00:40:39,080 --> 00:40:42,140
+we go up to tree once compute all our
+
+921
+00:40:42,140 --> 00:40:43,820
+hidden activations just like in forward
+
+922
+00:40:43,820 --> 00:40:45,350
+prop of any other neural network and
+
+923
+00:40:45,350 --> 00:40:47,630
+then we have to go down to tree once and
+
+924
+00:40:47,630 --> 00:40:50,960
+as we go down the main subtlety here is
+
+925
+00:40:50,960 --> 00:40:54,380
+now that because we concatenated the two
+
+926
+00:40:54,380 --> 00:40:55,760
+children vectors we have to somehow
+
+927
+00:40:55,760 --> 00:40:58,610
+split our error messages as we go down
+
+928
+00:40:58,610 --> 00:41:01,670
+so what do I mean by this
+
+929
+00:41:01,670 --> 00:41:03,380
+during forward propagation here the
+
+930
+00:41:03,380 --> 00:41:05,240
+parent is essentially computed using
+
+931
+00:41:05,240 --> 00:41:07,370
+those two child vectors that we had
+
+932
+00:41:07,370 --> 00:41:10,250
+concatenated and that means that when we
+
+933
+00:41:10,250 --> 00:41:11,930
+now compute out deltas our error
+
+934
+00:41:11,930 --> 00:41:13,910
+messages again with the similar the same
+
+935
+00:41:13,910 --> 00:41:16,090
+kinds of equations that we have here
+
+936
+00:41:16,090 --> 00:41:19,940
+then we will essentially just assume
+
+937
+00:41:19,940 --> 00:41:21,620
+that the Delta that comes from that
+
+938
+00:41:21,620 --> 00:41:23,900
+parent and is sent to the two children
+
+939
+00:41:23,900 --> 00:41:25,509
+it's just basic
+
+940
+00:41:25,509 --> 00:41:28,059
+a vector that we can now also split the
+
+941
+00:41:28,059 --> 00:41:30,219
+same way we concatenate it the children
+
+942
+00:41:30,219 --> 00:41:33,309
+we can split the error messages from one
+
+943
+00:41:33,309 --> 00:41:35,969
+side to the other
+
+--------------------------------------------------- 23 (31) BTS: 3) Add error messages
+
+
+
+944
+00:41:41,920 --> 00:41:45,099
+all right and now the last part is that
+
+945
+00:41:45,099 --> 00:41:48,890
+we have scores at every node but every
+
+946
+00:41:48,890 --> 00:41:50,720
+node is also part of the score
+
+947
+00:41:50,720 --> 00:41:53,089
+computation of another node namely the
+
+948
+00:41:53,089 --> 00:41:56,029
+parent nodes right so we have here c1
+
+949
+00:41:56,029 --> 00:41:59,150
+and c2 they have a score and we want to
+
+950
+00:41:59,150 --> 00:42:00,470
+minimize or maximize that score
+
+951
+00:42:00,470 --> 00:42:02,569
+depending on whether that phrase is in
+
+952
+00:42:02,569 --> 00:42:05,660
+the right or a wrong parse tree but now
+
+953
+00:42:05,660 --> 00:42:08,480
+their parent will be the left child in
+
+954
+00:42:08,480 --> 00:42:10,490
+this case in this kind of visualization
+
+955
+00:42:10,490 --> 00:42:12,759
+here the left child of yet another
+
+956
+00:42:12,759 --> 00:42:16,220
+combination and so when we take the
+
+957
+00:42:16,220 --> 00:42:19,460
+derivatives with respect to W here of
+
+958
+00:42:19,460 --> 00:42:22,789
+the parent that will basically send
+
+959
+00:42:22,789 --> 00:42:24,980
+messages all the way down to the leaf
+
+960
+00:42:24,980 --> 00:42:27,380
+nodes every node of the tree sends error
+
+961
+00:42:27,380 --> 00:42:31,609
+messages down all to all its children in
+
+962
+00:42:31,609 --> 00:42:36,410
+the tree and so just as before if we
+
+963
+00:42:36,410 --> 00:42:38,450
+have two different objective functions
+
+964
+00:42:38,450 --> 00:42:41,809
+on top of the same layer we basically
+
+965
+00:42:41,809 --> 00:42:44,660
+just add the error messages coming from
+
+966
+00:42:44,660 --> 00:42:47,210
+both so we have here 1 Delta message
+
+967
+00:42:47,210 --> 00:42:49,849
+that comes from the score that we
+
+968
+00:42:49,849 --> 00:42:51,680
+compute and another Delta message that
+
+969
+00:42:51,680 --> 00:42:54,650
+comes from the parent that uses this for
+
+970
+00:42:54,650 --> 00:42:58,880
+computing another score 
+
+--------------------------------------------------- 24 (32) BTS Python Code: forwardProp
+
+
+and you'll
+
+971
+00:42:58,880 --> 00:43:01,819
+actually have to implement this in your
+
+972
+00:43:01,819 --> 00:43:03,500
+last problem set either this or
+
+973
+00:43:03,500 --> 00:43:05,630
+convolutional neural network which we'll
+
+974
+00:43:05,630 --> 00:43:07,819
+go over next week even more complicated
+
+975
+00:43:07,819 --> 00:43:11,059
+so it's very important to understand
+
+976
+00:43:11,059 --> 00:43:13,220
+this and I'll give you a little bit of a
+
+977
+00:43:13,220 --> 00:43:14,869
+hint here for the last problem set
+
+978
+00:43:14,869 --> 00:43:17,410
+largely because I want you to be able to
+
+979
+00:43:17,410 --> 00:43:20,059
+solve the problem set 3 quickly so you
+
+980
+00:43:20,059 --> 00:43:22,789
+can have a really cool epic class
+
+981
+00:43:22,789 --> 00:43:24,799
+project which is very important and I
+
+982
+00:43:24,799 --> 00:43:27,519
+think of the most interesting last thing
+
+983
+00:43:27,519 --> 00:43:30,200
+so the output for most of you from this
+
+984
+00:43:30,200 --> 00:43:33,799
+class so here we basically walked slowly
+
+985
+00:43:33,799 --> 00:43:36,619
+through some Python code for the forward
+
+986
+00:43:36,619 --> 00:43:38,839
+propagation and just to show you how
+
+987
+00:43:38,839 --> 00:43:41,210
+similar this is to all the other neural
+
+988
+00:43:41,210 --> 00:43:42,920
+networks that you already have with
+
+989
+00:43:42,920 --> 00:43:44,960
+these three subtle differences so you
+
+990
+00:43:44,960 --> 00:43:47,000
+have some kind of recursion that you can
+
+991
+00:43:47,000 --> 00:43:48,200
+implement there are different ways you
+
+992
+00:43:48,200 --> 00:43:49,849
+can implement recursion in tree
+
+993
+00:43:49,849 --> 00:43:52,609
+structures but basically to compute the
+
+994
+00:43:52,609 --> 00:43:56,010
+hidden activation for a specific No
+
+995
+00:43:56,010 --> 00:44:01,080
+we just basically sack here these to the
+
+996
+00:44:01,080 --> 00:44:03,000
+left child and the right child and their
+
+997
+00:44:03,000 --> 00:44:04,680
+hidden activations which in the
+
+998
+00:44:04,680 --> 00:44:05,880
+beginning again could just be war
+
+999
+00:44:05,880 --> 00:44:09,060
+vectors and then we just basically have
+
+1000
+00:44:09,060 --> 00:44:10,770
+a dot product or you know multiplied
+
+1001
+00:44:10,770 --> 00:44:13,830
+this w matrix times this concatenated
+
+1002
+00:44:13,830 --> 00:44:16,890
+child vector so that's fairly
+
+1003
+00:44:16,890 --> 00:44:18,570
+straightforward and then we add the bias
+
+1004
+00:44:18,570 --> 00:44:20,880
+term here and then we apply our element
+
+1005
+00:44:20,880 --> 00:44:22,440
+wise non-linearity which in this case
+
+1006
+00:44:22,440 --> 00:44:24,450
+could be the rail you could be ten h2
+
+1007
+00:44:24,450 --> 00:44:27,599
+and so on alright so that's basically
+
+1008
+00:44:27,599 --> 00:44:30,780
+the equation of the recursive neural
+
+1009
+00:44:30,780 --> 00:44:33,240
+network that I put into a red box and
+
+1010
+00:44:33,240 --> 00:44:35,339
+then we just compute for instance a
+
+1011
+00:44:35,339 --> 00:44:37,770
+score or in this case here a softmax
+
+1012
+00:44:37,770 --> 00:44:40,650
+probability again or compute the softmax
+
+1013
+00:44:40,650 --> 00:44:42,599
+to get a probability for some kind of
+
+1014
+00:44:42,599 --> 00:44:45,240
+class so we could assume WS for instance
+
+1015
+00:44:45,240 --> 00:44:47,099
+are here our soft mix weights and you've
+
+1016
+00:44:47,099 --> 00:44:48,869
+already implemented this as well and one
+
+1017
+00:44:48,869 --> 00:44:51,420
+interesting side note here sometimes you
+
+1018
+00:44:51,420 --> 00:44:52,980
+will actually run into stability issues
+
+1019
+00:44:52,980 --> 00:44:55,170
+when you implement these kinds of models
+
+1020
+00:44:55,170 --> 00:44:57,030
+especially for rectified linear units
+
+1021
+00:44:57,030 --> 00:44:59,790
+your numbers can get very large and so
+
+1022
+00:44:59,790 --> 00:45:02,550
+this is an interesting sort of trick or
+
+1023
+00:45:02,550 --> 00:45:05,550
+hack to prevent overflow and your
+
+1024
+00:45:05,550 --> 00:45:06,930
+floating-point operations which is you
+
+1025
+00:45:06,930 --> 00:45:09,780
+just subtract the maximum from those
+
+1026
+00:45:09,780 --> 00:45:12,180
+numbers and you should verify that this
+
+1027
+00:45:12,180 --> 00:45:14,099
+doesn't really change the probabilities
+
+1028
+00:45:14,099 --> 00:45:16,619
+and then we take the exponent of this
+
+1029
+00:45:16,619 --> 00:45:19,020
+sum over the exponents and that is
+
+1030
+00:45:19,020 --> 00:45:21,000
+basically the probability here for any
+
+1031
+00:45:21,000 --> 00:45:23,339
+kind of class for any kind of node so
+
+1032
+00:45:23,339 --> 00:45:25,080
+what does that mean we can now basically
+
+1033
+00:45:25,080 --> 00:45:29,849
+classify that you know the keyboard is a
+
+1034
+00:45:29,849 --> 00:45:31,530
+neutral phrase for instance and
+
+1035
+00:45:31,530 --> 00:45:33,599
+sentiment and then the buggy keyboard is
+
+1036
+00:45:33,599 --> 00:45:35,880
+you know a negative phrase and buggy
+
+1037
+00:45:35,880 --> 00:45:37,530
+keyboard which I really really hate it
+
+1038
+00:45:37,530 --> 00:45:40,290
+when I have to type on it is now a riri
+
+1039
+00:45:40,290 --> 00:45:42,150
+negative phrase right and so you can
+
+1040
+00:45:42,150 --> 00:45:44,700
+basically classify all the phrases as
+
+1041
+00:45:44,700 --> 00:45:47,460
+you combine different words differently
+
+1042
+00:45:47,460 --> 00:45:50,820
+and this will eventually lead to being
+
+1043
+00:45:50,820 --> 00:45:53,250
+able to really classify that I this
+
+1044
+00:45:53,250 --> 00:45:55,080
+movie didn't care about cleverness wit
+
+1045
+00:45:55,080 --> 00:45:56,520
+or any other kind of intelligent humor
+
+1046
+00:45:56,520 --> 00:45:58,950
+while having a bunch of phrases that are
+
+1047
+00:45:58,950 --> 00:46:01,230
+really positive at the end at the inn
+
+1048
+00:46:01,230 --> 00:46:02,490
+somewhere in the beginning it says it
+
+1049
+00:46:02,490 --> 00:46:03,780
+doesn't care about it and then it
+
+1050
+00:46:03,780 --> 00:46:05,220
+becomes negative so this is basically
+
+1051
+00:46:05,220 --> 00:46:08,580
+what this kind of model can do
+
+
+--------------------------------------------------- 25 (33) BTS Python Code: backProp
+
+
+
+1052
+00:46:08,580 --> 00:46:09,930
+all right now comes the interesting part
+
+1053
+00:46:09,930 --> 00:46:12,450
+which is the backdrop so I mentioned
+
+1054
+00:46:12,450 --> 00:46:14,220
+there are three three different things
+
+1055
+00:46:14,220 --> 00:46:17,490
+here so let's walk let's walk through
+
+1056
+00:46:17,490 --> 00:46:20,040
+this here we have the deltas which just
+
+1057
+00:46:20,040 --> 00:46:23,010
+comes from the softmax so you've already
+
+1058
+00:46:23,010 --> 00:46:25,620
+all derived that in all the gory details
+
+1059
+00:46:25,620 --> 00:46:27,960
+and you've implemented it so this one
+
+1060
+00:46:27,960 --> 00:46:30,720
+should be fairly straightforward of how
+
+1061
+00:46:30,720 --> 00:46:33,510
+you compute here your deltas and again
+
+1062
+00:46:33,510 --> 00:46:36,050
+here you have an interesting you know W
+
+1063
+00:46:36,050 --> 00:46:39,420
+transpose times Delta that's the first
+
+1064
+00:46:39,420 --> 00:46:41,910
+one now here comes the interesting
+
+1065
+00:46:41,910 --> 00:46:44,970
+settled notion of having a delta
+
+1066
+00:46:44,970 --> 00:46:47,370
+potentially from the parent node as well
+
+1067
+00:46:47,370 --> 00:46:51,030
+as from your own prediction and if you
+
+1068
+00:46:51,030 --> 00:46:53,280
+have a parent which basically every
+
+1069
+00:46:53,280 --> 00:46:55,590
+internal tree does then you will just
+
+1070
+00:46:55,590 --> 00:46:58,230
+add your two Delta's the Delta that you
+
+1071
+00:46:58,230 --> 00:46:59,730
+have from your own softmax or your own
+
+1072
+00:46:59,730 --> 00:47:02,390
+inner product for your scoring function
+
+1073
+00:47:02,390 --> 00:47:04,860
+plus the error that comes from your
+
+1074
+00:47:04,860 --> 00:47:07,350
+parents so this is also recursive kind
+
+1075
+00:47:07,350 --> 00:47:10,230
+of function and then we take our element
+
+1076
+00:47:10,230 --> 00:47:14,300
+wise non-linearity here f prime of Z and
+
+1077
+00:47:14,300 --> 00:47:17,790
+then then it's fairly straightforward if
+
+1078
+00:47:17,790 --> 00:47:20,040
+you are a leave vector and this is
+
+1079
+00:47:20,040 --> 00:47:21,540
+actually an interesting notion here too
+
+1080
+00:47:21,540 --> 00:47:24,450
+you can train your word vectors as part
+
+1081
+00:47:24,450 --> 00:47:26,580
+of the entire recursive neural network
+
+1082
+00:47:26,580 --> 00:47:29,970
+model so in some cases if your data set
+
+1083
+00:47:29,970 --> 00:47:31,680
+is so large for what you actually care
+
+1084
+00:47:31,680 --> 00:47:34,260
+about you don't even have to run work to
+
+1085
+00:47:34,260 --> 00:47:36,000
+Veck or Glove or any other kind of word
+
+1086
+00:47:36,000 --> 00:47:38,370
+vector separately you can just train a
+
+1087
+00:47:38,370 --> 00:47:40,710
+word vectors as part of the model again
+
+1088
+00:47:40,710 --> 00:47:42,330
+everything is a parameter the word
+
+1089
+00:47:42,330 --> 00:47:44,610
+vectors are parameter you just add them
+
+1090
+00:47:44,610 --> 00:47:47,820
+and then as you go through the tree and
+
+1091
+00:47:47,820 --> 00:47:51,510
+you send down different error messages
+
+1092
+00:47:51,510 --> 00:47:54,360
+and whatever kind of tree you know you
+
+1093
+00:47:54,360 --> 00:47:57,390
+have Delta message coming from here send
+
+1094
+00:47:57,390 --> 00:47:59,880
+down to both of the both of the children
+
+1095
+00:47:59,880 --> 00:48:03,510
+keep sending it down at the end they
+
+1096
+00:48:03,510 --> 00:48:05,310
+arrive at the word vectors so why not
+
+1097
+00:48:05,310 --> 00:48:06,930
+tell the word vectors well if you just
+
+1098
+00:48:06,930 --> 00:48:08,100
+changed around a little bit in your
+
+1099
+00:48:08,100 --> 00:48:09,750
+vector space you might actually do a
+
+1100
+00:48:09,750 --> 00:48:11,360
+better job in that classification
+
+1101
+00:48:11,360 --> 00:48:13,670
+somewhere higher up in the tree and that
+
+1102
+00:48:13,670 --> 00:48:16,380
+pushes the word vectors to be somewhere
+
+1103
+00:48:16,380 --> 00:48:19,020
+else so basically you can collect here
+
+1104
+00:48:19,020 --> 00:48:20,670
+all your derivatives for your word
+
+1105
+00:48:20,670 --> 00:48:22,289
+vectors to just taking the Delta
+
+1106
+00:48:22,289 --> 00:48:24,599
+that has arrived now at the word vectors
+
+1107
+00:48:24,599 --> 00:48:28,469
+and if you're not a leaf node if you're
+
+1108
+00:48:28,469 --> 00:48:30,509
+not at the very bottom of the tree but
+
+1109
+00:48:30,509 --> 00:48:33,119
+you're somewhere an internal node then
+
+1110
+00:48:33,119 --> 00:48:36,329
+comes in the standard stuff here we have
+
+1111
+00:48:36,329 --> 00:48:40,109
+the derivative of W will just be Delta
+
+1112
+00:48:40,109 --> 00:48:42,390
+outer product with the current
+
+1113
+00:48:42,390 --> 00:48:44,189
+activation the current activation in
+
+1114
+00:48:44,189 --> 00:48:46,650
+this case was the left child and the
+
+1115
+00:48:46,650 --> 00:48:48,449
+right child so we just concatenate those
+
+1116
+00:48:48,449 --> 00:48:50,729
+again and get exactly here the main
+
+1117
+00:48:50,729 --> 00:48:53,489
+equation we had derived before just an
+
+1118
+00:48:53,489 --> 00:48:55,439
+outer product of the delta from the
+
+1119
+00:48:55,439 --> 00:48:58,079
+previous layer the outer product with
+
+1120
+00:48:58,079 --> 00:49:01,729
+the activation at that current layer and
+
+1121
+00:49:01,729 --> 00:49:05,369
+same with WP here we had there so just
+
+1122
+00:49:05,369 --> 00:49:06,900
+you add the deltas to the derivative of
+
+1123
+00:49:06,900 --> 00:49:09,660
+B and now you compute the next Delta to
+
+1124
+00:49:09,660 --> 00:49:12,419
+go down one layer with this equation we
+
+1125
+00:49:12,419 --> 00:49:15,029
+had derived which is just W transposed
+
+1126
+00:49:15,029 --> 00:49:17,219
+times your current Delta and now you
+
+1127
+00:49:17,219 --> 00:49:19,289
+send those to the two children and
+
+1128
+00:49:19,289 --> 00:49:21,179
+eventually the F prime here again will
+
+1129
+00:49:21,179 --> 00:49:25,859
+happen at that node all right so this
+
+1130
+00:49:25,859 --> 00:49:27,749
+hopefully will help you a lot in in
+
+1131
+00:49:27,749 --> 00:49:29,699
+problem set three but you'll actually
+
+1132
+00:49:29,699 --> 00:49:31,499
+have to derive it and you know I didn't
+
+1133
+00:49:31,499 --> 00:49:32,999
+add all the details and you have to
+
+1134
+00:49:32,999 --> 00:49:35,009
+really understand how to send around
+
+1135
+00:49:35,009 --> 00:49:37,019
+Delta's in a different kind of tree
+
+1136
+00:49:37,019 --> 00:49:39,059
+structure so still still a lot of work
+
+1137
+00:49:39,059 --> 00:49:40,619
+so don't don't wait for too long and
+
+1138
+00:49:40,619 --> 00:49:44,539
+thinking this is the entire thing yes oh
+
+1139
+00:49:46,969 --> 00:49:49,439
+this one here is an Audemars product or
+
+1140
+00:49:49,439 --> 00:49:52,009
+an element-wise multiplication
+
+--------------------------------------------------- 26 (34) BTS: Optimization
+
+
+1141
+00:49:56,240 --> 00:49:59,880
+all right so now we have all our
+
+1142
+00:49:59,880 --> 00:50:02,220
+derivatives and we basically do the
+
+1143
+00:50:02,220 --> 00:50:04,890
+standard stuff which is we take some
+
+1144
+00:50:04,890 --> 00:50:06,869
+off-the-shelf optimizer such as SGD
+
+1145
+00:50:06,869 --> 00:50:10,710
+which we had used can also use l-bfgs in
+
+1146
+00:50:10,710 --> 00:50:13,680
+most most cases you know standard
+
+1147
+00:50:13,680 --> 00:50:15,990
+optimizers and matlab or Python actually
+
+1148
+00:50:15,990 --> 00:50:18,750
+have both of these as options we had
+
+1149
+00:50:18,750 --> 00:50:20,490
+also mentioned before to actually use a
+
+1150
+00:50:20,490 --> 00:50:22,890
+degrade and this is also very useful
+
+1151
+00:50:22,890 --> 00:50:26,190
+here for for our model so we can
+
+1152
+00:50:26,190 --> 00:50:29,369
+actually update here again our theta at
+
+1153
+00:50:29,369 --> 00:50:31,710
+the next time step of the optimization
+
+1154
+00:50:31,710 --> 00:50:34,440
+by dividing over the gradients of all
+
+1155
+00:50:34,440 --> 00:50:36,240
+the previous time steps we mentioned
+
+1156
+00:50:36,240 --> 00:50:37,890
+this in one of the tips and tricks in a
+
+1157
+00:50:37,890 --> 00:50:41,640
+previous lecture and it turns out this
+
+1158
+00:50:41,640 --> 00:50:43,530
+is also a subtle difference here that
+
+1159
+00:50:43,530 --> 00:50:45,450
+you don't we don't really have to go
+
+1160
+00:50:45,450 --> 00:50:47,790
+into too many details with but because
+
+1161
+00:50:47,790 --> 00:50:49,619
+you have here non continuous objective
+
+1162
+00:50:49,619 --> 00:50:51,210
+function imagine you change the
+
+1163
+00:50:51,210 --> 00:50:53,490
+highest-scoring tree and now all the
+
+1164
+00:50:53,490 --> 00:50:56,070
+sudden because of one little subtle
+
+1165
+00:50:56,070 --> 00:50:57,600
+difference in the score at a lower layer
+
+1166
+00:50:57,600 --> 00:50:59,490
+and this greedy search procedure now
+
+1167
+00:50:59,490 --> 00:51:01,650
+it's a completely different tree now
+
+1168
+00:51:01,650 --> 00:51:04,680
+this is a you know non continuity but it
+
+1169
+00:51:04,680 --> 00:51:06,390
+turns out you just still take your
+
+1170
+00:51:06,390 --> 00:51:09,420
+derivatives and I use sup gradient so
+
+1171
+00:51:09,420 --> 00:51:12,570
+what this means in practice is will
+
+1172
+00:51:12,570 --> 00:51:14,400
+basically compute the score here of the
+
+1173
+00:51:14,400 --> 00:51:17,010
+correct tree maximize all those take
+
+1174
+00:51:17,010 --> 00:51:18,600
+derivatives with respect to all the
+
+1175
+00:51:18,600 --> 00:51:20,070
+parameters and increase all those scores
+
+1176
+00:51:20,070 --> 00:51:23,220
+find here the highest-scoring negative
+
+1177
+00:51:23,220 --> 00:51:25,109
+tree with our search procedure the
+
+1178
+00:51:25,109 --> 00:51:25,650
+highest-scoring
+
+1179
+00:51:25,650 --> 00:51:27,810
+incorrect tree sorry and then we just
+
+1180
+00:51:27,810 --> 00:51:29,490
+minimize all those scores so they're
+
+1181
+00:51:29,490 --> 00:51:31,890
+just two trees at every time step one
+
+1182
+00:51:31,890 --> 00:51:34,140
+tree is the correct one we maximize it
+
+1183
+00:51:34,140 --> 00:51:35,430
+scores one tree is the highest-scoring
+
+1184
+00:51:35,430 --> 00:51:37,890
+incorrect one minimize dos once they're
+
+1185
+00:51:37,890 --> 00:51:40,350
+both exactly the same well then those
+
+1186
+00:51:40,350 --> 00:51:41,760
+two terms cancel each other out and
+
+1187
+00:51:41,760 --> 00:51:43,560
+you're done with that tree and you can
+
+1188
+00:51:43,560 --> 00:51:45,540
+ignore it and only now try to optimize
+
+1189
+00:51:45,540 --> 00:51:48,510
+over trees you haven't yet correctly
+
+1190
+00:51:48,510 --> 00:51:49,910
+parsed
+
+--------------------------------------------------- 27 (35) Discussion: Simple RNN
+
+1191
+00:51:49,910 --> 00:51:54,090
+alright so that was the most basic
+
+1192
+00:51:54,090 --> 00:51:58,650
+definition of a single matrix recursive
+
+1193
+00:51:58,650 --> 00:52:02,670
+neural network and those actually obtain
+
+1194
+00:52:02,670 --> 00:52:04,590
+reasonably good results and I had a
+
+1195
+00:52:04,590 --> 00:52:05,760
+bunch of papers or state-of-the-art
+
+1196
+00:52:05,760 --> 00:52:07,240
+results and
+
+1197
+00:52:07,240 --> 00:52:10,180
+different tasks I'll actually cover some
+
+1198
+00:52:10,180 --> 00:52:13,330
+of those in the next lecture but one
+
+1199
+00:52:13,330 --> 00:52:15,430
+interesting problem of them and this is
+
+1200
+00:52:15,430 --> 00:52:17,170
+similar to the recurrent neural networks
+
+1201
+00:52:17,170 --> 00:52:18,910
+where we had the same W at every single
+
+1202
+00:52:18,910 --> 00:52:22,030
+node to is that they can't really
+
+1203
+00:52:22,030 --> 00:52:24,100
+capture all the complex phenomena of how
+
+1204
+00:52:24,100 --> 00:52:26,320
+you should compute and map now all these
+
+1205
+00:52:26,320 --> 00:52:28,180
+different phrases into the same vector
+
+1206
+00:52:28,180 --> 00:52:30,280
+space it's a pretty complex procedure
+
+1207
+00:52:30,280 --> 00:52:33,160
+we're asking here a single W which
+
+1208
+00:52:33,160 --> 00:52:35,080
+essentially boils down to just you know
+
+1209
+00:52:35,080 --> 00:52:38,440
+some affine transformation that you you
+
+1210
+00:52:38,440 --> 00:52:41,590
+know add to two child vectors we asked
+
+1211
+00:52:41,590 --> 00:52:43,090
+it to really capture all the
+
+1212
+00:52:43,090 --> 00:52:45,460
+complexities of how to create meaning in
+
+1213
+00:52:45,460 --> 00:52:48,040
+a language right it's it's a little too
+
+1214
+00:52:48,040 --> 00:52:50,740
+much to ask of a single matrix W were
+
+1215
+00:52:50,740 --> 00:52:52,660
+essentially asking it to combine
+
+1216
+00:52:52,660 --> 00:52:55,390
+different syntactic categories I have an
+
+1217
+00:52:55,390 --> 00:52:58,119
+adjective here and a noun here and I
+
+1218
+00:52:58,119 --> 00:53:00,610
+multiply it the first part of my W
+
+1219
+00:53:00,610 --> 00:53:02,770
+matrix times the adjective vector and
+
+1220
+00:53:02,770 --> 00:53:05,320
+then the right part times the noun
+
+1221
+00:53:05,320 --> 00:53:07,869
+vector but now you know the next layer I
+
+1222
+00:53:07,869 --> 00:53:10,660
+might have a verb phrase plus now that
+
+1223
+00:53:10,660 --> 00:53:12,790
+combined noun phrase and now I take that
+
+1224
+00:53:12,790 --> 00:53:15,640
+same W matrix and multiply it with a
+
+1225
+00:53:15,640 --> 00:53:18,250
+verb and I expect that transformation to
+
+1226
+00:53:18,250 --> 00:53:20,109
+also map it into a reasonable part of
+
+1227
+00:53:20,109 --> 00:53:22,450
+the vector space it's a lot to ask of a
+
+1228
+00:53:22,450 --> 00:53:26,320
+single model or single W matrix 
+
+--------------------------------------------------- 28 (36) Solution: Syntactically-Untied RNN
+
+
+and so
+
+1229
+00:53:26,320 --> 00:53:29,170
+the idea here is that because we're
+
+1230
+00:53:29,170 --> 00:53:31,090
+already in grammar land and we already
+
+1231
+00:53:31,090 --> 00:53:33,340
+have these syntactic tree structures why
+
+1232
+00:53:33,340 --> 00:53:34,960
+not use them a little more and
+
+1233
+00:53:34,960 --> 00:53:37,510
+essentially condition these composition
+
+1234
+00:53:37,510 --> 00:53:39,730
+functions these neural network layers
+
+1235
+00:53:39,730 --> 00:53:42,010
+that have only a single W and instead
+
+1236
+00:53:42,010 --> 00:53:44,380
+untie the weights relax the assumption
+
+1237
+00:53:44,380 --> 00:53:46,090
+this comes back to a question that was
+
+1238
+00:53:46,090 --> 00:53:48,190
+asked before which is should we really
+
+1239
+00:53:48,190 --> 00:53:50,800
+use the same W here at every single node
+
+1240
+00:53:50,800 --> 00:53:53,740
+of the tree and what we could do instead
+
+1241
+00:53:53,740 --> 00:53:56,619
+is actually condition these composition
+
+1242
+00:53:56,619 --> 00:53:59,410
+functions on what kinds of syntactic
+
+1243
+00:53:59,410 --> 00:54:01,720
+categories they're actually combining
+
+1244
+00:54:01,720 --> 00:54:04,840
+and this is this an interesting notion
+
+1245
+00:54:04,840 --> 00:54:07,000
+here so let's walk through an example so
+
+1246
+00:54:07,000 --> 00:54:09,280
+here this is the standard recursive
+
+1247
+00:54:09,280 --> 00:54:11,350
+neural network where we use the same W
+
+1248
+00:54:11,350 --> 00:54:14,109
+here at every single node in a tree and
+
+1249
+00:54:14,109 --> 00:54:17,230
+now let's assume we have actually some
+
+1250
+00:54:17,230 --> 00:54:19,300
+knowledge about what these word vectors
+
+1251
+00:54:19,300 --> 00:54:20,170
+are
+
+1252
+00:54:20,170 --> 00:54:22,660
+and this knowledge comes in the form of
+
+1253
+00:54:22,660 --> 00:54:25,930
+discrete categories so let's say a B and
+
+1254
+00:54:25,930 --> 00:54:27,970
+C here capital letters are actual
+
+1255
+00:54:27,970 --> 00:54:29,650
+discrete categories so maybe this is you
+
+1256
+00:54:29,650 --> 00:54:32,680
+know I so it's a personal pronoun and we
+
+1257
+00:54:32,680 --> 00:54:34,750
+know this vector here is a personal
+
+1258
+00:54:34,750 --> 00:54:38,020
+pronoun like is a verb and cats is a
+
+1259
+00:54:38,020 --> 00:54:40,420
+noun and so see here is this is a noun
+
+1260
+00:54:40,420 --> 00:54:43,390
+phrase B here is this is a verb and now
+
+1261
+00:54:43,390 --> 00:54:46,900
+we'll actually use a W matrix here that
+
+1262
+00:54:46,900 --> 00:54:49,600
+we select different W matrices we have a
+
+1263
+00:54:49,600 --> 00:54:51,940
+large set of them usually around 80 or
+
+1264
+00:54:51,940 --> 00:54:57,460
+so and in depending on what syntactic
+
+1265
+00:54:57,460 --> 00:54:59,350
+categories you have to use different W
+
+1266
+00:54:59,350 --> 00:55:00,970
+so here we have the first W that
+
+1267
+00:55:00,970 --> 00:55:03,550
+combines syntactic categories where the
+
+1268
+00:55:03,550 --> 00:55:05,350
+left child is of the syntactic category
+
+1269
+00:55:05,350 --> 00:55:07,300
+B and the right child is of syntactic
+
+1270
+00:55:07,300 --> 00:55:12,700
+category C 
+
+
+
+--------------------------------------------------- 29 (37) Solution: Compositional Vector Grammars
+
+
+
+
+yes right so how do you get
+
+1271
+00:55:12,700 --> 00:55:17,350
+the syntactic categories basically you
+
+1272
+00:55:17,350 --> 00:55:20,470
+use a very simple model that is not very
+
+1273
+00:55:20,470 --> 00:55:23,140
+accurate but basically just looks at the
+
+1274
+00:55:23,140 --> 00:55:26,980
+summary statistics of your corpus your
+
+1275
+00:55:26,980 --> 00:55:28,510
+training corpus you know what the right
+
+1276
+00:55:28,510 --> 00:55:30,790
+trees are all right the linguists again
+
+1277
+00:55:30,790 --> 00:55:32,380
+had sat down created for instance penn
+
+1278
+00:55:32,380 --> 00:55:34,540
+treebank an infantry bank you can know
+
+1279
+00:55:34,540 --> 00:55:36,370
+all right these kinds of things only
+
+1280
+00:55:36,370 --> 00:55:39,100
+ever combine this kind of way and just
+
+1281
+00:55:39,100 --> 00:55:41,590
+taking those counts basically boils down
+
+1282
+00:55:41,590 --> 00:55:43,270
+to probabilistic context-free grammar
+
+1283
+00:55:43,270 --> 00:55:45,390
+and we can't really go into the details
+
+1284
+00:55:45,390 --> 00:55:48,370
+in this in this class but it's a very
+
+1285
+00:55:48,370 --> 00:55:51,250
+simple generative model of of parse
+
+1286
+00:55:51,250 --> 00:55:54,640
+trees and in its most simple form is
+
+1287
+00:55:54,640 --> 00:55:56,560
+very fast but it's not very accurate but
+
+1288
+00:55:56,560 --> 00:55:58,960
+it turns out it's good enough to give us
+
+1289
+00:55:58,960 --> 00:56:00,910
+a bunch of candidates which we can then
+
+1290
+00:56:00,910 --> 00:56:03,400
+go over and it's also good enough to
+
+1291
+00:56:03,400 --> 00:56:05,950
+help us condition and get syntactic
+
+1292
+00:56:05,950 --> 00:56:06,550
+categories
+
+1293
+00:56:06,550 --> 00:56:08,910
+yes
+
+1294
+00:56:14,660 --> 00:56:17,340
+you we will actually compute this final
+
+1295
+00:56:17,340 --> 00:56:20,280
+score as the sum of the recursive no net
+
+1296
+00:56:20,280 --> 00:56:22,740
+or score as well as log likelihood from
+
+1297
+00:56:22,740 --> 00:56:26,520
+the pcfg but you we're not going to
+
+1298
+00:56:26,520 --> 00:56:28,830
+weight them but we will get some
+
+1299
+00:56:28,830 --> 00:56:30,960
+weighting coming from now having
+
+1300
+00:56:30,960 --> 00:56:32,940
+different composition matrices W and
+
+1301
+00:56:32,940 --> 00:56:34,800
+I'll show you in a second what these
+
+1302
+00:56:34,800 --> 00:56:42,900
+look like yes it's a good question
+
+1303
+00:56:42,900 --> 00:56:44,280
+I think you actually have the option
+
+1304
+00:56:44,280 --> 00:56:46,080
+here to also use a deeper network you
+
+1305
+00:56:46,080 --> 00:56:48,870
+could also just classify each of these
+
+1306
+00:56:48,870 --> 00:56:51,420
+vectors here and it's separate there's a
+
+1307
+00:56:51,420 --> 00:56:52,440
+separate neural net we're going to say
+
+1308
+00:56:52,440 --> 00:56:53,910
+alright I classify this as a verb phrase
+
+1309
+00:56:53,910 --> 00:56:55,560
+if I said this is a noun phrase and then
+
+1310
+00:56:55,560 --> 00:57:00,540
+I'd condition my my composition function
+
+1311
+00:57:00,540 --> 00:57:02,340
+based on these classification problems
+
+1312
+00:57:02,340 --> 00:57:05,390
+it's actually also a reasonable option
+
+--------------------------------------------------- 29 (37) Solution: Compositional Vector Grammars
+
+
+1313
+00:57:05,390 --> 00:57:10,850
+all right so basically for yes
+
+1314
+00:57:18,930 --> 00:57:20,789
+it's a great question so we will
+
+1315
+00:57:20,789 --> 00:57:22,740
+actually in the simplest case just
+
+1316
+00:57:22,740 --> 00:57:24,749
+assume let's say we have a model that
+
+1317
+00:57:24,749 --> 00:57:27,690
+gives us for each sentence 200
+
+1318
+00:57:27,690 --> 00:57:29,700
+candidates where we know the syntactic
+
+1319
+00:57:29,700 --> 00:57:33,150
+categories of every single phrase and
+
+1320
+00:57:33,150 --> 00:57:36,869
+word and this in our case will be a very
+
+1321
+00:57:36,869 --> 00:57:39,900
+simple fast pcfg model don't worry if
+
+1322
+00:57:39,900 --> 00:57:42,029
+you don't really understand PCF jeez if
+
+1323
+00:57:42,029 --> 00:57:43,950
+you've taken 224 good for you if not
+
+1324
+00:57:43,950 --> 00:57:46,019
+let's just assume you have some Oracle
+
+1325
+00:57:46,019 --> 00:57:49,380
+that gives you for each sentence 200 or
+
+1326
+00:57:49,380 --> 00:57:52,049
+so candidates of what could the right
+
+1327
+00:57:52,049 --> 00:57:54,960
+structure be and ideally you know in
+
+1328
+00:57:54,960 --> 00:57:56,970
+over 95% of the cases
+
+1329
+00:57:56,970 --> 00:57:58,829
+one of those 200 is actually the right
+
+1330
+00:57:58,829 --> 00:58:00,450
+one it just turns out the model that
+
+1331
+00:58:00,450 --> 00:58:02,249
+gives them to you doesn't actually know
+
+1332
+00:58:02,249 --> 00:58:04,740
+which one is the right one and so it
+
+1333
+00:58:04,740 --> 00:58:06,420
+helps us basically to prune very
+
+1334
+00:58:06,420 --> 00:58:08,220
+unlikely candidates which is just a
+
+1335
+00:58:08,220 --> 00:58:10,109
+speed hack we could use a neural network
+
+1336
+00:58:10,109 --> 00:58:11,730
+but then you have lots of matrix
+
+1337
+00:58:11,730 --> 00:58:13,950
+multiplications in sight to compute all
+
+1338
+00:58:13,950 --> 00:58:15,869
+these potential candidates and this one
+
+1339
+00:58:15,869 --> 00:58:18,150
+helps you and it also provides you some
+
+1340
+00:58:18,150 --> 00:58:20,489
+core syntactic categories of the
+
+1341
+00:58:20,489 --> 00:58:23,160
+children 
+
+--------------------------------------------------- 29 (37) Solution: Compositional Vector Grammars
+
+
+and so we will call this full
+
+1342
+00:58:23,160 --> 00:58:25,039
+model here compositional vector grammar
+
+1343
+00:58:25,039 --> 00:58:27,390
+basically combines a simple model like a
+
+1344
+00:58:27,390 --> 00:58:30,119
+pcfg with a more complex recursive
+
+1345
+00:58:30,119 --> 00:58:33,329
+neural network 
+
+--------------------------------------------------- 31 (39) Related work for recursive neural networks
+
+
+there's been a bunch of
+
+1346
+00:58:33,329 --> 00:58:36,960
+work on these and in most cases it's
+
+1347
+00:58:36,960 --> 00:58:38,400
+quite different they assume fix tree
+
+1348
+00:58:38,400 --> 00:58:40,140
+structures they didn't actually do next
+
+1349
+00:58:40,140 --> 00:58:41,489
+margin learning they didn't actually use
+
+1350
+00:58:41,489 --> 00:58:46,319
+a large large trees and long sentences
+
+--------------------------------------------------- 32 (40) Related Work for parsing
+
+
+1351
+00:58:46,319 --> 00:58:48,119
+and so on there's also been a lot of
+
+1352
+00:58:48,119 --> 00:58:51,059
+work in parsing where people have
+
+1353
+00:58:51,059 --> 00:58:52,920
+basically taken the manual feature
+
+1354
+00:58:52,920 --> 00:58:55,739
+engineering approach and try to improve
+
+1355
+00:58:55,739 --> 00:58:58,019
+the original simple pcfg where you just
+
+1356
+00:58:58,019 --> 00:59:00,660
+say this is a noun phrase and without
+
+1357
+00:59:00,660 --> 00:59:02,220
+going into too many details here you can
+
+1358
+00:59:02,220 --> 00:59:03,509
+basically look at all the errors you're
+
+1359
+00:59:03,509 --> 00:59:05,880
+making and try to describe each of the
+
+1360
+00:59:05,880 --> 00:59:08,190
+categories with some richer but still
+
+1361
+00:59:08,190 --> 00:59:10,470
+discrete representation so in some ways
+
+1362
+00:59:10,470 --> 00:59:13,769
+and sort of historically this kind of
+
+1363
+00:59:13,769 --> 00:59:16,019
+model extends all these other ideas from
+
+1364
+00:59:16,019 --> 00:59:19,499
+taking counts over discrete kinds of
+
+1365
+00:59:19,499 --> 00:59:21,450
+information to just representing
+
+1366
+00:59:21,450 --> 00:59:23,160
+everything as a non discrete as a
+
+1367
+00:59:23,160 --> 00:59:27,869
+continuous vector representation 
+
+
+--------------------------------------------------- 33 (41) Experiments
+
+
+so the
+
+1368
+00:59:27,869 --> 00:59:29,220
+numbers here are in
+
+1369
+00:59:29,220 --> 00:59:30,540
+some ways not that interesting there's
+
+1370
+00:59:30,540 --> 00:59:32,780
+lots of work on this task a lot of
+
+1371
+00:59:32,780 --> 00:59:34,290
+researchers and natural language
+
+1372
+00:59:34,290 --> 00:59:37,680
+processing care about parsing and so
+
+1373
+00:59:37,680 --> 00:59:40,590
+there's been lots of different different
+
+1374
+00:59:40,590 --> 00:59:42,630
+work here what's interesting here is if
+
+1375
+00:59:42,630 --> 00:59:45,840
+we have the same weight matrix W at
+
+1376
+00:59:45,840 --> 00:59:47,550
+every node of the tree we actually don't
+
+1377
+00:59:47,550 --> 00:59:50,280
+get a very competitive parser but once
+
+1378
+00:59:50,280 --> 00:59:52,500
+we allowed the syntactic untying having
+
+1379
+00:59:52,500 --> 00:59:55,050
+different W matrices we actually get a
+
+1380
+00:59:55,050 --> 00:59:58,140
+very very good parser there's still
+
+1381
+00:59:58,140 --> 01:00:00,540
+other ones that take into consideration
+
+1382
+01:00:00,540 --> 01:00:04,200
+even more external data but they're much
+
+1383
+01:00:04,200 --> 01:00:06,210
+much slower at both training and testing
+
+1384
+01:00:06,210 --> 01:00:09,900
+than in this one and the way we measure
+
+1385
+01:00:09,900 --> 01:00:12,300
+this years again with f1 where we have
+
+1386
+01:00:12,300 --> 01:00:14,090
+precision and recall over the various
+
+1387
+01:00:14,090 --> 01:00:17,640
+nodes in the 
+
+
+--------------------------------------------------- 34 (42) SU-RNN Analysis
+
+
+tree what's more
+
+1388
+01:00:17,640 --> 01:00:20,460
+interesting is that linguists had a
+
+1389
+01:00:20,460 --> 01:00:22,740
+certain notion of soft edward's in fact
+
+1390
+01:00:22,740 --> 01:00:26,010
+one of the baseline models here from
+
+1391
+01:00:26,010 --> 01:00:30,090
+Collins tries to lexical eyes these
+
+1392
+01:00:30,090 --> 01:00:32,630
+parsing decisions and say well this is a
+
+1393
+01:00:32,630 --> 01:00:35,550
+noun phrase with a cat inside for
+
+1394
+01:00:35,550 --> 01:00:38,550
+instance or in this verb phrase here may
+
+1395
+01:00:38,550 --> 01:00:40,349
+be the verb matters more than a noun
+
+1396
+01:00:40,349 --> 01:00:42,330
+because in the end the action sort of
+
+1397
+01:00:42,330 --> 01:00:45,060
+matters more than maybe the things that
+
+1398
+01:00:45,060 --> 01:00:46,770
+depend on the action what's cool is this
+
+1399
+01:00:46,770 --> 01:00:49,170
+model actually learned what linguists
+
+1400
+01:00:49,170 --> 01:00:51,780
+had themselves sort of come up with by
+
+1401
+01:00:51,780 --> 01:00:53,640
+trying to analyze grammatical structure
+
+1402
+01:00:53,640 --> 01:00:56,280
+in language so it for instance learned
+
+1403
+01:00:56,280 --> 01:00:58,530
+that when I combine a determiner like
+
+1404
+01:00:58,530 --> 01:01:02,640
+the or a with a noun phrase like cat or
+
+1405
+01:01:02,640 --> 01:01:06,420
+Church or Windows that the noun phrase
+
+1406
+01:01:06,420 --> 01:01:08,640
+actually matters more so what do we see
+
+1407
+01:01:08,640 --> 01:01:11,460
+here this is essentially exactly this
+
+1408
+01:01:11,460 --> 01:01:15,000
+kind of matrix the left block of is the
+
+1409
+01:01:15,000 --> 01:01:17,190
+matrix that is multiplied with the left
+
+1410
+01:01:17,190 --> 01:01:21,300
+vector the right block is the block that
+
+1411
+01:01:21,300 --> 01:01:24,060
+is multiplied with the right child of
+
+1412
+01:01:24,060 --> 01:01:26,609
+that phrase and now here we basically
+
+1413
+01:01:26,609 --> 01:01:29,190
+just visualize how large our elements
+
+1414
+01:01:29,190 --> 01:01:33,150
+are and I had brought up in a previous
+
+1415
+01:01:33,150 --> 01:01:34,830
+lecture that there's sort of this hack
+
+1416
+01:01:34,830 --> 01:01:37,830
+of initializing these matrices with
+
+1417
+01:01:37,830 --> 01:01:39,510
+identity matrices and that's exactly
+
+1418
+01:01:39,510 --> 01:01:41,130
+what we did here too we basically have
+
+1419
+01:01:41,130 --> 01:01:42,850
+we start by
+
+1420
+01:01:42,850 --> 01:01:45,340
+having to block identity matrices so the
+
+1421
+01:01:45,340 --> 01:01:47,140
+default in the very beginning of the
+
+1422
+01:01:47,140 --> 01:01:48,610
+model if you don't know anything is
+
+1423
+01:01:48,610 --> 01:01:51,400
+actually just average to - yeah you
+
+1424
+01:01:51,400 --> 01:01:53,650
+start here with 1/2 times these 2
+
+1425
+01:01:53,650 --> 01:01:56,380
+identity matrices so you have here 1/2
+
+1426
+01:01:56,380 --> 01:01:58,540
+times and any matrix basically just
+
+1427
+01:01:58,540 --> 01:02:03,910
+comes down to 1/2 C plus C 1 plus 1/2 of
+
+1428
+01:02:03,910 --> 01:02:06,940
+C 2 so and then you know of course you
+
+1429
+01:02:06,940 --> 01:02:08,890
+apply to non-linearity but in general
+
+1430
+01:02:08,890 --> 01:02:11,080
+when you start out with that's what you
+
+1431
+01:02:11,080 --> 01:02:13,600
+get and then slowly but surely the model
+
+1432
+01:02:13,600 --> 01:02:16,930
+pushes itself to basically start to
+
+1433
+01:02:16,930 --> 01:02:18,970
+ignore more and more with its deck hat
+
+1434
+01:02:18,970 --> 01:02:21,130
+or a cat or this cat or that cat
+
+1435
+01:02:21,130 --> 01:02:24,550
+literally and just realize ok the most
+
+1436
+01:02:24,550 --> 01:02:26,170
+important thing here for the semantics
+
+1437
+01:02:26,170 --> 01:02:28,420
+of the resulting phrase is that it's a
+
+1438
+01:02:28,420 --> 01:02:31,240
+cat not that it is that or this array
+
+1439
+01:02:31,240 --> 01:02:33,460
+and that's that's really neat right the
+
+1440
+01:02:33,460 --> 01:02:35,200
+model here learned something that
+
+1441
+01:02:35,200 --> 01:02:38,260
+linguists had also come up with through
+
+1442
+01:02:38,260 --> 01:02:40,060
+many years of research but a model
+
+1443
+01:02:40,060 --> 01:02:41,380
+learned it just from looking at lots of
+
+1444
+01:02:41,380 --> 01:02:45,250
+data 
+
+--------------------------------------------------- 35 (43) Analysis of resulting vector representations
+
+
+what's more interesting is we can
+
+1445
+01:02:45,250 --> 01:02:47,950
+actually now look at what these word
+
+1446
+01:02:47,950 --> 01:02:50,410
+vectors and phrase vectors are capturing
+
+1447
+01:02:50,410 --> 01:02:52,600
+so we can look at nearest neighbors in
+
+1448
+01:02:52,600 --> 01:02:56,830
+the phrase vector space and just like
+
+1449
+01:02:56,830 --> 01:02:59,620
+report vectors the word vector space is
+
+1450
+01:02:59,620 --> 01:03:01,720
+basically captured syntactic and
+
+1451
+01:03:01,720 --> 01:03:03,640
+semantic information nouns were closer
+
+1452
+01:03:03,640 --> 01:03:06,010
+to other nouns and then once you zoom in
+
+1453
+01:03:06,010 --> 01:03:08,020
+the semantically similar nouns are
+
+1454
+01:03:08,020 --> 01:03:09,250
+closer to other semantically similar
+
+1455
+01:03:09,250 --> 01:03:11,710
+nouns the same thing it's kind of true
+
+1456
+01:03:11,710 --> 01:03:15,520
+for phrases it's of course much harder
+
+1457
+01:03:15,520 --> 01:03:19,240
+because in general for most sentences
+
+1458
+01:03:19,240 --> 01:03:21,760
+and most reasonably sized score Prada it
+
+1459
+01:03:21,760 --> 01:03:23,440
+might not be that many other sentences
+
+1460
+01:03:23,440 --> 01:03:24,970
+that are very very similar to that
+
+1461
+01:03:24,970 --> 01:03:26,380
+sentence this is a much more complex
+
+1462
+01:03:26,380 --> 01:03:29,620
+space and a lot of NOP researchers had
+
+1463
+01:03:29,620 --> 01:03:31,870
+actually initially argued that it's
+
+1464
+01:03:31,870 --> 01:03:35,410
+almost ridiculous to squeeze a variable
+
+1465
+01:03:35,410 --> 01:03:37,960
+length sentence structure into a fixed
+
+1466
+01:03:37,960 --> 01:03:40,510
+vector representation I think now it's
+
+1467
+01:03:40,510 --> 01:03:42,070
+becoming more and more common and with
+
+1468
+01:03:42,070 --> 01:03:43,840
+the results from machine translation
+
+1469
+01:03:43,840 --> 01:03:46,000
+that we covered in the last last week's
+
+1470
+01:03:46,000 --> 01:03:48,070
+lecture we actually see that well it is
+
+1471
+01:03:48,070 --> 01:03:50,260
+a reasonable enough representation to
+
+1472
+01:03:50,260 --> 01:03:53,680
+really capture a lot of subtle
+
+1473
+01:03:53,680 --> 01:03:56,130
+information so here what we did is we
+
+1474
+01:03:56,130 --> 01:03:58,920
+he cooked the top vector of one of these
+
+1475
+01:03:58,920 --> 01:04:02,490
+sentences and we mapped a bunch of
+
+1476
+01:04:02,490 --> 01:04:04,020
+different sentences in this case from
+
+1477
+01:04:04,020 --> 01:04:04,950
+the penn treebank
+
+1478
+01:04:04,950 --> 01:04:08,040
+into this vector space and then we pick
+
+1479
+01:04:08,040 --> 01:04:09,570
+one sentence and then we look at the
+
+1480
+01:04:09,570 --> 01:04:11,820
+nearest neighbors of that sentence in
+
+1481
+01:04:11,820 --> 01:04:15,420
+the resulting vector space and for the
+
+1482
+01:04:15,420 --> 01:04:17,100
+sentence all the figures are adjusted
+
+1483
+01:04:17,100 --> 01:04:19,740
+for seasonal variations the closest
+
+1484
+01:04:19,740 --> 01:04:21,870
+sentence to that one is all the numbers
+
+1485
+01:04:21,870 --> 01:04:24,000
+are adjusted for seasonal fluctuations
+
+1486
+01:04:24,000 --> 01:04:26,340
+so here it basically just learned well
+
+1487
+01:04:26,340 --> 01:04:28,140
+if I have two similar word vectors
+
+1488
+01:04:28,140 --> 01:04:30,120
+variations and fluctuations and figures
+
+1489
+01:04:30,120 --> 01:04:32,100
+and numbers but the rest of the tree
+
+1490
+01:04:32,100 --> 01:04:33,750
+structure is the same well that you know
+
+1491
+01:04:33,750 --> 01:04:35,730
+still keeps them the same so that's
+
+1492
+01:04:35,730 --> 01:04:36,960
+maybe not that impressive
+
+1493
+01:04:36,960 --> 01:04:39,630
+right but the next one is interesting
+
+1494
+01:04:39,630 --> 01:04:41,580
+all the figures are adjusted to remove
+
+1495
+01:04:41,580 --> 01:04:46,290
+usual seasonal patterns so here it
+
+1496
+01:04:46,290 --> 01:04:48,210
+actually learned that to remove usual
+
+1497
+01:04:48,210 --> 01:04:50,460
+seasonal patterns it's kind of similar
+
+1498
+01:04:50,460 --> 01:04:54,750
+to seasonal fluctuations or adjusting
+
+1499
+01:04:54,750 --> 01:04:59,130
+for those and so it actually had some
+
+1500
+01:04:59,130 --> 01:05:03,000
+sort of invariance to adjusting here a
+
+1501
+01:05:03,000 --> 01:05:04,920
+hole verb phrase versus adjusting just
+
+1502
+01:05:04,920 --> 01:05:08,720
+directly this noun phrase and
+
+1503
+01:05:08,720 --> 01:05:10,820
+knight-ridder a bunch of organizations
+
+1504
+01:05:10,820 --> 01:05:13,110
+wouldn't comment on the offer the model
+
+1505
+01:05:13,110 --> 01:05:14,400
+learned that that's somewhat similar to
+
+1506
+01:05:14,400 --> 01:05:16,620
+how score declining to say what country
+
+1507
+01:05:16,620 --> 01:05:18,960
+plates the order or coastal wouldn't
+
+1508
+01:05:18,960 --> 01:05:21,120
+disclose the terms so it learned here
+
+1509
+01:05:21,120 --> 01:05:23,280
+that you know two wouldn't comment and
+
+1510
+01:05:23,280 --> 01:05:25,640
+decline to say and wouldn't disclose are
+
+1511
+01:05:25,640 --> 01:05:27,780
+similar kinds of things that companies
+
+1512
+01:05:27,780 --> 01:05:32,100
+would do and personally I was very
+
+1513
+01:05:32,100 --> 01:05:34,020
+excited when when I saw these kinds of
+
+1514
+01:05:34,020 --> 01:05:36,420
+results in 2000 2010 and I was one of
+
+1515
+01:05:36,420 --> 01:05:38,490
+the reasons I sort of went into you know
+
+1516
+01:05:38,490 --> 01:05:40,700
+deeper and deeper into deep learning
+
+1517
+01:05:40,700 --> 01:05:42,960
+because it's kind of learned some
+
+1518
+01:05:42,960 --> 01:05:44,670
+interesting patterns that we didn't
+
+1519
+01:05:44,670 --> 01:05:46,890
+explicitly tell the model to try to
+
+1520
+01:05:46,890 --> 01:05:49,440
+capture and basically was also the first
+
+1521
+01:05:49,440 --> 01:05:51,420
+step into thinking about applying these
+
+1522
+01:05:51,420 --> 01:05:53,100
+models to paraphrase detection or
+
+1523
+01:05:53,100 --> 01:05:54,210
+understanding semantic similarity
+
+1524
+01:05:54,210 --> 01:05:56,940
+between different sentences and for
+
+1525
+01:05:56,940 --> 01:05:58,230
+those of you or think about you know
+
+1526
+01:05:58,230 --> 01:06:00,570
+summarization this is also an important
+
+1527
+01:06:00,570 --> 01:06:03,090
+kind of result for sort of sentence
+
+1528
+01:06:03,090 --> 01:06:04,470
+summarization not including the same
+
+1529
+01:06:04,470 --> 01:06:07,390
+sentence as multiple times
+
+
+--------------------------------------------------- 36 (44) SU-RNN Analysis
+
+
+1530
+01:06:07,390 --> 01:06:09,520
+another interesting one was exactly this
+
+1531
+01:06:09,520 --> 01:06:13,570
+example that I brought up from from the
+
+1532
+01:06:13,570 --> 01:06:15,430
+beginning with the entity the PP
+
+1533
+01:06:15,430 --> 01:06:17,080
+attachment ambiguity so the
+
+1534
+01:06:17,080 --> 01:06:18,850
+prepositional phrases and where they
+
+1535
+01:06:18,850 --> 01:06:20,080
+should attach should they attach to
+
+1536
+01:06:20,080 --> 01:06:23,140
+nouns or the verbs so here the question
+
+1537
+01:06:23,140 --> 01:06:24,730
+is can we transfer semantic information
+
+1538
+01:06:24,730 --> 01:06:28,510
+from a single related example so here
+
+1539
+01:06:28,510 --> 01:06:30,310
+the idea is we add two training
+
+1540
+01:06:30,310 --> 01:06:32,230
+sentences and then we test on these two
+
+1541
+01:06:32,230 --> 01:06:35,740
+test sentences and these all these four
+
+1542
+01:06:35,740 --> 01:06:36,940
+sentences are actually incorrectly
+
+1543
+01:06:36,940 --> 01:06:39,820
+parsed when you take any or most of the
+
+1544
+01:06:39,820 --> 01:06:41,650
+standard parsers because they were
+
+1545
+01:06:41,650 --> 01:06:44,230
+usually trained on a penn treebank which
+
+1546
+01:06:44,230 --> 01:06:45,640
+comes from the Wall Street Journal and
+
+1547
+01:06:45,640 --> 01:06:46,990
+The Wall Street Journal just doesn't
+
+1548
+01:06:46,990 --> 01:06:48,820
+talk much about eating spaghetti so
+
+1549
+01:06:48,820 --> 01:06:52,390
+they're almost all incorrect or all for
+
+1550
+01:06:52,390 --> 01:06:54,490
+most parses and then we basically add
+
+1551
+01:06:54,490 --> 01:06:56,440
+these and now because we use word
+
+1552
+01:06:56,440 --> 01:06:59,380
+vectors to make these decisions we don't
+
+1553
+01:06:59,380 --> 01:07:02,320
+need to see exactly spoon and meat at
+
+1554
+01:07:02,320 --> 01:07:04,720
+training time because at sorry a test
+
+1555
+01:07:04,720 --> 01:07:06,850
+time because a training time we saw fork
+
+1556
+01:07:06,850 --> 01:07:08,980
+and from our word vectors we know that
+
+1557
+01:07:08,980 --> 01:07:10,750
+fork and spoon are actually two similar
+
+1558
+01:07:10,750 --> 01:07:12,250
+kinds of things they have similar vector
+
+1559
+01:07:12,250 --> 01:07:14,230
+representations so the hope here is
+
+1560
+01:07:14,230 --> 01:07:16,000
+because we don't think of these as
+
+1561
+01:07:16,000 --> 01:07:17,740
+discrete entities and we just keep
+
+1562
+01:07:17,740 --> 01:07:19,840
+counts in a probabilistic model and we
+
+1563
+01:07:19,840 --> 01:07:22,120
+keep counts for fork and now well you
+
+1564
+01:07:22,120 --> 01:07:23,530
+know if you'd never seen spoon before
+
+1565
+01:07:23,530 --> 01:07:25,690
+your counts for for fork don't really
+
+1566
+01:07:25,690 --> 01:07:28,330
+help you if however you learn the neural
+
+1567
+01:07:28,330 --> 01:07:30,460
+network model that takes into input
+
+1568
+01:07:30,460 --> 01:07:33,250
+takes as input something that looks like
+
+1569
+01:07:33,250 --> 01:07:35,380
+a vector in this area of the space and
+
+1570
+01:07:35,380 --> 01:07:37,630
+you find something else that is in that
+
+1571
+01:07:37,630 --> 01:07:39,580
+similar space such as you know fork and
+
+1572
+01:07:39,580 --> 01:07:42,040
+spoon having closed word vectors 
+
+
+--------------------------------------------------- 37 (45) SU-RNN Analysis
+
+
+then
+
+1573
+01:07:42,040 --> 01:07:43,630
+there's some chance that this will
+
+1574
+01:07:43,630 --> 01:07:45,670
+happen and that's exactly what did
+
+1575
+01:07:45,670 --> 01:07:49,060
+happen which is we had here the original
+
+1576
+01:07:49,060 --> 01:07:51,610
+Stanford factor parser which didn't get
+
+1577
+01:07:51,610 --> 01:07:54,100
+the PP e attachments correct and the
+
+1578
+01:07:54,100 --> 01:07:55,720
+compositional vector grammar I described
+
+1579
+01:07:55,720 --> 01:07:59,410
+before correctly put the prepositional
+
+1580
+01:07:59,410 --> 01:08:01,480
+phrase here with a spoon to the verb
+
+1581
+01:08:01,480 --> 01:08:06,000
+phrase and with meat to the spaghetti
+
+1582
+01:08:08,700 --> 01:08:19,299
+yes sorry sagen how are the children is
+
+1583
+01:08:19,299 --> 01:08:28,230
+my uh-huh
+
+1584
+01:08:32,589 --> 01:08:40,420
+mm-hmm oh this one right here so the
+
+1585
+01:08:40,420 --> 01:08:43,259
+question is how did we actually get from
+
+1586
+01:08:43,259 --> 01:08:45,339
+the binary tree structures that I
+
+1587
+01:08:45,339 --> 01:08:48,158
+described to ternary ones it turns out
+
+1588
+01:08:48,158 --> 01:08:51,368
+any grammar and Chomsky normal form can
+
+1589
+01:08:51,368 --> 01:08:53,109
+actually binarized and then you can have
+
+1590
+01:08:53,109 --> 01:08:56,109
+a deterministic procedure to get back to
+
+1591
+01:08:56,109 --> 01:08:57,908
+basically map between a binary version
+
+1592
+01:08:57,908 --> 01:09:00,670
+and one that isn't binarized and still
+
+1593
+01:09:00,670 --> 01:09:02,529
+recover the exact same grammar and so
+
+1594
+01:09:02,529 --> 01:09:04,389
+this is basically a deterministic sort
+
+1595
+01:09:04,389 --> 01:09:07,349
+of post-processing step to then create
+
+1596
+01:09:07,349 --> 01:09:09,880
+create ternary structures you could also
+
+1597
+01:09:09,880 --> 01:09:12,099
+in the greedy search procedure actually
+
+1598
+01:09:12,099 --> 01:09:14,710
+have a double u that just has three
+
+1599
+01:09:14,710 --> 01:09:20,290
+blocks W 1 W 2 and W 3 and you just
+
+1600
+01:09:20,290 --> 01:09:22,330
+multiply it with three word vectors and
+
+1601
+01:09:22,330 --> 01:09:24,969
+compute you know again a parent vector P
+
+1602
+01:09:24,969 --> 01:09:27,368
+for that but it just turns out that if
+
+1603
+01:09:27,368 --> 01:09:29,649
+you try to use CQI like chart parsing
+
+1604
+01:09:29,649 --> 01:09:32,560
+then that blows up your complexity even
+
+1605
+01:09:32,560 --> 01:09:34,149
+more so you rather just do it as a
+
+1606
+01:09:34,149 --> 01:09:36,040
+post-processing step don't worry if you
+
+1607
+01:09:36,040 --> 01:09:39,359
+didn't understand all that things I just
+
+--------------------------------------------------- 38 (46) Labeling in Recursive Neural Networks
+
+1608
+01:09:39,839 --> 01:09:44,259
+okay so I showed you in the code that we
+
+1609
+01:09:44,259 --> 01:09:47,259
+can use these parent vectors also to
+
+1610
+01:09:47,259 --> 01:09:51,130
+compute any kind of class right we can
+
+1611
+01:09:51,130 --> 01:09:53,500
+predict sentiment for every phrase we
+
+1612
+01:09:53,500 --> 01:09:55,360
+can predict the syntactic categories
+
+1613
+01:09:55,360 --> 01:09:57,310
+lots of different things we can predict
+
+1614
+01:09:57,310 --> 01:10:00,119
+and we will do that with the softmax
+
+1615
+01:10:00,119 --> 01:10:03,460
+classifier at every node and again we
+
+1616
+01:10:03,460 --> 01:10:06,400
+train it similarly to before and in the
+
+1617
+01:10:06,400 --> 01:10:08,080
+case of the actual parser we can
+
+1618
+01:10:08,080 --> 01:10:10,060
+actually train this by having two scores
+
+1619
+01:10:10,060 --> 01:10:12,369
+and we just add the two errors the max
+
+1620
+01:10:12,369 --> 01:10:14,260
+margin error we add the Cross enter pair
+
+1621
+01:10:14,260 --> 01:10:16,179
+and we just take derivatives with
+
+1622
+01:10:16,179 --> 01:10:18,750
+respect to both same way we did before
+
+--------------------------------------------------- 39 (47) Scene Parsing
+
+1623
+01:10:18,750 --> 01:10:23,440
+so now let's think about scene parsing
+
+1624
+01:10:23,440 --> 01:10:25,630
+it's actually in some ways and this is
+
+1625
+01:10:25,630 --> 01:10:27,520
+kind of a fun side note for the last
+
+1626
+01:10:27,520 --> 01:10:31,330
+three minutes that shows you that once
+
+1627
+01:10:31,330 --> 01:10:33,909
+you are really good at deep learning for
+
+1628
+01:10:33,909 --> 01:10:36,070
+natural language processing you really
+
+1629
+01:10:36,070 --> 01:10:37,989
+now have a tool in your bag that lets
+
+1630
+01:10:37,989 --> 01:10:40,179
+you do almost anything that is related
+
+1631
+01:10:40,179 --> 01:10:42,849
+to data because almost every data can be
+
+1632
+01:10:42,849 --> 01:10:44,590
+represented as some kind of vector and
+
+1633
+01:10:44,590 --> 01:10:46,270
+you can use these kinds of technique
+
+1634
+01:10:46,270 --> 01:10:49,420
+for lots of other things so last little
+
+1635
+01:10:49,420 --> 01:10:51,490
+three-minute side note here on computer
+
+1636
+01:10:51,490 --> 01:10:53,320
+vision where you could kind of assume
+
+1637
+01:10:53,320 --> 01:10:56,050
+that even in scene images you have a
+
+1638
+01:10:56,050 --> 01:10:57,610
+similar principle of compositionality
+
+1639
+01:10:57,610 --> 01:11:00,610
+going on where you can define the
+
+1640
+01:11:00,610 --> 01:11:03,640
+meaning of the scene as also a function
+
+1641
+01:11:03,640 --> 01:11:05,050
+of the smaller regions you know there's
+
+1642
+01:11:05,050 --> 01:11:08,530
+a bush there's some people there's a you
+
+1643
+01:11:08,530 --> 01:11:11,370
+know a roof they're a bunch of different
+
+1644
+01:11:11,370 --> 01:11:14,770
+objects here or parts of a larger
+
+1645
+01:11:14,770 --> 01:11:17,920
+structure you have a tree now the single
+
+1646
+01:11:17,920 --> 01:11:20,620
+parts of the structure composed to form
+
+1647
+01:11:20,620 --> 01:11:24,100
+a building and you know then all these
+
+1648
+01:11:24,100 --> 01:11:26,350
+various objects interact in certain ways
+
+--------------------------------------------------- 40 (48) Algorithm for Parsing Images
+
+
+
+1649
+01:11:26,350 --> 01:11:30,910
+and it turns out that I don't need to
+
+1650
+01:11:30,910 --> 01:11:33,700
+actually describe to you in many details
+
+1651
+01:11:33,700 --> 01:11:36,040
+how you would learn how to combine
+
+1652
+01:11:36,040 --> 01:11:39,100
+little regions because it's the exact
+
+1653
+01:11:39,100 --> 01:11:41,560
+same neural network that we just
+
+1654
+01:11:41,560 --> 01:11:43,870
+described for sentence parsing we
+
+1655
+01:11:43,870 --> 01:11:45,370
+basically the main difference here is
+
+1656
+01:11:45,370 --> 01:11:47,410
+instead of starting reward vectors for
+
+1657
+01:11:47,410 --> 01:11:50,020
+words we actually start with feature
+
+1658
+01:11:50,020 --> 01:11:51,940
+vectors for little regions and images
+
+1659
+01:11:51,940 --> 01:11:54,520
+there's some computer vision technology
+
+1660
+01:11:54,520 --> 01:11:55,950
+and how to actually compute those and
+
+1661
+01:11:55,950 --> 01:11:58,480
+program that but let's assume we have a
+
+1662
+01:11:58,480 --> 01:12:00,160
+vector a presentation that captures
+
+1663
+01:12:00,160 --> 01:12:02,320
+features of small image regions well now
+
+1664
+01:12:02,320 --> 01:12:04,750
+we use that exact same neural network we
+
+1665
+01:12:04,750 --> 01:12:06,100
+can have you know a bunch of neighbors
+
+1666
+01:12:06,100 --> 01:12:08,230
+now it's not just the left word and the
+
+1667
+01:12:08,230 --> 01:12:09,790
+right word but all the regions that are
+
+1668
+01:12:09,790 --> 01:12:12,010
+neighboring a certain other region and
+
+1669
+01:12:12,010 --> 01:12:14,470
+image we can compute scores for whether
+
+1670
+01:12:14,470 --> 01:12:16,090
+we should combine them or not we have
+
+1671
+01:12:16,090 --> 01:12:17,980
+some training data for that that says
+
+1672
+01:12:17,980 --> 01:12:19,840
+you know this part all these different
+
+1673
+01:12:19,840 --> 01:12:21,100
+regions are actually part of the same
+
+1674
+01:12:21,100 --> 01:12:24,760
+you know building or our street or group
+
+1675
+01:12:24,760 --> 01:12:27,190
+of people or three or whatever and then
+
+1676
+01:12:27,190 --> 01:12:29,020
+we lower we increase scores for things
+
+1677
+01:12:29,020 --> 01:12:30,460
+we want to combine we decrease scores
+
+1678
+01:12:30,460 --> 01:12:31,920
+for things we don't want to combine and
+
+1679
+01:12:31,920 --> 01:12:34,420
+that way we can build these whole
+
+1680
+01:12:34,420 --> 01:12:37,420
+structures 
+
+
+--------------------------------------------------- 41 (49) Multi-class segmentation
+
+
+and this kind of model
+
+1681
+01:12:37,420 --> 01:12:41,410
+actually you know back in 2011 was a
+
+1682
+01:12:41,410 --> 01:12:42,910
+state of the art model since then
+
+1683
+01:12:42,910 --> 01:12:44,890
+actually people have have come up with
+
+1684
+01:12:44,890 --> 01:12:46,480
+even better models all of which I think
+
+1685
+01:12:46,480 --> 01:12:49,780
+are also deep learning based but here
+
+1686
+01:12:49,780 --> 01:12:51,130
+you can basically see you know what
+
+1687
+01:12:51,130 --> 01:12:53,380
+kinds of things that labels as Street or
+
+1688
+01:12:53,380 --> 01:12:57,340
+trees or buildings and so on and so so
+
+1689
+01:12:57,340 --> 01:12:59,260
+yeah hopefully that shows you that
+
+1690
+01:12:59,260 --> 01:12:59,980
+really the
+
+1691
+01:12:59,980 --> 01:13:02,200
+kinds of tools you learn here and we've
+
+1692
+01:13:02,200 --> 01:13:03,220
+already seen this for some class
+
+1693
+01:13:03,220 --> 01:13:04,390
+projects some of you are using these
+
+1694
+01:13:04,390 --> 01:13:06,370
+tools to understand genetic language
+
+1695
+01:13:06,370 --> 01:13:08,350
+instead of natural language but really
+
+1696
+01:13:08,350 --> 01:13:10,720
+it's a very general set of tools that
+
+1697
+01:13:10,720 --> 01:13:13,030
+that you're learning here alright and
+
+1698
+01:13:13,030 --> 00:00:00,000
+that's it for today
+
