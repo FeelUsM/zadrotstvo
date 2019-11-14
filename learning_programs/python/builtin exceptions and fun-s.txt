@@ -580,6 +580,132 @@ __name__ == '__main__' как модуль или как скрипт
 	'sys',	???
 ]
 
+[stat:
+	'S_ISDIR',	(mode)	directory
+	'S_ISCHR',	(mode)	character special device file
+	'S_ISBLK',	(mode)	block special device file
+	'S_ISREG',	(mode)	regular file
+	'S_ISFIFO',	(mode)	FIFO (named pipe)
+	'S_ISLNK',	(mode)	symbolic link
+	'S_ISSOCK',	(mode)	socket
+	'S_ISDOOR',	(mode)	door
+
+	'S_ISPORT',	(mode)	event port
+	'S_ISWHT',	(mode)	whiteout
+
+
+	'S_IMODE',	(mode)	часть mode, которую можно передать в chmod()
+	'S_IFMT',	(mode)	часть mode, которая описывает тип файла
+
+	'filemode'	(mode)	строка формата ‘-rwxrwxrwx’
+
+константы:
+	'S_IFDIR',	___40000
+	'S_IFCHR',	___20000
+	'S_IFBLK',	___60000
+	'S_IFREG',	__100000
+	'S_IFIFO',	___10000
+	'S_IFLNK',	__120000
+	'S_IFSOCK',	__140000
+	'S_IFDOOR',	_______0
+
+	'S_IFPORT',	_______0
+	'S_IFWHT',	_______0
+
+индексы в 10-tuple returned by os.stat(), os.fstat() or os.lstat()
+	'ST_MODE',	Inode protection mode
+	'ST_INO',	Inode number
+	'ST_DEV',	Device inode resides on.
+	'ST_NLINK',	Number of links to the inode
+	'ST_UID',	User id of the owner
+	'ST_GID',	Group id of the owner
+	'ST_SIZE',	Size in bytes of a plain file; amount of data waiting on some special files
+	'ST_ATIME',	Time of last access
+	'ST_MTIME',	Time of last modification
+	'ST_CTIME',	Unix: is the time of the last metadata change, 
+			Windows: is the creation time
+
+константы, которые можно передавать в os.chmod():
+	'S_ISGID',	____2000	Set-group-ID bit ...
+	'S_ISUID',	____4000	Set UID bit
+	'S_ISVTX',	____1000	Sticky bit
+
+	'S_IRWXU',	_____700	Mask for file owner permissions	
+	'S_IRUSR',	_____400
+	'S_IWUSR',	_____200
+	'S_IXUSR',	_____100
+
+	'S_IRWXG',	______70	Mask for group permissions
+	'S_IRGRP',	______40
+	'S_IWGRP',	______20
+	'S_IXGRP',	______10
+
+	'S_IRWXO',	_______7	Mask for permissions for others (not in group).
+	'S_IROTH',	_______4
+	'S_IWOTH',	_______2
+	'S_IXOTH',	_______1
+
+	'S_ENFMT',	____2000	System V file locking enforcement ...
+	'S_IREAD',	_____400	Unix V7 synonym
+	'S_IWRITE',	_____200	Unix V7 synonym
+	'S_IEXEC',	_____100	Unix V7 synonym
+
+константы, которые можно передавать в os.chflags(): (Mac or BSD)
+	'UF_NODUMP',	Do not dump the file
+	'UF_IMMUTABLE',	The file may not be changed
+	'UF_APPEND',	The file may only be appended to
+	'UF_OPAQUE',	The directory is opaque (непрозрачный) when viewed through a union stack
+	'UF_NOUNLINK',	The file may not be renamed or deleted
+	'UF_COMPRESSED',The file is stored compressed (Mac OS X 10.6+)
+	'UF_HIDDEN',	The file should not be displayed in a GUI (Mac OS X 10.5+)
+
+	'SF_ARCHIVED',	The file may be archived
+	'SF_IMMUTABLE',	The file may not be changed
+	'SF_APPEND',	The file may only be appended to
+	'SF_NOUNLINK',	The file may not be renamed or deleted
+	'SF_SNAPSHOT',	The file is a snapshot file
+
+	UF_NODUMP	_______1
+	UF_IMMUTABLE	_______2
+	UF_APPEND	_______4
+	UF_OPAQUE	______10
+	UF_NOUNLINK	______20
+	UF_COMPRESSED	______40
+	UF_HIDDEN	__100000
+	SF_ARCHIVED	__200000
+	SF_IMMUTABLE	__400000
+	SF_APPEND	_1000000
+	SF_NOUNLINK	_4000000
+	SF_SNAPSHOT	10000000
+
+os.stat().st_file_attributes (Windows)
+	FILE_ATTRIBUTE_READONLY		_______1
+	FILE_ATTRIBUTE_HIDDEN		_______2
+	FILE_ATTRIBUTE_SYSTEM		_______4
+	FILE_ATTRIBUTE_DIRECTORY	______20
+	FILE_ATTRIBUTE_ARCHIVE		______40
+	FILE_ATTRIBUTE_DEVICE		_____100
+	FILE_ATTRIBUTE_NORMAL		_____200
+	FILE_ATTRIBUTE_TEMPORARY	_____400
+	FILE_ATTRIBUTE_SPARSE_FILE	____1000
+	FILE_ATTRIBUTE_REPARSE_POINT	____2000
+	FILE_ATTRIBUTE_COMPRESSED	____4000
+	FILE_ATTRIBUTE_OFFLINE		___10000
+	FILE_ATTRIBUTE_NOT_CONTENT_INDEXED 20000
+	FILE_ATTRIBUTE_ENCRYPTED	___40000
+	FILE_ATTRIBUTE_INTEGRITY_STREAM	__100000
+	FILE_ATTRIBUTE_VIRTUAL		__200000
+	FILE_ATTRIBUTE_NO_SCRUB_DATA	__400000
+
+???
+	IO_REPARSE_TAG_SYMLINK¶
+	IO_REPARSE_TAG_MOUNT_POINT
+	IO_REPARSE_TAG_APPEXECLINK
+
+	'_filemode_table',
+
+]
+
 shutil
 tempfile
 subprocess
