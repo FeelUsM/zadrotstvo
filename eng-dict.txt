@@ -1,4 +1,5 @@
 --- оборты речи ---
+need not have anything to do one with another
 looks like, and may well be, ...
 appears to have <done>	кажется <что-то произошло>
 residue = remainder
@@ -60,6 +61,8 @@ ahead		впереди
 summing up	подведение итогов
 pick		select
 conceive	зачать
+commit		совершать, фиксировать
+commitment	обязательство
 
 --- amazing ---
 pinnacle	вершина, кульминация
@@ -80,5 +83,8 @@ insane		ненормальный, душевнобольной
 --- части тела ---
 hair		
 sholder		
+
+--- прочее ---
+motto 		девиз
 
 
