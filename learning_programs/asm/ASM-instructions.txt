@@ -1,4 +1,4 @@
-mod  r/m	16-битный режим		32-битный режим		
+{mod  r/m	16-битный режим		32-битный режим		
 00...000	[BX + SI]		[EAX]
 00...001	[BX + DI]		[ECX]
 00...010	[BP + SI] (SS)		[EDX]
@@ -47,7 +47,7 @@ mod  r/m	16-битный режим		32-битный режим
 none* - [EIZ], EIZ=0 всегда
 ** - обозначает disp32 без базового регистра, если mod = 00, и [EBP] в противном случае.
 =========================================================================
-
+}
 -------------
   F3,0F,58, /r 	ADDSS xmm1, xmm2/m32 	Add the lower SP FP number from XMM2/Mem to XMM1.
   F3,0F,C2,/r,ib CMPSS xmm1,xmm2/m32, imm8 Compare lowest SP FP number from XMM2/Mem to lowest SP FP number in XMM1 register using imm8 as predicate. 
@@ -66,6 +66,14 @@ none* - [EIZ], EIZ=0 всегда
   F3,0F,5C, /r 	SUBSS xmm1,xmm2/m32 	Subtract the lower SP FP numbers in XMM2/Mem from XMM1.
 ----------		
 ------------------------------------------------
+{0F xx команды
+
+<op>
+0F <op>
+0F 38 <op>
+0F 3A <op>
+
+{0F 0x		SLDT STR LLDT LTR VERR VERW SGDT SIDT LGDT LIDT SMSW LMSW INVLPG LAR LSL SYSCALL CLTS SYSRET INVD WBINVD UD2 PREFETCHW PREFETCHWT1
 0F 00 /0 	SLDT r/m32 		Store segment selector from LDTR in low-order 16 bits of r/m32 16/32	
       /1 	STR r/m16 		Stores segment selector from TR in r/m16	
       /2 	LLDT r/m16 		Load segment selector r/m16 into LDTR	
@@ -103,7 +111,9 @@ none* - [EIZ], EIZ=0 всегда
       /7	??? prefetch
    0E		??? femms
    0F		(bad)
+}
 ------------------------------------------------
+{0F 1x		MOVUPS MOVLPS UNPCKLPS UNPCKHPS MOVHPS PREFETCHNTA PREFETCHT0 PREFETCHT1 PREFETCHT2 BNDLDX BNDSTX
 0F 10 /r 	MOVUPS xmm1, xmm2/m128 	Move 128 bits representing four SP data from XMM2/Mem to XMM1 register.	
 0F 11 /r 	MOVUPS xmm2/m128, xmm1 	Move 128 bits representing four SP data from XMM1 register to XMM2/Mem.	
 0F 12 /r 	MOVLPS xmm, m64 	Move 64 bits representing two SP operands from Mem to lower two fields of XMM register.	
@@ -127,7 +137,9 @@ none* - [EIZ], EIZ=0 всегда
    1D /r	nop
    1E /r	nop
    1F /r	nop
+}
 ------------------------------------------------
+{0F 2x		MOV MOVAPS CVTPI2PS MOVNTPS CVTTPS2PI CVTPS2PI UCOMISS COMISS
 0F 20 /r 	MOV r32,CR0/CR2/CR3/CR4 Move CR0/CR2/CR3/CR4 to r32	
 0F 21 /r 	MOV r32, DR0-DR7 	Move debug register to r32	
 0F 22 /r 	MOV CR0/CR2/CR3/CR4,r32 Move r32 to CR0/CR2/CR3/CR4	
@@ -144,7 +156,9 @@ none* - [EIZ], EIZ=0 всегда
    2D /r	CVTPS2PI mm, xmm/m64	...
 0F 2E /r 	UCOMISS xmm1,xmm2/m32	Compare lower SP FP number in XMM1 register with lower SP FP number in XMM2/Mem and set the status flags accordingly.	
 0F 2F /r 	COMISS xmm1,xmm2/m32 	Compare lower SP FP number in XMM1 register with lower SP FP number in XMM2/Mem and set the status flags accordingly	
+}
 ------------------------------------------------
+{0F 3x		WRMSR RDTSC RDMSR RDPMC SYSENTER SYSEXIT getsec PSHUFB
 0F 30 		WRMSR 			Write the value in EDX:EAX to MSR specified by ECX 
 0F 31 		RDTSC 			Read time-stamp counter into EDX:EAX
 0F 32 		RDMSR 			Load MSR specified by ECX into EDX:EAX
@@ -162,7 +176,9 @@ none* - [EIZ], EIZ=0 всегда
    3d		(bad)
    3e		(bad)
    3f		(bad)
+}
 ------------------------------------------------
+{0F 4x		CMOV(cond)
 0F 40 /r 	CMOVO r32, r/m32 		Move if overflow (OF=0) 16/32	
 0F 41 /r 	CMOVNO r32, r/m32 		Move if not overflow (OF=0) 16/32	
 0F 42 /r 	CMOVB/CMOVC/CMOVNAE r32, r/m32 	Move if below (CF=1) 16/32	
@@ -179,7 +195,9 @@ none* - [EIZ], EIZ=0 всегда
 0F 4D /r 	CMOVGE/CMOVNL r32, r/m32 	Move if greater or equal (SF=OF) 16/32	
 0F 4E /r 	CMOVLE/CMOVNG r32, r/m32 	Move if less or equal (ZF=1 or SF<>OF) 16/32	
 0F 4F /r 	CMOVG/CMOVNLE r32, r/m32 	Move if greater (ZF=0 and SF=OF) 16/32	
+}
 ------------------------------------------------
+{0F 5x		MOVMSKPS SQRTPS RSQRTPS RCPPS ANDPS ANDNPS ORPS XORPS ADDPS MULPS CVTPS2PD CVTDQ2PS SUBPS MINPS DIVPS MAXPS
 0F 50 /r 	MOVMSKPS r32, xmm 	Move the single mask to r32. 	
 0F 51 /r 	SQRTPS xmm1, xmm2/m128 	Square Root of the packed SP FP numbers in XMM2/Mem.	
 0F 52 /r 	RSQRTPS xmm1,xmm2/m128 	Return a packed approximation of the square root of the reciprocal of XMM2/Mem.	
@@ -196,7 +214,9 @@ none* - [EIZ], EIZ=0 всегда
 0F 5D /r 	MINPS xmm1, xmm2/m128 	Return the minimum SP numbers between XMM2/Mem and XMM1.	
 0F 5E /r 	DIVPS xmm1, xmm2/m128 	Divide packed SP FP numbers in XMM1 by XMM2/Mem	
 0F 5F /r 	MAXPS xmm1,xmm2/m128 	Return the maximum SP FP numbers between XMM2/Mem and XMM1.	
+}
 ------------------------------------------------
+{0F 6x		PUNPCKLBW PUNPCKLWD PUNPCKLDQ PACKSSWB PCMPGTB PCMPGTW PCMPGTD PACKUSWB PUNPCKHBW PUNPCKHWD PUNPCKHDQ PACKSSDW MOVD MOVQ
 0F 60 /r 	PUNPCKLBW mm,mm/m32 	Interleave low-order bytes from mm and mm/m64 into mm.	
 0F 61 /r 	PUNPCKLWD mm,mm/m32 	Interleave low-order words from mm and mm/m64 into mm.	
 0F 62 /r 	PUNPCKLDQ mm,mm/m32	Interleave low-order doublewords from mm and mm/m64 into mm.	
@@ -213,7 +233,9 @@ none* - [EIZ], EIZ=0 всегда
    6D		(bad)
 0F 6E /r 	MOVD mm, r/m32 		Move doubleword from r/m32 to mm.	
 0F 6F /r 	MOVQ mm, mm/m64 	Move quadword from mm/m64 to mm.	
+}
 ------------------------------------------------
+{0F 7x		PSHUFW PSRLW PSRAW PSLLW PSRLD PSRAD PSLLD PSRLQ PSLLQ PCMPEQB PCMPEQW PCMPEQD EMMS MOVD MOVQ
 0F 70 /r ib 	PSHUFW mm1, mm2/m64, imm8 Shuffle the words in MM2/Mem based on the encoding in imm8 and store in MM1.	
 0F 71 /0	(bad)
       /1	(bad)
@@ -251,7 +273,9 @@ none* - [EIZ], EIZ=0 всегда
    7D		(bad)
 0F 7E /r 	MOVD r/m32, mm 		Move doubleword from mm to r/m32	
 0F 7F /r 	MOVQ mm/m64, mm 	Move quadword from mm to mm/m64	
+}
 ------------------------------------------------
+{0F 8x		J(cond)
 0F 80 cw/cd 	JO rel16/32 		Jump near if overflow (OF=1)	
 0F 81 cw/cd 	JNO rel16/32 		Jump near if not overflow (OF=0)	
 0F 82 cw/cd 	JB/JC/JNAE rel16/32 	Jump near if below (CF=1)	
@@ -268,7 +292,9 @@ none* - [EIZ], EIZ=0 всегда
 0F 8D cw/cd 	JGE/JNL rel16/32 	Jump near if greater or equal (SF=OF)	
 0F 8E cw/cd 	JLE/JNG rel16/32 	Jump near if less or equal (ZF=1 or SF<>OF)	
 0F 8F cw/cd 	JG/JNLE rel16/32 	Jump near if greater (ZF=0 and SF=OF)	
+}
 ------------------------------------------------
+{0F 9x		SET(cond)
 0F 90 /?	SETO r/m8 		Set byte if overflow (OF=1)
 0F 91 /?	SETNO r/m8 		Set byte if not overflow (OF=0)
 0F 92 /?	SETB/SETC/SETNAE r/m8 	Set byte if below (CF=1)
@@ -285,7 +311,9 @@ none* - [EIZ], EIZ=0 всегда
 0F 9D /?	SETGE/SETNL r/m8 	Set byte if greater or equal (SF=OF)
 0F 9E /?	SETLE/SETNG r/m8 	Set byte if less or equal (ZF=1 or SF<>OF)
 0F 9F /?	SETG/SETNLE r/m8 	Set byte if greater (ZF=0 and SF=OF)
+}
 ------------------------------------------------
+{0F Ax		PUSH POP CPUID BT SHLD RSM BTS SHRD FXSAVE FXRSTOR LDMXCSR STMXCSR XSAVE XRSTOR CLFLUSH SFENCE IMUL
 0F A0 		PUSH FS 		Push FS
 0F A1 		POP FS 			Pop top of stack into FS; increment stack pointer
 0F A2 		CPUID 			EAX ← Processor identification information
@@ -309,7 +337,9 @@ none* - [EIZ], EIZ=0 всегда
       /7	CLFLUSH m8		...
       F8 	SFENCE 			Guarantees that every store instruction that precedes in program order the store fence instruction is globally visible before any store instruction which follows the fence is globally visible.	
 0F AF /r 	IMUL r32,r/m32 		doubleword register ← doubleword register ∗ r/m doubleword 16/32
+}
 ------------------------------------------------
+{0F Bx		CMPXCHG LSS BTR LFS LGS MOVZX BT BTS BTR BTC BSF BSR MOVSX
 0F B0 /r 	CMPXCHG r/m8,r8 	Compare AL with r/m8. If equal, ZF is set and r8 is loaded into r/m8. Else, clear ZF and load r/m8 into AL.	
 0F B1 /r 	CMPXCHG r/m16,r16 	Compare AX with r/m16. If equal, ZF is set and r16 is loaded into r/m16. Else, clear ZF and load r/m16 into AL	 16/32
 0F B2 /r 	LSS r32,m16:32		Load SS:r32 with far pointer from memory 16/32	
@@ -334,7 +364,9 @@ none* - [EIZ], EIZ=0 всегда
 0F BD 		BSR r32,r/m32 		Bit scan reverse on r/m32 16/32
 0F BE /r 	MOVSX r32,r/m8 		Move byte to doubleword, sign-extension 16/32	
 0F BF /r 	MOVSX r32,r/m16 	Move word to doubleword, sign-extension	
+}
 ------------------------------------------------
+{0F Cx		XADD CMPPS MOVNTI PINSRW PEXTRW SHUFPS CMPXCHG8B XRSTORS XSAVEC XSAVES BSWAP
 0F C0 /r 	XADD r/m8,r8 		Exchange r8 and r/m8; load sum into r/m8.	
 0F C1 /r 	XADD r/m32,r32 		Exchange r32 and r/m32; load sum into r/m32. 16/32	
 0F C2 /r ib 	CMPPS xmm1,xmm2/m128, imm8 Compare packed SP FP numbers from XMM2/Mem to packed SP FP numbers in XMM1 register using imm8 as predicate.	
@@ -351,8 +383,10 @@ none* - [EIZ], EIZ=0 всегда
       /6	?vmptrld
       /7	?vmptrst		...
 0F C8+rd 	BSWAP r32 		Reverses the byte order of a 32-bit register.	
+}
 ------------------------------------------------
-OF D0		(bad)
+{0F Dx		PSRLW PSRLD PSRLQ PADDQ PMULLW PMOVMSKB PSUBUSB PSUBUSW PMINUB PAND PADDUSB PADDUSW PMAXUB PANDN
+0F D0		(bad)
 0F D1 /r 	PSRLW mm, mm/m64 	Shift words in mm right by amount specified in mm/m64 while shifting in zeroes.	
 0F D2 /r 	PSRLD mm, mm/m64 	Shift doublewords in mm right by amount specified in mm/m64 while shifting in zeroes.	
 0F D3 /r 	PSRLQ mm, mm/m64 	Shift mm right by amount specified in mm/m64 while shifting in zeroes.	
@@ -368,7 +402,9 @@ OF D0		(bad)
 0F DD /r 	PADDUSW mm,mm/m64 	Add unsigned packed words from mm/m64 to unsigned packed words in mm and saturate	
 0F DE /r 	PMAXUB mm1, mm2/m64 	Return the maximum bytes between MM2/Mem and MM1.	
 0F DF /r 	PANDN mm, mm/m64 	AND quadword from mm/m64 to NOT quadword in mm	
+}
 ------------------------------------------------
+{0F Ex		PAVGB PSRAW PSRAD PAVGW PMULHUW PMULHW MOVNTQ PSUBSB PSUBSW PMINSW POR PADDSB PADDSW PMAXSW PXOR
 0F E0 /r 	PAVGB mm1,mm2/m64 	Average with rounding packed unsigned bytes from MM2/Mem to packed bytes in MM1 register.	
 0F E1 /r 	PSRAW mm,mm/m64 	Shift words in mm right by amount specified in mm/m64 while shifting in sign bits.	
 0F E2 /r 	PSRAD mm,mm/m64 	Shift doublewords in mm right by amount specified in mm/m64 while shifting in sign bits.	
@@ -385,8 +421,10 @@ OF D0		(bad)
 0F ED /r 	PADDSW mm,mm/m64 	Add signed packed words from mm/m64 to signed packed words in mm and saturate	
 0F EE /r 	PMAXSW mm1, mm2/m64 	Return the maximum words between MM2/Mem and MM1.	
 0F EF /r 	PXOR mm, mm/m64 	XOR quadword from mm/m64 to quadword in mm	
+}
 ------------------------------------------------
-0F 00 /0	SLDT r/m16 		...
+{0F Fx		SLDT STR LLDT LTR VERR VERW PSLLW PSLLD PSLLQ PMULUDQ PMADDWD PSADBW MASKMOVQ PSUBB PSUBW PSUBQ PADDB PADDW PADDD
+0F F0 /0	SLDT r/m16 		...
       /1	STR r/m16		...
       /2	LLDT r/m16		...
       /3	LTR r/m16		...
@@ -409,9 +447,10 @@ OF D0		(bad)
 0F FD /r 	PADDW mm,mm/m64 	Add packed words from mm/m64 to packed words in mm.	
 0F FE /r 	PADDD mm,mm/m64 	Add packed doublewords from mm/m64 to packed doublewords in mm.	
 0F FF		(bad)
+}
 ------------------------------------------------
-
-
+}
+{0F xx карта
  - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D -  		- E - 	- F - 	
 0 SLDT 	SGDT	LAR	LSL	(bad)	SYSCALL	CLTS	SYSRET	INVD		WBINVD	(bad)	UD2	(bad)	??? prefetch	??? femms (bad)	
   STR 	SIDT							             	                                PREFETCHW			
@@ -495,8 +534,10 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
   (bad)	
   /x	/r		/r	/r	/r	/r	/r	/r	/r		/r	/r	/r	/r	/r		/r		
  - 0 -	- 1 -		- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 		- 9 - 	- A -	- B - 	- C - 	- D - 		- E - 	- F - 
-
+}
 ------------------------------------------------
+{xx команды
+{0x		ADD PUSH POP OR 0F-xx-команды
 00 /r		ADD r/m8,r8		Сложение
 01 /r		ADD r/m32,r32		Сложение 16/32
 02 /r		ADD r8,r/m8		Сложение
@@ -557,8 +598,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
    BD /r	BSR r32,r/m32		Обратное сканирование битов !!! 16/32
    BE /r	MOVSX r32,r/m8		Копирование со знаковым расширением 16/32
    BF /r	MOVSX r32,r/m16		Копирование со знаковым расширением
-
+}
 ------------------------------------------------
+{1x 		ADC PUSH POP SBB
 10 /r		ADC r/m8,r8		Сложение с учётом переноса
 11 /r		ADC r/m32,r32		Сложение с учётом переноса 16/32
 12 /r		ADC r8,r/m8		Сложение с учётом переноса
@@ -575,7 +617,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 1D id		SBB EAX,imm32		Вычитание с заёмом 16/32
 1E		PUSH DS			Помещение в стек
 1F		POP DS			Извлечение из стека
+}
 ------------------------------------------------
+{2x		AND es: DAA SUB cs: DAS
 20 /r 		AND r/m8,r8		Логическое И
 21 /r 		AND r/m32,r32		Логическое И 16/32
 22 /r 		AND r8,r/m8		Логическое И
@@ -592,7 +636,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 2D id		SUB EAX,imm32		Вычитание 16/32
 2e		... cs:			замена сегмента cs;
 2F		DAS			
+}
 ------------------------------------------------
+{3x		XOR ss: AAA CMP ds: AAS
 30 /r		XOR r/m8,r8		Логическое исключающее ИЛИ
 31 /r		XOR r/m32,r32		Логическое исключающее ИЛИ 16/32
 32 /r		XOR r8,r/m8		Логическое исключающее ИЛИ
@@ -609,7 +655,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 3D id		CMP EAX,imm32		Сравнение 16/32
 3e		... ds:			замена сегмента ds;
 3F		AAS			
+}
 ------------------------------------------------
+{4x		INC DEC
 40		INC EAX			Инкремент 16/32
 41		INC ECX
 42		INC EDX
@@ -626,7 +674,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 4D		DEC EBP
 4E		DEC ESI
 4F		DEC EDI
+}
 ------------------------------------------------
+{5x		PUSH POP
 50		PUSH EAX		Помещение в стек 16/32
 51		PUSH ECX
 52		PUSH EDX
@@ -643,7 +693,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 5D		POP EBP
 5E		POP ESI
 5F		POP EDI
+}
 ------------------------------------------------
+{6x		PUSHA POPA BOUND ARPL fs: gs: PUSH IMUL INSB INSW OUTSB OUTSW
 60		PUSHA/PUAHAD		Помещение регистров общего назначения в стек
 61		POPA/POPAD		Восстановление регистров общего назначения из стека
 62 /r		BOUND r32,m32&32	Проверить индекс на выход за границы массива 16/32
@@ -660,7 +712,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 6D		INSW/INSD			16/32
 6E		OUTSB			
 6F		OUTSW/OUTSD			16/32
+}
 ------------------------------------------------
+{7x		J(cond)
 70 cb		JO rel8			Условный переход
 71 cb		JNO rel8		Условный переход
 72 cb		JC/JNAE/JB rel8		Условный переход
@@ -677,7 +731,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 7D cb		JGE/JNL rel8		Условный переход
 7E cb		JLE/JNG rel8		Условный переход
 7F cb		JG/JNLE rel8		Условный переход
+}
 ------------------------------------------------
+{8x		ADD OR ADC SBB AND SUB XOR CMP TEST XCHG MOV LEA POP
 80 /0 ib	ADD r/m8,imm8		Сложение
    /1 ib	OR r/m8,imm8		Логическое ИЛИ
    /2 ib	ADC r/m8,imm8		Сложение с учётом переноса
@@ -722,7 +778,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
    /5		(bad)
    /6		(bad)
    /7		(bad)
+}
 ------------------------------------------------
+{9x		XCHG CBW CWD CALL WAIT PUSHF POPF SAHF LAHF
 90		NOP/XCHG EAX,EAX	Нет операции
 91		XCHG EAX,ECX		Обмен 16/32
 92		XCHG EAX,EDX		Обмен 16/32
@@ -739,7 +797,9 @@ F SLDT	 PSLLW		PSLLD	PSLLQ	PMULUDQ	PMADDWD	PSADBW	MASKMOVQ PSUBB		PSUBW	PSUBD	PS
 9D		POPF/POPFD		Извлечение регистра флагов из стека
 9E		SAHF			Запись содержимого AH в младший байт регистра флагов
 9f		LAHF			Загрузка младшего байта регистра флагов в AH
+}
 ------------------------------------------------
+{Ax		MOV MOVSB MOVSW CMPSB CMPSW TEST STOSB STOSW LODSB LODSW SCASB SCASW
 А0 adr32	MOV AL,ds:adr32		Копирование
 A1 adr32	MOV EAX,ds:adr32 	Копирование 16/32
 A2 adr32	MOV ds:adr32,AL		Копирование
@@ -756,7 +816,9 @@ AC		LODSB
 AD		LODSW/LODSD			16/32
 AE		SCASB
 AF		SCASW/SCASD			16/32
+}
 ------------------------------------------------
+{Bx		MOV
 B0 ib		MOV al,imm8		Копирование
 B1 ib		MOV cl,imm8		Копирование
 B2 ib		MOV dl,imm8		Копирование
@@ -773,7 +835,9 @@ BC id		MOV esp,imm32		Копирование 16/32
 BD id		MOV ebp,imm32		Копирование 16/32
 BE id		MOV esi,imm32		Копирование 16/32
 BF id		MOV edi,imm32		Копирование 16/32
+}
 ------------------------------------------------
+{Cx		ROL ROR RCL RCR SHL SHR SAR RET LES LDS MOV ENTER LEAVE INT3 INT INTO IRET
 С0 /0 ib	ROL r/m8,imm8		Циклический сдвиг влево
    /1 ib	ROR r/m8,imm8		Циклический сдвиг вправо
    /2 ib	RCL r/m8,imm8		Циклический сдвиг влево через флаг переноса
@@ -818,7 +882,9 @@ CC		INT3			прерывание 3 на дебаггер
 CD ib		INT imm8		прерывание ib
 CE		INTO			прерывание 4 если было переполнение
 CF		IRET			
+}
 ------------------------------------------------
+{D0-D7		ROL ROR RCL RCR SHL SHR SAR AAM AAD XLAT
 D0 /0		ROL r/m8,1		Циклический сдвиг влево
    /1		ROR r/m8,1		Циклический сдвиг вправо
    /2		RCL r/m8,1		Циклический сдвиг влево через флаг переноса
@@ -855,7 +921,8 @@ D4 ib		AAM imm8		Adjust AX after multiply to number base imm8
 D5 ib		AAD imm8		Adjust AX before division to number base imm8
 D6		(bad)
 D7		XLAT			Set AL to memory byte DS:[(E)BX + unsigned AL]
-.
+}
+{D8		FADD FMUL FCOM FCOMP FSUB FSUBR FDIV FDIVR
 D8 /0 		FADD m32real 		Add m32real to ST(0) and store result in ST(0)
    C0+i 	FADD ST(0), ST(i) 	Add ST(0) to ST(i) and store result in ST(0)
    /1 		FMUL m32real 		Multiply ST(0) by m32real and store result in ST(0)
@@ -872,6 +939,8 @@ D8 /0 		FADD m32real 		Add m32real to ST(0) and store result in ST(0)
    F0+i 	FDIV ST(0), ST(i) 	Divide ST(0) by ST(i) and store result in ST(0)
    /7 		FDIVR m32real 		Divide m32real by ST(0) and store result in ST(0)
    F8+i 	FDIVR ST(0), ST(i) 	Divide ST(i) by ST(0) and store result in ST(0)
+}
+{D9		FLD FST FSTP FNOP FCHS FABS FTST FXAM FLD1 FLDL2T FLDL2E FLDPI FLDLG2 FLDLN2 FLDZ F2XM1 FYL2X FPTAN FPATAN FXTRACT FPREM1 FDECSTP FINCSTP FPREM FYL2XP1 FSQRT FSINCOS FRNDINT FSCALE FSIN FCOS
 D9 /0 		FLD m32real 		Push m32real onto the FPU register stack.
    C0+i 	FLD ST(i) 		Push ST(i) onto the FPU register stack.
    /1		(bad)
@@ -913,6 +982,8 @@ D9 /0 		FLD m32real 		Push m32real onto the FPU register stack.
    FD		FSCALE
    FE		FSIN
    FF		FCOS
+}
+{DA		FIADD FCMOVB FIMUL FCMOVE FICOM FCMOVBE FICOMP FCMOVU FISUB FISUBR FIDIV FIDIVR
 DA /0 		FIADD m32int 		Add m32int to ST(0) and store result in ST(0)
    C0+i 	FCMOVB ST(0), ST(i) 	Move if below (CF=1)
    /1 		FIMUL m32int 		Multiply ST(0) by m32int and store result in ST(0)
@@ -928,7 +999,8 @@ DA /0 		FIADD m32int 		Add m32int to ST(0) and store result in ST(0)
    /6 		FIDIV m32int 		Divide ST(0) by m32int and store result in ST(0)
 
    /7 		FIDIVR m32int 		Divide m32int by ST(0) and store result in ST(0)
-
+}
+{DB 		FCMOVNB FCMOVNE FCMOVNBE FCMOVNU FLD FSTP
 DB C0+i 	FCMOVNB ST(0), ST(i) 	Move if not below (CF=0)
 
    C8+i 	FCMOVNE ST(0), ST(i) 	Move if not equal (ZF=0)
@@ -940,7 +1012,8 @@ DB C0+i 	FCMOVNB ST(0), ST(i) 	Move if not below (CF=0)
    /5 		FLD m80real 		Push m80real onto the FPU register stack.
 
    /7 		FSTP m80real 		Copy ST(0) to m80real and pop register stack
-
+}
+{DC 		FADD FMUL FCOM FCOMP FSUB FSUBR FDIV FDIVR
 DC /0 		FADD m64real 		Add m64real to ST(0) and store result in ST(0)
    C0+i 	FADD ST(i), ST(0) 	Add ST(i) to ST(0) and store result in ST(i)
    /1 		FMUL m64real 		Multiply ST(0) by m64real and store result in ST(0)
@@ -957,14 +1030,16 @@ DC /0 		FADD m64real 		Add m64real to ST(0) and store result in ST(0)
    F8+i 	FDIV ST(i), ST(0) 	Divide ST(i) by ST(0) and store result in ST(i)
    /7 		FDIVR m64real 		Divide m64real by ST(0) and store result in ST(0)
    F0+i 	FDIVR ST(i), ST(0) 	Divide ST(0) by ST(i) and store result in ST(i)
-
+}
+{DD 		FLD FST FSTP
 DD /0 		FLD m64real 		Push m64real onto the FPU register stack.
 
    /2 		FST m64real 		Copy ST(0) to m64real
    D0+i 	FST ST(i) 		Copy ST(0) to ST(i)
    /3 		FSTP m64real 		Copy ST(0) to m64real and pop register stack
    D8+i 	FSTP ST(i) 		Copy ST(0) to ST(i) and pop register stack
-
+}
+{DE 		FIADD FADDP FIMUL FMULP FICOM FICOMP FCOMPP FISUB FSUBP FISUBR FSUBRP FIDIV FDIVP FIDIVR FDIVRP 
 DE /0 		FIADD m16int 		Add m16int to ST(0) and store result in ST(0)
    C0+i 	FADDP ST(i), ST(0) 	Add ST(0) to ST(i), store result in ST(i), and pop the register stack
    /1 		FIMUL m16int 		Multiply ST(0) by m16int and store result in ST(0)
@@ -983,9 +1058,9 @@ DE /0 		FIADD m16int 		Add m16int to ST(0) and store result in ST(0)
    F8+i 	FDIVP ST(i), ST(0) 	Divide ST(i) by ST(0), store result in ST(i), and pop the register stack
    /7 		FIDIVR m16int 		Divide m16int by ST(0) and store result in ST(0)
    F0+i 	FDIVRP ST(i), ST(0) 	Divide ST(0) by ST(i), store result in ST(i), and pop the register stack
-
-.
+}
 ------------------------------------------------
+{Ex		LOOPNZ LOOPZ LOOP JCXZ IN OUT CALL JMP
 E0 cb		LOOPNZ/LOOPNE rel8	Управление циклом со счетчиком в регистре СХ/ЕСХ
 E1 cb 		LOOPZ/LOOPE rel8	Управление циклом со счетчиком в регистре СХ/ЕСХ
 E2 cb		LOOP rel8		Управление циклом со счетчиком в регистре СХ/ЕСХ
@@ -1002,7 +1077,9 @@ EC 		IN AL,DX 		Input byte from I/O port in DX into AL
 ED 		IN EAX,DX 		Input doubleword from I/O port in DX into EAX 16/32
 EE 		OUT DX, AL 		Output byte in AL to I/O port address in DX
 EF 		OUT DX, EAX 		Output doubleword in EAX to I/O port address in DX 16/32
+}
 ------------------------------------------------
+{Fx		LOCK ICEBP REPNE REP HLT CMC TEST NOT NEG MUL IMUL DIV IDIV CLC STC CLI STI CLD STD INC DEC CALL JMP PUSH
 F0		LOCK prefix
 F1		ICEBP
 F2		REPNE/REPNZ		префикс повторения
@@ -1047,9 +1124,10 @@ FF /0		INC r/m32		Инкремент 16/32
    /5		JMP x/m32(m16:32) 	Безусловный переход 16/32
    /6		PUSH r/m32		Помещение в стек 16/32
    /7		(bad)
+}
 ------------------------------------------------
-
-
+}
+{xx карта
  - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
 0 ADD	ADD	ADD	ADD	ADD	ADD	PUSH	POP	OR	OR	OR	OR	OR	OR	PUSH	...	
   /r	/r	/r	/r	ib	id	 es	 es	/r	/r	/r	/r	ib	id	 cs	.set1.	
@@ -1113,11 +1191,10 @@ F LOCK:	ICEBP	REPNE	REP	HLT	CMC	TEST	TEST	CLC	STC	CLI	STI	CLD	STD	INC	INC
 						/x (ib)	/x(ib)							
  - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
 /
-
-
-
+}
 
 =========================================================================
+{modR/M <sib>
 16-битный режим		
 v-r/m mod->	seg	00		01		10		11
 xx...000	DS	[BX + SI]	[BX+SI]+disp8	[BX+SI]+disp16	EAX/AX/AL
@@ -1135,22 +1212,26 @@ xx...001	DS	[ECX]		[ECX]+disp8	[ECX]+disp32	ECX/CX/CL
 xx...010	DS	[EDX]		[EDX]+disp8	[EDX]+disp32	EDX/DX/DL
 xx...011	DS	[EBX]		[EPX]+disp8	[EBX]+disp32	EBX/BX/BL
 xx...100	<sib>	<sib>		<sib>+disp8	<sib>+disp32	ESP/SP/AH
-xx...101	SS	[disp32]	[EBP]+disp8	[EBP]+disp32	EBP/BP/CH
+xx...101	SS	ds:[disp32]	[EBP]+disp8	[EBP]+disp32	EBP/BP/CH
 xx...110	DS	[ESI]		[ESI]+disp8	[ESI]+disp32	ESI/SI/DH
 xx...111	DS	[EDI]		[EDI]+disp8	[EDI]+disp32	EDI/DI/BH
 --------------------------------------------------------------
-  reg		r8	r16	r32	Sreg		SS	*index	+base
-..000...	AL	AX	EAX	es		00.. 1	[EAX]	DS:[EAX]	
-..001...	CL	CX	ECX	cs		01.. 2	[ECX]	DS:[ECX]	
-..010...	DL	DX	EDX	ss		10.. 4	[EDX]	DS:[EDX]	
-..011...	BL	BX	EBX	ds		11.. 8	[EBX]	DS:[EBX]	
-..100...	AH	SP	ESP	fs			none*	??:[ESP]
-..101...	CH	BP	EBP	gs			[EBP]	[**]	
-..110...	DH	SI	ESI				[ESI]	??:[ESI]	
-..111...	BH	DI	EDI				[EDI]	DS:[EDI]	
-none* - [EIZ], EIZ=0 всегда
-** - обозначает DS:disp32 без базового регистра, если mod = 00, и SS:[EBP] в противном случае.
+  reg		r8	r16	r32	Sreg	|	SS	*index	+base
+..000...	AL	AX	EAX	es	|	00.. 1	[EAX]	DS:[EAX]	..000...
+..001...	CL	CX	ECX	cs	|	01.. 2	[ECX]	DS:[ECX]	..001...
+..010...	DL	DX	EDX	ss	|	10.. 4	[EDX]	DS:[EDX]	..010...
+..011...	BL	BX	EBX	ds	|	11.. 8	[EBX]	DS:[EBX]	..011...
+..100...	AH	SP	ESP	fs	|		[EIZ]*	SS:[ESP]	..100...
+..101...	CH	BP	EBP	gs	|		[EBP]	SS:[EBP]**	..101...
+..110...	DH	SI	ESI		|		[ESI]	DS:[ESI]	..110...
+..111...	BH	DI	EDI		|		[EDI]	DS:[EDI]	..111...
+EIZ=0 всегда
+* если mod!=00, то n/a
+** если mod=00, то n/a
+
+}
 --------------------------------------------------------------
+{флаги и переходы
 0	CF	carry		
 1	1	---
 2	PF	parity		
@@ -1159,10 +1240,11 @@ none* - [EIZ], EIZ=0 всегда
 5	0	---
 6	ZF	zero		
 7	SF	sign		
+
 8	TF	trace
 9	IF	interrupt enable
 10	DF	direction
-11	OF	overflow	
+11	OF	overflow - sign carry	
 12/13	IOPL	in/out privilege level
 14	NT	nested task
 15	0	---
@@ -1206,8 +1288,9 @@ C 1100	 (SF<>OF)			l	nge	меньше
 D 1101	 (SF=OF)			nl	ge	меньше или равно
 E 1110	 (ZF=1 or SF<>OF)		ng	le	больше или равно
 F 1111	 (ZF=0 and SF=OF)		g	nle	больше
-
+}
 =========================================================================
+{карты команд укороченные
 0f + byte:
 	0	1	2	3	4	5	6	7	8	9	a	b	c	d	e	f	
 0
@@ -1244,8 +1327,8 @@ c	xxxxxx.xxxxxxx.x				MOV-----MOV-----
 d	xxxxxx.xxxxxxx.xxxxxxx.xxxxxxx.xAAM+++++AAD+++++	XLATB---
 e					IN------IN------OUT-----OUT-----				IN------IN------OUT-----OUT-----
 f							x.xxxxxxx.xxxxxx						xx......xx....x.
-
-
+}
+{влияние команд на флаги
 			FLAGS
 		argc	PZSOCA	Процессор
 --- 2.3.1. пересылка данных ---
@@ -1291,6 +1374,7 @@ OR		2	.....?	0
 AND		2	.....?	0
 XOR		2	.....?	0
 CMP		2	......	0
+TEST		2	.....?	0
 
 IMUL		3	???..?	1	со знаком, старшая часть отбрасывается
 IMUL		2	???..?	3	со знаком, старшая часть отбрасывается
@@ -1301,7 +1385,6 @@ DIV		1	??????	0	-..-
 					при делении на 0 int 0 или искл. #DE
 NEG		1	......	0
 NOT		1	------	0
-TEST		2	.....?	0
 
 XADD		2	......	4	XCHG, ADD
 CMPXCHG		2	......	4	if ax==arg1 then arg1=arg2 else ax=arg1
@@ -1338,88 +1421,733 @@ BSF		2		3	Прямое сканирование битов
 BSR		2		3	Обратное сканирование битов
 
 SETcc
+}
+
+{изученные команды
+{работа с памятью
+MOV—Move . 	2
+XCHG—Exchange Register/Memory with Register .	3
+CWD/CDQ/CQO—Convert Word to Doubleword/Convert Doubleword to Quadword.	2
+CBW/CWDE/CDQE—Convert Byte to Word/Convert Word to Doubleword/Convert Doubleword to Quadword .	13
+
+LEA—Load Effective Address.	4
+LDS/LES/LFS/LGS/LSS—Load Far Pointer.	1
+
+PUSH—Push Word, Doubleword or Quadword Onto the Stack . 	10
+POP—Pop a Value from the Stack . 	3
+PUSHF/PUSHFD—Push EFLAGS Register onto the Stack . 	2
+POPF/POPFD/POPFQ—Pop Stack into EFLAGS Register . 	2
+PUSHA/PUSHAD—Push All General-Purpose Registers. 	3
+POPA/POPAD—Pop All General-Purpose Registers . 	5
+}
+{унарные ++ -- - ~
+INC—Increment by 1 .	2
+DEC—Decrement by 1.	2
+NOT—One's Complement Negation .	1
+NEG—Two's Complement Negation .	3
+}
+{логические
+AND—Logical AND . 	2
+OR—Logical Inclusive OR .	2
+XOR—Logical Exclusive OR .	2
+TEST—Logical Compare .	3
+}
+{сдвиги
+SAL/SAR/SHL/SHR—Shift .	2
+RCL/RCR/ROL/ROR—Rotate . 	3
+}
+{работа с битами
+BT—Bit Test . 	1
+BTC—Bit Test and Complement . 	2
+BTR—Bit Test and Reset .	2
+BTS—Bit Test and Set .	2
+}
+{целая арифметика
+ADD—Add. 	2
+SUB—Subtract.	2
+ADC—Add with Carry . 	2
+SBB—Integer Subtraction with Borrow.	2
+CMP—Compare Two Operands.	4
+
+MUL—Unsigned Multiply . 	8
+DIV—Unsigned Divide .	2
+IMUL—Signed Multiply.	3
+IDIV—Signed Divide .	3
+
+DAA—Decimal Adjust AL after Addition .	1
+DAS—Decimal Adjust AL after Subtraction .	2
+AAA—ASCII Adjust After Addition 	2
+AAD—ASCII Adjust AX Before Division . 	2
+AAM—ASCII Adjust AX After Multiply . 	2
+AAS—ASCII Adjust AL After Subtraction . 	2
+}
+{флаги
+CLC —Clear Carry Flag .	1
+STC —Set Carry Flag.	1
+CMC —Complement Carry Flag .	2
+
+CLTS —Clear Task-Switched Flag in CR0 .	2
+
+CLI — Clear Interrupt Flag .	2
+STI —Set Interrupt Flag.	1
+
+CLD —Clear Direction Flag.	1
+STD —Set Direction Flag .	1
+
+STAC —Set AC Flag in EFLAGS Register.	2
+
+CLAC —Clear AC Flag in EFLAGS Register .	1
+
+LAHF—Load Status Flags into AH Register .	1
+SAHF—Store AH into Flags. 	2
+}
+{переходы
+JMP—Jump.	5
+
+CALL—Call Procedure .	1
+RET—Return from Procedure . 	4
+RETN
+RETF
+Jcc—Jump if Condition Is Met.	7
+}
+{ввод-вывод
+IN—Input from Port .	4
+OUT—Output to Port.	3
+}
+{циклы
+LOOP/LOOPcc—Loop According to ECX Counter .	3
+LOOP/LOOPNZ/LOOPNE
+LOOPZ/LOOPE
+}
+{обработка блоков данных
+STOS/STOSB/STOSW/STOSD/STOSQ—Store String .	1
+LODS/LODSB/LODSW/LODSD/LODSQ—Load String.	2
+MOVS/MOVSB/MOVSW/MOVSD/MOVSQ—Move Data from String to String. 	1
+SCAS/SCASB/SCASW/SCASD—Scan String .	3
+CMPS/CMPSB/CMPSW/CMPSD/CMPSQ—Compare String Operands .	7
+INS/INSB/INSW/INSD—Input from Port to String .	2
+OUTS/OUTSB/OUTSW/OUTSD—Output String to Port.	2
+
+REP/REPE/REPZ/REPNE/REPNZ—Repeat String Operation Prefix . 	2
+}
+{особые
+RDMSR—Read from Model Specific Register. 	2
+WRMSR—Write to Model Specific Register.	2
+
+CPUID—CPU Identification .	2
+
+UD2—Undefined Instruction.	2
+
+SGDT—Store Global Descriptor Table Register .	1
+LGDT/LIDT—Load Global/Interrupt Descriptor Table Register .	1
+
+MOV—Move to/from Control Registers. 	5
+MOV—Move to/from Debug Registers . 	3
+}
+
+}
 
 
+{xx карта
+ - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
+0 ADD	ADD	ADD	ADD	ADD	ADD	PUSH	POP	OR	OR	OR	OR	OR	OR	PUSH	...	
+1 ADC	ADC	ADC	ADC	ADC	ADC	PUSH	POP	SBB	SBB	SBB	SBB	SBB	SBB	PUSH	POP	
+2 AND	AND	AND	AND	AND	AND	ES:	DAA	SUB	SUB	SUB	SUB	SUB	SUB	CS:	DAS	
+3 XOR	XOR	XOR	XOR	XOR	XOR	SS:	AAA	CMP	CMP	CMP	CMP	CMP	CMP	DS:	AAS	
+4 INC	INC	INC	INC	INC	INC	INC	INC	DEC	DEC	DEC	DEC	DEC	DEC	DEC	DEC	
+5 PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	PUSH	POP	POP	POP	POP	POP	POP	POP	POP	
+6 PUSHA	POPA	BOUND	ARPL	FS:	GS:	OP-S:	ADR-S:	PUSH	IMUL	PUSH	IMUL	INSB	INSD	OUTSB	OUTSD	
+7 JO	JNO	JC	JNC	JZ	JNZ	JNA	JA	JS	JNS	JP	JNP	JL	JGE	JLE	JG	
+8 ADD	ADD	(bad)	ADD	TEST	TEST	XCHG	XCHG	MOV	MOV	MOV	MOV	MOV	LEA	MOV	POP	
+  OR 	OR 		OR 												/1(bad)	
+  ADC	ADC		ADC												/2(bad)	
+  SBB	SBB		SBB												/3(bad)	
+  AND	AND		AND												/4(bad)	
+  SUB	SUB		SUB												/5(bad)	
+  XOR	XOR		XOR												/6(bad)	
+  CMP	CMP		CMP												/7(bad)	
+9 NOP	XCHG	XCHG	XCHG	XCHG	XCHG	XCHG	XCHG	CWDE	CDQ	CALL	FWAIT	PUSHF	POPF	SAHF	LAHF	
+A MOV	MOV	MOV	MOV	MOWSB	MOVSD	CMPSB	SMPSD	TEST	TEST	STOSB	STOSD	LODSB	LODSD	SCASB	SCASD	
+B MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	MOV	
+C ROL	ROL	RET	RET	LES	LDS	MOV	MOV	ENTER	LEAVE	RET	RET	INT3	INT	INTO	IRET	
+  ROR	ROR					/1(bad)	/1(bad)									
+  RCL	RCL					/2(bad)	/2(bad)									
+  RCR	RCR					/3(bad)	/3(bad)									
+  SHL	SHL					/4(bad)	/4(bad)									
+  SHR	SHR					/5(bad)	/5(bad)									
+  (bad)	(bad)					/6(bad)	/6(bad)									
+  SAR	SAR					/7(bad)	/7(bad)									
+D ROL 	ROL 	ROL 	ROL 	AAM	AAD	(bad)	XLAT	FADD 	...	...	...	...	...	...	...	
+  ROR 	ROR 	ROR 	ROR 			                FMUL 	.set2.	.set3.	.set4.	.set5.	.set6.	.set7.	.set8.	
+  RCL 	RCL 	RCL 	RCL 			                FCOM 	
+  RCR 	RCR 	RCR 	RCR 			                FCOMP	
+  SHL 	SHL 	SHL 	SHL 			                FSUB 	
+  SHR 	SHR 	SHR 	SHR 			                FSUBR	
+  (bad	(bad	(bad	(bad			                FDIV 	
+  SAR 	SAR 	SAR 	SAR 			                FDIVR	
+E LOOPNZ LOOPZ	LOOP	JCXZ	IN	IN	OUT	OUT	CALL	JMP	JMP	JMP	IN	IN	OUT	OUT
+F LOCK:	ICEBP	REPNE	REP	HLT	CMC	TEST	TEST	CLC	STC	CLI	STI	CLD	STD	INC	INC 
+						(bad)	(bad)	                                                DEC	DEC 
+						NOT	NOT	                                                (bad)	CALL 
+						NEG	NEG	                                                (bad)	CALL 
+						MUL	MUL	                                                (bad)	JMP 
+						IMUL	IMUL	                                                (bad)	JMP 
+						DIV	DIV	                                                (bad)	PUSH 
+						IDIV	IDIV	                                                (bad)	(bad)
+ - 0 -	- 1 -	- 2 -	- 3 - 	- 4 - 	- 5 - 	- 6 - 	- 7 - 	- 8 - 	- 9 - 	- A -	- B - 	- C - 	- D -  - E - 	- F - 
+/
+}
 
-
-
-
-
-
-
-
-
-
-
-
-NOP		Нет операции
-MOV		Копирование
-XCHG		Обмен
-
-NOT		Инверсия
-AND		Логическое И.
-OR		Логическое ИЛИ
-XOR		Логическое исключающее ИЛИ
-
-SHL/SAL		Сдвиг влево
-SHR		Логический сдвиг вправо
-ROL		Циклический сдвиг влево
-ROR		Циклический сдвиг вправо
-RCL		Циклический сдвиг влево через флаг переноса
-RCR		Циклический сдвиг вправо через флаг переноса
-SAR		Арифметический сдвиг вправо
-SHLD		Сдвиг двойной точности влево
-SHRD		Сдвиг двойной точности вправо
-
-BSF		Прямое сканирование битов
-BSR		Обратное сканирование битов
-BT		Проверка бита
-BTC		Проверка и инверсия бита
-BTR		Проверка и сброс бита
-BTS		Проверка и установка бита
-
-INC		Инкремент
-DEC		Декремент
-NEG		Изменение знака
-ADD		Сложение
-SUB		Вычитание
-MUL		Умножение без знака
-DIV		Деление без знака
-ADC		Сложение с учётом переноса.
-SBB		Вычитание с заёмом
-IDIV		Деление со знаком
-IMUL		Умножение со знаком
-
-MOVSX		Копирование со знаковым расширением
-MOVZX		Копирование с нулевым расширением
-CBW/CWDE	преобразование байта в слово / слова в двойное слово (рсширение знаком)
-CWD/CDQ		преобразование слова в двойное слово / двойного слова в учетверённое слово
-CMP		Сравнение
-TEST		Логическое сравнение
-
-CLC		Сброс флага переноса.
-STC		Установка флага переноса
-CLD		Сброс флага направления
-STD		Установка флага направления
-CLI		Сброс флага прерывания
-STI		Установка флага прерывания
-CMC		Инверсия флага переноса
-LAHF		Загрузка младшего байта регистра флагов в AH
-SAHF		Запись содержимого AH в младший байт регистра флагов
-
-POP		Извлечение из стека
-PUSH		Помещение в стек
-POPA/POPAD	Восстановление регистров общего назначения из стека
-PUSHA/PUSHAD	Помещение регистров общего назначения в стек
-POPF/POPFD	Извлечение регистра флагов из стека
-PUSHF/PUSHFD	Помещение регистра флагов в стек
-ENTER		Установка кадра стека
-LEAVE		Восстановление кадра стека
-
-CALL		Вызов процедуры или переключение задачи
-J(COND)		Условный переход
-JMP		Безусловный переход
-LOOP		Управление циклом со счетчиком в регистре СХ/ЕСХ
-LOOPNZ/LOOPNE	Управление циклом со счетчиком в регистре СХ/ЕСХ
-LOOPZ/LOOPE	Управление циклом со счетчиком в регистре СХ/ЕСХ.
-RET/RETN/RETF	Возврат из процедуры
+{алфавитный список неизученных команд
+ADCX — Unsigned Integer Addition of Two Operands with Carry Flag . 	3
+ADDPD—Add Packed Double-Precision Floating-Point Values. 	2
+ADDPS—Add Packed Single-Precision Floating-Point Values. 	3
+ADDSD—Add Scalar Double-Precision Floating-Point Values. 	3
+ADDSS—Add Scalar Single-Precision Floating-Point Values . 	2
+ADDSUBPD—Packed Double-FP Add/Subtract . 	2
+ADDSUBPS—Packed Single-FP Add/Subtract . 	2
+ADOX — Unsigned Integer Addition of Two Operands with Overflow Flag . 	3
+AESDEC—Perform One Round of an AES Decryption Flow. 	2
+AESDECLAST—Perform Last Round of an AES Decryption Flow . 	2
+AESENC—Perform One Round of an AES Encryption Flow. 	2
+AESENCLAST—Perform Last Round of an AES Encryption Flow . 	2
+AESIMC—Perform the AES InvMixColumn Transformation. 	2
+AESKEYGENASSIST—AES Round Key Generation Assist. 	1
+ANDN — Logical AND NOT . 	2
+ANDPD—Bitwise Logical AND of Packed Double Precision Floating-Point Values. 	1
+ANDPS—Bitwise Logical AND of Packed Single Precision Floating-Point Values. 	3
+ANDNPD—Bitwise Logical AND NOT of Packed Double Precision Floating-Point Values . 	3
+ANDNPS—Bitwise Logical AND NOT of Packed Single Precision Floating-Point Values . 	3
+ARPL—Adjust RPL Field of Segment Selector . 	3
+BLENDPD — Blend Packed Double Precision Floating-Point Values. 	2
+BEXTR — Bit Field Extract . 	2
+BLENDPS — Blend Packed Single Precision Floating-Point Values. 	1
+BLENDVPD — Variable Blend Packed Double Precision Floating-Point Values. 	2
+BLENDVPS — Variable Blend Packed Single Precision Floating-Point Values . 	2
+BLSI — Extract Lowest Set Isolated Bit . 	3
+BLSMSK — Get Mask Up to Lowest Set Bit . 	1
+BLSR — Reset Lowest Set Bit . 	1
+BNDCL—Check Lower Bound . 	1
+BNDCU/BNDCN—Check Upper Bound . 	2
+BNDLDX—Load Extended Bounds Using Address Translation . 	2
+BNDMK—Make Bounds. 	3
+BNDMOV—Move Bounds . 	2
+BNDSTX—Store Extended Bounds Using Address Translation. 	3
+BOUND—Check Array Index Against Bounds . 	3
+BSF—Bit Scan Forward . 	2
+BSR—Bit Scan Reverse . 	2
+BSWAP—Byte Swap . 	2
+BZHI — Zero High Bits Starting with Specified Bit Position .	2
+CLFLUSH—Flush Cache Line .	1
+CLFLUSHOPT—Flush Cache Line Optimized.	2
+CMOVcc—Conditional Move.	1
+CMPPD—Compare Packed Double-Precision Floating-Point Values .	2
+CMPPS—Compare Packed Single-Precision Floating-Point Values .	7
+CMPSD—Compare Scalar Double-Precision Floating-Point Value .	4
+CMPSS—Compare Scalar Single-Precision Floating-Point Value .	4
+CMPXCHG—Compare and Exchange.	4
+CMPXCHG8B/CMPXCHG16B—Compare and Exchange Bytes .	2
+COMISD—Compare Scalar Ordered Double-Precision Floating-Point Values and Set EFLAGS .	3
+COMISS—Compare Scalar Ordered Single-Precision Floating-Point Values and Set EFLAGS .	2
+CRC32 — Accumulate CRC32 Value .	35
+CVTDQ2PD—Convert Packed Doubleword Integers to Packed Double-Precision Floating-Point Values .	3
+CVTDQ2PS—Convert Packed Doubleword Integers to Packed Single-Precision Floating-Point Values .	4
+CVTPD2DQ—Convert Packed Double-Precision Floating-Point Values to Packed Doubleword Integers .	3
+CVTPD2PI—Convert Packed Double-Precision FP Values to Packed Dword Integers .	4
+CVTPD2PS—Convert Packed Double-Precision Floating-Point Values to Packed Single-Precision Floating-Point Values .	1
+CVTPI2PD—Convert Packed Dword Integers to Packed Double-Precision FP Values .	4
+CVTPI2PS—Convert Packed Dword Integers to Packed Single-Precision FP Values.	1
+CVTPS2DQ—Convert Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values .	1
+CVTPS2PD—Convert Packed Single-Precision Floating-Point Values to Packed Double-Precision Floating-Point Values .	3
+CVTPS2PI—Convert Packed Single-Precision FP Values to Packed Dword Integers.	3
+CVTSD2SI—Convert Scalar Double-Precision Floating-Point Value to Doubleword Integer .	1
+CVTSD2SS—Convert Scalar Double-Precision Floating-Point Value to Scalar Single-Precision Floating-Point Value.	2
+CVTSI2SD—Convert Doubleword Integer to Scalar Double-Precision Floating-Point Value .	2
+CVTSI2SS—Convert Doubleword Integer to Scalar Single-Precision Floating-Point Value .	2
+CVTSS2SD—Convert Scalar Single-Precision Floating-Point Value to Scalar Double-Precision Floating-Point Value.	2
+CVTSS2SI—Convert Scalar Single-Precision Floating-Point Value to Doubleword Integer .	2
+CVTTPD2DQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Doubleword Integers 	2
+CVTTPD2PI—Convert with Truncation Packed Double-Precision FP Values to Packed Dword Integers .	4
+CVTTPS2DQ—Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Signed Doubleword Integer Values .	1
+CVTTPS2PI—Convert with Truncation Packed Single-Precision FP Values to Packed Dword Integers .	3
+CVTTSD2SI—Convert with Truncation Scalar Double-Precision Floating-Point Value to Signed Integer .	1
+CVTTSS2SI—Convert with Truncation Scalar Single-Precision Floating-Point Value to Integer .	2
+CLWB—Cache Line Write Back .	1
+DIVPD—Divide Packed Double-Precision Floating-Point Values .	3
+DIVPS—Divide Packed Single-Precision Floating-Point Values . 	3
+DIVSD—Divide Scalar Double-Precision Floating-Point Value . 	3
+DIVSS—Divide Scalar Single-Precision Floating-Point Values. 	2
+DPPD — Dot Product of Packed Double Precision Floating-Point Values. 	2
+DPPS — Dot Product of Packed Single Precision Floating-Point Values . 	2
+EMMS—Empty MMX Technology State . 	3
+ENTER—Make Stack Frame for Procedure Parameters. 	1
+EXTRACTPS—Extract Packed Floating-Point Values . 	3
+F2XM1—Compute 2x–1. 	2
+FABS—Absolute Value . 	2
+FADD/FADDP/FIADD—Add . 	1
+FBLD—Load Binary Coded Decimal. 	3
+FBSTP—Store BCD Integer and Pop. 	2
+FCHS—Change Sign . 	2
+FCLEX/FNCLEX—Clear Exceptions . 	2
+FCMOVcc—Floating-Point Conditional Move . 	2
+FCOM/FCOMP/FCOMPP—Compare Floating Point Values . 	2
+FCOMI/FCOMIP/ FUCOMI/FUCOMIP—Compare Floating Point Values and Set EFLAGS . 	3
+FCOS— Cosine. 	3
+FDECSTP—Decrement Stack-Top Pointer . 	2
+FDIV/FDIVP/FIDIV—Divide. 	1
+FDIVR/FDIVRP/FIDIVR—Reverse Divide . 	3
+FFREE—Free Floating-Point Register . 	3
+FICOM/FICOMP—Compare Integer . 	1
+FILD—Load Integer . 	2
+FINCSTP—Increment Stack-Top Pointer. 	2
+FINIT/FNINIT—Initialize Floating-Point Unit. 	1
+FIST/FISTP—Store Integer . 	2
+FISTTP—Store Integer with Truncation . 	3
+FLD—Load Floating Point Value . 	2
+FLD1/FLDL2T/FLDL2E/FLDPI/FLDLG2/FLDLN2/FLDZ—Load Constant . 	2
+FLDCW—Load x87 FPU Control Word . 	2
+FLDENV—Load x87 FPU Environment . 	2
+FMUL/FMULP/FIMUL—Multiply . 	2
+FNOP—No Operation . 	3
+FPATAN—Partial Arctangent . 	1
+FPREM—Partial Remainder . 	2
+FPREM1—Partial Remainder . 	2
+FPTAN—Partial Tangent . 	2
+FRNDINT—Round to Integer. 	2
+FRSTOR—Restore x87 FPU State . 	1
+FSAVE/FNSAVE—Store x87 FPU State . 	2
+FSCALE—Scale . 	3
+FSIN—Sine . 	2
+FSINCOS—Sine and Cosine . 	2
+FSQRT—Square Root . 	2
+FST/FSTP—Store Floating Point Value . 	2
+FSTCW/FNSTCW—Store x87 FPU Control Word . 	2
+FSTENV/FNSTENV—Store x87 FPU Environment . 	2
+FSTSW/FNSTSW—Store x87 FPU Status Word . 	2
+FSUB/FSUBP/FISUB—Subtract . 	2
+FSUBR/FSUBRP/FISUBR—Reverse Subtract. 	3
+FTST—TEST. 	3
+FUCOM/FUCOMP/FUCOMPP—Unordered Compare Floating Point Values . 	2
+FXAM—Examine Floating-Point. 	3
+FXCH—Exchange Register Contents . 	2
+FXRSTOR—Restore x87 FPU, MMX, XMM, and MXCSR State . 	2
+FXSAVE—Save x87 FPU, MMX Technology, and SSE State . 	3
+FXTRACT—Extract Exponent and Significand . 	8
+FYL2X—Compute y * log2x.	2
+FYL2XP1—Compute y * log2(x +1) .	2
+HADDPD—Packed Double-FP Horizontal Add .	2
+HADDPS—Packed Single-FP Horizontal Add .	3
+HLT—Halt .	3
+HSUBPD—Packed Double-FP Horizontal Subtract .	1
+HSUBPS—Packed Single-FP Horizontal Subtract .	3
+INSERTPS—Insert Scalar Single-Precision Floating-Point Value .	3
+INT n/INTO/INT 3—Call to Interrupt Procedure .	3
+INVD—Invalidate Internal Caches .	12
+INVLPG—Invalidate TLB Entries.	2
+INVPCID—Invalidate Process-Context Identifier.	2
+IRET/IRETD—Interrupt Return .	3
+KADDW/KADDB/KADDQ/KADDD—ADD Two Masks.	8
+KANDW/KANDB/KANDQ/KANDD—Bitwise Logical AND Masks .	1
+KANDNW/KANDNB/KANDNQ/KANDND—Bitwise Logical AND NOT Masks .	1
+KMOVW/KMOVB/KMOVQ/KMOVD—Move from and to Mask Registers .	1
+KNOTW/KNOTB/KNOTQ/KNOTD—NOT Mask Register.	2
+KORW/KORB/KORQ/KORD—Bitwise Logical OR Masks .	1
+KORTESTW/KORTESTB/KORTESTQ/KORTESTD—OR Masks And Set Flags .	1
+KSHIFTLW/KSHIFTLB/KSHIFTLQ/KSHIFTLD—Shift Left Mask Registers .	2
+KSHIFTRW/KSHIFTRB/KSHIFTRQ/KSHIFTRD—Shift Right Mask Registers .	2
+KTESTW/KTESTB/KTESTQ/KTESTD—Packed Bit Test Masks and Set Flags.	2
+KUNPCKBW/KUNPCKWD/KUNPCKDQ—Unpack for Mask Registers .	2
+KXNORW/KXNORB/KXNORQ/KXNORD—Bitwise Logical XNOR Masks .	1
+KXORW/KXORB/KXORQ/KXORD—Bitwise Logical XOR Masks .	1
+LAR—Load Access Rights Byte .	1
+LDDQU—Load Unaligned Integer 128 Bits .	3
+LDMXCSR—Load MXCSR Register.	2
+LEAVE—High Level Procedure Exit.	2
+LFENCE—Load Fence.	2
+LLDT—Load Local Descriptor Table Register.	3
+LMSW—Load Machine Status Word .	2
+LOCK—Assert LOCK# Signal Prefix.	2
+LSL—Load Segment Limit .	2
+LTR—Load Task Register.	3
+LZCNT— Count the Number of Leading Zero Bits .	2
+MASKMOVDQU—Store Selected Bytes of Double Quadword .	8
+MASKMOVQ—Store Selected Bytes of Quadword . 	2
+MAXPD—Maximum of Packed Double-Precision Floating-Point Values . 	2
+MAXPS—Maximum of Packed Single-Precision Floating-Point Values . 	3
+MAXSD—Return Maximum Scalar Double-Precision Floating-Point Value . 	3
+MAXSS—Return Maximum Scalar Single-Precision Floating-Point Value . 	2
+MFENCE—Memory Fence. 	2
+MINPD—Minimum of Packed Double-Precision Floating-Point Values. 	1
+MINPS—Minimum of Packed Single-Precision Floating-Point Values. 	3
+MINSD—Return Minimum Scalar Double-Precision Floating-Point Value . 	3
+MINSS—Return Minimum Scalar Single-Precision Floating-Point Value . 	2
+MONITOR—Set Up Monitor Address . 	2
+MOVAPD—Move Aligned Packed Double-Precision Floating-Point Values. 	2
+MOVAPS—Move Aligned Packed Single-Precision Floating-Point Values. 	4
+MOVBE—Move Data After Swapping Bytes . 	4
+MOVD/MOVQ—Move Doubleword/Move Quadword. 	2
+MOVDDUP—Replicate Double FP Values . 	4
+MOVDQA,VMOVDQA32/64—Move Aligned Packed Integer Values . 	3
+MOVDQU,VMOVDQU8/16/32/64—Move Unaligned Packed Integer Values. 	5
+MOVDQ2Q—Move Quadword from XMM to MMX Technology Register. 	8
+MOVHLPS—Move Packed Single-Precision Floating-Point Values High to Low . 	1
+MOVHPD—Move High Packed Double-Precision Floating-Point Value . 	2
+MOVHPS—Move High Packed Single-Precision Floating-Point Values . 	2
+MOVLHPS—Move Packed Single-Precision Floating-Point Values Low to High . 	2
+MOVLPD—Move Low Packed Double-Precision Floating-Point Value . 	2
+MOVLPS—Move Low Packed Single-Precision Floating-Point Values . 	2
+MOVMSKPD—Extract Packed Double-Precision Floating-Point Sign Mask. 	2
+MOVMSKPS—Extract Packed Single-Precision Floating-Point Sign Mask. 	2
+MOVNTDQA—Load Double Quadword Non-Temporal Aligned Hint . 	2
+MOVNTDQ—Store Packed Integers Using Non-Temporal Hint . 	2
+MOVNTI—Store Doubleword Using Non-Temporal Hint . 	2
+MOVNTPD—Store Packed Double-Precision Floating-Point Values Using Non-Temporal Hint . 	2
+MOVNTPS—Store Packed Single-Precision Floating-Point Values Using Non-Temporal Hint . 	2
+MOVNTQ—Store of Quadword Using Non-Temporal Hint. 	2
+MOVQ—Move Quadword . 	1
+MOVQ2DQ—Move Quadword from MMX Technology to XMM Register. 	3
+MOVSD—Move or Merge Scalar Double-Precision Floating-Point Value. 	4
+MOVSHDUP—Replicate Single FP Values . 	3
+MOVSLDUP—Replicate Single FP Values . 	3
+MOVSS—Move or Merge Scalar Single-Precision Floating-Point Value . 	3
+MOVSX/MOVSXD—Move with Sign-Extension . 	4
+MOVUPD—Move Unaligned Packed Double-Precision Floating-Point Values . 	2
+MOVUPS—Move Unaligned Packed Single-Precision Floating-Point Values . 	4
+MOVZX—Move with Zero-Extend. 	4
+MPSADBW — Compute Multiple Packed Sums of Absolute Difference. 	2
+MULPD—Multiply Packed Double-Precision Floating-Point Values. 	2
+MULPS—Multiply Packed Single-Precision Floating-Point Values . 	3
+MULSD—Multiply Scalar Double-Precision Floating-Point Value . 	3
+MULSS—Multiply Scalar Single-Precision Floating-Point Values . 	2
+MULX — Unsigned Multiply Without Affecting Flags.	2
+MWAIT—Monitor Wait .	2
+NOP—No Operation .	2
+ORPD—Bitwise Logical OR of Packed Double Precision Floating-Point Values.	2
+ORPS—Bitwise Logical OR of Packed Single Precision Floating-Point Values .	3
+PABSB/PABSW/PABSD/PABSQ — Packed Absolute Value .	4
+PACKSSWB/PACKSSDW—Pack with Signed Saturation .	6
+PACKUSDW—Pack with Unsigned Saturation .	8
+PACKUSWB—Pack with Unsigned Saturation .	5
+PADDB/PADDW/PADDD/PADDQ—Add Packed Integers .	5
+PADDSB/PADDSW—Add Packed Signed Integers with Signed Saturation .	7
+PADDUSB/PADDUSW—Add Packed Unsigned Integers with Unsigned Saturation .	4
+PALIGNR — Packed Align Right .	4
+PAND—Logical AND .	4
+PANDN—Logical AND NOT.	3
+PAUSE—Spin Loop Hint .	3
+PAVGB/PAVGW—Average Packed Integers.	1
+PBLENDVB — Variable Blend Packed Bytes.	4
+PBLENDW — Blend Packed Words.	4
+PCLMULQDQ - Carry-Less Multiplication Quadword .	3
+PCMPEQB/PCMPEQW/PCMPEQD— Compare Packed Data for Equal .	3
+PCMPEQQ — Compare Packed Qword Data for Equal .	6
+PCMPESTRI — Packed Compare Explicit Length Strings, Return Index .	3
+PCMPESTRM — Packed Compare Explicit Length Strings, Return Mask .	2
+PCMPGTB/PCMPGTW/PCMPGTD—Compare Packed Signed Integers for Greater Than .	2
+PCMPGTQ — Compare Packed Data for Greater Than .	6
+PCMPISTRI — Packed Compare Implicit Length Strings, Return Index .	3
+PCMPISTRM — Packed Compare Implicit Length Strings, Return Mask .	2
+PDEP — Parallel Bits Deposit .	2
+PEXT — Parallel Bits Extract.	2
+PEXTRB/PEXTRD/PEXTRQ — Extract Byte/Dword/Qword .	2
+PEXTRW—Extract Word.	3
+PHADDW/PHADDD — Packed Horizontal Add .	3
+PHADDSW — Packed Horizontal Add and Saturate.	4
+PHMINPOSUW — Packed Horizontal Word Minimum.	2
+PHSUBW/PHSUBD — Packed Horizontal Subtract .	2
+PHSUBSW — Packed Horizontal Subtract and Saturate.	3
+PINSRB/PINSRD/PINSRQ — Insert Byte/Dword/Qword .	2
+PINSRW—Insert Word .	3
+PMADDUBSW — Multiply and Add Packed Signed and Unsigned Bytes .	2
+PMADDWD—Multiply and Add Packed Integers .	3
+PMAXSB/PMAXSW/PMAXSD/PMAXSQ—Maximum of Packed Signed Integers .	3
+PMAXUB/PMAXUW—Maximum of Packed Unsigned Integers .	7
+PMAXUD/PMAXUQ—Maximum of Packed Unsigned Integers .	5
+PMINSB/PMINSW—Minimum of Packed Signed Integers .	4
+PMINSD/PMINSQ—Minimum of Packed Signed Integers .	5
+PMINUB/PMINUW—Minimum of Packed Unsigned Integers .	4
+PMINUD/PMINUQ—Minimum of Packed Unsigned Integers.	5
+PMOVMSKB—Move Byte Mask.	4
+PMOVSX—Packed Move with Sign Extend .	2
+PMOVZX—Packed Move with Zero Extend .	10
+PMULDQ—Multiply Packed Doubleword Integers.	9
+PMULHRSW — Packed Multiply High with Round and Scale .	3
+PMULHUW—Multiply Packed Unsigned Integers and Store High Result .	4
+PMULHW—Multiply Packed Signed Integers and Store High Result . 	4
+PMULLD/PMULLQ—Multiply Packed Integers and Store Low Result. 	4
+PMULLW—Multiply Packed Signed Integers and Store Low Result . 	4
+PMULUDQ—Multiply Packed Unsigned Doubleword Integers . 	4
+POPCNT — Return the Count of Number of Bits Set to 1. 	2
+POR—Bitwise Logical OR. 	5
+PREFETCHh—Prefetch Data Into Caches . 	3
+PREFETCHW—Prefetch Data into Caches in Anticipation of a Write . 	2
+PREFETCHWT1—Prefetch Vector Data Into Caches with Intent to Write and T1 Hint . 	2
+PSADBW—Compute Sum of Absolute Differences . 	2
+PSHUFB — Packed Shuffle Bytes . 	4
+PSHUFD—Shuffle Packed Doublewords . 	4
+PSHUFHW—Shuffle Packed High Words. 	4
+PSHUFLW—Shuffle Packed Low Words . 	3
+PSHUFW—Shuffle Packed Words . 	3
+PSIGNB/PSIGNW/PSIGND — Packed SIGN . 	1
+PSLLDQ—Shift Double Quadword Left Logical . 	4
+PSLLW/PSLLD/PSLLQ—Shift Packed Data Left Logical . 	2
+PSRAW/PSRAD/PSRAQ—Shift Packed Data Right Arithmetic . 	12
+PSRLDQ—Shift Double Quadword Right Logical . 	10
+PSRLW/PSRLD/PSRLQ—Shift Packed Data Right Logical . 	2
+PSUBB/PSUBW/PSUBD—Subtract Packed Integers . 	12
+PSUBQ—Subtract Packed Quadword Integers . 	7
+PSUBSB/PSUBSW—Subtract Packed Signed Integers with Signed Saturation. 	3
+PSUBUSB/PSUBUSW—Subtract Packed Unsigned Integers with Unsigned Saturation. 	4
+PTEST- Logical Compare . 	4
+PTWRITE - Write Data to a Processor Trace Packet . 	2
+PUNPCKHBW/PUNPCKHWD/PUNPCKHDQ/PUNPCKHQDQ— Unpack High Data. 	2
+PUNPCKLBW/PUNPCKLWD/PUNPCKLDQ/PUNPCKLQDQ—Unpack Low Data . 	10
+PXOR—Logical Exclusive OR. 	2
+RCPPS—Compute Reciprocals of Packed Single-Precision Floating-Point Values . 	5
+RCPSS—Compute Reciprocal of Scalar Single-Precision Floating-Point Values . 	2
+RDFSBASE/RDGSBASE—Read FS/GS Segment Base . 	2
+RDPID—Read Processor ID . 	2
+RDPKRU—Read Protection Key Rights for User Pages . 	1
+RDPMC—Read Performance-Monitoring Counters . 	2
+RDRAND—Read Random Number. 	4
+RDSEED—Read Random SEED . 	2
+RDTSC—Read Time-Stamp Counter . 	2
+RDTSCP—Read Time-Stamp Counter and Processor ID. 	2
+RORX — Rotate Right Logical Without Affecting Flags . 	10
+ROUNDPD — Round Packed Double Precision Floating-Point Values . 	1
+ROUNDPS — Round Packed Single Precision Floating-Point Values . 	3
+ROUNDSD — Round Scalar Double Precision Floating-Point Values . 	3
+ROUNDSS — Round Scalar Single Precision Floating-Point Values. 	2
+RSM—Resume from System Management Mode. 	2
+RSQRTPS—Compute Reciprocals of Square Roots of Packed Single-Precision Floating-Point Values . 	2
+RSQRTSS—Compute Reciprocal of Square Root of Scalar Single-Precision Floating-Point Value . 	2
+SARX/SHLX/SHRX — Shift Without Affecting Flags .	5
+SETcc—Set Byte on Condition .	4
+SFENCE—Store Fence.	3
+SHA1RNDS4—Perform Four Rounds of SHA1 Operation .	2
+SHA1NEXTE—Calculate SHA1 State Variable E after Four Rounds .	2
+SHA1MSG1—Perform an Intermediate Calculation for the Next Four SHA1 Message Dwords .	1
+SHA1MSG2—Perform a Final Calculation for the Next Four SHA1 Message Dwords.	1
+SHA256RNDS2—Perform Two Rounds of SHA256 Operation .	1
+SHA256MSG1—Perform an Intermediate Calculation for the Next Four SHA256 Message Dwords .	2
+SHA256MSG2—Perform a Final Calculation for the Next Four SHA256 Message Dwords .	1
+SHLD—Double Precision Shift Left .	1
+SHRD—Double Precision Shift Right.	3
+SHUFPD—Packed Interleave Shuffle of Pairs of Double-Precision Floating-Point Values .	3
+SHUFPS—Packed Interleave Shuffle of Quadruplets of Single-Precision Floating-Point Values.	5
+SIDT—Store Interrupt Descriptor Table Register.	4
+SLDT—Store Local Descriptor Table Register .	2
+SMSW—Store Machine Status Word.	2
+SQRTPD—Square Root of Double-Precision Floating-Point Values .	2
+SQRTPS—Square Root of Single-Precision Floating-Point Values .	3
+SQRTSD—Compute Square Root of Scalar Double-Precision Floating-Point Value .	3
+SQRTSS—Compute Square Root of Scalar Single-Precision Value .	2
+STMXCSR—Store MXCSR Register State .	2
+STR—Store Task Register .	4
+SUBPD—Subtract Packed Double-Precision Floating-Point Values.	2
+SUBPS—Subtract Packed Single-Precision Floating-Point Values.	3
+SUBSD—Subtract Scalar Double-Precision Floating-Point Value.	3
+SUBSS—Subtract Scalar Single-Precision Floating-Point Value .	2
+SWAPGS—Swap GS Base Register .	2
+SYSCALL—Fast System Call .	2
+SYSENTER—Fast System Call.	2
+SYSEXIT—Fast Return from Fast System Call.	3
+SYSRET—Return From Fast System Call.	3
+TZCNT — Count the Number of Trailing Zero Bits.	2
+UCOMISD—Unordered Compare Scalar Double-Precision Floating-Point Values and Set EFLAGS .	2
+UCOMISS—Unordered Compare Scalar Single-Precision Floating-Point Values and Set EFLAGS .	2
+UNPCKHPD—Unpack and Interleave High Packed Double-Precision Floating-Point Values .	1
+UNPCKHPS—Unpack and Interleave High Packed Single-Precision Floating-Point Values .	4
+UNPCKLPD—Unpack and Interleave Low Packed Double-Precision Floating-Point Values.	4
+UNPCKLPS—Unpack and Interleave Low Packed Single-Precision Floating-Point Values .	4
+VALIGND/VALIGNQ—Align Doubleword/Quadword Vectors. 	5	-695
+VBLENDMPD/VBLENDMPS—Blend Float64/Float32 Vectors Using an OpMask Control . 	4
+VBROADCAST—Load with Broadcast Floating-Point Data . 	3
+VPBROADCASTM—Broadcast Mask to Vector Register . 	7
+VCOMPRESSPD—Store Sparse Packed Double-Precision Floating-Point Values into Dense Memory. 	2
+VCOMPRESSPS—Store Sparse Packed Single-Precision Floating-Point Values into Dense Memory. 	2
+VCVTPD2QQ—Convert Packed Double-Precision Floating-Point Values to Packed Quadword Integers . 	2
+VCVTPD2UDQ—Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers . 	3
+VCVTPD2UQQ—Convert Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers . 	3
+VCVTPH2PS—Convert 16-bit FP values to Single-Precision FP values . 	3
+VCVTPS2PH—Convert Single-Precision FP value to 16-bit FP value . 	3
+VCVTPS2UDQ—Convert Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values 	4
+VCVTPS2QQ—Convert Packed Single Precision Floating-Point Values to Packed Singed Quadword Integer Values . 	3
+VCVTPS2UQQ—Convert Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values 	3
+VCVTQQ2PD—Convert Packed Quadword Integers to Packed Double-Precision Floating-Point Values . 	3
+VCVTQQ2PS—Convert Packed Quadword Integers to Packed Single-Precision Floating-Point Values . 	2
+VCVTSD2USI—Convert Scalar Double-Precision Floating-Point Value to Unsigned Doubleword Integer . 	2
+VCVTSS2USI—Convert Scalar Single-Precision Floating-Point Value to Unsigned Doubleword Integer . 	1
+VCVTTPD2QQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Quadword Integers 	2
+VCVTTPD2UDQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Doubleword Integers  	2
+VCVTTPD2UQQ—Convert with Truncation Packed Double-Precision Floating-Point Values to Packed Unsigned Quadword Integers 	3
+VCVTTPS2UDQ—Convert with Truncation Packed Single-Precision Floating-Point Values to Packed Unsigned Doubleword Integer Values  	2
+VCVTTPS2QQ—Convert with Truncation Packed Single Precision Floating-Point Values to Packed Singed Quadword Integer Values  	2
+VCVTTPS2UQQ—Convert with Truncation Packed Single Precision Floating-Point Values to Packed Unsigned Quadword Integer Values . 	2
+VCVTTSD2USI—Convert with Truncation Scalar Double-Precision Floating-Point Value to Unsigned Integer . 	2
+VCVTTSS2USI—Convert with Truncation Scalar Single-Precision Floating-Point Value to Unsigned Integer . 	1
+VCVTUDQ2PD—Convert Packed Unsigned Doubleword Integers to Packed Double-Precision Floating-Point Values . 	2
+VCVTUDQ2PS—Convert Packed Unsigned Doubleword Integers to Packed Single-Precision Floating-Point Values . 	2
+VCVTUQQ2PD—Convert Packed Unsigned Quadword Integers to Packed Double-Precision Floating-Point Values . 	2
+VCVTUQQ2PS—Convert Packed Unsigned Quadword Integers to Packed Single-Precision Floating-Point Values . 	2
+VCVTUSI2SD—Convert Unsigned Integer to Scalar Double-Precision Floating-Point Value . 	2
+VCVTUSI2SS—Convert Unsigned Integer to Scalar Single-Precision Floating-Point Value. 	2
+VDBPSADBW—Double Block Packed Sum-Absolute-Differences (SAD) on Unsigned Bytes . 	2
+VEXPANDPD—Load Sparse Packed Double-Precision Floating-Point Values from Dense Memory . 	4
+VEXPANDPS—Load Sparse Packed Single-Precision Floating-Point Values from Dense Memory . 	2
+VERR/VERW—Verify a Segment for Reading or Writing . 	2
+VEXP2PD—Approximation to the Exponential 2^x of Packed Double-Precision Floating-Point Values with Less Than 2^-23 Relative Error . 	2
+VEXP2PS—Approximation to the Exponential 2^x of Packed Single-Precision Floating-Point Values with Less Than 2^-23 Relative Error . 	2
+VEXTRACTF128/VEXTRACTF32x4/VEXTRACTF64x2/VEXTRACTF32x8/VEXTRACTF64x4—Extract Packed Floating-Point Values . 	2
+VEXTRACTI128/VEXTRACTI32x4/VEXTRACTI64x2/VEXTRACTI32x8/VEXTRACTI64x4—Extract packed Integer Values 	7
+VFIXUPIMMPD—Fix Up Special Packed Float64 Values. 	6
+VFIXUPIMMPS—Fix Up Special Packed Float32 Values . 	4
+VFIXUPIMMSD—Fix Up Special Scalar Float64 Value . 	4
+VFIXUPIMMSS—Fix Up Special Scalar Float32 Value . 	3
+VFMADD132PD/VFMADD213PD/VFMADD231PD—Fused Multiply-Add of Packed Double-Precision Floating-Point Values 	3
+VFMADD132PS/VFMADD213PS/VFMADD231PS—Fused Multiply-Add of Packed Single-Precision Floating-Point Values 	7
+VFMADD132SD/VFMADD213SD/VFMADD231SD—Fused Multiply-Add of Scalar Double-Precision Floating-Point Values 	7
+VFMADD132SS/VFMADD213SS/VFMADD231SS—Fused Multiply-Add of Scalar Single-Precision Floating-Point Values. 5-		-140
+VFMADDSUB132PD/VFMADDSUB213PD/VFMADDSUB231PD—Fused Multiply-Alternating Add/Subtract of Packed Double-Precision Floating-Point Values.	146
+VFMADDSUB132PS/VFMADDSUB213PS/VFMADDSUB231PS—Fused Multiply-Alternating Add/Subtract of Packed Single-Precision Floating-Point Values.	10
+VFMSUBADD132PD/VFMSUBADD213PD/VFMSUBADD231PD—Fused Multiply-Alternating Subtract/Add of Packed Double-Precision Floating-Point Values.	9
+VFMSUBADD132PS/VFMSUBADD213PS/VFMSUBADD231PS—Fused Multiply-Alternating Subtract/Add of Packed Single-Precision Floating-Point Values.	10
+VFMSUB132PD/VFMSUB213PD/VFMSUB231PD—Fused Multiply-Subtract of Packed Double-Precision Floating-Point Values .	10
+VFMSUB132PS/VFMSUB213PS/VFMSUB231PS—Fused Multiply-Subtract of Packed Single-Precision Floating-Point Values 	7
+VFMSUB132SD/VFMSUB213SD/VFMSUB231SD—Fused Multiply-Subtract of Scalar Double-Precision Floating-Point Values 	7
+VFMSUB132SS/VFMSUB213SS/VFMSUB231SS—Fused Multiply-Subtract of Scalar Single-Precision Floating-Point Values 	3
+VFNMADD132PD/VFNMADD213PD/VFNMADD231PD—Fused Negative Multiply-Add of Packed Double-Precision Floating-Point Values.	3
+VFNMADD132PS/VFNMADD213PS/VFNMADD231PS—Fused Negative Multiply-Add of Packed Single-Precision Floating-Point Values.	7
+VFNMADD132SD/VFNMADD213SD/VFNMADD231SD—Fused Negative Multiply-Add of Scalar Double-Precision Floating-Point Values.	6
+VFNMADD132SS/VFNMADD213SS/VFNMADD231SS—Fused Negative Multiply-Add of Scalar Single-Precision Floating-Point Values.	3
+VFNMSUB132PD/VFNMSUB213PD/VFNMSUB231PD—Fused Negative Multiply-Subtract of Packed Double-Precision Floating-Point Values .	3
+VFNMSUB132PS/VFNMSUB213PS/VFNMSUB231PS—Fused Negative Multiply-Subtract of Packed Single-Precision Floating-Point Values .	6
+VFNMSUB132SD/VFNMSUB213SD/VFNMSUB231SD—Fused Negative Multiply-Subtract of Scalar Double-Precision Floating-Point Values .	6
+VFNMSUB132SS/VFNMSUB213SS/VFNMSUB231SS—Fused Negative Multiply-Subtract of Scalar Single-Precision Floating-Point Values.	3
+VFPCLASSPD—Tests Types Of a Packed Float64 Values .	3
+VFPCLASSPS—Tests Types Of a Packed Float32 Values .	3
+VFPCLASSSD—Tests Types Of a Scalar Float64 Values .	2
+VFPCLASSSS—Tests Types Of a Scalar Float32 Values .	2
+VGATHERDPD/VGATHERQPD — Gather Packed DP FP Values Using Signed Dword/Qword Indices.	2
+VGATHERDPS/VGATHERQPS — Gather Packed SP FP values Using Signed Dword/Qword Indices.	5
+VGATHERDPS/VGATHERDPD—Gather Packed Single, Packed Double with Signed Dword .	5
+VGATHERPF0DPS/VGATHERPF0QPS/VGATHERPF0DPD/VGATHERPF0QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T0 Hint .	3
+VGATHERPF1DPS/VGATHERPF1QPS/VGATHERPF1DPD/VGATHERPF1QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T1 Hint .	3
+VGATHERQPS/VGATHERQPD—Gather Packed Single, Packed Double with Signed Qword Indices .	3
+VPGATHERDD/VPGATHERQD — Gather Packed Dword Values Using Signed Dword/Qword Indices .	3
+VPGATHERDD/VPGATHERDQ—Gather Packed Dword, Packed Qword with Signed Dword Indices.	4
+VPGATHERDQ/VPGATHERQQ — Gather Packed Qword Values Using Signed Dword/Qword Indices .	3
+VPGATHERQD/VPGATHERQQ—Gather Packed Dword, Packed Qword with Signed Qword Indices .	5
+VGETEXPPD—Convert Exponents of Packed DP FP Values to DP FP Values .	3
+VGETEXPPS—Convert Exponents of Packed SP FP Values to SP FP Values .	3
+VGETEXPSD—Convert Exponents of Scalar DP FP Values to DP FP Value .	4
+VGETEXPSS—Convert Exponents of Scalar SP FP Values to SP FP Value.	2
+VGETMANTPD—Extract Float64 Vector of Normalized Mantissas from Float64 Vector .	2
+VGETMANTPS—Extract Float32 Vector of Normalized Mantissas from Float32 Vector .	4
+VGETMANTSD—Extract Float64 of Normalized Mantissas from Float64 Scalar .	3
+VGETMANTSS—Extract Float32 Vector of Normalized Mantissa from Float32 Vector .	2
+VINSERTF128/VINSERTF32x4/VINSERTF64x2/VINSERTF32x8/VINSERTF64x4—Insert Packed Floating-Point Values.	2
+VINSERTI128/VINSERTI32x4/VINSERTI64x2/VINSERTI32x8/VINSERTI64x4—Insert Packed Integer Values . 	4
+VMASKMOV—Conditional SIMD Packed Loads and Stores . 	4
+VPBLENDD — Blend Packed Dwords . 	3
+VPBLENDMB/VPBLENDMW—Blend Byte/Word Vectors Using an Opmask Control. 	2
+VPBLENDMD/VPBLENDMQ—Blend Int32/Int64 Vectors Using an OpMask Control . 	2
+VPBROADCASTB/W/D/Q—Load with Broadcast Integer Data from General Purpose Register . 	3
+VPBROADCAST—Load Integer and Broadcast . 	3
+VPCMPB/VPCMPUB—Compare Packed Byte Values Into Mask . 	8
+VPCMPD/VPCMPUD—Compare Packed Integer Values into Mask . 	3
+VPCMPQ/VPCMPUQ—Compare Packed Integer Values into Mask . 	3
+VPCMPW/VPCMPUW—Compare Packed Word Values Into Mask . 	3
+VPCOMPRESSD—Store Sparse Packed Doubleword Integer Values into Dense Memory/Register . 	3
+VPCOMPRESSQ—Store Sparse Packed Quadword Integer Values into Dense Memory/Register . 	2
+VPCONFLICTD/Q—Detect Conflicts Within a Vector of Packed Dword/Qword Values into Dense Memory/ Register. 	2
+VPERM2F128 — Permute Floating-Point Values . 	3
+VPERM2I128 — Permute Integer Values. 	2
+VPERMD/VPERMW—Permute Packed Doublewords/Words Elements . 	2
+VPERMI2W/D/Q/PS/PD—Full Permute From Two Tables Overwriting the Index . 	3
+VPERMILPD—Permute In-Lane of Pairs of Double-Precision Floating-Point Values. 	6
+VPERMILPS—Permute In-Lane of Quadruples of Single-Precision Floating-Point Values. 	5
+VPERMPD—Permute Double-Precision Floating-Point Elements . 	5
+VPERMPS—Permute Single-Precision Floating-Point Elements . 	3
+VPERMQ—Qwords Element Permutation. 	3
+VPEXPANDD—Load Sparse Packed Doubleword Integer Values from Dense Memory / Register . 	3
+VPEXPANDQ—Load Sparse Packed Quadword Integer Values from Dense Memory / Register . 	2
+VPLZCNTD/Q—Count the Number of Leading Zero Bits for Packed Dword, Packed Qword Values. 	2
+VPMASKMOV — Conditional SIMD Integer Packed Loads and Stores . 	3
+VPMOVM2B/VPMOVM2W/VPMOVM2D/VPMOVM2Q—Convert a Mask Register to a Vector Register . 	3
+VPMOVB2M/VPMOVW2M/VPMOVD2M/VPMOVQ2M—Convert a Vector Register to a Mask . 	3
+VPMOVQB/VPMOVSQB/VPMOVUSQB—Down Convert QWord to Byte . 	3
+VPMOVQW/VPMOVSQW/VPMOVUSQW—Down Convert QWord to Word . 	4
+VPMOVQD/VPMOVSQD/VPMOVUSQD—Down Convert QWord to DWord . 	4
+VPMOVDB/VPMOVSDB/VPMOVUSDB—Down Convert DWord to Byte . 	4
+VPMOVDW/VPMOVSDW/VPMOVUSDW—Down Convert DWord to Word . 	4
+VPMOVWB/VPMOVSWB/VPMOVUSWB—Down Convert Word to Byte . 	4
+PROLD/PROLVD/PROLQ/PROLVQ—Bit Rotate Left . 	4
+PRORD/PRORVD/PRORQ/PRORVQ—Bit Rotate Right . 	5
+VPSCATTERDD/VPSCATTERDQ/VPSCATTERQD/VPSCATTERQQ—Scatter Packed Dword, Packed Qword with Signed Dword, Signed Qword Indices. 	5
+VPSLLVW/VPSLLVD/VPSLLVQ—Variable Bit Shift Left Logical . 	5
+VPSRAVW/VPSRAVD/VPSRAVQ—Variable Bit Shift Right Arithmetic . 	5
+VPSRLVW/VPSRLVD/VPSRLVQ—Variable Bit Shift Right Logical . 	5
+VPTERNLOGD/VPTERNLOGQ—Bitwise Ternary Logic . 	5
+VPTESTMB/VPTESTMW/VPTESTMD/VPTESTMQ—Logical AND and Set Mask . 	3
+VPTESTNMB/W/D/Q—Logical NAND and Set. 	3
+VRANGEPD—Range Restriction Calculation For Packed Pairs of Float64 Values . 	4
+VRANGEPS—Range Restriction Calculation For Packed Pairs of Float32 Values. 	5
+VRANGESD—Range Restriction Calculation From a pair of Scalar Float64 Values . 	4
+VRANGESS—Range Restriction Calculation From a Pair of Scalar Float32 Values . 	3
+VRCP14PD—Compute Approximate Reciprocals of Packed Float64 Values. 	3
+VRCP14SD—Compute Approximate Reciprocal of Scalar Float64 Value . 	2
+VRCP14PS—Compute Approximate Reciprocals of Packed Float32 Values. 	2
+VRCP14SS—Compute Approximate Reciprocal of Scalar Float32 Value . 	2
+VRCP28PD—Approximation to the Reciprocal of Packed Double-Precision Floating-Point Values with Less Than 2^-28 Relative Error . 	2
+VRCP28SD—Approximation to the Reciprocal of Scalar Double-Precision Floating-Point Value with Less Than 2^-28 Relative Error. 	2
+VRCP28PS—Approximation to the Reciprocal of Packed Single-Precision Floating-Point Values with Less Than 2^-28 Relative Error . 	2
+VRCP28SS—Approximation to the Reciprocal of Scalar Single-Precision Floating-Point Value with Less Than 2^-28 Relative Error .	2
+VREDUCEPD—Perform Reduction Transformation on Packed Float64 Values .	2
+VREDUCESD—Perform a Reduction Transformation on a Scalar Float64 Value .	3
+VREDUCEPS—Perform Reduction Transformation on Packed Float32 Values.	2
+VREDUCESS—Perform a Reduction Transformation on a Scalar Float32 Value .	2
+VRNDSCALEPD—Round Packed Float64 Values To Include A Given Number Of Fraction Bits .	2
+VRNDSCALESD—Round Scalar Float64 Value To Include A Given Number Of Fraction Bits .	4
+VRNDSCALEPS—Round Packed Float32 Values To Include A Given Number Of Fraction Bits .	2
+VRNDSCALESS—Round Scalar Float32 Value To Include A Given Number Of Fraction Bits.	3
+VRSQRT14PD—Compute Approximate Reciprocals of Square Roots of Packed Float64 Values.	2
+VRSQRT14SD—Compute Approximate Reciprocal of Square Root of Scalar Float64 Value .	2
+VRSQRT14PS—Compute Approximate Reciprocals of Square Roots of Packed Float32 Values .	2
+VRSQRT14SS—Compute Approximate Reciprocal of Square Root of Scalar Float32 Value .	2
+VRSQRT28PD—Approximation to the Reciprocal Square Root of Packed Double-Precision Floating-Point Values with Less Than 2^-28 Relative Error .	2
+VRSQRT28SD—Approximation to the Reciprocal Square Root of Scalar Double-Precision Floating-Point Value with Less Than 2^-28 Relative Error .	2
+VRSQRT28PS—Approximation to the Reciprocal Square Root of Packed Single-Precision Floating-Point Values with Less Than 2^-28 Relative Error .	2
+VRSQRT28SS—Approximation to the Reciprocal Square Root of Scalar Single-Precision Floating-Point Value with Less Than 2^-28 Relative Error.	2
+VSCALEFPD—Scale Packed Float64 Values With Float64 Values.	2
+VSCALEFSD—Scale Scalar Float64 Values With Float64 Values.	3
+VSCALEFPS—Scale Packed Float32 Values With Float32 Values.	2
+VSCALEFSS—Scale Scalar Float32 Value With Float32 Value .	2
+VSCATTERDPS/VSCATTERDPD/VSCATTERQPS/VSCATTERQPD—Scatter Packed Single, Packed Double with Signed Dword and Qword Indices .	2
+VSCATTERPF0DPS/VSCATTERPF0QPS/VSCATTERPF0DPD/VSCATTERPF0QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T0 Hint with Intent to Write .	5
+VSCATTERPF1DPS/VSCATTERPF1QPS/VSCATTERPF1DPD/VSCATTERPF1QPD—Sparse Prefetch Packed SP/DP Data Values with Signed Dword, Signed Qword Indices Using T1 Hint with Intent to Write .	2
+VSHUFF32x4/VSHUFF64x2/VSHUFI32x4/VSHUFI64x2—Shuffle Packed Values at 128-bit Granularity.	2
+VTESTPD/VTESTPS—Packed Bit Test .	5
+VZEROALL—Zero All YMM Registers .	3
+VZEROUPPER—Zero Upper Bits of YMM Registers.	2
+WAIT/FWAIT—Wait .	2
+WBINVD—Write Back and Invalidate Cache .	1
+WRFSBASE/WRGSBASE—Write FS/GS Segment Base .	2
+WRPKRU—Write Data to User Page Key Register .	2
+XACQUIRE/XRELEASE — Hardware Lock Elision Prefix Hints .	1
+XABORT — Transactional Abort .	4
+XADD—Exchange and Add .	2
+XBEGIN — Transactional Begin .	2
+XEND — Transactional End .	2
+XGETBV—Get Value of Extended Control Register.	2
+XLAT/XLATB—Table Look-up Translation .	2
+XORPD—Bitwise Logical XOR of Packed Double Precision Floating-Point Values .	2
+XORPS—Bitwise Logical XOR of Packed Single Precision Floating-Point Values .	3
+XRSTOR—Restore Processor Extended States .	3
+XRSTORS—Restore Processor Extended States Supervisor .	4
+XSAVE—Save Processor Extended States.	4
+XSAVEC—Save Processor Extended States with Compaction.	3
+XSAVEOPT—Save Processor Extended States Optimized .	3
+XSAVES—Save Processor Extended States Supervisor.	3
+XSETBV—Set Extended Control Register.		
+}

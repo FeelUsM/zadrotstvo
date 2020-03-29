@@ -1,31 +1,51 @@
 --- по набору инструкций ---
-all:		x87	IA-32 	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4		SSE5	AVX	AVX2
-Core i9			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES-NI
-Core i7			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES-NI
-Core i5			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES	AVX
-Core i3			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4.1	SSE4.2	AES	AVX	AVX2	
-Core 2			x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4 (Penryn)
-Pentium Dual-Core	x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3 
-Pentium D		IA-32	EM64T	MMX	SSE	SSE2	SSE3
-Pentium 4 =P7 =i786	IA-32	EM64T	MMX	SSE	SSE2	SSE3
-Pentium 3		IA-32		MMX	SSE
-Pentium 2		IA-32		MMX
-Pentuim Pro =P6 =i686	IA-32
-Pentium	(1) =P5 =i586	IA-32		MMX(в P55C)
-i486			x86
-i386			x86
+микроархитектура	бренд	год	техпроцесс	инструкции;       расширения
+	поколение	
+	Tiger Lake	???	20	10	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2, AVX-512, SHA, TXT, TSX, SGX, VT-x, VT-d
+	Ice Lake	1xxxGx	19	10	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2, AVX-512, SHA, TXT, TSX, SGX, VT-x, VT-d
+Sunny Cove                                                                                                                        
+	Cannonlake	8xxx	18	10	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2, AVX-512, SHA, TXT, TSX, SGX, VT-x, VT-d
+	Coffelake	8xxx	17	14	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2,               TXT, TSX, SGX, VT-x, VT-d
+    Kabylake		7xxx	17	14	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2,               TXT, TSX, SGX, VT-x, VT-d
+Skylake			6xxx	15	14	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, ADX, AVX, AVX2, AVX-512*,MPX, TXT, TSX, SGX, VT-x, VT-d
+	Broadwell	5xxx	14	14	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2,               TXT, TSX,      VT-x, VT-d
+Haswell			4xxx	13	22	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2,               TXT, TSX*,     VT-x, VT-d
+	IvyBridge 	3xxx	12	22	MMX, AES-NI, CLMUL;       SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,                          TXT,           VT-x, VT-d, F16C
+SandyBridge 		2xxx	11	32	MMX, AES-NI, CLMUL;       SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,                          TXT,           VT-x, VT-d
+	Westmere			32	MMX, AES-NI, CLMUL;       SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2,                                              VT-x, VT-d
+Nehalem			 xxx	08	45	MMX;                      SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2,                                              VT-x, VT-d
+	Harpertown	
+	Yorkfield
+	Wolfdale
+	Penrin		Core 2	07	45	MMX;                      SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1,                                                      VT-x, VT-d
+Core			Core	06	65	MMX;                      SSE, SSE2, SSE3, SSSE3, SSE4
+--
+*AVX-512 (SkyLake-SP, SkyLake-W & SkyLake-X[1][2][3])
+*TSX (disabled via microcode, except for Haswell-EX)
+--------------------
+all:		x87	год	IA-32 	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4		SSE5	AVX	AVX2
+Core 2			06	x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3	SSE4 (Penryn)
+Pentium Dual-Core	06	x86	x86-64	MMX	SSE	SSE2	SSE3	SSSE3 
+Pentium D		05	IA-32	EM64T	MMX	SSE	SSE2	SSE3
+Pentium 4 =P7 =i786	00	IA-32	EM64T	MMX	SSE	SSE2	SSE3
+Pentium 3		99	IA-32		MMX	SSE
+Pentium 2		97	IA-32		MMX
+Pentuim Pro =P6 =i686	95	IA-32
+Pentium	(1) =P5 =i586	93	IA-32		MMX(в P55C)
+i486			89	x86
+i386			85	x86
 
-286			x86-16 (с MMU)
-188			x86-16
-186			x86-16
-8088			x86-16
-8086			x86-16
+286	защищенный режим82	x86-16 (с MMU)
+188			82	x86-16
+186			82	x86-16
+8088			79	x86-16
+8086			78	x86-16
 	
-8085			79 инструкций
-8080			80 инструкций
-8008
-4040
-4004
+8085			76	79 инструкций
+8080			74	80 инструкций
+8008			72
+4040			74	
+4004			71	
 --- по внутренним характеристикам ---
 ТехПрцесс,нм		45		32		32		22		22		14		14		14		10		
 микроархитектура	1-tock		tick		2-tock		3-tick		4-tock		5-tick		6-Architecture	7-optimization	8		
@@ -105,3 +125,8 @@ objcopy - Copies and translates object files.
 dlltool - Creates files for building and using DLLs.
 windmc 	- A Windows compatible message compiler.
 windres - A compiler for Windows resource files.
+
+
+
+
+
