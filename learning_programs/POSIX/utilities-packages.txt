@@ -1,0 +1,214 @@
+break
+colon		: args 		пустая команда
+continue
+dot		. file		выполнить файл в текущей директории
+eval
+exec
+exit
+export
+readonly
+return
+set
+shift
+times
+trap
+unset
+-----
+alias		bash-builtin
+unalias		bash-builtin
+fg		bash-builtin
+bg		bash-builtin
+jobs		bash-builtin
+cd		bash-builtin
+command		bash-builtin
+getopts		bash-builtin
+hash		bash-builtin
+read		bash-builtin
+time		bash-builtin
+type		bash-builtin	тип команды (встроенная, исполняемый файл, алиас, функция...)
+ulimit		bash-builtin
+umask		bash-builtin
+wait		bash-builtin
+
+more		/usr/bin/more
+
+touch		coreutils	создает и обновляет дату изменения файла
+cat		coreutils	конкатенирует файлы
+head		coreutils	начало файла
+tail		coreutils	конец файла
+
+cut		coreutils	режет строки
+paste		coreutils	конкатенирует строки
+sort		coreutils	сортирует
+tsort		coreutils	topological sort
+uniq		coreutils	удаляет повторяющиеся строки
+wc		coreutils	подсчитывает строки, исмволы...
+split		coreutils	разрезает файлы по размеру
+csplit		coreutils	разрезает файлы по шаблону
+join		coreutils	объединяет строки файлов с одинаковыми ключами...
+fold		coreutils	
+
+basename	coreutils
+dirname		coreutils
+pathchk		coreutils	проверить правильность и портируемость имени файла
+
+chgrp		coreutils
+chmod		coreutils
+chown		coreutils
+who		coreutils	подключенные юзеры
+id		coreutils	идентификатор пользователя и группы
+logname		coreutils	регистрационное имя пользователя
+
+pwd		coreutils
+ls		coreutils
+cp		coreutils
+link		coreutils	создает hardlink
+unlink		coreutils	удаляет 1 файл
+ln		coreutils
+mkdir		coreutils
+mv		coreutils
+rm		coreutils
+rmdir		coreutils
+
+du		coreutils	disk usage
+df		coreutils	информацию о занятом месте, а также  точку монтирования
+
+test		coreutils
+false		coreutils
+true		coreutils
+
+echo		coreutils
+printf		coreutils
+
+date		coreutils
+
+tee		coreutils
+mkfifo		coreutils
+nohup		coreutils
+
+sleep		coreutils
+
+uname		coreutils
+
+env		coreutils	печатает переменные окружения
+expr		coreutils	вычисляет арифметические выражения
+tr		coreutils	заменяет и удаляет символы
+expand		coreutils	заменяет начальную табуляцию на пробелы
+unexpand	coreutils	заменяет начальные пробелы на табуляцию
+nl		coreutils	нумерация строк
+
+cksum		coreutils 	считает простейшую контрольную сумму (как в ethernet)
+comm		coreutils	сравнивает отсортированные файлы
+
+dd		coreutils	копирукт кусок диска (что бы там ни находилось)
+nice		coreutils	устанавливает приоритет процессам
+od		coreutils	дамп файлов в восьмеричный и другие форматы
+pr		coreutils	разбивает файл на пронумерованные страницы
+stty		coreutils	печатает или изменяет параметры терминала
+tty		coreutils	выводит имя терминала соединённого со стандартным вводом
+
+cal		util-linux
+logger		util-linux
+renice		util-linux
+
+at		Windows/system32
+fc		Windows/system32
+write		Windows/system32
+
+gencat		cygwin
+getconf		cygwin
+kill		cygwin
+ps		cygwin
+locale		cygwin
+
+sh		bash
+
+ar		binutils
+nm		binutils
+strings		binutils
+strip		binutils
+make		make
+c99		gcc-core
+ctags		ctags
+lex		flex
+yacc		???
+fort77		fort77
+
+awk		gawk
+grep		grep
+sed		sed
+
+cmp		diffutils
+diff		diffutils
+patch		patch
+
+find		findutils
+xargs		findutils
+
+ed		ed
+ex		vim-minimal
+vi		vim-minimal
+
+iconv		libiconv
+
+tabs		ncurses
+tput		ncurses
+
+man		man-db
+
+m4		m4
+
+zcat		gzip
+
+crontab		cron
+---
+ipcrm		ipc-utils
+ipcs		ipc-utils
+
+file		file
+
+bc		bc
+
+compress	ncompress
+uncompress	ncompress
+
+delta		delta
+pax		pax
+
+
+get		???
+admin		???
+asa		???
+batch		???
+cflow		???
+cxref		???
+fuser		???
+localedef	???
+lp		???
+mailx		???
+mesg		???
+newgrp		???
+prs		???
+qalter		???
+qdel		???
+qhold		???
+qmove		???
+qmsg		???
+qrerun		???
+qrls		???
+qselect		???
+qsig		???
+qstat		???
+qsub		???
+rmdel		???
+sact		???
+sccs		???	устаревшая система контроля версий
+talk		???
+unget		???
+uucp		???
+uudecode	???
+uuencode	???
+uustat		???
+uux		???
+val		???
+what		???

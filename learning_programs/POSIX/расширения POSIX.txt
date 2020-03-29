@@ -1,0 +1,121 @@
+_OPT_		The functionality described is optional. |
+		The functionality described is optional.|
+_ISO_C_		The functionality described is also an extension to the ISO C standard.
+		The functionality described is an extension to the ISO C standard. |
+		The functionality described is an extension to the ISO C standard.|
+_SYNOPSIS_	Where applicable, functions are marked with the [a-zA-Z0-9]* margin legend in the SYNOPSIS section.
+		Where applicable, functions are marked with the [a-zA-Z0-9]* margin legend for the SYNOPSIS section. 
+		Where applicable, utilities are marked with the [a-zA-Z0-9]* margin legend in the SYNOPSIS section. 
+		Where applicable, utilities are marked with the [a-zA-Z0-9]* margin legend in the SYNOPSIS section. 
+_add_sem_	Where additional semantics apply to a function, the material is identified by use of the [a-zA_Z0-9]* margin legend.
+		Where additional semantics apply to a utility, the material is identified by use of the [a-zA_Z0-9]* margin legend.
+
+--- ISO C ---
+_OPT_	_ISO_C_	_SYNOPSIS_	_add_sem_
+[TRC]  Trace 
+	This functionality is dependent on support for the Trace option. 
+	[TEF]  Trace Event Filter 
+	[TRI]  Trace Inherit 
+	[TRL]  Trace Log 
+[ADV]  Advisory Information 
+[FSC]  File Synchronization 
+[IP6]  IPV6 
+[RS]   Raw Sockets 
+
+[PIO]  Prioritized Input and Output 
+[SIO]  Synchronized Input and Output 
+[MSG]  Message Passing 
+[SPN]  Spawn 
+[PS]   Process Scheduling 
+[SS]   Process Sporadic Server 
+[UU]   UUCP Utilities 
+[XSR]  XSI STREAMS 
+
+[ML]   Process Memory Locking 
+[MLR]  Range Memory Locking 
+[SHM]  Shared Memory Objects 
+[TYM]  Typed Memory Objects 
+
+[MON]  Monotonic Clock 
+[CPT]  Process CPU-Time Clocks 
+[TCT]  Thread CPU-Time Clocks 
+
+[TPS]  Thread Execution Scheduling 
+[TSA]  Thread Stack Address Attribute 
+[TSH]  Thread Process-Shared Synchronization 
+[TSP]  Thread Sporadic Server 
+[TSS]  Thread Stack Size Attribute 
+[MC1]  = TPP|TPI|RPP|RPI
+[RPI]  Robust Mutex Priority Inheritance 
+[RPP]  Robust Mutex Priority Protection 
+[TPI]  Non-Robust Mutex Priority Inheritance 
+[TPP]  Non-Robust Mutex Priority Protection 
+
+
+--- Utilities ---
+_OPT_	_SYNOPSIS_	_add_sem_
+[SD]  Software Development Utilities 
+[CD]  C-Language Development Utilities 
+[FD]  FORTRAN Development Utilities 
+[FR]  FORTRAN Runtime Utilities 
+[UP]  User Portability Utilities 
+[BE]  Batch Environment Services and Utilities 
+
+
+--- ISO C ---
+[CX]  Extension to the ISO C standard 
+_ISO_C_
+Application developers may make use of an extension as it is supported on all POSIX.1-2017-conforming systems.
+
+With each function or header from the ISO C standard, a statement to the effect that "any conflict is unintentional" is included. 
+That is intended to refer to a direct conflict. 
+POSIX.1-2017 acts in part as a profile of the ISO C standard, and it may choose to further constrain behaviors allowed to vary by the ISO C standard. 
+Such limitations and other compatible differences are not considered conflicts, even if a CX mark is missing. 
+The markings are for information only.
+
+Where additional semantics apply to a function or header, the material is identified by use of the CX margin legend.
+
+[MX]  IEC 60559 Floating-Point 
+_OPT_
+The functionality described is mandated by the ISO C standard only for implementations that define __STDC_IEC_559__.
+
+[MXX]  IEC 60559 Floating-Point Extension
+_OPT_
+The functionality described is part of the IEC 60559 Floating-Point option, but is an extension fo the ISO C standard
+
+
+--- XSI ---
+[OB]  Obsolescent 
+The functionality described may be removed in a future version of this volume of POSIX.1-2017. 
+Strictly Conforming POSIX Applications and Strictly Conforming XSI Applications shall not use obsolescent features.
+
+Where applicable, the material is identified by use of the OB margin legend.
+
+[OF]  Output Format Incompletely Specified 
+The functionality described is an XSI extension. 
+The format of the output produced by the utility is not fully specified. 
+It is therefore not possible to post-process this output in a consistent fashion. 
+Typical problems include unknown length of strings and unspecified field delimiters.
+
+Where applicable, the material is identified by use of the OF margin legend.
+
+[OH]  Optional Header 
+In the SYNOPSIS section of some interfaces in the System Interfaces volume of POSIX.1-2017 an included header is marked as in the following example:
+
+[OH]
+#include <sys/types.h>
+
+#include <grp.h>
+struct group *getgrnam(const char *name);
+
+The OH margin legend indicates that the marked header is not required on XSI-conformant systems.
+
+[XSI]  X/Open System Interfaces 
+_ISO_C_
+The functionality described is part of the X/Open Systems Interfaces option. 
+Application developers may confidently make use of such extensions on all systems supporting the X/Open System Interfaces option.
+
+If an entire SYNOPSIS section is shaded and marked XSI, all the functionality described in that reference page is an extension. See XSI Conformance .
+
+
+
