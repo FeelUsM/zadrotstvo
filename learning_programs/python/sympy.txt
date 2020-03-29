@@ -1,0 +1,1064 @@
+x**2 -> x^2
+[
+ 'init_printing',(use_unicode=True) This will make all further examples pretty print with unicode characters.
+ 'latex',	(expr)	напечатает в формате latex (?)
+
+ 'Integer',	(int)
+ 'Rational',	(int,int)
+ 'symbols',	(str)	создает тупл символов, они разделяются пробелами
+			symbols('nu') - греческая ню
+     expr:
+	.subs(var,val)
+	.equals(expr)
+ 'Function',	(str)	->y(t)
+	y(t).diff(t,t)	- вторая производная по t
+ 'Matrix',	([[,],[,]])
+	.eigenvals()
+
+--- преобразования выражений ---
+ 'expand',	(expr)	
+ 'factor',	(expr)	
+ 'simplify',	(expr)
+ 'solve',	(expr,var)	expr==0
+
+ 'diff',	(expr,var)
+ 'integrate',	(expr,var)
+		(expr,(var,from,to))
+ 'limit',	(expr,var,to)
+ 'dsolve',	(eq,fun(var))	дифференциальное уравнение
+
+--- мат. обозначения ---
+ 'pi',		\pi
+ 'I',		мнимая единица
+ 'oo',		бесконечность
+ 'Eq',		(A,B)	A==B
+ 'Integral',	(expr,(var,from,to))
+
+--- мат. функции ---
+ 'sqrt',	(x)
+ 'exp',		(x)
+ 'sin',		(x)
+ 'cos',		(x)
+
+ 'besseli',	
+ 'besselj',	(nu,z)
+	.rewrite(jn)
+	'jn',	???
+ 'besselk',
+ 'besselsimp',
+ 'bessely',
+
+
+igcd                            <fastcache.clru_cache object at 0x0000000006D67030>
+sieve                           <prime sieve (6): 2, 3, 5, ... 11, 13   totient sieve (6): 0, 1, 1, ... 2, 4   mobius sieve (6): 0, 1, -1, ... 0, -1>
+Q                               <sympy.assumptions.ask.AssumptionKeys object at 0x0000000006FF1D30>
+C                               <sympy.deprecated.class_registry.ClassRegistry object at 0x0000000005462BA0>
+FU                              {
+	'TR0': <function TR0 at 0x0000000008BDA158>, 
+	'TR1': <function TR1 at 0x0000000008BDA1E0>, 
+	'TR2': <function TR2 at 0x0000000008BDA268>, 
+	'TR3': <function TR3 at 0x0000000008BDA378>, 
+	'TR4': <function TR4 at 0x0000000008BDA400>, 
+	'TR5': <function TR5 at 0x0000000008BDA510>, 
+	'TR6': <function TR6 at 0x0000000008BDA598>, 
+	'TR7': <function TR7 at 0x0000000008BDA620>, 
+	'TR8': <function TR8 at 0x0000000008BDA6A8>, 
+	'TR9': <function TR9 at 0x0000000008BDA730>, 
+	'TR10': <function TR10 at 0x0000000008BDA7B8>, 
+	'TR10i': <function TR10i at 0x0000000008BDA840>, 
+	'TR11': <function TR11 at 0x0000000008BDA8C8>, 
+	'TR12': <function TR12 at 0x0000000008BDA950>, 
+	'TR13': <function TR13 at 0x0000000008BDAA60>, 
+	'L': <function L at 0x0000000008BDAEA0>, 
+	'TR2i': <function TR2i at 0x0000000008BDA2F0>, 
+	'TRmorrie': <function TRmorrie at 0x0000000008BDAAE8>, 
+	'TR12i': <function TR12i at 0x0000000008BDA9D8>, 
+	'TR14': <function TR14 at 0x0000000008BDAB70>, 
+	'TR15': <function TR15 at 0x0000000008BDABF8>, 
+	'TR16': <function TR16 at 0x0000000008BDAC80>, 
+	'TR111': <function TR111 at 0x0000000008BDAD08>, 
+	'TR22': <function TR22 at 0x0000000008BDAD90>
+}
+plot_backends                   {
+	'matplotlib': <class 'sympy.plotting.plot.MatplotlibBackend'>, 
+	'text': <class 'sympy.plotting.plot.TextBackend'>, 
+	'default': <class 'sympy.plotting.plot.DefaultBackend'>
+}
+Id                              Lambda(_x, _x)
+S                               S
+Complexes                       S.Complexes
+UniversalSet                    UniversalSet()
+
+Abs                             Abs
+And                             And
+CC                              CC
+Catalan                         Catalan
+Chi                             Chi
+Ci                              Ci
+Contains                        Contains
+CosineTransform                 CosineTransform
+DiracDelta                      DiracDelta
+E                               E
+EX                              EX
+Ei                              Ei
+Equivalent                      Equivalent
+EulerGamma                      EulerGamma
+ff                              FallingFactorial
+FallingFactorial                FallingFactorial
+SYMPY_DEBUG                     False
+false                           False
+FourierTransform                FourierTransform
+Function                        Function
+GoldenRatio                     GoldenRatio
+grlex                           grlex
+HankelTransform                 HankelTransform
+Heaviside                       Heaviside
+I                               I
+ITE                             ITE
+Implies                         Implies
+Integers                        Integers
+InverseCosineTransform          InverseCosineTransform
+InverseFourierTransform         InverseFourierTransform
+InverseHankelTransform          InverseHankelTransform
+InverseLaplaceTransform         InverseLaplaceTransform
+InverseMellinTransform          InverseMellinTransform
+ilex                            ilex
+igrlex                          igrlex
+igrevlex                        igrevlex
+InverseSineTransform            InverseSineTransform
+KroneckerDelta                  KroneckerDelta
+LambertW                        LambertW
+LaplaceTransform                LaplaceTransform
+LeviCivita                      LeviCivita
+lex                             lex
+Li                              Li
+Max                             Max
+MellinTransform                 MellinTransform
+Min                             Min
+Mod                             Mod
+Nand                            Nand
+Naturals                        Naturals
+Naturals0                       Naturals0
+Nor                             Nor
+Not                             Not
+Or                              Or
+Piecewise                       Piecewise
+QQ                              QQ
+RR                              RR
+Reals                           Reals
+grevlex                         grevlex
+rf                              RisingFactorial
+RisingFactorial                 RisingFactorial
+Shi                             Shi
+Si                              Si
+SineTransform                   SineTransform
+SingularityFunction             SingularityFunction
+TribonacciConstant              TribonacciConstant
+true                            True
+WildFunction                    WildFunction
+Xor                             Xor
+Ynm                             Ynm
+ZZ                              ZZ
+Znm                             Znm
+acos                            acos
+acosh                           acosh
+acot                            acot
+acoth                           acoth
+acsc                            acsc
+acsch                           acsch
+adjoint                         adjoint
+airyai                          airyai
+airyaiprime                     airyaiprime
+airybi                          airybi
+airybiprime                     airybiprime
+appellf1                        appellf1
+arg                             arg
+asec                            asec
+asech                           asech
+asin                            asin
+asinh                           asinh
+assoc_laguerre                  assoc_laguerre
+assoc_legendre                  assoc_legendre
+atan                            atan
+atan2                           atan2
+atanh                           atanh
+bell                            bell
+bernoulli                       bernoulli
+besseli                         besseli
+besselj                         besselj
+besselk                         besselk
+bessely                         bessely
+beta                            beta
+binomial                        binomial
+carmichael                      carmichael
+catalan                         catalan
+ceiling                         ceiling
+chebyshevt                      chebyshevt
+chebyshevt_root                 chebyshevt_root
+chebyshevu                      chebyshevu
+chebyshevu_root                 chebyshevu_root
+conjugate                       conjugate
+cos                             cos
+cosh                            cosh
+cot                             cot
+coth                            coth
+csc                             csc
+csch                            csch
+dirichlet_eta                   dirichlet_eta
+divisor_sigma                   divisor_sigma
+elliptic_e                      elliptic_e
+elliptic_f                      elliptic_f
+elliptic_k                      elliptic_k
+elliptic_pi                     elliptic_pi
+erf                             erf
+erf2                            erf2
+erf2inv                         erf2inv
+erfc                            erfc
+erfcinv                         erfcinv
+erfi                            erfi
+erfinv                          erfinv
+euler                           euler
+exp                             exp
+exp_polar                       exp_polar
+expint                          expint
+factorial                       factorial
+factorial2                      factorial2
+fibonacci                       fibonacci
+floor                           floor
+frac                            frac
+fresnelc                        fresnelc
+fresnels                        fresnels
+gamma                           gamma
+gegenbauer                      gegenbauer
+genocchi                        genocchi
+hankel1                         hankel1
+hankel2                         hankel2
+harmonic                        harmonic
+hermite                         hermite
+hn1                             hn1
+hn2                             hn2
+hyper                           hyper
+im                              im
+jacobi                          jacobi
+jn                              jn
+laguerre                        laguerre
+legendre                        legendre
+lerchphi                        lerchphi
+li                              li
+log                             log
+ln                              log
+loggamma                        loggamma
+lowergamma                      lowergamma
+lucas                           lucas
+mathieuc                        mathieuc
+mathieucprime                   mathieucprime
+mathieus                        mathieus
+mathieusprime                   mathieusprime
+meijerg                         meijerg
+mobius                          mobius
+nan                             nan
+oo                              oo
+ord0                            ord0
+partition                       partition
+periodic_argument               periodic_argument
+pi                              pi
+polar_lift                      polar_lift
+polygamma                       polygamma
+polylog                         polylog
+primenu                         primenu
+primeomega                      primeomega
+primepi                         primepi
+principal_branch                principal_branch
+re                              re
+reduced_totient                 reduced_totient
+sec                             sec
+sech                            sech
+sign                            sign
+sin                             sin
+sinc                            sinc
+sinh                            sinh
+stieltjes                       stieltjes
+subfactorial                    subfactorial
+tan                             tan
+tanh                            tanh
+totient                         totient
+transpose                       transpose
+tribonacci                      tribonacci
+uppergamma                      uppergamma
+yn                              yn
+zeta                            zeta
+zoo                             zoo
+
+
+
+__sympy_debug                   <function sympy.__sympy_debug(...)>
+ask                             <function sympy.assumptions.ask.ask(...)>
+register_handler                <function sympy.assumptions.ask.register_handler(...)>
+remove_handler                  <function sympy.assumptions.ask.remove_handler(...)>
+assuming                        <function sympy.assumptions.assume.assuming(...)>
+refine                          <function sympy.assumptions.refine.refine(...)>
+euler_equations                 <function sympy.calculus.euler.euler_equations(...)>
+as_finite_diff                  <function sympy.calculus.finite_diff._as_finite_diff(...)>
+apply_finite_diff               <function sympy.calculus.finite_diff.apply_finite_diff(...)>
+differentiate_finite            <function sympy.calculus.finite_diff.differentiate_finite(...)>
+finite_diff_weights             <function sympy.calculus.finite_diff.finite_diff_weights(...)>
+is_decreasing                   <function sympy.calculus.singularities.is_decreasing(...)>
+is_increasing                   <function sympy.calculus.singularities.is_increasing(...)>
+is_monotonic                    <function sympy.calculus.singularities.is_monotonic(...)>
+is_strictly_decreasing          <function sympy.calculus.singularities.is_strictly_decreasing(...)>
+is_strictly_increasing          <function sympy.calculus.singularities.is_strictly_increasing(...)>
+singularities                   <function sympy.calculus.singularities.singularities(...)>
+is_convex                       <function sympy.calculus.util.is_convex(...)>
+not_empty_in                    <function sympy.calculus.util.not_empty_in(...)>
+periodicity                     <function sympy.calculus.util.periodicity(...)>
+product                         <function sympy.concrete.products.product(...)>
+summation                       <function sympy.concrete.summations.summation(...)>
+cacheit                         <function sympy.core.cache.func_wrapper(...)>
+default_sort_key                <function sympy.core.compatibility.default_sort_key(...)>
+ordered                         <function sympy.core.compatibility.ordered(...)>
+N                               <function sympy.core.evalf.N(...)>
+evaluate                        <function sympy.core.evaluate.evaluate(...)>
+factor_nc                       <function sympy.core.exprtools.factor_nc(...)>
+factor_terms                    <function sympy.core.exprtools.factor_terms(...)>
+gcd_terms                       <function sympy.core.exprtools.gcd_terms(...)>
+arity                           <function sympy.core.function.arity(...)>
+count_ops                       <function sympy.core.function.count_ops(...)>
+diff                            <function sympy.core.function.diff(...)>
+expand                          <function sympy.core.function.expand(...)>
+expand_complex                  <function sympy.core.function.expand_complex(...)>
+expand_func                     <function sympy.core.function.expand_func(...)>
+expand_log                      <function sympy.core.function.expand_log(...)>
+expand_mul                      <function sympy.core.function.expand_mul(...)>
+expand_multinomial              <function sympy.core.function.expand_multinomial(...)>
+expand_power_base               <function sympy.core.function.expand_power_base(...)>
+expand_power_exp                <function sympy.core.function.expand_power_exp(...)>
+expand_trig                     <function sympy.core.function.expand_trig(...)>
+nfloat                          <function sympy.core.function.nfloat(...)>
+prod                            <function sympy.core.mul.prod(...)>
+comp                            <function sympy.core.numbers.comp(...)>
+ilcm                            <function sympy.core.numbers.ilcm(...)>
+mod_inverse                     <function sympy.core.numbers.mod_inverse(...)>
+seterr                          <function sympy.core.numbers.seterr(...)>
+integer_log                     <function sympy.core.power.integer_log(...)>
+integer_nthroot                 <function sympy.core.power.integer_nthroot(...)>
+symbols                         <function sympy.core.symbol.symbols(...)>
+var                             <function sympy.core.symbol.var(...)>
+sympify                         <function sympy.core.sympify.sympify(...)>
+convolution                     <function sympy.discrete.convolutions.convolution(...)>
+covering_product                <function sympy.discrete.convolutions.covering_product(...)>
+intersecting_product            <function sympy.discrete.convolutions.intersecting_product(...)>
+fft                             <function sympy.discrete.transforms.fft(...)>
+fwht                            <function sympy.discrete.transforms.fwht(...)>
+ifft                            <function sympy.discrete.transforms.ifft(...)>
+ifwht                           <function sympy.discrete.transforms.ifwht(...)>
+intt                            <function sympy.discrete.transforms.intt(...)>
+inverse_mobius_transform        <function sympy.discrete.transforms.inverse_mobius_transform(...)>
+mobius_transform                <function sympy.discrete.transforms.mobius_transform(...)>
+ntt                             <function sympy.discrete.transforms.ntt(...)>
+polarify                        <function sympy.functions.elementary.complexes.polarify(...)>
+unbranched_argument             <function sympy.functions.elementary.complexes.unbranched_argument(...)>
+unpolarify                      <function sympy.functions.elementary.complexes.unpolarify(...)>
+cbrt                            <function sympy.functions.elementary.miscellaneous.cbrt(...)>
+real_root                       <function sympy.functions.elementary.miscellaneous.real_root(...)>
+root                            <function sympy.functions.elementary.miscellaneous.root(...)>
+sqrt                            <function sympy.functions.elementary.miscellaneous.sqrt(...)>
+piecewise_fold                  <function sympy.functions.elementary.piecewise.piecewise_fold(...)>
+jn_zeros                        <function sympy.functions.special.bessel.jn_zeros(...)>
+bspline_basis                   <function sympy.functions.special.bsplines.bspline_basis(...)>
+bspline_basis_set               <function sympy.functions.special.bsplines.bspline_basis_set(...)>
+interpolating_spline            <function sympy.functions.special.bsplines.interpolating_spline(...)>
+E1                              <function sympy.functions.special.error_functions.E1(...)>
+digamma                         <function sympy.functions.special.gamma_functions.digamma(...)>
+trigamma                        <function sympy.functions.special.gamma_functions.trigamma(...)>
+jacobi_normalized               <function sympy.functions.special.polynomials.jacobi_normalized(...)>
+Ynm_c                           <function sympy.functions.special.spherical_harmonics.Ynm_c(...)>
+Eijk                            <function sympy.functions.special.tensor_functions.Eijk(...)>
+deg                             <function sympy.geometry.polygon.deg(...)>
+rad                             <function sympy.geometry.polygon.rad(...)>
+are_similar                     <function sympy.geometry.util.are_similar(...)>
+centroid                        <function sympy.geometry.util.centroid(...)>
+closest_points                  <function sympy.geometry.util.closest_points(...)>
+convex_hull                     <function sympy.geometry.util.convex_hull(...)>
+farthest_points                 <function sympy.geometry.util.farthest_points(...)>
+idiff                           <function sympy.geometry.util.idiff(...)>
+intersection                    <function sympy.geometry.util.intersection(...)>
+integrate                       <function sympy.integrals.integrals.integrate(...)>
+line_integrate                  <function sympy.integrals.integrals.line_integrate(...)>
+singularityintegrate            <function sympy.integrals.singularityfunctions.singularityintegrate(...)>
+cosine_transform                <function sympy.integrals.transforms.cosine_transform(...)>
+fourier_transform               <function sympy.integrals.transforms.fourier_transform(...)>
+hankel_transform                <function sympy.integrals.transforms.hankel_transform(...)>
+inverse_cosine_transform        <function sympy.integrals.transforms.inverse_cosine_transform(...)>
+inverse_fourier_transform       <function sympy.integrals.transforms.inverse_fourier_transform(...)>
+inverse_hankel_transform        <function sympy.integrals.transforms.inverse_hankel_transform(...)>
+inverse_laplace_transform       <function sympy.integrals.transforms.inverse_laplace_transform(...)>
+inverse_mellin_transform        <function sympy.integrals.transforms.inverse_mellin_transform(...)>
+inverse_sine_transform          <function sympy.integrals.transforms.inverse_sine_transform(...)>
+laplace_transform               <function sympy.integrals.transforms.laplace_transform(...)>
+mellin_transform                <function sympy.integrals.transforms.mellin_transform(...)>
+sine_transform                  <function sympy.integrals.transforms.sine_transform(...)>
+init_printing                   <function sympy.interactive.printing.init_printing(...)>
+init_session                    <function sympy.interactive.session.init_session(...)>
+POSform                         <function sympy.logic.boolalg.POSform(...)>
+SOPform                         <function sympy.logic.boolalg.SOPform(...)>
+bool_map                        <function sympy.logic.boolalg.bool_map(...)>
+simplify_logic                  <function sympy.logic.boolalg.simplify_logic(...)>
+to_cnf                          <function sympy.logic.boolalg.to_cnf(...)>
+to_dnf                          <function sympy.logic.boolalg.to_dnf(...)>
+to_nnf                          <function sympy.logic.boolalg.to_nnf(...)>
+satisfiable                     <function sympy.logic.inference.satisfiable(...)>
+GramSchmidt                     <function sympy.matrices.dense.GramSchmidt(...)>
+casoratian                      <function sympy.matrices.dense.casoratian(...)>
+diag                            <function sympy.matrices.dense.diag(...)>
+eye                             <function sympy.matrices.dense.eye(...)>
+hessian                         <function sympy.matrices.dense.hessian(...)>
+jordan_cell                     <function sympy.matrices.dense.jordan_cell(...)>
+list2numpy                      <function sympy.matrices.dense.list2numpy(...)>
+matrix2numpy                    <function sympy.matrices.dense.matrix2numpy(...)>
+matrix_multiply_elementwise     <function sympy.matrices.dense.matrix_multiply_elementwise(...)>
+ones                            <function sympy.matrices.dense.ones(...)>
+randMatrix                      <function sympy.matrices.dense.randMatrix(...)>
+rot_axis1                       <function sympy.matrices.dense.rot_axis1(...)>
+rot_axis2                       <function sympy.matrices.dense.rot_axis2(...)>
+rot_axis3                       <function sympy.matrices.dense.rot_axis3(...)>
+symarray                        <function sympy.matrices.dense.symarray(...)>
+wronskian                       <function sympy.matrices.dense.wronskian(...)>
+zeros                           <function sympy.matrices.dense.zeros(...)>
+block_collapse                  <function sympy.matrices.expressions.blockmatrix.block_collapse(...)>
+blockcut                        <function sympy.matrices.expressions.blockmatrix.blockcut(...)>
+det                             <function sympy.matrices.expressions.determinant.det(...)>
+hadamard_product                <function sympy.matrices.expressions.hadamard.hadamard_product(...)>
+kronecker_product               <function sympy.matrices.expressions.kronecker.kronecker_product(...)>
+matrix_symbols                  <function sympy.matrices.expressions.matexpr.matrix_symbols(...)>
+trace                           <function sympy.matrices.expressions.trace.trace(...)>
+continued_fraction_convergents  <function sympy.ntheory.continued_fraction.continued_fraction_convergents(...)>
+continued_fraction_iterator     <function sympy.ntheory.continued_fraction.continued_fraction_iterator(...)>
+continued_fraction_periodic     <function sympy.ntheory.continued_fraction.continued_fraction_periodic(...)>
+continued_fraction_reduce       <function sympy.ntheory.continued_fraction.continued_fraction_reduce(...)>
+egyptian_fraction               <function sympy.ntheory.egyptian_fraction.egyptian_fraction(...)>
+abundance                       <function sympy.ntheory.factor_.abundance(...)>
+divisor_count                   <function sympy.ntheory.factor_.divisor_count(...)>
+divisors                        <function sympy.ntheory.factor_.divisors(...)>
+factorint                       <function sympy.ntheory.factor_.factorint(...)>
+factorrat                       <function sympy.ntheory.factor_.factorrat(...)>
+is_abundant                     <function sympy.ntheory.factor_.is_abundant(...)>
+is_amicable                     <function sympy.ntheory.factor_.is_amicable(...)>
+is_deficient                    <function sympy.ntheory.factor_.is_deficient(...)>
+is_mersenne_prime               <function sympy.ntheory.factor_.is_mersenne_prime(...)>
+is_perfect                      <function sympy.ntheory.factor_.is_perfect(...)>
+mersenne_prime_exponent         <function sympy.ntheory.factor_.mersenne_prime_exponent(...)>
+multiplicity                    <function sympy.ntheory.factor_.multiplicity(...)>
+perfect_power                   <function sympy.ntheory.factor_.perfect_power(...)>
+pollard_pm1                     <function sympy.ntheory.factor_.pollard_pm1(...)>
+pollard_rho                     <function sympy.ntheory.factor_.pollard_rho(...)>
+primefactors                    <function sympy.ntheory.factor_.primefactors(...)>
+trailing                        <function sympy.ntheory.factor_.trailing(...)>
+composite                       <function sympy.ntheory.generate.composite(...)>
+compositepi                     <function sympy.ntheory.generate.compositepi(...)>
+cycle_length                    <function sympy.ntheory.generate.cycle_length(...)>
+nextprime                       <function sympy.ntheory.generate.nextprime(...)>
+prevprime                       <function sympy.ntheory.generate.prevprime(...)>
+prime                           <function sympy.ntheory.generate.prime(...)>
+primerange                      <function sympy.ntheory.generate.primerange(...)>
+primorial                       <function sympy.ntheory.generate.primorial(...)>
+randprime                       <function sympy.ntheory.generate.randprime(...)>
+binomial_coefficients           <function sympy.ntheory.multinomial.binomial_coefficients(...)>
+binomial_coefficients_list      <function sympy.ntheory.multinomial.binomial_coefficients_list(...)>
+multinomial_coefficients        <function sympy.ntheory.multinomial.multinomial_coefficients(...)>
+npartitions                     <function sympy.ntheory.partitions_.npartitions(...)>
+isprime                         <function sympy.ntheory.primetest.isprime(...)>
+discrete_log                    <function sympy.ntheory.residue_ntheory.discrete_log(...)>
+is_nthpow_residue               <function sympy.ntheory.residue_ntheory.is_nthpow_residue(...)>
+is_primitive_root               <function sympy.ntheory.residue_ntheory.is_primitive_root(...)>
+is_quad_residue                 <function sympy.ntheory.residue_ntheory.is_quad_residue(...)>
+jacobi_symbol                   <function sympy.ntheory.residue_ntheory.jacobi_symbol(...)>
+legendre_symbol                 <function sympy.ntheory.residue_ntheory.legendre_symbol(...)>
+n_order                         <function sympy.ntheory.residue_ntheory.n_order(...)>
+nthroot_mod                     <function sympy.ntheory.residue_ntheory.nthroot_mod(...)>
+primitive_root                  <function sympy.ntheory.residue_ntheory.primitive_root(...)>
+quadratic_residues              <function sympy.ntheory.residue_ntheory.quadratic_residues(...)>
+sqrt_mod                        <function sympy.ntheory.residue_ntheory.sqrt_mod(...)>
+sqrt_mod_iter                   <function sympy.ntheory.residue_ntheory.sqrt_mod_iter(...)>
+plot                            <function sympy.plotting.plot.plot(...)>
+plot_implicit                   <function sympy.plotting.plot_implicit.plot_implicit(...)>
+textplot                        <function sympy.plotting.textplot.textplot(...)>
+construct_domain                <function sympy.polys.constructor.construct_domain(...)>
+field                           <function sympy.polys.fields.field(...)>
+sfield                          <function sympy.polys.fields.sfield(...)>
+vfield                          <function sympy.polys.fields.vfield(...)>
+xfield                          <function sympy.polys.fields.xfield(...)>
+itermonomials                   <function sympy.polys.monomials.itermonomials(...)>
+field_isomorphism               <function sympy.polys.numberfields.field_isomorphism(...)>
+isolate                         <function sympy.polys.numberfields.isolate(...)>
+minimal_polynomial              <function sympy.polys.numberfields.minimal_polynomial(...)>
+minpoly                         <function sympy.polys.numberfields.minimal_polynomial(...)>
+primitive_element               <function sympy.polys.numberfields.primitive_element(...)>
+to_number_field                 <function sympy.polys.numberfields.to_number_field(...)>
+chebyshevt_poly                 <function sympy.polys.orthopolys.chebyshevt_poly(...)>
+chebyshevu_poly                 <function sympy.polys.orthopolys.chebyshevu_poly(...)>
+hermite_poly                    <function sympy.polys.orthopolys.hermite_poly(...)>
+jacobi_poly                     <function sympy.polys.orthopolys.jacobi_poly(...)>
+laguerre_poly                   <function sympy.polys.orthopolys.laguerre_poly(...)>
+legendre_poly                   <function sympy.polys.orthopolys.legendre_poly(...)>
+apart                           <function sympy.polys.partfrac.apart(...)>
+apart_list                      <function sympy.polys.partfrac.apart_list(...)>
+assemble_partfrac_list          <function sympy.polys.partfrac.assemble_partfrac_list(...)>
+horner                          <function sympy.polys.polyfuncs.horner(...)>
+interpolate                     <function sympy.polys.polyfuncs.interpolate(...)>
+rational_interpolate            <function sympy.polys.polyfuncs.rational_interpolate(...)>
+symmetrize                      <function sympy.polys.polyfuncs.symmetrize(...)>
+viete                           <function sympy.polys.polyfuncs.viete(...)>
+roots                           <function sympy.polys.polyroots.roots(...)>
+LC                              <function sympy.polys.polytools.LC(...)>
+LM                              <function sympy.polys.polytools.LM(...)>
+LT                              <function sympy.polys.polytools.LT(...)>
+cancel                          <function sympy.polys.polytools.cancel(...)>
+cofactors                       <function sympy.polys.polytools.cofactors(...)>
+compose                         <function sympy.polys.polytools.compose(...)>
+content                         <function sympy.polys.polytools.content(...)>
+count_roots                     <function sympy.polys.polytools.count_roots(...)>
+decompose                       <function sympy.polys.polytools.decompose(...)>
+degree                          <function sympy.polys.polytools.degree(...)>
+degree_list                     <function sympy.polys.polytools.degree_list(...)>
+discriminant                    <function sympy.polys.polytools.discriminant(...)>
+div                             <function sympy.polys.polytools.div(...)>
+exquo                           <function sympy.polys.polytools.exquo(...)>
+factor                          <function sympy.polys.polytools.factor(...)>
+factor_list                     <function sympy.polys.polytools.factor_list(...)>
+gcd                             <function sympy.polys.polytools.gcd(...)>
+gcd_list                        <function sympy.polys.polytools.gcd_list(...)>
+gcdex                           <function sympy.polys.polytools.gcdex(...)>
+gff                             <function sympy.polys.polytools.gff(...)>
+gff_list                        <function sympy.polys.polytools.gff_list(...)>
+groebner                        <function sympy.polys.polytools.groebner(...)>
+ground_roots                    <function sympy.polys.polytools.ground_roots(...)>
+half_gcdex                      <function sympy.polys.polytools.half_gcdex(...)>
+intervals                       <function sympy.polys.polytools.intervals(...)>
+invert                          <function sympy.polys.polytools.invert(...)>
+is_zero_dimensional             <function sympy.polys.polytools.is_zero_dimensional(...)>
+lcm                             <function sympy.polys.polytools.lcm(...)>
+lcm_list                        <function sympy.polys.polytools.lcm_list(...)>
+monic                           <function sympy.polys.polytools.monic(...)>
+nroots                          <function sympy.polys.polytools.nroots(...)>
+nth_power_roots_poly            <function sympy.polys.polytools.nth_power_roots_poly(...)>
+parallel_poly_from_expr         <function sympy.polys.polytools.parallel_poly_from_expr(...)>
+pdiv                            <function sympy.polys.polytools.pdiv(...)>
+pexquo                          <function sympy.polys.polytools.pexquo(...)>
+poly                            <function sympy.polys.polytools.poly(...)>
+poly_from_expr                  <function sympy.polys.polytools.poly_from_expr(...)>
+pquo                            <function sympy.polys.polytools.pquo(...)>
+prem                            <function sympy.polys.polytools.prem(...)>
+primitive                       <function sympy.polys.polytools.primitive(...)>
+quo                             <function sympy.polys.polytools.quo(...)>
+real_roots                      <function sympy.polys.polytools.real_roots(...)>
+reduced                         <function sympy.polys.polytools.reduced(...)>
+refine_root                     <function sympy.polys.polytools.refine_root(...)>
+rem                             <function sympy.polys.polytools.rem(...)>
+resultant                       <function sympy.polys.polytools.resultant(...)>
+sqf                             <function sympy.polys.polytools.sqf(...)>
+sqf_list                        <function sympy.polys.polytools.sqf_list(...)>
+sqf_norm                        <function sympy.polys.polytools.sqf_norm(...)>
+sqf_part                        <function sympy.polys.polytools.sqf_part(...)>
+sturm                           <function sympy.polys.polytools.sturm(...)>
+subresultants                   <function sympy.polys.polytools.subresultants(...)>
+terms_gcd                       <function sympy.polys.polytools.terms_gcd(...)>
+total_degree                    <function sympy.polys.polytools.total_degree(...)>
+trunc                           <function sympy.polys.polytools.trunc(...)>
+together                        <function sympy.polys.rationaltools.together(...)>
+ring                            <function sympy.polys.rings.ring(...)>
+sring                           <function sympy.polys.rings.sring(...)>
+vring                           <function sympy.polys.rings.vring(...)>
+xring                           <function sympy.polys.rings.xring(...)>
+rootof                          <function sympy.polys.rootoftools.rootof(...)>
+cyclotomic_poly                 <function sympy.polys.specialpolys.cyclotomic_poly(...)>
+interpolating_poly              <function sympy.polys.specialpolys.interpolating_poly(...)>
+random_poly                     <function sympy.polys.specialpolys.random_poly(...)>
+swinnerton_dyer_poly            <function sympy.polys.specialpolys.swinnerton_dyer_poly(...)>
+symmetric_poly                  <function sympy.polys.specialpolys.symmetric_poly(...)>
+ccode                           <function sympy.printing.ccode.ccode(...)>
+print_ccode                     <function sympy.printing.ccode.print_ccode(...)>
+cxxcode                         <function sympy.printing.cxxcode.cxxcode(...)>
+dotprint                        <function sympy.printing.dot.dotprint(...)>
+fcode                           <function sympy.printing.fcode.fcode(...)>
+print_fcode                     <function sympy.printing.fcode.print_fcode(...)>
+glsl_code                       <function sympy.printing.glsl.glsl_code(...)>
+print_glsl                      <function sympy.printing.glsl.print_glsl(...)>
+print_gtk                       <function sympy.printing.gtk.print_gtk(...)>
+jscode                          <function sympy.printing.jscode.jscode(...)>
+print_jscode                    <function sympy.printing.jscode.print_jscode(...)>
+julia_code                      <function sympy.printing.julia.julia_code(...)>
+latex                           <function sympy.printing.latex.latex(...)>
+print_latex                     <function sympy.printing.latex.print_latex(...)>
+mathematica_code                <function sympy.printing.mathematica.mathematica_code(...)>
+mathml                          <function sympy.printing.mathml.mathml(...)>
+print_mathml                    <function sympy.printing.mathml.print_mathml(...)>
+octave_code                     <function sympy.printing.octave.octave_code(...)>
+pager_print                     <function sympy.printing.pretty.pretty.pager_print(...)>
+pretty                          <function sympy.printing.pretty.pretty.pretty(...)>
+pretty_print                    <function sympy.printing.pretty.pretty.pretty_print(...)>
+pprint                          <function sympy.printing.pretty.pretty.pretty_print(...)>
+pprint_try_use_unicode          <function sympy.printing.pretty.pretty_symbology.pretty_try_use_unicode(...)>
+pprint_use_unicode              <function sympy.printing.pretty.pretty_symbology.pretty_use_unicode(...)>
+preview                         <function sympy.printing.preview.preview(...)>
+pycode                          <function sympy.printing.pycode.pycode(...)>
+print_python                    <function sympy.printing.python.print_python(...)>
+python                          <function sympy.printing.python.python(...)>
+print_rcode                     <function sympy.printing.rcode.print_rcode(...)>
+rcode                           <function sympy.printing.rcode.rcode(...)>
+srepr                           <function sympy.printing.repr.srepr(...)>
+rust_code                       <function sympy.printing.rust.rust_code(...)>
+sstr                            <function sympy.printing.str.sstr(...)>
+sstrrepr                        <function sympy.printing.str.sstrrepr(...)>
+print_tree                      <function sympy.printing.tree.print_tree(...)>
+fps                             <function sympy.series.formal.fps(...)>
+fourier_series                  <function sympy.series.fourier.fourier_series(...)>
+gruntz                          <function sympy.series.gruntz.gruntz(...)>
+limit                           <function sympy.series.limits.limit(...)>
+difference_delta                <function sympy.series.limitseq.difference_delta(...)>
+limit_seq                       <function sympy.series.limitseq.limit_seq(...)>
+residue                         <function sympy.series.residues.residue(...)>
+sequence                        <function sympy.series.sequences.sequence(...)>
+series                          <function sympy.series.series.series(...)>
+imageset                        <function sympy.sets.sets.imageset(...)>
+combsimp                        <function sympy.simplify.combsimp.combsimp(...)>
+cse                             <function sympy.simplify.cse_main.cse(...)>
+epath                           <function sympy.simplify.epathtools.epath(...)>
+fu                              <function sympy.simplify.fu.fu(...)>
+gammasimp                       <function sympy.simplify.gammasimp.gammasimp(...)>
+hyperexpand                     <function sympy.simplify.hyperexpand.hyperexpand(...)>
+powdenest                       <function sympy.simplify.powsimp.powdenest(...)>
+powsimp                         <function sympy.simplify.powsimp.powsimp(...)>
+collect                         <function sympy.simplify.radsimp.collect(...)>
+collect_const                   <function sympy.simplify.radsimp.collect_const(...)>
+denom                           <function sympy.simplify.radsimp.denom(...)>
+fraction                        <function sympy.simplify.radsimp.fraction(...)>
+numer                           <function sympy.simplify.radsimp.numer(...)>
+radsimp                         <function sympy.simplify.radsimp.radsimp(...)>
+rcollect                        <function sympy.simplify.radsimp.rcollect(...)>
+ratsimp                         <function sympy.simplify.ratsimp.ratsimp(...)>
+ratsimpmodprime                 <function sympy.simplify.ratsimp.ratsimpmodprime(...)>
+besselsimp                      <function sympy.simplify.simplify.besselsimp(...)>
+bottom_up                       <function sympy.simplify.simplify.bottom_up(...)>
+hypersimilar                    <function sympy.simplify.simplify.hypersimilar(...)>
+hypersimp                       <function sympy.simplify.simplify.hypersimp(...)>
+logcombine                      <function sympy.simplify.simplify.logcombine(...)>
+nsimplify                       <function sympy.simplify.simplify.nsimplify(...)>
+posify                          <function sympy.simplify.simplify.posify(...)>
+separatevars                    <function sympy.simplify.simplify.separatevars(...)>
+signsimp                        <function sympy.simplify.simplify.signsimp(...)>
+simplify                        <function sympy.simplify.simplify.simplify(...)>
+sqrtdenest                      <function sympy.simplify.sqrtdenest.sqrtdenest(...)>
+use                             <function sympy.simplify.traversaltools.use(...)>
+exptrigsimp                     <function sympy.simplify.trigsimp.exptrigsimp(...)>
+trigsimp                        <function sympy.simplify.trigsimp.trigsimp(...)>
+decompogen                      <function sympy.solvers.decompogen.decompogen(...)>
+ode_order                       <function sympy.solvers.deutils.ode_order(...)>
+diophantine                     <function sympy.solvers.diophantine.diophantine(...)>
+reduce_abs_inequalities         <function sympy.solvers.inequalities.reduce_abs_inequalities(...)>
+reduce_abs_inequality           <function sympy.solvers.inequalities.reduce_abs_inequality(...)>
+reduce_inequalities             <function sympy.solvers.inequalities.reduce_inequalities(...)>
+solve_poly_inequality           <function sympy.solvers.inequalities.solve_poly_inequality(...)>
+solve_rational_inequalities     <function sympy.solvers.inequalities.solve_rational_inequalities(...)>
+solve_univariate_inequality     <function sympy.solvers.inequalities.solve_univariate_inequality(...)>
+checkodesol                     <function sympy.solvers.ode.checkodesol(...)>
+classify_ode                    <function sympy.solvers.ode.classify_ode(...)>
+dsolve                          <function sympy.solvers.ode.dsolve(...)>
+homogeneous_order               <function sympy.solvers.ode.homogeneous_order(...)>
+checkpdesol                     <function sympy.solvers.pde.checkpdesol(...)>
+classify_pde                    <function sympy.solvers.pde.classify_pde(...)>
+pde_separate                    <function sympy.solvers.pde.pde_separate(...)>
+pde_separate_add                <function sympy.solvers.pde.pde_separate_add(...)>
+pde_separate_mul                <function sympy.solvers.pde.pde_separate_mul(...)>
+pdsolve                         <function sympy.solvers.pde.pdsolve(...)>
+solve_poly_system               <function sympy.solvers.polysys.solve_poly_system(...)>
+solve_triangulated              <function sympy.solvers.polysys.solve_triangulated(...)>
+rsolve                          <function sympy.solvers.recurr.rsolve(...)>
+rsolve_hyper                    <function sympy.solvers.recurr.rsolve_hyper(...)>
+rsolve_poly                     <function sympy.solvers.recurr.rsolve_poly(...)>
+rsolve_ratio                    <function sympy.solvers.recurr.rsolve_ratio(...)>
+check_assumptions               <function sympy.solvers.solvers.check_assumptions(...)>
+checksol                        <function sympy.solvers.solvers.checksol(...)>
+det_quick                       <function sympy.solvers.solvers.det_quick(...)>
+failing_assumptions             <function sympy.solvers.solvers.failing_assumptions(...)>
+inv_quick                       <function sympy.solvers.solvers.inv_quick(...)>
+nsolve                          <function sympy.solvers.solvers.nsolve(...)>
+solve                           <function sympy.solvers.solvers.solve(...)>
+solve_linear                    <function sympy.solvers.solvers.solve_linear(...)>
+solve_linear_system             <function sympy.solvers.solvers.solve_linear_system(...)>
+solve_linear_system_LU          <function sympy.solvers.solvers.solve_linear_system_LU(...)>
+solve_undetermined_coeffs       <function sympy.solvers.solvers.solve_undetermined_coeffs(...)>
+linear_eq_to_matrix             <function sympy.solvers.solveset.linear_eq_to_matrix(...)>
+linsolve                        <function sympy.solvers.solveset.linsolve(...)>
+nonlinsolve                     <function sympy.solvers.solveset.nonlinsolve(...)>
+solveset                        <function sympy.solvers.solveset.solveset(...)>
+substitution                    <function sympy.solvers.solveset.substitution(...)>
+derive_by_array                 <function sympy.tensor.array.arrayop.derive_by_array(...)>
+permutedims                     <function sympy.tensor.array.arrayop.permutedims(...)>
+tensorcontraction               <function sympy.tensor.array.arrayop.tensorcontraction(...)>
+tensorproduct                   <function sympy.tensor.array.arrayop.tensorproduct(...)>
+get_contraction_structure       <function sympy.tensor.index_methods.get_contraction_structure(...)>
+get_indices                     <function sympy.tensor.index_methods.get_indices(...)>
+memoize_property                <function sympy.utilities.decorator.memoize_property(...)>
+public                          <function sympy.utilities.decorator.public(...)>
+threaded                        <function sympy.utilities.decorator.threaded(...)>
+xthreaded                       <function sympy.utilities.decorator.xthreaded(...)>
+capture                         <function sympy.utilities.iterables.capture(...)>
+dict_merge                      <function sympy.utilities.iterables.dict_merge(...)>
+flatten                         <function sympy.utilities.iterables.flatten(...)>
+group                           <function sympy.utilities.iterables.group(...)>
+has_dups                        <function sympy.utilities.iterables.has_dups(...)>
+has_variety                     <function sympy.utilities.iterables.has_variety(...)>
+interactive_traversal           <function sympy.utilities.iterables.interactive_traversal(...)>
+numbered_symbols                <function sympy.utilities.iterables.numbered_symbols(...)>
+postfixes                       <function sympy.utilities.iterables.postfixes(...)>
+postorder_traversal             <function sympy.utilities.iterables.postorder_traversal(...)>
+prefixes                        <function sympy.utilities.iterables.prefixes(...)>
+reshape                         <function sympy.utilities.iterables.reshape(...)>
+rotations                       <function sympy.utilities.iterables.rotations(...)>
+sift                            <function sympy.utilities.iterables.sift(...)>
+subsets                         <function sympy.utilities.iterables.subsets(...)>
+take                            <function sympy.utilities.iterables.take(...)>
+topological_sort                <function sympy.utilities.iterables.topological_sort(...)>
+unflatten                       <function sympy.utilities.iterables.unflatten(...)>
+variations                      <function sympy.utilities.iterables.variations(...)>
+lambdify                        <function sympy.utilities.lambdify.lambdify(...)>
+filldedent                      <function sympy.utilities.misc.filldedent(...)>
+doctest                         <function sympy.utilities.runtests.doctest(...)>
+test                            <function sympy.utilities.runtests.test(...)>
+source                          <function sympy.utilities.source.source(...)>
+timed                           <function sympy.utilities.timeutils.timed(...)>
+
+
+cartes                          <class 'itertools.product'>
+Quaternion                      <class 'sympy.algebras.quaternion.Quaternion'>
+AppliedPredicate                <class 'sympy.assumptions.assume.AppliedPredicate'>
+AssumptionsContext              <class 'sympy.assumptions.assume.AssumptionsContext'>
+Predicate                       <class 'sympy.assumptions.assume.Predicate'>
+AccumBounds                     <class 'sympy.calculus.util.AccumulationBounds'>
+Product                         <class 'sympy.concrete.products.Product'>
+Sum                             <class 'sympy.concrete.summations.Sum'>
+Add                             <class 'sympy.core.add.Add'>
+Atom                            <class 'sympy.core.basic.Atom'>
+Basic                           <class 'sympy.core.basic.Basic'>
+preorder_traversal              <class 'sympy.core.basic.preorder_traversal'>
+Dict                            <class 'sympy.core.containers.Dict'>
+Tuple                           <class 'sympy.core.containers.Tuple'>
+PrecisionExhausted              <class 'sympy.core.evalf.PrecisionExhausted'>
+AtomicExpr                      <class 'sympy.core.expr.AtomicExpr'>
+Expr                            <class 'sympy.core.expr.Expr'>
+UnevaluatedExpr                 <class 'sympy.core.expr.UnevaluatedExpr'>
+Derivative                      <class 'sympy.core.function.Derivative'>
+FunctionClass                   <class 'sympy.core.function.FunctionClass'>
+Lambda                          <class 'sympy.core.function.Lambda'>
+PoleError                       <class 'sympy.core.function.PoleError'>
+Subs                            <class 'sympy.core.function.Subs'>
+Mul                             <class 'sympy.core.mul.Mul'>
+vectorize                       <class 'sympy.core.multidimensional.vectorize'>
+AlgebraicNumber                 <class 'sympy.core.numbers.AlgebraicNumber'>
+Float                           <class 'sympy.core.numbers.Float'>
+RealNumber                      <class 'sympy.core.numbers.Float'>
+Integer                         <class 'sympy.core.numbers.Integer'>
+Number                          <class 'sympy.core.numbers.Number'>
+NumberSymbol                    <class 'sympy.core.numbers.NumberSymbol'>
+Rational                        <class 'sympy.core.numbers.Rational'>
+Pow                             <class 'sympy.core.power.Pow'>
+Eq                              <class 'sympy.core.relational.Equality'>
+Equality                        <class 'sympy.core.relational.Equality'>
+Ge                              <class 'sympy.core.relational.GreaterThan'>
+GreaterThan                     <class 'sympy.core.relational.GreaterThan'>
+Le                              <class 'sympy.core.relational.LessThan'>
+LessThan                        <class 'sympy.core.relational.LessThan'>
+Rel                             <class 'sympy.core.relational.Relational'>
+Gt                              <class 'sympy.core.relational.StrictGreaterThan'>
+StrictGreaterThan               <class 'sympy.core.relational.StrictGreaterThan'>
+Lt                              <class 'sympy.core.relational.StrictLessThan'>
+StrictLessThan                  <class 'sympy.core.relational.StrictLessThan'>
+Ne                              <class 'sympy.core.relational.Unequality'>
+Unequality                      <class 'sympy.core.relational.Unequality'>
+Dummy                           <class 'sympy.core.symbol.Dummy'>
+Symbol                          <class 'sympy.core.symbol.Symbol'>
+Wild                            <class 'sympy.core.symbol.Wild'>
+SympifyError                    <class 'sympy.core.sympify.SympifyError'>
+ClassRegistry                   <class 'sympy.deprecated.class_registry.ClassRegistry'>
+Curve                           <class 'sympy.geometry.curve.Curve'>
+Circle                          <class 'sympy.geometry.ellipse.Circle'>
+Ellipse                         <class 'sympy.geometry.ellipse.Ellipse'>
+GeometryError                   <class 'sympy.geometry.exceptions.GeometryError'>
+Line                            <class 'sympy.geometry.line.Line'>
+Line2D                          <class 'sympy.geometry.line.Line2D'>
+Line3D                          <class 'sympy.geometry.line.Line3D'>
+Ray                             <class 'sympy.geometry.line.Ray'>
+Ray2D                           <class 'sympy.geometry.line.Ray2D'>
+Ray3D                           <class 'sympy.geometry.line.Ray3D'>
+Segment                         <class 'sympy.geometry.line.Segment'>
+Segment2D                       <class 'sympy.geometry.line.Segment2D'>
+Segment3D                       <class 'sympy.geometry.line.Segment3D'>
+Parabola                        <class 'sympy.geometry.parabola.Parabola'>
+Plane                           <class 'sympy.geometry.plane.Plane'>
+Point                           <class 'sympy.geometry.point.Point'>
+Point2D                         <class 'sympy.geometry.point.Point2D'>
+Point3D                         <class 'sympy.geometry.point.Point3D'>
+Polygon                         <class 'sympy.geometry.polygon.Polygon'>
+RegularPolygon                  <class 'sympy.geometry.polygon.RegularPolygon'>
+Triangle                        <class 'sympy.geometry.polygon.Triangle'>
+Integral                        <class 'sympy.integrals.integrals.Integral'>
+NonSquareMatrixError            <class 'sympy.matrices.common.NonSquareMatrixError'>
+ShapeError                      <class 'sympy.matrices.common.ShapeError'>
+MutableDenseMatrix              <class 'sympy.matrices.dense.MutableDenseMatrix'>
+Matrix                          <class 'sympy.matrices.dense.MutableDenseMatrix'>
+MutableMatrix                   <class 'sympy.matrices.dense.MutableDenseMatrix'>
+Adjoint                         <class 'sympy.matrices.expressions.adjoint.Adjoint'>
+BlockDiagMatrix                 <class 'sympy.matrices.expressions.blockmatrix.BlockDiagMatrix'>
+BlockMatrix                     <class 'sympy.matrices.expressions.blockmatrix.BlockMatrix'>
+Determinant                     <class 'sympy.matrices.expressions.determinant.Determinant'>
+DiagonalMatrix                  <class 'sympy.matrices.expressions.diagonal.DiagonalMatrix'>
+DiagonalOf                      <class 'sympy.matrices.expressions.diagonal.DiagonalOf'>
+DotProduct                      <class 'sympy.matrices.expressions.dotproduct.DotProduct'>
+FunctionMatrix                  <class 'sympy.matrices.expressions.funcmatrix.FunctionMatrix'>
+HadamardProduct                 <class 'sympy.matrices.expressions.hadamard.HadamardProduct'>
+Inverse                         <class 'sympy.matrices.expressions.inverse.Inverse'>
+KroneckerProduct                <class 'sympy.matrices.expressions.kronecker.KroneckerProduct'>
+MatAdd                          <class 'sympy.matrices.expressions.matadd.MatAdd'>
+Identity                        <class 'sympy.matrices.expressions.matexpr.Identity'>
+MatrixExpr                      <class 'sympy.matrices.expressions.matexpr.MatrixExpr'>
+MatrixSymbol                    <class 'sympy.matrices.expressions.matexpr.MatrixSymbol'>
+ZeroMatrix                      <class 'sympy.matrices.expressions.matexpr.ZeroMatrix'>
+MatMul                          <class 'sympy.matrices.expressions.matmul.MatMul'>
+MatPow                          <class 'sympy.matrices.expressions.matpow.MatPow'>
+MatrixSlice                     <class 'sympy.matrices.expressions.slice.MatrixSlice'>
+Trace                           <class 'sympy.matrices.expressions.trace.Trace'>
+Transpose                       <class 'sympy.matrices.expressions.transpose.Transpose'>
+ImmutableDenseMatrix            <class 'sympy.matrices.immutable.ImmutableDenseMatrix'>
+ImmutableMatrix                 <class 'sympy.matrices.immutable.ImmutableDenseMatrix'>
+ImmutableSparseMatrix           <class 'sympy.matrices.immutable.ImmutableSparseMatrix'>
+DeferredVector                  <class 'sympy.matrices.matrices.DeferredVector'>
+MatrixBase                      <class 'sympy.matrices.matrices.MatrixBase'>
+MutableSparseMatrix             <class 'sympy.matrices.sparse.MutableSparseMatrix'>
+SparseMatrix                    <class 'sympy.matrices.sparse.MutableSparseMatrix'>
+Sieve                           <class 'sympy.ntheory.generate.Sieve'>
+AlgebraicField                  <class 'sympy.polys.domains.algebraicfield.AlgebraicField'>
+ComplexField                    <class 'sympy.polys.domains.complexfield.ComplexField'>
+Domain                          <class 'sympy.polys.domains.domain.Domain'>
+ExpressionDomain                <class 'sympy.polys.domains.expressiondomain.ExpressionDomain'>
+FiniteField                     <class 'sympy.polys.domains.finitefield.FiniteField'>
+FractionField                   <class 'sympy.polys.domains.fractionfield.FractionField'>
+GMPYFiniteField                 <class 'sympy.polys.domains.gmpyfinitefield.GMPYFiniteField'>
+FF_gmpy                         <class 'sympy.polys.domains.gmpyfinitefield.GMPYFiniteField'>
+GMPYIntegerRing                 <class 'sympy.polys.domains.gmpyintegerring.GMPYIntegerRing'>
+ZZ_gmpy                         <class 'sympy.polys.domains.gmpyintegerring.GMPYIntegerRing'>
+GMPYRationalField               <class 'sympy.polys.domains.gmpyrationalfield.GMPYRationalField'>
+QQ_gmpy                         <class 'sympy.polys.domains.gmpyrationalfield.GMPYRationalField'>
+IntegerRing                     <class 'sympy.polys.domains.integerring.IntegerRing'>
+PolynomialRing                  <class 'sympy.polys.domains.polynomialring.PolynomialRing'>
+PythonFiniteField               <class 'sympy.polys.domains.pythonfinitefield.PythonFiniteField'>
+FF_python                       <class 'sympy.polys.domains.pythonfinitefield.PythonFiniteField'>
+GF                              <class 'sympy.polys.domains.pythonfinitefield.PythonFiniteField'>
+FF                              <class 'sympy.polys.domains.pythonfinitefield.PythonFiniteField'>
+PythonIntegerRing               <class 'sympy.polys.domains.pythonintegerring.PythonIntegerRing'>
+ZZ_python                       <class 'sympy.polys.domains.pythonintegerring.PythonIntegerRing'>
+PythonRationalField             <class 'sympy.polys.domains.pythonrationalfield.PythonRationalField'>
+QQ_python                       <class 'sympy.polys.domains.pythonrationalfield.PythonRationalField'>
+RationalField                   <class 'sympy.polys.domains.rationalfield.RationalField'>
+RealField                       <class 'sympy.polys.domains.realfield.RealField'>
+Monomial                        <class 'sympy.polys.monomials.Monomial'>
+BasePolynomialError             <class 'sympy.polys.polyerrors.BasePolynomialError'>
+CoercionFailed                  <class 'sympy.polys.polyerrors.CoercionFailed'>
+ComputationFailed               <class 'sympy.polys.polyerrors.ComputationFailed'>
+DomainError                     <class 'sympy.polys.polyerrors.DomainError'>
+EvaluationFailed                <class 'sympy.polys.polyerrors.EvaluationFailed'>
+ExactQuotientFailed             <class 'sympy.polys.polyerrors.ExactQuotientFailed'>
+ExtraneousFactors               <class 'sympy.polys.polyerrors.ExtraneousFactors'>
+FlagError                       <class 'sympy.polys.polyerrors.FlagError'>
+GeneratorsError                 <class 'sympy.polys.polyerrors.GeneratorsError'>
+GeneratorsNeeded                <class 'sympy.polys.polyerrors.GeneratorsNeeded'>
+HeuristicGCDFailed              <class 'sympy.polys.polyerrors.HeuristicGCDFailed'>
+HomomorphismFailed              <class 'sympy.polys.polyerrors.HomomorphismFailed'>
+IsomorphismFailed               <class 'sympy.polys.polyerrors.IsomorphismFailed'>
+MultivariatePolynomialError     <class 'sympy.polys.polyerrors.MultivariatePolynomialError'>
+NotAlgebraic                    <class 'sympy.polys.polyerrors.NotAlgebraic'>
+NotInvertible                   <class 'sympy.polys.polyerrors.NotInvertible'>
+NotReversible                   <class 'sympy.polys.polyerrors.NotReversible'>
+OperationNotSupported           <class 'sympy.polys.polyerrors.OperationNotSupported'>
+OptionError                     <class 'sympy.polys.polyerrors.OptionError'>
+PolificationFailed              <class 'sympy.polys.polyerrors.PolificationFailed'>
+PolynomialDivisionFailed        <class 'sympy.polys.polyerrors.PolynomialDivisionFailed'>
+PolynomialError                 <class 'sympy.polys.polyerrors.PolynomialError'>
+RefinementFailed                <class 'sympy.polys.polyerrors.RefinementFailed'>
+UnificationFailed               <class 'sympy.polys.polyerrors.UnificationFailed'>
+UnivariatePolynomialError       <class 'sympy.polys.polyerrors.UnivariatePolynomialError'>
+Options                         <class 'sympy.polys.polyoptions.Options'>
+GroebnerBasis                   <class 'sympy.polys.polytools.GroebnerBasis'>
+Poly                            <class 'sympy.polys.polytools.Poly'>
+PurePoly                        <class 'sympy.polys.polytools.PurePoly'>
+CRootOf                         <class 'sympy.polys.rootoftools.ComplexRootOf'>
+ComplexRootOf                   <class 'sympy.polys.rootoftools.ComplexRootOf'>
+RootOf                          <class 'sympy.polys.rootoftools.RootOf'>
+RootSum                         <class 'sympy.polys.rootoftools.RootSum'>
+StrPrinter                      <class 'sympy.printing.str.StrPrinter'>
+TableForm                       <class 'sympy.printing.tableform.TableForm'>
+Limit                           <class 'sympy.series.limits.Limit'>
+Order                           <class 'sympy.series.order.Order'>
+O                               <class 'sympy.series.order.Order'>
+EmptySequence                   <class 'sympy.series.sequences.EmptySequence'>
+SeqAdd                          <class 'sympy.series.sequences.SeqAdd'>
+SeqFormula                      <class 'sympy.series.sequences.SeqFormula'>
+SeqMul                          <class 'sympy.series.sequences.SeqMul'>
+SeqPer                          <class 'sympy.series.sequences.SeqPer'>
+ConditionSet                    <class 'sympy.sets.conditionset.ConditionSet'>
+ComplexRegion                   <class 'sympy.sets.fancysets.ComplexRegion'>
+ImageSet                        <class 'sympy.sets.fancysets.ImageSet'>
+Range                           <class 'sympy.sets.fancysets.Range'>
+OmegaPower                      <class 'sympy.sets.ordinals.OmegaPower'>
+Ordinal                         <class 'sympy.sets.ordinals.Ordinal'>
+Complement                      <class 'sympy.sets.sets.Complement'>
+EmptySet                        <class 'sympy.sets.sets.EmptySet'>
+FiniteSet                       <class 'sympy.sets.sets.FiniteSet'>
+Intersection                    <class 'sympy.sets.sets.Intersection'>
+Interval                        <class 'sympy.sets.sets.Interval'>
+ProductSet                      <class 'sympy.sets.sets.ProductSet'>
+Set                             <class 'sympy.sets.sets.Set'>
+SymmetricDifference             <class 'sympy.sets.sets.SymmetricDifference'>
+Union                           <class 'sympy.sets.sets.Union'>
+EPath                           <class 'sympy.simplify.epathtools.EPath'>
+DenseNDimArray                  <class 'sympy.tensor.array.dense_ndim_array.DenseNDimArray'>
+ImmutableDenseNDimArray         <class 'sympy.tensor.array.dense_ndim_array.ImmutableDenseNDimArray'>
+Array                           <class 'sympy.tensor.array.dense_ndim_array.ImmutableDenseNDimArray'>
+MutableDenseNDimArray           <class 'sympy.tensor.array.dense_ndim_array.MutableDenseNDimArray'>
+NDimArray                       <class 'sympy.tensor.array.ndim_array.NDimArray'>
+ImmutableSparseNDimArray        <class 'sympy.tensor.array.sparse_ndim_array.ImmutableSparseNDimArray'>
+MutableSparseNDimArray          <class 'sympy.tensor.array.sparse_ndim_array.MutableSparseNDimArray'>
+SparseNDimArray                 <class 'sympy.tensor.array.sparse_ndim_array.SparseNDimArray'>
+Idx                             <class 'sympy.tensor.indexed.Idx'>
+Indexed                         <class 'sympy.tensor.indexed.Indexed'>
+IndexedBase                     <class 'sympy.tensor.indexed.IndexedBase'>
+
+algebras                        <module 'sympy.algebras' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\algebras\\__init__.py'>
+assumptions                     <module 'sympy.assumptions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\assumptions\\__init__.py'>
+ask_generated                   <module 'sympy.assumptions.ask_generated' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\assumptions\\ask_generated.py'>
+assume                          <module 'sympy.assumptions.assume' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\assumptions\\assume.py'>
+calculus                        <module 'sympy.calculus' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\calculus\\__init__.py'>
+codegen                         <module 'sympy.codegen' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\codegen\\__init__.py'>
+combinatorics                   <module 'sympy.combinatorics' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\combinatorics\\__init__.py'>
+concrete                        <module 'sympy.concrete' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\__init__.py'>
+expr_with_intlimits             <module 'sympy.concrete.expr_with_intlimits' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\expr_with_intlimits.py'>
+expr_with_limits                <module 'sympy.concrete.expr_with_limits' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\expr_with_limits.py'>
+gosper                          <module 'sympy.concrete.gosper' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\gosper.py'>
+products                        <module 'sympy.concrete.products' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\products.py'>
+summations                      <module 'sympy.concrete.summations' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\concrete\\summations.py'>
+add                             <module 'sympy.core.add' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\add.py'>
+basic                           <module 'sympy.core.basic' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\basic.py'>
+cache                           <module 'sympy.core.cache' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\cache.py'>
+compatibility                   <module 'sympy.core.compatibility' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\compatibility.py'>
+containers                      <module 'sympy.core.containers' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\containers.py'>
+core                            <module 'sympy.core.core' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\core.py'>
+coreerrors                      <module 'sympy.core.coreerrors' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\coreerrors.py'>
+decorators                      <module 'sympy.core.decorators' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\decorators.py'>
+evalf                           <module 'sympy.core.evalf' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\evalf.py'>
+expr                            <module 'sympy.core.expr' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\expr.py'>
+exprtools                       <module 'sympy.core.exprtools' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\exprtools.py'>
+facts                           <module 'sympy.core.facts' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\facts.py'>
+function                        <module 'sympy.core.function' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\function.py'>
+logic                           <module 'sympy.core.logic' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\logic.py'>
+mod                             <module 'sympy.core.mod' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\mod.py'>
+mul                             <module 'sympy.core.mul' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\mul.py'>
+multidimensional                <module 'sympy.core.multidimensional' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\multidimensional.py'>
+numbers                         <module 'sympy.core.numbers' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\numbers.py'>
+operations                      <module 'sympy.core.operations' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\operations.py'>
+power                           <module 'sympy.core.power' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\power.py'>
+relational                      <module 'sympy.core.relational' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\relational.py'>
+rules                           <module 'sympy.core.rules' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\rules.py'>
+singleton                       <module 'sympy.core.singleton' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\singleton.py'>
+symbol                          <module 'sympy.core.symbol' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\core\\symbol.py'>
+deprecated                      <module 'sympy.deprecated' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\deprecated\\__init__.py'>
+class_registry                  <module 'sympy.deprecated.class_registry' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\deprecated\\class_registry.py'>
+discrete                        <module 'sympy.discrete' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\discrete\\__init__.py'>
+convolutions                    <module 'sympy.discrete.convolutions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\discrete\\convolutions.py'>
+external                        <module 'sympy.external' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\external\\__init__.py'>
+functions                       <module 'sympy.functions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\functions\\__init__.py'>
+combinatorial                   <module 'sympy.functions.combinatorial' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\functions\\combinatorial\\__init__.py'>
+elementary                      <module 'sympy.functions.elementary' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\functions\\elementary\\__init__.py'>
+special                         <module 'sympy.functions.special' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\functions\\special\\__init__.py'>
+geometry                        <module 'sympy.geometry' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\__init__.py'>
+curve                           <module 'sympy.geometry.curve' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\curve.py'>
+ellipse                         <module 'sympy.geometry.ellipse' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\ellipse.py'>
+entity                          <module 'sympy.geometry.entity' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\entity.py'>
+line                            <module 'sympy.geometry.line' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\line.py'>
+parabola                        <module 'sympy.geometry.parabola' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\parabola.py'>
+plane                           <module 'sympy.geometry.plane' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\plane.py'>
+point                           <module 'sympy.geometry.point' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\point.py'>
+polygon                         <module 'sympy.geometry.polygon' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\polygon.py'>
+util                            <module 'sympy.geometry.util' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\geometry\\util.py'>
+integrals                       <module 'sympy.integrals.integrals' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\integrals.py'>
+manualintegrate                 <module 'sympy.integrals.manualintegrate' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\manualintegrate.py'>
+meijerint                       <module 'sympy.integrals.meijerint' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\meijerint.py'>
+singularityfunctions            <module 'sympy.integrals.singularityfunctions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\singularityfunctions.py'>
+transforms                      <module 'sympy.integrals.transforms' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\transforms.py'>
+trigonometry                    <module 'sympy.integrals.trigonometry' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\integrals\\trigonometry.py'>
+interactive                     <module 'sympy.interactive' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\interactive\\__init__.py'>
+boolalg                         <module 'sympy.logic.boolalg' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\logic\\boolalg.py'>
+inference                       <module 'sympy.logic.inference' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\logic\\inference.py'>
+common                          <module 'sympy.matrices.common' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\common.py'>
+dense                           <module 'sympy.matrices.dense' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\dense.py'>
+expressions                     <module 'sympy.matrices.expressions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\expressions\\__init__.py'>
+immutable                       <module 'sympy.matrices.immutable' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\immutable.py'>
+matrices                        <module 'sympy.matrices.matrices' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\matrices.py'>
+sparse                          <module 'sympy.matrices.sparse' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\matrices\\sparse.py'>
+multipledispatch                <module 'sympy.multipledispatch' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\multipledispatch\\__init__.py'>
+ntheory                         <module 'sympy.ntheory' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\__init__.py'>
+continued_fraction              <module 'sympy.ntheory.continued_fraction' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\continued_fraction.py'>
+factor_                         <module 'sympy.ntheory.factor_' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\factor_.py'>
+generate                        <module 'sympy.ntheory.generate' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\generate.py'>
+multinomial                     <module 'sympy.ntheory.multinomial' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\multinomial.py'>
+partitions_                     <module 'sympy.ntheory.partitions_' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\partitions_.py'>
+primetest                       <module 'sympy.ntheory.primetest' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\primetest.py'>
+residue_ntheory                 <module 'sympy.ntheory.residue_ntheory' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\ntheory\\residue_ntheory.py'>
+parsing                         <module 'sympy.parsing' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\parsing\\__init__.py'>
+plotting                        <module 'sympy.plotting' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\plotting\\__init__.py'>
+polys                           <module 'sympy.polys' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\polys\\__init__.py'>
+printing                        <module 'sympy.printing' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\printing\\__init__.py'>
+release                         <module 'sympy.release' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\release.py'>
+conditionset                    <module 'sympy.sets.conditionset' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\sets\\conditionset.py'>
+contains                        <module 'sympy.sets.contains' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\sets\\contains.py'>
+fancysets                       <module 'sympy.sets.fancysets' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\sets\\fancysets.py'>
+ordinals                        <module 'sympy.sets.ordinals' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\sets\\ordinals.py'>
+sets                            <module 'sympy.sets.sets' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\sets\\sets.py'>
+cse_main                        <module 'sympy.simplify.cse_main' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\simplify\\cse_main.py'>
+cse_opts                        <module 'sympy.simplify.cse_opts' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\simplify\\cse_opts.py'>
+epathtools                      <module 'sympy.simplify.epathtools' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\simplify\\epathtools.py'>
+traversaltools                  <module 'sympy.simplify.traversaltools' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\simplify\\traversaltools.py'>
+bivariate                       <module 'sympy.solvers.bivariate' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\bivariate.py'>
+deutils                         <module 'sympy.solvers.deutils' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\deutils.py'>
+inequalities                    <module 'sympy.solvers.inequalities' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\inequalities.py'>
+ode                             <module 'sympy.solvers.ode' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\ode.py'>
+pde                             <module 'sympy.solvers.pde' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\pde.py'>
+polysys                         <module 'sympy.solvers.polysys' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\polysys.py'>
+recurr                          <module 'sympy.solvers.recurr' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\recurr.py'>
+solvers                         <module 'sympy.solvers.solvers' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\solvers\\solvers.py'>
+strategies                      <module 'sympy.strategies' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\strategies\\__init__.py'>
+array                           <module 'sympy.tensor.array' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\tensor\\array\\__init__.py'>
+index_methods                   <module 'sympy.tensor.index_methods' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\tensor\\index_methods.py'>
+indexed                         <module 'sympy.tensor.indexed' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\tensor\\indexed.py'>
+tensor                          <module 'sympy.tensor.tensor' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\tensor\\tensor.py'>
+utilities                       <module 'sympy.utilities' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\__init__.py'>
+decorator                       <module 'sympy.utilities.decorator' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\decorator.py'>
+enumerative                     <module 'sympy.utilities.enumerative' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\enumerative.py'>
+exceptions                      <module 'sympy.utilities.exceptions' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\exceptions.py'>
+iterables                       <module 'sympy.utilities.iterables' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\iterables.py'>
+magic                           <module 'sympy.utilities.magic' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\magic.py'>
+memoization                     <module 'sympy.utilities.memoization' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\memoization.py'>
+misc                            <module 'sympy.utilities.misc' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\misc.py'>
+randtest                        <module 'sympy.utilities.randtest' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\randtest.py'>
+runtests                        <module 'sympy.utilities.runtests' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\runtests.py'>
+timeutils                       <module 'sympy.utilities.timeutils' from 'C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\utilities\\timeutils.py'>
+
+
+__version__                     1.4
+__file__                        C:\ProgramData\Miniconda3\lib\site-packages\sympy\__init__.py
+__cached__                      C:\ProgramData\Miniconda3\lib\site-packages\sympy\__pycache__\__init__.cpython-36.pyc
+__name__                        sympy
+__package__                     sympy
+__loader__                      <_frozen_importlib_external.SourceFileLoader object at 0x0000000005136160>
+__spec__                        ModuleSpec(name='sympy', loader=<_frozen_importlib_external.SourceFileLoader object at 0x0000000005136160>, origin='C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy\\__init__.py', submodule_search_locations=['C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy'])
+__path__                        ['C:\\ProgramData\\Miniconda3\\lib\\site-packages\\sympy']
+__doc__                         ...
+__builtins__                    ......

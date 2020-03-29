@@ -86,91 +86,86 @@ builtin modules:
 	'__name__',
 	'__package__',
 	'__spec__',
-	числовые функции
-		'abs',		(x)
-		'divmod',	(a, b)
-		'pow',		(x, y[, z])
-		'round',	(number[, ndigits])
-	формат
-		'bin',		(x)
-		'oct',		(x)
-		'hex',		(x)
-		'format',	(value[, format_spec])
-	числа-символы
-		'chr',		(i)
-		'ord',		(c)
-	repr
-		'repr',		(object)
-		'ascii',	(object)
-	файлы, ввод/вывод
-		'open',		(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-		'print',	(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
-		'input',	([prompt])
-	аккумулирующие функции
-		'sum',		(iterable[, start])
-		'max',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
-		'min',		(iterable, *[, key, default])/(arg1, arg2, *args[, key])
-		'all',		(iterable)
-		'any',		(iterable)
-	типы и преобразования к ним
-		'bool',		class ([x])
-		'int',		class ([x])/(x, base=10)
-		'float',	class ([x])
-		'complex',	class ([real[, imag]])
-		'str',		class (object='')/(object=b'', encoding='utf-8', errors='strict')
-		'bytes',	class ([source[, encoding[, errors]]])
-		'bytearray', 	class ([source[, encoding[, errors]]])	- изменяемый bytes
-		'tuple',	([iterable])
-		'list',		class ([iterable])
-		'frozenset',	class ([iterable])
-		'set',		class ([iterable])
-		'dict',		class (**kwarg)/(mapping, **kwarg)/(iterable, **kwarg)
-	объекты и наследование
-		'type',		class (object)/(name, bases, dict)
-		'object',	class 
-		'isinstance',	(object, classinfo)
-		'issubclass',	(class, classinfo)
-		'super',	([type[, object-or-type]])
-	свойства и методы
-		'staticmethod',	@
-		'classmethod',	@
-		'property',	class (fget=None, fset=None, fdel=None, doc=None)
-	атрибуты(поля) объектов
-		'hasattr',	(object, name)
-		'getattr',	(object, name[, default])
-		'setattr',	(object, name, value)
-		'delattr',	(object, name)
-		'callable',	(object)
-	массивы и итераторы
-		'iter',		(object[, sentinel])
-		'reversed',	(seq)
-		'len',		(s)
-		'slice',	class (stop)/(start, stop[, step])
-		'range',	(stop)/(start, stop[, step])
-		'next',		(iterator[, default])
-	map-reduce
-		'filter',	(function, iterable)	[i for i in iterable if finction(i)]
-		'map',		(function, iterable, ...)
-		'enumerate',	(iterable, start=0)	[a,b,c]->[(0,a),(1,b),(2,c)]
-		'zip'		(*iterables)
-		'sorted',	(iterable, *, key=None, reverse=False)
-	id, hash
-		'id',		(object)
-		'hash',		(object)
-	globals, locals
-		'globals',	()
-		'locals',	()
-		'dir',		([object])
-		'vars',		([object])
-	eval и отладка
-		'eval',		(expression, globals=None, locals=None)
-		'exec',		(object[, globals[, locals]])
-		'compile',	(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
-		'breakpoint',	(*args, **kws) вызывает отладчик в данной точке
-		'memoryview',	(obj)
-	help
-		'help',		([object])
-
+	запуск и компиляция
+		__import__(name, globals=None, locals=None, fromlist=(), level=0)
+		globals	() -> dict
+		locals	() -> dict
+		eval	(expression[, globals[, locals]]); expression - строка
+		exec	(object[, globals[, locals]]); object - string or a code object
+		compile	(source, filename, mode, flags=0, dont_inherit=False, optimize=-1) -> code object
+		breakpoint(*args, **kws) -> sys.breakpointhook() -> pdb.set_trace()
+	помощь
+		help	([object])
+	файлы
+		open	(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+		input	([prompt])
+		print	(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+	простые типы данных
+		bool	() -> constructor
+		
+		str		() -> constructor
+		repr	(object)
+		ascii	(object)
+		format	(value[, format_spec])
+		bin		(x)
+		oct		(x)
+		hex		(x)
+		chr		(i)
+		ord		(c)
+		bytes	() -> constructor
+		bytearray() -> constructor
+		
+		int		() -> constructor
+		float	() -> constructor
+		complex	() -> constructor
+		round	(number[, ndigits])
+		abs		(x)
+		divmod	(a, b)
+		pow		(x, y[, z])
+	объекты
+		id		(object) -> int
+		hash	(object) -> int //.__hash__()
+		memoryview(obj) -> constructor
+		type	(object) -> constructor
+		type	(name, bases, dict) -> constructor
+		isinstance(object, classinfo) -> bool
+		issubclass(class, classinfo) -> bool
+		super	()
+		callable(object) -> bool
+		dir		([object]) -> список атрибутов //.__dir__()
+		vars	([object]) -> dict //.__dict__() . без аргумента как locals()
+		delattr	()
+		setattr	()
+		getattr	()
+		hasattr	()
+		staticmethod() //@staticmethod
+		classmethod() //@classmethod
+		property(fget=None, fset=None, fdel=None, doc=None) -> constructor //@property
+		object	() -> constructor - просто базовый объект
+	составные типы данных
+		set		() -> constructor
+		dict	() -> constructor
+		frozenset() -> constructor
+		tuple	() -> constructor
+		list	() -> constructor
+	индексы, слайсы, итераторы
+		len		()
+		range	()
+		slice	()
+		iter	()
+		next	()
+	функ.прог.
+		all		(iterable) -> bool AND
+		any		(iterable) -> bool OR
+		sum		(iterable) -> num
+		min		(iterable) -> num
+		max		(iterable) -> num
+		enumerate(iterable, start=0) 	[a,b,c] yield-> [(0,a),(1,b),(2,c)]
+		zip		(*iterables) 			[1,2,3],[4,5,6,76] yield-> [(1, 4), (2, 5), (3, 6)]
+		map		(f, it1, it2...) 		[a,b,c] [x,y,z] yield-> [f(a,x),f(b,y),f(c,z)]
+		sorted	(iterable, *, key=None, reverse=False) -> [отсортированный]
+		reversed(seq) -> reverse iterator //.__reversed__() .__len__() .__getitem__()
+		filter	(function, iterable) 	yield->
 	---
 	'display',	???
 	'get_ipython',	???
