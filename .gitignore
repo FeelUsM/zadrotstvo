@@ -1,7 +1,6 @@
 .directory
 .*.exe
-.ipynb_checkpoints/*
-*/.ipynb_checkpoints/*
+.ipynb_checkpoints
 progs/*.json
 
 program_saves/sublime_settings/User/Package Control.last-run
