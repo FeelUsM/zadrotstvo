@@ -63,6 +63,8 @@ pick		select
 conceive	зачать
 commit		совершать, фиксировать
 commitment	обязательство
+mutually	взаимно
+sufficient	достаточно
 
 --- amazing ---
 pinnacle	вершина, кульминация
