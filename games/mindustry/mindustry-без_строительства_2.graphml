@@ -85,11 +85,11 @@
     <node id="n4">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="210.67578125" x="284.662109375" y="252.29882812500003"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Geometry height="35.40234375" width="316.671875" x="231.6640625" y="252.29882812500003"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="200.67578125" x="5.0" y="0.9999999999999716">60+75 плавильня+1,25*отделитель
-5,8 -&gt; 7,35<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="306.671875" x="5.0" y="0.9999999999999716">60+75 плавильня+1,25*отделитель
+5,8 -&gt; 1,77+-0,07м  1,05+-0,07с 0,72+-0,05т 0,72+-0,05г<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -206,7 +206,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="206.591796875" x="616.7041015624999" y="402.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="196.591796875" x="5.0" y="1.0">30 кремниевый плавильный завод
 1,5 у + 3 п -&gt; 0,67<y:LabelModel>
@@ -241,7 +241,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="108.904296875" x="665.5478515624999" y="342.2988281250001"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="98.904296875" x="5.0" y="1.0">108 мультипресс
 6у + 6в -&gt; 4<y:LabelModel>
@@ -310,7 +310,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="77.8671875" x="681.0664062499999" y="222.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="67.8671875" x="5.0" y="1.0">36 печь
 2с + 2п -&gt; 2<y:LabelModel>
@@ -379,7 +379,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="179.404296875" x="630.2978515625" y="852.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="169.404296875" x="5.0" y="1.0">180 пластановый компрессор
 2т + 15н -&gt; 1<y:LabelModel>
@@ -414,7 +414,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="181.103515625" x="959.4482421875" y="402.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="171.103515625" x="5.0" y="1.0">240 плавильня кин.сплава
 2,4м + 3,2с + 1,6т + 2,4к -&gt; 0,8<y:LabelModel>
@@ -449,7 +449,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="114.787109375" x="662.6064453125" y="942.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="104.787109375" x="5.0" y="1.0">300 фазовый ткач
 2т + 5п -&gt; 0,5<y:LabelModel>
@@ -552,7 +552,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="157.595703125" x="641.2021484375" y="492.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="147.595703125" x="5.0" y="1.0">12 мешалка пиротита
 0,75у + 1,5с + 1,5п -&gt; 0.75<y:LabelModel>
@@ -587,7 +587,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="148.00390625" x="975.998046875" y="672.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="138.00390625" x="5.0" y="1.0">24 мешалка взыв.смеси
 0,75п + 0,75с -&gt; 0,75<y:LabelModel>
@@ -639,7 +639,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="222.0078125" x="-561.00390625" y="645.0"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="212.0078125" x="5.0" y="5.6494140625">60 гидронасос-бур -&gt; 7,8 (х1.8 .. x2.6)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -673,7 +673,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="155.75" x="12.125000000000114" y="822.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="145.75" x="5.0" y="1.0">180 нефтяная вышка-бур
 0,6п + 9в -&gt; 9 (x2.35)<y:LabelModel>
@@ -691,7 +691,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="61.701171875" x="59.1494140625" y="552.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="51.701171875" x="5.0" y="1.0">ГВС
 0,5 -&gt; 69<y:LabelModel>
@@ -726,7 +726,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="161.322265625" x="639.3388671875" y="762.298828125"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="151.322265625" x="5.0" y="1.0">60 мешалка криожидкости
 0,5т + 12в -&gt; 12<y:LabelModel>
@@ -761,7 +761,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="142.853515625" x="-521.4267578125" y="162.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="132.853515625" x="5.0" y="1.0">термальный генератор
 -&gt; 108<y:LabelModel>
@@ -778,11 +778,11 @@
     <node id="n44">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="107.26953125" x="666.3652343749999" y="612.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Geometry height="35.40234375" width="107.7734375" x="666.1132812499999" y="612.298828125"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="97.26953125" x="5.0" y="1.0">парогенератор
-0,67т + 3в -&gt; 360<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="97.7734375" x="5.0" y="1.0">парогенератор
+0,67у + 3в -&gt; 360<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -797,7 +797,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="115.173828125" x="992.4130859375" y="732.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="105.173828125" x="5.0" y="1.0">дифф. генератор
 0,43п + 9кж -&gt; 960<y:LabelModel>
@@ -815,7 +815,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="81.72265625" x="679.138671875" y="1002.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="71.72265625" x="5.0" y="1.0">РИТЭГ
 0,136 -&gt; 180<y:LabelModel>
@@ -833,7 +833,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="116.087890625" x="-508.0439453125" y="42.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="106.087890625" x="5.0" y="1.0">солнечная панель
 -&gt; 3,6<y:LabelModel>
@@ -851,7 +851,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="169.021484375" x="-534.5107421875" y="102.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="159.021484375" x="5.0" y="1.0">большая солнечная панель
 -&gt; 6 x9<y:LabelModel>
@@ -868,8 +868,8 @@
     <node id="n49">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="130.8535156249999" x="984.5732421875002" y="882.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Geometry height="35.40234375" width="130.853515625" x="984.5732421875002" y="882.298828125"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="120.853515625" x="5.0" y="1.0">ториевый реактор
 0,166т + 2,4кж -&gt; 840<y:LabelModel>
@@ -887,7 +887,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="166.63671875" x="1266.681640625" y="762.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="156.63671875" x="5.0" y="1.0">1500 имппульсный реактор
 0,43вс + 15кж -&gt; 7800<y:LabelModel>
@@ -990,8 +990,8 @@
     <node id="n56">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="81.72265624999989" x="1009.1386718750002" y="942.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Geometry height="35.40234375" width="81.72265625" x="1009.1386718750002" y="942.298828125"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="71.72265625" x="5.0" y="1.0">РИТЭГ
 0,136 -&gt; 108<y:LabelModel>
@@ -1009,7 +1009,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="61.701171875" x="689.1494140624999" y="552.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="51.701171875" x="5.0" y="1.0">ГВС
 0,5 -&gt; 60<y:LabelModel>
@@ -1027,7 +1027,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="61.701171875" x="1019.1494140625" y="552.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="51.701171875" x="5.0" y="1.0">ГВС
 0,5 -&gt; 84<y:LabelModel>
@@ -1045,7 +1045,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="78.892578125" x="1310.5537109375" y="582.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="68.892578125" x="5.0" y="1.0">ГВС
 взрывается<y:LabelModel>
@@ -1063,7 +1063,7 @@
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="35.40234375" width="97.0625" x="1301.46875" y="672.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="87.0625" x="5.0" y="1.0">парогенератор
 взрывается<y:LabelModel>
@@ -1080,11 +1080,11 @@
     <node id="n61">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="107.26953125" x="996.365234375" y="612.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Geometry height="35.40234375" width="108.271484375" x="995.8642578125" y="612.298828125"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="97.26953125" x="5.0" y="1.0">парогенератор
-0,67т + 3в -&gt; 504<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="98.271484375" x="5.0" y="1.0">парогенератор
+0,67п + 3в -&gt; 504<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1098,11 +1098,11 @@
     <node id="n62">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="35.40234375" width="107.26953125" x="36.365234375" y="612.298828125"/>
-          <y:Fill color="#00CCFF" transparent="false"/>
+          <y:Geometry height="35.40234375" width="107.7734375" x="36.11328125" y="612.298828125"/>
+          <y:Fill color="#CCFFFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="97.26953125" x="5.0" y="1.0">парогенератор
-0,67т + 3в -&gt; 414<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" modelName="custom" textColor="#000000" visible="true" width="97.7734375" x="5.0" y="1.0">парогенератор
+0,67c + 3в -&gt; 414<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1114,11 +1114,10 @@
       </data>
     </node>
     <node id="n63">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="185.0703125" x="627.46484375" y="285.0"/>
-          <y:Fill color="#00FF00" transparent="false"/>
+          <y:Fill color="#CCFFCC" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="175.0703125" x="5.0" y="5.6494140625">0 графитовый пресс 1,3 -&gt;0,67<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
@@ -1137,7 +1136,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="27.71630859375" y="-31.40234375000003">0 бур -&gt; 0,1 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="27.71630859375" y="-31.40234375000003">0 бур -&gt; 0,1 х4 (х2,56)
 0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
@@ -1165,7 +1164,7 @@
     <edge id="e2" source="n4" target="n0">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="60.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="90.18745480503587" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
@@ -1178,7 +1177,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="22.2919921875" y="-31.40234375000003">0 бур -&gt; 0,1 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="22.2919921875" y="-31.40234375000003">0 бур -&gt; 0,1 х4 (х2,56)
 0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
@@ -1196,7 +1195,7 @@
     <edge id="e4" source="n4" target="n5">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="60.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="90.18745480503587" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
@@ -1209,7 +1208,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="24.751464843750114" y="-24.0517578125">0 бур -&gt; 0,15 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="24.751464843750114" y="-24.0517578125">0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
@@ -1226,7 +1225,7 @@
     <edge id="e6" source="n4" target="n7">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="60.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="90.18745480503587" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:BendStyle smoothed="false"/>
@@ -1236,7 +1235,7 @@
     <edge id="e7" source="n4" target="n8">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="60.0" sy="0.0" tx="0.0" ty="0.0">
+          <y:Path sx="90.18745480503587" sy="0.0" tx="0.0" ty="0.0">
             <y:Point x="780.0" y="270.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
@@ -1271,7 +1270,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="80.3125" x="63.28125" y="-28.194234212239508">60 плавильня
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="80.3125" x="63.28125" y="-28.194234212239508">60 плавильня
 5,8 -&gt; 11,6<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1366,7 +1365,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="25.844238281250114" y="-16.701171875">7,3х9 бур -&gt; 0,214 х9 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="25.844238281250114" y="-16.701171875">7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1493,7 +1492,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="28.37255859375" y="-31.40234375">0 бур -&gt; 0,1 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="28.37255859375" y="-31.40234375">0 бур -&gt; 0,1 х4 (х2,56)
 0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
@@ -1514,7 +1513,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="140.08984375" x="70.58007812500011" y="-241.701171875">30 угольная центрифуга
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="140.08984375" x="70.58007812500011" y="-241.701171875">30 угольная центрифуга
 5,4 -&gt; 2<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1533,7 +1532,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="18.90380894886357" y="-31.40234375">0 бур -&gt; 0,1 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="18.90380894886357" y="-31.40234375">0 бур -&gt; 0,1 х4 (х2,56)
 0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
@@ -1554,7 +1553,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="11.3701171875" y="-31.402343749999943">0 бур -&gt; 0,1 х4 (х2,56)
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="62.8046875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="187.322265625" x="11.3701171875" y="-31.402343749999943">0 бур -&gt; 0,1 х4 (х2,56)
 0 бур -&gt; 0,15 х4 (х2,56)
 7,3х9 бур -&gt; 0,214 х9 (х2,56)
 11,25х16 бур -&gt; 0,214 х16 (х2,56)<y:LabelModel>
@@ -1575,7 +1574,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="99.443359375" x="65.99261474609372" y="73.29882812500006">30 измельчитель
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="99.443359375" x="65.99261474609372" y="73.29882812500006">30 измельчитель
 1,5 -&gt; 1,5<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1594,7 +1593,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="138.408203125" x="41.52099609375" y="-29.003987630208258">48 культиватор-бур
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="138.408203125" x="41.52099609375" y="-29.003987630208258">48 культиватор-бур
 10,8 -&gt; 0,43 (х1.6 .. x2.2)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1703,7 +1702,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="119.03125" x="68.05028789059384" y="-24.0517578125">0 помпа -&gt; 6
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="119.03125" x="68.05028789059384" y="-24.0517578125">0 помпа -&gt; 6
 2,25х4 насос -&gt; 12х4
 2х9 насос -&gt; 10х9<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
@@ -1733,7 +1732,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="119.03125" x="22.301822583116007" y="-42.23338570423414">0 помпа -&gt; 6
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="48.103515625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="119.03125" x="22.301822583116007" y="-42.23338570423414">0 помпа -&gt; 6
 2,25х4 насос -&gt; 12х4
 2х9 насос -&gt; 10х9<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
@@ -1917,7 +1916,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#00FF00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="110.083984375" x="30.799581156626402" y="40.52654368775086">36 споровый пресс
+          <y:EdgeLabel alignment="center" backgroundColor="#CCFFCC" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="33.40234375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="110.083984375" x="30.799581156626402" y="40.52654368775086">36 споровый пресс
 3 -&gt; 18<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -2055,7 +2054,6 @@
       </data>
     </edge>
     <edge id="e73" source="n9" target="n63">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -2066,7 +2064,6 @@
       </data>
     </edge>
     <edge id="e74" source="n63" target="n8">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
