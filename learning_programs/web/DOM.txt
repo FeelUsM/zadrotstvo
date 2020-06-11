@@ -1,0 +1,96 @@
+--- JavaScript ---
+15
+	1 глобальный объект
+		NaN
+		Infinity
+		undefined
+		eval (x)
+		parseInt (string , radix)
+		parseFloat (string)
+		isNaN (number)
+		isFinite (number)
+		decodeURI (encodedURI) // %xx переводит в букву, если это не превратится :/@?&=#+;,$
+		decodeURIComponent (encodedURIComponent) // %xx переводит в букву
+		encodeURI (uri) // переводит в формат %xx все кроме a-zA-Z0-9-_.!~*'():/@?&=#+;,$
+		encodeURIComponent (uriComponent) // переводит в формат %xx все кроме a-zA-Z0-9-_.!~*'()
+		Object ( . . . )
+		Function ( . . . )
+		Array ( . . . )
+		String ( . . . )
+		Boolean ( . . . )
+		Number ( . . . )
+		Date ( . . . )
+		RegExp ( . . . )
+		Error ( . . . )
+		EvalError ( . . . )
+		RangeError ( . . . )
+		ReferenceError ( . . . )
+		SyntaxError ( . . . )
+		TypeError ( . . . )
+		URIError ( . . . )
+		Math
+		JSON
+	2 Object
+		prototype
+			constructor
+			toString ( )
+			toLocaleString ( ) //аналог repr() чтоли...
+			valueOf ( ) // преобразование к простому типу
+			hasOwnProperty (V)
+			isPrototypeOf (V)
+			propertyIsEnumerable (V)
+		getPrototypeOf ( O )
+		getOwnPropertyDescriptor ( O, P )
+		getOwnPropertyNames ( O ) //аналог dir()
+		create ( O [, Properties] )
+		defineProperty ( O, P, Attributes )
+		defineProperties ( O, Properties )
+		seal ( O )
+		freeze ( O )
+		preventExtensions ( O )
+		isSealed ( O )
+		isFrozen ( O )
+		isExtensible ( O )
+		keys ( O )
+	3 Function
+	4 Array
+	5 String
+	6 Boolean
+	7 Number
+	8 Math
+	9 Date
+	10 RegExp
+	11 Error
+	12 JSON
+--- BOM ---
+navigator
+	props
+		userAgent : ?	информация о текущем браузере
+		platform : ?	информация о платформе (ОС)
+location
+	props
+		href	-> текущий URL
+			<- перенаправляет браузер на заданный URL
+alert(mes)
+confirm(...)
+prompt(...)
+
+--- DOM ---
+document
+EventTarget
+	Node
+		Element
+			HTMLElement
+				props
+					style	:	CSSStyleDeclaration
+					...
+
+
+--- CSSOM ---					
+CSSStyleDeclaration
+	props
+		background	:	...
+		...
+scheme: [//[user@]host[:port]] [/path] [?query] [#fragment]
+
+[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)

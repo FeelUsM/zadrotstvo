@@ -1,0 +1,50 @@
+=== re ===
+compile	(pattern,                     flags=0) -> Pattern
+search	(pattern, string,             flags=0)->Match/None - ищет первое вхождение
+match	(pattern, string,             flags=0)->Match/None - проверяет начало строки
+fullmatch(pattern, string,             flags=0)->Match/None - проверяет всю строку
+split	(pattern, string, maxsplit=0, flags=0)->list of str - разбивает на непересекающиеся
+findall	(pattern, string,             flags=0)->list of str
+finiter	(pattern, string,             flags=0)->generator yiels Match
+sub	(pattern, repl, string, count=0, flags=0)->str - заменяет непересекающиеся
+	repl - строка - обрабатывает 
+		\n\r...
+		\u (unknown) - ошибка
+		\& - не меняет
+		\2 - заменяет на группу
+	repl(Match)->str
+subn		(pattern, repl, string, count=0, flags=0)->(str,n) n - количество замен
+escape		(pattern)->str - http://www.python.org -> http://www\.python\.org
+purge		() - очищает кэш re
+
+-- Pattern --
+search	(string[, pos[, endpos]])->Match/None
+match	(string[, pos[, endpos]])->Match/None
+fullmatch(string[, pos[, endpos]])->Match/None
+split	(string, maxsplit=0)->list of str
+findall	(string[, pos[, endpos]])->list of str
+finditer(string[, pos[, endpos]])->generator yiels Match
+sub	(repl, string, count=0)->str
+subn	(repl, string, count=0)->(str,n
+flags - ???
+groups - количество групп
+groupindex - словарь имя_группы:индекс (если есть именованные группы)
+pattern - строка
+
+--- Match ---
+	boolean value of True
+expand	(repl)->str		преобразовывает repl как sub() для подстановки
+group	([group1=0, ...]) ->str или ->(str,...) возвращает группу (0-я - всё найденное целиком). группы могут быть именованными
+__getitem__(g) = group(g)
+groups	(default=None)->(str,...) возвращает все группы. defaults - значение неразобранных групп
+groupdict(default=None)->{name:str,...} - именованные группы. defaults - значение неразобранных групп
+start	([group=0])	позиция начала подгруппы (-1 если подгруппа не учавствует)
+end	([group=0])	позиция конца подгруппы (-1 если подгруппа не учавствует)
+			m.string[m.start(g):m.end(g)] == m.group(g)
+span	([group=0])	->(m.start(group), m.end(group))
+pos			pos, переданный в search()/match()
+endpos			endpos, переданный в search()/match()
+lastindex		индекс последней захваченной группы
+lastgroup		имя или None последней захваченной группы
+re			pattern, переданный в match()/match()
+string			string, переданный в match()/match()
