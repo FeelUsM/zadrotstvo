@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  14 SEP 2020 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  15 SEP 2020 12:27
 entering extended mode
 **./document.tex
 (document.tex
@@ -631,7 +631,7 @@ File: t2aenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 Package babel Info: Making " an active character on input line 120.
 Package babel Info: Default for \cyrdash is provided on input line 157.
 )) (document.aux
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 3.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 5.
 ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
@@ -654,25 +654,25 @@ LaTeX Font Info:    ... okay on input line 12.
  [1
 
 {D:/Users/feelus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
 
 ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
 
-Overfull \hbox (1.1716pt too wide) in paragraph at lines 98--99
+Overfull \hbox (1.1716pt too wide) in paragraph at lines 96--97
 []\T2A/cmr/m/n/10 кажда стро-ка в таб-лич-ке со-дер-жит чис-ло яче-ек не боль-ш
 е чем в преды-
  []
 
 [2] [3] (document.aux) ) 
 Here is how much of TeX's memory you used:
- 2406 strings out of 493305
- 26548 string characters out of 3136711
+ 2411 strings out of 493305
+ 26619 string characters out of 3136711
  96176 words of memory out of 3000000
- 5956 multiletter control sequences out of 15000+200000
+ 5961 multiletter control sequences out of 15000+200000
  14734 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,9n,23p,852b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -694,9 +694,9 @@ es/MiKTeX 2.9-dubl/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/Mi
 KTeX 2.9-dubl/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
 X 2.9-dubl/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.
 9-dubl/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on document.pdf (3 pages, 161529 bytes).
+Output written on document.pdf (3 pages, 176015 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
+ 317 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
