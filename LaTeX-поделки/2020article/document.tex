@@ -1,5 +1,6 @@
 \documentclass[]{article}
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -19,20 +20,58 @@
 \end{abstract}
 
 \section{Введение}
-как мы писали в наших предыдущих статьях
 
-H rho = E rho
+Есть купраты (антиферромагнетики). У них гамильтониан вот такой:
+$$H=-J\sum_{<i,j>}\vec\sigma_i\vec\sigma_j$$
+где $<i,j>$ означает соседние спины в решетке, как на рис. 1,2
+\begin{figure}[h]
+	\begin{minipage}{6pc}
+		\includegraphics[width=6pc]{sqlattice.png}
+	\end{minipage}\hspace{2pc}%
+	\begin{minipage}{5pc}
+		\caption{\label{label} 2d квадратная решетка.}
+	\end{minipage}\hspace{2pc}%
+	\begin{minipage}{6pc}
+		\includegraphics[width=6pc]{triangle-lattice.png}
+	\end{minipage}\hspace{2pc}%
+	\begin{minipage}{5pc}
+		\caption{\label{label} 2d треугольная решетка.}
+	\end{minipage} 
+\end{figure}
 
-квадратичная параметризация
+И важно находить энергию основоного состояния (на один спин).
+Оценить эту энергию сверху можно по формуле $E_{\rm gs} \leqslant \langle \Psi|H| \Psi \rangle$.
+Оценить снизу можно разбивая кристалл на кластеры\cite{Anderson}, а также вариационно \cite{variational} 
+$${E_{gs\;full}}/N\;=\frac{d}{m}{E_{gs\;cl}}$$
+где
+\begin{itemize}
+	\item $N$ - количество спинов в решетке
+	\item $M$ - количество кластров
+	\item $d$ - количество связей на 1 спин
+	\item $m$ - количество связей в кластере
+\end{itemize}
+$$M = \frac{{Nd}}{m} \label{MNdm} $$
 
-базис
+Энергию основного состояния кластера можно находить из уравнения Шредингера 
+$$H \rho = E \rho$$
+На $\rho$ как на матрицу плотности накладываются ограничения: самосопряженность, единичный след, неотрицательность.
+$${\rho ^ + } = \rho ;\qquad \mathop{\rm{tr}}\rho  = 1;\qquad  \rho  \geqslant 0$$
+Этого можно добиться введя параметр тау: 
+$$\rho  = \frac{{{\tau ^2}}}{{\mathop{\rm{tr}}{\tau ^2}}};\qquad {\tau ^ + } = \tau $$
+где на $\tau$ накладывается только самосопряженность.
 
-он переполнен
+Далее мы вводим базис для $\tau$, и раскладываем ее по нему.
+$$\tau=b_i A_i$$
+Поскольку система сферически симметрична, то в качестве базисных элементов можно выбрать всевозможные произведения 
+скалярных и смешанных произведений сигма-матриц, а т.к. система еще симметрична по обращению времени, то можно оставить только скалярные произведения.
+$$A_i=\{ 1,  \;\;({\bf \sigma}_j{\bf\sigma}_k), \;\;
+({\bf \sigma}_j{\bf\sigma}_k)({\bf \sigma}_l{\bf\sigma}_m)\;\;,\;\;...\}$$
+Этот базис не только не ортогонален, но и переполнен.
 
 \section{Цель и ход работы}
 Мы захотели получить этот базис в непереполненном виде, чтобы немного сократить объем вычилений.
 
-Мы нашли статью \cite{basis_f} про "базис f", но через год, когда мы ее всё-таки прочитали, оказалось что это вообще не имеет ни какого отношения к нашему базису.
+%Мы нашли статью \cite{basis_f} про "базис f", но через год, когда мы ее всё-таки прочитали, оказалось что это вообще не имеет ни какого отношения к нашему базису.
 
 Мы решили посчитать сколько же на самом деле линейнонезависимых векторов в нашем базисе для небольшого числа спинов,
 нашли эту последовательность на OEIS, 
@@ -131,20 +170,32 @@ $$N_n=\begin{cases}
 \section{Планы применения непереполненного базиса к уравнению Шредингера}
 Если вернуться к иходной задаче $H \rho = E \rho$, то 
 нам требуется умножать элементы нашего базиса (из $\rho$) на скалярные произведения (из $H$), и полученный результат вновь раскладывать по базису.
-Для переполненного базиса это было реализовано ранее (и описано в предыдущих статьях (***).
+Для переполненного базиса это было реализовано ранее (и описано в предыдущих статьях \cite{variational}.
 Для нового непереполненного базиса это сделать пока не удалось (так чтобы не при этом не переходить к старому переполненному базису, что сводит на нет преимущества нового непереполненного базиса)
 
 \begin{thebibliography}{3}
 	\bibitem{source_article}
 	D. L. Andrews and T. Thirunamachandran, On three-dimensional rotational averages, 1977
+	
+	\bibitem{variational}
+	Filipp Uskov, Oleg Lychkovskiy, A variational lower bound on the ground state of a 	many-body system and the squaring parametrization of density matrices, 2018
+	
+	\bibitem{Anderson} Anderson PW 1951
+	Limits on the energy of the antiferromagnetic Ground State
+	{\it Phys. Rev.} {\bf 83(6)} 1260
+	
 	\bibitem{basis_gen_code}
 	https://github.com/FeelUsM/ScalarMixedSpins/blob/master/tables.nb
+	
 	\bibitem{variational_method}
 	Filipp Uskov, Oleg Lychkovskiy, A variational lower bound on the ground state of a many-body system and the squaring parametrization of density matrices, .....
+	
 	\bibitem{anderson}
 	Anderson PW 1951 Limits on the energy of the antiferromagnetic Ground State Phys. Rev. 83(6) 1260
+	
 	\bibitem{basis_f}
 	P. Grabowski and Pierre Mathieu, Quantum Integrals of Motion for the Heisenberg Spin Chain, LAVAL-PHY-94-20
+	
 \end{thebibliography}
 
 \end{document}
