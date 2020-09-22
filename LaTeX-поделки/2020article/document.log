@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  22 SEP 2020 13:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  22 SEP 2020 22:07
 entering extended mode
 **./document.tex
 (document.tex
@@ -809,16 +809,83 @@ Overfull \hbox (1.1716pt too wide) in paragraph at lines 139--140
 е чем в преды-
  []
 
-[3] [4] [5] (document.aux)
+<1x2.png, id=23, 22.58438pt x 33.87656pt>
+File: 1x2.png Graphic file (type png)
+<use 1x2.png>
+Package pdftex.def Info: 1x2.png  used on input line 154.
+(pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
+<3x1.png, id=24, 15.05624pt x 33.87656pt>
+File: 3x1.png Graphic file (type png)
+<use 3x1.png>
+Package pdftex.def Info: 3x1.png  used on input line 157.
+(pdftex.def)             Requested size: 15.0562pt x 33.87646pt.
+<1x4.png, id=25, 41.4047pt x 33.87656pt>
+File: 1x4.png Graphic file (type png)
+<use 1x4.png>
+Package pdftex.def Info: 1x4.png  used on input line 160.
+(pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
+<2x2.png, id=26, 22.58438pt x 33.87656pt>
+File: 2x2.png Graphic file (type png)
+<use 2x2.png>
+Package pdftex.def Info: 2x2.png  used on input line 161.
+(pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
+<3x3.png, id=27, 30.1125pt x 33.87656pt>
+File: 3x3.png Graphic file (type png)
+<use 3x3.png>
+Package pdftex.def Info: 3x3.png  used on input line 164.
+(pdftex.def)             Requested size: 30.11241pt x 33.87646pt.
+<1x6.png, id=28, 56.46094pt x 33.87656pt>
+File: 1x6.png Graphic file (type png)
+<use 1x6.png>
+Package pdftex.def Info: 1x6.png  used on input line 167.
+(pdftex.def)             Requested size: 56.46078pt x 33.87646pt.
+<2x4.png, id=29, 41.4047pt x 33.87656pt>
+File: 2x4.png Graphic file (type png)
+<use 2x4.png>
+Package pdftex.def Info: 2x4.png  used on input line 168.
+(pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
+<3x2.png, id=30, 22.58438pt x 33.87656pt>
+File: 3x2.png Graphic file (type png)
+<use 3x2.png>
+Package pdftex.def Info: 3x2.png  used on input line 169.
+(pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
+<3x5.png, id=31, 48.93282pt x 33.87656pt>
+File: 3x5.png Graphic file (type png)
+<use 3x5.png>
+Package pdftex.def Info: 3x5.png  used on input line 172.
+(pdftex.def)             Requested size: 48.93268pt x 33.87646pt.
+<3x3(7).png, id=32, 30.1125pt x 33.87656pt>
+File: 3x3(7).png Graphic file (type png)
+<use 3x3(7).png>
+Package pdftex.def Info: 3x3(7).png  used on input line 173.
+(pdftex.def)             Requested size: 30.11241pt x 33.87646pt.
+[3 <./1x2.png> <./3x1.png> <./1x4.png> <./2x2.png> <./3x3.png>]
+<1x8.png, id=38, 75.28125pt x 33.87656pt>
+File: 1x8.png Graphic file (type png)
+<use 1x8.png>
+Package pdftex.def Info: 1x8.png  used on input line 176.
+(pdftex.def)             Requested size: 75.28105pt x 33.87646pt.
+<2x6.png, id=39, 56.46094pt x 33.87656pt>
+File: 2x6.png Graphic file (type png)
+<use 2x6.png>
+Package pdftex.def Info: 2x6.png  used on input line 177.
+(pdftex.def)             Requested size: 56.46078pt x 33.87646pt.
+<3x4.png, id=40, 41.4047pt x 33.87656pt>
+File: 3x4.png Graphic file (type png)
+<use 3x4.png>
+Package pdftex.def Info: 3x4.png  used on input line 178.
+(pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
+ [4 <./1x6.png> <./2x4.png> <./3x2.png> <./3x5.png> <./3x3(7).png> <./1x8.png> 
+<./2x6.png> <./3x4.png>] [5] (document.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3915 strings out of 493305
- 48092 string characters out of 3136711
- 123008 words of memory out of 3000000
- 7377 multiletter control sequences out of 15000+200000
+ 3980 strings out of 493305
+ 48809 string characters out of 3136711
+ 119008 words of memory out of 3000000
+ 7429 multiletter control sequences out of 15000+200000
  19015 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,26p,852b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -842,9 +909,9 @@ X 2.9-dubl/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9
 nts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9-dubl/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9-dubl/fonts/type
 1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (5 pages, 215418 bytes).
+Output written on document.pdf (5 pages, 218245 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
+ 354 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
