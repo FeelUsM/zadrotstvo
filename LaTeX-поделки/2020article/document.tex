@@ -9,6 +9,9 @@
 
 \usepackage{xcolor}
 \usepackage{hyperref}
+%\usepackage{autonum}
+\renewcommand{\[}{\begin{equation}}
+\renewcommand{\]}{\end{equation}}
 
 %opening
 \title{О непереполненном базисе скалярных и смешанных произведений сигма-матриц}
@@ -31,23 +34,31 @@
 \section{Введение}
 
 В физике важную роль играют системы спинов $1/2$ с изотропным Гейзенберговским взаимодействием. Общий вид гамильтониана имеет вид:
-$$H=-J_{ij}\sum_{i\neq j}\vec\sigma_i\vec\sigma_j$$
+\[
+H=-\sum_{i\neq j}J_{ij}\vec\sigma_i\vec\sigma_j 
+\label{k1}
+\]
+где $\vec\sigma_i = \{\sigma_i^x,\sigma_i^y,\sigma_i^z\}$ - вектор матриц Паули, $J_{ij}$ - константы связи, $i,j$ - нумеруют спины.
 
 Состояние такой систмемы описаывается матрицей плотности $\rho$.
 Поскольку гамильотониан изотропен, то матрица плотности тоже изотропна, и может быть разложена в базис:
-$$A_i=\{ 1,  \;\;({\vec \sigma}_j{\vec\sigma}_k), \;\;
-({\vec \sigma}_j{\vec\sigma}_k)({\vec \sigma}_l{\vec\sigma}_m)\;\;,\;\;...\}$$
+\[A_i=\{ 1,  \;\;({\vec \sigma}_j{\vec\sigma}_k), \;\;
+({\vec \sigma}_j{\vec\sigma}_k)({\vec \sigma}_l{\vec\sigma}_m)\;\;,\;\;...\}
+\label{k2}
+\]
 Он конструируется из единичной матрицы и всевозможных скалярных и смешанных произведений сигма-матриц. 
 Если мы требуем инвариантности матрицы плотности относительно обращений по времени, то в этом базисе будут только скалярные произведения (и единица),
 а если не требуем, то благодаря тождеству 
-$$(\vec\sigma_1,\vec\sigma_2,\vec\sigma_3)
+\[
+(\vec\sigma_1,\vec\sigma_2,\vec\sigma_3)
 (\vec\sigma_4,\vec\sigma_5,\vec\sigma_6)= 
 \begin{vmatrix}
 	(\vec\sigma_1,\vec\sigma_4) & 	(\vec\sigma_1,\vec\sigma_5) & (\vec\sigma_1,\vec\sigma_6) \\
 	(\vec\sigma_2,\vec\sigma_4) & 	(\vec\sigma_2,\vec\sigma_5) & (\vec\sigma_2,\vec\sigma_6) \\
 	(\vec\sigma_3,\vec\sigma_4) & 	(\vec\sigma_3,\vec\sigma_5) & (\vec\sigma_3,\vec\sigma_6) \\
 \end{vmatrix}
-$$
+\label{k3}
+\]
 в каждом слагаемом ожно оставить не более одного смешанного произведения.
 
 Матрица плотности, разложенная по такому базису, используется в частности при квадратичной параметризации \cite{kvadro},
@@ -78,15 +89,19 @@ $$
 Элементы базиса будем называть табличками. Эти таблички заполняются номерами спинов.
 
 Столбец высоты 3 мы интерпретируем как смешанное произведение.
-$$ \begin{tabular}{ | l | }
+\[
+\begin{tabular}{ | l | }
 \hline
 1 \\ \hline
 2 \\ \hline
 3 \\
 \hline
-\end{tabular} = (\vec \sigma_1, \vec \sigma_2, \vec \sigma_3) $$
+\end{tabular} = (\vec \sigma_1, \vec \sigma_2, \vec \sigma_3) 
+\label{k4}
+\]
 Пару столбцов мы интерпретируем как определитель скалярных произведений (или, что то же самое, обобщенный символ Кронекера\cite{kronecker_wiki}, свёрнутый со всеми векторами сигма-матриц).
-$$ \begin{tabular}{ |l|l| }
+\[
+\begin{tabular}{ |l|l| }
 \hline
 1 & 4 \\ \hline
 2 & 5\\ 
@@ -101,19 +116,23 @@ $$ \begin{tabular}{ |l|l| }
 (\vec\sigma_1,\vec\sigma_4) & (\vec\sigma_1,\vec\sigma_5)\\
 (\vec\sigma_2,\vec\sigma_4) & (\vec\sigma_2,\vec\sigma_5)\\
 \end{vmatrix}
-$$
+\label{k5}
+\]
 например
 
 пара столбцов длины 1 это просто скалярное произведение
-$$\begin{tabular}{ |l|l| }
+\[
+\begin{tabular}{ |l|l| }
 \hline
 1 & 2 \\
 \hline
 \end{tabular}
 = (\vec \sigma_1, \vec \sigma_2)
-$$
+\label{k6}
+\]
 пара столбцов длины 3 равна произведению двух смешанных произведений (каждое соответствует  своему столбцу)
-$$ \begin{tabular}{ |l|l| }
+\[
+\begin{tabular}{ |l|l| }
 \hline
 1 & 4 \\ \hline
 2 & 5\\ \hline
@@ -129,7 +148,8 @@ $$ \begin{tabular}{ |l|l| }
 =
 (\vec \sigma_1, \vec \sigma_2, \vec \sigma_3)
 (\vec \sigma_4, \vec \sigma_5, \vec \sigma_6)
-$$
+\label{k7}
+\]
 
 В базис войдут элементы, удовлетворяющие следующим критериям:
 \begin{itemize}
@@ -182,7 +202,7 @@ $$
 	\item после чего заполняем эти таблички различающимися номерами спинов так, чтобы каждая строка и каждый столбец был отсортирован по возрастанию номера спина (при необходимости спины можно перенумеровать в любой последовательности)
 	
 	Примеры заполнения одной таблички:
-	$$
+\[
 \begin{tabular}{ |l|l|l|l| }
 \hline
 1 & 2 \\ \hline
@@ -222,13 +242,18 @@ $$
 3&6 \\
 \hline
 \end{tabular}
-	$$
+\label{k8}
+\]
 \end{itemize}
 
 Была написана функция \cite{basis_gen_code}, которая генерирует все возможные элементы базиса, и их число совпало с формулой из статьи\cite{sourceArticle}
-$$Q_n = \sum_{r=0}^{[n/2]}\frac{n!(3r-n+1)}{(n-2r)!r!(r+1)!}.$$
+\[
+Q_n = \sum_{r=0}^{[n/2]}\frac{n!(3r-n+1)}{(n-2r)!r!(r+1)!}.
+\label{k9}
+\]
 Ранее нами была обнаружена гипотеза, что пара столбцов длины 4 равна 0, и что этим объясняются все линейные зависимости в базисе с четным числом спинов.
-$$ \begin{tabular}{ |l|l| }
+\[
+\begin{tabular}{ |l|l| }
 \hline
 1 & 5 \\ \hline
 2 & 6\\ \hline
@@ -244,13 +269,17 @@ $$ \begin{tabular}{ |l|l| }
 (\vec\sigma_4,\vec\sigma_5) & (\vec\sigma_4,\vec\sigma_6) & (\vec\sigma_4,\vec\sigma_7) & (\vec\sigma_4,\vec\sigma_8)\\
 \end{vmatrix}
 =0 .
-$$
+\label{k10}
+\]
 Был замечен факт, что если для четного числа спинов сгененрировать все возможные таблички без ограничения числа строк,
 то их общее число оказалось равно количеству элементов нашего исходного переполненного базиса
-$$N_n=\begin{cases}
+\[
+N_n=\begin{cases}
 \frac{n!}{2^{n/2}(n/2)!} & (n=2k)\\
 \frac{n!}{3\dot 2^{(n-1)/2}((n-3)/2)!} & (n=2k+1)
-\end{cases}$$
+\end{cases}
+\label{k11}
+\]
 откуда можно сформулировать гипотезу, что скорее всего все таблички, у которых число строк больше 4 (они =0), дают все линейные зависимости в исходном базисе.
 Для нечетного количества спинов аналогичный факт нами пока не придуман.
 
@@ -293,7 +322,9 @@ $$N_n=\begin{cases}
 	\href{https://arxiv.org/abs/1704.03861}{https://arxiv.org/abs/1704.03861}
 	
 	\bibitem{variational}
-	Filipp Uskov, Oleg Lychkovskiy, A variational lower bound on the ground state of a 	many-body system and the squaring parametrization of density matrices, 2018, \href{https://arxiv.org/abs/1902.09246}{https://arxiv.org/abs/1902.09246}
+	F. Uskov, O. Lychkovskiy. A variational lower bound on the ground state of a many-body system and
+	the squaring parametrization of density matrices {\it// J. Phys.: Conf. Ser.} {\bf 1163, 012057} (2019).
+	\href{https://arxiv.org/abs/1902.09246}{https://arxiv.org/abs/1902.09246}
 	
 	%\bibitem{Anderson} Anderson PW 1951
 	%Limits on the energy of the antiferromagnetic Ground State
@@ -304,7 +335,7 @@ $$N_n=\begin{cases}
 	{https://github.com/FeelUsM/ScalarMixedSpins/blob/master/tables.nb}
 	
 	\bibitem{basisF}
-	P. Grabowski and Pierre Mathieu, Quantum Integrals of Motion for the Heisenberg Spin Chain, {\it LAVAL-PHY-94-20}
+	P. Grabowski and Pierre Mathieu, Quantum Integrals of Motion for the Heisenberg Spin Chain, {\it  Modern Physics Letters A} {\bf 9.24 (1994): 2197-2206.}
 	\href{https://arxiv.org/abs/hep-th/9403149}{https://arxiv.org/abs/hep-th/9403149}
 	
 	\bibitem{kronecker_wiki}
