@@ -1,25 +1,46 @@
 duino	iarduino оф.цена размер	название	контроллер	частота	ПЗУ(зг)	ОЗУ	ан.вх(вых)ц.в/в(ШИМ)	ан.вых
-		х		Diecimila	ATmega168
-		х	17-13	Duemilanove	ATmega168	16МГц	16кб(2)	1кб	6	14(6)
+		=== нет usb ===
+				pro
 		х	мелк12	Mini		ATmega168	16МГц	16кб(2)	1кб	8(4)	14(6)
 320	190-390			pro mini
-			
-395-630	490-990	22-23$	19-15	Uno		ATmega328P	16МГц	32кб(0.5) 2кб	6	14(6)		
+				Ethernet	ATmega328	16МГц	32кб(0.5) 2кб	6	14(6)			eathernet
+			круг5см	Lilypad		ATmega328V	
+				Fio											XBee
+		=== FTDI ===
 280-850	320-582	20$	мелк15	Nano		ATmega328	16МГц	32кб(2)	2кб	8	14(6)
-
+985-1170 940-1390 40$	28-26-36Mega		ATmega2560	16МГц	256кб(8) 8кб	16	54(15)
+		х		Diecimila	ATmega168
+		х	17-13	Duemilanove	ATmega168	16МГц	16кб(2)	1кб	6	14(6)
+				extreme
+				NG
+		=== 8U2/16U2 ===	
+395-630	490-990	22-23$	19-15	Uno		ATmega328P	16МГц	32кб(0.5) 2кб	6	14(6)		
+				mega2560
+				Mega ADK										usb host
+1495	1821	39-40$	28-26-36Due??		cortexM3(32бит)	84МГц	512кб	96кб	12	54(12)		2
+		=== встроенный usb ===
 875	790	15-20$	19-15	Leonardo	ATmega32U4	16МГц	32кб(4)	2.5кб	12	20(7)
 395-1040	12-20$	мелк17	Micro		ATmega32U4	16МГц	32кб(4)	2.5кб	12	20(7)
-
-985-1170 940-1390 40$	28-26-36Mega		ATmega2560	16МГц	256кб(8) 8кб	16	54(15)
-
-1495	1821	39-40$	28-26-36Due		cortexM3(32бит)	84МГц	512кб	96кб	12	54(12)		2
+1495	1821	39-40$	28-26-36Due??		cortexM3(32бит)	84МГц	512кб	96кб	12	54(12)		2
+				Lilypad usb
+				beetle usb
 220			мелк20	Maple Mini	cortexM3(32бит)	72МГц	64кб	20кб	9	34(12)
 
 535				ESP32 WiFi + Bluetooth Dual-Core
 		--------------------------------
 		45-54$	19-15	Yun		ATmega32U4	16МГц	32кб(4)	2.5кб	12(12)	20(7)			wi-fi
-				Ethernet	ATmega328	16МГц	32кб(0.5) 2кб	6	14(6)			eathernet
-			круг5см	Lilypad		ATmega328V	
-				Fio											XBee
 	960			piranha ultra	
 190	200			digispark attiny
+				
+				
+				
+				
+				
+				
+				
+				
+				
+АЦП
+http://falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWc0DMAmALGNkdgJxgIBsCaaICkllkAUAEogC0Yx1bLb1z6U-GDkmojoCOmADsGLu3DFZ1ABwdw8KNHz4q8XbogMApgGcAlsYAuAQwB2AY0ONFIFc7DZ+1QV2GexdKxZiGRwlED5QkHxwJFYkMD0RLgxoJR1E3RQ1XToAd2SZDDDmfAUiqDyWUpBykoUCCnp85mDwfAo6tsa6ACcuNDCUSBkWmSGZDnheoLHhmfDiMMm4J1GF4tbBJK8eIk8NcSZWAfC548GUBSTvPe3-Ztbx+fIJ6YjIMOrI6hwVvq+PlF6hgJtl6P9gWMKGAQfxfuCgeBYdVXD8pkw+DDQVj9t44vsYIdEa5qq1rkICf4APKIyJfEjgCqBHGRTBoz4xHxg9TMSRiODSTDtdKQCCsFJpDJ6LIJHL5HENcAnRVNJVhRXYMLlVUA9Wwl4VPpskCRJ7fE1TPpmwFmpRLMFvOYDMLG51wy2nGQ46322UIp4sm6wtF-T0uagB4MWlYYuauJ5kgQUu5E40swE48lclOVFBkE128L5g30Gm2wZzFCXRmq8tFihu1VkQaLShyS5LOg05vrSgnLD1Cr5Egcdptryd4ft1sjk2YJmUSQKSLESQNwHRPb4v08sAoaDYBD4STYSCrlAYfB55KpEVSmV6JwYVo4jCYqM7bN+Ik91w9xOfrc37TL+1A9pm0YIuBsLPl6UbwiByqwj25p+ohLqFrBBb2ghfQoYCKGFssCJYZE+E4VMgQdhaWqtHSnLbokXBgNAaBUO0xDkKKShLjxN6SlK8APnK4TVuUVb1GOtbVoq1Equh2F9i2voej21FYdRIallUZTFNUvDQkOvYGnmDbzrWrZoGuJreFZ3T5K61muoCqostZETWbWDbueuk42RGxa2URuatqZ-n1kZnTlJqNR+TF4liX5EmxeOKVNnIioIEuXRGbOBpZcu5mVAVJrWaRnmVOVFCkS5xXZWFGn5qqjXVXRwXDtlb6tYUfDNZsfAaa2rn6k5QVJZZZVteNgz5oNfklXZICrg27WLgoYXLb2TadXwm0gp2AD2fY1jUkD4C6ogQBwdBAA
+http://falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWc0DMAmALGNkdgJxgIBsCaaICkllkAUAEogC0+xIGAHC2yOlAIzUiA6jAR0wAdgw92XOeGzhw8KNBlSkDAKYBnAJZ6ALgEMAdgGMdjRWGWt2YDLLEdqzEW-F1TA-rwB4EieSGDwah5S0BhoVBEJkBDhEb4CmNS8GSD4wSwiKRECzNGx8YnwyQlp1OiZ7HU5eaGqCcWlcRURVakA7iyc1IMs-MP0-cz8YOyTFGN0E6Me-OSuCyMUqxt8kGv9tbvbKIfj6ZjbW6fCM1Ps9ABOLMSyWHcc0wKFdI-Ur4JjrXoTF+AIQyjcQnySG80AkTGYz3eM0RLm4EOE0NEsPWtRQbzidxxIAJ-yg61mIGGBDmYm+OXY2Wm1GyzPgdKZxMhHOkby+j25UnYvB56TZ-OIwkF4AlSgorLg60COB2skaQPp4CliJF6KhonUcOlwmU2G49jlggx+p8AHkjZzrszOGayX4cNxssdZNlciIWoU1CVYXAUFJsLEMPgo1GWB1yl0emy3ZBuPwvXwKL6QgVErHg5BQ+HMNGY0Gyl1KoCFf13cTztS63twPhNvWW5Taf0G1T2x9Tg2PrW++tawpayT+zLsuOSGTHunPcQPZD5Q8+EuHevU8rhGKtxmDqqd8S93izVKz5vdwr5xuRemdSeb-vzS+pavbJfXyg8bL9VzMTEbEmAfKU0CkChH1+DwvCxCQ-D+fgwQoII-RzNpJg0Kg8XwPECCXXDiCkPNywrJIq1ORDlT+Cd1m7aChk7dxGOY6UyX6IRriRNj6DtS9Gn4sgVFOfjqI+NV1gQKVOJACVuBk3jKGkuAlPkBQIFOBBe3YOSeMk9thi0yDCQ4lTDIMpjdJkqy0TSXT+CkQ5UOzMJc2YBBoGIOIsDIFt8EFQg-TjMjyIDdVkM1eQqXfS09RhQ0pKcZQEBcP9dVgoCJEeRK-xyx8cGfPKpQi-K9yK9gcpZQE6RyxoIrVJ810qyFauPPlKGUbJmrcAr6AQwcWs6yEsz1MLliwgtiEI-DOEI4iy06MjE2rbiST+BRKLMhjG3Y1itho84movZUcoU6rsuU6gIrO3qalY3gZJG-1cyiGJForZarj4X9fmHfY+E4WQKRQQHduB0HgZONJa34pyNye9CiiDeJC0wYsSxI96EwokcU2JWcYdB-t2y2BsUCE4mUKEmGKfWdNLwwNMN0opnuHqndFXkFTrpUtclQ1BFXEaul6ZQw5BdFQrlCQhxEQ-R5HKPEBFaeIXboV8XEQiiXrya2XVU1oX2vTCXeB187lcN5WIbl4W7TN7VkVkDS6DtClhkcfInDJJgpBt2Q-aBvtYpaeK6AAWQ1KZUv4ZlsUj0XvoaC00HjjqUIoFKlbjiRI5Vhzf1j4lsQAexySDLXwD0gI04kchdoA
+http://falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWc0DMAmALGNkdgJxgIBsCaaICkllkAUAEogC0Yx1bLb1z6U-GDkmojoCOmADsGLu3DFZ1ABwdw8KNAztB8XbpQgGAUwDOASxMAXAIYA7AMZHGikCpdhs-aoK7CvYumsWYhkcJRA+MJB8cCRWJDA9EWQwJUl8DMys-CUKRN06AHcuDBkMcOZ8BXKoIpYqkBrKhQIKemLmEPB8CmbutroAJy40cJRIGU6ZcZkOeCHg6YnFiOJwubhnKdWKrp0vRp4iA5hxJlZRiOWLsZQFZJ9j5NO67ZmV8lmFyMhwhqjqDhNsN-r9oi1Svx8vQQRDpnlIYD5rDwJCGm4kZsmHwwIjUbMBEc-KIzuDXNQGl0HkITgEAPJkqL-EjgWpBXGhMGYJF-WK+NR6ECSMTwBD4FA9BLQVLpJRKbCQDxpfCSAXzYoc-rgS6tWoanU9bXhGrtRlgzWfWrDbkgKLvAG25FXTljZajdZq75uuW2nzu-hAmHO-HBh3Qr0yC2PPGBiPk4OazH0bHLNzvKmEvnPAJMG0W8147xE2niYooMi2n3liiW+gM+1V5YoO6s00NsYV-2mshjNaUOR3dZ0Bk9naUS5YFp6-scQ0kbxD4rzsfL2uBSiSBRRYiSGtgmLHeJq9RgaBpBAoDDjTAhBAISPS5UhO6QSTYSRKYgGaFYxpdTVXgiBJFvy2akqObijhmIFPP44jDBB1CjomjrAuO4QAf+MZOshkKjmGOGXP6WihD6SYLPhYL4WRnrDCRjrhJRHqxkEg4MX+LrRHyR4-nAETQJIVBiuQcCCNID4yiqxDcuWX7ipGeh1M21S3C0hpti2upsbqQbUYxlxsRsukGX29GGahdb1CpVksDibJjsRXT+gecTHLxyTxLAcBfh4PTvmgKCqrxSl9pa1a2pg9kWj6NrOdxblJFCCBeYqMpKAkillqFu6+oCOWmrFOWxWCpoWjlkT5UpNblXui65REnZ+mR65sWxZl9i5-LuUlXm4lkawfhlBRZR2NY+OF9BBLwFA1LNvKHglgqnpJcoKkq6RBY+6TZNkuTHqac1Go0dWHTUDQHX8CjTWSprXQ011Uq8fB8H0JrrlI1loDlZ3xUNugpMqm4ySQEqXgDsryngklBYprFKGUxpuD9C1-SeW1VFe7Bvl9n7fujQOCLJoMKcNtrfapx3TuUC4zpTF009TN11IzDQoPDTNluzrPs49xRfTN4T8xzZMUA0H3C+LYubiAvMROzz0tm9GrSziE5DkECDS-6O41j6nU8YlRIpWgJA3mK7DmrDG4KGxOtjvri3-UbcBEPA5S+WguL7eumvVDUdulPNrmo3xQi9VQiqXpkawYZltO6r7WrdnIlqJ2uS5a99TmVcU9FC3nJV1In4VmRWB1dCXTnNRn1R8PRgFU3sdcV329AAPbjq2hw5LaYgaBAHB0EAA
