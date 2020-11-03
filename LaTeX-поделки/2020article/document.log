@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  22 SEP 2020 22:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.18)  16 OCT 2020 10:25
 entering extended mode
 **./document.tex
 (document.tex
@@ -664,88 +664,188 @@ File: t2aenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
 ))
 Package babel Info: Making " an active character on input line 120.
 Package babel Info: Default for \cyrdash is provided on input line 157.
-)) (document.aux
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 5.
-("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\cyrillic\t2acmr.fd"
-File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-
-LaTeX Warning: Label `label' multiply defined.
-
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-\openout1 = `document.aux'.
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
- ("C:\Program Files\MiKTeX 2.9-dubl\tex\context\base\supp-pdf.mkii"
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen115
-\scratchbox=\box28
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen116
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks23
-) ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\epstopdf-base.sty"
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\infwarerr.sty"
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\grfext.sty"
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\kvdefinekeys.sty"
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
-("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\kvoptions.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\kvsetkeys.sty"
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\etexcmds.sty"
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-)))
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\pdftexcmds.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\ifpdf.sty"
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen115
+\Hy@linkcounter=\count101
+\Hy@pagecounter=\count102
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count103
+Package hyperref Info: Option `unicode' set `true' on input line 3456.
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\hyperref\puenc.def"
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count104
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen116
+\Fld@menulength=\count105
+\Field@Width=\dimen117
+\Fld@charsize=\dimen118
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count106
+\c@Item=\count107
+\c@Hfootnote=\count108
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count109
+\c@bookmark@seq@number=\count110
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip46
+)
+(document.aux
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 24.
+ ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\cyrillic\t2acmr.fd"
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+ ("C:\Program Files\MiKTeX 2.9-dubl\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen119
+\scratchbox=\box28
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen120
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks23
+) ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
@@ -754,141 +854,232 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 20.
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9-dubl\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count117
+)
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
+
+(document.out) (document.out)
+\@outlinefile=\write3
+\openout3 = `document.out'.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 
 ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<sqlattice.png, id=1, 118.19156pt x 73.77562pt>
-File: sqlattice.png Graphic file (type png)
-<use sqlattice.png>
-Package pdftex.def Info: sqlattice.png  used on input line 29.
-(pdftex.def)             Requested size: 72.0pt x 44.94337pt.
+> \TeX=macro:
+->T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\@.
+l.26 \show \TeX
+               
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
-[]\T2A/cmr/m/n/10 –ис. 1: []2d
- []
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 34.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 68.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 68.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 68.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 68.
+[1
+
+{D:/Users/feelus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 88.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 88.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--32
-\T2A/cmr/m/n/10 квад-рат-на€
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 88.
 
-<triangle-lattice.png, id=2, 107.65219pt x 73.77562pt>
-File: triangle-lattice.png Graphic file (type png)
-<use triangle-lattice.png>
-Package pdftex.def Info: triangle-lattice.png  used on input line 35.
-(pdftex.def)             Requested size: 72.0pt x 49.34384pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 156.
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[]\T2A/cmr/m/n/10 –ис. 2: []2d
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\T2A/cmr/m/n/10 тре-уголь-на€
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
 ("C:\Program Files\MiKTeX 2.9-dubl\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
- [1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 156.
 
-{D:/Users/feelus/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./sqlattic
-e.png> <./triangle-lattice.png>] [2]
-Overfull \hbox (1.1716pt too wide) in paragraph at lines 139--140
+Overfull \hbox (1.1716pt too wide) in paragraph at lines 156--157
 []\T2A/cmr/m/n/10 кажда стро-ка в таб-лич-ке со-дер-жит чис-ло €че-ек не боль-ш
 е чем в преды-
  []
 
-<1x2.png, id=23, 22.58438pt x 33.87656pt>
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 165.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 165.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 165.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 165.
+[2]
+<1x2.png, id=58, 22.58438pt x 33.87656pt>
 File: 1x2.png Graphic file (type png)
 <use 1x2.png>
-Package pdftex.def Info: 1x2.png  used on input line 154.
+Package pdftex.def Info: 1x2.png  used on input line 176.
 (pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
-<3x1.png, id=24, 15.05624pt x 33.87656pt>
+<3x1.png, id=59, 15.05624pt x 33.87656pt>
 File: 3x1.png Graphic file (type png)
 <use 3x1.png>
-Package pdftex.def Info: 3x1.png  used on input line 157.
+Package pdftex.def Info: 3x1.png  used on input line 183.
 (pdftex.def)             Requested size: 15.0562pt x 33.87646pt.
-<1x4.png, id=25, 41.4047pt x 33.87656pt>
+<1x4.png, id=60, 41.4047pt x 33.87656pt>
 File: 1x4.png Graphic file (type png)
 <use 1x4.png>
-Package pdftex.def Info: 1x4.png  used on input line 160.
+Package pdftex.def Info: 1x4.png  used on input line 189.
 (pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
-<2x2.png, id=26, 22.58438pt x 33.87656pt>
+<2x2.png, id=61, 22.58438pt x 33.87656pt>
 File: 2x2.png Graphic file (type png)
 <use 2x2.png>
-Package pdftex.def Info: 2x2.png  used on input line 161.
+Package pdftex.def Info: 2x2.png  used on input line 190.
 (pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
-<3x3.png, id=27, 30.1125pt x 33.87656pt>
+<3x3.png, id=62, 30.1125pt x 33.87656pt>
 File: 3x3.png Graphic file (type png)
 <use 3x3.png>
-Package pdftex.def Info: 3x3.png  used on input line 164.
+Package pdftex.def Info: 3x3.png  used on input line 196.
 (pdftex.def)             Requested size: 30.11241pt x 33.87646pt.
-<1x6.png, id=28, 56.46094pt x 33.87656pt>
+<1x6.png, id=63, 56.46094pt x 33.87656pt>
 File: 1x6.png Graphic file (type png)
 <use 1x6.png>
-Package pdftex.def Info: 1x6.png  used on input line 167.
+Package pdftex.def Info: 1x6.png  used on input line 202.
 (pdftex.def)             Requested size: 56.46078pt x 33.87646pt.
-<2x4.png, id=29, 41.4047pt x 33.87656pt>
+<2x4.png, id=64, 41.4047pt x 33.87656pt>
 File: 2x4.png Graphic file (type png)
 <use 2x4.png>
-Package pdftex.def Info: 2x4.png  used on input line 168.
+Package pdftex.def Info: 2x4.png  used on input line 203.
 (pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
-<3x2.png, id=30, 22.58438pt x 33.87656pt>
+<3x2.png, id=65, 22.58438pt x 33.87656pt>
 File: 3x2.png Graphic file (type png)
 <use 3x2.png>
-Package pdftex.def Info: 3x2.png  used on input line 169.
+Package pdftex.def Info: 3x2.png  used on input line 204.
 (pdftex.def)             Requested size: 22.5843pt x 33.87646pt.
-<3x5.png, id=31, 48.93282pt x 33.87656pt>
+<3x5.png, id=66, 48.93282pt x 33.87656pt>
 File: 3x5.png Graphic file (type png)
 <use 3x5.png>
-Package pdftex.def Info: 3x5.png  used on input line 172.
+Package pdftex.def Info: 3x5.png  used on input line 210.
 (pdftex.def)             Requested size: 48.93268pt x 33.87646pt.
-<3x3(7).png, id=32, 30.1125pt x 33.87656pt>
+<3x3(7).png, id=67, 30.1125pt x 33.87656pt>
 File: 3x3(7).png Graphic file (type png)
 <use 3x3(7).png>
-Package pdftex.def Info: 3x3(7).png  used on input line 173.
+Package pdftex.def Info: 3x3(7).png  used on input line 211.
 (pdftex.def)             Requested size: 30.11241pt x 33.87646pt.
-[3 <./1x2.png> <./3x1.png> <./1x4.png> <./2x2.png> <./3x3.png>]
-<1x8.png, id=38, 75.28125pt x 33.87656pt>
+<1x8.png, id=68, 75.28125pt x 33.87656pt>
 File: 1x8.png Graphic file (type png)
 <use 1x8.png>
-Package pdftex.def Info: 1x8.png  used on input line 176.
+Package pdftex.def Info: 1x8.png  used on input line 217.
 (pdftex.def)             Requested size: 75.28105pt x 33.87646pt.
-<2x6.png, id=39, 56.46094pt x 33.87656pt>
+<2x6.png, id=69, 56.46094pt x 33.87656pt>
 File: 2x6.png Graphic file (type png)
 <use 2x6.png>
-Package pdftex.def Info: 2x6.png  used on input line 177.
+Package pdftex.def Info: 2x6.png  used on input line 218.
 (pdftex.def)             Requested size: 56.46078pt x 33.87646pt.
-<3x4.png, id=40, 41.4047pt x 33.87656pt>
+<3x4.png, id=70, 41.4047pt x 33.87656pt>
 File: 3x4.png Graphic file (type png)
 <use 3x4.png>
-Package pdftex.def Info: 3x4.png  used on input line 178.
+Package pdftex.def Info: 3x4.png  used on input line 219.
 (pdftex.def)             Requested size: 41.40457pt x 33.87646pt.
- [4 <./1x6.png> <./2x4.png> <./3x2.png> <./3x5.png> <./3x3(7).png> <./1x8.png> 
-<./2x6.png> <./3x4.png>] [5] (document.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+Overfull \hbox (134.25702pt too wide) in paragraph at lines 169--223
+[][] 
+ []
 
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 294.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 294.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 294.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 294.
+[3 <./1x2.png> <./3x1.png> <./1x4.png> <./2x2.png> <./3x3.png> <./1x6.png> <./2
+x4.png> <./3x2.png> <./3x5.png> <./3x3(7).png> <./1x8.png> <./2x6.png> <./3x4.p
+ng>]
+Overfull \hbox (8.50851pt too wide) in paragraph at lines 345--354
+[][] 
+ []
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 355.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 355.
+
+Underfull \hbox (badness 3977) in paragraph at lines 363--366
+[]\T2A/cmr/m/n/10 D. L. Andrews and T. Thirunamachandran, On three-dimensional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--366
+\T2A/cmr/m/n/10 rotational averages, \T2A/cmr/m/it/10 J. Chem. Phys., \T2A/cmr/
+bx/n/10 67 (1977), \T2A/cmr/m/n/10 5026-5033.
+ []
+
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 366.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 366.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 366.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 366.
+[4]
+Underfull \hbox (badness 2150) in paragraph at lines 378--381
+\T2A/cmr/m/n/10 state of a many-body system and the squaring parametrization of
+
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 378--381
+\T2A/cmr/m/n/10 density matrices \T2A/cmr/m/it/10 // J. Phys.: Conf. Ser. \T2A/
+cmr/bx/n/10 1163, 012057 \T2A/cmr/m/n/10 (2019).
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 400.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 400.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 400.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 400.
+[5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
+ (document.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: B25F5CE34134D2481D139AFF6806BEA4;733.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
  ) 
 Here is how much of TeX's memory you used:
- 3980 strings out of 493305
- 48809 string characters out of 3136711
- 119008 words of memory out of 3000000
- 7429 multiletter control sequences out of 15000+200000
- 19015 words of font info for 53 fonts, out of 3000000 for 9000
+ 11113 strings out of 493305
+ 148372 string characters out of 3136711
+ 233535 words of memory out of 3000000
+ 14509 multiletter control sequences out of 15000+200000
+ 18088 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,26p,852b,281s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,12n,35p,552b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
  <D:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a\dpi600\l
 ati1000.pk> <D:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\lh\lh-t2a
 \dpi600\labx1000.pk> <D:\Users\feelus\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
@@ -907,11 +1098,10 @@ X 2.9-dubl/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9
 -dubl/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9-dubl
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9-dubl/fo
 nts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9-dubl/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9-dubl/fonts/type
-1/public/amsfonts/symbols/msam10.pfb>
-Output written on document.pdf (5 pages, 218245 bytes).
+type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on document.pdf (5 pages, 213720 bytes).
 PDF statistics:
- 354 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 
