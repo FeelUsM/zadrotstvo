@@ -1,0 +1,79 @@
+=== class Class<...> ===
+static Class<?> 	forName(String className)
+static Class<?> 	forName(String name, boolean initialize, ClassLoader loader)
+
+TypeVariable<Class<T>>[] getTypeParameters()
+
+<A extends Annotation>A getAnnotation(Class<A> annotationClass)
+Annotation[] 		getAnnotations()
+<A extends Annotation>A[] getAnnotationsByType(Class<A> annotationClass)
+<A extends Annotation>A getDeclaredAnnotation(Class<A> annotationClass)
+Annotation[] 		getDeclaredAnnotations()
+<A extends Annotation>A[] getDeclaredAnnotationsByType(Class<A> annotationClass)
+boolean 		isAnnotationPresent(Class<? extends Annotation> annotationClass)
+
+String 			getCanonicalName()
+String 			getName()
+String 			getSimpleName()
+String 			getTypeName()
+String 			toGenericString()
+String 			toString()
+
+ClassLoader 		getClassLoader()
+T 			cast(Object obj)
+T 			newInstance()
+
+<U> Class<? extends U> 	asSubclass(Class<U> clazz)
+boolean 		isAssignableFrom(Class<?> cls)
+boolean 		isInstance(Object obj)
+Package 		getPackage()
+Class<? super T> 	getSuperclass()
+Class<?> 		getDeclaringClass()
+
+Constructor<?>[] 	getConstructors()
+Constructor<T> 		getConstructor(Class<?>... parameterTypes)
+Constructor<T> 		getDeclaredConstructor(Class<?>... parameterTypes)
+Constructor<?>[] 	getDeclaredConstructors()
+Constructor<?> 		getEnclosingConstructor()
+
+Method[] 		getMethods()
+Method 			getMethod(String name, Class<?>... parameterTypes)
+Method[] 		getDeclaredMethods()
+Method 			getDeclaredMethod(String name, Class<?>... parameterTypes)
+Method 			getEnclosingMethod()
+
+Field 			getDeclaredField(String name)
+Field[] 		getDeclaredFields()
+Field 			getField(String name)
+Field[] 		getFields()
+
+Class<?>[] 		getDeclaredClasses()
+AnnotatedType[] 	getAnnotatedInterfaces()
+AnnotatedType 		getAnnotatedSuperclass()
+Type[] 			getGenericInterfaces()
+Type 			getGenericSuperclass()
+
+Class<?>[] 		getClasses()
+Class<?> 		getEnclosingClass()
+
+Class<?>[] 		getInterfaces()
+
+T[] 			getEnumConstants()
+int 			getModifiers()
+ProtectionDomain 	getProtectionDomain()
+URL 			getResource(String name)
+InputStream 		getResourceAsStream(String name)
+Object[] 		getSigners()
+
+boolean 		isAnnotation()
+boolean 		isAnonymousClass()
+boolean 		isArray()
+boolean 		isEnum()
+boolean 		isInterface()
+boolean 		isLocalClass()
+boolean 		isMemberClass()
+boolean 		isPrimitive()
+boolean 		isSynthetic()
+
+boolean 		desiredAssertionStatus()
+Class<?> 		getComponentType()

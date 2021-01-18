@@ -1,0 +1,63 @@
+=== class BaseBundle ===
+
+void 	clear()
+boolean isEmpty()
+int 	size()
+
+boolean containsKey(String key)
+void 	remove(String key)
+Object 	get(String key)
+
+void 	putAll(PersistableBundle bundle)
+Set<String> keySet()
+
+boolean getBoolean(String key)
+boolean getBoolean(String key, boolean defaultValue)
+boolean[] getBooleanArray(String key)
+void 	putBoolean(String key, boolean value)
+void 	putBooleanArray(String key, boolean[] value)
+
+double 	getDouble(String key)
+double 	getDouble(String key, double defaultValue)
+double[] getDoubleArray(String key)
+void 	putDouble(String key, double value)
+void 	putDoubleArray(String key, double[] value)
+
+int 	getInt(String key)
+int 	getInt(String key, int defaultValue)
+int[] 	getIntArray(String key)
+void 	putInt(String key, int value)
+void 	putIntArray(String key, int[] value)
+
+long 	getLong(String key)
+long 	getLong(String key, long defaultValue)
+long[] 	getLongArray(String key)
+void 	putLong(String key, long value)
+void 	putLongArray(String key, long[] value)
+
+String 	getString(String key)
+String 	getString(String key, String defaultValue)
+String[] getStringArray(String key)
+void 	putString(String key, String value)
+void 	putStringArray(String key, String[] value)
+
+=== interface IBinder ===
+static int 		getSuggestedMaxIpcSizeBytes()
+abstract void 		dump(FileDescriptor fd, String[] args)
+abstract void 		dumpAsync(FileDescriptor fd, String[] args)
+				печатает состояние объекта в поток
+abstract boolean 	pingBinder()
+				проверяет, умер ли удаленный процесс
+abstract boolean 	transact(int code, Parcel data, Parcel reply, int flags)
+				кидает исключение, если удаленный процесс уже умер
+
+abstract String 	getInterfaceDescriptor()
+				canonical name of the interface 
+abstract IInterface 	queryLocalInterface(String descriptor)
+				Попытка получить локальную реализацию интерфейса 
+				Если null, нужно создать экземпляр прокси-класса для маршалинга вызовов через метод transact ().
+
+abstract boolean 	isBinderAlive()
+abstract void 		linkToDeath(IBinder.DeathRecipient recipient, int flags)
+	данный коллбэк будет вызван, когда удаленный процесс умрет
+abstract boolean 	unlinkToDeath(IBinder.DeathRecipient recipient, int flags)

@@ -1,0 +1,82 @@
+=== Dundle ===
+void 		clear()
+void 		remove(String key)
+
+Object 		clone()
+String 		toString()
+
+int 		describeContents()
+void 		writeToParcel(Parcel parcel, int flags)
+----
+Bundle 		deepCopy()
+boolean 	hasFileDescriptors()
+void 		readFromParcel(Parcel parcel)
+void 		setClassLoader(ClassLoader loader)
+
+void 		putAll(Bundle bundle)
+ClassLoader 	getClassLoader()
+
+IBinder 	getBinder(String key)
+void 		putBinder(String key, IBinder value)
+
+Bundle 		getBundle(String key)
+void 		putBundle(String key, Bundle value)
+
+byte 		getByte(String key)
+Byte 		getByte(String key, byte defaultValue)
+byte[] 		getByteArray(String key)
+void 		putByte(String key, byte value)
+void 		putByteArray(String key, byte[] value)
+
+char 		getChar(String key)
+char 		getChar(String key, char defaultValue)
+char[] 		getCharArray(String key)
+void 		putChar(String key, char value)
+void 		putCharArray(String key, char[] value)
+
+CharSequence 	getCharSequence(String key, CharSequence defaultValue)
+CharSequence 	getCharSequence(String key)
+CharSequence[] 	getCharSequenceArray(String key)
+void 		putCharSequence(String key, CharSequence value)
+void 		putCharSequenceArray(String key, CharSequence[] value)
+
+ArrayList<CharSequence> 	getCharSequenceArrayList(String key)
+void 		putCharSequenceArrayList(String key, ArrayList<CharSequence> value)
+
+
+float 		getFloat(String key, float defaultValue)
+float 		getFloat(String key)
+float[] 	getFloatArray(String key)
+void 		putFloat(String key, float value)
+void 		putFloatArray(String key, float[] value)
+
+ArrayList<Integer> 	getIntegerArrayList(String key)
+void 		putIntegerArrayList(String key, ArrayList<Integer> value)
+
+<T extends Parcelable> T 	getParcelable(String key)
+Parcelable[] 	getParcelableArray(String key)
+<T extends Parcelable> ArrayList<T> 	getParcelableArrayList(String key)
+void 		putParcelable(String key, Parcelable value)
+void 		putParcelableArray(String key, Parcelable[] value)
+void 		putParcelableArrayList(String key, ArrayList<? extends Parcelable> value)
+
+Serializable 	getSerializable(String key)
+void 		putSerializable(String key, Serializable value)
+
+short 		getShort(String key)
+short 		getShort(String key, short defaultValue)
+short[] 	getShortArray(String key)
+void 		putShort(String key, short value)
+void 		putShortArray(String key, short[] value)
+
+Size 		getSize(String key)
+SizeF 		getSizeF(String key)
+void 		putSize(String key, Size value)
+void 		putSizeF(String key, SizeF value)
+
+<T extends Parcelable> SparseArray<T> 	getSparseParcelableArray(String key)
+void 		putSparseParcelableArray(String key, SparseArray<? extends Parcelable> value)
+
+ArrayList<String> 	getStringArrayList(String key)
+void 		putStringArrayList(String key, ArrayList<String> value)
+47777
