@@ -1,0 +1,301 @@
+<manifest>
+	<application>	must
+		<activity>
+			<layout>
+		<activity-alias>
+		<service>
+		<receiver>
+		<provider>
+			<grant-uri-permission>
+				набор данных, к которым родительский провайдер имеет доступ
+			<path-permission>
+		.
+			<intent-filter>
+				<action>	must
+				<category>
+				<data>
+			<metadata>
+		<metadata>
+		<uses-library>
+	<compatible-screens>
+		<screen>
+    <supports-gl-texture>
+    <supports-screens>
+	
+    <uses-permission>	требуемые разрешения
+    <uses-permission-sdk-23>
+    <permission>	разрешение другим для доступа к твоему приложению
+    <permission-group>
+    <permission-tree>
+	
+    <uses-configuration>
+    <uses-feature>	требуемые фичи
+    <uses-sdk>
+
+	<instrumentation>	мониторит взаимодействия приложения и системы
+
+
+android					--
+	hardware			--
+		audio			--
+			low_latency	маленькая задержка
+			output		проигрывает звуки
+							динамик, наушники, блютусь
+			pro			высококачественный звук
+		microphone
+		bluetooth
+		bluetooth_le	low energy
+		camera			задняя
+			any			любая
+			front		передняя
+			external	не гарантирует, что внешняя камера присоединена
+			autofocus	
+			capability	--
+				manual_post_processing	баланс белого
+				manual_sensor			экспозиция
+				raw						данные в формате DNG
+			flash		вспышка
+			level		--
+				full	серийной съемки, покадровое управление и ручное управление постобработкой.
+		type			--
+			automotive	в автомобиле, несколько экранов, отдельные кнопки, крутилки и т п
+			television	большой экран, нет тачпада, мышки
+						устарело, используйте android.software.leanback
+			watch
+		fingerprint		отпечатки пальцев
+		gamepad			игровой контроллер ввода - на устройстве или внешний
+		consumerir		ИК
+		location		по gps, интернет-сети, или телефонной-сети
+			gps		
+			network
+		nfc				
+			hce			приложение использует эмуляцию карт
+		opengles		--
+			aep			OpenGL ES Android Extension Pack
+		sensor			--
+			hifi_sensors high fidelity - точное определение движений
+			compass		magnetometer
+			gyroscope
+			accelerometer
+			ambient_temperature
+			barometer
+			relative_humidity
+			light
+			proximity
+			heartrate
+				ecg		elcardiogram	
+			stepcounter
+			stepdetector	можно мерить временные промежутки между шагами
+		screen			--
+			landscape
+			portrait
+		telephony		например радио с сервисом коммуникации данных
+			cdma		Code Division Multiple Access
+			gsm			Global System for Mobile
+		faketouch		минимальные функции экрана: тапать и перетаскивать,
+						default, если touchscreen required="false"
+			multitouch	--
+				distinct	2 пальца и более, но не все жесты
+				jazzhand	5 пальцев и более, но не все жесты
+		touchscreen		default
+			multitouch	есть многопальцевые жесты, но пальцы по отдельности не обрабатываются
+				distinct
+				jazzhand
+		usb				--
+			accessory
+			host
+		vulkan			-- новое поколение opengl
+			compute		
+			level
+			version
+		wifi
+			direct
+	software			-- ?????
+		//коммуникация
+		sip				session initiation protocol - установление соединений для VoIP
+			voip
+		//ввод
+		webview			приложение отображает контент из интернета
+		//цправлен е устройством
+		input_methods	нестандартный метод ввода, описанный в InputMethodService
+		backup			приложение подключает логику для бэкапа и восстановления
+		device_admin	приложение использует администраторов устройства для применения политики устройства
+		managed_users	приложение поддерживает вторичных пользователей и управляет профилями
+		securely_remove_users	приложение мтжет удалять пользователей и их данные навсегда
+		verified_boot	проверяет, изменилась ли конфигурация устройства после перезапуска
+		//медиа
+		midi			приложение подкьючается к музыкальным инструментам или выводит звуки чкркз midi
+		print			печатает
+		leanback		приложение для телевизоров
+		live_tv			стримит телепрограммы
+		//экранный интерфейс
+		app_widgets		
+		home_screen		
+		live_wallpaper	
+		
+1	ACCESS_CHECKIN_PROPERTIES			Not 					app?
+	ACCESS_COARSE_LOCATION				dangerous				app
+	ACCESS_FINE_LOCATION				dangerous				app
+	ACCESS_LOCATION_EXTRA_COMMANDS		normal					app
+	ACCESS_NETWORK_STATE				normal					app
+	ACCESS_WIFI_STATE					normal					app
+	BATTERY_STATS						signature|privileged|development	app
+	BLUETOOTH							normal					app
+	BLUETOOTH_ADMIN						normal					app
+	BROADCAST_PACKAGE_REMOVED			Not 					app
+	BROADCAST_STICKY					normal					app
+	CALL_PHONE							dangerous				app
+	CALL_PRIVILEGED						Not 					app
+	CAMERA								dangerous				app?
+	CHANGE_COMPONENT_ENABLED_STATE		Not 					app
+	CHANGE_CONFIGURATION				signature|privileged|development	app
+	CHANGE_NETWORK_STATE				normal					app
+	CHANGE_WIFI_STATE					normal					app
+	CLEAR_APP_CACHE						signature|privileged	app
+	CONTROL_LOCATION_UPDATES			Not 					app?
+	DELETE_CACHE_FILES					signature|privileged	app? игнорируется
+	DELETE_PACKAGES						Not 					app
+	DIAGNOSTIC							Not 					app
+	DISABLE_KEYGUARD					normal					app
+	DUMP								Not 					app
+	EXPAND_STATUS_BAR					normal					app
+	FACTORY_TEST						Not 					root
+	GET_ACCOUNTS						dangerous				?? с 23 не требуется
+	GET_PACKAGE_SIZE					normal					app
+	GET_TASKS	21						---						---
+	INSTALL_PACKAGES					Not 					app
+	INTERNET							normal					app
+	MANAGE_OWN_CALLS					Not						??
+	MODIFY_AUDIO_SETTINGS				normal					app
+	MODIFY_PHONE_STATE					Not						app?
+	MOUNT_UNMOUNT_FILESYSTEMS			Not						app?
+	PERSISTENT_ACTIVITY	15				---						---
+	PROCESS_OUTGOING_CALLS	29			dangerous				app
+	READ_CALENDAR						dangerous				app
+	READ_CONTACTS						dangerous				app
+	READ_INPUT_STATE	16				dangerous				app
+	READ_LOGS							Not						app
+	READ_PHONE_STATE					dangerous				app?	
+	READ_SMS							dangerous				app
+	READ_SYNC_SETTINGS					normal					app
+	READ_SYNC_STATS						normal					app
+	REBOOT								Not						??
+	RECEIVE_BOOT_COMPLETED				normal					app
+	RECEIVE_MMS							dangerous				app
+	RECEIVE_SMS							dangerous				app
+	RECEIVE_WAP_PUSH					dangerous				app
+	RECORD_AUDIO						dangerous				app
+	REORDER_TASKS						normal					app
+	RESTART_PACKAGES	15				---						---
+	SEND_SMS							dangerous				app
+	SET_ALWAYS_FINISH					Not						app
+	SET_ANIMATION_SCALE					Not						??
+	SET_DEBUG_APP						Not						app?
+	SET_PREFERRED_APPLICATIONS	15		---						---
+	SET_PROCESS_LIMIT					Not						app
+	SET_TIME							Not						app
+	SET_TIME_ZONE						Not						app
+	SET_WALLPAPER						normal					app
+	SET_WALLPAPER_HINTS					normal					app
+	SIGNAL_PERSISTENT_PROCESSES			Not						app
+	STATUS_BAR							Not						app
+	SYSTEM_ALERT_WINDOW		signature|preinstalled|appop|pre23|development	app
+	VIBRATE								normal					app?
+	WAKE_LOCK							normal					app?
+	WRITE_APN_SETTINGS					Not						app
+	WRITE_CALENDAR						dangerous				app
+	WRITE_CONTACTS						dangerous				app
+	WRITE_GSERVICES						Not						app
+	WRITE_SETTINGS						signature|preinstalled|appop|pre23	app
+	WRITE_SYNC_SETTINGS					normal					app
+2	BROADCAST_SMS						Not 					app
+	BROADCAST_WAP_PUSH					Not 					app
+3	BIND_APPWIDGET						Not 					app
+	BIND_INPUT_METHOD					signature				InputMethodService
+	MOUNT_FORMAT_FILESYSTEMS			Not						app?
+	UPDATE_DEVICE_STATS					Not						app
+	WRITE_SECURE_SETTINGS				Not						app
+4	CHANGE_WIFI_MULTICAST_STATE			normal					app
+	GLOBAL_SEARCH						signature|privileged	content providers 
+	INSTALL_LOCATION_PROVIDER			Not 					app
+	WRITE_EXTERNAL_STORAGE				dangerous				app
+5	ACCOUNT_MANAGER						Not 					app
+8	BIND_DEVICE_ADMIN					signature			device administration receiver
+	BIND_WALLPAPER						signature|privileged	WallpaperService
+	KILL_BACKGROUND_PROCESSES			normal					app
+9	NFC									normal					app
+	SET_ALARM							normal					app
+	USE_SIP								dangerous				app
+11	BIND_REMOTEVIEWS					signature|privileged	RemoteViewsService
+14	ADD_VOICEMAIL						dangerous				app
+	BIND_TEXT_SERVICE					signature	TextService (e.g. SpellCheckerService)
+	BIND_VPN_SERVICE					signature				VpnService
+16	BIND_ACCESSIBILITY_SERVICE			signature				AccessibilityService
+	READ_CALL_LOG						dangerous				app
+	READ_EXTERNAL_STORAGE				dangerous				app
+	WRITE_CALL_LOG						dangerous				app
+18	BIND_NOTIFICATION_LISTENER_SERVICE	signature			NotificationListenerService
+	LOCATION_HARDWARE					Not						app
+	SEND_RESPOND_VIA_MESSAGE			Not						app
+19	BIND_NFC_SERVICE					signature	HostApduService or OffHostApduService
+	BIND_PRINT_SERVICE					signature				PrintService
+	BLUETOOTH_PRIVILEGED				Not 					app
+	CAPTURE_AUDIO_OUTPUT				Not 					app
+	INSTALL_SHORTCUT					normal					app
+	MANAGE_DOCUMENTS					Not				platform document management app
+	MEDIA_CONTENT_CONTROL				Not						app
+	TRANSMIT_IR							normal					app?
+	UNINSTALL_SHORTCUT	x				---						---
+20	BODY_SENSORS						dangerous				app
+21	BIND_DREAM_SERVICE					signature				DreamService
+	BIND_TV_INPUT						signature|privileged	TvInputService 
+	BIND_VOICE_INTERACTION				signature				VoiceInteractionService
+	READ_VOICEMAIL						signature|privileged	app
+	WRITE_VOICEMAIL						signature|privileged	app
+22	BIND_CARRIER_MESSAGING_SERVICE	23	---						---
+23	ACCESS_NOTIFICATION_POLICY			normal					??
+	BIND_CARRIER_SERVICES				signature|privileged	??
+	BIND_CHOOSER_TARGET_SERVICE	30		signature				ChooserTargetService
+	BIND_INCALL_SERVICE					signature|privileged	InCallService
+	BIND_MIDI_DEVICE_SERVICE			signature				MidiDeviceService
+	BIND_TELECOM_CONNECTION_SERVICE		signature|privileged	ConnectionService
+	GET_ACCOUNTS_PRIVILEGED				signature|privileged	??
+	PACKAGE_USAGE_STATS					signature|privileged|development|appop|retailDemo app
+	REQUEST_IGNORE_BATTERY_OPTIMIZATIONS	normal				app
+	REQUEST_INSTALL_PACKAGES			signature				app
+	USE_FINGERPRINT	28					normal					app
+24	BIND_CONDITION_PROVIDER_SERVICE		signature				ConditionProviderService
+	BIND_QUICK_SETTINGS_TILE			---						app, System
+	BIND_SCREENING_SERVICE				signature|privileged	CallScreeningService
+	BIND_VR_LISTENER_SERVICE			signature				VrListenerService
+26	ANSWER_PHONE_CALLS					dangerous				app
+	BIND_AUTOFILL_SERVICE				signature				AutofillService
+	BIND_VISUAL_VOICEMAIL_SERVICE		signature|privileged	VisualVoicemailService 
+	INSTANT_APP_FOREGROUND_SERVICE		signature|development|instant|appop instant app
+	MANAGE_OWN_CALLS					normal					calling app
+	READ_PHONE_NUMBERS					dangerous				instant app
+	REQUEST_COMPANION_RUN_IN_BACKGROUND	normal					app
+	REQUEST_COMPANION_USE_DATA_IN_BACKGROUND	normal			companion app
+	REQUEST_DELETE_PACKAGES				normal					app
+28	ACCEPT_HANDOVER						dangerous				app
+	FOREGROUND_SERVICE					normal					app
+	NFC_TRANSACTION_EVENT				normal					app
+	USE_BIOMETRIC						normal					app
+29	ACCESS_BACKGROUND_LOCATION			dangerous				app
+	ACCESS_MEDIA_LOCATION				dangerous				app
+	ACTIVITY_RECOGNITION				dangerous				app
+	BIND_CALL_REDIRECTION_SERVICE		signature|privileged	CallRedirectionService
+	BIND_CARRIER_MESSAGING_CLIENT_SERVICE	signature		CarrierMessagingClientService 
+	CALL_COMPANION_APP					normal					app
+	REQUEST_PASSWORD_COMPLEXITY			normal					app
+	SMS_FINANCIAL_TRANSACTIONS			---						financial app
+	START_VIEW_PERMISSION_USAGE			signature|installer		holder
+	USE_FULL_SCREEN_INTENT				normal					app
+30	BIND_CONTROLS						System 					SystemUI 
+	BIND_QUICK_ACCESS_WALLET_SERVICE	signature				QuickAccessWalletService 
+	INTERACT_ACROSS_PROFILES			---						app?
+	LOADER_USAGE_STATS					signature|privileged|appop data loader
+	MANAGE_EXTERNAL_STORAGE				signature|appop|preinstalled	app
+	NFC_PREFERRED_PAYMENT_INFO			normal					app
+	QUERY_ALL_PACKAGES					normal					??
+	READ_PRECISE_PHONE_STATE			---						app?

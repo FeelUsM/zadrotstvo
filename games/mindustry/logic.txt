@@ -1,0 +1,185 @@
+https://github.com/DeltaNedas/rtfm/blob/master/manuals/Logic/Instructions
+var name index string num
+@links: The number of processor links
+@time: "Unix time", the number of milliseconds since January 1st, 1970
+@unit:  ссылка на текущий юнит
+@ipt: Instructions per tick
+@this: Refers to itself, use similarly to "container1"
+@thisx: The processor's x position
+@thisy: Same as above but for y
+@mapw
+@maph
+если параметры не правильные, инструкция не выполняется (пропускается)
+-------------
+--- логика ---
+set
+	var var
+operation
+	var = var op var
+	+ - * / // % ^ == not and < <= > >= 
+	<< >> (as 64bit long)
+	or b-and atan2 
+	dst 	-дистанция
+	noise abs log log10 sin cos tan floor ceil sqrt rand
+end
+	jump в начало
+	очищаются переменные
+jump
+	переход
+	always == not < <= > >=
+--- внешняя память ---
+память не может содержать ссылки на объекты
+write
+	помещает var в ячейку name по index
+read
+	помещает в var ячейку name по index
+--- текстовый дисплей ---
+print
+	добавляет "string" или var в текстовый буфер
+printFlash
+	отправляет текстовый буфер в message_block name
+--- графический дисплей ---
+draw
+	выполняет операции с графическим буфером
+	clear	заливает весь экран одним цветом
+		r g b
+	color
+		r g b a
+	stroke	ширина линии
+		x
+	line
+		x y x2 y2
+	rect	закрашенный
+		x y width height
+	lineRect	незакрашенный
+		x y width height
+	poly
+		x y sides radius rotation
+	linePoly
+		x y sides radius rotation
+	triangle
+		x y x2 y2 x3 y3
+	image
+		x y @name size rotation
+drawFlash
+	применяет операции из графического буфера к дисплею name
+--- блоки/юниты ---
+---- поиск строений ----
+getLink
+	помещает в var привязанное к процессору строение по index
+		но вообще привязанные объекты можно в любой момент получить по имени
+unitLocate
+	получает информацию о плитке от юнита
+	find
+		ore
+			ore
+			outX
+			outY
+			found
+		building
+			type
+				core storage turret factory repair rally battary resupply reactor
+					unitModifier extinguisher
+			enemy
+			outX
+			outY
+			found
+			building
+		spawn
+			outX
+			outY
+			found
+			building
+		damaged
+			outX
+			outY
+			found
+			building
+---- поиск юнитов ----
+unitBind
+	type ? может ли быть ссылкой, полученной например из radar?
+	привязаться к юниту определенного типа, каждый раз разному
+	@unit - ссылка на текущий юнит
+radar
+	получает ссылку на наиболее подходящего юнита находящегося в зоне действия данного блока
+	from	name
+	target	any|enemy|ally|player|attacker|flying|boss|ground
+	and		...
+	and		...
+	order	bool	false - обратный порядок
+	sort	distance|health|shield|armor|maxNealth
+	result	var
+unitRadar
+	получает ссылку на наиболее подходящего юнита находящегося в зоне действия данного юнита
+	target	any|enemy|ally|player|attacker|flying|boss|ground
+	and		...
+	and		...
+	order	bool	false - обратный порядок
+	sort	distance|health|shield|armor|maxNealth
+	output	var
+---- информация об объекте ----
+sensor
+	получает свойство блока/юнита
+	var @prop name
+	copper lead metaglass graphite sand coal titanium thorium scrap silicon plastanium
+	phase-fabric surge-alloy spore-pod blast-compuond pyratite water slag oil cryofluid
+	totalItems firstItem totalLiquids itemCapacity liquidCapacity
+	totalPower powerCapacity powerNetStored powerNetCapacity powerNetIn powerNetOut
+	ammo ammoCapacity health maxhealth
+	heat effifiency
+	rotation x y
+	shootX shootY shooting
+	mineX mineY mining
+	team
+	type
+	flag
+	controlled
+	commanded
+	name
+	config
+	payloadCount
+	payloadType
+	enabled
+	configure
+---- управление ----
+control
+	управляет блоками
+	enabled
+		name num
+	shoot
+		name x y shoot
+	shootp
+		name unit shoot
+	configure	управляет сортировщиками, разгрузчиками и т.п.
+		name @item
+unitControl
+	управляет текущим юнитом (в т.ч. устанавливает некоторые его свойства)
+	stop	прекращает в т.ч. стрельбу
+	move
+		x y
+	approach
+		x y radius
+	boost		???
+		enable
+	pathFind	включает собственный ИИ юнита
+	target
+		x y shoot
+	targetP
+		unit shoot
+	itemDrop
+		to amount
+	itemTake
+		from item amount
+	payDrop		Сбрасывает текущую полезную нагрузку, если есть место (для блоков).
+	payTake		загружает блок или юнит (только для мег-и или окт-а)
+		takeUnits(bool)
+	mine
+		x y
+	flag
+		value
+	build
+		x y block rotation config
+	getBlock
+		x y type building
+	within
+		x y radius result
