@@ -12,22 +12,13 @@ program_saves/sublime_settings/User/oscrypto-ca-bundle.crt
 
 program_saves/dot-qucs/*/*.dat
 
-LaTeX-поделки/beamer/mypresentation_1.aux
-LaTeX-поделки/beamer/mypresentation_1.log
-LaTeX-поделки/beamer/mypresentation_1.nav
-LaTeX-поделки/beamer/mypresentation_1.out
-LaTeX-поделки/beamer/mypresentation_1.snm
-LaTeX-поделки/beamer/mypresentation_1.synctex(busy)
-LaTeX-поделки/beamer/mypresentation_1.toc
-LaTeX-поделки/beamer/presentation_1.aux
-LaTeX-поделки/beamer/presentation_1.log
-LaTeX-поделки/beamer/presentation_1.nav
-LaTeX-поделки/beamer/presentation_1.out
-LaTeX-поделки/beamer/presentation_1.snm
-LaTeX-поделки/beamer/presentation_1.synctex(busy)
-LaTeX-поделки/beamer/presentation_1.toc
-LaTeX-поделки/beamer/presentation_1.vrb
-LaTeX-поделки/ScalarMixedProceedings/ScalarMixedProceedings_v4.aux
-LaTeX-поделки/ScalarMixedProceedings/ScalarMixedProceedings_v4.log
-LaTeX-поделки/ScalarMixedProceedings/ScalarMixedProceedings_v4.synctex.gz
+LaTeX-поделки/*/*.aux
+LaTeX-поделки/*/*.log
+LaTeX-поделки/*/*.nav
+LaTeX-поделки/*/*.out
+LaTeX-поделки/*/*.snm
+LaTeX-поделки/*/*.synctex(busy)
+LaTeX-поделки/*/*.synctex.gz
+LaTeX-поделки/*/*.toc
+LaTeX-поделки/*/*.vrb
 
