@@ -155,33 +155,39 @@
 	off <keyword>;
   	off <keyword> <option>;	
 		statistics		Turns off the printing of statistics.
+		stats			Same as `Off statistics'.
+
+		shortstatistics	Переводит запись статистики из режима стенографии в обычный режим статистики, в котором каждое сообщение статистики занимает три строки текста и одну пустую строку.
+		shortstats		Same as `Off shortstatistics'.
+
+		finalstats		Turns off the last line of statistics that is normally printed at the end of the run (introduced in version 3.2).
+		processstats	Turns the process by process printing of the statistics in PARFORM off. Only the master process will be printing statistics. Other versions of FORM will ignore this option.
+		wtimestats		Disables the wall-clock time in the timing information in the statistics on the master.
+		threadstats		Turns off the thread by thread printing of the statistics in TFORM. Only the master thread will be printing statistics. Other versions of FORM will ignore this option.
+
+		oldfactarg		Switches the use of the FactArg statement 7.54 to the new mode of version 4 or later in which expressions in the argument of the mentioned function are completely factored over the rationals. The default is off.
 
 		allnames		Turns the allnames mode off. The default.
+		names			Turns the names mode off. This is the default.
+
 		allwarnings		Turns off the printing of all warnings.
-		checkpoint		Deactivates the checkpoint mechanism. See 4.1.
-		compress		Turns compression mode off.
-		finalstats		Turns off the last line of statistics that is normally printed at the end of the run (introduced in version 3.2).
+		warnings		Turns off the printing of warnings.
+
 		highfirst		Puts the sorting in a low first mode.
 		insidefirst		Not active at the moment.
 		lowfirst		Leaves the default low first mode and puts the sorting in a high first mode.
-		names			Turns the names mode off. This is the default.
-		nospacesinnumbers	Allows very long numbers to be printed with leading blank spaces at the beginning of a new line. The numbers are usually broken up by placing a backslash character at the end of the line and then continuing at the next line. For cosmetic purposes FORM puts usually a few blank spaces at the beginning of the line. FORM itself can read this but some programs cannot. This option can be turned off by the `on nospacesinnumbers;' statement. The printing of the blank characters can be restored by turning this variable off. See also page 17 for a corresponding variable in the setup file.
-		oldfactarg		Switches the use of the FactArg statement 7.54 to the new mode of version 4 or later in which expressions in the argument of the mentioned function are completely factored over the rationals. The default is off.
-		parallel		Disallows the running of the program in parallel mode (only relevant for parallel versions of FORM).
 		powerfirst		Puts the sorting back into `highfirst' mode.
-		processstats	Turns the process by process printing of the statistics in PARFORM off. Only the master process will be printing statistics. Other versions of FORM will ignore this option.
+
+		checkpoint		Deactivates the checkpoint mechanism. See 4.1.
+		compress		Turns compression mode off.
+		nospacesinnumbers	Allows very long numbers to be printed with leading blank spaces at the beginning of a new line. The numbers are usually broken up by placing a backslash character at the end of the line and then continuing at the next line. For cosmetic purposes FORM puts usually a few blank spaces at the beginning of the line. FORM itself can read this but some programs cannot. This option can be turned off by the `on nospacesinnumbers;' statement. The printing of the blank characters can be restored by turning this variable off. See also page 17 for a corresponding variable in the setup file.
+		parallel		Disallows the running of the program in parallel mode (only relevant for parallel versions of FORM).
 		propercount		Turns the propercounting mode off. This means that for the generated terms in the statistics not only the `ground level' terms are counted but also terms that were generated inside function arguments.
 		properorder		Turns the properorder mode off. This is the default.
 		setup			Switches off the mode in which the setup parameters are printed. This is the default.
-		stats			Same as `Off statistics'.
-		shortstats		Same as `Off shortstatistics'.
-		shortstatistics	Takes the writing of the statistics back from shorthand mode to the regular statistics mode in which each statistics messages takes three lines of text and one blank line.
 		threadloadbalancing		Disables the loadbalancing mechanism of TFORM in parallel mode. In other versions of FORM this option is ignored.
 		threads			Disallows multithreaded running in TFORM. In other versions of FORM this option is ignored.
-		threadstats		Turns off the thread by thread printing of the statistics in TFORM. Only the master thread will be printing statistics. Other versions of FORM will ignore this option.
 		totalsize		Switches the totalsize mode off. For a more detailed description of the totalsize mode, see the "On TotalSize;" command 7.107.
-		warnings		Turns off the printing of warnings.
-		wtimestats		Disables the wall-clock time in the timing information in the statistics on the master.
 
 	on
 
@@ -285,6 +291,9 @@
 	contract:<number>; 			сворачивает только одну пару леви-чевит и в ней	сворачивает n индексов
 	contract:<number> <number>; 
 	sum <list of indices>;		сворачивает указанные индексы
+
+	trace4	след гамма-матриц
+	tracen	след гамма-матриц
 	
 	id[entify] [<options>] <pattern> = <expression>;
 		only		степени должны точно совпадать
@@ -295,6 +304,10 @@
 		ifnomatch->	<label>
 		disorder	упорядочивает?
 		all			
+	ifmatch -> <label> <pattern> = <expression>;
+		id ifmatch-> ....
+	ifnomatch
+		id ifnomatch-> ....
 	idnew
 	idold
 	also
@@ -302,79 +315,128 @@
   	repeat <executable statement>
 	repeat;
 	endrepeat;
-	argument [<argument specifications>] {<name of function/set> [<argument specifications>]};
-	endargument;
+	while
+	endwhile
+	do $loopvar = lowvalue,highvalue{,increment};
+	enddo
 
 	mu[ltiply] [<option>] <expression>;
 		left
 		right
-	symm[etrize] {<name of function/tensor> [<argument specifications>];}
-		????
-	antisymmetrize
-	cyclesymmetrize
-	rcyclesymmetrize
 
-	trace4	след гамма-матриц
-	tracen	след гамма-матриц
 
 	r[edefine] <preprocessor variable> "<string>";
+	setexitflag
+	exit
 
-	условия
-		match
-		count
-		termsin
+	<condition>
+		count(symbols/dotproducts/functions/tensors/tables/vectors+vfd,weight)
+		match(pattern) -> количество совпадений
+		expression(expr1,expr2,...) - совпадает ли хотябы с одним из данных
+		occurs(var1,var2,...) - встречается ли хотябы одна переменная в данном терме
+		findloop(<replaceloop args>)
+		multipleof(x)==y - y делится на x
+		<целое число>
+		coefficient		коэффициент текущего терма
+		$-переменная
 	goto
 	label
-	if
-	ifmatch
-	ifnomatch
+	if ( <condition> );
+	if ( <condition> ) <executable statement>
 	elseif
 	else
 	endif
+	inexpression,name(s) of expression(s);
+		if ( expression(expr) );
+	endinexpression
+	switch
+	case
+	default
+	endswitch
+	break
 	
-	dis[card];	- выкидывает текущий терм
-	
+	argument [<argument specifications>] {<name of function/set> [<argument specifications>]};
+		если ничего не указано - для всех функций и всех их аргументов
+		числа - для данных аргументов всех функций
+		функция или множество функций {f1,f2}, после которых номера аргументов - ну ты понел
+	endargument;
 	factarg options {<name of function/set> [<argument specifications>]};
 		раскладывает полином на множители (on/off oldfactarg)
 		f(a*b*c) -> f(a,b,c)
 		(0) - удаляет коэффициент
 		(-1)- коэффициент объединяет со знаком
 		(1) - отделяет коэффициент от знака
-	splitarg
-		<argument specifications> - 
-	splitfirstarg
-	splitlastarg
+	splitarg options {<name of function/set> [<argument specifications>]};
+		f(a+b+c) -> f(a,b,c)
+		(term) - отделяет только термы, кратные данному и помещает их после текущегог аргумента
+		((term)) - отделяет только заданный терм и помещает его после текущегог аргумента
+	splitfirstarg {<name of function/set> [<argument specifications>]};
+		f(a+b+c) -> f(b+c,a)
+	splitlastarg {<name of function/set> [<argument specifications>]};
+		f(a+b+c) -> f(a+b,c)
+	transform,function(s),<one or more transformations>;
+		диапозон (r1,r2) - (1,4) (2,last) (last-6, last-2)
 
-	antiputinside
-	apply
+		raplace(r1,r2)=(x1,y1,x2,y2,...)	mul replace_(x1,y1,x2,y2,...)
+		permute(1,3,5)(2,6)					применяет циклы
+		reverse(r1,r2)
+		dedup(r1,r2)						удаляет дубликаты
+		cycle(r1,r2)=+/-num
+		addargs(r1,r2)						см splitarg
+		mulargs(r1,r2)						см factarg
+		dropargs(r1,r2)
+		selectargs(r1,r2)					drop все кроме seleted
+
+		encode(r1,r2):base=num				
+		decode(r1,r2):base=num
+		implode(r1,r2) 						см argexplode
+		explode(r1,r2) 						см argimplode
+		islindon(r1,r2)=(yes,no)
+		tolindon(r1,r2)=(yes,no)
 	argexplode
 	argimplode
+	symm[etrize] {<name of function/tensor> [<argument specifications>];}
+		сортирует аргументы функции
+	antisymmetrize
+		сртирует рагументы, и каждая перестановка добавляет множитель -1
+	cyclesymmetrize
+		приводит в наиболее упорядоченную форму путем циклической перестановки
+		см transform islindon
+	rcyclesymmetrize
+		приводит в наиболее упорядоченную форму путем циклической перестановки и реверса
+		
+	dis[card];	- выкидывает текущий терм
+	
+
+	inside
+	endinside
+
+	term
+	endterm
+
+
+	copyspectator
+	createspectator
+	emptyspectator
+	tospectator
+	removespectator
+
+	frompolynomial
+	topolynomial
+
+	putinside
+	antiputinside
+
+	apply
 	argtoextrasymbol
-	break
-	case
 	chainin
 	chainout
 	chisholm
-	copyspectator
-	createspectator
-	default
 	denominators
 	disorder
-	do
 	dropcoefficient
 	dropsymbols
-	emptyspectator
-	enddo
-	endinexpression
-	endinside
-	endswitch
-	endterm
-	endwhile
-	exit
 	factdollar
-	frompolynomial
-	inexpression
-	inside
 	makeinteger
 	many
 	merge
@@ -382,24 +444,18 @@
 	normalize
 	once
 	only
-	putinside
 	ratio
-	removespectator
 	renumber
-	replaceloop
 	select
-	setexitflag
 	shuffle
 	sort
 	stuffle
-	switch
-	term
 	testuse
-	topolynomial
-	tospectator
-	transform
+
+	replaceloop
 	tryreplace
-	while
+
+
 === 5. Output control statement ===
 	b[rackets][+][-] <list of names>;	вынести за скобки указанное
 	ab[rackets]   [+][-] <list of names>;	
@@ -458,18 +514,20 @@ Functions
 	thetap_(x) 		theta prime function	1 if x>0 else 0
 	thetap_(x,y)	theta prime function	1 if x>y else 0
 
-	d_				kronecker delta
-	e_				levi-chevita
-	dd_				четное (even) количество индексов - полностью симметричный тензор, составленный из d_
+	d_(i,j)			kronecker delta
+	e_(i,j,k,...)	levi-chevita
+	dd_(i,j,k,l,...)четное (even) количество индексов - полностью симметричный тензор, составленный из d_
 
-	gi_				едининая
-	g_
-	g5_
-	g6_
-	g7_
+	gi_(i)				едининая
+	g_(i,mu,..)
+	g5_(i) = g_(i,5_)
+	g6_(i) = g_(i,6_)
+	g7_(i) = g_(i,7_)
+						i-спиновый индекс
 
 	sum_(symbol,start,stop,expr)
 	sum_(symbol,start,stop,step,expr)
+	gcd_(x1,x2,...)	НОД, аргументы могут быть выражениями
 	coeff_			коэффициент текущего терма
 	num_			числитель коэффициента текущего терма
 	den_			знаменатель коэффициента текущего терма
@@ -477,12 +535,9 @@ Functions
 	
 	replace_(a,b,c,d,...)множитель терма - заменяет в терме все вхождения a на b, c на d,...
 	reverse_		аргумент функции - заменяется аргументами функции в обратном порядке
-
-	factorin_
-	farg_
-	firstbracket_
-	firstterm_
-	gcd_
+	factorin_		
+	firstbracket_(exprname)
+	firstterm_(exprname)
 	id_
 	integer_
 	inverse_
@@ -523,6 +578,7 @@ Functions
 	exteuclidean_
 	extrasymbol_
 	
+	farg_			только для внутреннего пользования
 
 	---
 	sqrt_	The regular square root.
