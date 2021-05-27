@@ -1,0 +1,42 @@
+CXA1213BS	24	24	видеопроцессор NTSC/PAL/SECAM		+datasheet
+la7391a 	21	21	видеопроцессор NTSC/PAL/SECAM		+datasheet
+M52063SP	10	10	конвертер NTSC->PAL			+datasheet
+CXA1214P	12	12	SECAM color decoder			+datasheet
+LA7830		7	0	формирует сигнал кадровой развертки 	+datasheet
+BA7252S		11	11	усилитель видеосигнала			+datasheet
+BA7765AS	16	16	процессор аудиосигнала			+datasheet
+an5265		9	0	цепь выходного звука			+datasheet
+AN5270		9	0	усилитель звуковой мощности		+datasheet
+УПЧЗ-2		9	0	усилитель ПЧ звука			---
+		4		линия задержки		3 шт
+
+TMP47C434N-R214	21	21	ЦП телевизора				+datasheet(4)
+LA7530N 	10	10	процессор ИК пульта			+datasheet
+EN29F040A   	9 7	9 7	Flash Memory  512KB			+datasheet
+EM636165 	25	25	SDRAM 2MB				+datasheet
+M5M411664TP	20	20	DRAM 2MB				+datasheet
+TC89101P	4	4	EEPROM 1024 bit				+datasheet
+24C04A		4	4	EEPROM 4kbit				+datasheet
+T1451		8	8	???					---
+MT1389QE	64 64 64 64	процессор от DVD			+datasheet
+MN675121	20 20 20 20	процессор видеомагнитофона		---
+68g1083 	32 32 32 32	??? IBM					---
+62g8301 	46 46 46 46	??? IBM					---
+HD153014UF 	20 20 20 20	??? JAPAN				---
+
+
+blue pill 	20	20	на stm32
+arduino micro	17	17	на atmega32
+arduino nano 	15	15	на LGBT не распаянная
+BMP180		4	0	датчик давления
+		6	0	blutooth
+
+----------------------------------------------------------------------------------
+TC4053BP	8	8	3-канальный мультиплексор/демультиплексор +datasheet
+STK50322	10	0	стабилизатор напряжения на 5, 9 и 12 В	+datasheet
+LB1807N		14	14	драйвер 3-фазного электродвигателя	+datasheet(2)
+BA6229		10	0	Reversible  motor driver		+datasheet
+BA15218N	8	0	2 операционных усилителя		+datasheet
+VIPER12A	4	4	переключатель для БП			+datasheet
+PC111		3	3	оптопара				+datasheet
+STR D1906 SK2523 5		???					---

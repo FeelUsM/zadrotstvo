@@ -1,0 +1,358 @@
+сабреддит (подписчики, онлайн, сколько дней назад последний пост)  тематика
+r/privacyRU (81,3,360) IT
+r/UncensoredPikabu (335,3,360) разное
+r/Pikabu_Science (976,5,360) наука
+r/ru_horror (66,4,270) разное
+r/Strangeness (666,4,270) непознанное
+r/AskRedditRu (143,3,210) обсуждения
+r/Pikabu_RusComics (1798,2,150) обсуждения
+r/RussNewsDebate (?,8,90) обсуждения
+r/ru_craft (78,0,19) рукоделие
+r/Avtomobil (3,4,17) автомобили
+r/subtuning (2038,6,11) разное
+r/Russian_electronics (32,5,1) разное
+r/SprosiReddit (166,15,0) обсуждения
+r/SubBab (312,12,0) фото
+r/Bibliotekar (504,17,0) книги
+r/brosaemvmeste (772,9,0) обсуждения
+r/tellyport (1067,19,0) кино
+r/ReptiloidsLeague (1565,9,0) разное
+r/ru_Anime (3798,10,0) кино
+r/PikabuGoneWild (16000,16,0) порно
+r/Tay_5 (22299,134,0) разное
+r/Popular_Science_Ru (32488,39,0) наука
+r/hampan (?,17,0) наука
+
+
+
+r/polovozrelie (4,4,210) мемы
+r/Pikabushort (1730,4,120) мемы
+r/WTST88 (28,3,90) мемы
+r/KafkaFPS (575,6,2) мемы
+r/Epicentr (5087,87,0) мемы
+r/Pikabu (172194,1559,0) мемы
+
+
+
+ReptiloidsLeague ru	1565	9	0	разное	nuKA6bIK	1		
+ru_Anime (3798,10,0) кино	Rask0lbas	2	…	
+Tay_5	 (22299,134,0) разное	5igorsk	1	5igorsk	
+Popular_Science_Ru ru	32488	39	0	наука	LKamrad	1	postmastern	
+hampan		ru	?	17	0	наука	loyosh	6	old_J_Roger	talvi__
+
+
+
+
+r/privacyRUnews (ru,22,5,360) новости
+r/politota (ru,5016,8,360) политика
+r/privacyRUS (ru,421,4,16) новости
+r/CCCP_USSR (ru,52,3,10) политика
+r/23january2021 (ru,99,3,8) политика
+r/PikabuPolitics (ru,14129,23,7) политика
+r/discours (ru,235,4,6) политика
+r/rusagitprop (ru,616,5,6) политика
+r/covid19ru (ru,10089,?,4) новости
+r/RedYurt (ru,22,5,3) политика
+r/Russian_forest (ru,713,1,2) политика
+r/Politics_in_Russian (ru,87,5,0) политика
+r/Soft_Power (ru,163,3,0) политика
+r/RussianFairPolitics (ru,223,?,0) политика
+r/erk (ru,237,8,0) политика
+r/CIS_Politics (ru,279,5,0) политика
+r/rossiya (ru,860,3,0) новости
+r/NoLawRus (ru,1000,93,0) политика+мемы
+r/RussNews (ru,11738,10,0) политика
+r/liberta (ru,53513,91,0) политика
+
+r/bilastrila (ua,72,12,0) политика
+r/DonOperInfo (ua,76,3,0) политика
+
+r/AskARussian (en,39900,258,0) разное
+r/russia (en,158000,280,0) разное
+
+
+
+
+
+russian_naxiy	?	2	2	?	?
+Verranos	?	38	1	90	обсуждения
+paragliding	en				freeflight
+cursedvideos	en	208786	185	0	видео
+EngineeringPorn	en	706430	521	0	видео
+BetterEveryLoop	en	2307487	610	0	видео
+BeAmazed	en	2308453	3604	0	видео
+ContagiousLaughter	en	3309545	2453	0	видео
+holdmyredbull	en				видео
+JustCause	en				видео
+maybemaybemaybe	en				видео
+mechanical_gifs	en				видео
+nextfuckinglevel	en				видео
+nonononoyes	en				видео
+oddlysatisfying	en				видео
+OddMusicVideos	en				видео
+shockwaveporn	en				видео
+specializedtools	en				видео
+UNBGBBIIVCHIDCTIICBG	en				видео
+Unexpected	en				видео
+WatchPeopleDieInside	en				видео
+badassanimals	en	97013	33	0	животные
+HardcoreNature	en	118446	200	0	животные
+Catloaf	en	531246	303	0	животные
+AnimalsBeingJerks	en	3883520	2303	0	животные
+AnimalsBeingBros	en	4123444	558	0	животные
+StartledCats	en				животные
+KerbalSpaceProgram	en				игры
+Mindustry	en				игры
+yiotro_games	en				игры
+TU95	en				картинки
+Cringetopia	en	1247823	22120	0	мемы
+blursedimages	en	2017958	2904	0	мемы
+meirl	en				мемы
+Memistan	en				мемы
+ProgrammerHumor	en				мемы
+rickandmorty	en				мемы
+Showerthoughts	en				мемы
+SighsUnzips	en				мемы
+theydidthemath	en				мемы
+TIHI	en				мемы
+wallstreetbets	en				мемы
+educationalgifs	en	1627495	810	0	наука
+math	en				наука
+VisualMath	en				наука
+AnonymousAliens	en	4394	2	30	непознанное
+Skydentify	en				непознанное
+UFOs	en				непознанное
+freeflight	en	11653	14	0	обсуждения
+AskReddit	en	?	?	0	обсуждения
+AbigaileJohnson	en	?	3	11	порно
+AquaticAsFuck	en	198381	13	1	природа
+ImagineThisView	en				природа
+NatureIsFuckingLit	en				природа
+C_Programming	en	106857	241	0	программирование
+cpp	en	182935	426	0	программирование
+ThatsInsane	en				разное
+therewasanattempt	en				разркшения
+dontbestupid	en	78372	12	60	разрушения
+HadToHurt	en	563464	230	1	разрушения
+ExtremeCarCrashes	en	138	267	0	разрушения
+ExpensiveAccidents	en	25856	9	0	разрушения
+CrazyFuckingVideos	en	48498	358	0	разрушения
+GTAorRussia	en	260232	62	0	разрушения
+donthelpjustfilm	en	517928	706	0	разрушения
+ANormalDayInRussia	en	1104071	918	0	разрушения
+CatastrophicFailure	en	1428688	2316	0	разрушения
+FiftyFifty	en	1866867	962	0	разрушения
+AbruptChaos	en	?	3414	0	разрушения
+HeavyFuckingWind	en				разрушения
+holdmyfeedingtube	en				разрушения
+IdiotsInCars	en				разрушения
+IdiotsNearlyDying	en				разрушения
+meatcrayon	en				разрушения
+nononono	en				разрушения
+OneSecondBeforeDisast	en				разрушения
+PeopleFuckingDying	en				разрушения
+RuinedMyDay	en				разрушения
+tooktoomuch	en				разрушения
+watchpeoplesurvive	en				разрушения
+watchthingsfly	en				разрушения
+Whatcouldgowrong	en				разрушения
+WinStupidPrizes	en				разрушения
+yesyesyesno	en				разрушения
+yesyesyesyesno	en				разрушения
+coolguides	en	2145241	2404	0	схемы
+dataisbeautiful	en	15778444	26264	0	схемы
+MapPorn	en				схемы
+blackmagicfuckery	en	2292154	3899	0	физика
+physicsmemes	en				физика
+plasmacosmology	en				физика
+confusing_perspective	en	1261217	9733	0	фото
+hmmm	en				фото
+interestingasfuck	en				фото
+ManufacturingPorn	en				фото
+megalophobia	en				фото
+photoshopbattles	en				фото
+PropagandaPosters	en				фото
+TheProductHub	en				фото
+UpvotedBecauseBoobs	en				фото
+WTF	en				фото
+MakeMyCoffin	en 				разрушения
+privacyRU	ru	81	3	360	IT
+Avtomobil	ru	3	4	17	автомобили
+tellyport	ru	1067	19	0	кино
+ru_Anime	ru	3798	10	0	кино
+Bibliotekar	ru	504	17	0	книги
+polovozrelie	ru	4	4	210	мемы
+Pikabushort	ru	1730	4	120	мемы
+WTST88	ru	28	3	90	мемы
+KafkaFPS	ru	575	6	2	мемы
+Epicentr	ru	5087	87	0	мемы
+Pikabu	ru	172194	1559	0	мемы
+Pikabu_Science	ru	976	5	360	наука
+Popular_Science_Ru	ru	32488	39	0	наука
+hampan	ru	?	17	0	наука
+Strangeness	ru	666	4	270	непознанное
+privacyRUnews	ru	22	5	360	новости
+privacyRUS	ru	421	4	16	новости
+covid19ru	ru	10089	?	4	новости
+rossiya	ru	860	3	0	новости
+AskRedditRu	ru	143	3	210	обсуждения
+Pikabu_RusComics	ru	1798	2	150	обсуждения
+RussNewsDebate	ru	?	8	90	обсуждения
+SprosiReddit	ru	166	15	0	обсуждения
+brosaemvmeste	ru	772	9	0	обсуждения
+politota	ru	5016	8	360	политика
+CCCP_USSR	ru	52	3	10	политика
+23january2021	ru	99	3	8	политика
+PikabuPolitics	ru	14129	23	7	политика
+discours	ru	235	4	6	политика
+rusagitprop	ru	616	5	6	политика
+RedYurt	ru	22	5	3	политика
+Russian_forest	ru	713	1	2	политика
+Politics_in_Russian	ru	87	5	0	политика
+Soft_Power	ru	163	3	0	политика
+RussianFairPolitics	ru	223	?	0	политика
+erk	ru	237	8	0	политика
+CIS_Politics	ru	279	5	0	политика
+RussNews	ru	11738	10	0	политика
+liberta	ru	53513	91	0	политика
+UncensoredPikabu	ru	335	3	360	разное
+subtuning	ru	2038	6	11	разное
+Russian_electronics	ru	32	5	1	разное
+ReptiloidsLeague	ru	1565	9	0	разное
+Tay_5	ru	22299	134	0	разное
+SubBab	ru	312	12	0	фото
+bilastrila	ua	72	12	0	политика
+DonOperInfo	ua	76	3	0	политика
+u/01W2E					
+u/_The_Singularity_					
+u/abbelrus					
+u/Cherubaelius					
+u/chlomydia					
+u/CosmicCreatures					
+u/darilic					
+u/DavidDinamit					
+u/DrunkCapybara					
+u/el_stellar					
+u/faq1488					
+u/fred1317					
+u/IschadieAda					
+u/KateClaw					
+u/kot6					
+u/ky_clocks					
+u/Li3a					
+u/PaperPlayte					
+u/rapisyo					
+u/sjavvaa					
+u/SpanishAngelPik					
+u/Subatommix					
+u/sutheos					
+u/Tengri_99					
+u/VoluptuousVenus					
+u/WinMXpro					
+
+
+
+---------------------------------------------------------------
+r/AskRedditRu (143,3,210) обсуждения			banned due to being unmoderated
+r/Pikabu_Science (976,5,360) наука			unmoderated. Visit r/redditrequest to request it
+r/Strangeness (666,4,270) непознанное			unmoderated. Visit r/redditrequest to request it
+r/privacyRUnews (22,5,360) новости о приватности в сети	u/HYGDAO	u/Barmagluck
+r/privacyRU (81,3,360) IT				u/Barmagluk	u/HYGDAO	u/Barmagluck
+r/ru_games (154,3,360) игры				u/datiru
+r/MotivationEnglish (130,2,360) обсуждения		u/Cheshire_____Cat
+r/BitcoinRu (252,2,360) крипта				u/andrey_f
+r/UncensoredPikabu (335,3,360) разное			u/DavidDinamit
+r/rucomics (516,2,360) комиксы				u/Xentart	u/MuenaZ	u/protid	u/Zarkoncheg
+r/depra (1800,4,360) обсуждения				u/mikevmk	u/daio	u/lecro
+r/PerevodyReddita (365,2,150) разное			u/Oreshik
+r/Pikabu_RusComics (1798,2,150) обсуждения		u/OblicoMorale
+r/RussNewsDebate (11,8,90) обсуждения			u/GazetaPravda
+r/litperevod (36,4,90) книги				u/Alabarna
+r/Russian_home (13,0,90) разное				u/Russian_partisan
+r/Russian_aviation (32,2,150) авиация			u/Russian_partisan
+r/Russian_electronics (32,5,30) разное			u/Russian_partisan
+r/alliterasie (1400,4,27) разное			u/e_volegova	u/From-Ukraine	u/Slameny_Hubert	u/Bodhidharma
+r/PikabuPsychoTherapy (261,5,20) обсуждения		u/0GStar
+r/Avtomobil (3,4,17) автомобили				u/MAMMOTH_MkII
+r/subtuning (2038,6,11) разное				u/Forjoin
+r/FamilyBlogReal (6,3,9) котики				u/FamilyBlogReal
+r/PikabuOC (12000,6,9) разное				u/PikabuOC_krosspost
+r/PikabuMLP (160,5,1) картинки				u/dotNomedia	u/Syendy	u/StupidMar0nGuy
+r/SprosiReddit (166,15,0) обсуждения			u/n1kkkoo	u/yanikkozy
+r/Bibliotekar (504,17,0) книги				u/5igorsk
+r/brosaemvmeste (772,9,0) обсуждения			u/fraud_2001	u/bv-bot	u/LilUkr
+r/tellyport (1067,19,0) кино				u/nbaciktv	u/tellypat	u/Terpsifona	u/danielweird	u/nagichev	u/chaos_and_panic	u/Slim8020
+r/EverlastingSummerRU (1300,9,0) анимэ-игры		u/pfsenses	u/Amidas89	u/Sin-TX	u/narutouzumaki_13	u/KonSET	u/DNA_Naglario	u/UsagiTsuk1no	u/peregarrett
+r/ru_horror (66,4,270) разное				u/LeeCinSculpt	u/CTPAX-B-TPyCAX	u/KOPOJIb-CTPAXA	u/bziaka	u/monteny	u/adabi1414	u/galerians128	
+r/ru_craft (78,0,19) рукоделие				u/LeeCinSculpt	u/PyKOCEP	u/PyKuMACTEPA	u/bziaka	u/galerians128	u/adabi1414	
+r/SubBab (312,12,0) фото				u/BadaB00mBabay	u/KamazOthodov	u/_m9_	u/radio_rekabu
+r/ReptiloidsLeague (1565,9,0) разное			u/nuKA6bIK	u/monteny	u/_m9_	u/adabi1414	u/empleadoEstatalBot	u/LeeCinSculpt	u/TEXHOMAG	u/Susi94	u/BadaB00mBabay
+r/Tay_5 (22299,134,0) разное				u/5igorsk	u/Narzan65
+r/ru_Anime (3798,10,0) кино				u/Rask0lbas	u/AHEKOT	u/Yuki_Laneige	u/GreamDesu	u/shei350
+r/Popular_Science_Ru (32488,39,0) наука			u/LKamrad	u/GreamDesu	u/robomeow-x	u/postmastern
+
+r/nolaw (16,4,360) мемы					u/bespantovo
+r/Membl_Reddita (139,2,360) мемы			unmoderated. Visit r/redditrequest to request it
+r/ru_animemes (374,2,210) мемы				u/WerySkok
+r/ametistru (438,4,210) мемы				u/VitallyGolovanov	u/Kaserendir	u/Stholtz	u/JukaDes	u/Sennkhara
+r/polovozrelie (4,4,210) мемы				u/disamter
+r/Pikabushort (1730,4,120) мемы				u/x_render	u/0ld_B0y
+r/WTST88 (28,3,90) мемы					u/WTST88
+r/AnimeCult (173,5,8) мемы				u/Animecult	u/Games-on
+r/KafkaFPS (575,6,2) мемы				u/KAFKA_FAN
+r/onepiece_ru (244,6,4)					u/Just_Mellow	u/Dont_say_anytning
+r/Epicentr (5087,87,0) мемы				u/Mifread	u/Just_Mellow	u/okintosh	u/Dev-i-	u/EpEvent
+r/Pikabu (172194,1559,0) мемы				u/Podonok	u/GreamDesu	u/Grievous_Nix	u/hty18hyui	u/Sullencoffee0	u/372957645
+r/RussianIsSoHard (194,5,0) мемы			u/KamazOthodov	u/_m9_	u/Gold_Web
+
+r/Cats_Rulez (2700,17,1) порно				u/Cats_Rulez	u/S3xyVids	u/MarcoCykenBag	u/Iiiiggg	u/sexy-accountfor-stuf
+r/PikabuGoneWild (16000,16,0) порно			u/Podonok	u/GreamDesu	u/Slolaodi	u/MintMoan	u/KateClaw
+
+r/muntaqa_info (8,5,120) новости об исламе		u/nomanov	u/muntaqain
+r/SOVETIKA (45,4,0) новости о ностальгии		u/Sovetika
+r/pora_valit (233,3,30) новости для эмиграции		u/gsogso111
+r/BitRussia (632,1,13) новости криптовалют		u/efxco	u/AlexDruz	u/odhevra	u/alexfork	u/bit_novosti
+r/NewsHappycoinClub (210,8,0) новости биткоинов		u/happycoinclub
+r/ru_EPL (91,11,0) новости футбола			u/footwit
+r/hampan (1600,17,0) наука				u/loyosh	u/talvi__	u/AutoModerator	u/old_J_Roger
+r/antireligious (277,3,3) новости неверующих		u/mutalibun	u/talvi__	u/Forjoin
+r/modcult (46,1,30) новости о культуре			u/Forjoin
+r/scitechnews (79,0,25) новости о технологиях		u/Forjoin
+r/getaways (190,0,0) новости для эмиграции		u/Forjoin
+r/covid19ru (10089,10,4) новости по ковиду		u/Forjoin
+r/privacyRUS (421,4,16) новости о приватности в сети	u/Forjoin	u/AutoModerator
+----------------------------------------------------------------------------
+r/znanie (439,1,360) наука				u/ay__caramba
+r/politota (ru,5016,8,360) политика			u/ay__caramba	u/uaPythonX	u/pelengas	u/politoter
+r/NOBOCTb (ru,28,2,330) новости				u/Serj-Aleks	u/bullxead	u/alexle56
+r/PikabuLiberta (ru,63,3,120) новости			u/Bodhidharma	u/44Ruthenium	u/goryachayaScarlet	u/UncleSamPikabu	u/MadRacc00n
+r/CCCP_USSR (ru,52,3,10) политика			u/Timur_Glazkov_1
+r/PikabuPolitics (ru,14129,23,7) политика		u/GreamDesu	u/tehrur	u/lowrussianprice
+r/Politics_in_Russian (ru,89,2,5) новости		u/maxmydoc	u/EveryVersion
+r/RedYurt (ru,22,5,3) политика				u/JoyAzimov	u/kirkuster	u/tompson98
+r/Russian_forest (ru,713,1,2) политика			u/Russian_partisan	u/AutoModerator
+r/CensoruNet (ru,71,2,0) новости			u/censorunet
+r/23january2021 (ru,99,3,8) политика			u/Forjoin
+r/discours (ru,235,4,6) политика			u/Forjoin
+r/rusagitprop (ru,616,5,6) политика			u/Forjoin
+r/pophistory (ru,87,1,0) политика			u/Forjoin
+r/Soft_Power (ru,163,3,0) политика			u/DavidDinamit
+r/RussianFairPolitics (ru,223,2,0) политика		u/MAMMOTH_MkII	u/skvor4ik
+r/erk (ru,237,8,0) политика				u/loyosh	u/Jayson_Roger	u/old_J_Roger	u/AutoModerator
+r/CIS_Politics (ru,279,5,0) политика			u/mr_Fatalyst	u/Alex_Jew	u/GiovaniTorrio
+r/rossiya (ru,860,3,0) новости				u/noviy-login	u/jinx155555	u/Reza_Jafari	u/Tengri_99
+r/NoLawRus (ru,1000,93,0) политика+мемы			u/-M1xa1l-	u/KamazOthodov	u/BadaB00mBabay	u/Bu11DOG35	u/_m9_	u/Black_capellan
+r/RussNews (ru,11738,10,0) политика			u/GazetaPravda	u/rotfront_su
+r/liberta (ru,53513,91,0) политика			u/VasilyLupin	u/top_logger	u/librebot	u/gentoosiast	u/_JesseJames_	u/Oriko73	u/kroggy
+
+r/bilastrila (ua,72,12,0) политика			u/olukawy
+r/DonOperInfo (ua,76,3,0) политика			u/olukawy	u/United-Chemical
+r/belarus (en,11300,34,0) разное			u/vicarius_generalis	u/dontjustassume	u/herrkeuneristtot	u/svaroz1c	u/PEJ-AN	u/Sp0tlighter	u/NowanIlfideme	u/bolsheada
+r/ukraina (ua,64000,115,0) разное			u/TrenchFouch	u/romwell	u/KRom-RoKoT	u/jeserD3	u/sir_Lawrence	u/OldProRock	u/AutoModerator	u/Reddit_Ukraina
+
+r/Moscow (en,5900,13,0) разное				u/dettoaltrimenti	u/crapfoodpants	u/morbesity
+r/RoadTrafficAccidents (en,16400,21,0) видео ЧП		u/12345098765kkk
+r/AskARussian (en,39900,258,0) разное			u/Jeux_d_Oh	u/z651
+r/russian (en,128000,176,0) русский язык для иностранцев u/SkatjeZero	u/sulumits-retsambew	u/Virusnzz	u/EngiN33R-	u/RussianLanguageBot	u/ImpulseMuffun	u/RussianEnthusiast		u/prikaz_da	u/allenrabinovich	u/yattta
+r/russia (en,158000,280,0) разное			u/unlimited	u/eyeofthestorm	u/WeAreBRICS	u/Bagration44	u/AutoModerator	u/VladimirVartanian	u/JaybeRF
+r/ANormalDayInRussia (en,1100000,744,0) видео		u/catfapper	u/mparrish6001	u/RaptorOnyx	u/_AxeOfKindness_	u/ANormalDayInRussia	u/pyrowolf8	u/Vmoney1337	u/pHorniCaiTe	u/mintberrycrunk	u/LANA_WHAT_DangerZone

@@ -191,10 +191,21 @@
 
 	on
 
-	table
-	ctable
+	table <options> <table to be declared>;
+		0 аргументов - разреженная - можно указать количество аргументов
+		check		проверка границ массива
+		relax		отменяет обязательность заполнения всех элементов
+		sparse		разреженная, укажите только количество индексов. Поиск через сбалансированное дерево
+		strict		все элементы должны быть заполнены к концу модуля, в котором объявлена таблица
+		zerofill	неопределнные элементы считаются 0
+		onefill		неопределнные элементы считаются 1
+		   Symbol x;
+		   Table t1(1:3,-2:4);	
+		   Table t2(0:3,0:3,x?);
+		   Table sparse,t3(4);	ctable
 	ntable
 	fill
+	cleartable
 	
 	fillexpression
 	deallocatetable
@@ -227,7 +238,6 @@
 	polyratfun						функция с числителем и знаменателем
 	moduleoption
 
-	cleartable
 	compress
 	extrasymbols
 	fi [xindex] {< число > : < значение > }; 
@@ -482,10 +492,11 @@
 tablebase
 
 .sort 	continue
-.store 	store globals, remove locals, continue
-.end 	terminate
+.global	защищает объявления (declarations) от удаления .store
+.store 	store globals, remove locals, continue, а также удаляет объявления (declarations)
+см также Specification statement: skip,nskip,drop,ndrop
 .clear 	restart softly
-.global
+.end 	terminate
 
 
 Functions
