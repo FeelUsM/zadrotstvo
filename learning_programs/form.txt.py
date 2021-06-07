@@ -204,10 +204,10 @@
 		   Table t2(0:3,0:3,x?);
 		   Table sparse,t3(4);	ctable
 	ntable
-	fill
-	cleartable
-	
+	fill <tableelement> = <expression> [,<moreexpressions>];
 	fillexpression
+
+	cleartable
 	deallocatetable
 
 	set <set to be declared>[(option)]:<element> [<more elements>];
@@ -292,6 +292,17 @@
 	lfactorized
 	intohide
 === 4. Executable Statement ===
+  	Print [<options>] "<format string>" [<objects>];
+		печатает текущий терм
+		%t	текущий	 терм со знаком
+		%T	текущий	 терм без знака (если +)
+		%w	номер текущегог потока
+		%W	номер текущегог потока и CPU-time
+		%$	$-выражение
+		%%	%
+		%в конце строки - отключает перенос строки в конце конструкции
+		\n	\n
+
 	totensor [nosquare] [functions] [!<vector or set>] <vector> <tensor>;
   	totensor [nosquare] [functions] [!<vector or set>] <tensor> <vector>;
 	tovector <tensor> <vector>;
@@ -306,6 +317,22 @@
 	tracen	след гамма-матриц
 	
 	id[entify] [<options>] <pattern> = <expression>;
+		function? 	<- function
+		tensor?		<- tensor
+		index?		<- index
+		vector?		<- вне функций: vector
+					   как аргумент функции: выражение, где 
+						все термы содержат один вектор без индексов
+		symbol?		<- вне функций: symbol
+					   как аргумент функции: скаларные объекты: 
+						символы, числа и выражения, без свободных индексов и векторов без индексов
+		?xxx		<- группа аргументов функции
+						не работает с симметричными и антисимметричными функциями
+						CFunction f(symmetric),ff;
+						Multiply replace_(f,ff);
+		a?set[n]	{a,b,c} - тоже set
+		a?aa?bb	= a	=== a?aa[n] = bb[n]
+		
 		only		степени должны точно совпадать
 		multi		заменяет только единожды в любой степени (по умолчанию?)
 		many		работает с каждым термом пока может
@@ -421,7 +448,8 @@
 	inside
 	endinside
 
-	term
+	term;		- текущий терм начинает рассматриваться как выражение
+	sort;		- как .sort, только внутри term
 	endterm
 
 
@@ -458,7 +486,6 @@
 	renumber
 	select
 	shuffle
-	sort
 	stuffle
 	testuse
 
@@ -475,10 +502,15 @@
 
 	Print [<options>];
   	Print {[<options>] <expression>};
-  	Print [<options>] "<format string>" [<objects>];
-		+s каждый терм на новой строке
-	print[]
-	nprint
+		+f	печатать только в лог-файл
+		-f	(default) печатать и в stdout и в logfile
+		+s 	каждый терм на новой строке (single term mode)
+		+ss	каждый терм и каждая группа терма с новой строки
+		+sss каждый символ с новой строки
+	print[] {[<options>] <name>};
+		в скобках печатает не их содержимое, а количество термов
+	np[rint] <list of names of expressions>;
+		наподобие nskip
 
 	factorize
 	unfactorize
@@ -609,3 +641,68 @@ Functions
 	ln_		The natural logarithm.
 	li2_	The dilogarithm function.
 	lin_	The polylogarithm function.	
+
+Параметры (setup)
+	Define										инструкция препроцессора
+
+	Variable 			32-bits 	64-bits
+
+	path 				. 			.
+	IncDir 				. 			.			files for the #include and #call instructions
+	tempdir 			. 			.
+	tempsortdir 		. 			.
+
+	CommentChar 		$*$ 		$*$
+	DotChar 			. 			.			when dotproducts are printed in Fortran output
+	ContinuationLines 	15 			15			Format Fortran
+
+	nwriteFinalStatistics OFF 		OFF
+	nwriteStatistics 	OFF 		OFF
+	nwriteThreadStatistics OFF 		OFF
+
+	InsideFirst 		ON 			ON			files for the #include and #call instructions
+	noSpacesInNumbers 	OFF 		OFF			пробелы вначчале строк при переносах длинных чисел
+	oldorder 			OFF 		OFF
+	sorttype 			lowfirst 	lowfirst
+
+	BracketIndexSize	200000 		200000		раздел "скобки" и Output control statement "bracket"
+	ConstIndex 			128 		128			максимальный индекс как число
+	FunctionLevels 		30 			30			when functions have functions in their arguments
+	MaxWildCards 		100 		100			количество шаблонов при одном сопоставлении паттерна
+	filepatches 		256 		256
+	largepatches 		256 		256
+
+	CompressSize 		90000 		90000		compression buffer size
+	HideSize 			50000000 	50000000
+	termsinsmall 		100000 		100000
+	smallsize 			10000000 	10000000
+	smallextension 		20000000 	20000000
+	largesize 			50000000 	50000000	размер большого буфера
+	
+	MaxNumberSize 		200 		200			максимум MaxTermSize/2
+	MaxTermSize 		10000 		40000		
+	workspace 			10000000 	40000000	размер кучи для алгебраического препроцессора, когда тот вычисляет дерево подстановок
+
+	numstorecaches 		4 			4
+	parentheses 		100 		100
+	processbucketsize 	1000 		1000
+	scratchsize 		50000000 	50000000
+	sizestorecache 		32768 		32768
+	sortiosize 			100000 		100000
+
+	subfilepatches 		64 			64
+	sublargepatches 	64 			64
+	sublargesize 		4000000 	4000000
+	subsmallextension 	800000 		800000
+	subsmallsize 		500000 		500000
+	subsortiosize 		32768 		32768
+	subtermsinsmall 	10000 		10000
+
+	threadbucketsize 	500 		500
+	threadscratchoutsize 2500000 	2500000
+	threadscratchsize 	100000 		100000
+
+	JumpRatio									See the endswitch (7.49) statement
+	threads 			0 			0
+	threadLoadBalancing ON 			ON
+	threadSortFileSynch OFF 		OFF
