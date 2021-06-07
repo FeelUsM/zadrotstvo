@@ -1,0 +1,279 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=koi8-r">
+
+
+<TITLE>Autoconf - Ручная настройка</TITLE>
+</HEAD>
+<body><b><a href="http://www.opennet.ru/docs/">Архив документации OpenNet.ru</a> / 
+Раздел "<a href="http://www.opennet.ru/docs/124.shtml">Программирование, языки</a>" /
+<a href="index.html">Индекс</a>
+</b>
+<hr noshade size=1>
+
+Go to the <A HREF="autoconf-ru_1.html">first</A>, <A HREF="autoconf-ru_7.html">previous</A>, <A HREF="autoconf-ru_9.html">next</A>, <A HREF="autoconf-ru_19.html">last</A> section, <A HREF="autoconf-ru_toc.html">table of contents</A>.
+<P><HR><P>
+
+
+<H1><A NAME="SEC67" HREF="autoconf-ru_toc.html#TOC67">Ручная настройка</A></H1>
+<P>
+@anchor{Manual Configuration}
+
+
+<P>
+Некоторые типы свойств не могут быть определены автоматически путем
+запуска тестовых программ. Например, детали реализации формата объектных
+файлов или специальные ключи, которые необходимо передать компилятору
+или компоновщику. Вы можете проверить такие свойства используя
+специализированные возможности, такие как заставив <CODE>configure</CODE>
+проверить вывод программы <CODE>uname</CODE> или производя поиск библиотек,
+специфических для отдельных систем. Однако Autoconf предоставляет
+однообразный метод для обработки неопределяемых свойств.
+
+
+
+
+<H2><A NAME="SEC68" HREF="autoconf-ru_toc.html#TOC68">Указание типа системы</A></H2>
+<P>
+@anchor{Specifying Names}
+
+
+<P>
+Подобно другим скриптам GNU <CODE>configure</CODE>, созданные Autoconf скрипты
+<CODE>configure</CODE> могут делать заключение основываясь на каноническом
+имени типа системы, которое имеет форму:
+
+
+
+<PRE>
+<VAR>cpu</VAR>-<VAR>company</VAR>-<VAR>system</VAR>
+</PRE>
+
+<P>
+<CODE>configure</CODE> обычно может определить каноническое имя типа системы
+на которой он запущен. Для этого он запускает скрипт с именем
+<CODE>config.guess</CODE>, который определяет имя, используя команду
+<CODE>uname</CODE> или символы определенные препроцессором C.
+
+
+<P>
+В качестве альтернативы, пользователь может указать тип системы как
+аргумент командной строки скрипта <CODE>configure</CODE>. Это необходимо
+сделать, если вы хотите использовать кросс-компиляцию. В большинстве
+сложных случаев кросс-компиляции будут вовлечены три типа систем. Для их
+указания используются следующие ключи:
+
+
+<DL COMPACT>
+
+<DT><CODE>--build=<VAR>build-type</VAR></CODE>
+<DD>
+тип системы на которой настраивается и компилируется пакет (используется
+редко);
+
+<DT><CODE>--host=<VAR>host-type</VAR></CODE>
+<DD>
+тип системы на которой будет запускаться пакет;
+
+<DT><CODE>--target=<VAR>target-type</VAR></CODE>
+<DD>
+тип системы для которой утилиты компилятора будут создавать код.
+</DL>
+
+<P>
+Если пользователь задает <CODE>configure</CODE> неключевой аргумент, то он
+используется как значение по умолчанию для всех типов систем, если
+только пользователь не указал типы явно для систем с помощью ключей
+командной строки. Если типы целевой и собирающей систем не заданы, а
+задан тип системы на которой будет запускаться пакет, то они равны
+заданному значению. Если вы используете кросс-компиляцию, то вам
+необходимо указать в командной строке скрипта <CODE>configure</CODE> имена
+используемых вами кросс-утилит, в частности компилятора С, например,
+
+
+
+<PRE>
+CC=m68k-coff-gcc configure --target=m68k-coff
+</PRE>
+
+<P>
+<CODE>configure</CODE> распознает короткие алиасы для многих типов систем;
+например, в командной строке может быть задано имя <SAMP>`decstation'</SAMP>
+вместо <SAMP>`mips-dec-ultrix4.2'</SAMP>. <CODE>configure</CODE> запускает скрипт с
+именем <CODE>config.sub</CODE> для канонизации алиасов типов систем.
+
+
+
+
+<H2><A NAME="SEC69" HREF="autoconf-ru_toc.html#TOC69">Получение канонического типа системы</A></H2>
+<P>
+@anchor{Canonicalizing}
+
+
+<P>
+Следующие макросы делают тип системы доступным для скриптов
+<CODE>configure</CODE>. Они запускают скрипт командного процессора
+<CODE>config.guess</CODE> для определения значений для каждого из типов
+систем, в которых они нуждаются, и которые пользователь не указал в
+командной строке. Они запускают <CODE>config.sub</CODE> для канонизации
+заданных пользователем псевдонимов. Если вы используете эти макросы, то вы
+должны распространять эти два файла вместе с вашим исходным
+кодом. See section <A HREF="autoconf-ru_3.html#SEC10">Создание выходных файлов</A>, для получения информации о макросе
+<CODE>AC_CONFIG_AUX_DIR</CODE>, который вы можете использовать для контроля
+того, в каком именно каталоге <CODE>configure</CODE> будет искать эти
+файлы.  Если вы не используете ни один из этих макросов, то
+<CODE>configure</CODE> игнорирует заданные ключи <SAMP>`--host'</SAMP>,
+<SAMP>`--target'</SAMP> и <SAMP>`--build'</SAMP>.
+
+
+<P>
+<DL>
+<DT><U>Macro:</U> <B>AC_CANONICAL_SYSTEM</B>
+<DD><A NAME="IDX461"></A>
+<A NAME="IDX462"></A>
+Определяет тип системы и устанавливает выходные переменные равными
+именам канонических типов систем.  See section <A HREF="autoconf-ru_8.html#SEC70">Переменные типов систем</A>, где
+описано, какие именно переменные устанавливаются этим макросом.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>Macro:</U> <B>AC_CANONICAL_HOST</B>
+<DD><A NAME="IDX463"></A>
+<A NAME="IDX464"></A>
+Выполняет часть операций <CODE>AC_CANONICAL_SYSTEM</CODE>, относящуюся к
+определению типа системы, на которой будет запускаться пакет. Это все,
+что необходимо для программ, которые не входят в набор утилит
+компилятора.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>Macro:</U> <B>AC_VALIDATE_CACHED_SYSTEM_TUPLE</B> <I>(<VAR>cmd</VAR>)</I>
+<DD><A NAME="IDX465"></A>
+<A NAME="IDX466"></A>
+Если в кэш-файле записан тип системы, не совпадающий с текущим, то
+выполняется команда <VAR>cmd</VAR> или печатается стандартное сообщение об
+ошибке.
+</DL>
+
+
+
+
+<H2><A NAME="SEC70" HREF="autoconf-ru_toc.html#TOC70">Переменные типов систем</A></H2>
+<P>
+@anchor{System Type Variables}
+
+
+<P>
+После вызова <CODE>AC_CANONICAL_SYSTEM</CODE> информация о типе системы
+содержится в нижеперечисленных выходных переменных.  После
+<CODE>AC_CANONICAL_HOST</CODE> устанавливаются только те из перечисленных
+переменных, чьи имена начинаются на <CODE>host</CODE>.
+
+
+<DL COMPACT>
+
+<DT><CODE><CODE>build</CODE>, <CODE>host</CODE>, <CODE>target</CODE></CODE>
+<DD>
+<A NAME="IDX467"></A>
+ <A NAME="IDX468"></A>
+ <A NAME="IDX469"></A>
+ 
+канонические имена систем;
+
+<DT><CODE><CODE>build_alias</CODE>, <CODE>host_alias</CODE>, <CODE>target_alias</CODE></CODE>
+<DD>
+<A NAME="IDX470"></A>
+<A NAME="IDX471"></A>
+<A NAME="IDX472"></A>
+имена, указанные пользователем или канонические имена, если был
+использован файл <CODE>config.guess</CODE>;
+
+<DT><CODE><CODE>build_cpu</CODE>, <CODE>build_vendor</CODE>, <CODE>build_os</CODE></CODE>
+<DD>
+<DT><CODE><CODE>host_cpu</CODE>, <CODE>host_vendor</CODE>, <CODE>host_os</CODE></CODE>
+<DD>
+<DT><CODE><CODE>target_cpu</CODE>, <CODE>target_vendor</CODE>, <CODE>target_os</CODE></CODE>
+<DD>
+<A NAME="IDX473"></A>
+<A NAME="IDX474"></A>
+<A NAME="IDX475"></A>
+<A NAME="IDX476"></A>
+<A NAME="IDX477"></A>
+<A NAME="IDX478"></A>
+<A NAME="IDX479"></A>
+<A NAME="IDX480"></A>
+<A NAME="IDX481"></A>
+отдельные части канонического имени (для удобства).
+</DL>
+
+
+
+<H2><A NAME="SEC71" HREF="autoconf-ru_toc.html#TOC71">Использование типов систем</A></H2>
+<P>
+@anchor{Using System Type}
+
+
+<P>
+Как использовать канонический тип системы? Обычно вы используете его в
+одном или нескольких операторах <CODE>case</CODE> в <TT>`configure.in'</TT> для
+выбора специфических для системы файлов C.  Затем делает ссылки на
+файлы, чьи имена содержат информацию о системе, чтобы они назывались также
+своим обобщенным именем, например,  <TT>`host.h'</TT> или <TT>`target.c'</TT>.  Шаблоны
+в операторе <CODE>case</CODE> могут использовать специальные символы командного процессора
+для группировки нескольких вариантов вместе, например как в таком
+фрагменте:
+
+
+
+<PRE>
+case "$target" in
+i386-*-mach* | i386-*-gnu*) obj_format=aout emulation=mach bfd_gas=yes ;;
+i960-*-bout) obj_format=bout ;;
+esac
+</PRE>
+
+<P>
+<DL>
+<DT><U>Macro:</U> <B>AC_LINK_FILES</B> <I>(<VAR>source</VAR>..., <VAR>dest</VAR>...)</I>
+<DD><A NAME="IDX482"></A>
+<A NAME="IDX483"></A>
+Заставляет <CODE>AC_OUTPUT</CODE> сделать ссылку с каждого файла из списка
+<VAR>source</VAR> на соответствующий файл с именем <VAR>dest</VAR>. Если это
+возможно, то создается символьная ссылка, иначе создается жесткая
+ссылка. Имена <VAR>dest</VAR> и <VAR>source</VAR> должны быть заданы относительно
+каталога верхнего уровня с исходными текстами или каталога, в котором
+происходит сборка. Этот макрос может быть вызван неоднократно.
+
+
+<P>
+Например, такой вызов:
+
+
+
+<PRE>
+AC_LINK_FILES(config/${machine}.h config/${obj_format}.h, host.h object.h)
+</PRE>
+
+<P>
+создает в текущем каталоге файл <TT>`host.h'</TT>, который является ссылкой
+на <TT>`<VAR>srcdir</VAR>/config/${machine}.h'</TT>, и <TT>`object.h'</TT>, который
+является ссылкой на <TT>`<VAR>srcdir</VAR>/config/${obj_format}.h'</TT>.
+</DL>
+
+
+<P>
+Вы также можете использовать тип системы, на которой будет запускаться
+программа, для поиска утилит кросс-компиляции.  See section <A HREF="autoconf-ru_4.html#SEC24">Общие программы и проверки файлов</A>, для информации о макросе <CODE>AC_CHECK_TOOL</CODE>, который
+выполняет это.
+
+
+<P><HR><P>
+Go to the <A HREF="autoconf-ru_1.html">first</A>, <A HREF="autoconf-ru_7.html">previous</A>, <A HREF="autoconf-ru_9.html">next</A>, <A HREF="autoconf-ru_19.html">last</A> section, <A HREF="autoconf-ru_toc.html">table of contents</A>.
+<hr noshade size=1>
+<b><a href="http://www.opennet.ru/docs/">Архив документации на OpenNet.ru</a>
+</BODY>
+</HTML>

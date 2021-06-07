@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=koi8-r">
+
+
+<TITLE>Autoconf - Воссоздание конфигурации</TITLE>
+</HEAD>
+<body><b><a href="http://www.opennet.ru/docs/">Архив документации OpenNet.ru</a> / 
+Раздел "<a href="http://www.opennet.ru/docs/124.shtml">Программирование, языки</a>" /
+<a href="index.html">Индекс</a>
+</b>
+<hr noshade size=1>
+
+Go to the <A HREF="autoconf-ru_1.html">first</A>, <A HREF="autoconf-ru_10.html">previous</A>, <A HREF="autoconf-ru_12.html">next</A>, <A HREF="autoconf-ru_19.html">last</A> section, <A HREF="autoconf-ru_toc.html">table of contents</A>.
+<P><HR><P>
+
+
+<H1><A NAME="SEC90" HREF="autoconf-ru_toc.html#TOC90">Воссоздание конфигурации</A></H1>
+<P>
+@anchor{Invoking config.status}
+
+
+<P>
+Скрипт <CODE>configure</CODE> создает файл с именем <TT>`config.status'</TT>,
+который описывает, какие параметры конфигурации были указаны при последней
+конфигурации пакета.  Это файл является скриптом командного процессора,
+который при запуске воссоздает ту же самую настройку.
+
+
+<P>
+Вы можете задать скрипту <TT>`config.status'</TT> ключ <SAMP>`--recheck'</SAMP>,
+чтобы он обновил сам себя.  Этот ключ полезен, если вы изменяете <CODE>configure</CODE>,
+так что результаты некоторых тестов могут измениться по сравнению с
+предыдущим запуском. Ключ <SAMP>`--recheck'</SAMP> перезапускает
+<CODE>configure</CODE> с аргументами, использованными при предыдущих запусках,
+с добавлением ключа <SAMP>`--no-create'</SAMP>, который не дает <CODE>configure</CODE>
+запустить <TT>`config.status'</TT> и создать <TT>`Makefile'</TT> и другие файлы,
+а также с добавлением ключа <SAMP>`--no-recursion'</SAMP>, который предотвращает
+запуск скриптов <CODE>configure</CODE> в подкаталогах.  (Это сделано для того, 
+чтобы другие правила
+<TT>`Makefile'</TT> могли бы запускать <TT>`config.status'</TT> при его изменении;
+Например, see section <A HREF="autoconf-ru_3.html#SEC14">Автоматическая пересборка</A>).
+
+
+<P>
+<TT>`config.status'</TT> также распознает ключ <SAMP>`--help'</SAMP>, который выдает
+список ключей <TT>`config.status'</TT>, и ключ <SAMP>`--version'</SAMP>, который
+выдает номер версии Autoconf, которая была использована при создании
+скрипта <CODE>configure</CODE>, создавшего файл <TT>`config.status'</TT>.
+
+
+<P>
+<TT>`config.status'</TT> проверяет несколько переменных среды, которые могут
+изменить его поведение:
+
+
+<P>
+<DL>
+<DT><U>Variable:</U> <B>CONFIG_SHELL</B>
+<DD><A NAME="IDX496"></A>
+<A NAME="IDX497"></A>
+Командный процессор, который запустит <CODE>configure</CODE> с ключом
+<SAMP>`--recheck'</SAMP>. Он должен быть совместимым с командным процессором
+Bourne.  Значение по умолчанию -- является <TT>`/bin/sh'</TT>.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>Variable:</U> <B>CONFIG_STATUS</B>
+<DD><A NAME="IDX498"></A>
+<A NAME="IDX499"></A>
+Имя файла, которое будет использоваться для создания скрипта командного
+процессора, который сохранит текущую настройку. Значением по умолчанию
+является <TT>`./config.status'</TT>. Эта переменная полезна в том случае,
+когда один пакет использует части другого, а скрипты <CODE>configure</CODE> не
+должны быть слиты вместе, поскольку они сопровождаются по
+отдельности.
+</DL>
+
+
+<P>
+Следующие переменные обеспечивают возможность отдельным пакетам
+совместно использовать значения переменных, вычисленных скриптом
+<CODE>configure</CODE>.  Это может быть полезно, если одному пакету нужно
+больше возможностей, чем другому.  Эти переменные позволяют файлу
+<TT>`config.status'</TT> создавать и другие файлы, не только те, что указаны
+в файле <TT>`configure.in'</TT>, чтобы их можно было бы использовать в
+другом пакете.
+
+
+<P>
+<DL>
+<DT><U>Variable:</U> <B>CONFIG_FILES</B>
+<DD><A NAME="IDX500"></A>
+<A NAME="IDX501"></A>
+Файлы, в которых будут выполняться подстановки
+<SAMP>`@<VAR>variable</VAR>@'</SAMP>.  Обычно эти файлы задаются как аргументы
+макроса <CODE>AC_OUTPUT</CODE> в <TT>`configure.in'</TT>.
+</DL>
+
+
+<P>
+<DL>
+<DT><U>Variable:</U> <B>CONFIG_HEADERS</B>
+<DD><A NAME="IDX502"></A>
+<A NAME="IDX503"></A>
+Файлы, в которых будет выполняться подстановка операторов <CODE>#define</CODE>
+языка C.  Обычно это файлы, заданные в аргументах макроса
+<CODE>AC_CONFIG_HEADER</CODE>; если этот макрос не был вызван, то
+<TT>`config.status'</TT> игнорирует эту переменную.
+</DL>
+
+
+<P>
+Эти переменные также позволяют написать правила <TT>`Makefile'</TT>, которые
+будут пересоздавать только некоторые файлы.  Например, в
+вышеприведенной зависимости (see section <A HREF="autoconf-ru_3.html#SEC14">Автоматическая пересборка</A>),
+<TT>`config.status'</TT> запускается дважды при изменении
+<TT>`configure.in'</TT>. Если это беспокоит вас, то вы можете сделать так,
+чтобы при каждом запуске обновлялись файлы только для этого правила:
+
+
+
+<PRE>
+config.h: stamp-h
+stamp-h: config.h.in config.status
+        CONFIG_FILES= CONFIG_HEADERS=config.h ./config.status
+        echo &#62; stamp-h
+
+Makefile: Makefile.in config.status
+        CONFIG_FILES=Makefile CONFIG_HEADERS= ./config.status
+</PRE>
+
+<P>
+(Если <TT>`configure.in'</TT> не вызывает макрос <CODE>AC_CONFIG_HEADER</CODE>, то
+нет необходимости устанавливать <CODE>CONFIG_HEADERS</CODE> в правилах
+<CODE>make</CODE>).
+
+
+<P><HR><P>
+Go to the <A HREF="autoconf-ru_1.html">first</A>, <A HREF="autoconf-ru_10.html">previous</A>, <A HREF="autoconf-ru_12.html">next</A>, <A HREF="autoconf-ru_19.html">last</A> section, <A HREF="autoconf-ru_toc.html">table of contents</A>.
+<hr noshade size=1>
+<b><a href="http://www.opennet.ru/docs/">Архив документации на OpenNet.ru</a>
+</BODY>
+</HTML>

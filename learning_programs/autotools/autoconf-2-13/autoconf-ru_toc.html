@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=koi8-r">
+
+
+<TITLE>Autoconf - Table of Contents</TITLE>
+</HEAD>
+<body><b><a href="http://www.opennet.ru/docs/">Архив документации OpenNet.ru</a> / 
+Раздел "<a href="http://www.opennet.ru/docs/124.shtml">Программирование, языки</a>" /
+<a href="index.html">Индекс</a>
+</b>
+<hr noshade size=1>
+
+<H1>Autoconf</H1>
+<H2>Создание скриптов для автоматической конфигурации</H2>
+<H2>Редакция 2.13, Autoconf версии 2.13</H2>
+<H2>Декабрь 1998</H2>
+<ADDRESS>David MacKenzie и Ben Elliston</ADDRESS>
+<P>
+<P><HR><P>
+<UL>
+<LI><A NAME="TOC1" HREF="autoconf-ru_1.html#SEC1">Введение</A>
+<LI><A NAME="TOC2" HREF="autoconf-ru_2.html#SEC2">Создание скриптов <CODE>configure</CODE></A>
+<UL>
+<LI><A NAME="TOC3" HREF="autoconf-ru_2.html#SEC3">Написание <TT>`configure.in'</TT></A>
+<LI><A NAME="TOC4" HREF="autoconf-ru_2.html#SEC4">Использование программы <CODE>autoscan</CODE> для создания <TT>`configure.in'</TT></A>
+<LI><A NAME="TOC5" HREF="autoconf-ru_2.html#SEC5">Использование программы <CODE>ifnames</CODE> для перечисления условных выражений</A>
+<LI><A NAME="TOC6" HREF="autoconf-ru_2.html#SEC6">Использование программы <CODE>autoconf</CODE> для создания скрипта <CODE>configure</CODE></A>
+<LI><A NAME="TOC7" HREF="autoconf-ru_2.html#SEC7">Использование <CODE>autoreconf</CODE> для обновления ваших скриптов <CODE>configure</CODE></A>
+</UL>
+<LI><A NAME="TOC8" HREF="autoconf-ru_3.html#SEC8">Файлы инициализации и выходные файлы</A>
+<UL>
+<LI><A NAME="TOC9" HREF="autoconf-ru_3.html#SEC9">Нахождение ввода <CODE>configure</CODE></A>
+<LI><A NAME="TOC10" HREF="autoconf-ru_3.html#SEC10">Создание выходных файлов</A>
+<LI><A NAME="TOC11" HREF="autoconf-ru_3.html#SEC11">Подстановки в файлах Makefile</A>
+<UL>
+<LI><A NAME="TOC12" HREF="autoconf-ru_3.html#SEC12">Предварительная установка выходных переменных</A>
+<LI><A NAME="TOC13" HREF="autoconf-ru_3.html#SEC13">Каталоги сборки программ</A>
+<LI><A NAME="TOC14" HREF="autoconf-ru_3.html#SEC14">Автоматическая пересборка</A>
+</UL>
+<LI><A NAME="TOC15" HREF="autoconf-ru_3.html#SEC15">Заголовочные файлы конфигурации</A>
+<UL>
+<LI><A NAME="TOC16" HREF="autoconf-ru_3.html#SEC16">Шаблоны заголовочных файлов</A>
+<LI><A NAME="TOC17" HREF="autoconf-ru_3.html#SEC17">Использование <CODE>autoheader</CODE> для создания <TT>`config.h.in'</TT></A>
+</UL>
+<LI><A NAME="TOC18" HREF="autoconf-ru_3.html#SEC18">Настройка других пакетов, находящихся в подкаталогах</A>
+<LI><A NAME="TOC19" HREF="autoconf-ru_3.html#SEC19">Префикс по умолчанию</A>
+<LI><A NAME="TOC20" HREF="autoconf-ru_3.html#SEC20">Номера версий в <CODE>configure</CODE></A>
+</UL>
+<LI><A NAME="TOC21" HREF="autoconf-ru_4.html#SEC21">Существующие тесты</A>
+<UL>
+<LI><A NAME="TOC22" HREF="autoconf-ru_4.html#SEC22">Альтернативные программы</A>
+<UL>
+<LI><A NAME="TOC23" HREF="autoconf-ru_4.html#SEC23">Проверка отдельных программ</A>
+<LI><A NAME="TOC24" HREF="autoconf-ru_4.html#SEC24">Общие программы и проверки файлов</A>
+</UL>
+<LI><A NAME="TOC25" HREF="autoconf-ru_4.html#SEC25">Файлы библиотек</A>
+<LI><A NAME="TOC26" HREF="autoconf-ru_4.html#SEC26">Библиотечные функции</A>
+<UL>
+<LI><A NAME="TOC27" HREF="autoconf-ru_4.html#SEC27">Проверка отдельных функций</A>
+<LI><A NAME="TOC28" HREF="autoconf-ru_4.html#SEC28">Проверка базовых функций</A>
+</UL>
+<LI><A NAME="TOC29" HREF="autoconf-ru_4.html#SEC29">Заголовочные файлы</A>
+<UL>
+<LI><A NAME="TOC30" HREF="autoconf-ru_4.html#SEC30">Проверка отдельных заголовочных файлов</A>
+<LI><A NAME="TOC31" HREF="autoconf-ru_4.html#SEC31">Базовые проверки заголовочных файлов</A>
+</UL>
+<LI><A NAME="TOC32" HREF="autoconf-ru_4.html#SEC32">Структуры</A>
+<LI><A NAME="TOC33" HREF="autoconf-ru_4.html#SEC33">Объявления типов</A>
+<UL>
+<LI><A NAME="TOC34" HREF="autoconf-ru_4.html#SEC34">Проверка отдельных объявлений типов</A>
+<LI><A NAME="TOC35" HREF="autoconf-ru_4.html#SEC35">Базовые проверки объявлений типов</A>
+</UL>
+<LI><A NAME="TOC36" HREF="autoconf-ru_4.html#SEC36">Характеристики компилятора C</A>
+<LI><A NAME="TOC37" HREF="autoconf-ru_4.html#SEC37">Характеристики компилятора Fortran 77</A>
+<LI><A NAME="TOC38" HREF="autoconf-ru_4.html#SEC38">Системные сервисы</A>
+<LI><A NAME="TOC39" HREF="autoconf-ru_4.html#SEC39">Варианты UNIX</A>
+</UL>
+<LI><A NAME="TOC40" HREF="autoconf-ru_5.html#SEC40">Написание тестов</A>
+<UL>
+<LI><A NAME="TOC41" HREF="autoconf-ru_5.html#SEC41">Исследование деклараций</A>
+<LI><A NAME="TOC42" HREF="autoconf-ru_5.html#SEC42">Проверка синтаксиса</A>
+<LI><A NAME="TOC43" HREF="autoconf-ru_5.html#SEC43">Проверка библиотек</A>
+<LI><A NAME="TOC44" HREF="autoconf-ru_5.html#SEC44">Проверка поведения во время выполнения</A>
+<UL>
+<LI><A NAME="TOC45" HREF="autoconf-ru_5.html#SEC45">Запуск тестовых программ</A>
+<LI><A NAME="TOC46" HREF="autoconf-ru_5.html#SEC46">Рекомендации по написанию тестовых программ</A>
+<LI><A NAME="TOC47" HREF="autoconf-ru_5.html#SEC47">Тестовые функции</A>
+</UL>
+<LI><A NAME="TOC48" HREF="autoconf-ru_5.html#SEC48">Переносимое программирование на языке командного процессора</A>
+<LI><A NAME="TOC49" HREF="autoconf-ru_5.html#SEC49">Тестирование значений и файлов</A>
+<LI><A NAME="TOC50" HREF="autoconf-ru_5.html#SEC50">Множество вариантов</A>
+<LI><A NAME="TOC51" HREF="autoconf-ru_5.html#SEC51">Выбор языка</A>
+</UL>
+<LI><A NAME="TOC52" HREF="autoconf-ru_6.html#SEC52">Результаты тестов</A>
+<UL>
+<LI><A NAME="TOC53" HREF="autoconf-ru_6.html#SEC53">Определение символов препроцессора С</A>
+<LI><A NAME="TOC54" HREF="autoconf-ru_6.html#SEC54">Установка выходных переменных</A>
+<LI><A NAME="TOC55" HREF="autoconf-ru_6.html#SEC55">Кэширование результатов</A>
+<UL>
+<LI><A NAME="TOC56" HREF="autoconf-ru_6.html#SEC56">Имена переменных кэша</A>
+<LI><A NAME="TOC57" HREF="autoconf-ru_6.html#SEC57">Кэш-файлы</A>
+</UL>
+<LI><A NAME="TOC58" HREF="autoconf-ru_6.html#SEC58">Выдача сообщений</A>
+</UL>
+<LI><A NAME="TOC59" HREF="autoconf-ru_7.html#SEC59">Создание макросов</A>
+<UL>
+<LI><A NAME="TOC60" HREF="autoconf-ru_7.html#SEC60">Определение макросов</A>
+<LI><A NAME="TOC61" HREF="autoconf-ru_7.html#SEC61">Имена макросов</A>
+<LI><A NAME="TOC62" HREF="autoconf-ru_7.html#SEC62">Заключение в кавычки</A>
+<LI><A NAME="TOC63" HREF="autoconf-ru_7.html#SEC63">Зависимости между макросами</A>
+<UL>
+<LI><A NAME="TOC64" HREF="autoconf-ru_7.html#SEC64">Требуемые макросы</A>
+<LI><A NAME="TOC65" HREF="autoconf-ru_7.html#SEC65">Предлагаемый порядок</A>
+<LI><A NAME="TOC66" HREF="autoconf-ru_7.html#SEC66">Устаревшие макросы</A>
+</UL>
+</UL>
+<LI><A NAME="TOC67" HREF="autoconf-ru_8.html#SEC67">Ручная настройка</A>
+<UL>
+<LI><A NAME="TOC68" HREF="autoconf-ru_8.html#SEC68">Указание типа системы</A>
+<LI><A NAME="TOC69" HREF="autoconf-ru_8.html#SEC69">Получение канонического типа системы</A>
+<LI><A NAME="TOC70" HREF="autoconf-ru_8.html#SEC70">Переменные типов систем</A>
+<LI><A NAME="TOC71" HREF="autoconf-ru_8.html#SEC71">Использование типов систем</A>
+</UL>
+<LI><A NAME="TOC72" HREF="autoconf-ru_9.html#SEC72">Локальная конфигурация</A>
+<UL>
+<LI><A NAME="TOC73" HREF="autoconf-ru_9.html#SEC73">Работа с внешним программным обеспечением</A>
+<LI><A NAME="TOC74" HREF="autoconf-ru_9.html#SEC74">Выбор ключей пакетов</A>
+<LI><A NAME="TOC75" HREF="autoconf-ru_9.html#SEC75">Детали локальной конфигурации</A>
+<LI><A NAME="TOC76" HREF="autoconf-ru_9.html#SEC76">Преобразование имен программ при установке</A>
+<UL>
+<LI><A NAME="TOC77" HREF="autoconf-ru_9.html#SEC77">Ключи преобразования</A>
+<LI><A NAME="TOC78" HREF="autoconf-ru_9.html#SEC78">Примеры преобразований</A>
+<LI><A NAME="TOC79" HREF="autoconf-ru_9.html#SEC79">Правила преобразования</A>
+</UL>
+<LI><A NAME="TOC80" HREF="autoconf-ru_9.html#SEC80">Установка значений по умолчанию для машины</A>
+</UL>
+<LI><A NAME="TOC81" HREF="autoconf-ru_10.html#SEC81">Запуск скриптов <CODE>configure</CODE></A>
+<UL>
+<LI><A NAME="TOC82" HREF="autoconf-ru_10.html#SEC82">Простая установка</A>
+<LI><A NAME="TOC83" HREF="autoconf-ru_10.html#SEC83">Компиляторы и ключи</A>
+<LI><A NAME="TOC84" HREF="autoconf-ru_10.html#SEC84">Компиляция для нескольких архитектур</A>
+<LI><A NAME="TOC85" HREF="autoconf-ru_10.html#SEC85">Имена для установки</A>
+<LI><A NAME="TOC86" HREF="autoconf-ru_10.html#SEC86">Дополнительные возможности</A>
+<LI><A NAME="TOC87" HREF="autoconf-ru_10.html#SEC87">Указание типа системы</A>
+<LI><A NAME="TOC88" HREF="autoconf-ru_10.html#SEC88">Совместное использование значений по умолчанию</A>
+<LI><A NAME="TOC89" HREF="autoconf-ru_10.html#SEC89">Контроль выполнения</A>
+</UL>
+<LI><A NAME="TOC90" HREF="autoconf-ru_11.html#SEC90">Воссоздание конфигурации</A>
+<LI><A NAME="TOC91" HREF="autoconf-ru_12.html#SEC91">Вопросы об Autoconf</A>
+<UL>
+<LI><A NAME="TOC92" HREF="autoconf-ru_12.html#SEC92">Распространение скриптов <CODE>configure</CODE></A>
+<LI><A NAME="TOC93" HREF="autoconf-ru_12.html#SEC93">Почему требуется GNU <CODE>m4</CODE>?</A>
+<LI><A NAME="TOC94" HREF="autoconf-ru_12.html#SEC94">Как я могу начать работу?</A>
+<LI><A NAME="TOC95" HREF="autoconf-ru_12.html#SEC95">Почему не используется Imake?</A>
+</UL>
+<LI><A NAME="TOC96" HREF="autoconf-ru_13.html#SEC96">Обновление с версии 1</A>
+<UL>
+<LI><A NAME="TOC97" HREF="autoconf-ru_13.html#SEC97">Измененные имена файлов</A>
+<LI><A NAME="TOC98" HREF="autoconf-ru_13.html#SEC98">Измененные файлы Makefile</A>
+<LI><A NAME="TOC99" HREF="autoconf-ru_13.html#SEC99">Измененные макросы</A>
+<LI><A NAME="TOC100" HREF="autoconf-ru_13.html#SEC100">Использование <CODE>autoupdate</CODE> для обновления <CODE>configure</CODE></A>
+<LI><A NAME="TOC101" HREF="autoconf-ru_13.html#SEC101">Измененные результаты</A>
+<LI><A NAME="TOC102" HREF="autoconf-ru_13.html#SEC102">Измененное написание макросов</A>
+</UL>
+<LI><A NAME="TOC103" HREF="autoconf-ru_14.html#SEC103">История Autoconf</A>
+<UL>
+<LI><A NAME="TOC104" HREF="autoconf-ru_14.html#SEC104">Бытие</A>
+<LI><A NAME="TOC105" HREF="autoconf-ru_14.html#SEC105">Исход</A>
+<LI><A NAME="TOC106" HREF="autoconf-ru_14.html#SEC106">Левит</A>
+<LI><A NAME="TOC107" HREF="autoconf-ru_14.html#SEC107">Числа</A>
+<LI><A NAME="TOC108" HREF="autoconf-ru_14.html#SEC108">Второзаконие</A>
+</UL>
+<LI><A NAME="TOC109" HREF="autoconf-ru_15.html#SEC109">Старые имена макросов</A>
+<LI><A NAME="TOC110" HREF="autoconf-ru_16.html#SEC110">Индекс переменных среды</A>
+<LI><A NAME="TOC111" HREF="autoconf-ru_17.html#SEC111">Индекс выходных переменных</A>
+<LI><A NAME="TOC112" HREF="autoconf-ru_18.html#SEC112">Индекс символов препроцессора</A>
+<LI><A NAME="TOC113" HREF="autoconf-ru_19.html#SEC113">Индекс макросов</A>
+</UL>
+<P><HR><P>
+This document was generated on 10 October 2000 using
+<A HREF="http://wwwinfo.cern.ch/dis/texi2html/">texi2html</A>&nbsp;1.56k.
+<hr noshade size=1>
+<b><a href="http://www.opennet.ru/docs/">Архив документации на OpenNet.ru</a>
+</BODY>
+</HTML>
