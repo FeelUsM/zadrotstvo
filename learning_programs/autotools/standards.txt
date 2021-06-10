@@ -1,0 +1,556 @@
+1. 	введение
+2. GNU build system
+3. 	создание скриптов configure
+4. 	инициализация и выходные файлы
+5. 	существующие тесты
+6. 	написание тестов
+7. 	результаты тестов
+8. программирование на m4
+9. программирование на m4sh
+10. 	написание макросов autoconf
+11. портируемое программирование на shell
+12. портируемое программирование для make
+13. портируемое программирование на C/C++
+14. 	ручная настройка
+15. 	локальная конфигурация
+16. 	запуск скриптов configure
+17. вызов config.status
+18. устаревшие конструкции
+	обновление с версии 1
+19. генерация тестов для autotest
+20. 	FAQ
+21. 	История autoconf
+
+
+https://8d9.ru/program/cygwin
+
+
+set -e # завершать сценарий после первой ошибки
+			parameter		parameter		parameter	
+			Set and Not Null	Set But Null		Unset	
+
+${parameter:-word}	substitute parameter	substitute word		substitute word
+${parameter:=word}	substitute parameter	assign word		assign word
+${parameter:?word}	substitute parameter	error, exit		error, exit
+${parameter:+word}	substitute word		substitute parameter	substitute null
+
+${parameter-word}	substitute parameter	substitute parameter	substitute word
+${parameter=word}	substitute parameter	substitute parameter	assign word
+${parameter?word}	substitute parameter	substitute parameter	error, exit
+${parameter+word}	substitute word		substitute word		substitute null
+
+${#parameter}	- длина
+
+${parameter%[word]}	удалить наименьший суффикс
+${parameter%%[word]}	удалить наибольший суффикс
+${parameter#[word]}	удалить наименьший префикс
+${parameter##[word]}	удалить наибольший префикс
+
+bash:
+${параметр:m}	подставляет с указанного
+${параметр:m:n}	подставляет с указанного до указанного
+
+шаблон - как в файлах
+	* ? [^a-z0-9]
+${параметр/шаблон/строка}	замена 1го вхождения
+${параметр//шаблон/строка}	замена всех вхождений
+
+
+make
+VPATH - путь поиска пререквезитов
+$@ - цель (имя файла)
+$% - цель внутри архива
+$< - 1й пререквизит
+$? - все новые пререквизиты
+$^ - все пререквизиты, каждый по 1 разу
+$+ - все пререквизиты, как указано
+$| - все упорядоченные пререквизиты
+$* - ???
+
+цели : пререквизиты | упорядоченные пререквизиты
+
+make -n  - не выполнять, а напечатать 
+     -s  - не печатать ничего лишнего	
+
+
+
+
+
+
+
+
+
+
+
+
+1 1 О Стандартах кодирования GNU 
+2 Сохранение Свободного Программного обеспечения Свободным 
+	• Чтение Несвободного кода 	Имеется в виду проприетарные программы.
+	• Взносы 	  		Прием пожертвований.
+	• Товарные знаки 	  	Как мы решаем проблемы товарных знаков. 
+3 Общий дизайн Программы 
+	• Исходный Язык 	  	Какие языки использовать.
+		поменьше шаблонов в c++ и java
+		для скриптов лучше использовать Guile - scheme - диалект lisp-а
+	• Совместимость 	  	Совместимость с другими реализациями.
+		Berkeley Unix, ANSI C, POSIX
+		переменная  POSIXLY_CORRECT
+	• Использование Расширений GNU	Использование нестандартных функций.
+		лучше не надо, но если очень хочется, то можно
+	• Стандарт C 	  		Использование стандартных функций языка Си.
+		C89
+		не используйте триграфы
+		C99 и C11 - лучше использовать только условно
+		...
+		ну и без Autoconf не обойтись 
+	• Условная компиляция 	  	Компиляция кода выполняется только в том случае, если условие истинно. 
+		????
+4 Поведение Программы для всех Программ 
+	• Стандарты, не относящиеся к GNU Мы рассматриваем такие стандарты, как POSIX; мы не "подчиняемся" им.
+		POSIX.2
+		gcc --pedantic для полного соответствия стандарту
+	• Семантика 	  		Написание надежных программ.
+		распределяйте память динамически
+		проверяйте errno после каждого вызова системной функции
+		сообщайте об ошибках через strerror
+		утилита: строка: сообщение
+		getopt_long 
+		readdir вместо utmp 
+		bsd/signal.h вместо  signal.h
+		TMPDIR вместо /tmp
+		fd = open (filename, O_WRONLY | O_CREAT | O_EXCL, 0600); - для приватных файлов в /tmp
+			или  mkstemps от Gnulib
+		set -C (long name noclobber) #????
+			или mktmp
+	• Библиотеки 	  		Поведение библиотеки.
+		чтобы функции были реентерабельными
+			никакая часть вызываемого кода не должна модифицироваться;
+			если процедура изменяет какие-либо данные, то они должны быть уникальными для каждого пользователя;
+			вызываемая процедура не должна сохранять информацию между вызовами;
+			процедура не должна возвращать указатели на объекты, общие для разных пользователей.
+		префикс для каждой функции
+		каждая внешняя функция в отдельном файле (?)
+	• Ошибки 	  		Форматирование сообщений об ошибках.
+	• Пользовательские Интерфейсы 	Стандарты об интерфейсах в целом.
+		поведение не должно зависеть от типа ввода/вывода (терминал/файл)
+	• Поиск Программных Файлов 	Как найти исполняемый файл программы и другие файлы, которые идут с ним.
+	• Графические Интерфейсы 	Стандарты графических интерфейсов.
+	• Интерфейсы командной строки 	Стандарты для интерфейсов командной строки.
+		--help
+		--version
+	• Динамические Подключаемые Интерфейсы Стандарты для динамических подключаемых интерфейсов.
+	• Таблица опций 	  	Таблица длинных опций.
+		таблица
+	• Распределение OID 	  	Таблица слотов OID для GNU.
+		???
+	• Использование памяти 	  	Когда и как заботиться о потребностях памяти.
+		если меньше нескольких МБ - не парьтесь
+		ещё можно попробовать valgrind
+	• Использование файлов 	  	Какие файлы использовать и где. 
+		/, /usr - могут быть только для чтения
+5 Как наилучшим образом использовать С 
+	• Форматирование 	  	Форматирование исходного кода.
+	• Комментарии 	  		Комментируя свою работу.
+	• Синтаксические условности 	Чистое использование конструкций С
+	• Имена 	  		Именование переменных, функций и файлов.
+	• Переносимость системы 	Переносимость между различными операционными системами.
+		GNU/Linux
+		autoconf
+	• Портативность процессора 	Поддержка целого ряда типов процессоров.
+		int 32 бита или больше
+		long >= указателей и size_t
+			на w64 long=32bit pointer=64bit
+		off_t - для файлов
+	• Системные Функции 	  	Переносимость и “стандартные” библиотечные функции.
+		С89/POSIX.1-2001	С99,С11,POSIX.1-2008
+		gnulib
+	• Интернационализация 	  	Методы интернационализации.
+		gettext
+	• Набор символов 	  	По умолчанию используйте ASCII.
+		ASCII, UTF-8
+	• Символы Кавычек 	  	Используйте "..." или ’...’ в локали Си.
+	• Mmap 	  			Как вы можете безопасно использовать mmap. 
+		отображение файла на диск - может работать или не работать для разных файлов
+6 Документирование Программ 
+	• Руководства GNU 	  	Написание соответствующих руководств.
+	• Строки документов и Руководства Компиляция строк doc не делает руководство.
+	• Детали Ручной Структуры 	Конкретные соглашения о структуре.
+	• Лицензия на Руководство пользователя Написание условий распространения для руководства.
+	• Ручные кредиты 	  	Предоставление кредита участникам документации.
+	• Печатные Руководства 	  	Упоминая печатное руководство.
+	• Файл НОВОСТЕЙ 	  	Новостные файлы дополняют руководства.
+	• Журналы изменений 	  	Запись изменений.
+	• Man-страницы 	  		Справочные страницы вторичны.
+	• Чтение других руководств 	Как далеко вы можете зайти в обучении из других руководств. 
+7 Процесс Выпуска 
+	• Конфигурация 	  		Как должна работать конфигурация пакетов GNU.
+		configure
+			Makefile.in -> Makefile
+			[config.h.in] -> config.h
+				с комментариями, что они сгенерированы автоматически
+		в Makefile должна быть цель Makefile, которая вызывает configure
+		config.status - содержит всю выбранную конфигурацию
+			--srcdir=path	, по умолчанию . ..
+
+			--prefix=path
+			--exec-prefix=path
+			--bindir=path
+			--sbindir=path
+			--libexecdir=path
+			--sysconfdi=path
+			--sharedstatedir=path
+			--localstatedir=path
+			--runstatedi=path
+			--libdir=path
+			--includedir=path
+			--oldincludedi=path
+			--datarootdir=path
+			--datadir=path
+			--infodir=path
+			--localedir=path
+			--mandir=path
+			--docdi=path
+			--htmldir=path
+			--dvidir=path
+			--pdfdir=path
+			--psdi=path
+			
+			--build=buildtype
+			или
+			buildtype cpu-company-system типа i686-pc-linux-gnu
+				https://git.savannah.gnu.org/cgit/config.git/plain/config.sub - приведение различных имен к стандартному виду
+				https://git.savannah.gnu.org/cgit/config.git/plain/config.guess - определение типа системы самостоятельно
+			--enable-feature[=[no]parameter]
+			--with-<package>
+			variable=value - или как аргумент или как переменная окружения (типа CFLAGS=-g)
+			--host=<host> - чтобы скомпилировать для другой архитектуры
+			--target=<target> - чтобы оно потом было настроено на компиляцию для другой архитектуры (для компиляторов, ассемблеров и т.д.)
+			
+	• Соглашения Makefile 	  	Соглашения Makefile.
+		• Основы Makefile 	  	Общие соглашения для Make-файлов.
+			SHELL = /bin/sh
+			
+			.SUFFIXES:
+			.SUFFIXES: .c .o - в разных make по умолчанию разные суффиксы
+			
+			свои программы должны начинаться с
+				./ - если она построена при помощи make
+				$(srcdir)/ - если она присутствует в исходном коде
+				
+			VPATH -> $@
+			выходные данные Autoconf, Automake, Bison или Flex
+				должны появляться в каталоге исходников - если они там уже есть и обновляются
+					иначе - в каталоге сборки
+					
+			чтобы всё нормально работало с с параллельным make
+		• Утилиты в Makefiles 	  	Утилиты, которые будут использоваться в Make-файлах.
+			awk egrep grep sed
+			cp ln ls mkdir mv rm rmdir touch pwd
+			test false true
+			echo printf cat sort tr diff cmp
+			expr 
+			tar    
+			sleep
+			install-info 
+			
+			$(LEX) $(FLEX) $(YACC) $(BISON) | $(YFLAGS) $(LFLAGS)
+			$(MAKE) $(CC) $(LD)  
+				$(CFLAGS) - и для компиляции и для линковки
+				$(CPPFLAGS) $(LDFLAGS)
+			$(AR) архивы .o-шников (.a)
+			$(RANLIB) составляет оглавление в архиве .a - может отсутствовать
+			$(LDCONFIG) - как-то настраивает динамические библиотеки .so - может отсутствовать
+			$(MAKEINFO) $(TEXI2DVI) 
+			$(INSTALL) 
+				$(INSTALL_PROGRAM) = $(INSTALL)
+				$(INSTALL_DATA) = $(INSTALL) -m 644
+				
+				$(INSTALL_PROGRAM) foo $(bindir)/foo
+				$(INSTALL_DATA) libfoo.a $(libdir)/libfoo.a
+			
+			chgrp chmod chown mknod - через переменные
+			
+			всё остальное может отсутствовать
+			
+			симлинки могут не работать
+
+		• Командные переменные 	  	Переменные для задания команд.
+			$(COMMANDFLAGS)
+			$(CFLAGS) - последний параметр $(CC), чтобы можно было переопределить другие опции
+		• ДЕСТДИР 	  		Поддержка поэтапных установок.
+			./configure --prefix=path1
+			make install DESTDIR=path2
+			make install prefix=path3
+			будет установлено в path2/path3,
+			но программы будут искать свои файлы в path1
+			
+			$(INSTALL_PROGRAM) foo $(DESTDIR)$(bindir)/foo
+			$(INSTALL_DATA) libfoo.a $(DESTDIR)$(libdir)/libfoo.a
+			
+		
+			gnu stow
+		• Переменные каталога 	  	Переменные для каталогов установки.
+			они все уже должны быть созданы
+			prefix	 	/usr/local		@prefix@
+			exec_prefix 	$(prefix)		@exec_prefix@
+			--- программы:
+			bindir		$(exec_prefix)/bin	@bindir@
+			sbindir		$(exec_prefix)/sbin	@sbindir@
+			libexecdir	$(exec_prefix)/libexec	@libexecdir@
+				устанавливайте в $(libexecdir)/package-name/
+				 - программы, используемые другими программами
+			--- данные:
+			datarootdir	$(prefix)/share		@datarootdir@
+				read-only architecture-independent
+			datadir		$(datarootdir)		@datadir@
+				устанавливайте в $(datadir)/package-name/
+			sysconfdir	$(prefix)/etc		@sysconfdir@
+				read-only machine specific
+				 Mailer and network configuration files, /etc/passwd, and so ...
+			sharedstatedir	$(prefix)/com		@sharedstatedir@
+				modifiable architecture-independent 
+			localstatedir	$(prefix)/var		@localstatedir@
+				modifiable machine specific
+			runstatedir	$(localstatedir)/run	@runstatedir@
+				modifiable machine specific - временные (до следующей перезагрузки)
+				  PID files for system daemons are a typical use
+			--- специальные типы:
+			includedir	$(prefix)/include	@includedir@
+			oldincludedir				@oldincludedir@
+					/usr/include
+				если не указано, то туда не надо устанавливать
+				 если установлено - не заменять
+			docdir		$(datarootdir)/doc/yourpkg @docdir@
+				для README и т.п.
+			infodir		$(datarootdir)/info	@infodir@
+			htmldir		$(docdir)		@htmldir@
+			dvidir		$(docdir)		@dvidir@
+			pdfdir		$(docdir)		...
+			psdir		$(docdir)		...
+				или 	$(docdir)/en
+						 /ru
+						 ...
+			libdir		$(exec_prefix)/lib	@libdir@
+			lispdir		$(datarootdir)/emacs/site-lisp	@lispdir@
+				lispdir='${datarootdir}/emacs/site-lisp'
+				AC_SUBST(lispdir)
+			localedir	$(datarootdir)/locale	@localedir@
+				подкаталоги для каждой локали
+			mandir		$(datarootdir)/man	@mandir@
+			man1dir		$(mandir)/man1		
+			man2dir		$(mandir)/man2
+			...		
+			manext		.1
+			man1ext
+			man2ext
+			...
+			srcdir		
+				путь к исходникам
+		• Стандартные цели 	  	Стандартные цели для пользователей.
+			all		
+				вместе с info, но без другой документации
+				компиляция с отлаочной информацией
+			install
+				скопировать и провести простой тест правильности установки
+				если каталоги не существуют - создать
+				послу копирования info вызовите install-info
+					PRE_INSTALL/POST_INSTALL/NORMAL_INSTALL
+			install-html
+			install-dvi
+			install-pdf
+			install-ps
+			uninstall	те что созданы install и install-*
+			install-strip	устанавливает exe-шники без отладочной информации
+			clean		удалить всё созданное кроме настроек
+			distclean	удалить всё созданное
+			mostlyclean	оставить то что долго и редко компилируется
+			maintainer-clean как distclean
+					+ c-файлы, созданные bison, таблицы тэгов, info
+					оставить configure
+			TAGS		tags
+			info		info
+			dvi		должно существовать, но может ничего не делать
+			html		должно существовать, но может ничего не делать
+			pdf		должно существовать, но может ничего не делать
+			ps		должно существовать, но может ничего не делать
+			dist		... должен зависеть от всех неисходных фалов
+			check		запуск тестов
+			installcheck	тесты после установки
+			installdirs	если каталоги для установки не существуют - создать
+			
+		• Установить Категории команд 	Три категории команд в ‘ устанавливать ’ правило: нормальное, предустановленное и постустановленное. 	
+			install :
+				# по умолчанию $(NORMAL_INSTALL)
+				$(PRE_INSTALL)     # Pre-install commands follow.
+				команды изменяющие файлы/бд
+				$(NORMAL_INSTALL)  # Normal commands follow.
+				команды не изменяющие файлов
+				$(POST_INSTALL)    # Post-install commands follow.
+				команды изменяющие файлы/бд, типа install-info
+			uninstall :
+				$(PRE_UNINSTALL)     # Pre-uninstall commands follow.
+				команды изменяющие файлы/бд
+				$(NORMAL_UNINSTALL)  # Normal commands follow.
+				$(POST_UNINSTALL)    # Post-uninstall commands follow.
+				команды изменяющие файлы/бд
+			можно использовать следующие команды
+			POSIX
+			-	ldconfig 	- как-то настраивает динамические библиотеки .so - может отсутствовать
+			-	install 	
+			+++	chgrp chmod chown 
+			+	dd 		disk destroyer
+			--	[ bash 
+			+	basename 	
+			-	fgrep 		
+			+	find 		
+			-	getopt 		
+			--	gunzip gzip	
+			-	md5sum		
+			+	xargs 		stdin -> аргументы заданной команды
+			+	expand 		табуляции в пробелы
+			-	printenv 	как env, только проще
+			+-	mkfifo mknod 	создает именованный канал
+			+	tee		тройник - расщепляет поток
+			-	yes		бесконечно печатает заданную строку
+			+	kill 		
+			-	hostname 	адрес машины в сети
+			+	uname 		информация о машине
+
+			создание бинарного пакета:
+				make -s -n install -o all \
+				      PRE_INSTALL=pre-install \
+				      POST_INSTALL=post-install \
+				      NORMAL_INSTALL=normal-install \
+				  | gawk -f pre-install.awk
+
+				pre-install.awk:
+					$0 ~ /^(normal-install|post-install)[ \t]*$/ {on = 0}
+					on {print $0}
+					$0 ~ /^pre-install[ \t]*$/ {on = 1}
+
+
+		• Релизы 	  		Создание релизов 
+			файлы исходные
+			файлы созданные Autoconf, Automake, Bison, flex, TeX, and makeinfo
+			маленькие пакеты типа regex, getopt, obstack или termcap
+8 References to Non-Free Software and Documentation
+	
+
+---------------------------------------------------------------------
+
+--- программы:
+bindir		$(exec_prefix)/bin	@bindir@
+sbindir		$(exec_prefix)/sbin	@sbindir@
+libexecdir	$(exec_prefix)/libexec	@libexecdir@
+	устанавливайте в $(libexecdir)/package-name/
+	 - программы, используемые другими программами
+libdir		$(exec_prefix)/lib	@libdir@
+
+
+
+--- данные:
+datarootdir	$(prefix)/share		read-only architecture-independent
+sysconfdir	$(prefix)/etc		read-only machine specific
+	 Mailer and network configuration files, /etc/passwd, and so ...
+sharedstatedir	$(prefix)/com		modifiable architecture-independent 
+localstatedir	$(prefix)/var		modifiable machine specific
+runstatedir		$(localstatedir)/run	modifiable machine specific - временные (до следующей перезагрузки)
+	  PID files for system daemons are a typical use
+--- специальные типы:
+
+includedir	$(prefix)/include	
+oldincludedir	/usr/include
+
+infodir		$(datarootdir)/info	
+docdir		$(datarootdir)/doc/yourpkg	для README и т.п.
+htmldir			$(docdir)		
+dvidir			$(docdir)		
+pdfdir			$(docdir)		
+psdir			$(docdir)		
+		или 		$(docdir)/en
+				$(docdir)/ru
+				$(docdir)/...
+mandir		$(datarootdir)/man	
+man1dir			$(mandir)/man1		
+man2dir			$(mandir)/man2
+datadir		$(datarootdir)		read-only architecture-independent для каждой программы
+...		
+
+lispdir		$(datarootdir)/emacs/site-lisp
+	lispdir='${datarootdir}/emacs/site-lisp'
+	AC_SUBST(lispdir)
+localedir	$(datarootdir)/locale	подкаталоги для каждой локали
+
+
+
+корневые каталоги
+/ 	Корневой каталог, содержащий всю файловую иерархию.
+|/usr	Вторичная иерархия для данных пользователя. Содержит большинство пользовательских приложений и утилит, используемых в многопользовательском режиме. Может быть смонтирована по сети только для чтения и быть общей для нескольких машин[3].
+||/usr/local	Третичная иерархия для данных, специфичных для данного хоста. Обычно содержит такие подкаталоги, как bin, lib, share[4].
+|||
+vvv
+	бинарные
+.	/bin	Основные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям (например: cat, ls, cp).
+.	/sbin	Основные системные программы для администрирования и настройки системы, например, init, iptables, ifconfig.
+ ..	/usr/bin	Дополнительные программы для всех пользователей, не являющиеся необходимыми в однопользовательском режиме.
+ .	/usr/sbin	Дополнительные системные программы (такие как демоны различных сетевых сервисов).
+ .	/usr/libexec	программы, используемые только другими программами
+.	/lib	Основные библиотеки, необходимые для работы программ из /bin и /sbin.
+ ..	/usr/lib	Библиотеки для программ, находящихся в /usr/bin и /usr/sbin.
+
+	/opt	Дополнительное программное обеспечение.
+
+	системные
+.	/dev	Основные файлы устройств (например, /dev/null, /dev/zero).
+.	/proc	Виртуальная файловая система, представляющая состояние ядра операционной системы и запущенных процессов в виде файлов.
+	/boot	Загрузочные файлы (в том числе файлы загрузчика, ядро, initrd, System.map). Часто выносится на отдельный раздел.
+	/srv	Данные для сервисов, предоставляемых системой (например, www или ftp).
+	/sys	Содержит информацию об устройствах, драйверах, а также некоторых свойствах ядра.[2]
+	
+	пользовательские
+.	/home	Содержит домашние каталоги пользователей, которые в свою очередь содержат персональные настройки и данные пользователя. Часто размещается на отдельном разделе.
+	/root	Домашний каталог пользователя root.
+	/media	Точки монтирования для сменных носителей, таких как CD-ROM, DVD-ROM (впервые описано в FHS-2.3).
+	/mnt	Содержит временно монтируемые файловые системы.
+	
+	общие
+		исходники
+ .		/usr/include	Стандартные заголовочные файлы.
+ .		/usr/src	Исходные коды (например, здесь располагаются исходные коды ядра).
+
+		не изменяемые
+ ..		/usr/share	Архитектурно-независимые общие данные.
+			документация в основном
+
+. .		/etc	Общесистемные конфигурационные файлы (имя происходит от лат. et cetera).
+			/etc/opt	Файлы конфигурации для /opt.
+			/etc/X11	Файлы конфигурации X Window System версии 11.
+			/etc/sgml	Конфигурационные файлы SGML.
+.			/etc/xml	Конфигурационные файлы XML.
+. .			...
+
+		изменяемые
+		/usr/local/com		общие ???
+		
+.		/var	Изменяемые файлы, такие как файлы регистрации, временные почтовые файлы, файлы спулеров.
+.			/var/cache	Кэш приложений. Такие данные генерируются локально в результате ресурсозатратных вычислений или операций ввода-вывода. Приложение обязано уметь регенерировать эти данные. Данные файлы могут быть удалены без потери данных.
+.			/var/lib	Информация о состоянии. Постоянные данные, изменяемые программами в процессе работы (например, базы данных, метаданные пакетного менеджера и др.).
+			/var/lock	Файлы блокировки, указывающие на занятость некоторого ресурса.
+.			/var/log	Различные файлы регистрации.
+			/var/mail	Почтовые ящики пользователей.
+			/var/spool	Задачи, ожидающие обработки (например, очереди печати, непрочитанные или неотправленные письма).
+			/var/spool/mail	Местоположение пользовательских почтовых ящиков (устаревшее).
+
+		/run	Информация о системе с момента её загрузки, в том числе данные, необходимые для работы демонов (pid-файлы, UNIX-сокеты и т.д.)[1].
+.		/var/run	Каталог для хранения информации о системе с момента её загрузки, на данный момент устарел. Допускается делать его ссылкой на /run. Каталог оставлен для обратной совместимости с программами, которые всё ещё используют каталог /var/run[5].
+
+..		/tmp	Временные файлы (см. также /var/tmp).
+.		/var/tmp	Временные файлы, которые должны быть сохранены между перезагрузками. 
+
+
+
+
+
+
+
+
