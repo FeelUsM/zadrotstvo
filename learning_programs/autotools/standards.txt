@@ -1,29 +1,84 @@
-1. 	введение
-2. GNU build system
-3. 	создание скриптов configure
-4. 	инициализация и выходные файлы
-5. 	существующие тесты
-6. 	написание тестов
-7. 	результаты тестов
-8. программирование на m4
-9. программирование на m4sh
-10. 	написание макросов autoconf
-11. портируемое программирование на shell
-12. портируемое программирование для make
-13. портируемое программирование на C/C++
-14. 	ручная настройка
-15. 	локальная конфигурация
-16. 	запуск скриптов configure
-17. вызов config.status
-18. устаревшие конструкции
-	обновление с версии 1
-19. генерация тестов для autotest
-20. 	FAQ
-21. 	История autoconf
-
 
 https://8d9.ru/program/cygwin
+Babun
+	cmder
+		CMD++
+		ConEmu
+		Console
+		ConsoleZ
+		FireCMD
+		Fluent Terminal
+		Guake terminal
+		Hyper
+	iTerm	терминал для OS X
+	MinGW-w64
+		Microsoft Windows SDK
+			qmake
+				Ant
+					Anise
+						Maven
+							Buildr
+								NAnt
+								Rake
+								SBT
+							Meson
+								BuildAMation
+									Premake
+										makebreed
+											tup
+										Ninja Build
+											Setup.shl
+												MakeMe
+													Yake
+									waf
+						SCons
+					Gradle
+					Jerkar
+				Autoconf
+				Automake
+				autosetup
+				Bazel
+					Makepp
+				Buck
+				Cake
+				CMake
+				EBuild
+				GNU Make
+		TDM-GCC
+	MSYS2
+		andLinux
+	Windows Command Prompt
+BusyBox
+	GNU Core Utilities
+	ptime
+	Toybox (Linux command line utilities)
+Cash
+	GnuWin32
+		Free Software Directory
+		Libre Projects
+		Linux App Finder
+		Open Source Software Directory
+		osalt
+	MobaXterm
+		AnyConnect
+		Asbru Connection Manager
+		Bitvise SSH Client
+		Chrome Secure Shell
+		ConsoleZ
+		Core Shell
+		Core Tunnel
+		Dokan SSHFS
+	PowerShell
+	unxutils
+Cooperative Linux
+DJGPP
+evilvte
+gow
+Hamilton C shell
+iSH
+MinGW
 
+---------------------------------------------------------------------
 
 set -e # завершать сценарий после первой ошибки
 			parameter		parameter		parameter	
@@ -55,6 +110,7 @@ ${параметр:m:n}	подставляет с указанного до ук
 ${параметр/шаблон/строка}	замена 1го вхождения
 ${параметр//шаблон/строка}	замена всех вхождений
 
+---------------------------------------------------------------------
 
 make
 VPATH - путь поиска пререквезитов
@@ -79,6 +135,7 @@ make -n  - не выполнять, а напечатать
 
 
 
+---------------------------------------------------------------------
 
 
 
@@ -550,7 +607,111 @@ vvv
 
 
 
+1. 	введение
+2. GNU build system
+3. 	создание скриптов configure
+4. 	инициализация и выходные файлы
+5. 	существующие тесты
+6. 	написание тестов
+7. 	результаты тестов
+8. программирование на m4
+9. программирование на m4sh
+10. 	написание макросов autoconf
+11. портируемое программирование на shell
+12. портируемое программирование для make
+13. портируемое программирование на C/C++
+14. 	ручная настройка
+15. 	локальная конфигурация
+16. 	запуск скриптов configure
+17. вызов config.status
+18. устаревшие конструкции
+	обновление с версии 1
+19. генерация тестов для autotest
+20. 	FAQ
+21. 	История autoconf
 
 
 
+Autoconf requirements
+AC_INIT(package, version, bug-report-address)
+information on the package
+Проверка программ
+Проверка библиотек
+Проверка заголовочных файлов
+Проверка определений типов
+Проверка структур
+Проверка характеристик компилятора
+Проверка библиотечных функций
+Проверка системных сервисов
+AC_CONFIG_FILES([file…])
+AC_OUTPUT
 
+4.1 Initializing configure
+.	AC_INIT (package, version, [bug-report], [tarname], [url])
+		для --version
+		+ скрипт build-aux/git-version-gen .tarball-version из gnulib
+		bug-report - адрес почты, можно
+			[
+			    bugs@gnomovision.example
+			    или gnomo-bugs@reliable-email.example
+			]
+		package		типа 'GNU Autoconf'
+		tarname		как имя файла
+		!!!!! нужен аналог m4_defn, который окавычивает строки
+		определяет переменные:
+		AC_PACKAGE_NAME, PACKAGE_NAME
+		AC_PACKAGE_TARNAME, PACKAGE_TARNAME
+		AC_PACKAGE_VERSION, PACKAGE_VERSION
+		AC_PACKAGE_STRING, PACKAGE_STRING
+		AC_PACKAGE_BUGREPORT, PACKAGE_BUGREPORT
+		AC_PACKAGE_URL, PACKAGE_URL
+		можно сразу после AC_INIT вставить собственную обработку аргументов configure
+			но лучше использовать AC_ARG_ENABLE 
+4.2 Dealing with Autoconf versions
+.	AC_PREREQ (version)
+		[2.72 a.4-a1b9b] - требуемая версия 
+/	AC_AUTOCONF_VERSION
+		текущая версия autoconf для дальнейшего сравнения через  m4_version_compare 
+		использовать как m4_defn([AC_AUTOCONF_VERSION]
+4.3 Notices in configure
+	AC_COPYRIGHT (copyright-notice)
+		добавление к уведомлению FSF-GNU в configure --version
+	AC_REVISION (revision-info)
+		делает комментарий в ./configure
+		#!/bin/sh
+		# From configure.ac Revision: 1.30
+4.4 Configure Input: Source Code, Macros, and Auxiliary Files
+	AC_CONFIG_SRCDIR (unique-file-in-source-dir)
+		configure проверяет наличие данного файла
+	AC_CONFIG_MACRO_DIRS (dir1 [dir2 ... dirN])
+	AC_CONFIG_MACRO_DIR (dir)
+		
+.	AC_CONFIG_AUX_DIR (dir)
+	AC_REQUIRE_AUX_FILE (file)
+4.5 Outputting Files
+.	AC_OUTPUT
+.	AC_PROG_MAKE_SET
+4.6 Performing Configuration Actions
+	AC_CONFIG_ITEMS(tag…, [commands], [init-cmds])
+4.7 Creating Configuration Files
+	AC_CONFIG_FILES (file…, [cmds], [init-cmds])
+4.8 Substitutions in Makefiles
+	variables...
+4.9 Configuration Header Files
+/	AC_CONFIG_HEADERS (header …, [cmds], [init-cmds])
+	AH_HEADER
+	AH_TEMPLATE (key, description)
+	AH_VERBATIM (key, template)
+	AH_TOP (text)
+	AH_BOTTOM (text)
+4.10 Running Arbitrary Configuration Commands
+	AC_CONFIG_COMMANDS (tag…, [cmds], [init-cmds])
+	AC_CONFIG_COMMANDS_PRE (cmds)
+	AC_CONFIG_COMMANDS_POST (cmds)
+4.11 Creating Configuration Links
+	AC_CONFIG_LINKS (dest:source…, [cmds], [init-cmds])
+4.12 Configuring Other Packages in Subdirectories
+.	AC_CONFIG_SUBDIRS (dir …)
+4.13 Default Prefix
+.	AC_PREFIX_DEFAULT (prefix)
+.	AC_PREFIX_PROGRAM (program)

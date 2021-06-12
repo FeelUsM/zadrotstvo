@@ -1,0 +1,574 @@
+
+http://lib.custis.ru/M4
+http://linux.yaroslavl.ru/docs/prog/m4.html#SEC7
+
+define(name [, expansion])
+	$#	количество аргументов
+	$*	arg1,arg2,arg3 ,arg4
+	$@	[arg1],[arg2],[arg3],[arg4]
+undefine(name)
+defn(name)		определение макроса в кавычках
+pushdef(name [, expansion])
+popdef(name)
+indir(name, ...)	вызывает name от ...
+builtin(name, ...)	вызывает встроенный name (даже если ему присвоен другой макрос) от ...
+
+ifdef(name, string-1, opt string-2)
+ifelse(comment)
+ifelse(string-1, string-2, equal, opt not-equal)
+ifelse(string-1, string-2, equal, ...)
+shift(...)	->$@ кроме 1го аргумента
+
+dumpdef(...)	выводит в поток ошибок определения вех или заданных макросов
+traceon(...)	
+traceoff(...)	включают/выключают трассировку всех определенных или заданных макросов
+	при трассировке после накопления аргументов выводится 
+		имя макроса, список аргументов, и во что он раскрылся
+debugfile(opt filename)	дальнейший отладочный и трассировочный вывод пойдет в заданный файл
+
+dnl комментарий
+changequote(opt start, opt end)		задает кавычки
+changecom(opt start, opt end)		задает комментарий
+changeword(`[_a-zA-Z0-9]+')		задает вид идентификаторов
+m4wrap(string, ...)			отправляет аргументы в стек, который будет выведен после завершения ввода
+
+include(filename)
+sinclude(filename)	не выдает ошибку, когда файл не найден
+divert(opt number)
+undivert(opt number, ...)
+divnum
+
+len(string)
+index(string, substring)
+regexp(string, regexp, opt replacement)
+substr(string, from, opt length)
+translit(string, chars, replacement)
+patsubst(string, regexp, opt replacement)
+format(format-string, ...)
+
+incr(number)
+decr(number)
+eval(expression, opt radix, opt width)
+
+syscmd(shell-command)
+esyscmd(shell-command)
+sysval
+maketemp(template)	имя для временного файла
+
+errprint(message, ...)
+m4exit(opt code)
+
+
+все аргументы в кавычках, если ты не хочешь чего-то вывести
+
+changequote({,})
+define({parameter_field_list}, 
+       {"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"})
+define({Nth}, {pushdef({_n},{$}$1)_n($2){}popdef({_n})})
+define({forloop},{pushdef({$1},{$2})_forloop({$1},{$2},{$3},{$4})popdef({$1})})
+  define({_forloop},{$4{}ifelse($1,{$3}, ,{define({$1},incr($1))_forloop({$1},{$2},{$3},{$4})})})
+define({Size},{ifelse($#,1,{indir({$$size},$1)})})
+define({$$size},{$#})
+define({add_prefix_to_list},{ifelse($#,2,{forloop({j}, 1, Size({$1}),{ifelse(j(),1,,{,})patsubst(Nth({j},{$1}),{^[^"]*"},$2")})})})
+define({update_set2},{forloop({j},1,Size({$1}),{ifelse(eval(index(Nth({j},{$1}),{"})>=0),1,{
+ ifdef({ok},{,})}Nth({j},{$1}){ifdef({ok},,{pushdef({ok},1)})}=Nth({j},{$2}))})popdef({ok})})
+
+update_set2({parameter_field_list},{add_prefix_to_list({parameter_field_list},{:NEW.})})
+-------------------
+Size({parameter_field_list})
+#-Size
+#-1	parameter_field_list
+ifelse(1,1,{indir({$$size},parameter_field_list)})
+#-ifelse
+#-1	1
+#-2	1
+#-3	indir({$$size},parameter_field_list)
+indir({$$size},parameter_field_list)
+#-indir
+#-1	$$size
+#-2-	parameter_field_list
+#-2-	"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"
+#-2	"ID_CONFIG"
+#-3	"ID_OBJECT"
+#-4	"MONIKER"
+#-5	"NAME"
+#-6	"VALUE"
+#-7	"COMMENTS"
+#-8	"SYS_LEVEL"
+#-9	"KIND"
+#-$$size
+#-1	"ID_CONFIG"
+#-2	"ID_OBJECT"
+#-3	"MONIKER"
+#-4	"NAME"
+#-5	"VALUE"
+#-6	"COMMENTS"
+#-7	"SYS_LEVEL"
+#-8	"KIND"
+8
+#print	8
+---------------------
+Size(parameter_field_list)
+#-Size
+#-1-	parameter_field_list
+#-1-	"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"
+#-1	"ID_CONFIG"
+#-2	"ID_OBJECT"
+#-3	"MONIKER"
+#-4	"NAME"
+#-5	"VALUE"
+#-6	"COMMENTS"
+#-7	"SYS_LEVEL"
+#-8	"KIND"
+ifelse(8,1,{indir({$$size},"ID_CONFIG")})
+#-ifelse
+#-1	8
+#-2	1
+#-3-	indir({$$size},"ID_CONFIG")
+#-3	#-indir
+	#-1	$$size
+	#-2	"ID_CONFIG"
+	#-$$size
+	#-1	"ID_CONFIG"
+	1
+----------------------
+forloop(j,1,3,{j})
+#-forloop
+#-1	j
+#-2	1
+#-3	3
+#-4	j
+pushdef({j},{1})_forloop({j},{1},{3},{j})popdef({j})
+#-pushdef
+#-1	j
+#-2	1
+#	j	1
+_forloop({j},{1},{3},{j})popdef({j})
+#-_forloop
+#-1	j
+#-2	1
+#-3	3
+#-4	j
+j{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-j
+1{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#print	1
+ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-ifelse
+#-1	j
+	1
+#-2	3
+#-3	
+#-4	define({j},incr(j))_forloop({j},{1},{3},{j})
+define({j},incr(j))_forloop({j},{1},{3},{j})popdef({j})
+#-define
+#-1	j
+#-2	incr(j)
+	#-incr
+	#-1	j
+		1
+	2
+#	j	2
+_forloop({j},{1},{3},{j})popdef({j})
+#-_forloop
+#-1	j
+#-2	1
+#-3	3
+#-4	j
+j{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-j
+2{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#print	2
+ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-ifelse
+#-1	j
+	2
+#-2	3
+#-3	
+#-4	define({j},incr(j))_forloop({j},{1},{3},{j})
+define({j},incr(j))_forloop({j},{1},{3},{j})popdef({j})
+#-define
+#-1	j
+#-2	incr(j)
+	#-incr
+	#-1	j
+		2
+	3
+#	j	3
+_forloop({j},{1},{3},{j})popdef({j})
+#-_forloop
+#-1	j
+#-2	1
+#-3	3
+#-4	j
+j{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-j
+3{}ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#print	3
+ifelse(j,{3}, ,{define({j},incr(j))_forloop({j},{1},{3},{j})})popdef({j})
+#-ifelse
+#-1	j
+	2
+#-2	3
+#-3	
+#-4	define({j},incr(j))_forloop({j},{1},{3},{j})
+popdef({j})
+#-popdef
+#-1	j
+############################
+#	parameter_field_list	"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"
+#	Nth	pushdef({_n},{$}$1)_n($2){}popdef({_n})
+#	forloop	pushdef({$1},{$2})_forloop({$1},{$2},{$3},{$4})popdef({$1})
+#	_forloop	$4{}ifelse($1,{$3}, ,{define({$1},incr($1))_forloop({$1},{$2},{$3},{$4})})
+#	Size	ifelse($#,1,{indir({$$size},$1)})
+#	$$size	$#
+#	add_prefix_to_list	ifelse($#,2,{forloop({j}, 1, Size({$1}),{ifelse(j(),1,,{,})patsubst(Nth({j},{$1}),{^[^"]*"},$2")})})
+#	update_set2	forloop({j},1,Size({$1}),{ifelse(eval(index(Nth({j},{$1}),{"})>=0),1,{
+ ifdef({ok},{,})}Nth({j},{$1}){ifdef({ok},,{pushdef({ok},1)})}=Nth({j},{$2}))})popdef({ok})
+######
+############################
+add_prefix_to_list({parameter_field_list},"PREF")
+#-add_prefix_to_list
+#-1	parameter_field_list
+#-2	"PREF"
+ifelse(2,2,{forloop({j}, 1, Size({parameter_field_list}),{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})
+#-ifelse
+#-1	2
+#-2	2
+#-3	forloop({j}, 1, Size({parameter_field_list}),{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})
+forloop({j}, 1, Size({parameter_field_list}),{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})
+#-forloop
+#-1	j
+#-2	1
+#-3	Size({parameter_field_list})
+	#-Size
+	#-1	parameter_field_list
+	ifelse(1,1,{indir({$$size},parameter_field_list)})
+	#-ifelse
+	#-1	1
+	#-2	1
+	#-3	indir({$$size},parameter_field_list)
+	indir({$$size},parameter_field_list)
+	#-indir
+	#-1	$$size
+	#-2-	parameter_field_list
+		"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"
+	#-2	"ID_CONFIG"
+	#-3	"ID_OBJECT"
+	#-4	"MONIKER"
+	#-5	"NAME"
+	#-6	"VALUE"
+	#-7	"COMMENTS"
+	#-8	"SYS_LEVEL"
+	#-9	"KIND"
+	#-$$size
+	#-1	"ID_CONFIG"
+	#-2	"ID_OBJECT"
+	#-3	"MONIKER"
+	#-4	"NAME"
+	#-5	"VALUE"
+	#-6	"COMMENTS"
+	#-7	"SYS_LEVEL"
+	#-8	"KIND"
+	8
+#-4	ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")
+pushdef({j},{1})_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})popdef({j})
+#-pushdef
+#-1	j
+#-2	1
+#	j	1
+_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})popdef({j})
+#-_forloop
+#-1	j
+#-2	1
+#-3	8
+#-4	ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")
+ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF""){}ifelse(j,{8}, ,{define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})popdef({j})
+#-ifelse
+#-1	j()
+	#-j
+	#-1	
+	1
+#-2	1
+#-3	
+#-4	,
+patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF""){}ifelse(j,{8}, ,{define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})popdef({j})
+#-patsubst
+#-1-	Nth({j},{parameter_field_list})
+	#-Nth
+	#-1	j
+	#-2	parameter_field_list
+	pushdef({_n},{$}j)_n(parameter_field_list){}popdef({_n})
+	#-pushdef
+	#-1	_n
+	#-2-	$j
+	#-2print	$
+		j
+		#-j
+		1
+	#-2	$1
+	#	_n	$1
+	_n(parameter_field_list){}popdef({_n})
+	#-_n
+	#-1-	parameter_field_list
+		"ID_CONFIG","ID_OBJECT","MONIKER","NAME","VALUE","COMMENTS","SYS_LEVEL","KIND"
+	#-1	"ID_CONFIG"
+	#-2	"ID_OBJECT"
+	#-3	"MONIKER"
+	#-4	"NAME"
+	#-5	"VALUE"
+	#-6	"COMMENTS"
+	#-7	"SYS_LEVEL"
+	#-8	"KIND"
+	"ID_CONFIG"{}popdef({_n})
+#-1print	"ID_CONFIG"
+	popdef({_n})
+	#-popdef
+	#-1	_n
+	#undef	_n
+#-1	"ID_CONFIG"
+#-2	^[^"]*"
+#-3	"PREF""
+"PREF""ID_CONFIG"{}ifelse(j,{8}, ,{define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})popdef({j})
+#print	"PREF""ID_CONFIG"
+ifelse(j,{8}, ,{define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})popdef({j})
+#-ifelse
+#-1	j
+	#-j
+	1
+#-2	8
+#-3	
+#-4	define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})
+define({j},incr(j))_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})popdef({j})
+	#-define
+	#-1	j
+	#-2	incr(j)
+		#-incr
+		#-1	j
+			#-j
+			1
+		2
+	#	j	2
+#-4	_forloop({j},{1},{8},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})
+	#-_forloop
+	#-1	j
+	#-2	1
+	#-3	8
+	#-4	ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")
+	ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF""){}ifelse(j,{8}, ,{define({j},incr(j))_forloop({j},{1},{j},{ifelse(j(),1,,{,})patsubst(Nth({j},{parameter_field_list}),{^[^"]*"},"PREF"")})})
+...
+--------------------------
+dnl энергичные вычисления
+define(`name',``$1'')
+define(`macro',``$1'')
+define(`arg',``1'')
+#	name	`$1'
+#	macro	`$1'
+#	arg	`1'
+name(macro(`arg'))
+#-name
+#-1	macro(`arg')
+	#-macro
+	#-1	`arg'
+		arg
+	`arg'
+	arg
+`arg'
+arg
+
+arg
+#-arg
+`1'
+1
+
+--------------------------
+dnl ленивые вычисления
+define(`name',`$1')
+define(`macro',`$1')
+define(`arg',`1')
+---
+macro(`arg')
+#-macro
+#-1	`arg'
+	arg
+arg
+#-arg
+1
+---
+macro(``arg'')
+#-macro
+#-1	``arg''
+	`arg'
+`arg'
+arg
+---
+name(`macro(`arg')')
+#-name
+#-1	`macro(`arg')'
+	macro(`arg')
+macro(`arg')
+#-macro
+#-1	`arg'
+	arg
+arg
+#-arg
+1
+---
+name(`macro(``arg'')')
+#-name
+#-1	`macro(``arg'')'
+	macro(``arg'')
+macro(``arg'')
+#-macro
+#-1	``arg''
+	`arg'
+`arg'
+arg
+---
+name(macro(``arg''))
+#-name
+#-1	macro(``arg'')
+	#-macro
+	#-1	``arg''
+		`arg'
+	`arg'
+	arg
+arg
+1
+---
+m4_define([gnomo_VERSION], [[17.0.1]])
+AC_INIT([Gnomovision],
+        [gnomo_VERSION],
+        [bugs@gnomovision.example],
+        [gnomo-]m4_defn([gnomo_VERSION]))
+
+
+
+m4_define([arg],[[val]])
+m4_define([val],123)
+m4_define([AC_INIT],[$1])
+
+AC_INIT([arg])
+#-AC_INIT
+#-1	[arg]
+	arg
+arg
+[val]
+val
+
+
+m4_esyscmd([build-aux/git-version-gen .tarball-version])
+#-m4_esyscmd
+#-1	[build-aux/git-version-gen .tarball-version]
+	build-aux/git-version-gen .tarball-version
+val
+123
+
+m4_define([qecho],[[[$1]]])
+m4_define([gnomo_VERSION],qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))
+
+AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))
+#-AC_INIT
+#-1	qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]]))
+	#-qecho
+	#-1	m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])
+		#-m4_esyscmd
+		#-1	[echo [$(build-aux/git-version-gen .tarball-version)]]
+			echo [$(build-aux/git-version-gen .tarball-version)]
+		[val]
+		val
+	[[val]]
+	[val]
+[val]
+val
+  
+AC_INIT(qecho([m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])]))
+#-AC_INIT
+#-1	qecho([m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])])
+	#-qecho
+	#-1	[m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])]
+		m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])
+	[[m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])]]
+	[m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])]
+[m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])]
+m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])
+
+m4_define([AC_FINIT],[$1$1])
+
+AC_FINIT([AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))])
+#-AC_FINIT
+#-1	[AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))]
+	AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))
+AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))
+... 2 вызова, все прелести ленивых вычислений
+valval
+
+AC_FINIT(AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]]))))
+AC_FINIT([AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))])
+#-AC_FINIT
+#-1	AC_INIT(qecho(m4_esyscmd([echo [$(build-aux/git-version-gen .tarball-version)]])))
+	...
+	val
+valval
+...
+123123
+
+
+-----------------------------------------------------
+changequote({,})
+define({ID_CONFIG},arg1)
+define({ID_OBJECT},arg2)
+define({MONIKER},arg3)
+define({NEW},arg4)
+define({parameter_field_list},{{"ID_CONFIG"},{"ID_OBJECT"},{"MONIKER"}})
+
+define({ncall},{$1})
+define({merge},{{$1$2}})
+define({Nth},{Nth_(merge($,{$1}),{{$2}})})
+define({Nth_},{pushdef({_n},{{$1}})_n($2){}popdef({_n})})
+Nth(2,parameter_field_list)
+
+define({Size},{ifelse($#,1,{indir({$$size},$1)})})
+define({$$size},{$#})
+dnl Size(parameter_field_list)
+
+
+-----------------------------------------------------
+литералы берём в кавычки
+все аргументы макросов, которые являются макросами, пишем без кавычек
+2й аргумент define берём в кавычки
+	(если не хотим произвести кодогенерацию)
+все входные данные, которые передаём в другие макросы, берем в доп. кавычки
+код, которые передаем в другие макросы, берем в доп. кавычки
+	это ifelse, 3й аргумент, forloop, 4й аргумент
+вложенные структуры в составных структурах данных берём в доп. кавычки
+
+
+
+changequote({,})
+define({ID_CONFIG},arg1)
+define({ID_OBJECT},arg2)
+define({MONIKER},arg3)
+define({parameter_field_list},{{{"ID_CONFIG"},{"ID_OBJECT"},{"MONIKER"}}})
+define({ncall},{$1})
+define({merge2},{{$1$2}})
+define({Nth},{Nth_(merge2($,{$1}),{$2})})
+define({Nth_},{pushdef({_n},{{$1}})_n($2){}popdef({_n})})
+dnl Nth(2,parameter_field_list)
+define({Size},{ifelse($#,1,{indir({$$size},$1)})})
+define({$$size},{$#})
+dnl Size(parameter_field_list)
+define({forloop},{pushdef({$1},{{$2}})_forloop({$1},{$2},{$3},{$4})popdef({$1})})
+define({_forloop},{$4{}ifelse($1,{$3}, ,{define({$1},incr($1))_forloop({$1},{$2},{$3},{$4})})})
+define({qecho},{{$*}})
+define({add_prefix_to_list},{ifelse($#,2,{qecho(forloop({j}, 1, Size({$1}),
+	{ifelse(j(),1,,{,})regexp(Nth(j,{$1}),{\(.*\)},{{{$2\1}}})}))})})
+dnl add_prefix_to_list(parameter_field_list,{:NEW.})
+
+define({update_set2},{forloop({j},1,Size({$1}),{ifelse(eval(index(Nth(j,{$1}),{"})>=0),1,
+{ ifdef({ok},{,})Nth(j,{$1})ifdef({ok},,{pushdef({ok},1)})=Nth(j,{$2})}
+)})popdef({ok})})
+
+update_set2(parameter_field_list,add_prefix_to_list(parameter_field_list,{:NEW.}))
+
+

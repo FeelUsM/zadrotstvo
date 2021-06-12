@@ -311,10 +311,10 @@ The GNU Build System
 Создание скриптов @command{configure}
 
 * Написание configure.ac::      What to put in an Autoconf input file
-* autoscan Invocation::         Semi-automatic @file{configure.ac} writing
-* ifnames Invocation::          Listing the conditionals in source code
-* autoconf Invocation::         How to create configuration scripts
-* autoreconf Invocation::       Remaking multiple @command{configure} scripts
+* вызов autoscan::         Semi-automatic @file{configure.ac} writing
+* вызов ifnames::          Listing the conditionals in source code
+* вызов autoconf::         How to create configuration scripts
+* вызов autoreconf::       Remaking multiple @command{configure} scripts
 
 Writing @file{configure.ac}
 
@@ -917,10 +917,10 @@ Makefile.in ---'                    `-> Makefile ---'
 
 @menu
 * Написание configure.ac::      What to put in an Autoconf input file
-* autoscan Invocation::         Semi-automatic @file{configure.ac} writing
-* ifnames Invocation::          Listing the conditionals in source code
-* autoconf Invocation::         How to create configuration scripts
-* autoreconf Invocation::       Remaking multiple @command{configure} scripts
+* вызов autoscan::         Semi-automatic @file{configure.ac} writing
+* вызов ifnames::          Listing the conditionals in source code
+* вызов autoconf::         How to create configuration scripts
+* вызов autoreconf::       Remaking multiple @command{configure} scripts
 @end menu
 
 @node Написание configure.ac
@@ -930,7 +930,7 @@ Makefile.in ---'                    `-> Makefile ---'
 Для многих таких возможностей макросы Autoconf уже написаны; See section @ref{Existing Tests}, где находится их описание. 
 Для большинства других возможностей вы можете использовать шаблонные макросы Autoconf, на базе которых можно создать специальные проверки; See section @ref{Writing Tests}, где это описано. 
 Для особо хитроумных или специализированных возможностей, в файл @file{configure.ac} может понадобиться включить специально написанные скрипты командного процессора, см @ref{Portable Shell, , Переносимое программирование для оболочки}. 
-Программа @command{autoscan} может оказать вам хорошую помощь на первых порах, при создании файла @file{configure.ac} (@pxref{autoscan Invocation}).
+Программа @command{autoscan} может оказать вам хорошую помощь на первых порах, при создании файла @file{configure.ac} (@pxref{вызов autoscan}).
 
 @cindex @file{configure.in}
 Предыдущие версии Autoconf использовали имя @file{configure.in}, что несколько неоднозначно (инструмент, необходимый для обработки этого файла, не описывается его расширением), и вводит небольшую путаницу с @file{config.h.in} и так далее (для которого @samp{.in} означает ``обрабатывать при помощи @command{configure}''). Использование @file{configure.ac} сейчас предпочтительнее, в то время как использование @file{configure.in} вызовет предупреждения @command{autoconf}.
@@ -1126,220 +1126,162 @@ information on the package
 @end display
 
 
-@node autoscan Invocation
-@section Using @command{autoscan} to Create @file{configure.ac}
+@node вызов autoscan
+@section Использование программы @command{autoscan} для создания @file{configure.ac}
 @cindex @command{autoscan}
 
-The @command{autoscan} program can help you create and/or maintain a
-@file{configure.ac} file for a software package.  @command{autoscan}
-examines source files in the directory tree rooted at a directory given
-as a command line argument, or the current directory if none is given.
-It searches the source files for common portability problems and creates
-a file @file{configure.scan} which is a preliminary @file{configure.ac}
-for that package, and checks a possibly existing @file{configure.ac} for
-completeness.
+Программа @command{autoscan} может помочь вам в создании и/или поддержке файла @file{configure.ac} для программного пакета. 
+@command{autoscan} выполняет анализ дерева исходных текстов, корень которого указан в командной строке или совпадает с текущим каталогом. 
+Программа ищет в исходных текстах следы обычных проблем с переносимостью и создает файл @file{configure.scan}, который является заготовкой для @file{configure.ac} для данного пакета, и проверяет, возможно, существующий @file{configure.ac} для полноты картины. 
 
-When using @command{autoscan} to create a @file{configure.ac}, you
-should manually examine @file{configure.scan} before renaming it to
-@file{configure.ac}; it probably needs some adjustments.
-Occasionally, @command{autoscan} outputs a macro in the wrong order
-relative to another macro, so that @command{autoconf} produces a warning;
-you need to move such macros manually.  Also, if you want the package to
-use a configuration header file, you must add a call to
-@code{AC_CONFIG_HEADERS} (@pxref{Configuration Headers}).  You might
-also have to change or add some @code{#if} directives to your program in
-order to make it work with Autoconf (@pxref{ifnames Invocation}, for
-information about a program that can help with that job).
+Вы должны сами просмотреть файл @file{configure.scan} перед тем, как переименовать его в @file{configure.ac}: скорее всего, он будет нуждаться в некоторых исправлениях. 
+Иногда @command{autoscan} выдает макросы в неправильном порядке, и поэтому @command{autoconf} будет выдавать предупреждения; вам необходимо вручную передвинуть эти макросы. 
+Также, если вы хотите, чтобы пакет использовал заголовочный файл настроек, то вы должны сами добавить вызов макроса @code{AC_CONFIG_HEADERS} (@pxref{Configuration Headers}). 
+Вам также необходимо добавить или изменить некоторые директивы препроцессора @code{#if} в вашей программе, для того, чтобы заставить ее работать с Autoconf (@pxref{вызов ifnames} для перечисления условных выражений, где описана программа, которая поможет вам выполнить эту работу). 
 
-When using @command{autoscan} to maintain a @file{configure.ac}, simply
-consider adding its suggestions.  The file @file{autoscan.log}
-contains detailed information on why a macro is requested.
+При использовании @command{autoscan} для поддержания @file{configure.ac}, просто подумайте о добавлении своих предложений. Файл @file{autoscan.log} содержит подробную информацию о том, почему запрашивается макрос. 
 
-@command{autoscan} uses several data files (installed along with Autoconf)
-to determine which macros to output when it finds particular symbols in
-a package's source files.  These data files all have the same format:
-each line consists of a symbol, one or more blanks, and the Autoconf macro to
-output if that symbol is encountered.  Lines starting with @samp{#} are
-comments.
+Программа @command{autoscan} использует несколько файлов данных (установленных вместе с Autoconf), чтобы определить, какие макросы следует использовать при обнаружении определенных символов в исходных файлах пакета. 
+Все эти файлы данных имеют один и тот же формат: каждая строка состоит из символа, пробелов и имени макроса Autoconf, которое выдается в том случае, если заданный символ имеется в исходных текстах. Строки, начинающиеся с символа @samp{#} являются комментариями. 
 
-@command{autoscan} accepts the following options:
+@command{autoscan} принимает следующие параметры:
 
 @table @option
 @item --help
 @itemx -h
-Print a summary of the command line options and exit.
+Выдает список ключей командной строки и прекращает работу.
 
 @item --version
 @itemx -V
-Print the version number of Autoconf and exit.
+выдает номер версии Autoconf и прекращает работу. 
 
 @item --verbose
 @itemx -v
-Print the names of the files it examines and the potentially interesting
-symbols it finds in them.  This output can be voluminous.
+Выдает имена исследуемых файлов и потенциально интересные символы, обнаруженные в этих файлах. Выдача может быть довольно обширной.
 
 @item --debug
 @itemx -d
-Don't remove temporary files.
+Не удалять временные файлы.
 
 @item --include=@var{dir}
 @itemx -I @var{dir}
-Append @var{dir} to the include path.  Multiple invocations accumulate.
+Добавляет @var{dir} в путь поиска.  множественные опции аккумулируются.
 
 @item --prepend-include=@var{dir}
 @itemx -B @var{dir}
-Prepend @var{dir} to the include path.  Multiple invocations accumulate.
+Добавляет @var{dir} в начало пути поиска.  множественные опции аккумулируются.
 @end table
 
-@node ifnames Invocation
-@section Using @command{ifnames} to List Conditionals
+@node вызов ifnames
+@section Использование программы @command{ifnames} для перечисления условных выражений
 @cindex @command{ifnames}
 
-@command{ifnames} can help you write @file{configure.ac} for a software
-package.  It prints the identifiers that the package already uses in C
-preprocessor conditionals.  If a package has already been set up to have
-some portability, @command{ifnames} can thus help you figure out what its
-@command{configure} needs to check for.  It may help fill in some gaps in a
-@file{configure.ac} generated by @command{autoscan} (@pxref{autoscan
-Invocation}).
+Программа @command{ifnames} может помочь при создании файла @file{configure.ac} для программного пакета. 
+Она выдает список идентификаторов, которые пакет уже использует в условных выражениях препроцессора языка С. 
+Если ваша программа уже была написана с учетом возможного переноса на другие платформы, то данная программа может помочь вам определить, какие проверки необходимо выполнить в @command{configure}. 
+Эта программа может помочь заполнить некоторые пробелы в файле @file{configure.ac}, который был создан программой @command{autoscan} (@pxref{вызов autoscan}). 
 
-@command{ifnames} scans all of the C source files named on the command line
-(or the standard input, if none are given) and writes to the standard
-output a sorted list of all the identifiers that appear in those files
-in @code{#if}, @code{#elif}, @code{#ifdef}, or @code{#ifndef}
-directives.  It prints each identifier on a line, followed by a
-space-separated list of the files in which that identifier occurs.
+Программа @command{ifnames} сканирует все исходные тексты на C, перечисленные в командной строке (или же принимает текст со стандартного ввода, если ни один файл не был указан) и выдает на стандартный вывод сортированный список идентификаторов, которые используются в директивах @code{#if}, @code{#elif}, @code{#ifdef}, или @code{#ifndef}. Программа выдает каждый идентификатор на отдельной строке, за которым через пробел следует список файлов, в которых этот идентификатор встречается. 
 
 @noindent
-@command{ifnames} accepts the following options:
+@command{ifnames} распознает следующие ключи командной строки:
 
 @table @option
 @item --help
 @itemx -h
-Print a summary of the command line options and exit.
+выдает список ключей командной строки и прекращает работу. 
 
 @item --version
 @itemx -V
-Print the version number of Autoconf and exit.
+выдает номер версии Autoconf и прекращает работу. 
 @end table
 
-@node autoconf Invocation
-@section Using @command{autoconf} to Create @command{configure}
+@node вызов autoconf
+@section Использование программы @command{autoconf} для создания скрипта @command{configure}
 @cindex @command{autoconf}
 
-To create @command{configure} from @file{configure.ac}, run the
-@command{autoconf} program with no arguments.  @command{autoconf} processes
-@file{configure.ac} with the M4 macro processor, using the
-Autoconf macros.  If you give @command{autoconf} an argument, it reads that
-file instead of @file{configure.ac} and writes the configuration script
-to the standard output instead of to @command{configure}.  If you give
-@command{autoconf} the argument @option{-}, it reads from the standard
-input instead of @file{configure.ac} and writes the configuration script
-to the standard output.
+Для того, чтобы создать скрипт @command{configure} из файла @file{configure.ac}, просто запустите программу @command{autoconf} без аргументов. 
+@command{autoconf} обработает файл @file{configure.ac} с помощью макропроцессора M4, используя макросы Autoconf. 
+Если вы зададите аргумент программе @command{autoconf}, то программа будет выполнять чтение заданного файла, а не файла @file{configure.ac} и вывод будет производиться на стандартный вывод, не в в файл @command{configure}. 
+Если вы дадите программе @command{autoconf} аргумент @option{-}, то она будет читать со стандартного ввода, а не из файла @file{configure.ac}, а результаты будут выдаваться на стандартный вывод. 
 
-The Autoconf macros are defined in several files.  Some of the files are
-distributed with Autoconf; @command{autoconf} reads them first.  Then it
-looks for the optional file @file{acsite.m4} in the directory that
-contains the distributed Autoconf macro files, and for the optional file
-@file{aclocal.m4} in the current directory.  Those files can contain
-your site's or the package's own Autoconf macro definitions
-(@pxref{Writing Autoconf Macros}, for more information).  If a macro is
-defined in more than one of the files that @command{autoconf} reads, the
-last definition it reads overrides the earlier ones.
+Макросы Autoconf определены в нескольких файлах. 
+Некоторые из них распространяются вместе с Autoconf; @command{autoconf} читает их в первую очередь. 
+Затем ищется необязательный файл @file{acsite.m4} в каталоге, который содержит распространяемые с Autoconf файлы макросов, и необязательный файл @file{aclocal.m4} в текущем каталоге. 
+Эти файлы могут содержать макросы, специфические для вашей машины или макросы для конкретных пакетов программного обеспечения (@pxref{Writing Autoconf Macros}, где приведена дополнительная информация). 
+Если определение макроса существует в нескольких файлах, которые считывает autoconf, то последнее макроопределение переопределяет все предыдущие. 
 
-@command{autoconf} accepts the following options:
+@command{autoconf} распознает следующие ключи командной строки:
 
 @table @option
 @item --help
 @itemx -h
-Print a summary of the command line options and exit.
+выдает список ключей командной строки и прекращает работу. 
 
 @item --version
 @itemx -V
-Print the version number of Autoconf and exit.
+выдает номер версии Autoconf и прекращает работу. 
 
 @item --verbose
 @itemx -v
-Report processing steps.
+сообщает шаги обработки.
 
 @item --debug
 @itemx -d
-Don't remove the temporary files.
+Не удаляет временные файлы.
 
 @item --force
 @itemx -f
-Remake @file{configure} even if newer than its input files.
+Переделывать @file{configure} даже если он новее, чем его входные файлы. 
 
 @item --include=@var{dir}
 @itemx -I @var{dir}
-Append @var{dir} to the include path.  Multiple invocations accumulate.
+Добавляет @var{dir} к пути включения. Множественные опции накапливаются. 
 
 @item --prepend-include=@var{dir}
 @itemx -B @var{dir}
-Prepend @var{dir} to the include path.  Multiple invocations accumulate.
+Добавляет @var{dir} в начало пути включения. Множественные опции накапливаются. 
 
 @item --output=@var{file}
 @itemx -o @var{file}
-Save output (script or trace) to @var{file}.  The file @option{-} stands
-for the standard output.
+Сохраняет выходные данные (сценарий или трассировку) в @var{file} . Файл @option{-} расшифровывается как стандартный вывод. 
 
 @item --warnings=@var{category}[,@var{category}...]
 @itemx -W@var{category}[,@var{category}...]
 @evindex WARNINGS
-Enable or disable warnings related to each @var{category}.
-@xref{m4_warn}, for a comprehensive list of categories.
-Special values include:
+Включить или отключить предупреждения, относящиеся к каждой @var{category}. Полный список категорий @xref{m4_warn}. Специальные значения включают в себя: 
 
 @table @samp
 @item all
-Enable all categories of warnings.
+Включает все категории предупреждений. 
 
 @item none
-Disable all categories of warnings.
+Отключите все категории предупреждений. 
 
 @item error
-Treat all warnings as errors.
+Обрабатывать все предупреждения как к ошибки. 
 
 @item no-@var{category}
-Disable warnings falling into @var{category}.
+Отключить предупреждения, попадающие в @var{category}.
 @end table
 
-The enviroment variable @env{WARNINGS} may also be set to a
-comma-separated list of warning categories to enable or disable.
-It is interpreted exactly the same way as the argument of
-@option{--warnings}, but unknown categories are silently ignored.
-The command line takes precedence; for instance, if @env{WARNINGS}
-is set to @code{obsolete}, but @option{-Wnone} is given on the
-command line, no warnings will be issued.
+Переменная среды @env{WARNINGS} также может содержать разделенный запятыми список категорий предупреждений для включения или отключения. Он интерпретируется точно так же, как аргумент @option{--warnings}, но неизвестные категории молча игнорируются. Командная строка имеет приоритет; например, если @env{WARNINGS} установлено значение @code{obsolete}, но @option{-Wnone} дается в командной строке, никаких предупреждений не будет выдано.
 
-Some categories of warnings are on by default.
-Again, for details see @ref{m4_warn}.
+Некоторые категории предупреждений включены по умолчанию. Опять же, подробности см. @ref{m4_warn}. 
 
 @item --trace=@var{macro}[:@var{format}]
 @itemx -t @var{macro}[:@var{format}]
-Do not create the @command{configure} script, but list the calls to
-@var{macro} according to the @var{format}.  Multiple @option{--trace}
-arguments can be used to list several macros.  Multiple @option{--trace}
-arguments for a single macro are not cumulative; instead, you should
-just make @var{format} as long as needed.
+Не создавать сценарий @command{configure}, но перечислить вызовы @var{macro} в соответствии с форматом @var{format}. Множественные опции @option{--trace} могут быть использованы для перечисления нескольких макросов. Множественные опции @option{--trace} для одного макроса не суммируются; вместо этого вы должны просто сделать @var{format} настолько длинным, насколько это необходимо. 
 
-The @var{format} is a regular string, with newlines if desired, and
-several special escape codes.  It defaults to @samp{$f:$l:$n:$%}; see
-@ref{autom4te Invocation}, for details on the @var{format}.
+@var{format} представляет собой обычную строку, при желании с новыми строками и несколькими специальными escape-кодами. По умолчанию он равен @samp{$f:$l:$n:$%}; см. @ref{autom4te Invocation}, для более подробной информации о формате @var{format}. 
 
 @item --initialization
 @itemx -i
-By default, @option{--trace} does not trace the initialization of the
-Autoconf macros (typically the @code{AC_DEFUN} definitions).  This
-results in a noticeable speedup, but can be disabled by this option.
+По умолчанию, @option{--trace} не отслеживает инициализацию макросов Autoconf (как правило, @code{AC_DEFUN} определения). Это приводит к заметному ускорению, но может быть отключено этой опцией. 
 @end table
 
 
-It is often necessary to check the content of a @file{configure.ac}
-file, but parsing it yourself is extremely fragile and error-prone.  It
-is suggested that you rely upon @option{--trace} to scan
-@file{configure.ac}.  For instance, to find the list of variables that
-are substituted, use:
+Часто возникает необходимость проверить содержание файла @file{configure.ac}, но разбор его самостоятельно чрезвычайно хрупок и подвержен ошибкам. Предлагается, чтобы вы полагались на @option{--trace} для сканирования @file{configure.ac}. Например, чтобы найти список подставляемых переменных, используйте: 
 
 @example
 @group
@@ -1347,13 +1289,13 @@ $ @kbd{autoconf -t AC_SUBST}
 configure.ac:2:AC_SUBST:ECHO_C
 configure.ac:2:AC_SUBST:ECHO_N
 configure.ac:2:AC_SUBST:ECHO_T
-@i{More traces deleted}
+@i{дальнейшая трассировка удалена}
 @end group
 @end example
 
 @noindent
-The example below highlights the difference between @samp{$@@},
-@samp{$*}, and @samp{$%}.
+Пример ниже подчеркивает разницу между @samp{$@@},
+@samp{$*}, и @samp{$%}.
 
 @example
 @group
@@ -1372,7 +1314,7 @@ $ @kbd{autoconf -t 'AC_DEFINE:@@: $@@}
 @end example
 
 @noindent
-The @var{format} gives you a lot of freedom:
+@var{format}  дает вам большую свободу:
 
 @example
 @group
@@ -1380,14 +1322,12 @@ $ @kbd{autoconf -t 'AC_SUBST:$$ac_subst@{"$1"@} = "$f:$l";'}
 $ac_subst@{"ECHO_C"@} = "configure.ac:2";
 $ac_subst@{"ECHO_N"@} = "configure.ac:2";
 $ac_subst@{"ECHO_T"@} = "configure.ac:2";
-@i{More traces deleted}
+@i{дальнейшая трассировка удалена}
 @end group
 @end example
 
 @noindent
-A long @var{separator} can be used to improve the readability of complex
-structures, and to ease their parsing (for instance when no single
-character is suitable as a separator):
+Длинный @var{separator} может быть использован для улучшения читаемости сложных структур и облегчения их синтаксического анализа (например, когда ни один символ не подходит в качестве разделителя): 
 
 @example
 @group
@@ -1395,162 +1335,124 @@ $ @kbd{autoconf -t 'AM_MISSING_PROG:$@{|:::::|@}*'}
 ACLOCAL|:::::|aclocal|:::::|$missing_dir
 AUTOCONF|:::::|autoconf|:::::|$missing_dir
 AUTOMAKE|:::::|automake|:::::|$missing_dir
-@i{More traces deleted}
+@i{дальнейшая трассировка удалена}
 @end group
 @end example
 
-@node autoreconf Invocation
-@section Using @command{autoreconf} to Update @command{configure} Scripts
+@node вызов autoreconf
+@section Использование @command{autoreconf} для обновления ваших скриптов @command{configure}
 @cindex @command{autoreconf}
 
-Installing the various components of the GNU Build System can be
-tedious: running @command{autopoint} for Gettext, @command{automake} for
-@file{Makefile.in} etc.@: in each directory.  It may be needed either
-because some tools such as @command{automake} have been updated on your
-system, or because some of the sources such as @file{configure.ac} have
-been updated, or finally, simply in order to install the GNU Build
-System in a fresh tree.
+Установка различных компонентов системы сборки GNU может быть утомительной: запуск @command{autopoint} для Gettext, @command{automake} для @file{Makefile.in} и т. д.@: в каждом каталоге. 
+Это может быть необходимо либо потому, что некоторые инструменты, такие как @command{automake} были обновлены в вашей системе или потому, что некоторые исходники, такие как @file{configure.ac} были обновлены или, наконец, просто для того, чтобы установить the GNU Build
+System в свежем дереве.
 
-@command{autoreconf} runs @command{autoconf}, @command{autoheader},
+@command{autoreconf} запускает @command{autoconf}, @command{autoheader},
 @command{aclocal}, @command{automake}, @command{libtoolize}, @command{intltoolize},
-@command{gtkdocize}, and @command{autopoint} (when appropriate) repeatedly
-to update the GNU Build System in the specified directories and their
-subdirectories (@pxref{Subdirectories}).  By default, it only remakes
-those files that are older than their sources.  The environment variables
-@env{AUTOM4TE}, @env{AUTOCONF}, @env{AUTOHEADER}, @env{AUTOMAKE}, @env{ACLOCAL},
+@command{gtkdocize}, и @command{autopoint} (при необходимости) многократно обновляя the GNU Build System в указанных каталогах и их подкаталогах (@pxref{Subdirectories}). 
+По умолчанию он переделывает только те файлы, которые старше, чем их исходники. 
+Переменные среды @env{AUTOM4TE}, @env{AUTOCONF}, @env{AUTOHEADER}, @env{AUTOMAKE}, @env{ACLOCAL},
 @env{AUTOPOINT}, @env{LIBTOOLIZE}, @env{INTLTOOLIZE}, @env{GTKDOCIZE}, @env{M4},
-and @env{MAKE} may be used to override the invocation of the respective tools.
+и @env{MAKE} могут использоваться для переопределения вызова соответствующих инструментов. 
 
-If you install a new version of some tool, you can make
-@command{autoreconf} remake @emph{all} of the files by giving it the
-@option{--force} option.
+Если вы установите новую версию какого-либо инструмента, вы можете сделать @command{autoreconf} переделку @emph{всех} файлов, передав ему опцию @option{--force}. 
 
-@xref{Automatic Remaking}, for Make rules to automatically
-rebuild @command{configure} scripts when their source files change.  That
-method handles the timestamps of configuration header templates
-properly, but does not pass @option{--autoconf-dir=@var{dir}} or
-@option{--localdir=@var{dir}}.
+@xref{Automatic Remaking}, для создания правил автоматического восстановления скриптов @command{configure} при изменении их исходных файлов. 
+Этот метод обрабатывает временные метки configuration header templates правильно, но не передает опции @option{--autoconf-dir=@var{dir}} или @option{--localdir=@var{dir}}.
+
 
 @cindex Gettext
 @cindex @command{autopoint}
-Gettext supplies the @command{autopoint} command to add translation
-infrastructure to a source package.  If you use @command{autopoint},
-your @file{configure.ac} should invoke @code{AM_GNU_GETTEXT} and
-one of @code{AM_GNU_GETTEXT_VERSION(@var{gettext-version})} or
-@code{AM_GNU_GETTEXT_REQUIRE_VERSION(@var{min-gettext-version})}.
-@xref{autopoint Invocation, , Invoking the @code{autopoint} Program,
-gettext, GNU @code{gettext} utilities}, for further details.
+Gettext поставляет команду @command{autopoint} для добавления инфраструктуры перевода в исходный пакет. 
+Если вы используете @command{autopoint}, ваш @file{configure.ac} должен вызывать @code{AM_GNU_GETTEXT} и один из @code{AM_GNU_GETTEXT_VERSION(@var{gettext-version})} или
+@code{AM_GNU_GETTEXT_REQUIRE_VERSION(@var{min-gettext-version})}. 
+@xref{autopoint Invocation, ,Вызов @code{autopoint} , gettext, GNU @code{gettext}} для более подробной информации.
 
 @noindent
-@command{autoreconf} accepts the following options:
+@command{autoreconf} принимает следующие параметры:
 
 @table @option
 @item --help
 @itemx -h
-Print a summary of the command line options and exit.
+Печатает сводку параметров командной строки и выходит.
 
 @item --version
 @itemx -V
-Print the version number of Autoconf and exit.
+Выводит номер версии Autoconf и выходит. 
 
 @item --verbose
 @itemx -v
-Print the name of each directory @command{autoreconf} examines and the
-commands it runs.  If given two or more times, pass @option{--verbose}
-to subordinate tools that support it.
+Печатает имена каждого каталога, который @command{autoreconf} проверяет, и команды, которые он выполняет. 
+Если указана два или более раз, передает @option{--verbose} в подчинённые инструменты, которые поддерживают эту опцию. 
 
 @item --debug
 @itemx -d
-Don't remove the temporary files.
+Не удаляет временные файлы.
 
 @item --force
 @itemx -f
-Consider all generated and standard auxiliary files to be obsolete.
-This remakes even @file{configure} scripts and configuration headers
-that are newer than their input files (@file{configure.ac} and, if
-present, @file{aclocal.m4}).
+Считает все сгенерированные и стандартные вспомогательные файлы устаревшими. 
+Это пересоздаёт каждый скрипт @file{configure} и конфигурационный заголовок, которые новее, чем их входные файлы (@file{configure.ac} и, если присутствует, @file{aclocal.m4}). 
 
-If deemed appropriate, this option triggers calls to @samp{automake
---force-missing}.  Passing both @option{--force} and @option{--install}
-to @command{autoreconf} will in turn undo any customizations to standard
-files.  Note that the macro @code{AM_INIT_AUTOMAKE} has some options
-which change the set of files considered to be standard.
+Если это считается целесообразным, этот параметр запускает вызовы @samp{automake --force-missing}. 
+Задание и @option{--force} и @option{--install} для @command{autoreconf} в свою очередь, отменит любые настройки стандартных файлов. 
+Обратите внимание, что макрос @code{AM_INIT_AUTOMAKE} имеет несколько вариантов которые изменяют набор файлов, считающихся стандартными. 
 
 @item --install
 @itemx -i
-Install any missing standard auxiliary files in the package.  By
-default, files are copied; this can be changed with @option{--symlink}.
+Установит все отсутствующие стандартные вспомогательные файлы в пакет. 
+По умолчанию файлы копируются; это можно изменить с помощью @option{--symlink}. 
 
-If deemed appropriate, this option triggers calls to
-@samp{automake --add-missing},
-@samp{libtoolize}, @samp{autopoint}, etc.
+Если это будет сочтено целесообразным, эта опция вызовет @samp{automake --add-missing},
+@samp{libtoolize}, @samp{autopoint} и т. д. 
 
 @item --no-recursive
-Do not rebuild files in subdirectories to configure (see @ref{Subdirectories},
-macro @code{AC_CONFIG_SUBDIRS}).
+Не перестраивать файлы в подкаталогах для настройки (см. @ref{Subdirectories}, макрос @code{AC_CONFIG_SUBDIRS}). 
 
 @item --symlink
 @itemx -s
-When used with @option{--install}, install symbolic links to the missing
-auxiliary files instead of copying them.
+При использовании с @option{--install}, установит символические ссылки на отсутствующие вспомогательные файлы вместо того, чтобы копировать их. 
 
 @item --make
 @itemx -m
-When the directories were configured, update the configuration by
-running @samp{./config.status --recheck && ./config.status}, and then
-run @samp{make}.
+Когда каталоги сконфигурированы, обновит конфигурацию, выполнив команды @samp{./config.status --recheck && ./config.status}, а потом @samp{make}. 
 
 @item --include=@var{dir}
 @itemx -I @var{dir}
-Append @var{dir} to the include path.  Multiple invocations accumulate.
-Passed on to @command{aclocal}, @command{autoconf} and
-@command{autoheader} internally.
+Добавит @var{dir} к include path. Множественные опции накапливаются. Передаётся в @command{aclocal}, @command{autoconf} и @command{autoheader}. 
 
 @item --prepend-include=@var{dir}
 @itemx -B @var{dir}
-Prepend @var{dir} to the include path.  Multiple invocations accumulate.
-Passed on to @command{autoconf} and @command{autoheader} internally.
+Добавит @var{dir} в начало include path. Множественные опции накапливаются. Передаётся в @command{autoconf} и @command{autoheader}. 
 
 @item --warnings=@var{category}[,@var{category}...]
 @itemx -W@var{category}[,@var{category}...]
 @evindex WARNINGS
-Enable or disable warnings related to each @var{category}.
-@xref{m4_warn}, for a comprehensive list of categories.
-Special values include:
+Включить или отключить предупреждения, относящиеся к каждой @var{category}. Полный список категорий @xref{m4_warn}. Специальные значения включают в себя: 
 
 @table @samp
 @item all
-Enable all categories of warnings.
+Включает все категории предупреждений. 
 
 @item none
-Disable all categories of warnings.
+Отключите все категории предупреждений. 
 
 @item error
-Treat all warnings as errors.
+Обрабатывать все предупреждения как к ошибки. 
 
 @item no-@var{category}
-Disable warnings falling into @var{category}.
+Отключить предупреждения, попадающие в @var{category}.
 @end table
 
-The enviroment variable @env{WARNINGS} may also be set to a
-comma-separated list of warning categories to enable or disable.
-It is interpreted exactly the same way as the argument of
-@option{--warnings}, but unknown categories are silently ignored.
-The command line takes precedence; for instance, if @env{WARNINGS}
-is set to @code{obsolete}, but @option{-Wnone} is given on the
-command line, no warnings will be issued.
+Переменная среды @env{WARNINGS} также может содержать разделенный запятыми список категорий предупреждений для включения или отключения. Он интерпретируется точно так же, как аргумент @option{--warnings}, но неизвестные категории молча игнорируются. Командная строка имеет приоритет; например, если @env{WARNINGS} установлено значение @code{obsolete}, но @option{-Wnone} дается в командной строке, никаких предупреждений не будет выдано.
 
-Some categories of warnings are on by default.
-Again, for details see @ref{m4_warn}.
+Некоторые категории предупреждений включены по умолчанию. Опять же, подробности см. @ref{m4_warn}.
+
 @end table
 
-If you want @command{autoreconf} to pass flags that are not listed here
-on to @command{aclocal}, set @code{ACLOCAL_AMFLAGS} in your @file{Makefile.am}.
-Due to a limitation in the Autoconf implementation these flags currently
-must be set on a single line in @file{Makefile.am}, without any
-backslash-newlines.  Also, be aware that future Automake releases might
-start flagging @code{ACLOCAL_AMFLAGS} as obsolescent, or even remove
-support for it.
+Если вы хотите чтобы @command{autoreconf} передал флаги, которые не перечислены здесь, в @command{aclocal}, установить @code{ACLOCAL_AMFLAGS} в вашем @file{Makefile.am}. 
+Из-за ограничения в реализации Autoconf эти флаги в настоящее время должны быть установлены на одной строке в @file{Makefile.am}, без обратной косой черты-новой строки. 
+Кроме того, имейте в виду, что будущие выпуски Automake могут начать отмечать @code{ACLOCAL_AMFLAGS} как устаревшее, или даже удалить поддержку для него. 
 
 @c ========================================= Initialization and Output Files.
 
@@ -11441,7 +11343,7 @@ newlines in the @samp{separator}), while @samp{$@@} and @samp{$*} do
 not.
 @end table
 
-@xref{autoconf Invocation}, for examples of trace uses.
+@xref{вызов autoconf}, for examples of trace uses.
 
 @item --preselect=@var{macro}
 @itemx -p @var{macro}
@@ -24467,7 +24369,7 @@ Autoconf distribution.
 
 If you have an @file{aclocal.m4} installed with Autoconf (as opposed to
 in a particular package's source directory), you must rename it to
-@file{acsite.m4}.  @xref{autoconf Invocation}.
+@file{acsite.m4}.  @xref{вызов autoconf}.
 
 If you distribute @file{install.sh} with your package, rename it to
 @file{install-sh} so @command{make} builtin rules don't inadvertently
