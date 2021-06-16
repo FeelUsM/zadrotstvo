@@ -546,9 +546,10 @@ dnl Size(parameter_field_list)
 
 
 changequote({,})
-define({ID_CONFIG},arg1)
-define({ID_OBJECT},arg2)
-define({MONIKER},arg3)
+define({ID_CONFIG},{{arg1}})
+define({ID_OBJECT},{{arg2}})
+define({MONIKER},{{arg3}})
+define({NEW},{{arg4}})
 define({parameter_field_list},{{{"ID_CONFIG"},{"ID_OBJECT"},{"MONIKER"}}})
 define({ncall},{$1})
 define({merge2},{{$1$2}})

@@ -324,7 +324,7 @@ Writing @file{configure.ac}
 
 Initialization and Output Files
 
-* Initializing configure::      Option processing etc.
+* Инициализация configure::      Option processing etc.
 * Versioning::                  Dealing with Autoconf versions
 * Notices::                     Copyright, version numbers in @command{configure}
 * Input::                       Where Autoconf should find files
@@ -1457,15 +1457,13 @@ Gettext поставляет команду @command{autopoint} для доба�
 @c ========================================= Initialization and Output Files.
 
 @node Setup
-@chapter Initialization and Output Files
+@chapter Файлы инициализации и выходные файлы
 
-Autoconf-generated @command{configure} scripts need some information about
-how to initialize, such as how to find the package's source files and
-about the output files to produce.  The following sections describe the
-initialization and the creation of output files.
+Скриптам @command{configure}, созданным Autoconf, нужна некоторая инициализационная информация, как то: где найти исходные тексты пакета; какие выходные файлы создавать. В нижеследующей главе описана инициализация и создание выходных файлов. 
+
 
 @menu
-* Initializing configure::      Option processing etc.
+* Инициализация configure::      Option processing etc.
 * Versioning::                  Dealing with Autoconf versions
 * Notices::                     Copyright, version numbers in @command{configure}
 * Input::                       Where Autoconf should find files
@@ -1480,33 +1478,26 @@ initialization and the creation of output files.
 * Default Prefix::              Changing the default installation prefix
 @end menu
 
-@node Initializing configure
-@section Initializing @command{configure}
+@node Инициализация configure
+@section Инициализация @command{configure}
 
-Every @command{configure} script must call @code{AC_INIT} before doing
-anything else that produces output.  Calls to silent macros, such as
-@code{AC_DEFUN}, may also occur prior to @code{AC_INIT}, although these
-are generally used via @file{aclocal.m4}, since that is implicitly
-included before the start of @file{configure.ac}.  The only other
-required macro is @code{AC_OUTPUT} (@pxref{Output}).
+Каждый скрипт @command{configure} должен вызвать макрос @code{AC_INIT} перед выполнением чего-то еще, что производит вывод. 
+Можно также вызывать беззвучные макросы, такие как @code{AC_DEFUN}, до @code{AC_INIT}, хотя они обычно используются через @file{aclocal.m4}, так как они неявно подключаются в начале @file{configure.ac}. Единственный другой необходимый макрос @code{AC_OUTPUT} (@pxref{Output}). 
 
 @anchor{AC_INIT}
 @defmac AC_INIT (@var{package}, @var{version}, @ovar{bug-report}, @
   @ovar{tarname}, @ovar{url})
 @acindex{INIT}
-Process any command-line arguments and perform initialization
-and verification.
+Обрабатывает аргументы командной строки и производит инициализацию и верификацию.
 
-Set the name of the @var{package} and its @var{version}.  These are
-typically used in @option{--version} support, including that of
-@command{configure}.  The optional argument @var{bug-report} should be
-the email to which users should send bug reports.  The package
-@var{tarname} differs from @var{package}: the latter designates the full
-package name (e.g., @samp{GNU Autoconf}), while the former is meant for
-distribution tar ball names (e.g., @samp{autoconf}).  It defaults to
-@var{package} with @samp{GNU } stripped, lower-cased, and all characters
-other than alphanumerics and underscores are changed to @samp{-}.  If
-provided, @var{url} should be the home page for the package.
+Задаёт имя пакета @var{package} и его версию @var{version}. 
+Они обычно используются в @command{configure} @option{--version} на ряду с его выводом. 
+Необязательным аргументом @var{bug-report} должен быть адрес электронной почты, на который пользователи должны отправлять отчеты об ошибках. 
+@var{tarname} пакета отличается от @var{package}: последний обозначает полное имя пакета (например, @samp{GNU Autoconf}), в то время как первый предназначен для имен распространяемых тарболов (например, @samp{autoconf}). 
+По умолчанию @var{package} формируется при помощи отбрасывания @samp{GNU }, переделки заглавных в малые, и замены всех, кроме буквенно-цифровых символов и подчеркиваний, на @samp{-}.
+@var{url}-адрес должен быть домашней страницей пакета, если указан.
+
+Начальные и конечные пробелы удаляются из всех аргументов @code{AC_INIT}, а внутренние пробелы сворачиваются в один пробел. Это означает, что, например, если вы хотите поместить несколько адресов электронной почты в @var{bug-report}, вы можете поместить каждый из них в свою собственную строку: 
 
 Leading and trailing whitespace is stripped from all the arguments to
 @code{AC_INIT}, and interior whitespace is collapsed to a single space.
@@ -1515,8 +1506,8 @@ addresses in @var{bug-report}, you can put each one on its own line:
 
 @smallexample
 @group
-# We keep having problems with the mail hosting for
-# gnomovision.example, so give people an alternative.
+# У нас постоянно возникают проблемы с почтовым хостингом 
+# gnomovision.example, так что люди нуждаются в альтернативе.
 AC_INIT([Gnomovision], [17.0.1], [
     bugs@@gnomovision.example
     or gnomo-bugs@@reliable-email.example
@@ -1747,15 +1738,13 @@ The following macros help you manage the contents of your source tree.
 @anchor{AC_CONFIG_SRCDIR}
 @defmac AC_CONFIG_SRCDIR (@var{unique-file-in-source-dir})
 @acindex{CONFIG_SRCDIR}
-Distinguish this package's source directory from other source
-directories that might happen to exist in the file system.
-@var{unique-file-in-source-dir} should name a file that is unique to
-this package.  @command{configure} will verify that this file exists in
-@file{@var{srcdir}}, before it runs any other checks.
 
-Use of this macro is strongly recommended.  It protects against people
-accidentally specifying the wrong directory with @option{--srcdir}.
-@xref{configure Invocation}, for more information.
+Ищет каталог с исходными текстами среди других исходных каталогов, которые могут случайно существовать в файловой системе.
+@var{unique-file-in-source-dir} --- это некоторый файл уникальный для данного пакета в каталоге с исходными текстами; @command{configure} проверяет существование этого файла в @file{@var{srcdir}}, чтобы убедиться, что это именно тот каталог с исходными текстами, какой нужно. 
+
+Настоятельно рекомендуется использовать этот макрос. 
+Иногда люди указывают неверный каталог с исходными текстами, используя ключ командной строки `--srcdir'; эта проверка позволяет не допускать таких инцидентов. Для детальной информации @xref{configure Invocation}. 
+
 @end defmac
 
 Packages that use @command{aclocal} to generate @file{aclocal.m4}
@@ -25774,7 +25763,7 @@ address to which bug reports should be sent.  For sake of completeness,
 we suggest that you also define @code{AT_PACKAGE_NAME},
 @code{AT_PACKAGE_TARNAME}, @code{AT_PACKAGE_VERSION}, and
 @code{AT_PACKAGE_URL}.
-@xref{Initializing configure}, for a description of these variables.
+@xref{Инициализация configure}, for a description of these variables.
 Be sure to distribute @file{package.m4} and to put it into the source
 hierarchy: the test suite ought to be shipped!  See below for an example.
 
