@@ -1,0 +1,570 @@
+1 1 Abortive Release
+2 2 Absolute Pathname
+3 3 Access Mode
+4 258 Open File Description
+5 77 Blocking
+6 165 File Description
+7 166 File Descriptor
+8 172 File Offset
+9 245 Non-Blocking
+10 255 Offset Maximum
+11 291 Priority Inversion
+12 210 Live Process
+13 225 Message Catalog Descriptor
+14 257 Open File
+15 370 Stream
+16 131 Directory Stream
+17 295 Process
+18 301 Process Lifetime
+19 452 Zombie Process
+20 180 First Open (of a File)
+21 205 Last Close (of a File)
+22 371 STREAM
+23 372 STREAM End
+24 373 STREAM Head
+25 374 STREAMS Multiplexor
+26 400 Tab Character (<tab>)
+27 423 Trace Stream
+28 424 Trace Stream Identifier
+29 425 Trace System
+30 426 Traced Process
+31 427 Tracing Status of a Trace Stream
+32 197 Instrumented Application
+33 414 Trace Analyzer Process
+34 415 Trace Controller Process
+35 416 Trace Event
+36 421 Trace Log
+37 441 Vertical-Tab Character (<vertical-tab>)
+38 444 Wide-Character Input/Output Functions
+39 85 Byte Input/Output Functions
+40 105 Command Language Interpreter
+41 9 Alert Character (<alert>)
+42 38 Backspace Character (<backspace>)
+43 86 Carriage-Return Character (<carriage-return>)
+44 186 Form-Feed Character (<form-feed>)
+45 243 Newline Character (<newline>)
+46 148 Encoding Rule
+47 179 Filter
+48 STREAMs message
+49 218 Marked Message
+50 236 Named STREAM
+51 263 Orientation
+52 290 Priority Band
+53 347 Shell
+54 366 Standard Error
+55 367 Standard Input
+56 368 Standard Output
+57 419 Trace Filter
+58 420 Trace Generation Version
+59 296 Process Group
+60 297 Process Group ID
+61 298 Process Group Leader
+62 299 Process Group Lifetime
+63 300 Process ID
+64 302 Process Memory Locking
+65 303 Process Termination
+66 304 Process-To-Process Communication
+67 308 Pseudo-Terminal
+68 311 Read-Write Lock
+69 312 Real Group ID
+70 315 Real User ID
+71 331 Runnable Process (or Thread)
+72 332 Running Process (or Thread)
+73 333 Saved Resource Limits
+74 335 Saved Set-User-ID
+75 334 Saved Set-Group-ID
+76 336 Scheduling
+77 339 Scheduling Policy
+78 343 Session
+79 344 Session Leader
+80 345 Session Lifetime
+81 350 Signal
+82 353 Single-Threaded Process
+83 354 Single-Threaded Program
+84 361 Spawn
+85 365 Sporadic Server
+86 377 Successfully Transferred
+87 378 Supplementary Group ID
+88 384 Synchronized I/O Data Integrity Completion
+89 385 Synchronized I/O File Integrity Completion
+90 396 System Process
+91 399 System-Wide
+92 404 Thread
+93 405 Thread ID
+94 408 Thread-Specific Data Key
+95 410 Timeouts
+96 436 User ID
+97 48 Batch Job
+98 73 Bind
+99 356 Socket
+100 330 Root Directory
+101 447 Working Directory (or Current Working Directory)
+102 26 Asynchronous Input and Output
+103 30 Asynchronous I/O Operation
+104 5 Address Space
+105 28 Asynchronously-Generated Signal
+106 76 Blocked Process (or Thread)
+107 93 Child Process
+108 117 Core File
+109 31 Authentication
+110 32 Authorization
+111 20 Appropriate Privileges
+112 33 Background Job
+113 35 Background Process Group (or Background Job)
+114 34 Background Process
+115 184 Foreground Process Group (or Foreground Job)
+116 182 Foreground Job
+117 183 Foreground Process
+118 185 Foreground Process Group ID
+119 202 Job
+120 203 Job Control
+121 115 Controlling Terminal
+122 116 Conversion Descriptor
+123 118 CPU Time (Execution Time)
+124 119 CPU-Time Clock
+125 125 Data Segment
+126 141 Effective Group ID
+127 142 Effective User ID
+128 154 Executable File
+129 157 Execution Time Monitoring
+130 167 File Group Class
+131 173 File Other Class
+132 174 File Owner Class
+133 175 File Permission Bits
+134 189 Group ID
+135 191 Hard Limit
+136 200 Interprocess Communication
+137 212 Local Interprocess Communication (Local IPC)
+138 221 Memory Object
+139 223 Message
+140 232 Multi-Threaded Process
+141 233 Multi-Threaded Program
+142 264 Orphaned Process Group
+143 269 Parent Process
+144 270 Parent Process ID
+145 279 Polling
+146 285 Preempted Process (or Thread)
+147 289 Priority
+148 292 Priority Scheduling
+149 293 Priority-Based Scheduling
+150 379 Suspended Job
+151 114 Controlling Process
+152 42 Batch Access List
+153 45 Batch Destination
+154 49 Batch Job Attribute
+155 50 Batch Job Identifier
+156 51 Batch Job Name
+157 52 Batch Job Owner
+158 53 Batch Job Priority
+159 54 Batch Job State
+160 59 Batch Queue
+161 60 Batch Queue Attribute
+162 62 Batch Queue Priority
+163 63 Batch Rerunability
+164 64 Batch Restart
+165 67 Batch Service
+166 68 Batch Service Request
+167 69 Batch Submission
+168 71 Batch Target User
+169 126 Deferred Batch Service
+170 46 Batch Destination Identifier
+171 57 Batch Node
+172 61 Batch Queue Position
+173 44 Batch Client
+174 65 Batch Server
+175 72 Batch User
+176 327 Requested Batch Service
+177 43 Batch Administrator
+178 47 Batch Directive
+179 58 Batch Operator
+180 66 Batch Server Name
+181 70 Batch System
+182 240 Network
+183 Job Priority
+184 Queue Job Request
+185 121 Current Job
+186 204 Job Control Job ID
+187 286 Previous Job
+188 244 Nice Value
+189 393 System Crash
+190 277 Persistence
+191 13 Alternate Signal Stack
+192 39 Barrier
+193 107 Condition Variable
+194 231 Multi-Threaded Library
+195 234 Mutex
+196 337 Scheduling Allocation Domain
+197 338 Scheduling Contention Scope
+198 351 Signal Stack
+199 364 Spin Lock
+200 387 Synchronous I/O Operation
+201 406 Thread List
+202 407 Thread-Safe
+203 411 Timer
+204 226 Message Queue
+205 156 Execution Time
+206 120 CPU-Time Timer
+207 217 Map
+208 220 Memory Mapped Files
+209 265 Page
+210 322 Region
+211 346 Shared Memory Object
+212 319 Referenced Shared Memory Object
+213 428 Typed Memory Name Space
+214 429 Typed Memory Object
+215 430 Typed Memory Pool
+216 431 Typed Memory Port
+217 266 Page Size
+218 22 Arm (a Timer)
+219 132 Disarm (a Timer)
+220 328 (Time) Resolution
+221 412 Timer Overrun
+222 391 System Clock
+223 305 Process Virtual Time
+224 313 Real Time
+225 228 Monotonic Clock
+226 329 Robust Mutex
+227 synchronization object
+228 224 Message Catalog
+229 225 Message Catalog Descriptor
+230 226 Message Queue
+231 277 Persistence
+232 390 System Boot
+233 397 System Reboot
+234 shared memory
+235 programmatic message passing
+236 27 Async-Signal-Safe Function
+237 314 Realtime Signal Extension
+238 388 Synchronously-Generated Signal
+239 169 File Mode Bits
+240 168 File Mode
+241 188 Group Database
+#
+4 3
+5 4
+6 4
+7 4
+8 4
+9 4
+10 4
+11 5
+12 6
+13 6
+50 6
+14 6
+4 6
+15 6
+16 6
+17 12
+18 63
+19 65
+6 13
+7 14
+20 14
+21 14
+22 15
+23 22
+24 22
+25 22
+26 15
+28 27
+29 27
+30 27
+31 27
+27 32
+33 27
+34 27
+35 27
+35 15
+36 27
+37 15
+38 15
+39 15
+40 15
+41 15
+42 15
+43 15
+44 15
+45 15
+46 51
+7 16
+47 15
+49 48
+50 22
+51 15
+52 48
+53 15
+54 15
+55 15
+56 15
+48 22
+57 34
+58 29
+59 17
+60 59
+61 60
+62 59
+63 17
+64 17
+66 17
+67 17
+69 17
+70 17
+73 17
+75 17
+74 17
+76 71
+77 76
+78 59
+79 78
+80 78
+83 82
+84 17
+22 17
+86 17
+87 17
+88 17
+89 17
+90 63
+91 17
+92 17
+93 92
+33 17
+34 17
+30 17
+96 17
+97 79
+98 17
+99 66
+100 17
+101 17
+102 17
+104 92
+105 59
+106 92
+107 17
+108 65
+109 17
+110 17
+111 17
+112 113
+113 115
+114 113
+116 115
+117 115
+118 115
+118 60
+119 59
+120 17
+121 115
+122 17
+125 17
+126 17
+127 17
+128 17
+7 17
+130 17
+131 17
+132 17
+133 17
+20 17
+134 17
+135 17
+32 17
+136 17
+21 17
+12 92
+17 19
+137 17
+13 17
+140 92
+141 82
+141 92
+188 76
+4 17
+143 17
+145 76
+148 92
+149 76
+149 92
+115 113
+12 60
+59 60
+61 63
+150 112
+113 121
+115 121
+151 121
+113 78
+115 78
+151 79
+12 78
+142 78
+154 97
+155 97
+156 97
+157 97
+158 97
+159 97
+160 97
+161 160
+162 160
+163 97
+164 97
+165 97
+169 97
+170 153
+168 153
+152 160
+153 160
+171 160
+172 162
+173 165
+174 165
+175 165
+169 165
+176 165
+171 173
+166 173
+167 173
+177 174
+173 174
+178 174
+97 174
+154 174
+155 174
+159 174
+179 174
+160 174
+180 174
+181 174
+153 180
+153 181
+155 181
+171 181
+165 181
+182 181
+177 119
+154 119
+158 183
+179 119
+160 119
+172 119
+162 183
+167 184
+185 120
+186 185
+187 185
+187 186
+78 120
+120 119
+185 186
+158 188
+186 187
+17 18
+189 90
+144 90
+190 189
+12 144
+103 92
+139 92
+194 92
+9 92
+148 76
+65 92
+68 92
+71 92
+72 92
+196 92
+81 92
+82 92
+200 92
+94 92
+95 92
+203 92
+18 65
+18 19
+201 71
+146 72
+71 72
+76 201
+147 77
+196 76
+197 76
+92 148
+92 77
+201 77
+204 147
+146 147
+11 147
+85 147
+201 147
+123 82
+205 123
+124 205
+129 205
+123 124
+206 124
+141 194
+92 93
+12 104
+208 104
+210 104
+211 104
+207 209
+138 211
+209 138
+212 211
+213 214
+214 216
+216 215
+138 214
+214 213
+217 209
+207 212
+218 203
+219 203
+206 203
+220 203
+221 203
+222 220
+223 222
+224 222
+225 224
+226 195
+202 195
+193 227
+195 227
+192 227
+199 227
+227 92
+229 228
+230 139
+232 230
+139 230
+233 232
+231 233
+233 234
+211 234
+139 235
+7 229
+191 198
+236 81
+59 81
+65 81
+237 81
+238 81
+221 81
+198 81
+95 106
+239 133
+240 239
+133 240
+12 240
+134 69
+152 134
+126 134
+130 134
+131 134
+241 134
+69 134
