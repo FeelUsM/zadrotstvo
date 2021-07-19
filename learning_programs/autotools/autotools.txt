@@ -1,0 +1,626 @@
+----------------------- AUTOMAKE --------------------------------------------
+
+1 Introduction
+2 An Introduction to the Autotools
+	configure.ac
+		AC_INIT(имя_пакета, версия, почта_или_сайт_для_багов)
+		AM_INIT_AUTOMAKE(опции для automake)
+			-Wall -Werror # для automake, не для компилятора
+			foreign # не требовать наличия файлов ChangeLog, AUTHORS, ...
+		!!!	теперь перед autoconf надо еще вызывать aclocal
+		AC_PROG_CC	# определяет и устанавливает переменную CC
+			# если не указать, automake предложит указать (+см autoconf)
+		AC_CONFIG_HEADERS([config.h])
+		AC_CONFIG_FILES([Makefile,...])
+		AC_OUTPUT
+		---------
+		7. результаты тестов
+			символы препроцессора
+				помещает эти символы в вых.переменную DEFS в виде -Dsymbol=value
+				но если определен AC_CONFIG_HEADERS, то туда в виде #define symbol value /*description*/
+				AC_DEFINE(symbol, value, [description])
+					symbol - макрос си, возможно с аргументами
+						только ASCII символы без пробелов, переносов_строк, триграфов
+					value - символы # можно использовать только если AC_CONFIG_HEADERS
+				AC_DEFINE(symbol) => AC_DEFINE(symbol,1)
+				AC_DEFINE_UNQUOTED(symbol, value, [description])
+					производятся shell-подстановки $, `...`, \x и над symbol и над value
+				последнее перекрывает предыдущее
+			переменные в выходных файлах
+				shell-переменные, которые потом подставляются
+				AC_SUBST(var,[val]) - если указан val, присваивает shell-переменной этот val
+					заставляет AC_OUTPUT заменить в файле @var@ на $var
+				AC_SUBST_FILE(var)
+					заставляет AC_OUTPUT заменить в файле @var@ на `cat "$var"`
+					@var@ должна быть одна на строке
+					если $var==/dev/null, заменит на пустую строку
+				драгоценные переменные....
+			сохранить в кэше
+			напечатать значение
+			
+			$PACKAGE - ???
+3 General ideas
+4 Some example packages
+	Makefile.am
+		копирует
+		не распознает расширения GNU Make
+		A+=b -> A=A+b
+		\t - только в правилах
+		# комментарий оставляет
+		## комментарий удаляет
+		свои правила и переменные переопределяют правила и переменные automake
+		если переменная не определена через AC_SUBST, то имеется значение по умолчанию
+		когда требуется значение переменной - раскрывает и подставляет рекурсивно
+		dirname_PRIMARY = ...
+		dirname 
+			как в standards, без *dir
+				+pkgincludedir
+				+pkglibdir
+				+pkglibexecdir
+				+pkgdatadir = ($datadir)/($PACKAGE)
+			или можно самому определить типа
+				xmldir = $(datadir)/xml
+				xml_DATA = file.xml
+			EXTRA - могут быть собраны в зависимости от того, что решит configure - ???
+		PRIMARY
+			PROGRAMS
+			LIBRARIES
+			LTLIBRARIES
+			SCRIPTS
+			DATA
+			HEADERS
+			LISP
+			PYTHON
+			JAVA
+			MANS
+			TEXINFOS
+			можно несколько в одном файле указывать
+		префиксы
+			noinst_ - например статические библиотеки
+			check_ - собирается только для make check, тоже не устанавливается
+			dist_ - принудительно установить
+			nodist_
+			nobase_
+			notrans_
+		doc_DATA требует dist_
+			
+		SUBDIRS = (текущую не надо указывать)
+		prog_SOURCES = 	.c
+		prog_LDADD = 	.o
+			все символы кроме букв, цифр, @, _ - превращаются в _ :
+				lib_LIBRARIES = mylib++.a
+				mylib___a_SOURCES = ...
+		prog_CPPFLAGS = ...
+		
+	gnu: требует INSTALL, NEWS, README, AUTHORS, ChangeLog, COPYING.LIB/COPYING.LESSER/COPYING, запрещает опции no-installman и no-install-info
+	foreign: не требует
+	gnits: строже чем gnu
+	
+	программы:
+		install-sh	замена install
+		mdate-sh	смотрит время создания и создает vesion.texi
+		texinfo.tex	требуется для make dvi, make ps, make pdf
+				требует TeX
+				make dvi требуется для make dist
+		mkinstalldirs	замена mkdir -p, лучше использовать install-sh -d
+		missing		если требуемая программа отсутствует или старая - выводит информативное сообщение
+		config.guess	догадывается что за система
+		config.sub	приводит имя системы к каноническому виду
+		compile		обёртка microsoft c++ и других редких компиляторов
+		ar-lib		обёртка microsoft lib archiver
+		depcomp		запускает компилятор так, чобы он еще и создал зависимость
+		py-compile	для byte-окмпиляции питона
+		ylwrap		обёртка yacc и lex
+		test-driver	
+	
+5 Creating a Makefile.in - вызов automake
+	без аргументов - сканирует в текущей директории configure.ac и обрабатывает указанные в нем файлы
+	если указан один файл - обрабатывает только данный файл (при этом вызывать надо всё равно из корневой директории)
+		automake запускает autoconf или то, что указано в $AUTOCONF, и с помощью него только сканирует configure.ac
+	-a --add-missing	добавляет необходимые отсутствующие программы
+		например AC_CANONICAL_HOST требует config.guess
+		ищет и добавляет в AC_CONFIG_AUX_DIR
+	-f --force-missing	заменяет имеющиеся необходимые программы
+	-c --copy		копирует программы (иначе делает симлинки)
+	--gnu (default) --foreign --gnits
+	--help --version
+	-v --verbose
+	--no-force		вести себя как make
+	--ignore-deps		отключает отслеживание зависимостей
+	--include-deps		по умолчанию
+	-o dir --oputput-dir=dir куда помещать Makefile.in
+	--libdir=dir		директория с данными automake (еще есть $AUTOMAKE_LIBDIR)
+	--print-libdir
+	$AUTOMAKE_JOBS		для распараллеливания, если надо обработать несколько файлов
+	-W
+		all
+		none
+		error
+		...
+6 Scanning configure.ac, using aclocal
+7 Directories
+8 Building Programs and Libraries
+9 Other Derived Objects
+10 Other GNU Tools
+11 Building documentation
+12 What Gets Installed
+13 What Gets Cleaned
+14 What Goes in a Distribution
+15 Support for test suites
+16 Rebuilding Makefiles
+17 Changing Automake’s Behavior
+18 Miscellaneous Rules
+19 Include
+20 Conditionals
+21 Silencing make
+22 When Automake Isn’t Enough
+23 Distributing Makefile.ins
+24 Automake API Versioning
+25 Upgrading a Package to a Newer Automake Version
+26 Frequently Asked Questions about Automake
+Appendix A Copying This Manual
+Appendix B Indices
+
+----------------------- AUTOCONF --------------------------------------------
+
+
+1. 	введение
+2. + GNU build system
+3. 	создание скриптов configure
+4. 	инициализация и выходные файлы
+	• Инициализация configure 	Обработка опционов и т. Д.
+		AC_INIT
+	• Управление версиями 	  	Работа с версиями Autoconf
+		AC_PREREQ (version)
+		AC_AUTOCONF_VERSION
+	• Уведомления 	  		Авторское право, номера версий в configure
+	 +	 AC_COPYRIGHT (copyright-notice)
+	 +	 AC_REVISION (revision-info)
+	• Входные данные 	  	Где Autoconf должен находить файлы
+	 +	AC_CONFIG_SRCDIR (unique-file-in-source-dir)
+	 +	AC_CONFIG_MACRO_DIRS (dir1 [dir2 ... dirN])
+	 +	AC_CONFIG_MACRO_DIR (dir)
+		AC_CONFIG_AUX_DIR (dir)
+	 +	AC_REQUIRE_AUX_FILE (file)
+	• Выход 	  		Вывод результатов из конфигурации
+		AC_OUTPUT
+	 -	AC_OUTPUT_COMMANDS 
+		AC_PROG_MAKE_SET
+	• Действия По Настройке 	Подготовка выходных данных на основе результатов
+	• Конфигурационные файлы 	Создание выходных файлов
+	 +	AC_CONFIG_FILES (file…, [cmds], [init-cmds])
+	• Замены файлов Makefile 	Использование выходных переменных в makefiles
+		переменные
+	• Заголовки конфигурации 	Создание файла заголовка конфигурации
+	 +	AC_CONFIG_HEADERS (header …, [cmds], [init-cmds])
+	 -	AC_CONFIG_HEADER (header-to-create ...)
+	 +	AH_HEADER
+		вызов autoheader
+	 +	AH_TEMPLATE (key, description)
+	 +	AH_VERBATIM (key, template)
+	 +	AH_TOP (text)
+	 +	AH_BOTTOM (text)
+	• Команды Настройки 	  	Выполнение произвольных команд создания экземпляров
+	 +	AC_CONFIG_COMMANDS (tag…, [cmds], [init-cmds])
+	 +	AC_CONFIG_COMMANDS_PRE (cmds)
+	 +	AC_CONFIG_COMMANDS_POST (cmds)
+	• Ссылки Конфигурации 	  	Ссылки в зависимости от конфигурации
+	 +	AC_CONFIG_LINKS (dest:source…, [cmds], [init-cmds])
+	• Подкаталоги 	  		Настройка независимых пакетов вместе
+		AC_CONFIG_SUBDIRS (dir …)
+	• Префикс по умолчанию 	  	Изменение префикса установки по умолчанию 
+		AC_PREFIX_DEFAULT (prefix)
+		AC_PREFIX_PROGRAM (program)
+5. 	существующие тесты
+	• Обычное Поведение 	  	Стандартные схемы макросов
+	 +	AC_INCLUDES_DEFAULT ([include-directives])
+	 +	AC_CHECK_INCLUDES_DEFAULT
+	• Альтернативные Программы 	Выбор между альтернативными программами
+	 -	AC_DECL_YYTEXT
+		AC_PROG_AWK
+	 +	AC_PROG_GREP
+	 +	AC_PROG_GREP
+	 +	AC_PROG_FGREP
+		AC_PROG_INSTALL
+		AC_PROG_LEX (options) 
+		AC_PROG_LN_S
+		AC_PROG_RANLIB
+	 +	AC_PROG_SED
+		AC_PROG_YACC
+		AC_CHECK_PROG 		(variable, prog-to-check-for, value-if-found, [value-if-not-found], [path = ‘$PATH’], [reject])
+		AC_CHECK_PROGS 		(variable, progs-to-check-for, [value-if-not-found], [path = ‘$PATH’])
+	 +	AC_CHECK_TARGET_TOOL 	(variable, prog-to-check-for,  [value-if-not-found], [path = ‘$PATH’])
+		AC_CHECK_TOOL 		(variable, prog-to-check-for,  [value-if-not-found], [path = ‘$PATH’])
+	 +	AC_CHECK_TARGET_TOOLS 	(variable, progs-to-check-for, [value-if-not-found], [path = ‘$PATH’])
+	 +	AC_CHECK_TOOLS 		(variable, progs-to-check-for, [value-if-not-found], [path = ‘$PATH’])
+		AC_PATH_PROG 		(variable, prog-to-check-for,  [value-if-not-found], [path = ‘$PATH’])
+		AC_PATH_PROGS 		(variable, progs-to-check-for, [value-if-not-found], [path = ‘$PATH’])
+	 +	AC_PATH_PROGS_FEATURE_CHECK (variable, progs-to-check-for, feature-test, [action-if-not-found], [path = ‘$PATH’])
+	 +	AC_PATH_TARGET_TOOL 	(variable, prog-to-check-for,  [value-if-not-found], [path = ‘$PATH’])
+	 +	AC_PATH_TOOL 		(variable, prog-to-check-for,  [value-if-not-found], [path = ‘$PATH’])
+	• Файлы 	  		Проверка наличия файлов
+		AC_CHECK_FILE  (file,  [action-if-found], [action-if-not-found])
+		AC_CHECK_FILES (files, [action-if-found], [action-if-not-found])
+	• Библиотеки 	  		Библиотечные архивы которые могут отсутствовать
+	 -	AC_HAVE_LIBRARY (library,             [, action-if-found [, action-if-not-found [, other-libraries]]])
+		AC_CHECK_LIB    (library,   function,   [action-if-found], [action-if-not-found], [other-libraries])
+		AC_SEARCH_LIBS  (function, search-libs, [action-if-found], [action-if-not-found], [other-libraries])
+	• Библиотечные функции 	  	Библиотечные функции языка Си которые могут отсутствовать
+		AC_FUNC_ALLOCA
+	 +	AC_FUNC_CHOWN
+		AC_FUNC_CLOSEDIR_VOID
+	 +	AC_FUNC_ERROR_AT_LINE
+		AC_FUNC_FNMATCH
+	 +	AC_FUNC_FNMATCH_GNU
+	 +	AC_FUNC_FORK
+	 +	AC_FUNC_FSEEKO
+	 +	AC_FUNC_GETGROUPS
+		AC_FUNC_GETLOADAVG
+		AC_FUNC_GETMNTENT
+		AC_FUNC_GETPGRP
+	 +	AC_FUNC_LSTAT_FOLLOWS_SLASHED_SYMLINK
+	 +	AC_FUNC_MALLOC
+	 +	AC_FUNC_MBRTOWC
+		AC_FUNC_MEMCMP
+	 +	AC_FUNC_MKTIME
+		AC_FUNC_MMAP
+	 +	AC_FUNC_OBSTACK
+	 +	AC_FUNC_REALLOC
+		AC_FUNC_SELECT_ARGTYPES
+		AC_FUNC_SETPGRP
+	 -	AC_FUNC_SETVBUF_REVERSED
+	 +	AC_FUNC_STAT
+	 +	AC_FUNC_LSTAT
+		AC_FUNC_STRCOLL
+	 +	AC_FUNC_STRERROR_R
+		AC_FUNC_STRFTIME
+	 +	AC_FUNC_STRTOD
+	 +	AC_FUNC_STRTOLD
+	 +	AC_FUNC_STRNLEN
+		AC_FUNC_UTIME_NULL
+	 -	AC_FUNC_VFORK
+		AC_FUNC_VPRINTF
+	 -	AC_FUNC_WAIT3
+	 +	AC_REPLACE_FNMATCH
+		AC_CHECK_FUNC  (function,  [action-if-found], [action-if-not-found])
+		AC_CHECK_FUNCS (function…, [action-if-found], [action-if-not-found])
+	 +	AC_CHECK_FUNCS_ONCE (function…)
+	 +	AC_LIBOBJ (function)
+	 +	AC_LIBSOURCE (file)
+	 +	AC_LIBSOURCES (files)
+	 +	AC_CONFIG_LIBOBJ_DIR (directory)
+		AC_REPLACE_FUNCS (function…)
+	• Файлы заголовков 	  	Заголовочные файлы, которые могут отсутствовать
+	 -	AC_DECL_SYS_SIGLIST
+	 -	AC_DIR_HEADER
+	 +	AC_CHECK_HEADER_STDBOOL
+	 +	AC_HEADER_ASSERT
+		AC_HEADER_DIRENT
+		AC_HEADER_MAJOR
+	 +	AC_HEADER_RESOLV
+	 +-	AC_HEADER_STAT
+	 -	AC_HEADER_TIME
+	 +	AC_HEADER_STDBOOL
+		AC_HEADER_STDC
+		AC_HEADER_SYS_WAIT
+	 +	AC_HEADER_TIOCGWINSZ
+	 -	AC_MEMORY_H
+	 -	AC_UNISTD_H
+	 -	AC_USG
+		AC_CHECK_HEADER  (header-file,  [action-if-found], [action-if-not-found], [includes])
+		AC_CHECK_HEADERS (header-file…, [action-if-found], [action-if-not-found], [includes])
+	 +	AC_CHECK_HEADERS_ONCE (header-file…)
+	• Декларации 	  		Декларации, которые могут отсутствовать
+	 +	AC_CHECK_DECL  (symbol,  [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_CHECK_DECLS (symbols, [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_CHECK_DECLS_ONCE (symbols)
+	• Структуры 	  		Структуры или члены, которые могут отсутствовать
+	 +	AC_STRUCT_DIRENT_D_INO
+	 +	AC_STRUCT_DIRENT_D_TYPE
+	 -	AC_STRUCT_ST_BLKSIZE
+		AC_STRUCT_ST_BLOCKS
+	 -	AC_STRUCT_ST_RDEV
+		AC_STRUCT_TM
+		AC_STRUCT_TIMEZONE
+	 +	AC_CHECK_MEMBER (aggregate.member, [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_CHECK_MEMBERS (members,         [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	• Типы 	  			Типы, которые могут отсутствовать
+		AC_TYPE_GETGROUPS
+	 +	AC_TYPE_INT8_T
+	 +	AC_TYPE_INT16_T
+	 +	AC_TYPE_INT32_T
+	 +	AC_TYPE_INT64_T
+	 +	AC_TYPE_INTMAX_T
+	 +	AC_TYPE_INTPTR_T
+	 +	AC_TYPE_LONG_DOUBLE
+	 +	AC_TYPE_LONG_DOUBLE_WIDER
+	 +	AC_TYPE_LONG_LONG_INT
+	 +	AC_TYPE_MBSTATE_T
+		AC_TYPE_MODE_T
+		AC_TYPE_OFF_T
+		AC_TYPE_PID_T
+	 -	AC_TYPE_SIGNAL
+		AC_TYPE_SIZE_T
+	 +	AC_TYPE_SSIZE_T
+		AC_TYPE_UID_T
+	 +	AC_TYPE_UINT8_T
+	 +	AC_TYPE_UINT16_T
+	 +	AC_TYPE_UINT32_T
+	 +	AC_TYPE_UINT64_T
+	 +	AC_TYPE_UINTMAX_T
+	 +	AC_TYPE_UINTPTR_T
+	 +	AC_TYPE_UNSIGNED_LONG_LONG_INT
+		AC_CHECK_TYPE  (type,  [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_CHECK_TYPES (types, [action-if-found], [action-if-not-found], [includes = ‘AC_INCLUDES_DEFAULT’])
+	• Компиляторы и препроцессоры 	Проверка компиляции программ
+		AC_CHECK_SIZEOF (type-or-expr, [unused], [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_CHECK_ALIGNOF (type, [includes = ‘AC_INCLUDES_DEFAULT’])
+	 +	AC_COMPUTE_INT (var, expression, [includes = ‘AC_INCLUDES_DEFAULT’], [action-if-fails])
+	 +	AC_LANG_WERROR
+	 +	AC_OPENMP
+		AC_PROG_CC ([compiler-search-list])
+		AC_PROG_CC_C_O
+		AC_PROG_CPP
+	 +	AC_PROG_CPP_WERROR
+	 +	AC_C_BACKSLASH_A
+		AC_C_BIGENDIAN ([action-if-true], [action-if-false], [action-if-unknown], [action-if-universal])
+		AC_C_CONST
+	 +	AC_C__GENERIC
+	 +	AC_C_RESTRICT
+	 +	AC_C_VOLATILE
+		AC_C_INLINE
+		AC_C_CHAR_UNSIGNED
+	 -	AC_C_LONG_DOUBLE
+		AC_C_STRINGIZE
+	 +	AC_C_FLEXIBLE_ARRAY_MEMBER
+	 +	AC_C_VARARRAYS
+	 +	AC_C_TYPEOF
+	 +	AC_C_PROTOTYPES
+	 -	AC_INT_16_BITS
+	 -	AC_LONG_64_BITS
+		AC_PROG_GCC_TRADITIONAL
+		AC_PROG_CXX ([compiler-search-list])
+		AC_PROG_CXXCPP
+	 +	AC_PROG_CXX_C_O
+	 +	AC_PROG_OBJC ([compiler-search-list])
+	 +	AC_PROG_OBJCPP
+	 +	AC_PROG_OBJCXX ([compiler-search-list])
+	 +	AC_PROG_OBJCXXCPP
+	 +	AC_ERLANG_PATH_ERLC ([value-if-not-found], [path = ‘$PATH’])
+	 +	AC_ERLANG_NEED_ERLC ([path = ‘$PATH’])
+	 +	AC_ERLANG_PATH_ERL ([value-if-not-found], [path = ‘$PATH’])
+	 +	AC_ERLANG_NEED_ERL ([path = ‘$PATH’])
+		AC_PROG_F77 ([compiler-search-list])
+	 +	AC_PROG_FC ([compiler-search-list], [dialect])
+		AC_PROG_F77_C_O
+	 +	AC_PROG_FC_C_O
+		AC_F77_LIBRARY_LDFLAGS
+	 +	AC_FC_LIBRARY_LDFLAGS
+	 +	AC_F77_DUMMY_MAIN 	([action-if-found], [action-if-not-found = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_DUMMY_MAIN 	([action-if-found], [action-if-not-found = ‘AC_MSG_FAILURE’])
+	 +	AC_F77_MAIN
+	 +	AC_FC_MAIN
+	 +	AC_F77_WRAPPERS
+	 +	AC_FC_WRAPPERS
+	 +	AC_F77_FUNC (name, [shellvar])
+	 +	AC_FC_FUNC (name, [shellvar])
+	 +	AC_FC_SRCEXT 	(ext, 	 [action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_PP_SRCEXT (ext, 	 [action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_PP_DEFINE 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_FREEFORM 		([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_FIXEDFORM 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_LINE_LENGTH([length],action-if-success],[action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_CHECK_BOUNDS 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_F77_IMPLICIT_NONE 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_IMPLICIT_NONE 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_MODULE_EXTENSION
+	 +	AC_FC_MODULE_FLAG 	([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_FC_MODULE_OUTPUT_FLAG([action-if-success], [action-if-failure = ‘AC_MSG_FAILURE’])
+	 +	AC_PROG_GO 		([compiler-search-list])
+	• Системные Услуги 	  	Услуги операционной системы
+	 -	AC_CYGWIN
+	 -	AC_EXEEXT
+	 -	AC_OBJEXT
+	 -	AC_MINGW32
+		AC_PATH_X
+		AC_PATH_XTRA
+		AC_SYS_INTERPRETER
+	 +	AC_SYS_LARGEFILE
+		AC_SYS_LONG_FILE_NAMES
+	 +	AC_SYS_POSIX_TERMIOS
+	 -	AC_SYS_RESTARTABLE_SYSCALLS
+	• Варианты C и Posix 	  	Клуджи для вариантов C и Posix
+	 +	AC_USE_SYSTEM_EXTENSIONS
+	 -	AC_AIX
+	 -	AC_DYNIX_SEQ
+	 -	AC_IRIX_SUN
+	 -	AC_ISC_POSIX
+	 -	AC_MINIX
+	 -	AC_SCO_INTL
+	 -	AC_XENIX_DIR
+	• Библиотеки Erlang 	  	Проверка наличия библиотек Erlang 
+	 +	AC_ERLANG_SUBST_ERTS_VER
+	 +	AC_ERLANG_SUBST_ROOT_DIR
+	 +	AC_ERLANG_SUBST_LIB_DIR
+	 + 	AC_ERLANG_CHECK_LIB (library, [action-if-found], [action-if-not-found])
+	 +	AC_ERLANG_SUBST_INSTALL_LIB_DIR
+	 +	AC_ERLANG_SUBST_INSTALL_LIB_SUBDIR (library, version)
+6. 	написание тестов
+	• Выбор языка 	  	Выбор языка для тестирования
+	 -	AC_LANG_C
+	 -	AC_LANG_CPLUSPLUS
+	 -	AC_LANG_FORTRAN77
+	 -	AC_LANG_SAVE
+	 -	AC_LANG_RESTORE
+	 +	AC_LANG (language)
+	 +	AC_LANG_PUSH (language)
+	 +	AC_LANG_POP ([language])
+	 +	AC_LANG_ASSERT (language)
+		AC_REQUIRE_CPP
+	• Написание Тестовых Программ 	  	Подделка исходных файлов для компиляторов
+	 +	AC_LANG_CONFTEST (source)
+	 +	AC_LANG_DEFINES_PROVIDED
+	 +	AC_LANG_SOURCE (source)
+	 +	AC_LANG_PROGRAM (prologue, body)
+	 +	AC_LANG_CALL (prologue, function)
+	 +	AC_LANG_FUNC_LINK_TRY (function)
+	 -	AC_C_CROSS
+	 -	AC_TRY_RUN (program, [action-if-true [, action-if-false [, action-if-cross-compiling]]])
+	• Запуск препроцессора 	  	Обнаружение символов препроцессора
+	 -	AC_TRY_CPP (includes, [action-if-true [, action-if-false]])
+	 +	AC_PREPROC_IFELSE (input, [action-if-true], [action-if-false])
+		AC_EGREP_HEADER (pattern, header-file, action-if-found, [action-if-not-found])
+		AC_EGREP_CPP (pattern, program, [action-if-found], [action-if-not-found])
+	• Запуск компилятора 	  	Обнаружение языковых или заголовочных функций
+	 -	AC_TRY_COMPILE (includes, function-body, [action-if-found [, action-if-not-found]])
+	 +	AC_COMPILE_IFELSE (input, [action-if-true], [action-if-false])
+	• Запуск компоновщика 	  	Обнаружение библиотечных функций
+	 -	AC_TRY_LINK (includes, function-body, [action-if-found [, action-if-not-found]])
+	 -	AC_TRY_LINK_FUNC (function, [action-if-found [, action-if-not-found]])
+	 -	AC_COMPILE_CHECK (echo-text, includes, function-body, action-if-found [, action-if-not-found])
+	 +	AC_LINK_IFELSE (input, [action-if-true], [action-if-false])
+	• Время выполнения 	  	Тестирование функций среды выполнения
+	 +	AC_RUN_IFELSE (input, [action-if-true], [action-if-false], [action-if-cross-compiling = ‘AC_MSG_FAILURE’])
+	• Системология 	  	Зоология операционных систем
+	• Несколько Случаев 	  	Тесты для нескольких возможных значений 
+7. 	результаты тестов
+	• Определение символов 	  	Определение символов препроцессора C
+		AC_DEFINE (variable, value, [description])
+		AC_DEFINE_UNQUOTED (variable, value, [description])
+	• Настройка Выходных Переменных Замена переменных в выходных файлах
+		AC_SUBST (variable, [value])
+		AC_SUBST_FILE (variable)
+	 +	AC_ARG_VAR (variable, description)
+	• Специальные символы в переменных  Символы, которых следует остерегаться в переменных
+	• Кэширование Результатов 	Ускорение последующих configure бежит
+		AC_CACHE_VAL (cache-id, commands-to-set-it)
+		AC_CACHE_CHECK (message, cache-id, commands-to-set-it)
+		AC_CACHE_LOAD
+		AC_CACHE_SAVE
+	• Печать Сообщений 	  	Уведомление configure Пользователи 
+		AC_MSG_CHECKING (feature-description)
+		AC_MSG_RESULT (result-description)
+	 +	AC_MSG_NOTICE (message)
+		AC_MSG_ERROR (error-description, [exit-status = ‘$?/1’])
+	 +	AC_MSG_FAILURE (error-description, [exit-status])
+		AC_MSG_WARN (problem-description)
+	 -	AC_CHECKING (feature-description)
+	 -	AC_VERBOSE (result-description)
+8. + программирование на m4
+9. + программирование на m4sh
+10. 	написание макросов autoconf
+11. + портируемое программирование на shell
+12. + портируемое программирование для make
+13. + портируемое программирование на C/C++
+14. 	ручная настройка
+15. 	локальная конфигурация
+16. 	запуск скриптов configure
+17. + вызов config.status
+18. + устаревшие конструкции
+	обновление с версии 1
+19. + генерация тестов для autotest
+20. 	FAQ
+21. 	История autoconf
+
+
+
+Autoconf requirements
+AC_INIT(package, version, bug-report-address)
+information on the package
+Проверка программ
+Проверка библиотек
+Проверка заголовочных файлов
+Проверка определений типов
+Проверка структур
+Проверка характеристик компилятора
+Проверка библиотечных функций
+Проверка системных сервисов
+AC_CONFIG_FILES([file…])
+AC_OUTPUT
+
+4.1 Initializing configure
+.	AC_INIT (package, version, [bug-report], [tarname], [url])
+		для --version
+		+ скрипт build-aux/git-version-gen .tarball-version из gnulib
+		bug-report - адрес почты, можно
+			[
+			    bugs@gnomovision.example
+			    или gnomo-bugs@reliable-email.example
+			]
+		package		типа 'GNU Autoconf'
+		tarname		как имя файла
+		!!!!! нужен аналог m4_defn, который окавычивает строки
+		определяет переменные:
+		AC_PACKAGE_NAME, PACKAGE_NAME
+		AC_PACKAGE_TARNAME, PACKAGE_TARNAME
+		AC_PACKAGE_VERSION, PACKAGE_VERSION
+		AC_PACKAGE_STRING, PACKAGE_STRING
+		AC_PACKAGE_BUGREPORT, PACKAGE_BUGREPORT
+		AC_PACKAGE_URL, PACKAGE_URL
+		можно сразу после AC_INIT вставить собственную обработку аргументов configure
+			но лучше использовать AC_ARG_ENABLE 
+4.2 Dealing with Autoconf versions
+.	AC_PREREQ (version)
+		[2.72 a.4-a1b9b] - требуемая версия 
+/	AC_AUTOCONF_VERSION
+		текущая версия autoconf для дальнейшего сравнения через  m4_version_compare 
+		использовать как m4_defn([AC_AUTOCONF_VERSION]
+4.3 Notices in configure
+	AC_COPYRIGHT (copyright-notice)
+		добавление к уведомлению FSF-GNU в configure --version
+	AC_REVISION (revision-info)
+		делает комментарий в ./configure
+		#!/bin/sh
+		# From configure.ac Revision: 1.30
+4.4 Configure Input: Source Code, Macros, and Auxiliary Files
+	AC_CONFIG_SRCDIR (unique-file-in-source-dir)
+		configure проверяет наличие данного файла
+		на случай если пользователь укажет неверный --srcdir
+	AC_CONFIG_MACRO_DIR (dir)	- можно вызвать только 1 перед AC_CONFIG_MACRO_DIRS
+	AC_CONFIG_MACRO_DIRS (dir1 [dir2 ... dirN]) - можно вызывать несколько раз
+		аргументы через пробел
+		директории с макросами для aclocal и м.б. libtool
+		AC_CONFIG_MACRO_DIR_TRACE вызывается один раз на каждую директорию
+.	AC_CONFIG_AUX_DIR (dir)
+		директория дополнительных скриптов типа `install-sh', `config.sub', `config.guess'
+		по умолчанию `srcdir', `srcdir/..' или `srcdir/../..'
+		обычно делают build-aux
+	AC_REQUIRE_AUX_FILE (file)
+		устанавливает переменную оболочки ac_aux_dir в директорию, где находится этот файл
+		если файла нет - configure завершает работу
+		autoreconf -i устанавливает требующиеся скрипты
+		они находятся в $(datadir)/autoconf/build-aux
+4.5 Outputting Files
+.	AC_OUTPUT
+		создает config.status, который создает все выходные файлы
+			AC_CONFIG_FILES, AC_CONFIG_HEADERS, AC_CONFIG_COMMANDS, AC_CONFIG_LINKS, AC_CONFIG_SUBDIRS
+.	AC_PROG_MAKE_SET
+		устанавливает переменную $(MAKE) в Makefile ...
+			- для вызова make в поддиректориях
+			нужен @SET_MAKE@ в Makefile.am
+4.6 Performing Configuration Actions
+	AC_CONFIG_...(tag…, [commands], [init-cmds])
+		формат следующих 4 команд
+4.7 Creating Configuration Files
+	AC_CONFIG_FILES (file…, [cmds], [init-cmds])
+	
+4.8 Substitutions in Makefiles
+	variables...
+4.9 Configuration Header Files
+/	AC_CONFIG_HEADERS (header …, [cmds], [init-cmds])
+	AH_HEADER
+	AH_TEMPLATE (key, description)
+	AH_VERBATIM (key, template)
+	AH_TOP (text)
+	AH_BOTTOM (text)
+4.10 Running Arbitrary Configuration Commands
+	AC_CONFIG_COMMANDS (tag…, [cmds], [init-cmds])
+	AC_CONFIG_COMMANDS_PRE (cmds)
+	AC_CONFIG_COMMANDS_POST (cmds)
+4.11 Creating Configuration Links
+	AC_CONFIG_LINKS (dest:source…, [cmds], [init-cmds])
+4.12 Configuring Other Packages in Subdirectories
+.	AC_CONFIG_SUBDIRS (dir …)
+4.13 Default Prefix
+.	AC_PREFIX_DEFAULT (prefix)
+.	AC_PREFIX_PROGRAM (program)
