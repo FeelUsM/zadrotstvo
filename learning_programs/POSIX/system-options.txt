@@ -1,0 +1,105 @@
+__OPT__		The functionality described is optional.
+__C__		The functionality described is also an extension to the ISO C standard.
+		The functionality described is an extension to the ISO C standard. 
+		Functionality marked XSI is an extension to the ISO C standard. 
+__Trace__	This functionality is dependent on support for the Trace option. 
+__fun_SYNOPSYS__ Where applicable, functions are marked with the [A-Z0-9]+ margin legend in the SYNOPSIS section\. \n
+__fun_semantics__ Where additional semantics apply to a function, the material is identified by use of the [A-Z0-9]+ margin legend.
+__util_SYNOPSYS__ Where applicable, utilities are marked with the [A-Z]+ margin legend in the SYNOPSIS section. \n
+__util_semantics__ Where additional semantics apply to a utility, the material is identified by use of the [A-Z]+ margin legend.
+
+
+[BE] [Option Start] Batch Environment Services and Utilities [Option End]
+[CD] [Option Start] C-Language Development Utilities [Option End]
+[FD] [Option Start] FORTRAN Development Utilities [Option End]
+[FR] [Option Start] FORTRAN Runtime Utilities [Option End]
+[SD] [Option Start] Software Development Utilities [Option End]
+[UP] [Option Start] User Portability Utilities [Option End]
+__OPT__ __util_SYNOPSYS__ __util_semantics__ 
+
+
+[ADV] [Option Start] Advisory Information [Option End]
+[FSC] [Option Start] File Synchronization [Option End]
+[IP6] [Option Start] IPV6 [Option End]
+[MON] [Option Start] Monotonic Clock [Option End]
+[MSG] [Option Start] Message Passing [Option End]
+[RS]  [Option Start] Raw Sockets [Option End]
+[SPN] [Option Start] Spawn [Option End]
+[UU]  [Option Start] UUCP Utilities [Option End]
+[TRC] [Option Start] Trace [Option End]
+
+[SHM] [Option Start] Shared Memory Objects [Option End]
+[TYM] [Option Start] Typed Memory Objects [Option End]
+
+[PIO] [Option Start] Prioritized Input and Output [Option End]
+[SIO] [Option Start] Synchronized Input and Output [Option End]
+[XSR] [Option Start] XSI STREAMS [Option End]
+
+[CPT] [Option Start] Process CPU-Time Clocks [Option End]
+[ML]  [Option Start] Process Memory Locking [Option End]
+[MLR] [Option Start] Range Memory Locking [Option End]
+[PS]  [Option Start] Process Scheduling [Option End]
+[SS]  [Option Start] Process Sporadic Server [Option End]
+
+[RPI] [Option Start] Robust Mutex Priority Inheritance [Option End]
+[RPP] [Option Start] Robust Mutex Priority Protection [Option End]
+[TPI] [Option Start] Non-Robust Mutex Priority Inheritance [Option End]
+[TPP] [Option Start] Non-Robust Mutex Priority Protection [Option End]
+
+[TCT] [Option Start] Thread CPU-Time Clocks [Option End]
+[TPS] [Option Start] Thread Execution Scheduling [Option End]
+[TSA] [Option Start] Thread Stack Address Attribute [Option End]
+[TSH] [Option Start] Thread Process-Shared Synchronization [Option End]
+[TSP] [Option Start] Thread Sporadic Server [Option End]
+[TSS] [Option Start] Thread Stack Size Attribute [Option End]
+__OPT__ __C__ __fun_SYNOPSYS__ __fun_semantics__ 
+
+[TEF] [Option Start] Trace Event Filter [Option End]
+[TRI] [Option Start] Trace Inherit [Option End]
+[TRL] [Option Start] Trace Log [Option End]
+__OPT__ __Trace__ __C__ __fun_SYNOPSYS__ __fun_semantics__ 
+
+[MC1] [Option Start] Non-Robust Mutex Priority Protection or Non-Robust Mutex Priority Inheritance or Robust Mutex Priority Protection or Robust Mutex Priority Inheritance [Option End]
+__OPT__ __C__ This is a shorthand notation for combinations of multiple option codes.
+__fun_SYNOPSYS__ __fun_semantics__ Refer to Margin Code Notation.
+
+
+[CX] [Option Start] Extension to the ISO C standard [Option End]
+__C__ Application developers may make use of an extension as it is supported on all POSIX.1-2017-conforming systems.
+With each function or header from the ISO C standard, a statement to the effect that "any conflict is unintentional" is included. That is intended to refer to a direct conflict. POSIX.1-2017 acts in part as a profile of the ISO C standard, and it may choose to further constrain behaviors allowed to vary by the ISO C standard. Such limitations and other compatible differences are not considered conflicts, even if a CX mark is missing. The markings are for information only.
+Where additional semantics apply to a function or header, the material is identified by use of the CX margin legend.
+
+
+[MX] [Option Start] IEC 60559 Floating-Point [Option End]
+__OPT__ The functionality described is mandated by the ISO C standard only for implementations that define __STDC_IEC_559__.
+[MXX] [Option Start] IEC 60559 Floating-Point Extension [Option End]
+__OPT__ The functionality described is part of the IEC 60559 Floating-Point option, but is an extension to the ISO C standard.
+
+[OH] [Option Start] Optional Header [Option End]
+In the SYNOPSIS section of some interfaces in the System Interfaces volume of POSIX.1-2017 an included header is marked as in the following example:
+[OH][Option Start]
+#include <sys/types.h>
+[Option End]
+#include <fcntl.h>
+int open(const char *path, int oflag, ...);
+The OH margin legend indicates that the optional header defines constants that will be needed if the function is called with certain flag arguments; thus it may be required for some of the functionality described, but is not needed otherwise.
+
+
+[XSI] [Option Start] X/Open System Interfaces [Option End]
+The functionality described is part of the X/Open Systems Interfaces option. 
+__C__ Application developers may confidently make use of such extensions on all systems supporting the X/Open System Interfaces option.
+If an entire SYNOPSIS section is shaded and marked XSI, all the functionality described in that reference page is an extension. 
+See XSI Conformance.
+[OB] [Option Start] Obsolescent [Option End]
+The functionality described may be removed in a future version of this volume of POSIX.1-2017. 
+Strictly Conforming POSIX Applications and Strictly Conforming XSI Applications shall not use obsolescent features.
+Where applicable, the material is identified by use of the OB margin legend.
+[OF] [Option Start] Output Format Incompletely Specified [Option End]
+The functionality described is an XSI extension. 
+The format of the output produced by the utility is not fully specified. 
+It is therefore not possible to post-process this output in a consistent fashion. 
+Typical problems include unknown length of strings and unspecified field delimiters.
+Where applicable, the material is identified by use of the OF margin legend.
+
+
+

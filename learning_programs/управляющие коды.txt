@@ -1,0 +1,38 @@
+		<NUL>	<U0000>	NULL (NUL)
+<control>-A	<SOH>	<U0001>	START OF HEADING
+<control>-B	<STX>	<U0002>	START OF TEXT
+<control>-C	<ETX>	<U0003>	END OF TEXT
+<control>-D	<EOT>	<U0004>	END OF TRANSMISSION
+<control>-E	<ENQ>	<U0005>	ENQUIRY
+<control>-F	<ACK>	<U0006>	ACKNOWLEDGE
+<control>-G	<BEL>	<U0007>	BELL			<alert>
+<control>-H	<BS>	<U0008>	BACKSPACE		<backspace>
+<control>-I	<HT>	<U0009>	CHARACTER TABULATION	<tab>
+<control>-J	<LF>	<U000A>	LINE FEED (LF)		<newline>
+<control>-K	<VT>	<U000B>	LINE TABULATION		<vertical-tab>
+<control>-L	<FF>	<U000C>	FORM FEED (FF)		<form-feed>
+<control>-M	<CR>	<U000D>	CARRIAGE RETURN (CR)	<carriage-return>
+<control>-N	<SO>	<U000E>	SHIFT OUT
+<control>-O	<SI>	<U000F>	SHIFT IN
+<control>-P	<DLE>	<U0010>	DATA LINK ESCAPE
+<control>-Q	<DC1>	<U0011>	DEVICE CONTROL ONE
+<control>-R	<DC2>	<U0012>	DEVICE CONTROL TWO
+<control>-S	<DC3>	<U0013>	DEVICE CONTROL THREE
+<control>-T	<DC4>	<U0014>	DEVICE CONTROL FOUR
+<control>-U	<NAK>	<U0015>	NEGATIVE ACKNOWLEDGE
+<control>-V	<SYN>	<U0016>	SYNCHRONOUS IDLE
+<control>-W	<ETB>	<U0017>	END OF TRANSMISSION BLOCK
+<control>-X	<CAN>	<U0018>	CANCEL
+<control>-Y	<EM>	<U0019>	END OF MEDIUM
+
+<control>-[	<ESC>	<U001B>	ESCAPE
+<control>-\	<FS>	<U001C>	INFORMATION SEPARATOR FOUR
+<control>-]	<GS>	<U001D>	INFORMATION SEPARATOR THREE
+<control>-^	<RS>	<U001E>	INFORMATION SEPARATOR TWO
+<control>-_	<US>	<U001F>	INFORMATION SEPARATOR ONE
+<control>-?	<DEL>	<U007F>	DELETE
+
+
+<control>-C	<ETX>	<U0003>	END OF TEXT
+<control>-D	<EOT>	<U0004>	END OF TRANSMISSION
+<control>-Z	<SUB>	<U001A>	SUBSTITUTE

@@ -1,0 +1,134 @@
+=== процессы ===
+#include <unistd.h>
+pid_t
++	pid_t fork(void);
++	pid = fork()				копирует процесс
++	int execve(const char *path, char *const argv[], char *const envp[]);
++	s = execve(name,argv,envp)		запускает процесс и заменяет им текущий
++	pid_t getpid(void);
++	pid = getpid()				pid текущего процесса
++	pid_t getpgrp(void);
++	pid = getpgrp()				pid текущей группы процессов
+	pid_t setsid(void);
+	pid = setsid()				открывает новый сеанс и возвращает его индентификатор
+#include <sys/wait.h>
+.	pid_t waitpid(pid_t pid, int *stat_loc, int options);
+.	pid = waitpid(pid,&statloc,options)	ожидает завершения дочернего процесса
+.	pid_t wait(int *stat_loc);
+.	s = wait(&status)			...
+#include <stdlib.h>
++	void exit(int status);
++	exit(status)				завершает процесс
+---
+	size = brk(addr)			устанавливает размер сегмента данных
+	l = ptrace(req,pid,addr,data)		для отладки
+=== сигналы ===
+#include <signal.h>
+struct sigaction, sigset_t
+.	int sigaction(int sig, const struct sigaction *restrict act, struct sigaction *restrict oact);
+.	s = sigaction(sig,&act,&oldact)		устанавливает реакцию на сигнал
+	int sigprocmask(int how, const sigset_t *restrict set, sigset_t *restrict oset);
+	s = sigprocmask(how,&set,&old)		определяет и устанавливает маску сигналов
+	int sigpending(sigset_t *set);
+	s = sigpending(set)			определяет набор блокированных сигналов
+	int sigsuspend(const sigset_t *sigmask);
+	s = sigsuspend(sigmask)			устанавливает маску сигналов
+						и приостанавливает процесс
++	int kill(pid_t pid, int sig);
++	s = kill(pid,sig)			посылает сигнал
+#include <unistd.h>
+	unsigned alarm(unsigned seconds);
+	residual = alarm(seconds)		устанавливает сигнальный таймер
++	int pause(void);
++	s = pause()				приостанавливает процесс до следующего сигнала
+---
+	s = sigreturn(&context)			для возврата из обработчика
+=== файлы ===
+#include <fcntl.h>
+mode_t
++	int creat(const char *path, mode_t mode);
++	fd = creat(name, mode)			устаревший способ создания
++	int open(const char *path, int oflag, ...);
++	fd = open(file, how, ...)		открывает файл
+	int fcntl(int fildes, int cmd, ...);
+	s = fcntl(fd, cmd, ...)			захватывает файл и выполняет другие действия
+#include <sys/stat.h>
+dev_t, struct stat
+.	int mknod(const char *path, mode_t mode, dev_t dev);
+.	fd = mknod(name, mod, addr)		создает файл/inide
+.	int stat(const char *restrict path, struct stat *restrict buf);
+.	s = stat(name, &buf)			инфа о файле
+.	int fstat(int fildes, struct stat *buf);
+.	s = fstat(fd, &buf)			инфа о файле
+#include <unistd.h>
+ssize_t, size_t, off_t
++	int close(int fildes);
++	s = close(fd)				закрывает файл
++	ssize_t read(int fildes, void *buf, size_t nbyte);
++	n = read(fd, buffer, nbytes)		читает в буфер
++	ssize_t write(int fildes, const void *buf, size_t nbyte);
++	n = write(fd, buffer, nbytes)		пишет из буфера
++	off_t lseek(int fildes, off_t offset, int whence);
++	pos = lseek(fd, offfset, whence)	передвигает указатель
++	int dup(int fildes);
++	fd = dup(fd)				закрепляет за открытым файлом новый дескриптор
+.	int pipe(int fildes[2]);
+.	s = pipe(&fd[0])			создает канал
+.	int access(const char *path, int amode);
+.	s = access(name,amod)			проверяет доступность файла
+#include <stropts.h>
+	int ioctl(int fildes, int request, ... /* arg */);
+	s = ioctl(fd, result, argp)		специальные действия с файлом
+#include <stdio.h>
++	int rename(const char *old, const char *new);
++	s = rename(old,new)			переименовывает файл
+=== каталоги ===
+#include <sys/stat.h>
++	int mkdir(const char *path, mode_t mode);
++	s = mkdir(name,mod)
+#include <unistd.h>
++	int rmdir(const char *path);
++	s = rmdir(name)
+.	int link(const char *path1, const char *path2);
+.	s = link(name1,name2)			создает name2, который указывает на name1
+.	int unlink(const char *path);
+.	s = unlink(name)			удаляет элемент каталога
++	void sync(void);
++	s = sync()				сбрасывает все кэшировнные блоки на диск
++	int chdir(const char *path);
++	s = chdir(dirname)			изменяет текущий каталог
+---
+	s = mount(special, name, flag)		монтирует ФС
+	s = umount(special)			
+.	s = chroot(dirname)			изменяет корневой каталог
+=== защита ===
+#include <unistd.h>
+uid_t, gid_t
++	uid_t getuid(void);
++	uid = getuid()
++	gid_t getgid(void);
++	gid = getgid()
++	int setuid(uid_t uid);
++	s = setuid(uid)
++	int setgid(gid_t gid);
++	s = setgid(gid)
++!	int chown(const char *path, uid_t owner, gid_t group);
++!	s = chown(name,owner)			
+#include <sys/stat.h>
+	mode_t umask(mode_t cmask);
+	oldmask umask(complmode)		меняет режим маскирования
+=== время ===
+#include <time.h>
+time_t
++	time_t time(time_t *tloc);
++	seconds = time(&seconds)		получает время с начала эпохи
+#include <utime.h>
+struct utimbuf
+.	int utime(const char *path, const struct utimbuf *times);
+.	s = utime(file, timep)			устанавливает время последнего доступа к файлу
+#include <sys/times.h>
+clock_t, struct tms
+	clock_t times(struct tms *buffer);
+	s = times(buffer)			определяет время работы пользовательского процесса
+---
+.	s = stime(tp)				устанавливает время с начала эпохи
