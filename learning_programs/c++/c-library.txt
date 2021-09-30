@@ -1,0 +1,269 @@
+assert	OK
+ctype	OK
+errno	OK
+fenv	OK11
+float	OK
+inttypes OK
+iso646	OK
+limits	OK
+locale	
+math	OK11
+setjmp	OK
+signal	
+stdarg	OK
+stdbool	OK
+stddef	
+stdint	OK
+stdio	
+stdlib	
+string	
+tgmath	OK
+time	
+uchar	
+wchar	
+wctype	
+---
+complex	OK11
+
+--- поддержка языка ---
+<setjmp.h>	
+setjmp						(jmp_buf env)->int
+longjmp						(jmp_buf env, int val)
+<iso646.h>	
+макросы and or not для && || !
+<stdbool.h>	
+bool true false
+<stdarg.h>	
+f(int x, ...)
+va_start					(va_list ap, paramN)
+va_arg						(va_list ap, type)->type
+va_end						(va_list ap)
+
+--- целые типы ---
+<stdint.h>			<stdint.h>
+intmax_t	uintmax_t	INTMAX_MIN	INTMAX_MAX	UINTMAX_MAX
+int8_t		uint8_t		INT8_MIN	INT8_MAX	UINT8_MAX
+int16_t		uint16_t	.		.		.
+int32_t		uint32_t	.		.		.
+int64_t		uint64_t	.		.		.
+int_least8_t	uint_least8_t	INT_LEAST8_MIN	INT_LEAST8_MAX	UINT_LEAST8_MAX
+int_least16_t	uint_least16_t	.		.		.
+int_least32_t	uint_least32_t	.		.		.
+int_least64_t	uint_least64_t	.		.		.
+int_fast8_t	uint_fast8_t	INT_FAST8_MIN	INT_FAST8_MAX	UINT_FAST8_MAX
+int_fast16_t	uint_fast16_t	.		.		.
+int_fast32_t	uint_fast32_t	.		.		.
+int_fast64_t	uint_fast64_t	.		.		.
+intptr_t	uintptr_t	INTPTR_MIN	INTPTR_MAX	UINTPTR_MAX
+
+<stddef.h>			<stdint.h>
+size_t				SIZE_MAX
+ptrdiff_t			PTRDIFF_MIN	PTRDIFF_MAX
+<signal.h>			<stdint.h>
+sig_atomic_t			SIG_ATOMIC_MIN	SIG_ATOMIC_MAX
+<wchar.h>			<stdint.h>
+wchar_t				WCHAR_MIN	WCHAR_MAX
+wint_t				WINT_MIN	WINT_MAX
+<limits.h>
+char				CHAR_MIN	CHAR_MAX	UCHAR_MAX
+				SCHAR_MIN	SCHAR_MAX
+short				SHRT_MIN	SHRT_MAX	USHRT_MAX
+int				INT_MIN		INT_MAX		UINT_MAX
+long				LONG_MIN	LONG_MAX	ULONG_MAX
+long long			LLONG_MIN	LLONG_MAX	ULLONG_MAX
+
+CHAR_BIT					8
+<stdint.h>
+INT_MAX_C					(int-like)->intmax_t
+UINT_MAX_C					(int-like)->uintmax_t
+INT8_C						(int-like)->int8_t
+UINT8_C						(int-like)->uint8_t
+..16
+..32
+..64
+--- целые числа ---
+<stddef.h>
+offsetof 					(type,member)->size_t
+NULL						(void*)0
+--- плавающие числа ---
+<float.h>
+FLT_RADIX	
+FLT_MANT_DIG	DBL_MANT_DIG	LDBL_MANT_DIG
+FLT_DIG		DBL_DIG		LDBL_DIG
+FLT_MIN_EXP	DBL_MIN_EXP	LDBL_MIN_EXP
+FLT_MIN_10_EXP	DBL_MIN_10_EXP	LDBL_MIN_10_EXP
+FLT_MAX_EXP	DBL_MAX_EXP	LDBL_MAX_EXP
+FLT_MAX_10_EXP	DBL_MAX_10_EXP	LDBL_MAX_10_EXP
+FLT_MAX		DBL_MAX		LDBL_MAX
+FLT_EPSILON	DBL_EPSILON	LDBL_EPSILON
+FLT_MIN		DBL_MIN		LDBL_MIN
+FLT_ROUNDS
+FLT_EVAL_METHOD
+DECIMAL_DIG
+<fenv.h>
+.....................................................
+--- тригонометрия, экспоненты ---
+<math.h>	<complex>	
+		complex
+cos	cosh	cos	cosh
+sin	sinh	sin	sinh
+tan	tanh	tan	tanh
+acos	acosh	acos	acosh
+asin	asinh	asin	asinh
+atan	atanh	atan	atanh
+atan2		atan2	
+exp		exp
+frexp
+ldexp
+log		log
+log10		log10
+pow		pow
+sqrt
+NAN
+HUGE_VAL
+		real	imag
+		abs	arg
+		norm
+		conj
+		polar
+--- преобразование плавающие-целые ---
+<math.h><stdlib>
+ceil
+floor
+modf
+fmod
+abs
+fabs	abs	div
+fabsl	labs	ldiv
+fabsf	llabs	lldiv
+	<inttypes.h>
+	imaxabs	imaxdiv
+<tgmath.h> -> <math.h>+<complex.h>
+--- преобразование строки-числа ---
+<stdlib.h>		<wchar.h>		
+atof	atoi		
+	atol		
+	atoll		
+strdof	strtol		wcstof	wcstol	
+strtod	strtoll		wcstod	wcstoll	
+strtold	strtoul		wcstold	wcstoul	
+	strtoull		wcstoull
+<inttypes.h>
+strtoimax		wcstoimax
+strtoumax		wcstoumax
+--- преобразование строки-время ---
+<time.h>			<wchar.h>
+strftime			wcsftime
+
+--- система ---
+<assert.h>
+assert						(int expression)->void
+<errno.h>	<stdio.h>	<string.h>
+errno						int
+		perror				( const char * str )->void
+				strerror	( int errnum )->char * 
+EDOM
+ERANGE
+EILSEQ
+<signal.h>
+signal
+raise
+<time.h>
+clock_t
+time_t
+struct tm
+...
+<stdlib.h>
+malloc	calloc
+free	realloc
+abort
+atexit
+exit
+getenv
+system
+rand
+srand
+<stdio.h>
+remove
+rename
+tmpfile
+tmpnam
+--- файлы ---
+<stdio.h>
+FILE
+fpos_t
+fclose
+
+--- локаль ---
+<locale.h>	
+setlocale	
+localeconv	
+<string.h>	<wchar.h>
+strcoll		wcscoll
+strxfrm		wcsxfrm
+<time.h>
+strftime	wcsftime
+
+<ctype.h>	<wctype.h>
+isalnum		iswalnum	
+isalpha		iswalpha	
+isblank		iswblank	
+iscntrl		iswcntrl	
+isdigit		iswdigit	
+isgraph		iswgraph	
+islower		iswlower	
+isprint		iswprint	
+ispunct		iswpunct	
+isspace		iswspace	
+isupper		iswupper	
+isxdigit	iswxdigit
+tolower		towlower	
+toupper		towupper
+	
+<wctype.h>
+iswctype	wctype	wctype_t
+towctrans	wctrans	wctrans_t
+
+<wchar.h>
+wint_t	wchar_t	mbstate_t
+<stdlib.h>	<uchar.h>			<wchar.h>
+mbtowc		mbrtoc16	mbrtoc32	mbrtowc		btowc
+wctomb		c16rtomb	c32rtomb	wcrtomb		wctob
+mbstowcs					mbsrtowcs
+wcstombs					wcsrtombs
+						mbsinit
+<limits.h>
+MB_LEN_MAX					1+
+
+<string.h>		<stdlib.h>	<wchar.h>
+memset					wmemset
+	strlen		mblen		mbrlen	wcslen
+	strstr					wcsstr
+memcpy	strcpy	strcat			wmemcpy	wcscpy
+	strncpy	strncat				wcsncpy
+memmove					wmemmove
+memcmp	strcmp				wmemcmp	wcscmp
+	strncmp					wcsncmp
+memchr	strchr	strrchr			wmemchr	wcschr	wcsrchr
+	strspn	strcpn				wcsspn	wcscspn
+	strpbrk					wcspbrk
+	strtok					wcstok
+	strcat					wcscat
+	strncat					wcsncat
+	
+--- чтение-запись файлами ---
+<stdio.h>			<wchar.h>
+				fwide
+(f||sn|s|vf|v|vs|vsn)printf	(f||s|vf|v|vs)wprintf
+(f||   s|vf|v|vs|v)scanf	(f||s|vf|v|vs)wprintf
+(f)get(c|s|char)		(f)getw(c|s|char)
+(f)put(c|s|char)		(f)putw(c|s|char)
+ungetc				ungetwc
+fgetpos	ftell
+fsetpos	fseek	rewind
+<inttypes.h>
+PRIxMAX		SCNxMAX		printf/scanf specifier for intmax_t	"%i"
+PRIxN		SCNxN		printf/scanf specifier for intN_t	"%d"
+PRIxLEASTN	SCNxLEASTN	printf/scanf specifier for int_leastN_t	"%u"
+PRIxFASTN	SCNxFASTN	printf/scanf specifier for int_fastN_t	"%x"
+PRIxPTR		SCNxPTR		printf/scanf specifier for intptr_t	"%u"
