@@ -638,6 +638,9 @@ runstatedir
 source tree - дир. там где configure
 build tree - текущая дир.
 
+gcc -dumpmachine
+https://developer.moe/linux-cross-compile-toolchain-on-cygwin#toolchain-install
+
 ./configure
 сначала ищет $prefix/share/config.site и подключает его через source
 	test -z "$LDFLAGS" && LDFLAGS=-L$HOME/usr/lib

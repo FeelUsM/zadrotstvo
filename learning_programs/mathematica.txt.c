@@ -639,3 +639,5 @@ http://reference.wolfram.com/language/guide/GroupTheory.html
 http://reference.wolfram.com/language/guide/NamedGroups.html
 http://reference.wolfram.com/language/ref/GroupElements.html
 http://reference.wolfram.com/language/guide/Permutations.html
+
+https://reference.wolfram.com/language/ref/OptionsPattern.html	необязательные аргументы функций
