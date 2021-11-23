@@ -1,0 +1,448 @@
+<typeinfo>
+<exception>
+	exception
+		exception () noexcept;
+		exception (const exception&) noexcept;
+		exception& operator= (const exception&) noexcept;
+		virtual ~exception();
+		virtual const char* what() const noexcept;
+	...
+<stdexcept>
+Logic errors
+	logic_error	    Logic error exception (class )
+	domain_error	    Domain error exception (class )
+	invalid_argument    Invalid argument exception (class )
+	length_error	    Length error exception (class )
+	out_of_range	    Out-of-range exception (class )
+Runtime errors
+	runtime_error : public exception	    Runtime error exception (class )
+		explicit runtime_error (const string& what_arg);
+		explicit runtime_error (const char* what_arg);
+	range_error : public runtime_error	    Range error exception (class )
+	overflow_error : public runtime_error	    Overflow error exception (class )
+	underflow_error : public runtime_error	    Underflow error exception (class )
+<system_error>
+	class error_code
+		...
+	class system_error : public runtime_error
+		code() const noexcept -> const error_code&
+----------------------------------
+<new>
+	bad_alloc : public exception
+	nothrow_t
+	nothrow
+	operator new (std::size_t size) -> void*
+	operator new (std::size_t size, const std::nothrow_t& nothrow_value) noexcept -> void*
+	operator new (std::size_t size, void* ptr) noexcept -> void*
+	operator new[] (std::size_t size) -> void*
+	operator new[] (std::size_t size, const std::nothrow_t& nothrow_value) noexcept -> void*
+	operator new[] (std::size_t size, void* ptr) noexcept -> void*
+	operator delete (void* ptr) noexcept
+	operator delete (void* ptr, const std::nothrow_t& nothrow_constant) noexcept;
+	operator delete (void* ptr, void* voidptr2) noexcept;
+	operator delete[] (void* ptr) noexcept;
+	operator delete[] (void* ptr, const std::nothrow_t& nothrow_constant) noexcept;
+	operator delete[] (void* ptr, void* voidptr2) noexcept;
+	typedef void (*new_handler)() - вызывается при неудачном выделении памяти. возвращается, если удалось выделить еще памяти, иначе кидает исключение или завершает программу
+	set_new_handler (new_handler new_p) noexcept -> new_handler
+	get_new_handler() noexcept -> new_handler
+<memory>
+	allocator<T>
+		value_type				T		
+		pointer					T*		
+		reference				T&		
+		const_pointer				const T*	
+		const_reference				const T&	
+		size_type				size_t		
+		difference_type				ptrdiff_t	
+	?	rebind<Type>				member class	Its member type other is the equivalent allocator type to allocate elements of type Type
+	?	propagate_on_container_move_assignment	true_type	Indicates that allocator shall propagate when the container is move-assigned
+		---
+		allocator() noexcept;
+		allocator (const allocator& alloc) noexcept;
+		allocator (const allocator<U>& alloc) noexcept - template <class U>
+		~allocator ( ) throw;
+		address ( reference x ) const noexcept -> pointer
+		address ( const_reference x ) const noexcept -> const_pointer
+		max_size() const noexcept -> size_type
+		allocate (size_type n, allocator<void>::const_pointer hint=0) -> pointer
+			hint: Либо 0 , либо значение, ранее полученное другим вызовом для выделения и еще не освобожденное с помощью освобождения .
+			Если оно не равно 0 , это значение можно использовать в качестве подсказки для повышения производительности путем выделения нового блока рядом с указанным. 
+			Адрес соседнего элемента часто является хорошим выбором. 
+			обычно через operator new
+		destroy (U* p) - template <class U>
+		deallocate (pointer p, size_type n)
+		
+<string>
+	char_traits<char_type>
+		char_type	char		wchar_t		char16_t	char32_t
+		int_type	int		wint_t		uint_least16_t	uint_least32_t
+		off_type	streamoff	streamoff	streamoff	streamoff
+		pos_type	streampos	wstreampos	u16streampos	u32streampos
+		state_type	mbstate_t	mbstate_t	mbstate_t	mbstate_t
+		---
+	    static:
+		constexpr eq (char_type c, char_type d) noexcept -> bool
+		constexpr lt (char_type c, char_type d) noexcept -> bool
+			  length (const char_type* s) -> size_t
+			  assign(char_type& r, const char_type& c) noexcept // r=c
+			  assign(char_type* p, size_t n, char_type c) -> char_type* // заполняет массив
+			  find (const char_type* p, size_t n, const char_type& c) -> const char_type*
+			  move (char_type* dest, const char_type* src, size_t n) -> char_type*
+			  copy (char_type* dest, const char_type* src, size_t n) -> char_type* 
+		constexpr eof() noexcept -> int_type
+		constexpr not_eof(int_type c) noexcept -> int_type // возвращает с если с не eof(), иначе зависит от реализации
+		constexpr to_char_type (int_type c) noexcept -> char_type
+		constexpr to_int_type (char_type c) noexcept -> int_type
+		constexpr eq_int_type (int_type x, int_type y) noexcept -> bool
+	basic_string
+
+--------------------------------------
+<locale>
+фасеты:
+category	id
+collate		collate		compare, hash, transform
+ctype		ctype		is, narrow, scan_is, scan_not, tolower, toupper, widen
+		codecvt		always_noconv, encoding, in, length, max_length, out, unshift
+monetary	moneypunct 	curr_symbol, decimal_point, frac_digits, grouping, negative_sign, neg_format, positive_sign, pos_format, thousands_sep
+		money_get	get
+		money_put	put
+numeric		numpunct	decimal_point, falsename, grouping, thousands_sep, truename
+		num_get		get
+		num_put		put
+time		time_get	date_order, get_date, get_monthname, get_time, get_weekday, get_year (and get, since C++11)
+		time_put	put
+messages	messages	close, get, open
+для доступа к фасету: use_facet<тип_фасета>(mylocale)->const тип_фасета &
+каждый фасет:
+	производный от locale::facet
+	содержит член locale::id id
+	2й параметр конструктора определяет кем удаляется объект фасета: системой локали или программой
+	имя_фасета_byname - для создания фасетов при создании локали по имени
+	для каждого метода есть protected: virtual do_метод
+class locale:
+	static classic()->const locale& // то же что locale("C")
+	static global (const locale& loc)->locale // при создании locale() будет получаться loc // возвращает старую глобальную локаль
+		если у loc есть имя, вызывается setlocale(LC_ALL,это имя)
+		если имени нет - зависит от реализации
+		для всей программы или для каждого потока - зависит от реализации
+	locale() noexcept; // копия глобальной локали
+	locale (const locale& x) noexcept; // копия x
+	explicit locale (const char* std_name); // по имени - C-locale
+	explicit locale (const string& std_name); // по имени - C-locale
+	typedef int category // битовая маска
+		locale::collate	collate
+		locale::ctype	ctype, codecvt
+		locale::monetary	moneypunct, money_get, money_put
+		locale::numeric	numpunct, num_get, num_put
+		locale::time	time_get, time_put
+		locale::messages	messages
+		locale::all	all of the above
+		locale::none	none of the above (defined as 0).	
+	locale (const locale& x, const char* std_name, category cats); // копия x, но cats берутся из std_name
+	locale (const locale& x, const string& std_name, category cats); // копия x, но cats берутся из std_name
+	locale (const locale& x, const locale& y, category cats); // копия x, но cats берутся из y
+	class id;
+		копировать нельзя
+		id() // вызывается при первой установке фасета в локали
+	class facet;
+		копировать нельзя
+		protected: explicit facet (size_t refs = 0); // 0 - удаляется системой при удалении последнего объекта локали
+		protected: virtual ~facet();
+		при наследовании:
+		locale::id id
+		методы()const
+	template <class Facet> locale (const locale& x, Facet* f); // если в x есть фасет с id таким же как у f, то заменяет его, иначе добавляет
+	template <class Facet> combine (const locale& x) const -> locale; // создает копию *this и в ней меняет Facet, которую берет из x
+	name() const -> string; // имя локали. если его нет - "*"
+	operator() // use_facet< collate<charT> > (*this).compare
+	сравнение
+	присваивание
+template <class Facet> use_facet (const locale& loc) -> const Facet& 
+template <class Facet> has_facet (const locale& loc) noexcept -> bool
+codecvt_base
+	enum result:
+		ok	0	Преобразование прошло успешно: все символы были переведены.
+		partial	1	Частичное преобразование: 
+					либо последовательность назначения [to,to_limit) недостаточно долго, 
+					или был достигнут from_end, но для завершения целевого символа необходимы дополнительные исходные символы.
+					Все предыдущие символы были успешно переведены. 
+		error	2	Ошибка преобразования: Для символа, на который указывает from_next, не существовало допустимого преобразования .
+					Все предыдущие символы были успешно переведены. 
+		noconv	3	Нет преобразования: Типы символов источника и назначения ( intern_type и extern_type ) одинаковы. 
+					Попытка преобразования не предпринималась: исходные символы были скопированы в пункт назначения. 
+codecvt<class internT, class externT, class stateT> : public codecvt_base
+		codecvt<char,char,mbstate_t>		performs no conversion
+		codecvt<wchar_t,char,mbstate_t>		converts between native wide and narrow character sets
+		codecvt<char16_t,char,mbstate_t>	converts between UTF16 and UTF8 encodings
+		codecvt<char32_t,char,mbstate_t>	converts between UTF32 and UTF8 encodings
+	intern_type	The first template parameter (internT)	Internal character type
+	extern_type	The second template parameter (externT)	External character type
+	state_type	The third template parameter (stateT)	State type
+
+	in (
+		      state_type &  state, 
+		const extern_type*  from, 
+		const extern_type*  from_end, 
+		const extern_type*& from_next, // указывает на следующий за последним удачно переведенным
+		      intern_type*  to, 
+		      intern_type*  to_limit, 
+		      intern_type*& to_next // указывает на следующий за последним удачно переведенным
+		) const -> result
+	out (
+		      state_type  & state, 
+		const intern_type*  from, 
+		const intern_type*  from_end, 
+		const intern_type*& from_next,
+		      extern_type*  to, 
+		      extern_type*  to_limit, 
+		      extern_type*& to_next
+		) const -> result
+	unshift ( // надо вызывать, если out завершился partial
+		state_type  & state, 
+		extern_type*  to, 
+		extern_type*  to_limit, 
+		extern_type*& to_next
+		) const -> result
+	length (
+		state_type& state, 
+		const extern_type* from, 
+		const extern_type* from_end, 
+		size_t max // как буд-то делает in, и max - длина [to,to_limit)
+	) const -> int
+	always_noconv() const noexcept -> int // true означает in и out всегда возвращают noconv
+	encoding() const noexcept -> int
+		-1 - если external_type state-dependent
+		0 - количество внешних символов на один внутренний - не постоянное
+		иначе количество внешних символов на один внутренний
+	max_length() const noexcept -> int // максиммальный размер внутреннего символа
+ctype<class charT> 
+	...
+----------------------------------
+template <class stateT> class fpos
+	stateT state() const;
+	void state(stateT);
+	конструктор
+	преобразование в/из int
+	преобразование в/из streamoff
+	сравнение на равенство
+	вычитание друг из друга
+typedef fpos<mbstate_t> streampos
+typedef fpos<mbstate_t> wstreampos
+std::streamoff - fpos_1-fpos_2 - смещение в потоке
+std::streamsize - typdef signed int - размер и количество символов, преобразуется в/из streamoff
+ios_base	- не зависит от типа ввод/вывод и от типа символов
+	ворматирование
+		флаги формата
+			fmtflags - битовая маска
+				независимые
+					boolalpha	чтение/запись элементов bool в виде буквенных строк ( true и false). 
+					showbase	запись целочисленного значения, которым предшествует соответствующий префикс числовой базы. 
+					showpoint	запишись значения с плавающей точкой, включая всегда десятичную точку. 
+					showpos		запишись неотрицательных числовых значений,которым предшествует знак плюс (+). 
+					skipws		пропуск начальных пробелов при определенных операциях ввода. 
+					unitbuf		flush output после каждой операции вставки..
+					uppercase	запишись прописных букв, заменяя строчные буквы в определенных операциях вставки. 
+				система счисления (числовая база)
+					dec
+					hex
+					oct
+					basefield	dec | oct | hex
+				плавающий формат
+					fixed
+					scientific
+					floatfield	scientific | fixed
+				выравнивание
+					internal	путем вставки fill characters в указанной внутренней точке. 
+					left
+					right
+					adjustfield	left | right | internal
+				// ios_base::hex ios::left or cout.oct
+				не стоит путать с манипуляторами в глобальной области видимости, которые действуют как setf/unsetf
+			flags() const : fmtflags
+			flags (fmtflags fmtfl) : fmtflags - устанавливает и возвращает бывшее значение
+			setf (fmtflags fmtfl) : fmtflags // - flags(fmtfl|flags()) и возвращает бывшее значение
+			setf (fmtflags fmtfl, fmtflags mask) : fmtflags // - flags((fmtfl&mask)|(flags()&~mask)) и возвращает бывшее значение
+				// std::cout.setf ( std::ios::hex, std::ios::basefield );
+			unsetf (fmtflags mask) : void // манипулятор resetiosflags ведет себя так же
+		ширина поля
+			width() const : streamsize -  и возвращает бывшее значение
+			width (streamsize wide) : streamsize -  и возвращает бывшее значение
+				// fill character - ios::fill()
+				// см манипулятор setw
+		точность
+			precision() const : streamsize
+			precision (streamsize prec) : streamsize
+		локаль
+			getloc() const : locale
+			imbue (const locale& loc) : locale // пропитывает данный объект данной локалью ,   и возвращает бывшее значение
+				вызывает функции из register_callback с imbue_event
+	другое
+		стек обратных вызовов
+			enum event { erase_event, imbue_event, copyfmt_event /* ios::copyfmt() */ };
+			typedef void (*event_callback) (event ev, ios_base& obj, int index);
+			register_callback (event_callback fn, int index) // индекс передается в функцию
+				вызываются при при деструкторе с erase_event
+			static sync_with_stdio (bool sync = true) ->bool // синхронизация потоков C и C++ для совместного использования функций той и этой библиотеки
+		расширяемые массивы
+			static xalloc() -> int // новый индекс
+			static iword (int idx) -> long& //  ссылка на элемент массива
+			static pword (int idx) -> void*& // ссылка на элемент массива
+				массив может быть общим, может быть раздельным
+	типы
+		iostate - битовая маска
+			badbit	ошибка ввода/вывода на буфере потока, которая привела к нарушению его целостности
+			failbit	ошибка внутренней логики в последней операции, но дальнейшие операции над потоком возможны
+			eofbit	конец файла на потоке ввода
+			goodbit	нет ошибки =0
+		openmode - битовая маска
+			app	(append)	устанавливает позицию в конец перед каждой операцией вывода
+			ate	(at end)	устанавливает позицию в конец при открытии файла
+			binary	(binary)	
+			in	(input)		
+			out	(output)	
+			trunc	(truncate)	Любое текущее содержимое отбрасывается, предполагая, что при открытии длина равна нулю.
+		seekdir - enum - направление поиска
+			beg	beginning of sequence.
+			cur	current position within sequence.
+			end	end of sequence.
+		class failure : public system_error
+			explicit failure (const string& msg, const error_code& ec = io_errc::stream);
+			explicit failure (const char*   msg, const error_code& ec = io_errc::stream)
+			...
+		class Init
+			Построение объекта этого типа-члена гарантирует, что стандартные объекты потока 
+			( cin , cout , cerr , загромождать , wcin , туалет , wcerr и wclog ) сконструированы и должным образом инициализированы.
+class basic_streambuf <class charT, class traits = char_traits<charT> > 
+    public:
+	char_type	The first template parameter (charT)	
+	traits_type	The second template parameter (traits)	defaults to: char_traits<charT>
+	int_type	traits_type::int_type	
+	pos_type	traits_type::pos_type			generally, the same as streampos
+	off_type	traits_type::off_type			generally, the same as streamoff
+    protected:
+	eback() const -> char_type*	Начало буферизованной части входной последовательности
+	gptr() const -> char_type* 	Текущая позиция во входной последовательности ( "получить указатель" )
+	egptr() const -> char_type* 	Конец буферизованной части входной последовательности 
+	gbump (int n) -> void		gptr+=n; // (?)out_steampos+=1
+	setg (char_type* new_eback, char_type* new_gptr, char_type* new_egptr) // ???
+
+	pbase() const -> char_type*	Начало буферизованной части выходной последовательности
+	pptr() const -> char_type* 	Текущая позиция в выходной последовательности ( "получить указатель" )
+	epptr() const -> char_type* 	Конец буферизованной части выходной последовательности 
+	pbump (int n) -> void		pptr+=n; // (?)in_steampos+=1
+	setp (char_type* new_pbase, char_type* new_pptr, char_type* new_epptr) // ???
+	
+	operator= (const basic_streambuf& rhs) -> basic_streambuf&
+	swap (basic_streambuf& x)
+    public/protected:
+	---
+	imbue (const locale& loc) -> void {} // virtual protected
+		basic_filebuf: если loc отличается от текущей локали и текущая позиция буфера не вначале и кодировка текущей лоекали зависит от состояния - поведение неопределено
+	pubimbue (const locale& loc) -> locale // устанавливает локаль и вызывает imbue
+	getloc() const -> locale
+	---
+	setbuf (char_type* s, streamsize n) -> basic_streambuf* {return this;} // virtual protected
+		basic_filebuf: если s==0 и n==0 и вызвано до операций ввода-вывода - !поток на вывод становится небуферизованным!
+			иначе - зависит от реализации
+		basic_stringbuf: если s==0 и n==0 - ничего не происходит
+	pubsetbuf (char_type* s, streamsize n) -> basic_streambuf*
+	seekoff (off_type off, ios_base::seekdir way, ios_base::openmode which = ios_base::in | ios_base::out) -> pos_type { return -1; } // virtual protected
+		basic_filebuf: устанавливает позицию входного и/или выходного потока относительно way
+			записывает выходнойй буфер с вызовом unshift
+	pubseekoff (off_type off, ios_base::seekdir way, ios_base::openmode which = ios_base::in | ios_base::out) -> pos_type
+	seekpos (pos_type pos, ios_base::openmode which = ios_base::in | ios_base::out) -> pos_type { return -1; } // virtual protected
+		basic_filebuf: устанавливает позицию входного и/или выходного потока
+			записывает выходнойй буфер с вызовом unshift
+	pubseekpos (pos_type pos, ios_base::openmode which = ios_base::in | ios_base::out) -> pos_type
+	sync() -> int { return 0; } // virtual protected - возвращает 0 если ОК, иначе -1
+		basic_filebuf: записывает выходной буфер (pptr, epptr and pback) в файл 
+			действия с входным буфером зависят от реализации
+	pubsync() -> int
+	---
+	overflow (int_type c = traits_type::eof()) -> int_type { return traits_type::eof(); } // virtual protected - 
+		Гарантирует, что в области ввода есть место в put-area по крайней мере для одного символа, 
+		сохраняя некоторую начальную подпоследовательность символов, начинающуюся с pbase(), в выходной последовательности 
+		и обновляя указатели на область ввода (при необходимости). 
+		Если ch это не eof(), он либо помещается в область ввода, либо непосредственно сохраняется в выходной последовательности. 
+		возвращает с если OK, иначе traits_type::eof()
+		basic_filebuf: сначала записывает выходной буфер в файл, а затем c, и обнуляет буфер
+	sputc (char_type c) -> int_type - выводит символ (в буфер или файл) и возвращает его
+	xsputn (const char_type* s, streamsize n) -> streamsize // virtual protected - n раз вызывает sputc (или пока sputc не вернет eof)
+		возвращает кол-во записанных символов
+	sputn (const char_type* s, streamsize n) -> streamsize - вызывает xsputn
+	---
+	showmanyc() -> streamsize { return 0; } // virtual protected
+		>0 - далее можно будет прочитать указанное кол-во символов
+		0 - никакой информации
+		-1 - больше прочитать ничего не получится
+	in_avail() -> streamsize - gptr()-egptr() или showmanyc()
+	underflow() -> int_type { return eof(); } // virtual protected - делает текущий символ доступным и возвращает его
+	sgetc() -> int_type - возвращает текущий символ
+	uflow() -> int_type // virtual protected - возвращает текущий символ и сдвигается на 1 позицию
+	sbumpc() -> int_type - возвращает текущий символ и сдвигается на 1 позицию
+	snextc() -> int_type { sbumpc(); sgetc(); } - сдвигается на 1 позицию и возвращает новый символ
+	xsgetn (char_type* s, streamsize n) -> streamsize // virtual protected - вызывает n раз sbumpc()
+	sgetn (char_type* s, streamsize n) -> streamsize
+	pbackfail (int_type c = traits_type::eof()) -> int_type { return eof(); } // virtual protected - вернуть символ в последовательность и сдвинуться влево на 1 позицию
+		следует вызывать только если невозможно сдвинуться по буферу или возвращаемый сивол отличается от того, что есть в последовательности
+		возвращает символ на новой позиции если OK иначе eof()
+	sungetc() -> int_type - сдвигается влево на 1 позицию и возвращает символ
+	sputbackc (char_type c) -> int_type - вернуть символ в последовательность и сдвинуться влево на 1 позицию
+	
+	
+basic_ios < class charT, class traits = char_traits<charT> > // ios,wios - не зависит от типа ввод/вывод
+	char_type	The first template parameter (charT)	
+	traits_type	The second template parameter (traits)	defaults to: char_traits<charT>
+	int_type	traits_type::int_type	
+	pos_type	traits_type::pos_type			generally, the same as streampos
+	off_type	traits_type::off_type			generally, the same as streamoff
+
+    protected:
+	init (basic_streambuf<char_type,traits_type>* sb) -> void
+		rdbuf		sb
+		tie		0
+		rdstate		goodbit if sb is not a null pointer, badbit otherwise
+		exceptions	goodbit
+		flags		skipws | dec
+		width		0
+		precision	6
+		fill		' ' (whitespace)
+		getloc		a copy of locale()	
+		internal extensible array is empty
+	set_rdbuf (basic_streambuf<char_type,traits_type>* sb) -> void
+		изменяет rdbuf без изменения rdstate
+	
+    public: 
+	explicit basic_ios (basic_streambuf<char_type,traits_type>* sb);
+    protected: 
+	basic_ios(); // перед использованием обязательно надо вызвать init()
+    private:
+	basic_ios (const basic_ios&) = delete;
+	basic_ios& operator= (const basic_ios&) = delete; // копировать запрещено
+    public:
+      состояние:
+	rdstate() const -> iostate
+	clear (iostate state = goodbit) -> void // устанавливает флаги ошибок. Если не привязан streamBuffer - добавляет badbit. Может кинуть исключение в зависимости от exceptions()
+	setstate (iostate state) -> void // добавляет флаги ошибок. Если не привязан streamBuffer - добавляет badbit. Может кинуть исключение в зависимости от exceptions()
+	good() const -> bool { return rdstate() == goodbit; }
+	eof() const -> bool { return rdstate()&eofbit; } // чтение закончившегося потока приводит к fail-у
+	bad() const -> bool { return rdstate()&badbit; } 
+	fail() const -> bool { return rdstate()&(badbit|failbit); }
+	operator!() const -> bool { return fail(); }
+	operator bool() const -> bool { return !fail(); }
+	exceptions() const -> iostate
+	exceptions (iostate except) -> void // устанавливает, при каких типах ошибок надо кидать failure
+      прочее:
+	rdbuf() const -> basic_streambuf<char_type,traits_type>*
+	rdbuf (basic_streambuf<char_type,traits_type>* sb) -> basic_streambuf<char_type,traits_type>* // устанавливает внутренний буфер и очищает состояние
+		filestream и stringstream имеют ассоциированный буфер, который не связан с внутренним буфером
+	tie() const -> basic_ostream<char_type,traits_type>* 
+	tie (basic_ostream<char_type,traits_type>* tiestr) -> basic_ostream<char_type,traits_type>*
+		tied stream - поток вывода, у которого вызывается .flush() перед каждой операцией ввода-вывода данного потока
+	narrow (char_type wc, char dfault) const -> char { return use_facet<ctype>(getloc()).narrow(wc,default); } // узкое представление широкого символа или default
+	widen (char c) const -> char_type { return use_facet<ctype>(getloc()).widen(c); } // широкое представление символа
+basic_ostream < class charT, class traits = char_traits<charT> > // ostream,wostream
+	
+	
+	

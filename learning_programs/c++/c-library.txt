@@ -60,7 +60,7 @@ intptr_t	uintptr_t	INTPTR_MIN	INTPTR_MAX	UINTPTR_MAX
 size_t				SIZE_MAX
 ptrdiff_t			PTRDIFF_MIN	PTRDIFF_MAX
 <signal.h>			<stdint.h>
-sig_atomic_t			SIG_ATOMIC_MIN	SIG_ATOMIC_MAX
+sig_atomic_t			SIG_ATOMIC_MIN	SIG_ATOMIC_MAX	// is not thread-safe, only async-signal safe.
 <wchar.h>			<stdint.h>
 wchar_t				WCHAR_MIN	WCHAR_MAX
 wint_t				WINT_MIN	WINT_MAX
@@ -100,7 +100,7 @@ FLT_MIN		DBL_MIN		LDBL_MIN
 FLT_ROUNDS
 FLT_EVAL_METHOD
 DECIMAL_DIG
-<fenv.h>
+<fenv.h> // Floating-point environment
 .....................................................
 --- тригонометрия, экспоненты ---
 <math.h>	<complex>	
@@ -162,9 +162,9 @@ assert						(int expression)->void
 errno						int
 		perror				( const char * str )->void
 				strerror	( int errnum )->char * 
-EDOM
-ERANGE
-EILSEQ
+EDOM		// Domain error - область определения математических функций
+ERANGE		// Range error - математические функции/функции чтения строки возвращают слижком большое значение
+EILSEQ		// Illegal sequence - Многобайтовая последовательность 
 <signal.h>
 signal
 raise
@@ -172,7 +172,15 @@ raise
 clock_t
 time_t
 struct tm
-...
+	tm_sec	int	seconds after the minute	0-60*
+	tm_min	int	minutes after the hour	0-59
+	tm_hour	int	hours since midnight	0-23
+	tm_mday	int	day of the month	1-31
+	tm_mon	int	months since January	0-11
+	tm_year	int	years since 1900	
+	tm_wday	int	days since Sunday	0-6
+	tm_yday	int	days since January 1	0-365
+	tm_isdst	int	Daylight Saving Time flag	Флаг перехода на летнее время	
 <stdlib.h>
 malloc	calloc
 free	realloc
@@ -196,61 +204,109 @@ fclose
 
 --- локаль ---
 <locale.h>	
-setlocale	
-localeconv	
-<string.h>	<wchar.h>
-strcoll		wcscoll
-strxfrm		wcsxfrm
+	LC_ALL		
+	LC_COLLATE	// strcoll and strxfrm.
+	LC_CTYPE	// <ctype>
+	LC_MONETARY	// localeconv
+	LC_NUMERIC	// localeconv и ввод-вывод плавающих чисел
+	LC_TIME		// strftime
+setlocale			(int category, const char* locale)->char*
+localeconv			()->struct lconv*
+struct lconv
+	decimal_point		char*	"."	
+	thousands_sep		char*	""	
+	grouping		char*	""	1000000 -> "\3" : 1,000,000;     "\1\2\3" : 1,000,00,0;    "\3\1" : 1,0,0,0,000
+						CHAR_MAX indicates that no further grouping is to be performed.
+	int_curr_symbol		char*	""	ISO-4217 entry code for the currency, like "USD" for U.S.-Dollar or "GBP" for Pound Sterling
+	currency_symbol		char*	""	Local currency symbol, like "$".
+	mon_decimal_point	char*	""	
+	mon_thousands_sep	char*	""	
+	mon_grouping		char*	""	
+	positive_sign		char*	""	Sign to be used for nonnegative (positive or zero) monetary quantities.
+	negative_sign		char*	""	Sign to be used for negative monetary quantities.
+
+	frac_digits		char	CHAR_MAX	Amount of fractional digits to the right of the decimal point for monetary quantities in the local format.
+	p_cs_precedes		char	CHAR_MAX	positive: If this value is 1, the currency symbol should precede; if it is 0, it should follow.
+	n_cs_precedes		char	CHAR_MAX	negative:
+	p_sep_by_space		char	CHAR_MAX	positive: If this value is 1, a space should appear between currency symbol and value; if it is 0 it should not.
+	n_sep_by_space		char	CHAR_MAX	negative: 
+	p_sign_posn		char	CHAR_MAX	Position of the sign for nonnegative (positive or zero) monetary quantities:
+						0 : Currency symbol and quantity surrounded by parentheses.
+						1 : Sign before the quantity and currency symbol.
+						2 : Sign after the quantity and currency symbol.
+						3 : Sign right before currency symbol.
+						4 : Sign right after currency symbol.
+						CHAR_MAX : Unspecified.
+	n_sign_posn		char	CHAR_MAX	Position of the sign for negative monetary quantities. See p_sign_posn above.
+	int_frac_digits		char	CHAR_MAX	Same as frac_digits, but for the international format (instead of the local format).
+	int_p_cs_precedes	char	CHAR_MAX	Same as p_cs_precedes, but for the international format.
+	int_n_cs_precedes	char	CHAR_MAX	Same as n_cs_precedes, but for the international format.
+	int_p_sep_by_space	char	CHAR_MAX	Same as p_sep_by_space, but for the international format.
+	int_n_sep_by_space	char	CHAR_MAX	Same as n_sep_by_space, but for the international format.
+	int_p_sign_posn		char	CHAR_MAX	Same as p_sign_posn, but for the international format.
+	int_n_sign_posn		char	CHAR_MAX	Same as n_sign_posn, but for the international format.
+
 <time.h>
-strftime	wcsftime
-
-<ctype.h>	<wctype.h>
-isalnum		iswalnum	
-isalpha		iswalpha	
-isblank		iswblank	
-iscntrl		iswcntrl	
-isdigit		iswdigit	
-isgraph		iswgraph	
-islower		iswlower	
-isprint		iswprint	
-ispunct		iswpunct	
-isspace		iswspace	
-isupper		iswupper	
-isxdigit	iswxdigit
-tolower		towlower	
-toupper		towupper
-	
+strftime	wcsftime	(char* ptr, size_t maxsize, const char* format, const struct tm* timeptr )->size_t
+<ctype.h>	<wctype.h>	wctype_t-name
+T:int		wint_t
+isalnum		iswalnum	"alnum"		( T c )->int
+isalpha		iswalpha	"alpha"	
+isblank		iswblank	"blank"	
+iscntrl		iswcntrl	"cntrl"	
+isdigit		iswdigit	"digit"	
+isgraph		iswgraph	"graph"	
+islower		iswlower	"lower"	
+isprint		iswprint	"print"	
+ispunct		iswpunct	"punct"	
+isspace		iswspace	"space"	
+isupper		iswupper	"upper"	
+isxdigit	iswxdigit       "xdigit"
+				wctrans_t-name
+tolower		towlower	"tolower"	( T c )->T
+toupper		towupper	"toupper"
 <wctype.h>
-iswctype	wctype	wctype_t
-towctrans	wctrans	wctrans_t
-
+wctype				(const char* property)->wctype_t 
+iswctype			(wint_t c, wctype_t desc)->int
+wctrans				(const char* property)->wctrans_t 
+towctrans			(wint_t c, wctrans_t desc)->wint_t 
 <wchar.h>
-wint_t	wchar_t	mbstate_t
-<stdlib.h>	<uchar.h>			<wchar.h>
-mbtowc		mbrtoc16	mbrtoc32	mbrtowc		btowc
-wctomb		c16rtomb	c32rtomb	wcrtomb		wctob
-mbstowcs					mbsrtowcs
-wcstombs					wcsrtombs
-						mbsinit
+btowc		(int c)->wint_t					
+wctob		(wint_t wc)->int				
+--- мультибайтовые символы ---
 <limits.h>
-MB_LEN_MAX					1+
-
-<string.h>		<stdlib.h>	<wchar.h>
+MB_LEN_MAX	// максимальный размер многобайтового символа для любой локали
+<stdlib.h>
+MB_CUR_MAX	// максимальный размер многобайтового символа для текущей локали
+<wchar.h>
+wint_t	wchar_t	
+mbstate_t
+mbsinit		(const mbstate_t* ps)->int			// проверяет, начальное ли состояние в *ps
+<stdlib.h>	<uchar.h>			<wchar.h>
+MB:char		char		char		char
+WC:wchar_t	char16_t	char32_t 	wchar_t
+		,mbstate_t * ps)->size_t	,mbstate_t * ps)->size_t
+		
+mbtowc		mbrtoc16	mbrtoc32	mbrtowc		(WC* pwc,  const MB* pmb, size_t max)->int	
+wctomb		c16rtomb	c32rtomb	wcrtomb		(MB* pmb,        WC wc              )->int	
+mbstowcs					mbsrtowcs	(WC* dest, const MB* src, size_t max)->size_t	
+wcstombs					wcsrtombs	(MB* dest, const WC* src, size_t max)->size_t	
+--- строки ---
+<string.h>		<stdlib.h>	<wchar.h>			<string.h>	<wchar.h>
 memset					wmemset
 	strlen		mblen		mbrlen	wcslen
 	strstr					wcsstr
 memcpy	strcpy	strcat			wmemcpy	wcscpy
-	strncpy	strncat				wcsncpy
+	strncpy	strncat				wcsncpy			strxfrm		wcsxfrm		( char * destination, const char * source, size_t num )->size_t
 memmove					wmemmove
 memcmp	strcmp				wmemcmp	wcscmp
-	strncmp					wcsncmp
+	strncmp					wcsncmp			strcoll		wcscoll		( const char * str1, const char * str2 )->int
 memchr	strchr	strrchr			wmemchr	wcschr	wcsrchr
 	strspn	strcpn				wcsspn	wcscspn
 	strpbrk					wcspbrk
 	strtok					wcstok
 	strcat					wcscat
 	strncat					wcsncat
-	
 --- чтение-запись файлами ---
 <stdio.h>			<wchar.h>
 				fwide

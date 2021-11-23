@@ -1,0 +1,4 @@
+gcc -O2 -S -masm=intel test.c	- получить ассемблерный код в формате интел
+
+gcc -dumpmachine
+https://developer.moe/linux-cross-compile-toolchain-on-cygwin#toolchain-install
