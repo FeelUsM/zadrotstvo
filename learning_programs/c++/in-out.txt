@@ -417,6 +417,8 @@ basic_ios < class charT, class traits = char_traits<charT> > // ios,wios - не 
 	explicit basic_ios (basic_streambuf<char_type,traits_type>* sb);
     protected: 
 	basic_ios(); // перед использованием обязательно надо вызвать init()
+	move (basic_ios&  x)
+	swap (basic_ios& x) noexcept
     private:
 	basic_ios (const basic_ios&) = delete;
 	basic_ios& operator= (const basic_ios&) = delete; // копировать запрещено
@@ -440,9 +442,20 @@ basic_ios < class charT, class traits = char_traits<charT> > // ios,wios - не 
 	tie() const -> basic_ostream<char_type,traits_type>* 
 	tie (basic_ostream<char_type,traits_type>* tiestr) -> basic_ostream<char_type,traits_type>*
 		tied stream - поток вывода, у которого вызывается .flush() перед каждой операцией ввода-вывода данного потока
+	fill() const -> char_type
+	fill (char_type fillch) -> char_type
+	copyfmt (const basic_ios& rhs) -> basic_ios& 
+		tie		tied stream
+		exceptions	exceptions mask (last to be copied, see below)
+		flags		format flags
+		width		field width
+		precision	precision
+		fill		fill character
+		getloc		selected locale
+		iarray		internal extensible array *
+		parray		internal extensible array *
 	narrow (char_type wc, char dfault) const -> char { return use_facet<ctype>(getloc()).narrow(wc,default); } // узкое представление широкого символа или default
 	widen (char c) const -> char_type { return use_facet<ctype>(getloc()).widen(c); } // широкое представление символа
 basic_ostream < class charT, class traits = char_traits<charT> > // ostream,wostream
-	
 	
 	

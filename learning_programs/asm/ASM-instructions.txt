@@ -1,3 +1,13 @@
+префикс инструкции
+префикс изменения адреса
+префикс изменения операнда
+переопределение сегмента
+опкод
+mod r/m
+sib
+displacement	cb-1, cw-2, cd-4, cp-6
+immediate	ib-1, iw-2, id-4
+
 {mod  r/m	16-битный режим		32-битный режим		
 00...000	[BX + SI]		[EAX]
 00...001	[BX + DI]		[ECX]
@@ -19,8 +29,8 @@
 					
 10...000	[BX+SI]+disp16		[EAX]+disp32
 10...001	[BX+DI]+disp16		[ECX]+disp32
-10...010	[BP+SI]+disp16		[EDX]+disp32
-10...011	[BP+DI]+disp16		[EBX]+disp32
+10...010	[BP+SI]+disp16 (SS)	[EDX]+disp32
+10...011	[BP+DI]+disp16 (SS)	[EBX]+disp32
 10...100	[SI]+disp16		<sib>+disp32
 10...101	[DI]+disp16		[EBP]+disp32
 10...110	[BP]+disp16 (SS)	[ESI]+disp32
@@ -35,7 +45,7 @@
 11...110	ESI/SI/DH		ESI/SI/DH
 11...111	EDI/DI/BH		EDI/DI/BH
 --------------------------------------------------------------
-  reg		r8	r16	r32	Sreg		SS	index	base
+  reg		r8	r16	r32	Sreg		scale	index	base
 ..000...	AL	AX	EAX	es		00.. 1	[EAX]	[EAX]	
 ..001...	CL	CX	ECX	cs		01.. 2	[ECX]	[ECX]	
 ..010...	DL	DX	EDX	ss		10.. 4	[EDX]	[EDX]	
@@ -46,8 +56,949 @@
 ..111...	BH	DI	EDI				[EDI]	[EDI]	
 none* - [EIZ], EIZ=0 всегда
 ** - обозначает disp32 без базового регистра, если mod = 00, и [EBP] в противном случае.
+
 =========================================================================
+пользовательские инструкции:
+------------------------------------------
+eflags
+--неиспользуются:
+1	1		
+3	0		
+5	0		
+15	0		
+--status:
+6	zf	s	zero		результат ==0
+0	cf	s	carry		unsigned carry - перенос из старшего бита/заем в старший бит
+11	of	s	overflow	signed carry - переполнение знакового числа сверху или снизу
+7	sf	s	sign		старший бит результата
+2	pf	s	parity		младший байт результата содержит четное кол-во битов равных 1
+4	af	s	auxilary carry	перенос или заем в младшие 4 бита регистра AL
+--control:
+8	tf	s	trap
+10	df	c	direction
+--system:
+9	if	x	interrupt enable
+12-13	iopl	x	io privelege level
+14	nt	x	nested task
+16	rf	x	resume
+17	vm	x	v8086
+
+.	xCC:
+x0	xO 		(OF=1)		if 					overflow 					
+x1	xNO 		(OF=0)		if 					not overflow 				
+x2	xB/C/NAE 	(CF=1)		if below	not above or equal	carry		
+x3	xNB/NC/AE	(CF=0)		if not below	above or equal		not carry	
+x4	xE/Z 		(ZF=1)		if equal				zero		
+x5	xNE/NZ 		(ZF=0)		if not equal				not zero	
+x6	xBE/NA	 	(CF=1 or ZF=1)	if not above	below or equal	
+x7	xA/NBE	 	(CF=0 and ZF=0)	if above	not below or equal		
+x8	xS 		(SF=1)		if 					sign 					
+x9	xNS 		(SF=0)		if 					not sign 					
+xA	xP/PE 		(PF=1)		if 					parity		parity even
+xB	xNP/PO	 	(PF=0)		if 					not parity	parity odd 
+xC	xL/NGE 		(SF≠OF)		if less		not greater or equal 	
+xD	xGE/NL	 	(SF=OF)		if not less	greater or equal	
+xE	xLE/NG	 	(ZF=1 and SF≠OF)if not greater	less or equal
+xF	xG/NLE	 	(ZF=0 or SF=OF)	if greater	not less or equal
+
+
+Instruction		OF	SF	ZF	AF	PF	CF
+
+CMPS			M	M	M	M	M	M
+SCAS			M	M	M	M	M	M
+------------------------------------------
+Vector Number Description
+0 Divide Error			div/idiv - знаменатель 0 или результат слижком большой
+1 Debug Exceptions		trap flag
+2 NMI Interrupt			
+3 Breakpoint			int3
+4 INTO Detected Overflow	into
+5 BOUND Range Exceeded		bound
+6 Invalid Opcode		некоторые приложения так расширяют набор команд
+7 Coprocessor Not Available	
+8 Double Exception		
+9 Coprocessor Segment Overrun	
+10 Invalid Task State Segment	
+11 Segment Not Present		
+12 Stack Fault			
+13 General Protection		
+14 Page Fault			
+15 (reserved)			
+16 Coprocessor Error		
+17-32 (reserved)		
+				int n
+-------------------------------------------------------------------------------
+	in
+cbw/cwde
+cmps/cmpsb/cmpsw/cmpsd
+cwd/cdq
+ins/insb/insw/insd
+int/into
+iret/iretd
+jCC/jcxz
+lgdt/lidt
+lgs/lss/lds/les/lfs
+lods/lodsb/lodsw/lodsd
+loop/loopz/loopnz
+movs/movsb/movsw/movsd
+outs/outsb/outsw/outsd
+popa/popad
+popf/popfd
+pusha/pushad
+pushf/pushfd
+rcl/rcr/rol/ror
+rep/repe/repz/repne/repnz
+sal/sar/shl/shr
+scas/scasb/scasw/scasd
+sgdt/sidt
+stos/stosb/stosw/stosd
+verr/verw
+xlat/xlatb
+
+
+jcxz	jC
+loope	loop
+loopne	loop
+repe	rep
+repz	rep
+repne	rep
+repnz	rep
+
+same	same
+shl	sal
+iret	iretd
+jcxz	jecxz
+loppz	loppe
+loopnz	loopne
+rep	repe	repz
+repne	repnz
+
+32	16
+cdq	cwd
+cwde	cbw
+popad	popa
+puahad	pusha
+--------------------------------------------------------------------------------------------------------------
+D4:	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x											aam
+1x	
+2x	
+3x	
+4x	
+5x	
+6x	
+7x	
+8x	
+9x	
+Ax	
+Bx	
+Cx	
+Dx	
+Ex	
+Fx	
+--------------------------------------------------------------------------------------------------------------
+D5:	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x											aad
+1x	
+2x	
+3x	
+4x	
+5x	
+6x	
+7x	
+8x	
+9x	
+Ax	
+Bx	
+Cx	
+Dx	
+Ex	
+Fx	
+--------------------------------------------------------------------------------------------------------------
+0F BA:					bt	bts	btr	btc
+--------------------------------------------------------------------------------------------------------------
+0F:	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x					add	add	
+1x	
+2x	
+3x	
+4x	
+5x	
+6x	
+7x	
+8x	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	
+9x	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	setCC	
+Ax	push	pop		bt	shld	shld			push	pop		bts				imul
+Bx			lss	btr	lfs	lgs	movzx	movzx			...	btc	bsf		movsx	movsx
+Cx	
+Dx	
+Ex	
+Fx	
+--------------------------------------------------------------------------------------------------------------
+80:	add		adc	sbb	and	sub	xor	cmp
+81:	add		adc	sbb	and	sub	xor	cmp
+83:	add		adc	sbb	and	sub	xor	cmp
+8F:	pop
+C0:	rol	ror	rcl	rcr	shl	shr		sar
+C1:	rol	ror	rcl	rcr	shl	shr		sar
+D0:	rol	ror	rcl	rcr	shl	shr		sar
+D1:	rol	ror	rcl	rcr	shl	shr		sar
+D2:	rol	ror	rcl	rcr	shl	shr		sar
+D3:	rol	ror	rcl	rcr	shl	shr		sar
+F6:	test		not	neg	mul	imul	div	idiv
+F7:	test		not	neg	mul	imul	div	idiv
+FE:	inc	dec
+FF:	inc	dec	call	call	jmp	jmp	push
+--------------------------------------------------------------------------------------------------------------
+	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x	add	add	add	add	add	add	push	pop	or	or	or	or	or	or	push	........
+1x	adc	adc	adc	adc	adc	adc	push	pop	sbb	sbb	sbb	sbb	sbb	sbb	push	pop
+2x	and	and	and	and	and	and	---	daa	sub	sub	sub	sub	sub	sub	---	das
+3x	xor	xor	xor	xor	xor	xor	---	aaa	cmp	cmp	cmp	cmp	cmp	cmp	---	aas
+4x	inc	inc	inc	inc	inc	inc	inc	inc	dec	dec	dec	dec	dec	dec	dec	dec
+5x	push	push	push	push	push	push	push	push	pop	pop	pop	pop	pop	pop	pop	pop	
+6x	pushad	popad	bound	---	---	---	---		push	imul	push	imul
+7x	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	jCC	
+8x	...	...		...	test	test	xchg	xchg	mov	mov	mov	mov	mov	lea	mov	...
+9x	xchg	xchg	xchg	xchg	xchg	xchg	xchg	xchg	cwde	cdq	call	wait	puhsf	popf	sahf	lahf
+Ax	mov	mov	mov	mov	movs	movs	cmps	cmps	test	test	stos	stos	lods	lods	scas	scas
+Bx	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov	mov
+Cx	...	...	ret	ret	les	lds	mov	mov	enter	leave		ret	int3	int	into	iret
+Dx	...	...	...	...	................	xlat	FPU	FPU	FPU	FPU	FPU	FPU	FPU	FPU(?)	
+Ex	loop	loop	loop	jcxz					call	jmp	jmp	jmp
+Fx	---		rep:	rep:		cmc	...	...	clc	stc			cld	std	...	...
+-----------------------------------------
+67,72  перемещение данных
+  38	перемещение данных общего назначения
+	  28	mov		перемещает данные
+			A0 	MOV AL,moffs8 	4 		Move byte at (seg:offset) to AL
+			A1 	MOV EAX,moffs32	4 		16+ Move dword at (seg:offset) to EAX
+			A2 	MOV moffs8,AL 	2 		Move AL to (seg:offset)
+			A3 	MOV moffs32,EAX	2 		16+ Move EAX to (seg:offset)
+
+			88 /r 	MOV r/m8,r8 	2/2 		Move byte register to r/m byte
+			89 /r 	MOV r/m32,r32 	2/2 		16+ Move dword register to r/m dword
+			8A /r 	MOV r8,r/m8 	2/4 		Move r/m byte to byte register
+			8B /r 	MOV r32,r/m32 	2/4 		16+ Move r/m dword to dword register
+
+			B0 + rb MOV reg8,imm8 	2 		Move immediate byte to register
+			B8 + rd MOV reg32,imm32	2 		16+ Move immediate dword to register
+			C6	MOV r/m8,imm8 	2/2 		Move immediate byte to r/m byte
+			C7 	MOV r/m32,imm32	2/2 		16+ Move immediate dword to r/m dword
+
+			8C /r 	MOV r/m16,Sreg 	2/2 		Move segment register to r/m word
+			8E /r 	MOV Sreg,r/m16 	2/5,pm=18/19 	Move r/m word to segment register
+	  10	xchg		eXCHanGe регистр/память с регистром
+			90 + r 	XCHG AX,r16 	3 	16+ Exchange word register with AX
+			86 /r 	XCHG r8,r/m8 	3/5 	Exchange byte register with EA byte
+			87 /r 	XCHG r32,r/m32 	3/5 	16+ Exchange dword register with EA dword
+  27,68	работа со стеком
+	  14,34	push		кладет операнд в стек
+			FF /6 	PUSH m32 	5 	16+ Push memory dword
+			50 + /r PUSH r32 	2 	16+ Push register dword
+			6A 	PUSH imm8 	2 	Push immediate byte
+			68 	PUSH imm32 	2 	16+ Push immediate dword
+			0E 	PUSH CS 	2 	Push CS
+			16 	PUSH SS 	2 	Push SS
+			1E 	PUSH DS 	2 	Push DS
+			06 	PUSH ES 	2 	Push ES
+			0F A0 	PUSH FS 	2 	Push FS
+			OF A8 	PUSH GS 	2 	Push GS
+	  1	PUSHA/PUSHAD	PUSH All Doubled
+			60 	PUSHAD 	18 	16+ Push EAX, ECX, EDX, EBX, original ESP, EBP, ESI, and EDI
+	  11,34	POP		достает WORD из стека
+			8F /0 	POP m32 	5 	16+ Pop top of stack into memory dword
+			58 + rd POP r32 	4 	16+ Pop top of stack into dword register
+			1F 	POP DS 		7,pm=21 Pop top of stack into DS
+			07 	POP ES 		7,pm=21 Pop top of stack into ES
+			17 	POP SS 		7,pm=21 Pop top of stack into SS
+			0F A1 	POP FS 		7,pm=21 Pop top of stack into FS
+			0F A9 	POP GS 		7,pm=21 Pop top of stack into GS
+	  1	POPA/POPAD	POP All Doubled
+			61 	POPAD 	24 	16+ Pop EDI, ESI, EBP, ESP, EDX, ECX, and EAX
+  2,4	преобразование типа
+	  1	CWD/CDQ		Convert Dword to Qword: eax->eax:edx
+			99 	CDQ 	2 	16+ EDX:EAX ← sign-extend of EAX
+	  1	CBW/CWDE	Convert Word to Dword (Extended) ax->eax
+			98 	CWDE 	3 	16+ EAX ← sign-extend of AX
+	  0,2	MOVSX		MOVe with Sign eXtension
+			0F BE /r 	MOVSX r32,r/m8 	3/6 	16+ Move byte to dword, sign-extend
+			0F BF /r 	MOVSX r32,r/m16 3/6 	Move word to dword, sign-extend
+	  0,2	MOVZX		MOVe with Zero eXtension
+			0F B6 /r 	MOVZX r32,r/m8 	3/6 	16+ Move byte to dword, zero-extend
+			0F B7 /r 	MOVZX r32,r/m16 3/6 	Move word to dword, zero-extend
+51.171 двоичная арифметика
+  42,8	сложение и вычитание
+	  6.98	ADD		addition			std(zf,cf,of,sf,pf,af)
+			04 ib 		ADD AL,imm8 	2 	Add immediate byte to AL
+			05 id 		ADD EAX,imm32 	2 	16+ Add immediate dword to EAX
+			80 /0 ib 	ADD r/m8,imm8 	2/7 	Add immediate byte to r/m byte
+			81 /0 id 	ADD r/m32,imm32 2/7 	16+ Add immediate dword to r/m dword
+			83 /0 ib 	ADD r/m32,imm8 	2/7 	16+ Add sign-extended immediate byte to r/m dword
+			00 /r 		ADD r/m8,r8 	2/7 	Add byte register to r/m byte
+			01 /r 		ADD r/m32,r32 	2/7 	16+ Add dword register to r/m dword
+			02 /r 		ADD r8,r/m8 	2/6 	Add r/m byte to byte register
+			03 /r 		ADD r32,r/m32 	2/6 	16+ Add r/m dword to dword register
+	  6.98	SUB		subtraction			std(zf,cf,of,sf,pf,af)
+			2C ib 		SUB AL,imm8 	2 	Subtract immediate byte from AL
+			2D id 		SUB EAX,imm32 	2 	16+ Subtract immediate dword from EAX
+			80 /5 ib 	SUB r/m8,imm8 	2/7 	Subtract immediate byte from r/m byte
+			81 /5 id 	SUB r/m32,imm32 2/7 	16+ Subtract immediate dword from r/m dword
+			83 /5 ib 	SUB r/m32,imm8 	2/7 	16+ Subtract sign-extended immediate byte from r/m dword
+			28 /r 		SUB r/m8,r8 	2/6 	Subtract byte register from r/m byte
+			29 /r 		SUB r/m32,r32 	2/6 	16+ Subtract dword register from r/m dword
+			2A /r 		SUB r8,r/m8 	2/7 	Subtract byte register from r/m byte
+			2B /r 		SUB r32,r/m32 	2/7 	16+ Subtract dword register from r/m dword
+	  6.98	ADC		ADdition with Carry		std(zf,cf,of,sf,pf,af)	in(cf)
+			14 ib 		ADC AL,imm8 	2 	Add with carry immediate byte to AL
+			15 id 		ADC EAX,imm32 	2 	16+ Add with carry immediate dword to EAX
+			80 /2 ib 	ADC r/m8,imm8 	2/7 	Add with carry immediate byte to r/m byte
+			81 /2 id 	ADC r/m32,imm32 2/7 	16+ Add with CF immediate dword to r/m dword
+			83 /2 ib 	ADC r/m32,imm8 	2/7 	16+ Add with CF sign-extended immediate byte into r/m dword
+			10 /r 		ADC r/m8,r8 	2/7 	Add with carry byte register to r/m byte
+			11 /r 		ADC r/m32,r32 	2/7 	16+ Add with CF dword register to r/m dword
+			12 /r 		ADC r8,r/m8 	2/6 	Add with carry r/m byte to byte register
+			13 /r 		ADC r32,r/m32 	2/6 	16+ Add with CF r/m dword to dword register
+	  6,98	sbb		SuBtraction with Borrow		std(zf,cf,of,sf,pf,af)	in(cf)
+			1C ib 		SBB AL,imm8 	2 	Subtract with borrow immediate byte from AL
+			1D id 		SBB EAX,imm32 	2 	16+ Subtract with borrow immediate dword from EAX
+			80 /3 ib 	SBB r/m8,imm8 	2/7 	Subtract with borrow immediate byte from r/m byte
+			81 /3 id 	SBB r/m32,imm32 2/7 	16+ Subtract with borrow immediate dword from r/m dword
+			83 /3 ib 	SBB r/m32,imm8 	2/7 	16+ Subtract with borrow sign-extended immediate byte from r/m dword
+			18 /r 		SBB r/m8,r8 	2/6 	Subtract with borrow byte register from r/m byte
+			19 /r 		SBB r/m32,r32 	2/6 	16+ Subtract with borrow dword from r/m dword
+			1A /r 		SBB r8,r/m8 	2/7 	Subtract with borrow byte register from r/m byte
+			1B /r 		SBB r32,r/m32 	2/7 	16+ Subtract with borrow dword register from r/m dword
+	  8.64	inc		инкремент на 1			std(zf,  ,of,sf,pf,af)
+			FE /0 		INC r/m8 	?	Increment r/m byte by 1
+			FF /0 		INC r/m32 	?	16+ Increment r/m dword by 1
+			40 + rd 	INC r32 	?	16+ Increment dword register by 1
+	  8,64	dec		декремент на 1			std(zf,  ,of,sf,pf,af)
+			FE /1 		DEC r/m8 	2/6 	Decrement r/m byte by 1
+			FF /1 		DEC r/m32 	2/6 	16+ Decrement r/m dword by 1
+			48+rw 		DEC r32 	2 	16+ Decrement dword register by 1
+  6.162	сравнение и изменение знака
+	  6,98	cmp		сравнивает 2 операнда		std(zf,cf,of,sf,pf,af)
+			3C ib 		CMP AL,imm8 	2 	Compare immediate byte to AL
+			3D id 		CMP EAX,imm32 	2 	16+ Compare immediate dword to EAX
+			80 /7 ib 	CMP r/m8,imm8 	2/5 	Compare immediate byte to r/m byte
+			81 /7 id 	CMP r/m32,imm32 2/5 	16+ Compare immediate dword to r/m dword
+			83 /7 ib 	CMP r/m32,imm8 	2/5 	16+ Compare sign extended immediate byte to r/m dword
+			38 /r 		CMP r/m8,r8 	2/5 	Compare byte register to r/m byte
+			39 /r 		CMP r/m32,r32 	2/5 	16+ Compare dword register to r/m dword
+			3A /r 		CMP r8,r/m8 	2/6 	Compare r/m byte to byte register
+			3B /r 		CMP r32,r/m32 	2/6 	16+ Compare r/m dword to dword register
+	  0.64	neg		изменение знака			std(zf,cf,of,sf,pf,af)
+			F6 /3 		NEG r/m8 	2/6 	Two's complement negate r/m byte
+			F7 /3 		NEG r/m32 	2/6 	16+ Two's complement negate r/m dword
+  2,129	умножение
+	  0.64	mul	беззнаковое умножение ax		undef(zf,sf,pf,af)	spec(cf,of)
+			F6 /4 		MUL AL,r/m8 		9-14/12-17 	Unsigned multiply (AX ← AL * r/m byte)
+			F7 /4 		MUL EAX,r/m32 		9-38/12-41 	(9-22/12-25)16+ Unsigned multiply (EDX:EAX ← EAX * r/m dword)
+	  2,65	imul	знаковое умножение			undef(zf,sf,pf,af)	spec(cf,of)
+			F6 /5 		IMUL r/m8 		9-14/12-17 	AX← AL * r/m byte
+			F7 /5 		IMUL r/m32 		9-38/12-41 	(9-22/12-25)16+ EDX:EAX ← EAX * r/m dword
+			0F AF /r 	IMUL r32,r/m32 		9-38/12-41 	(9-22/12-25)16+ dword register ← dword register * r/m dword
+			6B /r ib 	IMUL r32,r/m32,imm8 	9-14/12-17 	(9-14/12-17)16+ dword register ← r/m32 * sign-extended immediate byte
+			69 /r id 	IMUL r32,r/m32,imm32 	9-38/12-41 	(9-22/12-25)16+ dword register ← r/m32 * immediate dword
+  0.128	деление
+	  0.64	div	беззнаковое деление в ax		undef(zf,cf,of,sf,pf,af)
+			F6 /6 	DIV AL,r/m8 	14/17 	Unsigned divide AX by r/m byte (AL=Quo, AH=Rem)
+			F7 /6 	DIV EAX,r/m32 	38/41 	(22/25)16+ Unsigned divide EDX:EAX by r/m dword (EAX=Quo, EDX=Rem)
+	  0.64	idiv	знаковое деление в ax			undef(zf,cf,of,sf,pf,af)
+			F6 /7 	IDIV ??,r/m8 	19 	Signed divide AX by r/m byte (AL=Quo, AH=Rem)
+			F7 /7 	IDIV EAX,r/m32 	43 	(27)16+ Signed divide EDX:EAX by DWORD byte (EAX=Quo, EDX=Rem)
+4.2    десятичная арифметика
+  2	упакованные BCD Adjustment Instructions
+	  1	DAA	Decimal Adjust AL after Addition 	std(zf,of,sf,pf)	in-spec(af,cf)
+			27 	DAA 	4 	Decimal adjust AL after addition
+	  1	DAS ── Decimal Adjust AL after Subtraction 	std(zf,of,sf,pf)	in-spec(af,cf)
+			2F 	DAS 	4 	Decimal adjust AL after subtraction
+  2.2	неупакованные BCD Adjustment Instructions		
+	  1	AAA ── ASCII Adjust after Addition		undef(zf,of,sf,pf)	in(af)spec(af,cf)
+			37 	AAA 	4 	ASCII adjust AL after addition
+	  1	AAS ── ASCII Adjust AL after Subtraction	undef(zf,of,sf,pf)	in(af)spec(af,cf)
+			3F 	AAS 	4 	ASCII adjust AL after subtraction
+	  0.1	AAM ── ASCII Adjust AX after Multiply		std(sf,zf,pf)		undef(of,af,cf)		
+			D4 0A 	AAM 	17 	ASCII adjust AX after multiply
+	  0.1	AAD ── ASCII Adjust AX before Division		std(sf,zf,pf)		undef(of,af,cf)		
+			D5 0A AAD 19 ASCII adjust AX before division
+29.36  логические операции
+ 19.102	булевские операции
+	  0.64	not	
+			F6 /2 		NOT r/m8 	2/6 	Reverse each bit of r/m byte
+			F7 /2 		NOT r/m32 	2/6 	16+ Reverse each bit of r/m dword
+	  6.98	AND	Logical AND		clr(of,cf)std(sf,zf,pf)undef(af)
+			24 ib 		AND AL,imm8 	2 	AND immediate byte to AL
+			25 id 		AND EAX,imm32 	2 	16+ AND immediate dword to EAX
+			80 /4 ib 	AND r/m8,imm8 	2/7 	AND immediate byte to r/m byte
+			81 /4 id 	AND r/m32,imm32 2/7 	16+ AND immediate dword to r/m dword
+			83 /4 ib 	AND r/m32,imm8 	2/7 	16+ AND sign-extended immediate byte with r/m dword
+			20 /r 		AND r/m8,r8 	2/7 	AND byte register to r/m byte
+			21 /r 		AND r/m32,r32 	2/7 	16+ AND dword register to r/m dword
+			22 /r 		AND r8,r/m8 	2/6 	AND r/m byte to byte register
+			23 /r 		AND r32,r/m32 	2/6 	16+ AND r/m dword to dword register
+	  6.98	OR	Logical Inclusive OR	clr(of,cf)std(sf,zf,pf)undef(af)
+			0C ib 		OR AL,imm8 	2 	OR immediate byte to AL
+			0D id 		OR EAX,imm32 	2 	16+ OR immediate dword to EAX
+			80 /1 ib 	OR r/m8,imm8 	2/7 	OR immediate byte to r/m byte
+			81 /1 id 	OR r/m32,imm32 	2/7 	16+ OR immediate dword to r/m dword
+			83 /1 ib 	OR r/m32,imm8 	2/7 	16+ OR sign-extended immediate byte with r/m dword
+			08 /r 		OR r/m8,r8 	2/6 	OR byte register to r/m byte
+			09 /r 		OR r/m32,r32 	2/6 	16+ OR dword register to r/m dword
+			0A /r 		OR r8,r/m8 	2/7 	OR byte register to r/m byte
+			0B /r 		OR r32,r/m32 	2/7 	16+ OR dword register to r/m dword
+	  6.98	XOR	Logical Exclusive OR	clr(of,cf)std(sf,zf,pf)undef(af)
+			34 ib 		XOR AL,imm8 	2 	Exclusive-OR immediate byte to AL
+			35 id 		XOR EAX,imm32 	2 	16+ Exclusive-OR immediate dword to EAX
+			80 /6 ib 	XOR r/m8,imm8 	2/7 	Exclusive-OR immediate byte to r/m byte
+			81 /6 id 	XOR r/m32,imm32 2/7 	16+ Exclusive-OR immediate dword to r/m dword
+			83 /6 ib 	XOR r/m32,imm8 	2/7 	16+ XOR sign-extended immediate byte with r/m dword
+			30 /r 		XOR r/m8,r8 	2/6 	Exclusive-OR byte register to r/m byte
+			31 /r 		XOR r/m32,r32 	2/6 	16+ Exclusive-OR dword register to r/m dword
+			33 /r 		XOR r32,r/m32 	2/7 	16+ Exclusive-OR dword register to r/m dword
+ 0.4++	проверка и изменение битов
+	  0.1+	BT 	Bit Test		spec(cf)undef(of,sf,zf,af,pf)
+			0F A3 		BT r/m32,r32 	3/12 	16+ Save bit in carry flag
+			0F BA /4 ib 	BT r/m32,imm8 	3/6 	16+ Save bit in carry flag
+	  0.1+	BTS	Bit Test and Set	spec(cf)undef(of,sf,zf,af,pf)
+			0F AB 		BTS r/m32,r32 	6/13 	16+ Save bit in carry flag and set
+			0F BA /5 ib 	BTS r/m32,imm8 	6/8 	16+ Save bit in carry flag and set
+	  0.1+	BTR	Bit Test and Reset	spec(cf)undef(of,sf,zf,af,pf)
+			0F B3 		BTR r/m32,r32 	6/13 	16+ Save bit in carry flag and reset
+			0F BA /6 ib 	BTR r/m32,imm8 	6/8 	16+ Save bit in carry flag and reset
+	  0.1+	BTC	Bit Test and Complement	spec(cf)undef(of,sf,zf,af,pf)
+			0F BB 		BTC r/m32,r32 	6/13 	16+ Save bit in carry flag and complement
+			0F BA /7 ib 	BTC r/m32,imm8 	6/8 	16+ Save bit in carry flag and complement
+ 0.2	сканирование битов
+	  0.1	BSF	Bit Scan Forward	spc(zf)undef(of,sf,сf,af,pf)
+			0F BC 	BSF r32,r/m32 	10+3n 	16+Bit scan forward on r/m dword
+	  0.1	BSR	Bit Scan Reverse	spc(zf)undef(of,sf,сf,af,pf)
+			0F BD 	BSR r32,r/m32 	10+3n 	16+ Bit scan reverse on r/m dword
+ 5.104	сдвиг и вращение
+	  2.64	сдвиг
+		  0.192	sal	Shift Arithmetic Left	spc(of,cf)std(sf,zf,pf)undef(af)
+				D0 /4 		SAL r/m8,1 	3/7 	Multiply r/m byte by 2, once
+				D2 /4 		SAL r/m8,CL 	3/7 	Multiply r/m byte by 2, CL times
+				C0 /4 ib 	SAL r/m8,imm8 	3/7 	Multiply r/m byte by 2, imm8 times
+				D1 /4 		SAL r/m32,1 	3/7 	16+ Multiply r/m dword by 2, once
+				D3 /4 		SAL r/m32,CL 	3/7 	16+ Multiply r/m dword by 2, CL times
+				C1 /4 ib 	SAL r/m32,imm8 	3/7 	16+ Multiply r/m dword by 2, imm8 times
+		  0.192	sar	Shift Arithmetic Right	spc(of,cf)std(sf,zf,pf)undef(af)
+				D0 /7 		SAR r/m8,1 	3/7 	Signed divide^(1) r/m byte by 2, once
+				D2 /7 		SAR r/m8,CL 	3/7 	Signed divide^(1) r/m byte by 2, CL times
+				C0 /7 ib 	SAR r/m8,imm8 	3/7 	Signed divide^(1) r/m byte by 2, imm8 times
+				D1 /7 		SAR r/m32,1 	3/7 	16+ Signed divide^(1) r/m dword by 2, once
+				D3 /7 		SAR r/m32,CL 	3/7 	16+ Signed divide^(1) r/m dword by 2, CL times
+				C1 /7 ib 	SAR r/m32,imm8 	3/7 	16+ Signed divide^(1) r/m dword by 2, imm8 times
+		  0.192	shr	Shift Logical Left	spc(of,cf)std(sf,zf,pf)undef(af)
+				D0 /4 		SHL r/m8,1 	3/7 	Multiply r/m byte by 2, once
+				D2 /4 		SHL r/m8,CL 	3/7 	Multiply r/m byte by 2, CL times
+				C0 /4 ib 	SHL r/m8,imm8 	3/7 	Multiply r/m byte by 2, imm8 times
+				D1 /4 		SHL r/m32,1 	3/7 	16+ Multiply r/m dword by 2, once
+				D3 /4 		SHL r/m32,CL 	3/7 	16+ Multiply r/m dword by 2, CL times
+				C1 /4 ib 	SHL r/m32,imm8 	3/7 	16+ Multiply r/m dword by 2, imm8 times
+		  0	shr	Shift Logical Right	spc(of,cf)std(sf,zf,pf)undef(af)
+				D0 /5 		SHR r/m8,1 	3/7 	Unsigned divide r/m byte by 2, once
+				D2 /5 		SHR r/m8,CL 	3/7 	Unsigned divide r/m byte by 2, CL times
+				C0 /5 ib 	SHR r/m8,imm8 	3/7 	Unsigned divide r/m byte by 2, imm8 times
+				D1 /5 		SHR r/m32,1 	3/7 	16+ Unsigned divide r/m dword by 2, once
+				D3 /5 		SHR r/m32,CL 	3/7 	16+ Unsigned divide r/m dword by 2, CL times
+				C1 /5 ib 	SHR r/m32,imm8 	3/7 	16+ Unsigned divide r/m dword by 2, imm8 times
+	  0.4	двойной сдвиг
+		  0.2	SHLD	Shift Left Double	spc(cf)std(sf,zf,pf)undef(af,of)
+				0F A4 	SHLD r/m32,r32,imm8 	3/7 	16+ r/m32 gets SHL of r/m32 concatenated with r32
+				0F A5 	SHLD r/m32,r32,CL 	3/7 	16+ r/m32 gets SHL of r/m32 concatenated with r32
+		  0.2	SHRD	Shift Right Double	spc(cf)std(sf,zf,pf)undef(af,of)
+				0F AC 	SHRD r/m32,r32,imm8 	3/7 	16+ r/m32 gets SHR of r/m32 with r32
+				0F AD 	SHRD r/m32,r32,CL 	3/7 	16+ r/m32 gets SHR of r/m32 concatenated with r32
+	  3	вращение
+		  0.128	rol	Rotate Left			spc(of,cf)
+				D0 /0 		ROL r/m8,1 	3/7 	Rotate 8 bits r/m byte left once
+				D2 /0 		ROL r/m8,CL 	3/7 	Rotate 8 bits r/m byte left CL times
+				C0 /0 ib 	ROL r/m8,imm8 	3/7 	Rotate 8 bits r/m byte left imm8 times
+				D1 /0 		ROL r/m32,1 	3/7 	16+ Rotate 32 bits r/m dword left once
+				D3 /0 		ROL r/m32,CL 	3/7 	16+ Rotate 32 bits r/m dword left CL times
+				C1 /0 ib 	ROL r/m32,imm8 	3/7 	16+ Rotate 32 bits r/m dword left imm8 times
+		  0.128	ror	Rotate Right			spc(of,cf)
+				D0 /1 		ROR r/m8,1 	3/7 	Rotate 8 bits r/m byte right once
+				D2 /1 		ROR r/m8,CL 	3/7 	Rotate 8 bits r/m byte right CL times
+				C0 /1 ib 	ROR r/m8,imm8 	3/7 	Rotate 8 bits r/m word right imm8 times
+				D1 /1 		ROR r/m32,1 	3/7 	16+ Rotate 32 bits r/m dword right once
+				D3 /1 		ROR r/m32,CL 	3/7 	16+ Rotate 32 bits r/m dword right CL times
+				C1 /1 ib 	ROR r/m32,imm8 	3/7 	16+ Rotate 32 bits r/m dword right imm8 times
+		  0.128	rcl	Rotate Through Carry Left 	spc(of,cf)
+				D0 /2 		RCL r/m8,1 	9/10 	Rotate 9 bits (CF,r/m byte) left once
+				D2 /2 		RCL r/m8,CL 	9/10 	Rotate 9 bits (CF,r/m byte) left CL times
+				C0 /2 ib 	RCL r/m8,imm8 	9/10 	Rotate 9 bits (CF,r/m byte) left imm8 times
+				D1 /2 		RCL r/m32,1 	9/10 	16+ Rotate 33 bits (CF,r/m dword) left once
+				D3 /2 		RCL r/m32,CL 	9/10 	16+ Rotate 33 bits (CF,r/m dword) left CL times
+				C1 /2 ib 	RCL r/m32,imm8 	9/10 	16+ Rotate 33 bits (CF,r/m dword) left imm8 times
+		  0.128	rcr	Rotate Through Carry Right 	spc(of,cf)
+				D0 /3 		RCR r/m8,1 	9/10 	Rotate 9 bits (CF,r/m byte) right once
+				D2 /3 		RCR r/m8,CL 	9/10 	Rotate 9 bits (CF,r/m byte) right CL times
+				C0 /3 ib 	RCR r/m8,imm8 	9/10 	Rotate 9 bits (CF,r/m byte) right imm8 times
+				D1 /3 		RCR r/m32,1 	9/10 	16+ Rotate 33 bits (CF,r/m dword) right once
+				D3 /3 		RCR r/m32,CL 	9/10 	16+ Rotate 33 bits (CF,r/m dword) right CL times
+				C1 /3 ib 	RCR r/m32,imm8 	9/10 	16+ Rotate 33 bits (CF,r/m dword) right imm8 times
+ 0.16	Byte-Set-On-Condition Instructions
+	  0.16	setCC
+			0F 90 SETO 		r/m8 4/5 Set byte if overflow 					(OF=1)
+			0F 91 SETNO 		r/m8 4/5 Set byte if not overflow 				(OF=0)
+			0F 92 SETB/C/NAE 	r/m8 4/5 Set byte if below / carry / not above or equal		(CF=1)
+			0F 93 SETNB/NC/AE	r/m8 4/5 Set byte if not below / not carry / above or equal	(CF=0)
+			0F 94 SETE/Z 		r/m8 4/5 Set byte if equal / zero				(ZF=1)
+			0F 95 SETNE/NZ 		r/m8 4/5 Set byte if not equal / not zero			(ZF=0)
+			0F 96 SETBE/NA	 	r/m8 4/5 Set byte if below or equal / not above		 	(CF=1 or (ZF=1)
+			0F 97 SETA/NBE	 	r/m8 4/5 Set byte if above / not below or equal			(CF=0 and ZF=0)
+			0F 98 SETS 		r/m8 4/5 Set byte if sign 					(SF=1)
+			0F 99 SETNS 		r/m8 4/5 Set byte if not sign 					(SF=0)
+			0F 9A SETP/PE 		r/m8 4/5 Set byte if parity / parity even			(PF=1)
+			0F 9B SETNP/PO	 	r/m8 4/5 Set byte if not parity / parity odd 			(PF=0)
+			0F 9C SETL/NGE 		r/m8 4/5 Set byte if less / not greater or equal 		(SF≠OF)
+			0F 9D SETGE/NL	 	r/m8 4/5 Set byte if greater or equal / not less		(SF=OF)
+			0F 9E SETLE/NG	 	r/m8 4/5 Set byte if less or equal / not greater		(ZF=1 and SF≠OF)
+			0F 9F SETG/NLE	 	r/m8 4/5 Set byte if greater / not less or equal		(ZF=0 or SF=OF)
+ 4.64	проверка
+	  4.64	TEST	Logical Compare		clr(of,cf)std(sf,zf,pf)undef(af)
+			A8 ib 		TEST AL,imm8 		2 	AND immediate byte with AL
+			A9 id 		TEST EAX,imm32 		2 	16+ AND immediate dword with EAX
+			F6 /0 ib 	TEST r/m8,imm8 		2/5 	AND immediate byte with r/m byte
+			F7 /0 id 	TEST r/m32,imm32 	2/5 	16+ AND immediate dword with r/m dword
+			84 /r 		TEST r/m8,r8 		2/5 	AND byte register with r/m byte
+			85 /r 		TEST r/m32,r32 		2/5 	16+ AND dword register with r/m dword
+34.144	передача управления
+ 12.128	безусловная передача
+	  3.64	Jump Instruction
+		  3.64	jmp
+				EB cb 	JMP rel8 	7+m 		Jump short
+				E9 cd 	JMP rel32 	7+m 		16+ Jump near, displacement relative to next instruction
+				EA cp 	JMP ptr16:32 	12+m,pm=27+m 	16+ Jump intersegment, 6(16+ 4)-byte immediate address
+							pm=45+m 	16+ Jump to call gate, same privilege
+							ts 		16+ Jump via task state segment
+							ts 		16+ Jump via task gate
+				FF /4 	JMP r/m32 	7+m,10+m 	16+ Jump near, indirect
+				FF /5 	JMP m16:32 	43+m,pm=31+m 	16+ Jump intersegment, address at r/m dword
+							pm=49+m 	16+ Jump to call gate, same privilege
+							5 + ts 		16+ Jump via task state segment
+							5 + ts 		16+ Jump via task gate
+	  2.64	Call Instruction
+		  2.64	call
+				E8 cd 	CALL rel32 	7+m 		16+ Call near, displacement relative to next instruction
+				9A cp 	CALL ptr16:32 	17+m,pm=34+m 	16+ Call intersegment, to pointer given
+							pm=52+m 	16+ Call gate, same privilege
+							pm=86+m 	16+ Call gate, more privilege, no parameters
+							pm=94+4x+m 	16+ Call gate, more privilege, x parameters
+							ts 		16+ Call to task
+				FF /2 	CALL r/m32 	7+m/10+m 	16+ Call near, indirect
+				FF /3 	CALL m16:32 	22+m,pm=38+m 	16+ Call intersegment, address at r/m dword
+							pm=56+m 	16+ Call gate, same privilege
+							pm=90+m 	16+ Call gate, more privilege, no parameters
+							pm=98+4x+m 	16+ Call gate, more privilege, x parameters
+							5 + ts 		16+ Call to task
+	  4	Return and Return-From-Interrupt Instruction
+		  3	RET ── Return from Procedure
+				C3 	RET 		10+m 		Return (near) to caller
+				CB 	RET 		18+m,pm=32+m 	Return (far) to caller, same privilege
+							pm=68 		Return (far), lesser privilege, switch stacks
+				C2 iw 	RET imm16 	10+m 		Return (near), pop imm16 bytes of parameters
+							18+m,pm=32+m 	Return (far), same privilege, pop imm16 bytes
+							pm=68 		Return (far), lesser privilege, pop imm16 bytes
+				CA iw 	RET imm16 	18+m,pm=32+m 	Return (far), same privilege, pop imm16 bytes
+							pm=68 		Return (far), lesser privilege, pop imm16 bytes
+		  1	IRET/IRETD ── Interrupt Return
+				CF 	IRET 	22,pm=38 	Interrupt return (far return and pop flags)
+						pm=82 		Interrupt return to lesser privilege
+						ts 		Interrupt return, different task (NT = 1)
+					IRETD 	22,pm=38 	Interrupt return (far return and pop flags)
+						pm=82 		Interrupt return to lesser privilege
+						pm=60 		Interrupt return to V86 mode
+						ts 		Interrupt return, different task (NT = 1)
+ 21.16	условная передача
+	  21.16	Conditional Jump Instructions
+		  18.16	jCC/jcxz	Jump if Condition is Met
+				77 cb 		JA rel8 	7+m,3 	Jump short if above (CF=0 and ZF=0)
+				73 cb 		JAE rel8 	7+m,3 	Jump short if above or equal (CF=0)
+				72 cb 		JB rel8 	7+m,3 	Jump short if below (CF=1)
+				76 cb 		JBE rel8 	7+m,3 	Jump short if below or (CF=1 or ZF=1)
+				72 cb 		JC rel8 	7+m,3 	Jump short if carry (CF=1)
+				74 cb 		JE rel8 	7+m,3 	Jump short if equal (ZF=1)
+				74 cb 		JZ rel8 	7+m,3 	Jump short if 0 (ZF=1)
+				7F cb 		JG rel8 	7+m,3 	Jump short if greater (ZF=0 and SF=OF)
+				7D cb 		JGE rel8 	7+m,3 	Jump short if greater or equal (SF=OF)
+				7C cb 		JL rel8 	7+m,3 	Jump short if less (SF≠OF)
+				7E cb 		JLE rel8 	7+m,3 	Jump short if less or equal (ZF=1 and SF≠OF)
+				76 cb 		JNA rel8 	7+m,3 	Jump short if not above (CF=1 ZF=1)
+				72 cb 		JNAE rel8 	7+m,3 	Jump short if not above or equal (CF=1)
+				73 cb 		JNB rel8 	7+m,3 	Jump short if not below (CF=0)
+				77 cb 		JNBE rel8 	7+m,3 	Jump short if not below or equal (CF=0 and ZF=0)
+				73 cb 		JNC rel8 	7+m,3 	Jump short if not carry (CF=0)
+				75 cb 		JNE rel8 	7+m,3 	Jump short if not equal (ZF=0)
+				7E cb 		JNG rel8 	7+m,3 	Jump short if not greater (ZF=1 or SF≠OF)
+				7C cb 		JNGE rel8 	7+m,3 	Jump short if not greater or equal (SF≠OF)
+				7D cb 		JNL rel8 	7+m,3 	Jump short if not less (SF=OF)
+				7F cb 		JNLE rel8 	7+m,3 	Jump short if not less or equal (ZF=0 and SF=OF)
+				71 cb 		JNO rel8 	7+m,3 	Jump short if not overflow (OF=0)
+				7B cb 		JNP rel8 	7+m,3 	Jump short if not parity (PF=0)
+				79 cb 		JNS rel8 	7+m,3 	Jump short if not sign (SF=0)
+				75 cb 		JNZ rel8 	7+m,3 	Jump short if not zero (ZF=0)
+				70 cb 		JO rel8 	7+m,3 	Jump short if overflow (OF=1)
+				7A cb 		JP rel8 	7+m,3 	Jump short if parity (PF=1)
+				7A cb 		JPE rel8 	7+m,3 	Jump short if parity even (PF=1)
+				7B cb 		JPO rel8 	7+m,3 	Jump short if parity odd (PF=0)
+				78 cb 		JS rel8 	7+m,3 	Jump short if sign (SF=1)
+				74 cb 		JZ rel8 	7+m,3 	Jump short if zero (ZF = 1)
+				0F 87 cw/cd 	JA rel16/32 	7+m,3 	Jump near if above (CF=0 and ZF=0)
+				0F 83 cw/cd 	JAE rel16/32	7+m,3 	Jump near if above or equal (CF=0)
+				0F 82 cw/cd 	JB rel16/32 	7+m,3 	Jump near if below (CF=1)
+				0F 86 cw/cd 	JBE rel16/32 	7+m,3 	Jump near if below or equal (CF=1 or ZF=1)
+				0F 82 cw/cd 	JC rel16/32 	7+m,3 	Jump near if carry (CF=1)
+				0F 84 cw/cd 	JE rel16/32 	7+m,3 	Jump near if equal (ZF=1)
+				0F 84 cw/cd 	JZ rel16/32 	7+m,3 	Jump near if 0 (ZF=1)
+				0F 8F cw/cd 	JG rel16/32 	7+m,3 	Jump near if greater (ZF=0 and SF=OF)
+				0F 8D cw/cd 	JGE rel16/32 	7+m,3 	Jump near if greater or equal (SF=OF)
+				0F 8C cw/cd 	JL rel16/32 	7+m,3 	Jump near if less (SF≠OF)
+				0F 8E cw/cd 	JLE rel16/32 	7+m,3 	Jump near if less or equal (ZF=1 and SF≠OF)
+				0F 86 cw/cd 	JNA rel16/32 	7+m,3 	Jump near if not above (CF=1 or ZF=1)
+				0F 82 cw/cd 	JNAE rel16/32 	7+m,3 	Jump near if not above or equal (CF=1)
+				0F 83 cw/cd 	JNB rel16/32 	7+m,3 	Jump near if not below (CF=0)
+				0F 87 cw/cd 	JNBE rel16/32 	7+m,3 	Jump near if not below or equal (CF=0 and ZF=0)
+				0F 83 cw/cd 	JNC rel16/32 	7+m,3 	Jump near if not carry (CF=0)
+				0F 85 cw/cd 	JNE rel16/32 	7+m,3 	Jump near if not equal (ZF=0)
+				0F 8E cw/cd 	JNG rel16/32 	7+m,3 	Jump near if not greater (ZF=1 or SF≠OF)
+				0F 8C cw/cd 	JNGE rel16/32 	7+m,3 	Jump near if not greater or equal (SF≠OF)
+				0F 8D cw/cd 	JNL rel16/32 	7+m,3 	Jump near if not less (SF=OF)
+				0F 8F cw/cd 	JNLE rel16/32 	7+m,3 	Jump near if not less or equal (ZF=0 and SF=OF)
+				0F 81 cw/cd 	JNO rel16/32 	7+m,3 	Jump near if not overflow (OF=0)
+				0F 8B cw/cd 	JNP rel16/32 	7+m,3 	Jump near if not parity (PF=0)
+				0F 89 cw/cd 	JNS rel16/32 	7+m,3 	Jump near if not sign (SF=0)
+				0F 85 cw/cd 	JNZ rel16/32 	7+m,3 	Jump near if not zero (ZF=0)
+				0F 80 cw/cd 	JO rel16/32 	7+m,3 	Jump near if overflow (OF=1)
+				0F 8A cw/cd 	JP rel16/32 	7+m,3 	Jump near if parity (PF=1)
+				0F 8A cw/cd 	JPE rel16/32	7+m,3 	Jump near if parity even (PF=1)
+				0F 8B cw/cd 	JPO rel16/32 	7+m,3 	Jump near if parity odd (PF=0)
+				0F 88 cw/cd 	JS rel16/32 	7+m,3 	Jump near if sign (SF=1)
+				0F 84 cw/cd 	JZ rel16/32 	7+m,3 	Jump near if 0 (ZF=1)
+				E3 cb 		JCXZ rel8 	9+m,5 	Jump short if CX register is 0
+				E3 cb 		JECXZ rel8 	9+m,5 	Jump short if ECX register is 0
+		  3	LOOP/LOOPcond ── Loop Control with CX Counter
+				E2 cb 	LOOP rel8 	11+m 	DEC count; jump short if count ≠ 0
+				E1 cb 	LOOPE rel8 	11+m 	DEC count; jump short if count ≠ 0 and ZF=1
+					LOOPZ rel8 	11+m 	DEC count; jump short if count ≠ 0 and ZF=1
+				E0 cb 	LOOPNE rel8 	11+m 	DEC count; jump short if count ≠ 0 and ZF=0
+					LOOPNZ rel8 	11+m 	DEC count; jump short if count ≠ 0 and ZF=0
+ 4	програмные прерывания
+	  3	INT/INTO ── Call to Interrupt Procedure
+			CC 	INT 3 		33 	Interrupt 3--trap to debugger
+						pm=59 	Interrupt 3--Protected Mode, same privilege
+						pm=99 	Interrupt 3--Protected Mode, more privilege
+						pm=119 	Interrupt 3--from V86 mode to PL 0
+						ts 	Interrupt 3--Protected Mode, via task gate
+			CD ib 	INT imm8 	37 	Interrupt numbered by byte
+						pm=59 	Interrupt--Protected Mode, same privilege
+						pm=99 	Interrupt--Protected Mode, more privilege
+						pm=119 	Interrupt--from V86 mode to PL 0
+						ts 	Interrupt--Protected Mode, via task gate
+			CE 	INTO 		Fail:3,pm=3;
+						Pass:35 Interrupt 4--if overflow flag is 1
+						pm=59 	Interrupt 4--Protected Mode, privilege
+						pm=99 	Interrupt 4--Protected Mode, more privilege
+						pm=119 	Interrupt 4--from V86 mode to PL 0
+						ts 	Interrupt 4--Protected Mode, via task gate
+	  1	BOUND	Check Array Index Against Bounds
+			62 /r 	BOUND r32,m32&32 	10 	16+ Check if r32 is within bounds (passes test)
+12 строки и перемещение символов
+  2	REP/REPE/REPZ/REPNE/REPNZ	Repeat Following String Operation
+		F3 6C 	REP INS r/m8, DX 	13+6*(E)CX,
+						pm=7+6*(E)CX	If CPL ≤ IOPL/
+						27+6*(E)CX	If CPL > IOPL or if in virtual 8086 mode 	Input (E)CX bytes from port DX into ES:[(E)DI]
+		F3 6D 	REP INS r/m32,DX 	13+6*(E)CX,	
+						pm=7+6*(E)CX	If CPL ≤ IOPL/
+						27+6*(E)CX	If CPL > IOPL or if in virtual 8086 mode 	16+ Input (E)CX dwords from port DX into ES:[(E)DI]
+		F3 6E 	REP OUTS DX,r/m8 	5+12*(E)CX,
+						pm=6+5*(E)CX	If CPL ≤ IOPL/
+						26+5*(E)CX	If CPL > IOPL or if in virtual 8086 mode 	Output (E)CX bytes from [(E)SI] to port DX
+		F3 6F 	REP OUTS DX,r/m32 	5+12*(E)CX,
+						pm=6+5*(E)CX	If CPL ≤ IOPL/
+						26+5*(E)CX	If CPL > IOPL or if in virtual 8086 mode 	16+ Output (E)CX dwords from [(E)SI] to port DX
+		F3 A4 	REP MOVS m8,m8 		5+4*(E)CX 		Move (E)CX bytes from [(E)SI] to ES:[(E)DI]
+		F3 A5 	REP MOVS m32,m32 	5+4*(E)CX 		16+ Move (E)CX dwords from [(E)SI] to ES:[(E)DI]
+		F3 AA 	REP STOS m8 		5+5*(E)CX 		Fill (E)CX bytes at ES:[(E)DI] with AL
+		F3 AB 	REP STOS m32 		5+5*(E)CX 		16+ Fill (E)CX dwords at ES:[(E)DI] with EAX
+		F3 A6 	REPE CMPS m8,m8 	5+9*N 			Find nonmatching bytes in ES:[(E)DI] and [(E)SI]
+		F3 A7 	REPE CMPS m32,m32 	5+9*N 			16+ Find nonmatching dwords in ES:[(E)DI] and [(E)SI]
+		F2 A6 	REPNE CMPS m8,m8 	5+9*N 			Find matching bytes in ES:[(E)DI] and [(E)SI]
+		F2 A7 	REPNE CMPS m32,m32 	5+9*N 			16+ Find matching dwords in ES:[(E)DI] and [(E)SI]
+		F3 AE 	REPE SCAS m8 		5+8*N 			Find non-AL byte starting at ES:[(E)DI]
+		F3 AF 	REPE SCAS m32 		5+8*N 			16+ Find non-EAX dword starting at ES:[(E)DI]
+		F2 AE 	REPNE SCAS m8 		5+8*N 			Find AL, starting at ES:[(E)DI]
+		F2 AF 	REPNE SCAS m32 		5+8*N 			16+ Find EAX, starting at ES:[(E)DI]
+  2	movs	Move Data from String to String
+		A4 	MOVS m8,m8 	7 	Move byte [(E)SI] to ES:[(E)DI]
+		A5 	MOVS m32,m32 	7 	16+ Move dword [(E)SI] to ES:[(E)DI]
+			MOVSB 		7 	Move byte DS:[(E)SI] to ES:[(E)DI]
+			MOVSD 		7 	16+ Move dword DS:[(E)SI] to ES:[(E)DI]
+  2	STOS/STOSB/STOSW/STOSD	Store String Data
+		AA 	STOS m8 	4 	Store AL in byte ES:[(E)DI], update (E)DI
+		AB 	STOS m32 	4 	16+ Store EAX in dword ES:[(E)DI], update (E)DI
+			STOSB 		4 	Store AL in byte ES:[(E)DI], update (E)DI
+			STOSD 		4 	16+ Store EAX in dword ES:[(E)DI], update (E)DI
+  2	CMPS/CMPSB/CMPSW/CMPSD	Compare String Operands
+		A6 	CMPS m8,m8 	10 	Compare bytes ES:[(E)DI] (second operand) with [(E)SI] (first operand)
+		A7 	CMPS m32,m32 	10 	16+ Compare dwords ES:[(E)DI] (second operand) with [(E)SI] (first operand)
+			CMPSB 		10 	Compare bytes ES:[(E)DI] with DS:[SI]
+			CMPSD 		10 	16+ Compare dwords ES:[(E)DI] with DS:[SI]
+  2	SCAS/SCASB/SCASW/SCASD	Compare String Data
+		AE 	SCAS m8 	7 	Compare bytes AL-ES:[DI], update (E)DI
+		AF 	SCAS m32 	7 	16+ Compare dwords EAX-ES:[DI], update (E)DI
+			SCASB 		7 	Compare bytes AL-ES:[DI], update (E)DI
+			SCASD 		7 	16+ Compare dwords EAX-ES:[DI], update (E)DI
+  2	LODS/LODSB/LODSW/LODSD	Load String Operand
+		AC 	LODS m8 	5 	Load byte [(E)SI] into AL
+		AD 	LODS m32 	5 	16+ Load dword [(E)SI] into EAX
+			LODSB 		5 	Load byte DS:[(E)SI] into AL
+			LODSD 		5 	16+ Load dword DS:[(E)SI] into EAX
+2 операции для блочно структурированных языков
+  1	enter
+		C8 iw 00 	ENTER imm16,0 		10 		Make procedure stack frame
+		C8 iw 01 	ENTER imm16,1 		12 		Make stack frame for procedure parameters
+		C8 iw ib 	ENTER imm16,imm8 	15+4(n-1) 	Make stack frame for procedure parameters
+  1  	leave
+		C9 	LEAVE 	4 	16+ Set ESP to EBP, then pop EBP
+9 управление флагами
+  1	CLD ── Clear Direction Flag
+		FC 	CLD 	2 	Clear direction flag; SI and DI will increment during string instructions
+  1	STD ── Set Direction Flag
+		FD 	STD 	2 	Set direction flag so (E)SI and/or (E)DI decrement
+  1	CLC ── Clear Carry Flag
+		F8 	CLC 	2 	Clear carry flag
+  1	STC ── Set Carry Flag
+		F9 	STC 	2 	Set carry flag
+  1	CMC ── Complement Carry Flag
+		F5 	CMC 	2 	Complement carry flag
+  1	LAHF ── Load Flags into AH Register
+		9F 	LAHF 	2 	Load: AH = flags SF ZF xx AF xx PF xx CF
+  1  	SAHF ── Store AH into Flags
+		9E 	SAHF 	3 	Store AH into flags SF ZF xx AF xx PF xx CF
+  1	PUSHF/PUSHFD ── Push Flags Register onto the Stack
+		9C 	PUSHF 	4 	Push FLAGS
+			PUSHFD 	4 	Push EFLAGS
+  1	POPF/POPFD ── Pop Stack into FLAGS or EFLAGS Register
+		9D 	POPF 	5 	Pop top of stack FLAGS
+		 	POPFD 	5 	Pop top of stack into EFLAGS
+1 интерфейс сопроцессора
+	WAIT ── Wait until BUSY# Pin is Inactive (HIGH)
+		9B 	WAIT 	6 min. 	Wait until BUSY pin is inactive (HIGH)
+5 сегментные регистры
+	lds
+	les
+	lfs
+	lgs
+	lss
+		C4 /r 		LES r32,m16:32 	7,p=22 	16+ Load ES:r32 with pointer from memory
+		C5 /r 		LDS r32,m16:32 	7,p=22 	16+ Load DS:r32 with pointer from memory
+		0F B2 /r 	LSS r32,m16:32 	7,p=22 	16+ Load SS:r32 with pointer from memory
+		0F B4 /r 	LFS r32,m16:32 	7,p=25 	16+ Load FS:r32 with pointer from memory
+		0F B5 /r 	LGS r32,m16:32 	7,p=25 	16+ Load GS:r32 with pointer from memory
+прочее
+	lea
+		8D /r 	LEA r32,m 	2 	16+ Store effective address for m in register r32
+	nop
+		90 	NOP 	3 	No operation
+			xchg	eax,eax
+	xlat
+		D7 	XLAT m8 5 	Set AL to memory byte DS:[(E)BX + unsigned AL]
+			XLATB 	5 	Set AL to memory byte DS:[(E)BX + unsigned AL]
+=========================================================================
+префиксы и системные:
+--------------------------------------------------------------------------------------------------------------
+	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+0x	
+1x	
+2x							es:								cs:
+3x							ss:								ds:
+4x	
+5x	
+6x					fs:	gs:	opch:	addrch:	
+7x	
+8x	
+9x	
+Ax	
+Bx	
+Cx	
+Dx	
+Ex	
+Fx	lock:		repne:	repe:
+--------------------------------------------------------------------------------------------------------------
+валидация указателей
+	lar
+	lsl
+	verr/verw
+	arpl
+задачи
+0	ltr
+	str
+
+	in
+	ins/insb/insw/insd
+	out
+	outs/outsb/outsw/outsd
+
+0	mov
+0	lgdt/lidt
+	sgdt/sidt
+0	lldt
+	sldt
+
+	cli
+	sti
+
+0	clts
+0	lmsw
+	smsw
+
+0	hlt
+	lock
+
 }
+
+
+.IF far call and (PE = 1 and VM = 0) (* Protected mode or IA-32e Mode, not virtual-8086 mode*)
+.	THEN
+.		IF segment selector in target operand NULL
+.			THEN #GP(0); FI;
+.		IF segment selector index not within descriptor table limits
+.			THEN #GP(new code segment selector); FI;
+.		Read type and access rights of selected segment descriptor;
+.		IF IA32_EFER.LMA = 0
+.			THEN
+.				IF segment type is not a conforming or nonconforming code segment, call
+.				gate, task gate, or TSS
+.					THEN #GP(segment selector); FI;
+.			ELSE
+.				IF segment type is not a conforming or nonconforming code segment or
+.				64-bit call gate,
+.					THEN #GP(segment selector); FI;
+.		FI;
+.	Depending on type and access rights:
+.		GO TO CONFORMING-CODE-SEGMENT;
+.		GO TO NONCONFORMING-CODE-SEGMENT;
+.		GO TO CALL-GATE;
+.		GO TO TASK-GATE;
+.		GO TO TASK-STATE-SEGMENT;
+.FI;
+
+.CONFORMING-CODE-SEGMENT:
+.	IF L bit = 1 and D bit = 1 and IA32_EFER.LMA = 1
+.		THEN GP(new code segment selector); FI;
+.	IF DPL > CPL
+.		THEN #GP(new code segment selector); FI;
+.	IF segment not present
+.		THEN #NP(new code segment selector); FI;
+.	IF stack not large enough for return address
+.		THEN #SS(0); FI;
+.	tempEIP ← DEST(Offset);
+.	IF (EFER.LMA = 0 or target mode = Compatibility mode) and (tempEIP outside new code segment limit)
+.		THEN #GP(0); FI;
+.	IF tempEIP is non-canonical
+.		THEN #GP(0); FI;
+	IF OperandSize = 32
+		THEN
+			Push(CS); (* Padded with 16 high-order bits *)
+			Push(EIP);
+			CS ← DEST(CodeSegmentSelector);
+			(* Segment descriptor information also loaded *)
+			CS(RPL) ← CPL;
+			EIP ← tempEIP;
+	FI;
+END;
+
+NONCONFORMING-CODE-SEGMENT:
+.	IF L-Bit = 1 and D-BIT = 1 and IA32_EFER.LMA = 1
+.		THEN GP(new code segment selector); FI;
+.	IF (RPL > CPL) or (DPL ≠ CPL)
+.		THEN #GP(new code segment selector); FI;
+.	IF segment not present
+.		THEN #NP(new code segment selector); FI;
+.	IF stack not large enough for return address
+.		THEN #SS(0); FI;
+	tempEIP ← DEST(Offset);
+.	IF (EFER.LMA = 0 or target mode = Compatibility mode) and (tempEIP outside new code segment limit)
+.		THEN #GP(0); FI;
+.	IF tempEIP is non-canonical
+.		THEN #GP(0); FI;
+	IF OperandSize = 32
+		THEN
+			Push(CS); (* Padded with 16 high-order bits *)
+			Push(EIP);
+			CS ← DEST(CodeSegmentSelector);
+			(* Segment descriptor information also loaded *)
+			CS(RPL) ← CPL;
+			EIP ← tempEIP;
+	FI;
+END;
+
+CALL-GATE:
+.	IF call gate (DPL < CPL) or (RPL > DPL)
+.		THEN #GP(call-gate selector); FI;
+.	IF call gate not present
+.		THEN #NP(call-gate selector); FI;
+.	IF call-gate code-segment selector is NULL
+.		THEN #GP(0); FI;
+.	IF call-gate code-segment selector index is outside descriptor table limits
+.		THEN #GP(call-gate code-segment selector); FI;
+	Read call-gate code-segment descriptor;
+.	IF call-gate code-segment descriptor does not indicate a code segment
+.	or call-gate code-segment descriptor DPL > CPL
+.		THEN #GP(call-gate code-segment selector); FI;
+!	IF call-gate code segment not present
+!		THEN #NP(call-gate code-segment selector); FI;
+.	IF call-gate code segment is non-conforming and DPL < CPL
+.		THEN go to MORE-PRIVILEGE;
+.		ELSE go to SAME-PRIVILEGE;
+.	FI;
+END;
+MORE-PRIVILEGE:
+	TSSstackAddress ← (new code-segment DPL ∗ 8) + 4;
+	IF (TSSstackAddress + 5) > current TSS limit				THEN #TS(current TSS selector); FI;
+	NewSS ← 2 bytes loaded from (TSS base + TSSstackAddress + 4);
+	NewESP ← 4 bytes loaded from (TSS base + TSSstackAddress);
+
+	IF IA32_EFER.LMA = 0 and NewSS is NULL					THEN #TS(NewSS); FI;
+	Read new code-segment descriptor and new stack-segment descriptor;
+	IF IA32_EFER.LMA = 0 and (NewSS RPL ≠ new code-segment DPL or new stack-segment DPL ≠ new code-segment DPL or new stack segment is not a writable data segment)  THEN #TS(NewSS); FI
+	IF IA32_EFER.LMA = 0 and new stack segment not present			THEN #SS(NewSS); FI;
+
+	IF new stack does not have room for parameters plus 16 bytes		THEN #SS(NewSS); FI;
+	IF CallGate(InstructionPointer) not within new code-segment limit	THEN #GP(0); FI;
+	SS ← newSS; (* Segment descriptor information also loaded *)
+	ESP ← newESP;
+	CS:EIP ← CallGate(CS:InstructionPointer);
+	(* Segment descriptor information also loaded *)
+	Push(oldSS:oldESP); (* From calling procedure *)
+	temp ← parameter count from call gate, masked to 5 bits;
+	Push(parameters from calling procedure’s stack, temp)
+	Push(oldCS:oldEIP); (* Return address to calling procedure *)
+
+	CPL ← CodeSegment(DPL)
+	CS(RPL) ← CPL
+END;
+SAME-PRIVILEGE:
+.	IF stack does not have room for 8 bytes
+.		THEN #SS(0); FI;
+.	IF CallGate(InstructionPointer) not within code segment limit
+.		THEN #GP(0); FI;
+.	CS:EIP ← CallGate(CS:EIP) (* Segment descriptor information also loaded *)
+.	Push(oldCS:oldEIP); (* Return address to calling procedure *)
+.	CS(RPL) ← CPL
+END;
+
+
+
+
+
+
+
 -------------
   F3,0F,58, /r 	ADDSS xmm1, xmm2/m32 	Add the lower SP FP number from XMM2/Mem to XMM1.
   F3,0F,C2,/r,ib CMPSS xmm1,xmm2/m32, imm8 Compare lowest SP FP number from XMM2/Mem to lowest SP FP number in XMM1 register using imm8 as predicate. 
