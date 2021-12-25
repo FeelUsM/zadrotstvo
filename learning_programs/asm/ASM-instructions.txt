@@ -250,7 +250,7 @@ F7:	test		not	neg	mul	imul	div	idiv
 FE:	inc	dec
 FF:	inc	dec	call	call	jmp	jmp	push
 --------------------------------------------------------------------------------------------------------------
-	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+/	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
 0x	add	add	add	add	add	add	push	pop	or	or	or	or	or	or	push	........
 1x	adc	adc	adc	adc	adc	adc	push	pop	sbb	sbb	sbb	sbb	sbb	sbb	push	pop
 2x	and	and	and	and	and	and	---	daa	sub	sub	sub	sub	sub	sub	---	das
@@ -812,7 +812,7 @@ Fx	---		rep:	rep:		cmc	...	...	clc	stc			cld	std	...	...
 =========================================================================
 префиксы и системные:
 --------------------------------------------------------------------------------------------------------------
-	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
+/	x0	x1	x2	x3	x4	x5	x6	x7	x8	x9	xA	xB	xC	xD	xE	xF
 0x	
 1x	
 2x							es:								cs:
