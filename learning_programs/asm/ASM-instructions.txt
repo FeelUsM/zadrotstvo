@@ -1,19 +1,19 @@
 префикс инструкции
-префикс изменения адреса
-префикс изменения операнда
-переопределение сегмента
-опкод
-mod r/m
-sib
-displacement	cb-1, cw-2, cd-4, cp-6
-immediate	ib-1, iw-2, id-4
+	префикс изменения адреса
+		префикс изменения операнда
+			переопределение сегмента
+				опкод
+					mod r/m
+						sib
+							displacement	cb-1, cw-2, cd-4, cp-6
+								immediate	ib-1, iw-2, id-4
 
-{mod  r/m	16-битный режим		32-битный режим		
+{mod  r/m	16-битный режим		32-битный режим		**	- режим адресации
 00...000	[BX + SI]		[EAX]
 00...001	[BX + DI]		[ECX]
 00...010	[BP + SI] (SS)		[EDX]
 00...011	[BP + DI] (SS)		[EBX]
-00...100	[SI]			<sib>
+00...100	[SI]			<sib>			[scale*index]+disp32
 00...101	[DI]			disp32
 00...110	disp16			[ESI]
 00...111	[BX]			[EDI]
@@ -21,9 +21,9 @@ immediate	ib-1, iw-2, id-4
 01...000	[BX+SI]+disp8		[EAX]+disp8
 01...001	[BX+DI]+disp8		[ECX]+disp8
 01...010	[BP+SI]+disp8 (SS)	[EDX]+disp8
-01...011	[BP+DI]+disp8 (SS)	[EPX]+disp8
-01...100	[SI]+disp8		<sib>+disp8
-01...101	[DI]+disp8		[EBP]+disp8
+01...011	[BP+DI]+disp8 (SS)	[EBX]+disp8
+01...100	[SI]+disp8		<sib>+disp8		[scale*index+EBP]+disp8 (SS)
+01...101	[DI]+disp8		[EBP]+disp8 (SS)
 01...110	[BP]+disp8 (SS)		[ESI]+disp8
 01...111	[BX]+disp8		[EDI]+disp8
 					
@@ -31,31 +31,30 @@ immediate	ib-1, iw-2, id-4
 10...001	[BX+DI]+disp16		[ECX]+disp32
 10...010	[BP+SI]+disp16 (SS)	[EDX]+disp32
 10...011	[BP+DI]+disp16 (SS)	[EBX]+disp32
-10...100	[SI]+disp16		<sib>+disp32
-10...101	[DI]+disp16		[EBP]+disp32
+10...100	[SI]+disp16		<sib>+disp32		[scale*index+EBP]+disp32 (SS)
+10...101	[DI]+disp16		[EBP]+disp32 (SS)
 10...110	[BP]+disp16 (SS)	[ESI]+disp32
 10...111	[BX]+disp16		[EDI]+disp32
 					
-11...000	EAX/AX/AL		EAX/AX/AL
+11...000	EAX/AX/AL		EAX/AX/AL			- по команде и режиму данных
 11...001	ECX/CX/CL		ECX/CX/CL
 11...010	EDX/DX/DL		EDX/DX/DL
 11...011	EBX/BX/BL		EBX/BX/BL
-11...100	ESP/SP/AH (SS)		ESP/SP/AH
-11...101	EBP/BP/CH (SS)		EBP/BP/CH
+11...100	ESP/SP/AH		ESP/SP/AH
+11...101	EBP/BP/CH		EBP/BP/CH
 11...110	ESI/SI/DH		ESI/SI/DH
 11...111	EDI/DI/BH		EDI/DI/BH
 --------------------------------------------------------------
-  reg		r8	r16	r32	Sreg		scale	index	base
+.  reg		r8	r16	r32	Sreg		scale	index	base
 ..000...	AL	AX	EAX	es		00.. 1	[EAX]	[EAX]	
 ..001...	CL	CX	ECX	cs		01.. 2	[ECX]	[ECX]	
 ..010...	DL	DX	EDX	ss		10.. 4	[EDX]	[EDX]	
 ..011...	BL	BX	EBX	ds		11.. 8	[EBX]	[EBX]	
-..100...	AH	SP	ESP	fs			none*	[ESP]
-..101...	CH	BP	EBP	gs			[EBP]	[**]	
+..100...	AH	SP	ESP	fs			none*	[ESP] (SS)
+..101...	CH	BP	EBP	gs			[EBP](SS??)[**]	
 ..110...	DH	SI	ESI				[ESI]	[ESI]	
 ..111...	BH	DI	EDI				[EDI]	[EDI]	
 none* - [EIZ], EIZ=0 всегда
-** - обозначает disp32 без базового регистра, если mod = 00, и [EBP] в противном случае.
 
 =========================================================================
 пользовательские инструкции:
@@ -126,9 +125,9 @@ Vector Number Description
 15 (reserved)			
 16 Coprocessor Error		
 17-32 (reserved)		
-				int n
+.				int n
 -------------------------------------------------------------------------------
-	in
+.	in
 cbw/cwde
 cmps/cmpsb/cmpsw/cmpsd
 cwd/cdq
@@ -414,6 +413,7 @@ Fx	---		rep:	rep:		cmc	...	...	clc	stc			cld	std	...	...
 			27 	DAA 	4 	Decimal adjust AL after addition
 	  1	DAS ── Decimal Adjust AL after Subtraction 	std(zf,of,sf,pf)	in-spec(af,cf)
 			2F 	DAS 	4 	Decimal adjust AL after subtraction
+				если произошёл заём в цифре - вычитает из нее 6
   2.2	неупакованные BCD Adjustment Instructions		
 	  1	AAA ── ASCII Adjust after Addition		undef(zf,of,sf,pf)	in(af)spec(af,cf)
 			37 	AAA 	4 	ASCII adjust AL after addition
@@ -579,6 +579,7 @@ Fx	---		rep:	rep:		cmc	...	...	clc	stc			cld	std	...	...
 							ts 		16+ Jump via task gate
 				FF /4 	JMP r/m32 	7+m,10+m 	16+ Jump near, indirect
 				FF /5 	JMP m16:32 	43+m,pm=31+m 	16+ Jump intersegment, address at r/m dword
+										если r/m - регистр - invalid opcode
 							pm=49+m 	16+ Jump to call gate, same privilege
 							5 + ts 		16+ Jump via task state segment
 							5 + ts 		16+ Jump via task gate
@@ -800,9 +801,13 @@ Fx	---		rep:	rep:		cmc	...	...	clc	stc			cld	std	...	...
 		0F B2 /r 	LSS r32,m16:32 	7,p=22 	16+ Load SS:r32 with pointer from memory
 		0F B4 /r 	LFS r32,m16:32 	7,p=25 	16+ Load FS:r32 with pointer from memory
 		0F B5 /r 	LGS r32,m16:32 	7,p=25 	16+ Load GS:r32 with pointer from memory
+			LES r32,r/m - если справа регистр - invalid opcode
+					иначе es:r32 = сегмент по умолчанию : адрес m
 прочее
 	lea
 		8D /r 	LEA r32,m 	2 	16+ Store effective address for m in register r32
+			LEA r32,r/m - если справа регистр - invalid opcode
+					иначе r32 = адрес m
 	nop
 		90 	NOP 	3 	No operation
 			xchg	eax,eax

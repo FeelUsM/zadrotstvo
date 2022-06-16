@@ -1,4 +1,49 @@
 --- по набору инструкций ---
+
+
+Atom (ULV)			Feature size	Gener.	x86		год-мес
+Microarchi.	Step					Microarchi.			Step
+							P5		93-03		Pentium		MMX
+				600 nm			P6				Pentium Pro(133 MHz)	SSE
+				500 nm							Pentium Pro(150 MHz)
+				350 nm							Pentium Pro(166–200 MHz)
+										  II	Klamath
+				250 nm							Deschutes
+										  III	Katmai				NetBurst	
+				180 nm							Coppermine		  IV	Willamette
+				130 nm							Tualatin			Northwood
+										  M	Banias							NetBurst(HT)		NetBurst(×2)
+				90 nm							Dothan				Prescott	⇨	Prescott‑2M	⇨	Smithfield
+															Tejas-XXX	→	⇩		→	Cedarmill (Tejas)-XXX
+				65 nm					06	Core	Yonah				Nehalem (NetBurst)-XXX	Cedar Mill	⇨	Presler
+							------------------------------------------------------------------------------------------------------------------------
+							Core		06-07		Merom		SSE2, SSE3, SSSE3, SSE4 //4 cores on mainstream desktop, DDR3 introduced
+Bonnell		Bonnell		45 nm					07-11		Penryn		SSSE3, SSE4.1, VT-x, VT-d
+						1	Nehalem		08-11		Nehalem		SSE4.2 			//HT reintroduced, integrated MC, PCH, L3-cache introduced
+		Saltwell	32 nm					10-01		Westmere	AES-NI, CLMUL 		//introduced GPU on same package and AES-NI
+						2	Sandy Bridge	11-01		Sandy Bridge	AVX, TXT		//on-die ring bus, no more non-UEFI motherboards
+Silvermont	Silvermont	22 nm		3			12-04		Ivy Bridge	F16C, RDRAND
+						4	Haswell		13-06		Haswell		FMA3, AVX2, TSX		//FIVR
+		Airmont		14 nm		5,6			14-10		Broadwell	
+						6,7,9	Skylake(s)	15-08		Skylake		ADX, AVX-512, MPX, SGX 	//DDR4 introduced on mainstream desktop
+Goldmont	Goldmont			7,8			16-08		Kaby Lake	
+						8,9			17-10		Coffee Lake(d)		//6 cores on mainstream desktop
+						8,10					Amber Lake		//mobile-only
+		Goldmont Plus			8					Whiskey Lake(m)		//mobile-only
+											Coffee Lake Refresh	//8 cores on mainstream desktop
+						10					Comet Lake		//10 cores on mainstream desktop
+						11	Cypress Cove	19-09		Rocket Lake	SHA	//Backported Sunny Cove microarchitecture for 14nm
+Tremont		Tremont		10 nm		8	Palm Cove(m)			Cannon Lake(m)		//mobile-only
+						10	Sunny Cove(s)			Ice Lake	SHA	//512KB L2-cache/core
+						11	Willow Cove(m)			Tiger Lake		//Xe graphics engine
+Gracemont	Gracemont	Intel 7		12	Golden Cove(s)			Alder Lake	AVX-VNNI//Hybrid, DDR5, PCIe 5.0
+								
+						10					Cascade Lake
+
+
+
+
+
 микроархитектура	бренд	год	техпроцесс	инструкции;       расширения
 	поколение	
 	Tiger Lake	???	20	10	MMX, AES-NI, CLMUL, FMA3; SSE, SSE2, SSE3, SSSE3, SSE4, SSE4.1, SSE4.2, AVX,      AVX2, AVX-512, SHA, TXT, TSX, SGX, VT-x, VT-d

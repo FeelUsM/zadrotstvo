@@ -1,0 +1,238 @@
+контроллером прямого доступа к памяти i8237, 
+контроллером прерываний i8259A, 
+таймером i8254, 
+контроллером параллельного порта i8255A
+
+int 00h 	CPU 	Divide by zero trap
+int 01h 	CPU 	Single-step trap
+int 02h 	CPU 	NMI interrupt
+int 03h 	CPU 	Breakpoint trap (INT 3)
+int 04h 	CPU 	Arithmetic overflow trap
+int 05h 	CPU 	Array bounds exception
+int 06h 	CPU 	Invalid Opcode Trap
+int 07h 	CPU 	Device (сопроцессор) Not Available Trap
+int 75h 	IRQ13 	Math Coprocessor
+
+int 11h 	Service	Equipment List Service
+int 12h 	Service	Low Memory Size Service
+int 15h 	Service	General Services, Up-Calls
+int 18h 	Up-Call	Boot Fault Up-Call
+int 19h 	Up-Call	Bootstrap Up-Call
+
+int 13h 	Service	Floppy/IDE/ROM/Remote Disk Services
+int 40h 	Redirector	Floppy disk services redirected by IDE
+int 1eh 	Table 	Pointer to Diskette Parameter Table
+int 41h 	Table	Fixed Disk Parameter Table (Drive 80h)
+int 46h 	Table 	Fixed Disk Parameter Table (Drive 81h)
+int 0eh 	IRQ6 	Floppy Disk Controller
+int 76h 	IRQ14 	IDE Drive Controller
+
+int 10h 	Service	Video Services
+int 1dh 	Table 	Pointer to Video Control Param Table
+int 1fh 	Table 	Pointer to Video Graphics Table
+int 42h 	Extension	EGA Default Video Driver
+int 43h 	Extension	Video Graphics Characters
+
+int 16h 	Service	Keyboard Services
+int 1bh 	Up-Call	Control-Break Up-Call
+int 09h 	IRQ1 	Keyboard
+int 74h 	IRQ12 	PS/2 Mouse
+
+int 08h 	IRQ0 	18.2 Hz Timer Tick
+int 1ch 	Up-Call	18.2 Hz Application Timer Up-Call
+int 1ah 	Service	Date/Time Services
+int 4ah 	Up-Call	User Alarm
+int 70h 	IRQ8 	Real-Time Clock Interrupt (1 Khz)
+
+int 0bh 	IRQ3 	COM2 Serial Port
+int 0ch 	IRQ4 	COM1 Serial Port
+int 14h 	Service	Serial Port Services
+
+int 0dh 	IRQ5 	LPT2 Parallel Port
+int 0fh 	IRQ7 	LPT1 Parallel Port
+int 17h 	Service	Parallel Port Services
+
+int 0ah 	IRQ2 	Cascaded to PIC 2
+
+int 77h 	IRQ15 	APM Suspend Request
+
+int 20h-3fh	DOS 	-- reserved by DOS --
+
+int 44h-45h	N/A	-- not used --
+int 47h-49h	N/A	-- open --
+int 4bh-6fh	N/A	-- open --
+int 71h 	IRQ9 	-- open --
+int 72h 	IRQ10 	-- open --
+int 73h 	IRQ11 	-- open --
+int 78h-ffh	N/A 	-- open --
+
+
+
+дисплей моет быть в текстовом режиме, а может в графическом
+есть страницы
+	и есть текущая страница - (?) она отображается
+	на каждой странице есть курсор
+
+
+0	Black		8	Dark Gray	
+
+1	Blue	        9	Light Blue	
+2	Green	        A	Light Green	
+4	Red	        C	Light Red	
+
+3	Cyan	        B	Light Cyan	
+5	Magenta	        D	Light Magenta	
+6	Brown	        E	Yellow	
+
+7	Light Gray	F	White
+
+
+00h Set Video Mode
+	-number_of_pages
+	AL = 00  text 		40x25 	B/W 		(		CGA,	EGA,	MCGA,	VGA)-8
+	   = 01  text 		40x25 	16 color 	(		CGA,	EGA,	MCGA,	VGA)-8
+	   = 07  text 		80x25 	Monochrome 	(MDA-1,	HERC,		EGA-8,		VGA-8)
+	   = 02  text 		80x25 	16 ShadesOfGray	(		CGA-4,	EGA-8,	MCGA-8,	VGA-8)
+	   = 03  text 		80x25 	16 color 	(		CGA-4,	EGA-8,	MCGA-8,	VGA-8)
+	   = 08  graphics	160x200 16 color 	(PCjr)
+	   = 04  graphics	320x200 4 color 	(		CGA,	EGA,	MCGA,	VGA)
+	   = 05  graphics	320x200 4 color 	(		CGA,	EGA,	MCGA,	VGA)
+	   = 09  graphics	320x200 16 color 	(PCjr)
+	   = 0D  graphics	320x200 16 color 	(			EGA,		VGA)-8
+	   = 13  graphics	320x200 256 color 	(				MCGA,	VGA)
+	   = 06  graphics	640x200 B/W 		(		CGA,	EGA,	MCGA,	VGA)
+	   = 0A  graphics	640x200 4 color 	(PCjr)
+	   = 0E  graphics	640x200 16 color 	(			EGA,		VGA)-4
+	   = 0F  graphics	640x350 Monochrome 	(			EGA,		VGA)-2
+	   = 10  graphics	640x350 4 color 	(			64K EGA)-2
+		 graphics	640x350 16 color 	(			EGA or 		VGA with 128K)-2
+	   = 11  graphics	640x480 B/W 		(				MCGA,	VGA)
+	   = 12  graphics	640x480 16 color  	(					VGA)
+	   = 0B  Reserved 				(			EGA BIOS function 11)
+	   = 0C  Reserved 				(			EGA BIOS function 11)
+	   для Cirrus 5320
+	   = 61h text		132x50	
+	   для genoa 64000
+	   = 61h text		132x29
+	+ старший бит - не очищать экран
+		MDA (1981)		Monochrome Display Adapter
+		CGA (1981)	320*200	Color Graphics Adapter
+		EGA (1984)		Enhanced Graphics Adapter
+		MCGA (1987)		Multi-Color Graphics Array
+		VGA (1987)	640*480	Video Graphics Array
+		SVGA (1987)	800*600	Super VGA
+		XGA (1990)	1024×768 Extended Graphics Array
+	-----
+	-----
+	BDA 40:49, 40:87
+4fh переключение режимов, если поддерживается стандарт VESA Extension
+	AL = 02h режим SVGA
+	BX = 108h text		80x60
+	   = 109h text		132x25
+	   = 10Ah text		132x43
+	   = 10Bh text		132x50
+	   = 10Ch text		132x60
+	+ старший бит - не очищать экран
+0fh Return Video Display Mode
+	-----
+	AH = number of screen columns
+	AL = mode currently set (see VIDEO MODES)
+	BH = current display page
+	-----
+	BDA 40:49, 40:87
+05h Set Current Video Page
+	AL = new page number
+	-----
+	-----
+	?
+INT 10,12 - Video subsystem configuration (EGA/VGA)
+INT 10,15 - Return physical display parms (convertible)
+INT 10,1A - Video Display Combination (VGA)
+INT 10,1B - Video BIOS Functionality/State Information (MCGA/VGA)
+INT 10,1C - Save/Restore Video State  (VGA only)
+
+INT 10,14 - Load LCD char font (convertible)
+01h Set text-mode cursor shape
+	CH = Scan Row Start, 
+	CL = Scan Row End
+		Normally a character cell has 8 scan lines, 0–7. 
+		So, CX=0607h is a normal underline cursor, CX=0007h is a full-block cursor. 
+		If bit 5 of CH is set, that often means "Hide cursor". So CX=2607h is an invisible cursor.
+		Some video cards have 16 scan lines, 00h-0Fh.
+		Some video cards don't use bit 5 of CH. With these, make Start>End (e.g. CX=0706h)
+
+		Line	 Starting     Ending	  Character
+	Video	Count	 Scan Line    Scan Line   Point Size
+	CGA	 25	    06		 07	      08
+	MDA	 25	    0B		 0C	      0E
+	EGA	 25	    06		 07	      0E
+	EGA	 43	  04/06 	 07	      08
+	VGA	 25	    0D		 0E	      10
+	VGA	 40	    08		 09	      0A
+	VGA	 50	    06		 07	      08
+	-----
+	-----
+	BDA: 6845 CRT controller, 40:60, 40:61
+02h Set Cursor Position
+	BH = page number (0 for graphics modes)
+	DH = row
+	DL = column
+	-----
+	-----
+	BDA: 6845 CRT controller, 40:50
+03h Return Cursor Position
+	BH = video page
+	-----
+	CH = cursor starting scan line (low order 5 bits)
+	CL = cursor ending scan line (low order 5 bits)
+	DH = row
+	DL = column
+	-----
+	BDA: 6845 CRT controller, 40:50, 40:60 and 40:61
+08h Return Character and Attribute
+	BH = display page
+	-----
+	AH = attribute of character color (alpha modes only)
+	AL = character at cursor position
+09h Write Character and Attribute
+	AL = ASCII character to write
+	BH = display page  (or mode 13h, background pixel value)
+	BL = character attribute color (text) foreground color (graphics)
+	CX = count of characters to write (CX >= 1)
+	-----
+	-----
+0ah Write Character
+	AL = ASCII character to write
+	BH = display page  (or mode 13h, background pixel value)
+	BL = foreground color (graphics mode only)
+	CX = count of characters to write (CX >= 1)
+	-----
+	-----
+0eh Write Character Only
+INT 10,13 - Write string (BIOS after 1/10/86)
+INT 10,11 - Character generator routine (EGA/VGA)
+06h Scroll Up Region
+	AL = number of lines to scroll, previous lines are blanked, if 0 or AL > screen size, window is blanked
+	BH = color attribute to be used on blank line
+	CH = row of upper left corner of scroll window
+	CL = column of upper left corner of scroll window
+	DH = row of lower right corner of scroll window
+	DL = column of lower right corner of scroll window
+	-----
+	-----
+	- in video mode 4 (300x200 4 color) on the EGA, MCGA and VGA
+	  this function scrolls page 0 regardless of the current page
+	- can be used to scroll graphics screens, using character coords
+	- on CGA's this function disables video adapter, causing flitter
+07h Scroll Down Region
+	то же
+
+0bh Set Color Palette
+INT 10,10 - Set/get palette registers (EGA/VGA)
+
+04h Return Light Pen Condition (not in core BIOS)
+	https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D0%B5%D1%82%D0%BE%D0%B2%D0%BE%D0%B5_%D0%BF%D0%B5%D1%80%D0%BE - Световое_перо
+0ch Write Graphic Pixel (not in core BIOS)
+0dh Read Graphic Pixel (not in core BIOS)
+INT 10,FE - Get DESQView/TopView Virtual Screen Regen Buffer
+INT 10,FF - Update DESQView/TopView Virtual Screen Regen Buffer
