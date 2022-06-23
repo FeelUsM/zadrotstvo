@@ -1,0 +1,113 @@
+--- литералы ---
+false
+true
+nullptr
+--- встроенные типы ---
+void
+auto
+bool
+signed
+unsigned
+int
+short
+long
+char
+wchar_t
+char8_t
+char16_t
+char32_t
+float
+double
+--- конструкции ---
+if
+else
+switch
+case
+default	...
+for
+do
+while
+break
+continue
+goto
+return
+try
+catch
+asm
+--- hint-ы и модификаторы ---
+const
+static
+register
+volatile
+extern
+inline
+noexcept
+--- выражения ---
+const_cast
+reinterpret_cast
+static_cast
+dynamic_cast
+static_assert
+new
+delete	..
+throw
+this
+sizeof
+alignof
+typeid
+--- создание типов ---
+namespace
+using
+typedef
+enum
+union
+struct
+class
+--- 
+public
+protected
+private
+friend
+mutable
+explicit
+virtual
+operator
+template
+typename
+--- ????? ---
+alignas
+constinit
+consteval
+constexpr
+export
+requires
+co_await
+co_return
+co_yield
+decltype
+concept
+thread_local
+
+
+
+
+
+
+how to form words and break lines; 
+how to sort text in different languages; 
+how to format numbers, dates, times, and other elements appropriate to different languages; 
+how to display languages whose written form flows from right to left, such as Arabic and Hebrew, 
+	or whose written form splits, combines, and reorders, such as languages of South Asia. 
+
+the Unicode code charts, 
+the Unicode Character Database, 
+the Unicode Standard Annexes
+
+1 1	introduction
+2 10	общая структура
+3 71	соответствие
+4 159	свойства символов
+5 195	способы реализации
+6 257	сисемы нписания и пунктуации
+7 289
+
